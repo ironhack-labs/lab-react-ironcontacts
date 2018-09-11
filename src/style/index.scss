@@ -1,0 +1,8 @@
+@import "./base.scss";
+@import "./card.scss";
+
+.card-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
