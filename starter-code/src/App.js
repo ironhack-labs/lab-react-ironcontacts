@@ -9,13 +9,16 @@ class App extends Component {
     super(props);
 
     this.state = {
-      contacts: contacts
+      contacts: contacts,
+      maxContact: 5
     };
+
+    this._addRandomContact = this._addRandomContact.bind(this);
   }
 
   render() {
     let mappedContacts = this.state.contacts
-      .slice(0, 5)
+      .slice(0, this.state.maxContact)
       .map((contact, index) => {
         return (
           <Contact
@@ -53,7 +56,7 @@ class App extends Component {
   }
 
   _addRandomContact() {
-    //
+    this.setState({ maxContact: this.state.maxContact + 1 });
   }
 }
 
