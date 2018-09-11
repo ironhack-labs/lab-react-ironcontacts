@@ -1,0 +1,24 @@
+body {
+  border: 0 solid red;
+}
+
+td {
+  padding: 20px;
+}
+
+button {
+  margin: 10px;
+  background: white;
+  border: 1px black solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.application {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
