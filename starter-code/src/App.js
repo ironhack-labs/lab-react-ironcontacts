@@ -15,12 +15,28 @@ class App extends Component {
     };
 
     this._addRandomContact = this._addRandomContact.bind(this);
+    this._sortByName = this._sortByName.bind(this);
+    this._sortByPopularity = this._sortByPopularity.bind(this);
   }
 
   componentDidMount() {
     let initialContacts = this.state.contacts
       .slice(0, this.state.maxContact)
       .map((contact, index) => {
+        return contact;
+        // <Contact
+        //   img={contact.pictureUrl}
+        //   name={contact.name}
+        //   popularity={contact.popularity}
+        //   key={index}
+        // />
+      });
+    this.setState({ displayedContacts: initialContacts });
+  }
+
+  render() {
+    const displayedContacts = this.state.displayedContacts.map(
+      (contact, index) => {
         return (
           <Contact
             img={contact.pictureUrl}
@@ -29,12 +45,8 @@ class App extends Component {
             key={index}
           />
         );
-      });
-
-    this.setState({ displayedContacts: initialContacts });
-  }
-
-  render() {
+      }
+    );
     return (
       <div className="App">
         <header className="App-header">
@@ -46,6 +58,8 @@ class App extends Component {
         </p>
         <div className="contact-container" />
         <button onClick={this._addRandomContact}>Add Random Contact</button>
+        <button onClick={this._sortByName}>Sort by name</button>
+        <button onClick={this._sortByPopularity}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
@@ -54,7 +68,7 @@ class App extends Component {
               <th>Popularity</th>
             </tr>
           </thead>
-          <tbody>{this.state.displayedContacts}</tbody>
+          <tbody>{displayedContacts}</tbody>
         </table>
       </div>
     );
@@ -63,18 +77,29 @@ class App extends Component {
   _addRandomContact() {
     var rand = contacts[Math.floor(Math.random() * contacts.length)];
 
-    let tempContacts = [this.state.displayedContacts];
-    tempContacts.push(
-      <Contact
-        img={rand.pictureUrl}
-        name={rand.name}
-        popularity={rand.popularity}
-        key={this.state.displayedContacts.length}
-      />
-    );
+    let tempContacts = this.state.displayedContacts;
+    tempContacts.push(rand);
 
     this.setState({ maxContact: this.state.maxContact + 1 });
     this.setState({ displayedContacts: tempContacts });
+  }
+
+  _sortByName() {
+    let tempContacts = [...this.state.displayedContacts].sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+    this.setState({
+      displayedContacts: tempContacts
+    });
+  }
+
+  _sortByPopularity() {
+    let tempContacts = [...this.state.displayedContacts].sort((a, b) => {
+      return a.popularity - b.popularity;
+    });
+    this.setState({
+      displayedContacts: tempContacts
+    });
   }
 }
 
