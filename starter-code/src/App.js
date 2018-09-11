@@ -10,14 +10,15 @@ class App extends Component {
 
     this.state = {
       contacts: contacts,
+      displayedContacts: [],
       maxContact: 5
     };
 
     this._addRandomContact = this._addRandomContact.bind(this);
   }
 
-  render() {
-    let mappedContacts = this.state.contacts
+  componentDidMount() {
+    let initialContacts = this.state.contacts
       .slice(0, this.state.maxContact)
       .map((contact, index) => {
         return (
@@ -30,6 +31,10 @@ class App extends Component {
         );
       });
 
+    this.setState({ displayedContacts: initialContacts });
+  }
+
+  render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -49,14 +54,27 @@ class App extends Component {
               <th>Popularity</th>
             </tr>
           </thead>
-          <tbody>{mappedContacts}</tbody>
+          <tbody>{this.state.displayedContacts}</tbody>
         </table>
       </div>
     );
   }
 
   _addRandomContact() {
+    var rand = contacts[Math.floor(Math.random() * contacts.length)];
+
+    let tempContacts = [this.state.displayedContacts];
+    tempContacts.push(
+      <Contact
+        img={rand.pictureUrl}
+        name={rand.name}
+        popularity={rand.popularity}
+        key={this.state.displayedContacts.length}
+      />
+    );
+
     this.setState({ maxContact: this.state.maxContact + 1 });
+    this.setState({ displayedContacts: tempContacts });
   }
 }
 
