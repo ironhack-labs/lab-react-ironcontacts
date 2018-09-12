@@ -12,6 +12,9 @@ const Contact = props => {
       <td>
         <p>{props.popularity}</p>
       </td>
+      <td>
+        <button onClick={() => props.deleteContact(props.name)}>Delete</button>
+      </td>
     </tr>
   );
 };

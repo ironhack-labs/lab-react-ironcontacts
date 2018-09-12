@@ -17,6 +17,7 @@ class App extends Component {
     this._addRandomContact = this._addRandomContact.bind(this);
     this._sortByName = this._sortByName.bind(this);
     this._sortByPopularity = this._sortByPopularity.bind(this);
+    this._deleteContact = this._deleteContact.bind(this);
   }
 
   componentDidMount() {
@@ -24,12 +25,6 @@ class App extends Component {
       .slice(0, this.state.maxContact)
       .map((contact, index) => {
         return contact;
-        // <Contact
-        //   img={contact.pictureUrl}
-        //   name={contact.name}
-        //   popularity={contact.popularity}
-        //   key={index}
-        // />
       });
     this.setState({ displayedContacts: initialContacts });
   }
@@ -43,6 +38,7 @@ class App extends Component {
             name={contact.name}
             popularity={contact.popularity}
             key={index}
+            deleteContact={this._deleteContact}
           />
         );
       }
@@ -97,6 +93,16 @@ class App extends Component {
     let tempContacts = [...this.state.displayedContacts].sort((a, b) => {
       return a.popularity - b.popularity;
     });
+    this.setState({
+      displayedContacts: tempContacts
+    });
+  }
+
+  _deleteContact(name) {
+    let tempContacts = this.state.displayedContacts.filter(function(contact) {
+      return contact.name !== name;
+    });
+
     this.setState({
       displayedContacts: tempContacts
     });
