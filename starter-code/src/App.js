@@ -45,6 +45,15 @@ class App extends Component {
         });
     };
 
+    deleteContact = (name) => {
+        const newContacts = this.state.contacts
+            .filter( c => c.name !== name);
+
+        this.setState({
+            contacts: newContacts
+        });
+    };
+
   render() {
 
       const { contacts } = this.state;
@@ -57,7 +66,7 @@ class App extends Component {
                 <button id="main-button" onClick={ this.sortListByName }>Sort by name</button>
                 <button id="main-button" onClick={ this.sortListByPopularity }>Sort by popularity</button>
             </div>
-            <ContactList contacts={ contacts }/>
+            <ContactList contacts={ contacts } delContact={ this.deleteContact }/>
         </div>
     );
   }

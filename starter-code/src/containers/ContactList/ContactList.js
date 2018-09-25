@@ -13,10 +13,10 @@ class ContactList extends Component {
 
     render() {
 
-        let { contacts } = this.props;
+        let { contacts, delContact } = this.props;
         contacts = contacts.length ? (
             contacts.map( c => (
-                <Contact key={c.name} {...c} />
+                <Contact key={c.name} {...c} delCon={ delContact }/>
             ))
         ) : (
             <h2>No movies to show you!</h2>
@@ -30,6 +30,7 @@ class ContactList extends Component {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
