@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Vibur');
+
+
 .App {
   text-align: center;
 }
@@ -33,4 +36,54 @@
 
 .align {
   text-align: center;
+}
+
+.celebName{
+  font-family: "Vibur", cursive;
+  font-size: 5vw;
+  color: #c6e2ff;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+.celebPop{
+  font-size: 3vw;
+  font-style: italic;
+  animation: neon2 1s ease infinite
+}
+
+.btn {
+  margin: 1vw 3vw;
+}
+
+@keyframes neon2 {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
+  }
 }

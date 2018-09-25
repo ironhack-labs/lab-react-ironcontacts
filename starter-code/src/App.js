@@ -54,7 +54,7 @@ class App extends Component {
     updatedContacts.splice(i, 1)
     this.setState({ contacts: updatedContacts})
   }
-  
+
   render() {
     return (
       <div class="align">
@@ -80,8 +80,8 @@ class App extends Component {
                 <td>
                   <img src={contact.pictureUrl} className="celebFace" />
                 </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity.toFixed(2)}</td>
+                <td className="celebName">{contact.name}</td>
+                <td className="celebPop">{contact.popularity.toFixed(2)}</td>
                 <td>
                   <button className="btn btn-danger" onClick ={()=> this.deleteContact(index)}>Delete</button>
                 </td>
