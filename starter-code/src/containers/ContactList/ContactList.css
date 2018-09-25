@@ -5,3 +5,7 @@
 * {
     font-size: 1.3rem;
 }
+
+thead th {
+    background: rgba(0, 128, 0, 0.3);
+}

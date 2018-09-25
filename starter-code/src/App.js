@@ -7,10 +7,6 @@ import contacts from './contacts.json';
 
 class App extends Component {
 
-    constructor() {
-        super();
-    }
-
     state = {
         contacts: contacts.slice(0, 5)
     };
@@ -60,7 +56,7 @@ class App extends Component {
 
     return (
         <div className="main-wrapper">
-            <h1 className="main-header">IronContacts</h1>
+            <h1 className="main-header"><span>Iron</span>Contacts</h1>
             <div className="btn-group">
                 <button id="main-button" onClick={ this.addRandomContact }>Add Random Button</button>
                 <button id="main-button" onClick={ this.sortListByName }>Sort by name</button>

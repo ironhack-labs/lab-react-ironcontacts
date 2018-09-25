@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13fc27df-fcee-40a8-a410-4ae7da59f3ae" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/starter-code/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starter-code/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/src/components/Contact/Contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/src/components/Contact/Contact.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/src/components/Contact/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/src/components/Contact/Contact.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js" afterDir="false" />
     </list>
@@ -20,13 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Contact.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/starter-code/src/components/Contact/Contact.js">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/starter-code/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+            <state relative-caret-position="500">
+              <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -35,8 +34,8 @@
       <file leaf-file-name="ContactList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+            <state relative-caret-position="236">
+              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -44,14 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/starter-code/src/App.js">
+      <file leaf-file-name="ContactList.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/starter-code/src/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -65,12 +70,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContsctList.js" />
-        <option value="$PROJECT_DIR$/starter-code/src/App.css" />
-        <option value="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css" />
         <option value="$PROJECT_DIR$/starter-code/src/components/Contact/Contact.css" />
-        <option value="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js" />
         <option value="$PROJECT_DIR$/starter-code/src/components/Contact/Contact.js" />
+        <option value="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js" />
         <option value="$PROJECT_DIR$/starter-code/src/App.js" />
+        <option value="$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css" />
+        <option value="$PROJECT_DIR$/starter-code/src/App.css" />
       </list>
     </option>
   </component>
@@ -117,21 +122,6 @@
               <item name="lab-react-ironcontacts" type="462c0819:PsiDirectoryNode" />
               <item name="starter-code" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab-react-ironcontacts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab-react-ironcontacts" type="462c0819:PsiDirectoryNode" />
-              <item name="starter-code" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab-react-ironcontacts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab-react-ironcontacts" type="462c0819:PsiDirectoryNode" />
-              <item name="starter-code" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Contact" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lab-react-ironcontacts" type="b2602c69:ProjectViewProjectNode" />
@@ -185,12 +175,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537881866582</updated>
-      <workItem from="1537881870258" duration="6298000" />
+      <workItem from="1537881870258" duration="7548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6298000" />
+    <option name="totallyTimeSpent" value="7548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="197" y="43" width="1343" height="921" extended-state="0" />
@@ -236,20 +226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/starter-code/src/components/Contact/Contact.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -260,23 +236,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js">
+    <entry file="file://$PROJECT_DIR$/starter-code/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        <state relative-caret-position="500">
+          <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/src/App.js">
+    <entry file="file://$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+        <state relative-caret-position="236">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/src/containers/ContactList/ContactList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
         </state>
       </provider>
     </entry>

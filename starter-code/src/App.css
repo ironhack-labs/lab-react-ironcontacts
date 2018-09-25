@@ -1,8 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+* {
+  font-family: 'Righteous', cursive;
+}
+
 .main-header {
   font-size: 4rem;
   margin-bottom: 30px;
+  background: rgba(210, 210, 210, 0.6);
+  padding: 20px;
+  border-radius: 10px;
 }
 
+.main-header span {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 15px red;
+}
 
 .main-wrapper {
   display: flex;
@@ -24,8 +38,26 @@
   outline: none;
 }
 
+button {
+  border: 1px solid grey;
+  outline: none;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  background: rgba(91, 138, 179, 0.3);
+  box-shadow: 0 0 3px transparent;
+}
+
 button:hover,
 button:active {
-  border: 3px solid deepskyblue;
+  border: 1px solid deepskyblue;
+  outline: none;
   box-shadow: 0 0 3px deepskyblue;
+  background: rgba(100, 179, 91, 0.3);
+  color: white;
+}
+
+table, th, td {
+  border: 1px solid black;
+  background: rgba(210, 210, 210, 0.6);
 }
