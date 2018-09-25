@@ -44,16 +44,20 @@ class App extends Component {
       if(a.name > b.name) return 1;
       return 0;
     })
-
-
     this.setState({
       selected: contactNames
     })
   }
 
+  deleteName = (index)=>{
+    let updatedContacts = this.state.selected
+    updatedContacts.splice(index, 1)
+    this.setState({ contacts: updatedContacts})
+  }
+
   render() {
 
-    const result = this.state.selected.map((contact)=>{
+    const result = this.state.selected.map((contact, index)=>{
       return <tr>
                 <td>
                   <img src={contact.pictureUrl} width="100px" />
@@ -63,6 +67,9 @@ class App extends Component {
                 </td>
                 <td>
                   <h4>{contact.popularity.toFixed(2)}</h4>
+                </td>
+                <td>
+                  <button onClick={()=> this.deleteName(index)}>Delete</button>
                 </td>
               </tr>
     })
@@ -79,6 +86,7 @@ class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Option</th>
             </tr>
 
               {result}
