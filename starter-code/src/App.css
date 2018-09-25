@@ -1,28 +1,40 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  font-size: 35px;
+  font-weight: bold;
+  height: 250px;
   padding: 20px;
-  color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.celebPic {
+  height: 200px;
+  margin: 15px;
 }
 
-.App-intro {
-  font-size: large;
+.column-title {
+  padding: 15px;
+  margin: 10px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.column-name {
+font-size: 15px;
+font-weight: bold;
+padding: 15px;
+margin: 25px 10px 25px 10px;
+}
+
+.column-pop {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px;
+  margin: 25px 10px 25px 10px;
+  }
+
+.button {
+  margin: 10px;
 }
