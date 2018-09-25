@@ -26,3 +26,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.celebFace {
+  height: 16vw;
+}
+
+.align {
+  text-align: center;
+}
