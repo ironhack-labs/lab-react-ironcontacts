@@ -26,3 +26,42 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+td img{
+  height: 200px;
+  width: 150px;
+}
+
+
+#header th{
+  height: 50px;
+  width: 200px;
+  border: 1px black solid;
+  background-color: lightgrey;
+
+}
+
+#header {
+  width: 100%;
+}
+
+#contacttable {
+  width: 100%;
+}
+
+#contacttable td{
+  width: 200px;
+  border: 1px black solid;
+}
+
+.menubuttons{
+  width: 30%;
+  font-size: larger;
+  background-color: darkgrey;
+  border-radius: 5px;
+}
+
+#deletebutton{
+  font-size: larger;
+  width: 150px;
+}
