@@ -1,5 +1,6 @@
 .main-header {
   font-size: 4rem;
+  margin-bottom: 30px;
 }
 
 
@@ -10,10 +11,21 @@
   align-items: center;
 }
 
-#main-button {
-  position: relative;
-  left: -110px;
-  margin:0 0 50px 0;
-  display: inline-block;
+.btn-group {
+  width: 600px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-group button {
+  font-size: 1rem;
   cursor: pointer;
+  outline: none;
+}
+
+button:hover,
+button:active {
+  border: 3px solid deepskyblue;
+  box-shadow: 0 0 3px deepskyblue;
 }
