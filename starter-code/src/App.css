@@ -26,3 +26,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+
+.fix-this {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+
+.second-fix {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+#fix-the-images {
+  height: 250px;
+}
+
+
+.random-contact > button {
+  border: 2px solid lightgray;
+  font-size: 30px;
+}
