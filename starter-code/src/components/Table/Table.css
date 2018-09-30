@@ -1,0 +1,22 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width:50%;
+}
+th, td {
+  padding: 5px;
+  text-align: center;
+}
+img {
+  width: 50%;
+  margin: 2em;
+}
+.button-group {
+  display: inline-flex;
+  justify-content: space-between;
+}
+button{
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 3px;
+}
