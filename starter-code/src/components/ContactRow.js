@@ -4,12 +4,12 @@ import contacts from "../contacts.json";
 class ContactRow extends Component {
   constructor() {
     super();
-   
   }
 
+  
+
   render() {
-      let {name, pictureUrl,popularity} = this.props;
-   
+      let {name, pictureUrl,popularity, onDelete} = this.props;
         return (
           <tr>
             <td key={name}>{name}</td>
@@ -17,6 +17,7 @@ class ContactRow extends Component {
               <img width="100px" src={pictureUrl} />{" "}
             </td>
             <td key={popularity}>{popularity}</td>
+            <td><button onClick = {onDelete}>Delete</button></td>
           </tr>
         );
   }

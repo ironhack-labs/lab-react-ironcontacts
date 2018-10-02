@@ -40,6 +40,7 @@ class TableContacts extends Component {
         contactsDisplay: sortedByName
     })
   }
+
   sortContactsPopularity() {
     let sortedByPopularity = this.state.contacts.sort(function (a, b) {
         if (a.popularity > b.popularity) {
@@ -55,6 +56,13 @@ class TableContacts extends Component {
         contactsDisplay: sortedByPopularity
     })
   }
+
+  removeContacts(i){
+    let culledContacts = this.state.contacts.splice(i,1);
+    this.setState({
+        contactsDisplay: culledContacts
+    })
+}
 
   render() {
     console.log(this.state.contactsDisplay);
@@ -74,6 +82,7 @@ class TableContacts extends Component {
               <th key="1">Picture</th>
               <th key="2">Name</th>
               <th key="3">Popularity</th>
+              <th key="4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +92,7 @@ class TableContacts extends Component {
                 name={e.name}
                 pictureUrl={e.pictureUrl}
                 popularity={e.popularity}
+                onDelete={()=>this.removeContacts(i)}
               />
             ))}
           </tbody>
