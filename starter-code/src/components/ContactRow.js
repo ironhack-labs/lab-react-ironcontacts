@@ -4,21 +4,21 @@ import contacts from "../contacts.json";
 class ContactRow extends Component {
   constructor() {
     super();
-    this.state = {};
+   
   }
+
   render() {
-      console.log(contacts)
-    return (
-        contacts.map(e => {
-            return(
-            <tr>
-                <td>{e.name}</td>
-                <td><img width= "100px" src={e.pictureUrl} /> </td>
-                <td>{e.popularity}</td>
-            </tr>
-            );
-        })
-     );
+      let {name, pictureUrl,popularity} = this.props;
+   
+        return (
+          <tr>
+            <td key={name}>{name}</td>
+            <td key={pictureUrl}>
+              <img width="100px" src={pictureUrl} />{" "}
+            </td>
+            <td key={popularity}>{popularity}</td>
+          </tr>
+        );
   }
 }
 
