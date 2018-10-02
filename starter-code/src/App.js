@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import Contact from './Contact';
 
 class App extends Component {
   render() {
+    const firstContacts = contacts.slice(0,5);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+            {firstContacts.map(e => <Contact name={e.name} pictureUrl={e.pictureUrl} popularity={e.popularity} key={e.name}></Contact>)}
+          </tbody>
+        </table>
       </div>
     );
   }
