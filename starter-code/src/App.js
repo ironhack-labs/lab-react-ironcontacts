@@ -13,7 +13,7 @@ class App extends Component {
 
     let contactsToShow = [];
     for(let i = 0; i < 5; i++){
-      contactsToShow.push( <Row{...contacts[i]}></Row>)
+      contactsToShow.push( {...contacts[i]})
     }
     this.state = {contactsToShow}
 
@@ -21,12 +21,28 @@ class App extends Component {
 
   addRandomContact =()=> {
    let indexRandom = Math.floor(Math.random()*Object.keys(contacts).length + 4)
-   this.state.contactsToShow.push(<Row{...contacts[indexRandom]}></Row>)
+   const contactsArr = this.state.contactsToShow
+   contactsArr.push({...contacts[indexRandom]})
+   console.log(contactsArr)
      this.setState(
-       {contactsToShow: this.state.contactsToShow }
+       {contactsToShow: contactsArr }
      )
    }
 
+   sortByName = () => {
+     let sortedByName = this.state.contactsToShow.sort((a, b) => { 
+       console.log(a)
+       if (a.name > b.name) {
+        return 1;
+      }
+      return 0
+     })
+      this.setState({contactsToShow: sortedByName})
+   }
+   sortByPopularity = () => {
+    let sortedByPopularity = this.state.contactsToShow.sort((a, b) => b.popularity - a.popularity)
+     this.setState({contactsToShow: sortedByPopularity})
+  }
 
 
   render() {
@@ -34,8 +50,21 @@ class App extends Component {
       <div className="App">
       <h1>IronContacts</h1>
       <button onClick={this.addRandomContact}>Add Random Contact</button>
+      <button onClick={this.sortByName}>Sort by name</button>
+      <button onClick={this.sortByPopularity}>Sort by popularity</button>
+    
       <table>
-          {this.state.contactsToShow}
+        <thead>
+          <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.contactsToShow.map((e)=><Row key={e.name} {...e}></Row>)}
+        </tbody>
       </table>
       </div>
     );
