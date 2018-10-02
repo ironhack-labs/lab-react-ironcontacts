@@ -3,10 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import {Contact, Table} from './contacts.js'
 
+
 class App extends Component {
   render() {
     return (
-      <div><Contact/></div>
+      <div>
+        <h1>IronContacts</h1>
+        <Contact/>
+        </div>
     )
   }
 }

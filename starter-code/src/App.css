@@ -26,3 +26,31 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.head{
+  font-size: 35px;
+}
+
+.table{
+  margin:0 auto;
+}
+
+h1{
+  margin-left: 440px;
+  font-size: 90px;
+}
+
+tr{
+  font-size: 31px;
+}
+
+.btns{
+  margin-left: 410px;
+  margin-bottom: 20px;
+}
+
+.btns button{
+  color: red;
+  font-size: 22px;
+  margin-right: 25px;
+}
