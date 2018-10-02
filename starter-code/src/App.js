@@ -5,9 +5,11 @@ import contacts from './contacts.json';
 
 let contactsArray = contacts.splice(0,5)
 
-const Table = ({array}) => {
+const Table = ({array, addRandom}) => {
+
   return (
     <div>
+    <button onClick={addRandom}>Add Random Contact</button>
     <table>
       <caption>IronContacts</caption>
       <thead>
@@ -25,12 +27,13 @@ const Table = ({array}) => {
     </table>
     </div>
   )
+      
 }
 
 const Row = ({oneRow}) => {
   return (
     <tr>
-      <td><img width="70px" src={oneRow.pictureUrl}/></td>
+      <td><img width="70px" alt={oneRow.name} src={oneRow.pictureUrl}/></td>
       <td>{oneRow.name}</td>
       <td>{oneRow.popularity}</td>
     </tr>
@@ -39,8 +42,19 @@ const Row = ({oneRow}) => {
 
 
 class App extends Component {
-  state = {
-    array: contactsArray}
+  constructor(){
+    super();
+    this.state = {
+      array: contactsArray}
+    }
+  
+  addRandom = () => {
+    this.state.array.push(contacts[Math.floor(Math.random()*contacts.length)]);
+      this.setState({
+      array: this.state.array
+      })
+    console.log(this.state.array);
+  }
 
   render() {
     return (
@@ -49,11 +63,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>test</h1>
-        <Table array={this.state.array}/>
+        <Table array={this.state.array} addRandom={() => this.addRandom()}/>
       </div>
     );
   }
