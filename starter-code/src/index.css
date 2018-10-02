@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.Table {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.Table button {
+  padding: 10px;
+  background-color: pink;
+  margin: 0 10px;
+}
+
+.dennis {
+  margin: 20px auto;
+  width: 100%;
+}
