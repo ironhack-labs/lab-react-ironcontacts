@@ -5,7 +5,7 @@ class Contact extends Component {
         let { pictureUrl, name, popularity } = this.props
         return (
             <tr>
-            <td><img src={pictureUrl}></img></td>
+            <td><img src={pictureUrl} alt=''></img></td>
             <td>{name}</td>
             <td>{popularity}</td>
           </tr>
