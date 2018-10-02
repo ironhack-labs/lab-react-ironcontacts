@@ -4,9 +4,6 @@ import './App.css';
 import contacts from "./contacts.json";
 import Row from "./rowcontact.js"
 
-
-
-
 class App extends Component {
    constructor () {
      super();
@@ -23,7 +20,6 @@ class App extends Component {
    let indexRandom = Math.floor(Math.random()*Object.keys(contacts).length + 4)
    const contactsArr = this.state.contactsToShow
    contactsArr.push({...contacts[indexRandom]})
-   console.log(contactsArr)
      this.setState(
        {contactsToShow: contactsArr }
      )
@@ -31,7 +27,6 @@ class App extends Component {
 
    sortByName = () => {
      let sortedByName = this.state.contactsToShow.sort((a, b) => { 
-       console.log(a)
        if (a.name > b.name) {
         return 1;
       }
@@ -42,7 +37,12 @@ class App extends Component {
    sortByPopularity = () => {
     let sortedByPopularity = this.state.contactsToShow.sort((a, b) => b.popularity - a.popularity)
      this.setState({contactsToShow: sortedByPopularity})
-  }
+    }
+    deleteRow=(index)=>{
+      const contactsArr=this.state.contactsToShow
+      contactsArr.splice(index,1)
+      this.setState({contactsToShow:contactsArr})
+    }
 
 
   render() {
@@ -59,20 +59,16 @@ class App extends Component {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
-
+          <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {this.state.contactsToShow.map((e)=><Row key={e.name} {...e}></Row>)}
+          {this.state.contactsToShow.map((e,i)=><Row key={e.name} {...e} delete={()=>this.deleteRow(i)}></Row>)}
         </tbody>
       </table>
       </div>
     );
   }
 }
-
-
-
-
 
 export default App;
