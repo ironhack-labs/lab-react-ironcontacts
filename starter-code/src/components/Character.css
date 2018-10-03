@@ -1,0 +1,11 @@
+.card{
+  display: flex;
+  flex-direction: row;
+}
+.card img{
+  width: 200px;
+  height: 200px;
+}
+.card button{
+  width: 50px;
+}
