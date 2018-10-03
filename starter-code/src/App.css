@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table {
+ 
+  width: 70%;
+  /* border: 1px solid #000; */
+}
+th, td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  /* border: 1px solid #000; */
+}
