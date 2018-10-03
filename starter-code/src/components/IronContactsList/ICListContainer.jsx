@@ -17,7 +17,7 @@ class ICListContainer extends Component{
   render(){
     return(
       <div>
-        <ICListDisplay/>
+        <ICListDisplay info={this.props.info} />
       </div>
     )
   }

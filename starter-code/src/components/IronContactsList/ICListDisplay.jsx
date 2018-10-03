@@ -1,9 +1,7 @@
 import React from 'react'
 import contacts from '../../contacts.json'
 
-const firstFive = contacts.splice(0,5)
-
-const ICListDisplay = ()=>{
+const ICListDisplay = (props)=>{
   return(
     <div>
       <h1>IronContacts</h1>
@@ -17,9 +15,15 @@ const ICListDisplay = ()=>{
           <th>Popularity</th>
         </thead>
         <tbody>
+        {console.log(props.info)}
+        {props.info.map((c,i)=> (
+         <tr key={i}>
+           <td><img src={c.pictureUrl} alt=""/></td>
+           <td>{c.name}</td>
+           <td>{c.popularity}</td>
          
-         {firstFive.map((c,i)=> <tr key={c}></tr>)}
-         
+         </tr> 
+        ))}
         </tbody>
       </table>
     </div>
