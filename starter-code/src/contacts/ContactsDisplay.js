@@ -27,12 +27,6 @@ const ContactsDisplay = ({name,pictureUrl,popularity})=>{
                 </div>
             </div>
 
-
-
-
-
-
-
         </div>
     )
 };

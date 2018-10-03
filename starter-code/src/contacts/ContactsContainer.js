@@ -47,6 +47,18 @@ class   ContactsContainer extends Component {
 
         return(
             <div>
+                <h1 className="title is-1">IronContacts</h1>
+                <div className="columns">
+                    <div className="column">
+                        <a className="button is-outlined">Add Random Contact</a>
+                    </div>
+                    <div className="column">
+                        <a className="button is-outlined">Sort by name</a>
+                    </div>
+                    <div className="column">
+                        <a className="button is-outlined">Sort by popularity</a>
+                    </div>
+                </div>
                 <div className="columns has-text-weight-bold is-size-3">
                     <div className="column  " >
                         Picture
