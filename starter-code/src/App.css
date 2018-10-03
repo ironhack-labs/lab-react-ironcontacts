@@ -15,12 +15,27 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3.5em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .App-intro {
   font-size: large;
 }
+
+button{
+  margin: 30px;
+  border: none;
+  font-size: 1em;
+  background: gainsboro;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+table{
+  margin: 0 auto;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
