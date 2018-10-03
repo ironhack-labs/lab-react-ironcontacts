@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { ContactList } from "./components/ListDemo.js";
+import { ContactList,AddRandomContact } from "./components/ListDemo.js";
 import contacts from "./contacts.json";
 //
 
@@ -18,8 +18,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <div>
+          <h1>Iron Contacts</h1>
 
-        <table>
+        <table className="table-format">
           <thead>
             <tr>
               <th>Picture</th>
@@ -29,7 +31,10 @@ class App extends Component {
           </thead>
 
           <ContactList datasrc={contacts} />
+          <AddRandomContact datasrc={contacts}/>
         </table>
+        </div>
+
       </div>
     );
   }
