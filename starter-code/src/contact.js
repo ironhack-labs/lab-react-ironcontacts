@@ -7,7 +7,7 @@ class Contact extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            listArticle: contacts,
+            listArticle: contacts.sort( () => Math.random() -0.5),
             clickCount: 5
         }
     }
