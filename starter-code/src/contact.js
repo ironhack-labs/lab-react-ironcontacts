@@ -26,14 +26,19 @@ class Contact extends Component {
             contact: contacts.sort((a, b) => a.popularity > b.popularity)
         })
     }
-    
+
     deleteSelectedElement = (movieIndex) => {
         const moviesCopy = this.state.contact
         moviesCopy.splice(movieIndex, 1)
         this.setState({
-            clickCount : this.state.clickCount - 1,
-            contact : moviesCopy.slice(this.state.clickCount),
+            clickCount: this.state.clickCount - 1,
+            contact: moviesCopy,
         })
+    }
+
+    clickToDelete = (key) => {
+        console.log(key)
+        this.deleteSelectedElement
     }
 
     render() {
@@ -43,13 +48,13 @@ class Contact extends Component {
                 <button onClick={this.sortByName}>Sort By Name</button>
                 <button onClick={this.sortByPopularity}>Sort By Popularity</button>
                 {
-                    this.state.contact.slice(0, this.state.clickCount).map((film, key) => {
-                        return <article key={key}>
+                    this.state.contact.slice(0, this.state.clickCount).map( (film, key) => {
+                        return <article key={key} >
                             <p>Picture</p>
-                            <img src={film.pictureUrl}></img>
+                            <img src={film.pictureUrl} className="picture"></img>
                             <p>Name : {film.name}</p>
                             <p> Popularity {Math.round(film.popularity * 100) / 100}</p>
-                            <button onClick={this.deleteSelectedElement}>DELETE</button>
+                            <button key={key} onClick={ () => this.deleteSelectedElement(key)}>DELETE</button>
                         </article>
                     })
                 }
