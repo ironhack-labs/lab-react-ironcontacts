@@ -26,3 +26,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img{
+  width: 15%;
+  height: auto;
+}
+
+.td{
+  margin: 2%
+}
+
+table{
+  margin: 3%;
+}
