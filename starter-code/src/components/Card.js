@@ -6,7 +6,7 @@ const Card = (props) => {
             <div className="column"><h2>{props.name}</h2></div>
             <div className="column"><img src={props.pictureUrl} /></div>
             <div className="column"><p>Popularity: {props.popularity}</p></div>
-            <div className="column"><button onClick={props.clickToDelete}>Delete</button></div>
+            <div className="column"><button onClick={props.pleaseDelete}>Delete</button></div>
         </div>
     )
 };
