@@ -51,7 +51,13 @@ componentWillMount(){
         let {contactList} = this.state;
         contactList.sort(function(a,b){return a.popularity - b.popularity});
         this.setState({contactList});
-    }
+    };
+
+    deleteItem = (index) => {
+        let {contactList} = this.state;
+        contactList.splice(index, 1);
+        this.setState({contactList});
+    };
 
   render() {
 
@@ -66,8 +72,9 @@ componentWillMount(){
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
             </tr>
-            {this.state.contactList.map((item,index) => <Item key={index} item={item}/>)}
+            {this.state.contactList.map((item,index) => <Item key={index} index={index} item={item} deleteItem={this.deleteItem}/>)}
             </tbody>
         </table>
 
