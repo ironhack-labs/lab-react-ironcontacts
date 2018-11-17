@@ -1,5 +1,77 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+* {
+  border: none;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+:root {
+  color: #11293b;
+  font-family: 'Lato', sans-serif;
+}
+button {
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 50px 30px;
+}
+h1 {
+  font-size: 10vh;
+  letter-spacing: 0.5vw;
+}
+section {
+  display: flex;
+  justify-content: space-around;
+  padding: 5vh 0;
+  width: 75%;
+}
+section button {
+  border-bottom: 1px solid #ccc;
+  font-size: initial;
+  padding: 5px 30px;
+}
+section button:hover {
+  background: rgba(0, 128, 0, 0.3);
+  border-radius: 10px;
+  color: rgb(27, 101, 158);
+}
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 75%;
+}
+table thead th {
+  background: #11293b;
+  margin-bottom: 100px;
+}
+table thead th {
+  color: #fff;
+  padding: 20px 0;
+}
+table tbody tr:nth-child(even) {
+  background: rgba(62, 152, 221, 0.6);
+}
+table tbody tr:nth-child(odd) {
+  background: rgba(62, 152, 221, 0.3);
+}
+table tbody tr:first-child {
+  background: #fff;
+  line-height: 0.3;
+}
+table tbody tr td {
+  text-align: center;
+}
+table tbody tr td button {
+  background: tomato;
+  border-radius: 10px;
+  color: #fff;
+  font-size: initial;
+  padding: 5px 20px;
+}
+table tbody tr td button:hover {
+  background: red;
 }
