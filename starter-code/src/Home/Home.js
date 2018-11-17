@@ -2,7 +2,7 @@ import React, {Component} from  'react';
 import contacts from '../contacts';
 import Column from './Columns'
 import styles from './Home.module.css';
-import {Random} from './Random'
+import Random from './Random'
 
 
 class Home extends Component {
@@ -16,31 +16,35 @@ class Home extends Component {
         }
     };
 
+    componentWillMount(){
+        this.getFiveContacts()
+    }
+
     getFiveContacts = () => {
-        const num = 5;
+        /*const num = 5;
         for (let i =0; i < num; i++) {
             this.state.newContacts.push(this.state.contacts[i]);
-        }
-        /*this.state.fiveContacts = this.state.contacts.map(contact => {
-            if(this.state.fiveContacts.length <= 5) return
-            contact
-        })*/
+        }*/
+        this.state.newContacts = this.state.contacts.map(contact => {
+            if(this.state.newContacts.length <= 5) return contact
+        })
     };
 
     getRandomContact = () => {
-        let {newContacts}=this.state;
 
-        let randomNumber = Math.floor (Math.random ()*199)+1
+
+        let {newContacts, contacts}=this.state;
+let newArr = contacts.splice(5)
+        let randomNumber = newArr[Math.floor (Math.random()*newArr.length)];
         newContacts.push(randomNumber)
 
         this.setState({newContacts})
     };
 
     render(){
-        this.getFiveContacts()
-        //this.getRandomContact()
         return(
             <div className={styles}>
+                <Random getRandom={this.getRandomContact}/>
                 <table>
                     <tr>
                         <th>Picture</th>
