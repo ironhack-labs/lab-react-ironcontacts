@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: olivedrab;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-logo {
@@ -14,12 +19,45 @@
   color: white;
 }
 
+.active-celeb {
+  border: 3px solid firebrick;
+}
+
 .App-title {
   font-size: 1.5em;
 }
 
+tr, th, td {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+table {
+  margin-top: 15px;
+}
+
+img:hover {
+  border: 5px solid powderblue;
+}
+
+button {
+  background-color: papayawhip;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: hotpink;
+}
+
+
 .App-intro {
   font-size: large;
+}
+
+img {
+  height: 100px;
+  width: 100px;
 }
 
 @keyframes App-logo-spin {
