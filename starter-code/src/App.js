@@ -75,9 +75,9 @@ import 'bulma/css/bulma.css';
     }
 
 
-    deleteArtist = (index) => {
+    deleteArtist = (i) => {
       let {contactS} = this.state;
-      contactS = contactS.splice();
+      contactS = contactS.splice(i,1);
       this.setState({contactS});
   };
 
