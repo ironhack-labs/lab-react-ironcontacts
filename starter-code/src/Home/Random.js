@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Random = ({getRandom}) => (
-    <div>
-    <button onClick={getRandom}>Añade uno random</button>
-    </div>
+    <button onClick={getRandom}>Agrega uno random</button>
 );
 
 export default Random;
