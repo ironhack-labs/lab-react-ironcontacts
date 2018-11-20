@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json'
 
@@ -19,21 +18,19 @@ class CelebrityList extends Component {
   }
 
   sortByPopularity() {
-    let copy = [...this.state.displayList]
-    let sortedList = copy.sort((a,b) => b.popularity - a.popularity)
-    console.log("sortedList",sortedList)
+    let copy = [...this.state.displayList]  //copy of the array
+    let sortedList = copy.sort((a,b) => b.popularity - a.popularity)  //sort the copy
     this.setState({
       displayList: sortedList
     })
   }
 
   sortByName() {
-    let copy = [...this.state.displayList]
-    let sortedList = copy.sort((a,b) => {
-      if (a.name > b.name) return 1
+    let copy = [...this.state.displayList]  //copy of the array
+    let sortedList = copy.sort((a,b) => {   //sort the copy
+      if (a.name > b.name) return 1 
       else return -1
     })
-    console.log("sortedList",sortedList)
     this.setState({
       displayList: sortedList
     })
@@ -41,17 +38,13 @@ class CelebrityList extends Component {
 
   removeCelebrity(name) {
     let copy = [...this.state.displayList]
-    console.log('copy', copy)
     let filteredList = copy.filter(celeb=> celeb.name != name)
-    console.log('filteredlist', filteredList)
-
     this.setState({
       displayList: filteredList
     })
   }
   
   render() {
-    console.log(this.state.displayList)
     return (
       <div>
       <button onClick={()=>this.newCelebClick()}>New Random Celeb</button>
