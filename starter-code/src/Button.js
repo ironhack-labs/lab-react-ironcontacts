@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Button = ({handleClick, sortByName, sortByPopularity}) => (
-    <div>
-        <button onClick={()=>handleClick()}>Add random contact</button>
-        <button onClick={()=>sortByName()}>Sort by name</button>
-        <button onClick={()=>sortByPopularity()}>Sort by popularity</button>
+    <div className="button-container">
+        <button className="button-large green" onClick={()=>handleClick()}>Add random contact</button>
+        <button className="button-large blue" onClick={()=>sortByName()}>Sort by name</button>
+        <button className="button-large blue" onClick={()=>sortByPopularity()}>Sort by popularity</button>
     </div>
 
 )

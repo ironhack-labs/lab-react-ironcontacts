@@ -5,7 +5,7 @@ const Item = ({item, deleteItem, index}) => (
         <td> <img src={item.pictureUrl} alt={item.name} /> </td>
         <td>{item.name}</td>
         <td>{item.popularity}</td>
-        <td><button onClick={() => deleteItem(index)}>Delete</button></td>
+        <td className="action"><button className="button-small red" onClick={() => deleteItem(index)}>Delete</button></td>
     </tr>
 
 );
