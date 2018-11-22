@@ -9,7 +9,7 @@ const Contact = ({item, pictureUrl, name, popularity, handleClick}) => (
     <td><img src={pictureUrl} alt={name} width='50px'/></td>
     <td>{name}</td>
     <td>{popularity}</td>
-    <td><Button name='deleteContact' handleClick={handleClick} /></td>
+    <td><Button name='removeContact' handleClick={handleClick} contactitem={item}/></td>
   </tr>
 )
 

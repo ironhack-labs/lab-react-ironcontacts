@@ -15,20 +15,35 @@ class Contacts extends Component {
     }
   }
 
+  addContact = ()=>{
+    let randomContact = Math.floor(Math.random() * (contactsList.length - contacts.length) + contacts.length)
+    contacts.push(contactsList[randomContact])
+    this.setState({contacts});
+  }
+  
+  sortByName = ()=>{
+    contacts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 :0));
+    this.setState({contacts});
+  }
+  
+  sortByPopularity = ()=>{
+    contacts.sort((a,b) => (b.popularity - a.popularity));
+    this.setState({contacts});
+  }
+  
+  removeContact = (e)=>{
+    contacts.splice(e.target.id-1,1)
+    this.setState({contacts});
+  }
+
   handleClick = (e) => {
-    if (e.target.name === 'addContact'){
-      console.log(e.target.name)
-      let randomContact = Math.floor(Math.random() * (contactsList.length - contacts.length) + contacts.length)
-      console.log(randomContact)
-      contacts.push(contactsList[randomContact])
-      console.log(contacts)
-      this.setState({contacts});
-    }
-    console.log(e.target.name)
+    if (e.target.name === 'addContact') this.addContact();
+    if (e.target.name === 'sortByName') this.sortByName();
+    if (e.target.name === 'sortByPopularity') this.sortByPopularity();
+    if (e.target.name === 'removeContact') this.removeContact(e);
   }
  
   render(){
-
     return(
       <div>
         <div>
