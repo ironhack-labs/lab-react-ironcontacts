@@ -16,28 +16,56 @@ export default class Contacts extends Component{
         }
     }
     componentWillMount(){
-        this.setState({listContacts: ContactsJ});
-        //console.log(this.state.listContacts);
+        let {listContacts} = this.state;
+        let newArr = listContacts.filter((ele,ind) =>{
+            if(ind < 5) return ele;
+        });
+        this.setState({listContacts:newArr});
     }
     handleClick = () => {
         let indexRandom = Math.floor(Math.random() * ContactsJ.length );
-        this.setState({contactRandom:ContactsJ[indexRandom] });
-        //console.log();
+        let {listContacts} = this.state;
+        listContacts.splice(5,1);
+        listContacts.push(ContactsJ[indexRandom]);
+        this.setState({listContacts});
+        //this.setState({contactRandom:ContactsJ[indexRandom] });
     };
     sortNameClick = () => {
-        this.setState({listContacts:ContactsJ.sort()});
-        console.log('error');
+        let {listContacts} = this.state;
+        listContacts = listContacts.sort((a,b)=>{
+            if (a.name < b.name){
+                return -1;
+            }
+
+            if (a.name > b.name){
+                return 1;
+            }
+
+            return 0;
+        })
+        this.setState({listContacts});
+
     };
     sortPopularityClick = () => {
-        let indexRandom = Math.floor(Math.random() * ContactsJ.length );
-        this.setState({contactRandom:ContactsJ[indexRandom] });
-        //console.log();
+        let {listContacts} = this.state;
+        listContacts = listContacts.sort((a,b)=>{
+            return b.popularity - a.popularity;
+        })
+        this.setState({listContacts});
     };
+
+    deleteItem = (index) => {
+        let {listContacts} = this.state;
+        listContacts = listContacts.filter((item,inx) => index !== inx);
+        this.setState({listContacts});
+    };
+
   render(){
       return(
           <div>
 
               <table className="App">
+                  <thead>
                   <tr>
                       <th><button onClick={this.handleClick} >Add Random Contact!</button></th>
                       <th><button onClick={this.sortNameClick} >Sort by name</button></th>
@@ -47,14 +75,15 @@ export default class Contacts extends Component{
                       <th>Picture</th>
                       <th>Name</th>
                       <th>Popularity</th>
+                      <th>Action</th>
                   </tr>
+                  </thead>
+                  <tbody>
                   {this.state.listContacts.map((elem, index) => {
-                        if(index < 5) {
-                            return <Item key={index} item={elem}/>
-                        }
+                            return <Item key={index} item={elem} ind={index} action={this.deleteItem}/>
                     })
                   }
-                  <Item item={this.state.contactRandom}/>
+                  </tbody>
 
               </table>
           </div>
