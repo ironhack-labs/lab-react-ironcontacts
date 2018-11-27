@@ -31,9 +31,11 @@ class App extends Component {
   }
 
   deleteContact = (i) => {
-    console.log(i, this.state);
-    let a = this.state.contacts.slice().slice(i);
-    this.setState({ contacts : a });
+    const contactsCopy = [...this.state.contacts];
+    contactsCopy.splice(i, 1);
+    this.setState({
+        contacts : contactsCopy
+    })
   }
 
   render() {
@@ -41,9 +43,9 @@ class App extends Component {
       <div className="App">
         <h1>Iron Content</h1>
         <Table
-          addContact={() => { this.addRandomContact()} }
-          orderName={() => { this.orderByName()} }
-          orderPop={() => { this.orderByPopularity()} }
+          addContact={this.addRandomContact}
+          orderName={this.orderByName}
+          orderPop={this.orderByPopularity}
           deleteContact={this.deleteContact}
           contacts={this.state.contacts}
         />
