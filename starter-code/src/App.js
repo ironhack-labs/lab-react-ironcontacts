@@ -31,7 +31,8 @@ class App extends Component {
   }
 
   deleteContact = (i) => {
-    const contactsCopy = [...this.state.contacts];
+    // const contactsCopy = [...this.state.contacts];
+    const contactsCopy = this.state.contacts.slice();
     contactsCopy.splice(i, 1);
     this.setState({
         contacts : contactsCopy
