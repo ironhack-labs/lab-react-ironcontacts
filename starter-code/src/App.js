@@ -5,32 +5,42 @@ import Table from './Components/Table.js';
 
 class App extends Component {
   
-  state = {
-    contacts : contacts.slice(0,5)
-  };
+  constructor(props) {
+    
+    super(props);
 
-  addRandomContact = () => {
+    this.state = {
+      contacts : contacts.slice(0,5)
+    };
+
+    this.addRandomContact = this.addRandomContact.bind(this);
+    this.orderByName = this.orderByName.bind(this);
+    this.orderByPopularity = this.orderByPopularity.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
+  }
+
+  addRandomContact () {
     let a = this.state.contacts.slice();
     let b = contacts[Math.floor(Math.random() * contacts.length)]
     a.push(b);
     this.setState({ contacts : a});
   }
 
-  orderByName = () => {
+  orderByName () {
     let order = this.state.contacts.sort((a, b) => {
       return a.name > b.name ? 1 : -1;
     });
     this.setState({ contacts : order });
   }
 
-  orderByPopularity = () => {
+  orderByPopularity () {
     let order = this.state.contacts.sort((a, b) => {
       return a.popularity > b.popularity ? 1 : -1;
     });
     this.setState({ contacts : order });
   }
 
-  deleteContact = (i) => {
+  deleteContact (i) {
     // const contactsCopy = [...this.state.contacts];
     const contactsCopy = this.state.contacts.slice();
     contactsCopy.splice(i, 1);
