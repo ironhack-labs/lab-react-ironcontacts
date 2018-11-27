@@ -11,7 +11,7 @@ class App extends Component {
 
   addRandomContact = () => {
     let a = this.state.contacts.slice();
-    let b = contacts[Math.floor(Math.random() * contacts.length + 1)]
+    let b = contacts[Math.floor(Math.random() * contacts.length)]
     a.push(b);
     this.setState({ contacts : a});
   }
