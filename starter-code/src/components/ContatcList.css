@@ -1,0 +1,21 @@
+.contact-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-list tr, td{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-list img{
+    height: 100px;
+}
+
+.table-contacts{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
