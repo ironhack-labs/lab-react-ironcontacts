@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img {
+  height: 200px;
+  width: 150px;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+}
