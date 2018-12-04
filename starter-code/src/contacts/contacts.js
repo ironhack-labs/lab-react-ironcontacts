@@ -18,10 +18,38 @@ class Contact extends React.Component {
             celebrities: randomCelebrity
         })
     }
+
+    sortByName = () => {
+
+        let sortedCelebrity = [...this.state.celebrities]
+        sortedCelebrity.sort(function (a, b) {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        });
+        // console.log(sortedCelebrity)
+        this.setState({
+            celebrities: sortedCelebrity
+        })
+    }
+    sortByPopularity = () => {
+
+        let sortedCelebrity = [...this.state.celebrities]
+        sortedCelebrity.sort(function (a, b) {
+          if (a.popularity < b.popularity) return 1;
+          if (a.popularity > b.popularity) return -1;
+          return 0;
+        });
+        this.setState({
+            celebrities: sortedCelebrity
+        })
+    }
     render() {
         return (
             <div>
                 <button onClick={this.addCelebrities}>Add Random Contact</button>
+                <button onClick={this.sortByName}>Sort by Name</button>
+                <button onClick={this.sortByPopularity}>Sort by Popularity</button>
                 <table>
                     <thead>
                         <tr>
@@ -32,7 +60,7 @@ class Contact extends React.Component {
                     </thead>
                     <tbody>
                         {this.state.celebrities.map((celebrity, index) => {
-                            console.log(celebrity)
+                            // console.log(celebrity)
                             return (
                                 <div className="Contacts">
                                     <tr>
@@ -47,8 +75,6 @@ class Contact extends React.Component {
                     </tbody>
                 </table>
             </div>
-
-
 
         )
     }
