@@ -12,6 +12,7 @@ export default class Famous extends React.Component {
 
     this.addRandom = this.addRandom.bind(this)
     this.sortArray = this.sortArray.bind(this)
+    this.delete = this.delete.bind(this)
   }
 
   addRandom() {
@@ -42,7 +43,12 @@ export default class Famous extends React.Component {
       return 0
     })
     this.setState({ famous: arraySort })
-    console.log(arraySort)
+  }
+
+  delete(index){
+    let arrayDeleted = [...this.state.famous]
+    arrayDeleted.splice(index,1)
+    this.setState({ famous: arrayDeleted })
   }
 
   render() {
@@ -58,6 +64,9 @@ export default class Famous extends React.Component {
           </td>
           <td>
             {element.popularity}
+          </td>
+          <td>
+          <Button function={()=>this.delete(index)}>Delete</Button>
           </td>
         </tr>
       )
@@ -77,6 +86,9 @@ export default class Famous extends React.Component {
             </th>
             <th>
               Popularity
+            </th>
+            <th>
+              Action
             </th>
           </tr>
           {famous}
