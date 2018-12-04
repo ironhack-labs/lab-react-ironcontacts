@@ -23,9 +23,9 @@ class Contact extends React.Component {
 
         let sortedCelebrity = [...this.state.celebrities]
         sortedCelebrity.sort(function (a, b) {
-          if (a.name < b.name) return -1;
-          if (a.name > b.name) return 1;
-          return 0;
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
         });
         // console.log(sortedCelebrity)
         this.setState({
@@ -36,12 +36,19 @@ class Contact extends React.Component {
 
         let sortedCelebrity = [...this.state.celebrities]
         sortedCelebrity.sort(function (a, b) {
-          if (a.popularity < b.popularity) return 1;
-          if (a.popularity > b.popularity) return -1;
-          return 0;
+            if (a.popularity < b.popularity) return 1;
+            if (a.popularity > b.popularity) return -1;
+            return 0;
         });
         this.setState({
             celebrities: sortedCelebrity
+        })
+    }
+    removeCelebrities = () => {
+        let removeCelebrities = [...this.state.celebrities]
+        removeCelebrities.splice(0, 1)
+        this.setState({
+            celebrities: removeCelebrities
         })
     }
     render() {
@@ -56,6 +63,7 @@ class Contact extends React.Component {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,11 +75,14 @@ class Contact extends React.Component {
                                         <td><img src={celebrity.pictureUrl} /></td>
                                         <td>{celebrity.name}</td>
                                         <td>{celebrity.popularity}</td>
+                                        <td><button onClick={this.removeCelebrities}>Remove</button></td>
                                     </tr>
+                                    
                                 </div>
                             )
                         }
-                        )}
+                        )
+                        }
                     </tbody>
                 </table>
             </div>
