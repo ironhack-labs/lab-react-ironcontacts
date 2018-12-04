@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.celebs {
+  border: 1px solid black;
+
+}
+
+.celebs img {
+  size: 1%
+}
