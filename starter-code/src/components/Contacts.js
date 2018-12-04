@@ -30,8 +30,40 @@ export default class Navbar extends Component {
   };
 
   getRandomAct = () => {
-    let aux = this.state.contacts
-    aux.push(contacts[randomBetween(0, contacts.length)])
+    let aux = this.state.contacts;
+    let randContact = contacts[randomBetween(0, contacts.length)];
+    if(!aux.includes(randContact)){
+    aux.push(randContact);
+    }
+    else{alert("Contacto random ya existe")}
+    this.setState({
+      ...this.state,
+      contacts: aux
+    });
+  };
+
+  sortName = () => {
+    let aux = this.state.contacts;
+    aux.sort(function(a, b) {
+      var x = a.name.toLowerCase();
+      var y = b.name.toLowerCase();
+      if (x < y) {
+        return -1;
+      }
+      if (x > y) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({
+      ...this.state,
+      contacts: aux
+    });
+  };
+
+  sortPopularity = () => {
+    let aux = this.state.contacts;
+    aux.sort(function(a, b) {return a.popularity - b.popularity});
     this.setState({
       ...this.state,
       contacts: aux
@@ -41,15 +73,15 @@ export default class Navbar extends Component {
   render() {
     return (
       <div>
-        <button id="getRandomAct" onClick={this.getRandomAct}>
-          Get random Actor
-        </button>
+        <button onClick={this.getRandomAct}>Get Random Contact</button>
+        <button onClick={this.sortName}>Sort by Name</button>
+        <button onClick={this.sortPopularity}>Sort by Popularity</button>
         <table>
           <thead>
             <tr>
               <th>Picture</th>
               <th>Name</th>
-              <th>Populaitry</th>
+              <th>Popularity</th>
             </tr>
           </thead>
           <tbody>{this.createTable()}</tbody>
