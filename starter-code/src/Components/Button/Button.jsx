@@ -9,7 +9,7 @@ export default class Button extends React.Component {
     render() {
         return (
             <div className="Button">
-                <button onClick={this.props.addRandom}>Add random contact</button>
+                <button onClick={this.props.function}>{this.props.children}</button>
             </div>
         );
     }
