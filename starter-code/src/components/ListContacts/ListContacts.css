@@ -3,3 +3,8 @@
     object-fit: cover;
 
 }
+.groupButtons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
