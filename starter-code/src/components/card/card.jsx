@@ -41,10 +41,10 @@ class Card extends Component {
     })})
   }
 
-  deleteContact = (index)=>{
-    let contacts = this.state.contacts;
-    this.setState({...this.state, contacts: contacts.slice(index)})
-  }
+  // deleteContact = (index)=>{
+  //   let contacts = this.state.contacts;
+  //   this.setState({...this.state, contacts: contacts.slice(index)})
+  // }
 
   render() {
     const tableFields = this.state.contacts.map((contact, index) => (
@@ -52,7 +52,7 @@ class Card extends Component {
         <th key={index}><img src={contact.pictureUrl}></img></th>
         <th key={index}><h1>{contact.name}</h1></th>
         <th key={index}><h1>{contact.popularity}</h1></th>
-        <th><button onclick={this.deleteContact(index)}>Delete</button></th>
+        {/* <th><button onclick={this.deleteContact(index)}>Delete</button></th> */}
         </tbody>
     ));
     
