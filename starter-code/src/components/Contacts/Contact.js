@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Contact.css";
 
 export default class Contact extends Component {
   constructor() {
@@ -7,8 +8,8 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <tr>
-       <td> <img  src={this.props.pictureUrl} alt=""/> </td>
+      <tr className="classContainer">
+       <td> <img className="imgStyle" src={this.props.pictureUrl} alt=""/> </td>
        <td>{this.props.name}</td>
        <td>{this.props.popularity}</td>
       </tr>
