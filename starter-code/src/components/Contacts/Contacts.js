@@ -4,11 +4,12 @@ import './Contacts.css';
 
 
 class Contact extends Component {
-    
-  
+   
+       
+       
     render() {
      
-            console.log(this.props)
+          
     return (
       
         
