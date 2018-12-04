@@ -23,28 +23,29 @@ export default class Navbar extends Component {
           </th>
           <th>{item.name}</th>
           <th>{item.popularity}</th>
-          <th><button onClick={()=>this.deleteAct(index)}>Delete</button></th>
+          <th>
+            <button onClick={() => this.deleteAct(index)}>Delete</button>
+          </th>
         </tr>
       );
     });
     return actor;
   };
 
-  deleteAct = (e) => {
-    let aux = [...this.state.contacts]
-    aux.splice(e, 1)
-    this.setState({...this.state, contacts: aux})
-  }
-
-
+  deleteAct = e => {
+    let aux = [...this.state.contacts];
+    aux.splice(e, 1);
+    this.setState({ ...this.state, contacts: aux });
+  };
 
   getRandomAct = () => {
-    let aux = this.state.contacts;
+    let aux = [...this.state.contacts];
     let randContact = contacts[randomBetween(0, contacts.length)];
-    if(!aux.includes(randContact)){
-    aux.push(randContact);
+    if (!aux.includes(randContact)) {
+      aux.push(randContact);
+    } else {
+      alert("Contacto random ya existe");
     }
-    else{alert("Contacto random ya existe")}
     this.setState({
       ...this.state,
       contacts: aux
@@ -72,7 +73,9 @@ export default class Navbar extends Component {
 
   sortPopularity = () => {
     let aux = [...this.state.contacts];
-    aux.sort(function(a, b) {return a.popularity - b.popularity});
+    aux.sort(function(a, b) {
+      return a.popularity - b.popularity;
+    });
     this.setState({
       ...this.state,
       contacts: aux
