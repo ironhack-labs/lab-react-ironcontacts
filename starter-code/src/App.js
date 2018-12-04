@@ -21,11 +21,23 @@ class App extends Component {
 
   }
 
+  sortByName = ()=>{
+    let newArray = [...this.state.contacts]
+    newArray.sort((a,b)=>(a.name>b.name)?1:((b.name>a.name)?-1:0))
+    this.setState({contacts: newArray})
+  }
+
+  sortByPopularity =() =>{
+    let newArray = [...this.state.contacts]
+    newArray.sort((a,b)=>(a.popularity>b.popularity)?-1:((b.popularity>a.popularity)?1:0))
+    this.setState({contacts: newArray})
+  }
+
 
   render() {
     return (
       <div className="App">
-        <Table {...this.state.contacts} addRandomContact={this.addRandomContact}/>
+        <Table {...this.state.contacts} addRandomContact={this.addRandomContact} sortByName={this.sortByName} sortByPopularity={this.sortByPopularity}/>
       </div>
     );
   }

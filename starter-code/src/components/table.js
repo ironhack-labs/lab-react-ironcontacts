@@ -12,7 +12,9 @@ export default class Table extends Component {
     return (
       <div className="container-table">
         <h1>IRON CONTACTS</h1>
-        <Botton addRandomContact={this.props.addRandomContact}/>
+        <Botton operation={this.props.addRandomContact} name={"Add Random Contact"}/>
+        <Botton operation={this.props.sortByName} name={"Sort by Name"}/>
+        <Botton operation={this.props.sortByPopularity} name={"Sort by popularity"}/>
         <table>
           <thead>
           <tr>
