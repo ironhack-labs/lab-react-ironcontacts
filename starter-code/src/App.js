@@ -17,7 +17,6 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Mesa contacts={contacts}>
-          {console.log(contacts.splice(0,5))}
         </Mesa>
           {/* <Contactos></Contactos> */}
       </div>

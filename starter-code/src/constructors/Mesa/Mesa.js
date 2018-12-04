@@ -12,17 +12,38 @@ class Mesa extends React.Component {
         }
 
         this.addContactHandler = this.addContactHandler.bind(this);
+        this.SortByNameHandler = this.SortByNameHandler.bind(this);
         console.log(this.state.contactos);
     }
 
     addContactHandler(contacts) {
-        let index = Math.floor(Math.random() * contacts.length );
+        let index = Math.floor(Math.random() * contacts.length);
         console.log(index + " " + contacts.length);
-        
-        this.state.contactos.push(contacts[index]);
-        
-        this.setState({contactos: this.state.contactos})
-        
+
+        let contactosNuevo = [...this.state.contactos]
+        contactosNuevo.push(contacts[index]);
+
+        this.setState({ ...this.state, contactos: contactosNuevo })
+
+    }
+
+    SortByNameHandler() {
+
+        console.log(this.state.contactos);
+
+        let contactosSinOrden = [...this.state.contactos]
+        let contactosOrdenados = contactosSinOrden.sort((a, b) => {
+            if (a.name > b.name) { return 1 };
+            if (a.name < b.name) { return -1 };
+            if (a.name = b.name) { return 0 };
+        });
+
+        console.log(contactosOrdenados);
+
+        this.setState({ contactos: contactosOrdenados }, function(){
+            console.log(this.state.contactos)
+        });
+
     }
 
     render() {
@@ -35,8 +56,8 @@ class Mesa extends React.Component {
 
             <div className="buttons">
                 <button id="add-contact" onClick={() => this.addContactHandler(this.props.contacts)}>Add Random Contact</button>
-                {/* <button id="sort-by-name" Onclick={SortByNameHandler}>Sort by name</button> */}
-                {/* <button id="sort-by-pop" Onclick={SortByPopHandler}>Sort by popularity</button> */}
+                <button id="sort-by-name" onClick={this.SortByNameHandler}>Sort by name</button>
+                {/* <button id="sort-by-pop" onClick={SortByPopHandler}>Sort by popularity</button> */}
             </div>
 
             <table>
