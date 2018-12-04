@@ -4,9 +4,21 @@ import Contacto from '../Contacto/Contacto.js';
 
 class Mesa extends React.Component {
 
+    constructor(props){
+        super(props);
+
+        this.state=
+            this.props.contacts.splice(0,5);
+        
+    }
+
     render() {
 
-        const listaContactos = this.props.contacts.map((contacto, i) => {
+        // const listaContactos = this.props.contacts.map((contacto, i) => {
+        //     return <Contacto key={i} contactInfo={contacto}></Contacto>
+        // })
+
+        const listaContactos = this.state.map((contacto, i) => {
             return <Contacto key={i} contactInfo={contacto}></Contacto>
         })
 
