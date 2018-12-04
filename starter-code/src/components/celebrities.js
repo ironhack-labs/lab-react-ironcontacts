@@ -6,12 +6,25 @@ export default class celebrities extends Component {
   constructor(props){
     super(props)
     this.state = {
-      contacts: contacts.slice(0,5),
+      fivecontacts: contacts.slice(0,5),
 
     } 
+    this.addRandom = this.addRandom.bind(this)
   }
+
+  addRandom(){ 
+    var newArray = [...this.state.fivecontacts]
+    var random = Math.floor(Math.random() * contacts.length)
+    newArray.push(contacts[random])
+    this.setState({fivecontacts:newArray})
+
+  }
+
+
+
+
   render() {
-    var celebrities = this.state.contacts.map((contact)=>{
+    var celebrities = this.state.fivecontacts.map((contact)=>{
       return <tr>
                 <td>
                   <img src={contact.pictureUrl} width="80px" />
@@ -28,8 +41,10 @@ export default class celebrities extends Component {
     return (
       <div className="App">
           <h1>IronContacts</h1>
+          <button onClick={this.addRandom}>Add random</button>
           <table>
             <tr>
+
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
@@ -44,3 +59,4 @@ export default class celebrities extends Component {
     );
   }
 }
+
