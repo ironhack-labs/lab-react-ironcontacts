@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class Contact extends Component {
   render() {
     return (
+      
       <tr>
         <td>
           <img style={{maxWidth:50}} src={this.props.pictureUrl} />
