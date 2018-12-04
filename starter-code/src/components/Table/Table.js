@@ -11,6 +11,7 @@ class Table extends Component {
         <td> <img src={contact.pictureUrl} alt=""/></td>
         <td> {contact.name}</td>
         <td> {contact.popularity}</td>
+        <td><button data-index={index} onClick={()=>this.props.deleteHandler(index)} >Delete</button></td>
       </tr>)
     });
   
@@ -21,6 +22,7 @@ class Table extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

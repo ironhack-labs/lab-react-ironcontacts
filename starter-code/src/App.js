@@ -32,6 +32,12 @@ class App extends Component {
     this.setState([...this.state, this.state.contacts.sort((a, b) => b.popularity - a.popularity)])
   }
 
+  deleteItem = (e) => {
+    let celebritiesCopy = [...this.state.contacts]
+    celebritiesCopy.splice(e, 1)
+    this.setState({...this.state, contacts: celebritiesCopy})
+  }
+
   render() {
     return (
       <div className="App">
@@ -39,7 +45,7 @@ class App extends Component {
        <button className="Button" onClick={this.addRandomContacts}>Add Random Contact</button>
        <button className="Button" onClick={this.sortByName}>Sort by name</button>
        <button className="Button" onClick={this.sortByPopularity}>Sort by popularity</button>
-       <Table contacts={this.state.contacts}/>
+       <Table contacts={this.state.contacts} deleteHandler={this.deleteItem}/>
       </div>
     );
   }
