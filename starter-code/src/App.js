@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Mesa from './constructors/Mesa/Mesa.js';
+import contacts from './contacts.json';
+import Contactos from './constructors/Contactos/Contactos.js';
 
 class App extends Component {
   render() {
@@ -13,6 +16,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Mesa contacts={contacts}>
+          {console.log(contacts.splice(0,5))}
+        </Mesa>
+          {/* <Contactos></Contactos> */}
       </div>
     );
   }
