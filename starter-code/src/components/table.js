@@ -6,9 +6,10 @@ import './table.css'
 export default class Table extends Component {
   render() {
     
-    let contacts = Object.values(this.props).map((contact)=>{
-    return <Contact {...contact}/>})
-
+    let contacts = Object.values(this.props.contact).map((contact, index)=>{ 
+      
+    return <Contact {...contact} operation={this.props.deleteItem} index={index}/>})
+    
     return (
       <div className="container-table">
         <h1>IRON CONTACTS</h1>

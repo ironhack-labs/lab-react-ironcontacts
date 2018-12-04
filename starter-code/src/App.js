@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       contacts:contacts.slice(0,5)
     }
-
+    console.log(this.state)
   }
   addRandomContact = () =>{
     let newArray = [...this.state.contacts]
@@ -33,11 +33,18 @@ class App extends Component {
     this.setState({contacts: newArray})
   }
 
+  deleteItem = (id)=>{
+    let newArray = [...this.state.contacts]
+    newArray.splice(id, 1)
+    this.setState({contacts: newArray})
+
+  }
+
 
   render() {
     return (
       <div className="App">
-        <Table {...this.state.contacts} addRandomContact={this.addRandomContact} sortByName={this.sortByName} sortByPopularity={this.sortByPopularity}/>
+        <Table contact={this.state.contacts} addRandomContact={this.addRandomContact} sortByName={this.sortByName} sortByPopularity={this.sortByPopularity} deleteItem={this.deleteItem}/>
       </div>
     );
   }
