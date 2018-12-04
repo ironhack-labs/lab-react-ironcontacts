@@ -15,15 +15,27 @@ class App extends Component {
   };
 
   addRandomContact = () =>{
-    const updatedContacts = this.state.contacts;
+    const updatedContacts = [...this.state.contacts];
     updatedContacts.push(contacts[parseInt(Math.random() * contacts.length)])
     this.setState({
       ...this.state, contacts: updatedContacts
     })
-   
-    console.log(this.state.contacts)
   }
 
+  sortByName = () =>{
+    const updatedContacts = [...this.state.contacts].sort(( a, b ) => b.name < a.name ? 1 : -1);
+
+    this.setState({
+      ...this.state, contacts: updatedContacts
+    })
+  }
+
+  sortByPopularity = () =>{
+    const updatedContacts = [...this.state.contacts].sort(( a, b ) => b.popularity - a.popularity );
+    this.setState({
+      ...this.state, contacts: updatedContacts
+    })
+  }
 
   componentWillMount() {
     this.pushContacts(5);
@@ -34,6 +46,8 @@ class App extends Component {
       <React.Fragment>
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort by Name</button>
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>        
         <table>
           <thead>
             <tr>
