@@ -1,0 +1,8 @@
+.famous-image{
+    width: 20%;
+}
+
+.Famous{
+    display: flex;
+    justify-content: center;
+}
