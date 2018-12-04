@@ -1,19 +1,22 @@
 import React, { Component } from "react";
-import contacts from "../contacts.json";
-import "./card.css"
+import contacts from "../../contacts.json";
+import "./card.css";
+
+const arr = contacts.splice(0,5);
+
 class Card extends Component {
   constructor() {
     super();
-    this.state = { contacts: this.fiveFirstContacts() };
+    this.state = { contacts: arr};
   }
-  fiveFirstContacts = () => {
-    const contactsArr = [];
-    const numberContacts = 5;
-    for (var i = 0; i < numberContacts; i++) {
-      contactsArr.push(contacts[i]);
-    }
-    return contactsArr;
-  };
+
+  addRandomCard = ()=>{
+    arr.push(contacts.splice(Math.floor(contacts.length * Math.random()),1)[0]);
+    console.log(arr)
+      this.setState({...this.state, contacts: arr})
+    console.log()
+  }
+
   render() {
     const tableFields = this.state.contacts.map((contact, index) => (
         <tbody>
@@ -24,10 +27,13 @@ class Card extends Component {
     ));
     
     return (
+      <div>
       <div className="card">
         <table>
           {tableFields}
         </table>
+      </div>
+      <button onClick={this.addRandomCard}>Add random Contact</button>
       </div>
     );
   }
