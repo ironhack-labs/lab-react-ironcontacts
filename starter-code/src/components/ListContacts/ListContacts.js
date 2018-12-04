@@ -36,6 +36,14 @@ export default class ListContacts extends Component {
       })
       this.setState({...this.state, contacts : newSortedByPopoularity})
   }
+  deleteContact = (id) =>{
+    let newDeleted = [...this.state.contacts]
+    newDeleted.splice(id, 1);
+
+    this.setState({...this.state, contacts: newDeleted})
+
+
+  }
 
   render() {
     return (
@@ -52,6 +60,7 @@ export default class ListContacts extends Component {
               <td>Picture</td>
               <td>Name</td>
               <td>Popularity</td>
+              <td>Action</td>
             </tr>
           </thead>
           <tbody />
@@ -67,6 +76,7 @@ export default class ListContacts extends Component {
               </td>
               <td>{contact.name}</td>
               <td>{parseFloat(contact.popularity).toFixed(2)}</td>
+              <td><button onClick={()=>this.deleteContact(i)}>Delete</button></td>
             </tr>
           ))}
         </table>
