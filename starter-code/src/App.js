@@ -16,7 +16,26 @@ class App extends Component {
     let randomContact = [...this.state.contacts];
     randomContact.push(newContactcontact);
     this.setState({ ...this.state, contacts: randomContact });
-    console.log(this.state);
+  };
+
+  sortNameHandler = () => {
+    let sortContact = [...this.state.contacts];
+    const compare = (a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    };
+    this.setState({ ...this.state, contacts: sortContact.sort(compare) });
+  };
+
+  sortPopularityHandler = () => {
+    let popuContact = [...this.state.contacts];
+    const compare = (a, b) => {
+      if (a.popularity > b.popularity) return -1;
+      if (a.popularity < b.popularity) return 1;
+      return 0;
+    };
+    this.setState({ ...this.state, contacts: popuContact.sort(compare) });
   };
 
   render() {
@@ -32,6 +51,10 @@ class App extends Component {
 
         <div className="contactCont">
           <button onClick={this.randomHandler}>Add Random Contact</button>
+          <button onClick={this.sortNameHandler}>Sort by Name</button>
+          <button onClick={this.sortPopularityHandler}>
+            Sort by popularity
+          </button>
           <table>
             <tbody>
               <tr>
