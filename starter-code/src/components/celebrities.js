@@ -10,6 +10,9 @@ export default class celebrities extends Component {
 
     } 
     this.addRandom = this.addRandom.bind(this)
+    this.sortByName = this.sortByName.bind(this)
+    this.sortByPopularity = this.sortByPopularity.bind(this)
+    
   }
 
   addRandom(){ 
@@ -20,10 +23,42 @@ export default class celebrities extends Component {
 
   }
 
+sortByName(){
+  var sorted = this.state.fivecontacts
+  // console.log(sorted)
+  sorted.sort(function (a,b){
+    if(a.name < b.name){
+      return -1;
+    } else if (a.name > b.name) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })
 
+  this.setState({...this.state, fivecontacts: sorted})
+
+}
+sortByPopularity(){
+  var sorted = this.state.fivecontacts
+  // console.log(sorted)
+  sorted.sort(function (a,b){
+    if(a.popularity < b.popularity){
+      return 1;
+    } else if (a.popularity > b.popularity) {
+      return -1;
+    } else {
+      return 0;
+    }
+  })
+
+  this.setState({...this.state, fivecontacts: sorted})
+  
+}
 
 
   render() {
+  
     var celebrities = this.state.fivecontacts.map((contact)=>{
       return <tr>
                 <td>
@@ -42,6 +77,8 @@ export default class celebrities extends Component {
       <div className="App">
           <h1>IronContacts</h1>
           <button onClick={this.addRandom}>Add random</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
           <table>
             <tr>
 
