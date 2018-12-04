@@ -1,19 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+
+import contacts from "./contacts.json";
 
 class App extends Component {
+  state = {
+    contacts: []
+  };
+
+  pushContacts = num => {
+    for (let i = 0; i < num; i++) {
+      this.state.contacts.push(contacts[i]);
+    }
+  };
+
+  componentWillMount() {
+    this.pushContacts(5);
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <React.Fragment>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {console.log(this.state.contacts)}
+            {this.state.contacts.map((elem, i) => (
+                <tr key={i}>
+                  <td><img src={elem.pictureUrl} alt={elem.name}/></td>
+                  <td>{elem.name}</td>
+                  <td>{elem.popularity}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </React.Fragment>
     );
   }
 }
