@@ -7,6 +7,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>IronContacts</h1>
+      {/* <button onClick={this.addCelebrities}>Add Random Contact</button> */}
       <Contact></Contact>
       </div>
     );

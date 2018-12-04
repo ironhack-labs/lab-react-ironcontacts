@@ -1,5 +1,6 @@
 import React from "react";
 import Contacts from "../contacts.json"
+import './contacts.css';;
 
 class Contact extends React.Component {
     constructor(props) {
@@ -7,35 +8,46 @@ class Contact extends React.Component {
         this.state = {
             celebrities: Contacts.slice(0, 5)
         }
+    }
+    otherCelebrities = [...Contacts]
+    addCelebrities = () => {
+        let randomCelebrity = [...this.state.celebrities]
 
+        randomCelebrity.push(this.otherCelebrities[Math.floor(Math.random() * this.otherCelebrities.length)])
+        this.setState({
+            celebrities: randomCelebrity
+        })
     }
     render() {
-
-        var celebritiesList = this.state.celebrities.map((celebrity, index) => {
-            return (
-                <div className="Contacts">
-                    <tr>
-                        <td key={index}><img src={celebrity.pictureUrl} /></td>
-                        <td key={index}>{celebrity.name}</td>
-                        <td key={index}>{celebrity.popularity}</td>
-                    </tr>
-                </div>
-            )
-        }
-        );
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Picture</th>
-                        <th>Name</th>
-                        <th>Popularity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {celebritiesList}
-                </tbody>
-            </table>
+            <div>
+                <button onClick={this.addCelebrities}>Add Random Contact</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Popularity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.celebrities.map((celebrity, index) => {
+                            console.log(celebrity)
+                            return (
+                                <div className="Contacts">
+                                    <tr>
+                                        <td><img src={celebrity.pictureUrl} /></td>
+                                        <td>{celebrity.name}</td>
+                                        <td>{celebrity.popularity}</td>
+                                    </tr>
+                                </div>
+                            )
+                        }
+                        )}
+                    </tbody>
+                </table>
+            </div>
+
 
 
         )
