@@ -1,0 +1,8 @@
+.Table {
+  margin: 0 auto;
+}
+
+.Table img {
+  max-height: 7rem;
+  object-fit: cover
+}
