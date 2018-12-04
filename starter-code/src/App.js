@@ -14,6 +14,17 @@ class App extends Component {
     }
   };
 
+  addRandomContact = () =>{
+    const updatedContacts = this.state.contacts;
+    updatedContacts.push(contacts[parseInt(Math.random() * contacts.length)])
+    this.setState({
+      ...this.state, contacts: updatedContacts
+    })
+   
+    console.log(this.state.contacts)
+  }
+
+
   componentWillMount() {
     this.pushContacts(5);
   }
@@ -21,6 +32,8 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>IronContacts</h1>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
         <table>
           <thead>
             <tr>
@@ -31,10 +44,9 @@ class App extends Component {
           </thead>
 
           <tbody>
-            {console.log(this.state.contacts)}
             {this.state.contacts.map((elem, i) => (
                 <tr key={i}>
-                  <td><img src={elem.pictureUrl} alt={elem.name}/></td>
+                  <td><img style={{width: 100}} src={elem.pictureUrl} alt={elem.name}/></td>
                   <td>{elem.name}</td>
                   <td>{elem.popularity}</td>
                 </tr>
