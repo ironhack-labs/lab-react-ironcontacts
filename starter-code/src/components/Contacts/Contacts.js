@@ -14,7 +14,7 @@ class Contact extends Component {
       
         
         <tr className="Contact">
-        <td><img src={this.props.img} width="20%"></img></td>
+        <td><img src={this.props.pictureUrl} width="20%"></img></td>
         <td>{this.props.name}</td>
         <td>{this.props.popularity}</td>
         </tr>
