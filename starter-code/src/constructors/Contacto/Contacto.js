@@ -18,7 +18,7 @@ class Contacto extends React.Component {
     render() {
 
         return (
-            <tr>
+            <tr>    
                 <td><img src={this.state.pictureUrl} alt="picture" style={{ width: 80 }} /></td>
                 <td>{this.state.name}</td>
                 <td>{this.state.popularity}</td>
