@@ -7,15 +7,25 @@ import Table from './components/Table/Table'
 class App extends Component {
   constructor(){
     super()
-    this.contacts = Allcontacts.slice(0,5);
+    this.state = {
+      contacts: Allcontacts.slice(0,5)
+    }
+    //this.contacts = Allcontacts.slice(0,5);
    
+  }
+
+  addRandomContacts = () => {
+    const newContact = Allcontacts[Math.floor(Math.random() * Allcontacts.length)]
+    this.setState([...this.state, this.state.contacts.push(newContact)])
+    console.log(newContact);
   }
 
   render() {
     return (
       <div className="App">
       <h1>IronContacts</h1>
-       <Table contacts={this.contacts}/>
+       <button className="Button" onClick={this.addRandomContacts}>Add Random Contact</button>
+       <Table contacts={this.state.contacts}/>
       </div>
     );
   }
