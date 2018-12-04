@@ -18,7 +18,7 @@ class App extends Component {
     
 
   render() {
-    const someContact = this.state.contacts.map((oneContact,index) => <h1 key={index}>{oneContact.name}</h1>)  
+    const someContact = this.state.contacts.map((oneContact,index) => <div key={index}> <img src={oneContact.pictureUrl}/> {oneContact.name} <br></br> {oneContact.popularity}</div>); 
     return (
       <div className="App">
         {someContact}
