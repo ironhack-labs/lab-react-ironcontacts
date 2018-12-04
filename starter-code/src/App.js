@@ -11,8 +11,7 @@ class App extends Component {
     };
   }
   randomHandler = () => {
-    let newContactcontact =
-      contacts[Math.floor(Math.random() * contacts.length) + 1];
+    let newContactcontact = contacts[Math.floor(Math.random() * contacts.length) + 1];
     let randomContact = [...this.state.contacts];
     randomContact.push(newContactcontact);
     this.setState({ ...this.state, contacts: randomContact });
@@ -38,6 +37,14 @@ class App extends Component {
     this.setState({ ...this.state, contacts: popuContact.sort(compare) });
   };
 
+  deleteContactHandler = (index)=>{
+    console.log(index);
+    let deleteContact = [...this.state.contacts];
+    deleteContact.splice(index,1);
+    this.setState({...this.state, contacts:deleteContact});
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,13 +55,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-
+        <button onClick={this.randomHandler}>Add Random Contact</button>
+        <button onClick={this.sortNameHandler}>Sort by Name</button>
+        <button onClick={this.sortPopularityHandler}>Sort by popularity</button>
         <div className="contactCont">
-          <button onClick={this.randomHandler}>Add Random Contact</button>
-          <button onClick={this.sortNameHandler}>Sort by Name</button>
-          <button onClick={this.sortPopularityHandler}>
-            Sort by popularity
-          </button>
           <table>
             <tbody>
               <tr>
@@ -62,9 +66,7 @@ class App extends Component {
                 <th>Name</th>
                 <th>Popularity</th>
               </tr>
-              {this.state.contacts.map((contact, index) => (
-                <Contact key={index} {...contact} />
-              ))}
+              {this.state.contacts.map((contact, index) => (<Contact key={index} index={index} {...contact}  deleteContactHandler={this.deleteContactHandler}/>))}
             </tbody>
           </table>
         </div>
