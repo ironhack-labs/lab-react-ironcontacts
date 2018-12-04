@@ -52,19 +52,19 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <p className="App-intro saludo">
+Yared & David los f***ng jaggermaister
         </p>
-        <button onClick={this.randomHandler}>Add Random Contact</button>
-        <button onClick={this.sortNameHandler}>Sort by Name</button>
-        <button onClick={this.sortPopularityHandler}>Sort by popularity</button>
+        <button className="btnStyle" onClick={this.randomHandler}>Add Random Contact</button>
+        <button className="btnStyle" onClick={this.sortNameHandler}>Sort by Name</button>
+        <button className="btnStyle" onClick={this.sortPopularityHandler}>Sort by popularity</button>
         <div className="contactCont">
           <table>
             <tbody>
               <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
+                <th className="tableStyle">Picture</th>
+                <th className="tableStyle">Name</th>
+                <th className="tableStyle">Popularity</th>
               </tr>
               {this.state.contacts.map((contact, index) => (<Contact key={index} index={index} {...contact}  deleteContactHandler={this.deleteContactHandler}/>))}
             </tbody>

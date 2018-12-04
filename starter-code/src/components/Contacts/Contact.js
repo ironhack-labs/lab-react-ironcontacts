@@ -13,7 +13,7 @@ export default class Contact extends Component {
        <td> <img className="imgStyle" src={this.props.pictureUrl} alt=""/> </td>
        <td className="name">{this.props.name}</td>
        <td>{this.props.popularity}</td>
-       <button onClick={()=>this.props.deleteContactHandler(this.props.index)}>Delete</button>
+       <button className="btnStyle" onClick={()=>this.props.deleteContactHandler(this.props.index)}>Delete</button>
       </tr>
     );
   }

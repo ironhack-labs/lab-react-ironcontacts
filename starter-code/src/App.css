@@ -1,5 +1,9 @@
 .App {
     text-align: center;
+    background-image: url(/img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .App-logo {
@@ -37,4 +41,24 @@
     justify-content: center;
     margin-right: 250px;
     margin-top: 100px;
+}
+
+.btnStyle {
+border-radius: 5px;
+padding: 15px;
+background-color: #81ccde;
+border: 0px;
+font-size: 16px;
+font-weight: 700;
+margin:10px;
+}
+
+.tableStyle {
+    font-size: 36px;
+    font-weight: 100;
+}
+
+.saludo {
+    color: white;
+    font-size: 30px;
 }
