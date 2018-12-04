@@ -21,6 +21,22 @@ class Table extends Component {
   }
 
 
+
+  sortName = () => {
+    const _contact = [...this.state.contact]
+    const arrSortName = _contact.sort((a,b) => (a.name).localeCompare(b.name));
+    this.setState({...this.state, contact:arrSortName})
+    console.log(arrSortName)
+  }
+
+
+  sortPopu = () => {
+    const _contact = [...this.state.contact]
+    const arrSortPopu = _contact.sort((a,b) => (b.popularity - a.popularity));
+    this.setState({...this.state, contact:arrSortPopu})
+    console.log(arrSortPopu)
+  }
+
   render() {
     
        return (
@@ -28,6 +44,9 @@ class Table extends Component {
         <h1>IronContacts</h1>
 
         <button onClick={this.addRandom}>Add Random</button>
+        <button onClick={this.sortName}>sort Name</button>
+        <button onClick={this.sortPopu}>Sort Popularity</button>
+
         <table>
           <tr>
             <th>{Object.keys(contacts[0])[1]}</th>
