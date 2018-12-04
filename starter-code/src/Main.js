@@ -9,9 +9,9 @@ class Main extends Component {
         firstFive : contacts.slice(0,5)
     }
 
-    addRandomContact = () => { 
+    addRandomContact = () => { // works
         const newContactList = [...this.state.firstFive] 
-        var randomNum = Math.floor((Math.random()*200)+1);
+        let randomNum = Math.floor((Math.random()*200)+1);
 
         if(randomNum !== this.firstFive){
             newContactList.push( 
@@ -20,32 +20,54 @@ class Main extends Component {
         } else {
             randomNum;
         }
-        
-        
         this.setState({ 
             firstFive:newContactList
         })
     }
         
-    sortByName = () => {
-        this.state.firstFive.sort(function(a, b) {
-            var nameOne = a.name.toUpperCase();
-            var nameTwo = b.name.toUpperCase(); 
-            if (nameOne < nameTwo) {
-              return -1;
-            }
-            if (nameOne > nameTwo) {
-              return 1;
-            }
-        }
-    )}
+    sortByName = () => {  // works
+       let sortedNames = [...this.state.firstFive]
 
-    deleteContact = (i) => {
-        console.log(i)
-        const contacts = this.state.contacts;
+       sortedNames.sort((a,b)=>{
+        if(a.name > b.name){
+            return 1;
+        } 
+        if(a.name < b.name){
+            return -1;
+        } 
+        else {
+            return 0;
+        }
+       })
+        this.setState({
+            firstFive:sortedNames
+    })
+    }
+
+    sortByPop = () => {  // works
+        let sortedPop = [...this.state.firstFive]
+ 
+        sortedPop.sort((a,b)=>{
+         if(a.popularity > b.popularity){
+             return 1;
+         } 
+         if(a.popularity < b.popularity){
+             return -1;
+         } 
+         else {
+             return 0;
+         }
+        })
+         this.setState({
+             firstFive:sortedPop
+     })
+     }
+
+    deleteContact = (i) => {  // works
+        const contacts = [...this.state.firstFive] 
         contacts.splice(i, 1); 
         this.setState({ 
-            contacts:contacts
+            firstFive:contacts
         })
     }
 
@@ -58,7 +80,7 @@ class Main extends Component {
                         <img src={theContact.pictureUrl} width="100px"/> 
                         <h2>Popularity: {theContact.popularity}</h2>  
                          
-                        <button onClick={() => this.deleteContact(index)}>Delete Contact</button>
+                        <button onClick={() => this.deleteContact(index)}>Delete Contact</button> 
 
                     </li>
         )
@@ -67,8 +89,8 @@ class Main extends Component {
         return (
             <div>
                 <button onClick={this.addRandomContact} className="addContact">Add a Contact</button>
-                <button onClick={this.sortByName} className="addContact">Sort by Name</button>
-                <button onClick={this.sortByPop} className="addContact">Sort by Popularity</button>
+                <button onClick={this.sortByName} className="">Sort by Name</button>
+                <button onClick={this.sortByPop} className="">Sort by Popularity</button>
                 {listItems}
             </div>
         )
