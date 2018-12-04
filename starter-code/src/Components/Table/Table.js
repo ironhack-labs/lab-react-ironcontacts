@@ -58,7 +58,7 @@ class Table extends Component {
           {/* {contacts.splice(0,5).map((contact, index)=>{
             return (<Actor {...contact} />)
           })} */}
-         {this.state.contact.map(contact => <Actor {...contact}/>)}
+         {this.state.contact.map(contact => <Actor {...contact}/>) } 
         </table>
       </div>
     );
