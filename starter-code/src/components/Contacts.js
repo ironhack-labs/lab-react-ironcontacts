@@ -23,11 +23,20 @@ export default class Navbar extends Component {
           </th>
           <th>{item.name}</th>
           <th>{item.popularity}</th>
+          <th><button onClick={()=>this.deleteAct(index)}>Delete</button></th>
         </tr>
       );
     });
     return actor;
   };
+
+  deleteAct = (e) => {
+    let aux = [...this.state.contacts]
+    aux.splice(e, 1)
+    this.setState({...this.state, contacts: aux})
+  }
+
+
 
   getRandomAct = () => {
     let aux = this.state.contacts;
@@ -43,7 +52,7 @@ export default class Navbar extends Component {
   };
 
   sortName = () => {
-    let aux = this.state.contacts;
+    let aux = [...this.state.contacts];
     aux.sort(function(a, b) {
       var x = a.name.toLowerCase();
       var y = b.name.toLowerCase();
@@ -62,7 +71,7 @@ export default class Navbar extends Component {
   };
 
   sortPopularity = () => {
-    let aux = this.state.contacts;
+    let aux = [...this.state.contacts];
     aux.sort(function(a, b) {return a.popularity - b.popularity});
     this.setState({
       ...this.state,
@@ -82,6 +91,7 @@ export default class Navbar extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>{this.createTable()}</tbody>
