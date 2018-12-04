@@ -45,9 +45,9 @@ export default class Famous extends React.Component {
     this.setState({ famous: arraySort })
   }
 
-  delete(index){
+  delete(index) {
     let arrayDeleted = [...this.state.famous]
-    arrayDeleted.splice(index,1)
+    arrayDeleted.splice(index, 1)
     this.setState({ famous: arrayDeleted })
   }
 
@@ -66,7 +66,7 @@ export default class Famous extends React.Component {
             {element.popularity}
           </td>
           <td>
-          <Button function={()=>this.delete(index)}>Delete</Button>
+            <Button function={() => this.delete(index)}>Delete</Button>
           </td>
         </tr>
       )
