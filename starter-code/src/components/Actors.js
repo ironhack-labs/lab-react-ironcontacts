@@ -1,18 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Actors = ({ name, pictureUrl, popularity }) => {
   return (
     <div>
-      <h1>IronContacts</h1>
       <table>
         <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-        </tr>
-        <tr>
           <td>
-            <img src={pictureUrl} />
+            <img src={pictureUrl} alt="lasd" width="100px" />
           </td>
           <td>{name}</td>
           <td>{popularity}</td>
