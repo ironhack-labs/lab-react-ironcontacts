@@ -20,11 +20,22 @@ class App extends Component {
     return contacts.map((contact,idx)=><Contact key={idx}{...contact}/>)
   }
 
+  addRandom = () => {
+    let randContact = contacts[Math.floor(Math.random()*contacts.length)+4]
+    let currContacts = this.state.contacts
+    currContacts.push(randContact)
+    this.setState({
+      contacts:currContacts
+    })
+  }
+
   render() {
     console.log(this.state.contacts)
+    const {addRandom} = this
     return (
       <Fragment>
         <h1>Iron Contacts</h1>
+        <button onClick={addRandom}>Add Random Contact</button>
         {this.drawContacts()}
       </Fragment>
     )
