@@ -5,7 +5,7 @@ const Contact = ({arrayPos, pictureUrl, name, popularity, deleteFunc}) => (
     <img src={pictureUrl} alt="contact pic"/>
     <h4>{name}</h4>
     <p>{popularity}</p>
-    <button name={arrayPos} onClick={deleteFunc}>Detlete</button>
+    <button name={arrayPos} onClick={deleteFunc}>Delete</button>
   </div>
 )
 
