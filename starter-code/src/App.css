@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.contact-card {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  margin: 8px;
+}
+
+.contact-card img {
+  max-height: 100px;
+}

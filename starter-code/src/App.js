@@ -1,20 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
 import './App.css';
+import contacts from "./contacts.json"
+import Contact from './components/Contact'
 
 class App extends Component {
+  state = {
+  }
+
+  componentWillMount(){
+    let initContacts = []
+    for(let i = 0; i < 5; i++){
+      initContacts.push(contacts[i])
+    }
+    this.setState({contacts:initContacts})
+  }
+
+  drawContacts = () => {
+    const {contacts} = this.state
+    return contacts.map((contact,idx)=><Contact key={idx}{...contact}/>)
+  }
+
   render() {
+    console.log(this.state.contacts)
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Fragment>
+        <h1>Iron Contacts</h1>
+        {this.drawContacts()}
+      </Fragment>
+    )
   }
 }
 
