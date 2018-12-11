@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+table{
+  width:70%;
+  padding-left: 15%;
+}
+#contactos{
+  width:100%;
+}
+#contactos td{
+  width:100%;
+  text-align: center;
+}

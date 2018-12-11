@@ -1,0 +1,13 @@
+.Lista-Contacto img{
+    min-width: 150px;
+    max-width: 200px;
+}
+.Lista-Contacto td{
+    padding-left: 15%;
+    text-align: center;
+    width: 100%;
+}
+.Lista-Contacto tr{
+    text-align: center;
+    width: 100%;
+}
