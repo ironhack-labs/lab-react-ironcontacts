@@ -12,29 +12,65 @@ class Lista extends Component {
 
   randomList = () => {
     const { actors } = this.state;
-    // const { listActors } = this.state;
+    let { listActors } = this.state;
     let random = Math.floor(Math.random() * actors.length);
-    // let add = listActors.push(random);
+    listActors.push(actors[random]);
 
-    this.setState({ rndActor: actors[random], rnd: true });
+    this.setState({ listActors });
+  };
+
+  sortList = () => {
+    const { listActors } = this.state;
+    let sortName = (a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+    };
+
+    listActors.sort(sortName);
+    this.setState({ listActors: listActors });
+  };
+
+  popList = () => {
+    const { listActors } = this.state;
+    let sortPop = (a, b) => {
+      if (a.popularity > b.popularity) {
+        return 1;
+      }
+      if (a.popularity < b.popularity) {
+        return -1;
+      }
+    };
+
+    listActors.sort(sortPop);
+    this.setState({ listActors: listActors });
   };
 
   render() {
     const { listActors, rndActor, rnd } = this.state;
-    console.log(rndActor);
+    console.log(this.state);
     return (
       <div>
         <h1>IronContacts</h1>
         <button onClick={this.randomList}>Add Random Contacts</button>
+        <button onClick={this.sortList}>Sort by name</button>
+        <button onClick={this.popList}>Sort by popularity</button>
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-          {listActors.map(actor => (
-            <Actors key={actor.id} {...actor} />
-          ))}
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listActors.map((actor, index) => (
+              <Actors key={index} {...actor} />
+            ))}
+          </tbody>
         </table>
         {rnd ? (
           <tr>
