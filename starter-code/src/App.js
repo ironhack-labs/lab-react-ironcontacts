@@ -14,10 +14,18 @@ class App extends Component {
     }
     this.setState({contacts:initContacts})
   }
+  
+  deleteFunc = e => {
+    let currContacts = this.state.contacts
+    currContacts.splice(e.currentTarget.name,1)
+    this.setState({
+      contacts:currContacts
+    })
+  }
 
   drawContacts = () => {
     const {contacts} = this.state
-    return contacts.map((contact,idx)=><Contact key={idx}{...contact}/>)
+    return contacts.map((contact,idx)=><Contact key={idx} arrayPos={idx} deleteFunc={this.deleteFunc} {...contact}/>)
   }
 
   addRandom = () => {
@@ -58,7 +66,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.contacts)
     const {addRandom, sortByName, sortByPopularity} = this
     return (
       <Fragment>
