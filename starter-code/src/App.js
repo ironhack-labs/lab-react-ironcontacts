@@ -37,29 +37,23 @@ class App extends Component {
     })
   }
 
-  compareName = (a,b) => {
-    if(a.name < b.name) return -1
-    if(a.name > b.name) return 1
+  compare = (a,b, query="popularity", order=1) => {
+    if(a[query] < b[query]) return order
+    if(a[query] > b[query]) return -order
     return 0
   }
 
   sortByName = () => {
     let currContacts = this.state.contacts
-    currContacts.sort(this.compareName)
+    currContacts.sort((a, b)=>this.compare(a, b, "name", -1))
     this.setState({
       contacts:currContacts
     })
   }
 
-  comparePopularity = (a,b) => {
-    if(a.popularity > b.popularity) return -1
-    if(a.popularity < b.popularity) return 1
-    return 0
-  }
-
   sortByPopularity = () => {
     let currContacts = this.state.contacts
-    currContacts.sort(this.comparePopularity)
+    currContacts.sort((a, b)=>this.compare(a, b))
     this.setState({
       contacts:currContacts
     })
