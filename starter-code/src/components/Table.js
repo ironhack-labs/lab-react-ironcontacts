@@ -28,13 +28,30 @@ class Table extends Component{
         this.setState({items})
     }
 
+    check = (a,b, property, order) => {
+        if(a[property] < b[property]) return order
+        if(a[property] > b[property]) return -order
+        return 0
+    }
+
+    sortName = () =>{
+        let {items} = this.state
+        items.sort((a, b)=>this.check(a, b, "name", -1))
+        this.setState({items})
+    }
+    sortPopularity = () =>{
+        let {items} = this.state
+        items.sort((a, b)=>this.check(a, b,"popularity",1))
+        this.setState({items})
+    }
     render(){
         const {items} = this.state
-        const {addRan} = this
+        const {addRan,sortPopularity,sortName} = this
         return(
             <div>
                 <button onClick={addRan}>Add Random Contact</button>
-
+                <button onClick={sortName}>Sort by name</button>
+                <button onClick={sortPopularity}>Sort by popularity</button>
 
                 <table className="home-promo-cards">
                     <tr>
