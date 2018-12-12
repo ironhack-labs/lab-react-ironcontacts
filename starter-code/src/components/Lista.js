@@ -49,6 +49,12 @@ class Lista extends Component {
     this.setState({ listActors: listActors });
   };
 
+  delete = index => {
+    const deleteActor = this.state.listActors;
+    deleteActor.splice(index, 1);
+    this.setState({ listActors: deleteActor });
+  };
+
   render() {
     const { listActors, rndActor, rnd } = this.state;
     console.log(this.state);
@@ -64,12 +70,16 @@ class Lista extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {listActors.map((actor, index) => (
               <Actors key={index} {...actor} />
             ))}
+            <td>
+              <button onClick={this.detele}>Delete</button>
+            </td>
           </tbody>
         </table>
         {rnd ? (
