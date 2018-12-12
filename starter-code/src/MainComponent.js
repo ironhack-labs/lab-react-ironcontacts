@@ -43,12 +43,13 @@ class MainComponent extends Component {
 			return 0;
 		};
 		list.sort(sortNames);
-		console.log(list);
+        console.log(list);
+        
 		this.setState({
 			showList: list
 		});
 	};
-
+ 
     sortPop = () => {
         const listPop = [ ...this.state.showList ];
 
@@ -62,7 +63,10 @@ class MainComponent extends Component {
 			return 0;
 		};
 		listPop.sort(sortPopularity);
-		console.log(listPop);
+        console.log(listPop);
+        
+
+
 		this.setState({
 			showList: listPop
 		});
