@@ -21,17 +21,30 @@ class Table extends Component{
         this.setState({items:getFive(contacts)})
     }
 
+    addRan = () => {
+        let random = contacts[Math.floor(Math.random()*contacts.length)+4]
+        let {items} = this.state
+        items.push(random)
+        this.setState({items})
+    }
+
     render(){
         const {items} = this.state
+        const {addRan} = this
         return(
-            <table className="home-promo-cards">
-                <tr>
-                    <th>Name</th>
-                    <th>Picture</th>
-                    <th>Popularity</th>
-                </tr>
-                {items.map((item,index)=> <Element key={index} {...item} />)}
-            </table>
+            <div>
+                <button onClick={addRan}>Add Random Contact</button>
+
+
+                <table className="home-promo-cards">
+                    <tr>
+                        <th>Name</th>
+                        <th>Picture</th>
+                        <th>Popularity</th>
+                    </tr>
+                    {items.map((item,index)=> <Element key={index} {...item} />)}
+                </table>
+            </div>
         )
     }
 }
