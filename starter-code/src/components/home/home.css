@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin:0
+}
+
+h1{
+    text-align: center
+}
+
+.banner{
+    background-image: url('https://media.vanityfair.com/photos/5452abdeb8745bb176801fb9/master/w_768,c_limit/peg-entwistle-03.jpg');
+    background-size: cover;
+    width:100vw;
+    height:100vh 
+}
+
+.tabla{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.tabla img{
+    width:100px
+}
+
+.cont-botones{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    padding: 10px
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 15px;
+}
