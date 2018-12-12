@@ -1,21 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import contacts from '../src/contacts.json'
+import Contacts from './components/contacts/Contacts'
+
 
 class App extends Component {
+  
+  state = { }
+  
+componentWillMount(){
+let list = [];
+for (var i = 0; i < 5; i++) {
+  list.push(contacts[i])
+}
+this.setState({contacts: list})
+}
+
+
   render() {
+    console.table(this.state.contacts)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <h1>IronContacts</h1>
+         <table>
+           <thead>
+             <tr>
+             <th>Picture</th>
+             <th>Name</th>
+             <th>Popularity</th>
+             </tr>
+           </thead>
+           <tbody>
+   {this.state.contacts.map((celebrity, contador) => {
+             return (
+               <Contacts key={contador} {...celebrity} />
+             )
+           })}
+          </tbody>
+         </table>
       </div>
     );
   }
 }
+
+
 
 export default App;
