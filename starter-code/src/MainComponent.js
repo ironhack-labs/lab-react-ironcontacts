@@ -43,15 +43,15 @@ class MainComponent extends Component {
 			return 0;
 		};
 		list.sort(sortNames);
-        console.log(list);
-        
+		console.log(list);
+
 		this.setState({
 			showList: list
 		});
 	};
- 
-    sortPop = () => {
-        const listPop = [ ...this.state.showList ];
+
+	sortPop = () => {
+		const listPop = [ ...this.state.showList ];
 
 		let sortPopularity = (a, b) => {
 			if (a.popularity < b.popularity) {
@@ -63,20 +63,16 @@ class MainComponent extends Component {
 			return 0;
 		};
 		listPop.sort(sortPopularity);
-        console.log(listPop);
-        
-
+		console.log(listPop);
 
 		this.setState({
 			showList: listPop
 		});
+	};
 
-    }
-
-
-    deleteContact = () => {
-        const 
-    }
+	// deleteContact = () => {
+	//     const
+	// }
 
 	render() {
 		let showList = this.state.showList.map((contact, index) => {
@@ -93,7 +89,7 @@ class MainComponent extends Component {
 				{showList}
 				<button onClick={this.getRand}>Add Random</button>
 				<button onClick={this.sortList}>Sort List (abc)</button>
-                <button onClick={this.sortPop}>Sort List (Pop)</button>
+				<button onClick={this.sortPop}>Sort List (Pop)</button>
 			</div>
 		);
 	}
