@@ -55,6 +55,10 @@ class App extends Component {
     this.setState({contactsArr: newArray})
   }
 
+  handleDelete(index){
+    this.state.contactsArr.splice(index,1);
+    this.setState({contactsArr: this.state.contactsArr})
+  }
 
   render() {
   
@@ -64,7 +68,9 @@ class App extends Component {
        <button onClick={()=>this.handleAdd()} className="button is-primary" >Add random contact</button>
        <button onClick={()=>this.handleSortByName()} className="button is-warning">Sort by name</button>
        <button onClick={()=>this.handleSortByPopularity()} className="button is-info">Sort by popularity</button>
-       <ListaContactos contactData={this.state.contactsArr}/>
+       <ListaContactos 
+       contactData={this.state.contactsArr}
+       deleteContact={(index)=>this.handleDelete(index)}/>
       </div>
     );
   }

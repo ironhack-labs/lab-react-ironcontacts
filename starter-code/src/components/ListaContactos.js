@@ -1,7 +1,7 @@
 import React from "react";
 import {ItemContacto} from './ItemContacto'
 
-export const ListaContactos = ({contactData}) => {
+export const ListaContactos = ({contactData, deleteContact}) => {
   return (
     <div className="container">
       <table className="table">
@@ -10,6 +10,7 @@ export const ListaContactos = ({contactData}) => {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -17,7 +18,8 @@ export const ListaContactos = ({contactData}) => {
               <ItemContacto
                 key={e.name}
                 index={i}
-                item={e}/>
+                item={e}
+                onDelete={(index)=> deleteContact(index)}/>
             ))}
         </tbody>
       </table>
