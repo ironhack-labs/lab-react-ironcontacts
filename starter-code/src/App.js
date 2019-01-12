@@ -41,6 +41,20 @@ class App extends Component {
 
   }
 
+  handleSortByName(){
+    let newArray = this.state.contactsArr.slice();
+    newArray.sort((a,b)=>
+      (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+    this.setState({contactsArr: newArray})
+  }
+
+  handleSortByPopularity(){
+    let newArray = this.state.contactsArr.slice();
+    newArray.sort((a,b)=>
+      (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0))
+    this.setState({contactsArr: newArray})
+  }
+
 
   render() {
   
@@ -48,6 +62,8 @@ class App extends Component {
       <div className="App content">
        <h1>IronContacts</h1>
        <button onClick={()=>this.handleAdd()} className="button is-primary" >Add random contact</button>
+       <button onClick={()=>this.handleSortByName()} className="button is-warning">Sort by name</button>
+       <button onClick={()=>this.handleSortByPopularity()} className="button is-info">Sort by popularity</button>
        <ListaContactos contactData={this.state.contactsArr}/>
       </div>
     );
