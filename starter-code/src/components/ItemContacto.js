@@ -6,7 +6,7 @@ export const ItemContacto = ({index,item}) => {
     <tr>
       <td>
         <figure className="image is-4by5">
-        <img src={item.pictureUrl}/>
+        <img src={item.pictureUrl} alt={item.name}/>
         </figure>
       </td>
       <td>{item.name}</td>
