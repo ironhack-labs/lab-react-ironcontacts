@@ -1,76 +1,76 @@
-import React, { Component } from 'react';
-import './App.css';
-import contacts from './contacts.json';
+import React, { Component } from "react";
+import "./App.css";
+import contacts from "./contacts.json";
 
-import {ListaContactos} from './components/ListaContactos'
+import { ListaContactos } from "./components/ListaContactos";
+import { Header } from "./components/Header";
 
 class App extends Component {
-
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      contactsArr : contacts.slice(0,5)
+      contactsArr: contacts.slice(0, 5),
+      message: false
+    };
+  }
+
+  handleAdd() {
+    let newContact = {};
+    let index = 0;
+
+    do {
+      newContact = contacts[Math.floor(Math.random() * contacts.length)];
+      index = this.state.contactsArr.findIndex(c => c.name === newContact.name);
+    } while (index !== -1 && contacts.length > this.state.contactsArr.length);
+
+    if (index === -1) {
+      this.state.contactsArr.push(newContact);
+      this.setState({ contactsArr: this.state.contactsArr });
+      if (contacts.length === this.state.contactsArr.length) {
+        this.setState({ message: true });
+      }
     }
   }
 
-  handleAdd(){
-    let newArray = this.state.contactsArr.slice();
-    let newContact;
-    let names = newArray.map(cont =>cont.name)
-    let different = false;
+  handleSort(param) {
+    let isName = param === "name";
+    isName
+      ? this.state.contactsArr.sort((a, b) =>
+          a[param] > b[param] ? 1 : b[param] > a[param] ? -1 : 0
+        )
+      : this.state.contactsArr.sort((a, b) =>
+          a[param] < b[param] ? 1 : b[param] < a[param] ? -1 : 0
+        );
 
-      // check that the newContact is not already on the list
-      while(different ===false){
-        newContact = contacts[Math.floor(Math.random() * contacts.length)]
-        for(let i = 0; i<names.length; i++){
-          if(names.indexOf(newContact.name) === -1){
-            different = true
-            break;
-          }
-        }
-      }
-      
-      //when is newContact ok is makes the setState
-      if(different){
-        console.log(newContact.name)
-        newArray.push(newContact) 
-        this.setState({contactsArr: newArray})
-      } else {
-        console.log("ya existe" + newContact.name)
-      }
-
+    this.setState({ contactsArr: this.state.contactsArr });
   }
 
-  handleSortByName(){
-    let newArray = this.state.contactsArr.slice();
-    newArray.sort((a,b)=>
-      (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
-    this.setState({contactsArr: newArray})
-  }
+  handleDelete(idx) {
+    this.state.contactsArr.splice(idx, 1);
+    this.setState({ contactsArr: this.state.contactsArr });
 
-  handleSortByPopularity(){
-    let newArray = this.state.contactsArr.slice();
-    newArray.sort((a,b)=>
-      (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0))
-    this.setState({contactsArr: newArray})
-  }
-
-  handleDelete(index){
-    this.state.contactsArr.splice(index,1);
-    this.setState({contactsArr: this.state.contactsArr})
+    if (this.state.contactsArr.length < contacts.length) {
+      this.setState({ message: false });
+    }
   }
 
   render() {
-  
     return (
-      <div className="App content">
-       <h1>IronContacts</h1>
-       <button onClick={()=>this.handleAdd()} className="button is-primary" >Add random contact</button>
-       <button onClick={()=>this.handleSortByName()} className="button is-warning">Sort by name</button>
-       <button onClick={()=>this.handleSortByPopularity()} className="button is-info">Sort by popularity</button>
-       <ListaContactos 
-       contactData={this.state.contactsArr}
-       deleteContact={(index)=>this.handleDelete(index)}/>
+      <div className="App">
+        <Header
+          staticButton={this.state.message}
+          addContact={() => this.handleAdd()}
+          sortContact={param => this.handleSort(param)}
+        />
+        {this.state.message ? (
+          <article className="message is-danger">
+            <div className="message-body">You've added all the contacts!</div>
+          </article>
+        ) : null}
+        <ListaContactos
+          contactData={this.state.contactsArr}
+          deleteContact={idx => this.handleDelete(idx)}
+        />
       </div>
     );
   }

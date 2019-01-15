@@ -1,19 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 
-export class ItemContacto extends Component {
-  
-  
-  handleDelete(e){
-    this.props.onDelete(this.props.index)
-  }
-
-  static propTypes = {
-    onDelete: PropTypes.func,
-};
-
-  render() {
-    let {item} = this.props;
+export const ItemContacto =({item,index,onDelete})=> {
     return (
       <tr>
         <td>
@@ -24,9 +12,13 @@ export class ItemContacto extends Component {
         <td>{item.name}</td>
         <td>{item.popularity.toFixed(2)}</td>
         <td>
-          <a onClick={(e)=>this.handleDelete(e)} className="delete">Delete</a>
+          <button onClick={()=>onDelete(index)} className="delete">Delete</button>
         </td>
       </tr>
     );
-  }
+  
+}
+
+ItemContacto.propTypes ={
+  onDelete: PropTypes.func,
 }
