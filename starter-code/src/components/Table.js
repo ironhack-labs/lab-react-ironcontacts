@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import contacts from "../contacts.json";
 import "./Table.css";
 import _ from "lodash";
+import ActionButton from "./ActionButton";
 
 let contactsArr = [];
 
@@ -19,42 +20,50 @@ class Table extends Component {
     };
   }
 
-  addNew = () => {
+  addNew() {
+    console.log("adding");
     const addedNewArr = [...this.state.contacts];
     let randomIndex = Math.floor(Math.random() * contacts.length);
     addedNewArr.push(contacts[randomIndex]);
     this.setState({ contacts: addedNewArr });
-  };
+  }
 
-  orderByName = () => {
+  orderByName() {
     let orderedByName = [...this.state.contacts];
     orderedByName = _.orderBy(orderedByName, ["name"], ["asc"]); // Use Lodash to sort array by 'name'
     this.setState({ contacts: orderedByName });
-  };
+  }
 
-  orderByPop = () => {
+  orderByPop() {
     let orderedByPop = [...this.state.contacts];
     orderedByPop = _.orderBy(orderedByPop, ["popularity"], ["asc"]); // Use Lodash to sort array by 'name'
     this.setState({ contacts: orderedByPop });
-  };
+  }
 
-  delete = index => {
+  delete(index) {
+    console.log("calling delete function");
     const deletedArr = [...this.state.contacts];
     deletedArr.splice(index, 1);
 
     this.setState({
       contacts: deletedArr
     });
-  };
+  }
 
   render() {
     console.log(this.state);
 
     return (
       <div>
-        <button onClick={this.addNew}>Add random contact</button>
-        <button onClick={this.orderByName}>Sort by name</button>
-        <button onClick={this.orderByPop}>Sort by popularity</button>
+        <ActionButton onClickFunction={() => this.addNew()}>
+          Add random contact
+        </ActionButton>
+        <ActionButton onClickFunction={() => this.orderByName()}>
+          Sort by name
+        </ActionButton>
+        <ActionButton onClickFunction={() => this.orderByPop()}>
+          Sort by popularity
+        </ActionButton>
         <div className="table-container">
           <table>
             <thead>
@@ -74,7 +83,9 @@ class Table extends Component {
                     <td>{oneContact.name}</td>
                     <td>{oneContact.popularity}</td>
                     <td>
-                      <button onClick={this.delete}>Delete</button>
+                      <ActionButton onClickFunction={() => this.delete(index)}>
+                        Delete
+                      </ActionButton>
                     </td>
                   </tr>
                 );

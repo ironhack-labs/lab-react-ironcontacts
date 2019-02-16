@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Table from "./components/Table";
-import RandomButton from "./components/RandomButton";
 
 class App extends Component {
   render() {
