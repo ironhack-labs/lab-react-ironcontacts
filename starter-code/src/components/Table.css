@@ -2,6 +2,17 @@
   height: 10%;
 }
 
-.table-container {
-  text-align: center;
+th {
+  font-size: 2.5vw;
 }
+
+.buttonRow {
+  margin-top: 2%;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+/* .table-container {
+  text-align: center;
+  margin: 0 auto;
+} */

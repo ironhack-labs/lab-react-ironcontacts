@@ -6,8 +6,9 @@ import Table from "./components/Table";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <h1>IronContacts</h1>
+
         <Table />
       </div>
     );

@@ -3,6 +3,7 @@ import contacts from "../contacts.json";
 import "./Table.css";
 import _ from "lodash";
 import ActionButton from "./ActionButton";
+import "bootstrap/dist/css/bootstrap.css";
 
 let contactsArr = [];
 
@@ -11,8 +12,16 @@ class Table extends Component {
     super(); //this runs React Component's constructor
     //initial state
 
+    //round to two decimals
+    const twoDecimalsArr = [...contacts];
+    twoDecimalsArr.forEach(
+      contact =>
+        (contact.popularity = Math.round(contact.popularity * 100) / 100)
+    );
+
+    //get first five
     for (let i = 0; i < 5; i++) {
-      contactsArr.push(contacts[i]);
+      contactsArr.push(twoDecimalsArr[i]);
     }
 
     this.state = {
@@ -54,45 +63,59 @@ class Table extends Component {
     console.log(this.state);
 
     return (
-      <div>
-        <ActionButton onClickFunction={() => this.addNew()}>
-          Add random contact
-        </ActionButton>
-        <ActionButton onClickFunction={() => this.orderByName()}>
-          Sort by name
-        </ActionButton>
-        <ActionButton onClickFunction={() => this.orderByPop()}>
-          Sort by popularity
-        </ActionButton>
-        <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.contacts.map((oneContact, index) => {
-                return (
-                  <tr key={index}>
-                    <td>
-                      <img src={oneContact.pictureUrl} className="table-img" />
-                    </td>
-                    <td>{oneContact.name}</td>
-                    <td>{oneContact.popularity}</td>
-                    <td>
-                      <ActionButton onClickFunction={() => this.delete(index)}>
-                        Delete
-                      </ActionButton>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      <div className="table-container">
+        <div className="buttonRow w-100">
+          <ActionButton
+            onClickFunction={() => this.addNew()}
+            className="btn btn-link"
+          >
+            Add random contact
+          </ActionButton>
+          <ActionButton
+            onClickFunction={() => this.orderByName()}
+            className="btn btn-link mx-3"
+          >
+            Sort by name
+          </ActionButton>
+          <ActionButton
+            onClickFunction={() => this.orderByPop()}
+            className="btn btn-link"
+          >
+            Sort by popularity
+          </ActionButton>
         </div>
+        <table className="mt-4 table table-hover table-info">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th class="text-left">Name</th>
+              <th class="text-left">Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.contacts.map((oneContact, index) => {
+              return (
+                <tr key={index}>
+                  <td>
+                    <img src={oneContact.pictureUrl} className="table-img" />
+                  </td>
+                  <td class="text-left align-middle">{oneContact.name}</td>
+                  <td class="text-left align-middle">
+                    {oneContact.popularity}
+                  </td>
+                  <td class="text-left align-middle">
+                    <ActionButton
+                      onClickFunction={() => this.delete(index)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </ActionButton>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
