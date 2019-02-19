@@ -39,12 +39,8 @@ class Table extends Component{
   };
 
   delete = (name) => {
-    let copyContacts = [...this.state.contacts];
-    copyContacts = copyContacts.filter((contact) => {
-      return contact.name !== name;
-    });
     this.setState(
-      {contacts: copyContacts}
+      {contacts: [...this.state.contacts].filter(contact => contact.name !== name)}
     );
   };
   
