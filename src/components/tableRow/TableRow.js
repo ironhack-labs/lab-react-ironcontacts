@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
-class TableData extends Component{
+class TableRow extends Component{
+
+  handleDeleteAction = () => {
+    this.props.delete(this.props.name);
+  };
+
   render(){
 
     return(
@@ -14,10 +19,10 @@ class TableData extends Component{
         <td>
           <p>{this.props.popularity}</p>
         </td>
-        <button>delete</button>
+        <button onClick={this.handleDeleteAction}>delete</button>
       </tr>
     )
   }
 }
 
-export default TableData;
+export default TableRow;

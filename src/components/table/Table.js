@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TableData from '../tableData/TableData';
+import TableRow from '../tableRow/TableRow';
 import TableHead from '../tableHead/TableHead';
 import contacts from '../../contacts.json';
 
@@ -28,7 +28,6 @@ class Table extends Component{
     this.setState({
       contacts: copyContacts,
     });
-
   };
 
   sortPopularity = () => {
@@ -37,13 +36,28 @@ class Table extends Component{
     this.setState({
       contacts: copyContacts,
     });
+  };
 
+  delete = (name) => {
+    let copyContacts = [...this.state.contacts];
+    copyContacts = copyContacts.filter((contact) => {
+      return contact.name !== name;
+    });
+    this.setState(
+      {contacts: copyContacts}
+    );
   };
   
   render(){
 
     const celebrities = this.state.contacts.map((celebrity, index) => {
-      return (<TableData key={index} src={celebrity.pictureUrl} name={celebrity.name} popularity={celebrity.popularity}/>); 
+      return (<TableRow 
+        key={index} 
+        src={celebrity.pictureUrl} 
+        name={celebrity.name} 
+        popularity={celebrity.popularity} 
+        delete={this.delete}
+      />); 
     });
 
     return(
