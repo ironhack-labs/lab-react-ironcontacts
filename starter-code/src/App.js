@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+
+// import contacts from "./contacts.json";
+
+import ContactList from "./Components/contactList.js";
+import "./App.css";
 
 class App extends Component {
   render() {
+    // const { contacts } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          <h1>Contact List</h1>
+
+          <ContactList />
+          {/* <th>{contactList}</th> */}
+          {/* <p> {contacts.name}</p> */}
+        </div>
       </div>
     );
   }
