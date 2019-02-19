@@ -5,7 +5,7 @@ import FunctionButton from "../FunctionButton/FunctionButton";
 class ContactTable extends Component {
   render() {
     return (
-      <table>
+      <table >
         <thead>
           <tr>
             <th>Picture</th>
@@ -20,7 +20,7 @@ class ContactTable extends Component {
               <td><img className="img-table" src={e.pictureUrl}/></td>
               <td><h2>{e.name}</h2></td>
               <td><h4>{e.popularity.toFixed(2)}</h4></td>
-              <tb><FunctionButton functionProp={() => this.props.deleteProp(e.name)}>Delete</FunctionButton></tb>
+              <td><FunctionButton functionProp={() => this.props.deleteProp(e.name)}>Delete</FunctionButton></td>
             </tr>
           })}
         </tbody>

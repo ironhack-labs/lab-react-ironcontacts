@@ -1,14 +1,14 @@
 button {
-    background-color: purple;
-    border-radius: 20px;
-    padding: 10px;
+    background-color:#F2B134;
+    border-radius: 5px;
+    padding: 7px 10px;
     font-size: 15px;
-    margin: 0 10px;
-    border: solid 1px purple;
-    color: white;
+    margin: 0px 10px 20px 10px;
+    border: solid 1px #F2B134;
+    color: #112F41;
 }
 
 button:hover{
-    background-color: white;
-    color: purple;
+    background-color: rgb(248, 196, 100);
+    color: #112F41;
 }

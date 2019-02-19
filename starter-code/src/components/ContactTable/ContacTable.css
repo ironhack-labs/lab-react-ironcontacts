@@ -1,3 +1,22 @@
+table {
+  width: 500px;
+}
+
 .img-table {
-    max-width: 100px;
-  }
+  max-width: 100px;
+}
+
+tbody:before {
+  content: "-";
+  display: block;
+  line-height: 10px;
+  color: transparent;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.button-table {
+ margin: 200px 0px;
+}
