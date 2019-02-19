@@ -46,7 +46,7 @@ Display that array of 5 contacts in a `<table>` and display the `picture`, `name
 To import `contacts.json` in `App.js`, you can simply use:
 
 ```js
-import contacts from './contacts.json'
+import contacts from './data/contacts.json'
 ```
 
 At the end of this iteration, your application should look like this:
