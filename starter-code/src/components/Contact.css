@@ -1,0 +1,8 @@
+.celebrity {
+  display: flex;
+  flex-direction: row;
+}
+
+.celebrity img {
+  width: 20%;
+}
