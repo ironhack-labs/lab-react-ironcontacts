@@ -29,7 +29,14 @@ class ContactIndex extends Component {
       contactJsonData[Math.floor(Math.random() * contactJsonData.length)];
 
     // add it to the top of data
-    contacts.unshift(newContact);
+
+    // check if possible duplicate
+    if (!contacts.includes(newContact)) {
+      contacts.unshift(newContact);
+    } else {
+      newContact =
+        contactJsonData[Math.floor(Math.random() * contactJsonData.length)];
+    }
 
     // update state data
     this.setState({ contactArray: contacts });
