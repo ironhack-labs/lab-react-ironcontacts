@@ -16,14 +16,35 @@ class App extends Component {
     newState.list.push(contacts[Math.floor(Math.random()* contacts.length)])
     this.setState(newState)
   }
+
+  sortByName = () => {
+    let newState = {
+      ...this.state
+    }
+    newState.list.sort((a, b)=>{
+      if(a.name < b.name){return -1;}
+      if(a.name > b.name){return 1;}
+      return 0;
+    })
+    this.setState(newState)
+  }
+
+  sortByPopularity = () => {
+    let newState = {
+      ...this.state
+    }
+    newState.list.sort((a, b) => b.popularity - a.popularity)
+    this.setState(newState)
+  }
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <div className="controller"></div>
         <FunctionButton functionProp={this.addRandomContact}>Add Random Contact</FunctionButton>
-        <FunctionButton>Sort by name</FunctionButton>
-        <FunctionButton>Sort by popularity</FunctionButton>
+        <FunctionButton functionProp={this.sortByName}>Sort by name</FunctionButton>
+        <FunctionButton functionProp={this.sortByPopularity}>Sort by popularity</FunctionButton>
         <ContactTable contactsProp={this.state.list}/> 
       </div>
     );
