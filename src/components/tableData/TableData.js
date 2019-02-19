@@ -14,6 +14,7 @@ class TableData extends Component{
         <td>
           <p>{this.props.popularity}</p>
         </td>
+        <button>delete</button>
       </tr>
     )
   }

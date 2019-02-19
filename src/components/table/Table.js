@@ -4,22 +4,36 @@ import TableHead from '../tableHead/TableHead';
 import contacts from '../../contacts.json';
 
 class Table extends Component{
+  state = {
+    contacts: contacts.slice(0, 5),
+  };
 
-
+  handleClick = () => {
+    let newContacts = [...this.state.contacts];
+    let randomNumber = Math.floor(Math.random() * contacts.length);
+    let randomCelebrity = contacts[randomNumber];
+    this.setState({
+      contacts: newContacts.concat(randomCelebrity),
+    });
+  };
+  
   render(){
 
-    const getFive = contacts.slice(0, 5);
-
-    const celebrities = getFive.map((celebrity, index) => {
+    const celebrities = this.state.contacts.map((celebrity, index) => {
       return (<TableData key={index} src={celebrity.pictureUrl} name={celebrity.name} popularity={celebrity.popularity}/>); 
     });
 
     return(
       <div>
         <h1>IronContacts</h1>
+
+        <button onClick={this.handleClick}>Add Random Contact</button>
+
         <table className="table">
           <TableHead />
-          {celebrities}
+            <tbody>
+              {celebrities}
+            </tbody>
         </table>
       </div>
     )
