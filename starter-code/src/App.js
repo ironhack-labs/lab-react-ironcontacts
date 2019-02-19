@@ -37,15 +37,24 @@ class App extends Component {
     this.setState(newState)
   }
 
+  deleteContact = (name) => {
+    let newState = {
+      ...this.state
+    }
+    newState.list = newState.list.filter(e => e.name !== name)
+    this.setState(newState) //Actualiza el estado
+  }
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <div className="controller"></div>
+        <div className="controller">
         <FunctionButton functionProp={this.addRandomContact}>Add Random Contact</FunctionButton>
         <FunctionButton functionProp={this.sortByName}>Sort by name</FunctionButton>
         <FunctionButton functionProp={this.sortByPopularity}>Sort by popularity</FunctionButton>
-        <ContactTable contactsProp={this.state.list}/> 
+        </div>
+        <ContactTable deleteProp={this.deleteContact} contactsProp={this.state.list}/> 
       </div>
     );
   }
