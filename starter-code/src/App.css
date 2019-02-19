@@ -23,6 +23,24 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tablehead {
+  height: 80px;
+  color: black;
+}
+.tablecell {
+  width: 150px;
+  color: black;
+}
+
+.contactImage {
+  margin-top: 30px;
+  height: 30vh;
 }
