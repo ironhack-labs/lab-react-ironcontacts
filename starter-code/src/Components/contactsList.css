@@ -1,3 +1,31 @@
+.ContactList button {
+  padding: 2px;
+  margin-right: 5px;
+}
+
 .ContactList img {
-  width: 25%;
+  height: 150px;
+}
+.table {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.row {
+  border: 1px solid black;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.test {
+  border: 1px solid purple;
+  display: flex;
+  width: 33%;
+  align-items: center;
+  justify-content: center;
+}
+.head {
+  width: 128px;
 }
