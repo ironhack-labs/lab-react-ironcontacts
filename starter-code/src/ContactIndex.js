@@ -1,33 +1,32 @@
 import React, { Component } from "react";
+import { Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { ButtonGroup } from "react-bootstrap";
+import { Table } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 
 // load json data and css
-import contacts from "./contacts.json";
+import contactJsonData from "./contacts.json";
 import "./ContactIndex.css";
 
-// define dedicated class
+// define class
 class ContactIndex extends Component {
   constructor(props) {
+    // enable state
     super(props);
     this.state = {
-      // assign json data to module state
-      contactArray: contacts
+      // assign json five first elements to state
+      contactArray: contactJsonData.slice(0, 5)
     };
   }
 
-  addRandom(minValue) {
-    // test drive..
-    // let newContact = {
-    //   name: "Llama Buscemi",
-    //   pictureUrl: "https://dummyimage.com/500x750/eeeeee/f2f2f2",
-    //   popularity: 666
-    // };
-
+  addRandom() {
     // get current stored data
-    let contacts = this.state.contactArray;
+    const contacts = this.state.contactArray;
 
-    // random between min value (first 5 here) and total length
+    // random from contactData
     var newContact =
-      contacts[Math.floor(Math.random() * contacts.length) + minValue];
+      contactJsonData[Math.floor(Math.random() * contactJsonData.length)];
 
     // add it to the top of data
     contacts.unshift(newContact);
@@ -38,7 +37,7 @@ class ContactIndex extends Component {
 
   // empty state array
   removeAll() {
-    let contacts = [];
+    const contacts = [];
     this.setState({ contactArray: contacts });
   }
 
@@ -51,7 +50,7 @@ class ContactIndex extends Component {
     this.setState({ contactArray: contacts });
   }
 
-  // sort by name (REFACTOR alpha and inverse)
+  // sort by name (REFACTOR a-z / inverse)
   sortByName(object) {
     function compare(a, b) {
       if (a.name < b.name) return -1;
@@ -65,6 +64,7 @@ class ContactIndex extends Component {
     this.setState({ contactArray: object });
   }
 
+  // sort by rate (REFACTOR toggle n>0 / inverse)
   sortByPopularity(object) {
     function compare(a, b) {
       if (a.popularity > b.popularity) return -1;
@@ -80,54 +80,73 @@ class ContactIndex extends Component {
   }
 
   render() {
-    // debug output current data stored in state
+    // output current data stored in state
     const { contactArray } = this.state;
-    console.log(contactArray);
 
     return (
-      <section>
-        <h2>Some Producer Contacts</h2>
-        <button onClick={() => this.addRandom(5)}> Add one </button>
-        <button onClick={() => this.removeAll()}> Remove all </button>
-        <button onClick={() => this.sortByName(contactArray)}>
-          Sort by Name
-        </button>
-        <button onClick={() => this.sortByPopularity(contactArray)}>
-          Sort by Popularity
-        </button>
-        <table>
+      <Col xs={12}>
+        <Col xs={12} className="m-4">
+          <h2>Some Producer Contacts</h2>
+          <ButtonGroup aria-label="Sort contacts according to name, popularity, add and remove">
+            <Button variant="success" onClick={() => this.addRandom()}>
+              Add One
+            </Button>
+            <Button
+              variant="outline-secondary"
+              onClick={() => this.sortByName(contactArray)}
+            >
+              ↑ A-Z
+            </Button>
+            <Button
+              variant="outline-secondary"
+              onClick={() => this.sortByPopularity(contactArray)}
+            >
+              ↑ by rank
+            </Button>
+            <Button variant="outline-danger" onClick={() => this.removeAll()}>
+              Remove All
+            </Button>
+          </ButtonGroup>
+        </Col>
+
+        <Table hover size="sm">
           <tbody>
-            <tr>
+            <tr className="bg-light">
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Delete</th>
             </tr>
 
             {/* need to set a key to identify specific element */}
-            {contactArray.slice(0, 5).map((oneContact, index) => {
+            {contactArray.map((oneContact, index) => {
               return (
                 <tr key={oneContact.name} className="contact-index">
                   <td>
-                    <img
+                    <Image
                       src={oneContact.pictureUrl}
                       alt={oneContact.name}
+                      fluid
                       className="contact-index-img"
                     />
                   </td>
                   <td>{oneContact.name}</td>
+                  <td>{oneContact.popularity}</td>
                   <td>
-                    {oneContact.popularity}{" "}
-                    <button onClick={() => this.deleteOne(index)}>
-                      {" "}
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => this.deleteOne(index)}
+                    >
                       Delete
-                    </button>
+                    </Button>
                   </td>
                 </tr>
               );
             })}
           </tbody>
-        </table>
-      </section>
+        </Table>
+      </Col>
     );
   }
 }
