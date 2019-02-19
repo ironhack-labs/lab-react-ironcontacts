@@ -1,0 +1,15 @@
+button {
+	margin: 20px 20px;
+	background: gray;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+td button {
+	margin: 20px 20px;
+	background: rgb(226, 68, 68);
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+}

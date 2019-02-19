@@ -1,0 +1,19 @@
+.profileimg {
+	width: 100px;
+	padding: 5px;
+}
+
+table {
+	margin: 30px auto;
+	border: 2px solid grey;
+}
+
+tr th {
+	border: solid 1px grey;
+	padding: 20px 20px;
+}
+
+tr td {
+	border: solid 1px grey;
+	padding: 20px 20px;
+}
