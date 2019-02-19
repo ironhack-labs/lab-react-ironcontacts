@@ -8,13 +8,36 @@ class Table extends Component{
     contacts: contacts.slice(0, 5),
   };
 
-  handleClick = () => {
-    let newContacts = [...this.state.contacts];
+  addContact = () => {
+    let copyContacts = [...this.state.contacts];
     let randomNumber = Math.floor(Math.random() * contacts.length);
     let randomCelebrity = contacts[randomNumber];
+    
     this.setState({
-      contacts: newContacts.concat(randomCelebrity),
+      contacts: copyContacts.concat(randomCelebrity),
     });
+  };
+
+  sortName = () => {
+    let copyContacts = [...this.state.contacts];
+    copyContacts.sort(function(a, b){
+      if(a.name < b.name) return -1;
+      if(a.name > b.name) return 1;
+      return 0;
+  })
+    this.setState({
+      contacts: copyContacts,
+    });
+
+  };
+
+  sortPopularity = () => {
+    let copyContacts = [...this.state.contacts];
+    copyContacts.sort((a, b) => b.popularity - a.popularity);
+    this.setState({
+      contacts: copyContacts,
+    });
+
   };
   
   render(){
@@ -27,7 +50,9 @@ class Table extends Component{
       <div>
         <h1>IronContacts</h1>
 
-        <button onClick={this.handleClick}>Add Random Contact</button>
+        <button onClick={this.addContact}>Add Random Contact</button>
+        <button onClick={this.sortName}>Sort by name</button>
+        <button onClick={this.sortPopularity}>Sort by popularity</button>
 
         <table className="table">
           <TableHead />
