@@ -21,38 +21,42 @@ class ContactList extends Component {
     this.setState({ contactArray: shortlist });
   }
 
-  // randomScheme(color) {
-  //   const colors = ["orange", "purple", "green", "red"];
-  //   const randomIndex = Math.floor(Math.random() * colors.length);
-  //   this.changeScheme(colors[randomIndex]);
-  // }
+  sortByName() {
+    const namelist = this.state.contactArray;
+    namelist.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+    this.setState({ contactArray: namelist });
+  }
 
-  // updateName() {
-  //   const newFirstName = prompt("First Name");
-  //   const newLastName = prompt("Last Name");
-  //   const user = this.state.userInfo;
-  //   user.firstName = newFirstName;
-  //   user.lastName = newLastName;
-  //   // use React's built-in setState() method to change the state
-  //   // (it will cause React to RENDER the component again)
-  //   this.setState({ userInfo: user });
-  // }
+  deleteContact(index) {
+    const deletelist = this.state.contactArray;
+    deletelist.splice(index, 1);
+
+    this.setState({ contactArray: deletelist });
+  }
+
   render() {
     const { contactArray } = this.state;
 
     return (
       <section className="ContactList">
-        <h2>Contact List</h2>
+        <h1>IronContacts</h1>
         <button onClick={() => this.addRandomContact()}>
           Add a Random Contact
+        </button>
+        <button onClick={() => this.sortByName()}>Sort by Name</button>
+        <button onClick={() => this.sortByPopularity()}>
+          Sort by Popularity
         </button>
         <table>
           <tr>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action(s)</th>
           </tr>
-          {contactArray.map(oneContact => {
+          {contactArray.map((oneContact, index) => {
             return (
               <tr key={oneContact.pictureUrl}>
                 <td>
@@ -65,6 +69,11 @@ class ContactList extends Component {
                 </td>
                 <td>{oneContact.name}</td>
                 <td>{oneContact.popularity}</td>
+                <td>
+                  <button onClick={() => this.deleteContact(index)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
