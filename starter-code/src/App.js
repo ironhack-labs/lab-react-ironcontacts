@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     list: contacts.slice(0, 5)
   }
+
   addRandomContact = () => {
     let newState = {
       ...this.state
@@ -17,20 +18,38 @@ class App extends Component {
     newState.list.push(contacts[Math.floor(Math.random() * contacts.length)])
     this.setState(newState)
   }
+
+  sortByName = () => {
+    let newState = {
+      ...this.state
+    }
+    newState.list.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    })
+    this.setState(newState)
+  }
+
+  sortByPopularity = () => {
+    let newState = {
+      ...this.state
+    }
+    newState.list.sort((a, b) => b.popularity - a.popularity)
+
+    this.setState(newState)
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="App-title">Iron Contacts</h1>
         <div className="controller">
           <FunctionButton functionProp={this.addRandomContact}>Add Random Contacts</FunctionButton>
+          <FunctionButton functionProp={this.sortByName}>Sort by name</FunctionButton>
+          <FunctionButton functionProp={this.sortByPopularity}>Sort by popularity</FunctionButton>
         </div>
         <ContactTable contactsProp={this.state.list} />
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
       </div>
     );
   }
