@@ -2,46 +2,38 @@ import React, { Component } from "react";
 
 import "./ContactList.css";
 
+import contacts from "./contacts.json";
+
 class ContactList extends Component {
   // use constructor() only when you need a state
   constructor(props) {
     super(props);
 
     // initial state of our component
+
     this.state = {
-      contactArray: [
-        {
-          name: "Idris Elba",
-          pictureUrl:
-            "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
-          popularity: 11.622713
-        },
-        {
-          name: "Jessica Chastain",
-          pictureUrl:
-            "https://image.tmdb.org/t/p/w500/nkFrkn5NZVGWb4b2X0yIcXezhyt.jpg",
-          popularity: 8.324357
-        },
-        {
-          name: "Johnny Depp",
-          pictureUrl:
-            "https://image.tmdb.org/t/p/w500/kbWValANhZI8rbWZXximXuMN4UN.jpg",
-          popularity: 15.656534
-        },
-        {
-          name: "Emilia Clarke",
-          pictureUrl:
-            "https://image.tmdb.org/t/p/w500/j7d083zIMhwnKro3tQqDz2Fq1UD.jpg",
-          popularity: 16.211837
-        },
-        {
-          name: "Leonardo DiCaprio",
-          pictureUrl:
-            "https://image.tmdb.org/t/p/w500/A85WIRIKVsD2DeUSc8wQ4fOKc4e.jpg",
-          popularity: 11.245333
-        }
-      ]
+      contactArray: contacts.slice(0, 5)
     };
+  }
+
+  addContact() {
+    const { contactArray } = this.state;
+    const randomContact = Math.floor(Math.random() * contacts.length);
+    //const newContact = randomContact;
+    // update the arrays
+    contactArray.push(contacts[randomContact]);
+    // set.state() tells React to change the DOM
+    this.setState({ contactArray });
+  }
+  sortNameContact() {
+    const contactName = this.state.contactArray.name;
+    contactName.sort();
+    this.setState({ contactArray: contactName });
+  }
+  sortPopContact() {
+    const contactPop = this.state.contactArray.popularity;
+    contactPop.sort();
+    this.setState({ contactArray: contactPop });
   }
 
   render() {
@@ -49,6 +41,11 @@ class ContactList extends Component {
 
     return (
       <div className="ContactList">
+        <button onClick={() => this.addContact()}>Add Random Contact</button>
+        <button onClick={() => this.sortNameContact()}>Sort by Name</button>
+        <button onClick={() => this.sortPopContact()}>
+          Sort by Popularity
+        </button>
         {contactArray.map(oneContact => {
           return (
             <table key={oneContact} className="List">
