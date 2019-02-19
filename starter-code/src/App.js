@@ -77,6 +77,12 @@ class App extends Component {
     this.setState({ ourContacts: contacts });
   }
 
+  delete(contactIndex) {
+    const allContacts = this.state.ourContacts;
+    allContacts.splice(contactIndex, 1),
+      this.setState({ ourContacts: allContacts });
+  }
+
   render() {
     const { ourContacts } = this.state;
 
@@ -94,16 +100,25 @@ class App extends Component {
           Sort By Popularity
         </button>
 
-        <div className="title">
-          <p>Picture</p>
-          <p>Name</p>
-          <p>Popularity</p>
-        </div>
-        <div>
-          {ourContacts.map(oneName => {
-            return <Contact celebrityName={oneName.name} />;
+        <table className="title">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          {ourContacts.map((oneName, index) => {
+            return (
+              <span>
+                <Contact celebrityName={oneName.name} />
+                <button onClick={() => this.delete(index)}>Delete</button>
+              </span>
+            );
           })}
-        </div>
+        </table>
       </div>
     );
   }

@@ -13,23 +13,21 @@ class Contact extends Component {
     const { celebrityName } = this.props;
 
     return (
-      <div>
-        <section>
-          {contactArray.map(oneContact => {
-            if (oneContact.name === celebrityName)
-              return (
-                <div key={oneContact.name} className="celebrity">
-                  <div>
-                    <img src={oneContact.pictureUrl} />
-                  </div>
-                  <p>{oneContact.name}</p>
-                  <p>{oneContact.popularity}</p>
-                </div>
-              );
-            return;
-          })}
-        </section>
-      </div>
+      <tbody>
+        {contactArray.map(oneContact => {
+          if (oneContact.name === celebrityName)
+            return (
+              <tr key={oneContact.name} className="celebrity">
+                <td>
+                  <img src={oneContact.pictureUrl} />
+                </td>
+                <td>{oneContact.name}</td>
+                <td>{oneContact.popularity}</td>
+              </tr>
+            );
+          return;
+        })}
+      </tbody>
     );
   }
 }

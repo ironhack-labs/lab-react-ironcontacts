@@ -31,7 +31,15 @@
   }
 }
 
-.title {
+/* .title {
   display: flex;
   flex-direction: row;
+}
+
+.table{
+  
+} */
+
+th {
+  width: 30%;
 }
