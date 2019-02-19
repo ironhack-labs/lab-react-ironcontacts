@@ -40,6 +40,14 @@ class App extends Component {
     this.setState(newState)
   }
 
+  deleteContact = (name) => {
+    let newState = {
+      ...this.state
+    }
+    newState.list = newState.list.filter(e => e.name !== name)
+    this.setState(newState)
+  }
+
   render() {
     return (
       <div className="App">
@@ -49,7 +57,7 @@ class App extends Component {
           <FunctionButton functionProp={this.sortByName}>Sort by name</FunctionButton>
           <FunctionButton functionProp={this.sortByPopularity}>Sort by popularity</FunctionButton>
         </div>
-        <ContactTable contactsProp={this.state.list} />
+        <ContactTable deleteProp={this.deleteContact} contactsProp={this.state.list} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './ContactTable.css'
+import FunctionButton from "../FunctionButton/FunctionButton";
 
 export default class ContactTable extends Component {
   render() {
@@ -10,6 +11,7 @@ export default class ContactTable extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -18,6 +20,7 @@ export default class ContactTable extends Component {
               <td><img className="img-table" src={e.pictureUrl} /></td>
               <td>{e.name}</td>
               <td>{e.popularity.toFixed(2)}</td>
+              <td><FunctionButton functionProp={() => this.props.deleteProp(e.name)}>Delete</FunctionButton></td>
             </tr>
           })}
         </tbody>
