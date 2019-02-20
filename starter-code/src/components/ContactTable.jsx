@@ -4,6 +4,7 @@ import FunctionButton from './FunctionButton/FunctionButton';
 
 export default class ContactTable extends Component {
 	render() {
+		console.log(this.props.contactsProp);
 		// aqui puedo declarar variables
 		//pero si estamos dentro del return debemos poner {}
 		return (
@@ -19,9 +20,7 @@ export default class ContactTable extends Component {
 					{this.props.contactsProp.map((element, idx) => {
 						return (
 							<tr key={idx}>
-								<td>
-									<img className="profileimg" src={element.pictureUrl} />
-								</td>
+								<td>{<img className="profileimg" src={element.pictureUrl} />}</td>
 								<td>{element.name}</td>
 								<td>{element.popularity.toFixed(2)}</td>
 								<td>

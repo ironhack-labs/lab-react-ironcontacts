@@ -10,9 +10,11 @@ class App extends Component {
 	};
 
 	addRandomContact = () => {
-		let newState = { ...this.state };
-		console.log(contacts);
-		newState.list.push(contacts[Math.floor(Math.random() * contacts.lenght)]);
+		let newState = {
+			...this.state
+		};
+
+		newState.list.push(contacts[Math.floor(Math.random() * contacts.length)]);
 		this.setState(newState);
 	};
 
@@ -51,6 +53,7 @@ class App extends Component {
 	};
 
 	render() {
+		console.log(contacts.length);
 		return (
 			<div className="App">
 				<h1>IronContact</h1>
