@@ -17,7 +17,7 @@ export default class ContactTable extends React.Component {
         <tbody>
           {this.props.contactsProp.map((e, idx) => {
             return <tr key={idx}>
-              <td><img className="img-table" src={e.pictureUrl} /></td>
+              <td><img className="img-table" src={e.pictureUrl}/></td>
               <td><h2>{e.name}</h2></td>
               <td><h3>{e.popularity.toFixed(2)}</h3></td>
               <td><FunctionButton functionProp={() => this.props.deleteProp(e.name)}>Delete</FunctionButton></td>
