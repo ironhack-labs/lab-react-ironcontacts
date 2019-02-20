@@ -1,3 +1,10 @@
 img{
     width: 100px;
 }
+.FunctionButton {
+    background-color: rgb(81, 54, 143);
+  color: aliceblue;
+  border-radius: 20%;
+}
+
+

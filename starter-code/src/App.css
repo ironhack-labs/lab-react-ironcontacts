@@ -1,5 +1,11 @@
+body{
+  background-color: rgb(201, 170, 226);
+}
 .App {
   text-align: center;
+  display: inline;
+  justify-content: center;
+  
 }
 
 .App-logo {
@@ -8,10 +14,20 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  
+  height: 50px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+
+
+  
+}
+
+.App-header button{
+  background-color: rgb(81, 54, 143);
+  color: aliceblue;
+  border-radius: 20%;
 }
 
 .App-title {
@@ -25,4 +41,31 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+h1{
+  background-color: blueviolet;
+}
+table{
+  background-color: blueviolet;
+  margin: auto;
+
+ }
+ tr th{
+   border:solid 2px black;
+   padding: 10px;
+
+ }
+ tr td{
+   border:solid 2px black;
+ }
+table img{
+padding: 10px;
+}
+table button{
+  margin :10px 10px;
+  padding: 10px;
+}
+table{
+  margin-top:20px;
 }
