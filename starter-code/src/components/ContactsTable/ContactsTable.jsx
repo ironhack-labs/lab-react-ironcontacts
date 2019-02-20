@@ -1,7 +1,8 @@
 import React from 'react';
-import './ContactsTable.css';
+import './ContactsTable.css'
+import FunctionButton from '../FunctionButton/FunctionButton';
 
-export default class ContactsTablet extends React.Component {
+export default class ContactTable extends React.Component {
     render() {
         return (
             <table>
@@ -14,14 +15,14 @@ export default class ContactsTablet extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.contacts.map((e, idx) => {
-                    return idx < +this.props.contacts.length && <tr key={idx}>
-                        <td><img className="img-table" src={e.pictureUrl} /></td>
-                        <td>{e.name}</td>
-                        <td>{e.popularity.toFixed(2)}</td>
-                        <td><button onClick={() => this.props.deleteFunction(e.name)}>Delete</button></td>
-                    </tr>
-                })}
+                    {this.props.contactsProp.map((e, idx) => {
+                        return <tr key={idx}>
+                            <td><img className="img-table" src={e.pictureUrl} /></td>
+                            <td>{e.name}</td>
+                            <td>{e.popularity.toFixed(2)}</td>
+                            <td><FunctionButton functionProp={() => this.props.deleteProp(e.name)}>Delete</FunctionButton></td>
+                        </tr>
+                    })}
                 </tbody>
             </table>
         )

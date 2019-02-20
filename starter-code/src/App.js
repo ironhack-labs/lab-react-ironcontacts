@@ -1,48 +1,44 @@
 import React, { Component } from 'react';
-import contacts from './contacts.json';
-import ContactsTablet from './components/ContactsTable/ContactsTable.jsx';
 import './App.css';
+import ContactsTable from './components/ContactsTable/ContactsTable';
+import contacts from './contacts.json';
+import FunctionButton from './components/FunctionButton/FunctionButton';
+
 class App extends Component {
   state = {
-    contacts: contacts.slice(0, 5)
+    list: contacts.slice(0, 5)
   }
-  addRandom = () => {
+  addRandomContact = () => {
     let newState = {
       ...this.state
     }
-
-    newState.contacts.push(contacts[Math.floor(Math.random() * contacts.length)])
-
+    newState.list.push(contacts[Math.floor(Math.random() * contacts.length)])
     this.setState(newState)
   }
   sortByName = () => {
     let newState = {
       ...this.state
     }
-
-    newState.contacts.sort((a, b) => {
+    newState.list.sort((a, b) => {
       if (a.name < b.name) { return -1; }
       if (a.name > b.name) { return 1; }
       return 0
     })
-
     this.setState(newState)
   }
   sortByPopularity = () => {
     let newState = {
       ...this.state
     }
-
-    newState.contacts.sort((a, b) => b.popularity - a.popularity)
+    newState.list.sort((a, b) => b.popularity - a.popularity)
 
     this.setState(newState)
   }
-  deleteContact = name => {
+  deleteContact = (name) => {
     let newState = {
       ...this.state
     }
-
-    newState.contacts = newState.contacts.filter((contact) => contact.name !== name)
+    newState.list = newState.list.filter(e => e.name !== name)
 
     this.setState(newState)
   }
@@ -50,12 +46,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <div className="Controller">
-          <button onClick={this.addRandom}>Add Random Contact</button>
-          <button onClick={this.sortByName}>Sort by name</button>
-          <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        <div className="controller">
+          <FunctionButton functionProp={this.addRandomContact}>Add Random Contacts</FunctionButton>
+          <FunctionButton functionProp={this.sortByName}>Sort by name</FunctionButton>
+          <FunctionButton functionProp={this.sortByPopularity}>Sort by popularity</FunctionButton>
         </div>
-        <ContactsTablet contacts={this.state.contacts} deleteFunction={this.deleteContact}/>
+        <ContactsTable deleteProp={this.deleteContact} contactsProp={this.state.list} />
       </div>
     );
   }
