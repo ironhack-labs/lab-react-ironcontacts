@@ -12,30 +12,33 @@ class App extends Component {
 class Contacts extends Component {
   constructor(){
     this.state = {
-      myContacts: contacts.slice(0,4)
+      Contacts: contacts.slice(0,4)
     };
-  }
+    this.sortByPopularity = this.sortByPopularity.bind(this);
+    this.sortByName = this.sortByName.bind(this);
+    this.addRandomContact = this.addRandomContact.bind(this);
+  };
   sortByName() {
-    this.setState(state => {
-      myContacts: state.myContacts.sort((a,b) => a.name > b.name)
-    })
+    this.setState(state => ({
+      Contacts: [...state.Contacts].sort((a,b) => a.name > b.name)
+    }));
   }
   sortByPopularity() {
-    this.setState(state => {
-      myContacts: state.myContacts.sort((a,b) => b.popularity > a.popularity)
-    })
+    this.setState(state => ({
+      Contacts: [...state.Contacts].sort((a,b) => b.popularity > a.popularity)
+    }))
   }
   addRandomContact() {
     let n = Math.floor(Math.random() * contacts.length)
     n < 5 ? n = 5 : n = n
-    this.setState(state => {
-      myContacts: state.myContacts.push(contacts[n])
-    })
+    this.setState(state => ({
+      Contacts: [...state.Contacts, contacts[n]]
+    }))
   }
   deleteContact(i) {
-    this.setState(state => {
-      myContacts: state.myContacts.splice(i,1)
-    })
+    this.setState(state => ({
+      Contacts: state.Contacts.filter((v, idx) => idx !== i)
+    }))
   }
   render() {
     let contactOutput = [];
@@ -61,9 +64,9 @@ class Contacts extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-          <button onClick={() => this.addRandomContact()}>Add Random Contact</button>
-          <button onClick={() => this.sortByName()}>Sort by name</button>
-          <button onClick={() => this.sortByPopularity()}>Sort by name</button>
+          <button onClick={this.addRandomContact}>Add Random Contact</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+          <button onClick={this.sortByPopularity}>Sort by name</button>
         <h2></h2>
         <table>
           {contactOutput}
