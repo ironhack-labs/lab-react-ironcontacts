@@ -47,7 +47,6 @@ class App extends Component {
 
 
   borrar = (idx) => {
-
     let newState = {
       ...this.state
     }
@@ -65,15 +64,21 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          <Button eventClick={this.addRandom} text="Add Random Character" />
-          <Button eventClick={this.ordenar} text="Ordenar" />
-          <Button eventClick={this.ordenarPopularidad} text="Ordenar por popularidad" />
-
+          <Button clase="menu" eventClick={this.addRandom} text="Add Random Character" />
+          <Button clase="menu" eventClick={this.ordenar} text="Ordenar" />
+          <Button clase="menu" eventClick={this.ordenarPopularidad} text="Ordenar por popularidad" />
+      <table className="tabla">
+      <tr>
+    <th>Picture</th>
+    <th>Name</th> 
+    <th>Popularity</th>
+    <th>Delete</th>
+  </tr>
           {this.state.contacts.map((contacto, idx) =>
-            <Contactos image={contacto.pictureUrl} name={contacto.name} popularity={contacto.popularity} id={idx} borrar={() => this.borrar(idx)} />
+            <Contactos image={contacto.pictureUrl} name={contacto.name} popularity={Math.trunc(contacto.popularity * 100)/100} id={idx} borrar={() => this.borrar(idx)} />
           )
           }
-
+</table>
 
         </p>
       </div>
