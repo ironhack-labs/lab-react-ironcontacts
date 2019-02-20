@@ -26,15 +26,23 @@ class ContactList extends Component {
     this.setState({ contactArray });
   }
   sortNameContact() {
-    const contactName = this.state.contactArray.name;
-    contactName.sort();
+    const contactName = this.state.contactArray;
+    console.log(contactName);
+    contactName.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      } else {
+        return;
+      }
+    });
     this.setState({ contactArray: contactName });
   }
-  sortPopContact() {
-    const contactPop = this.state.contactArray.popularity;
-    contactPop.sort();
-    this.setState({ contactArray: contactPop });
-  }
+
+  // sortPopContact() {
+  //   const contactPop = this.state.contactArray.popularity;
+  //   contactPop.sort();
+  //   this.setState({ contactArray: contactPop });
+  // }
 
   render() {
     const { contactArray } = this.state;
@@ -46,14 +54,15 @@ class ContactList extends Component {
         <button onClick={() => this.sortPopContact()}>
           Sort by Popularity
         </button>
+
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </tr>
         {contactArray.map(oneContact => {
           return (
             <table key={oneContact} className="List">
-              <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-              </tr>
               <tr>
                 <td>
                   <img src={oneContact.pictureUrl} />
