@@ -5,3 +5,4 @@ export default class FunctionButton extends React.Component{
         return <button onClick={()=>this.props.functionProp()}>{this.props.children}</button>
     }
 }
+//Coment
