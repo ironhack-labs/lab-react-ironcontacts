@@ -16,7 +16,16 @@ class ContactList extends Component {
 
   addRandomContact() {
     const shortlist = this.state.contactArray;
-    const randomIndex = Math.floor(Math.random() * contacts.length);
+    if (shortlist.length==contacts.length) { 
+      alert("All the contacts have already been added");
+      return
+    }
+    var randomIndex = 0;
+    const keys = shortlist.map(oneContact => oneContact.pictureUrl)
+    while (keys.indexOf(contacts[randomIndex].pictureUrl) !== -1 ) {
+
+      randomIndex = Math.floor(Math.random() * contacts.length) 
+    }
     shortlist.push(contacts[randomIndex]);
     this.setState({ contactArray: shortlist });
   }
@@ -27,6 +36,14 @@ class ContactList extends Component {
       return a.name.localeCompare(b.name);
     });
     this.setState({ contactArray: namelist });
+  }
+
+  sortByPopularity() {
+    const popularitylist = this.state.contactArray;
+    popularitylist.sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+    this.setState({ contactArray: popularitylist });
   }
 
   deleteContact(index) {
@@ -40,43 +57,44 @@ class ContactList extends Component {
     const { contactArray } = this.state;
 
     return (
-      <section className="ContactList">
+      <section className="ContactList container">
         <h1>IronContacts</h1>
-        <button onClick={() => this.addRandomContact()}>
-          Add a Random Contact
-        </button>
-        <button onClick={() => this.sortByName()}>Sort by Name</button>
-        <button onClick={() => this.sortByPopularity()}>
-          Sort by Popularity
-        </button>
-        <table>
+        
+
+        <table className="table table-dark table-sm">
+        <thead>
           <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action(s)</th>
+            <th><button className="btn btn-warning" onClick={() => this.addRandomContact()}>
+          Add a Random Contact
+        </button></th>
+            <th><button className="btn btn-primary" onClick={() => this.sortByName()}>Name</button></th>
+            <th><button className="btn btn-secondary" onClick={() => this.sortByPopularity()}>Popularity</button></th>
+            <th></th>
           </tr>
+        </thead>
+        <tbody>
           {contactArray.map((oneContact, index) => {
             return (
               <tr key={oneContact.pictureUrl}>
                 <td>
                   <img
-                    width="20%"
+                    width="15%"
                     height="auto"
                     src={oneContact.pictureUrl}
                     alt={oneContact.name}
                   />
                 </td>
-                <td>{oneContact.name}</td>
-                <td>{oneContact.popularity}</td>
-                <td>
-                  <button onClick={() => this.deleteContact(index)}>
+                <td className="align-middle">{oneContact.name}</td>
+                <td className="align-middle">{oneContact.popularity}</td>
+                <td className="align-middle">
+                  <button className="btn btn-danger" onClick={() => this.deleteContact(index)}>
                     Delete
                   </button>
                 </td>
               </tr>
             );
           })}
+      </tbody>
         </table>
       </section>
     );
