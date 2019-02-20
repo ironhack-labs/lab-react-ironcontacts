@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App h3 {
+  padding: 15px 10px;
+  margin-bottom: 20px;
+}
+
+.App img {
+width: 50%;
+}
+
+.App td {
+  width: 30%;
+}
+
+.App table {
+  width: 50%;
+  margin: auto;
+}
