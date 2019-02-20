@@ -1,0 +1,14 @@
+.center-items {
+  display: flex;
+  justify-content: center;
+}
+
+.img-table {
+  width: 100px;
+}
+
+.font-table {
+  text-align: center;
+  max-width: 90px;
+  font-weight: bold;
+}
