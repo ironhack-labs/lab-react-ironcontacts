@@ -7,6 +7,7 @@ class THeader extends Component {
         <th>Picture</th>
         <th>Name</th>
         <th>Popularity</th>
+        <th>Action</th>
       </tr>
     )
   }

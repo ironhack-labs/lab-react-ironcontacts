@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
 import Contact from './components/Contacts';
@@ -17,8 +16,15 @@ class App extends Component {
 
   addRandomContact() {
     let index = Math.floor(Math.random() * contacts.length);
-    this.state.displayContacts.push(contacts.splice(index, 1)[0]);
-    this.setState({displayContacts : this.state.displayContacts});
+    const updatedContacts = [...this.state.displayContacts];
+    updatedContacts.push(contacts.splice(index, 1)[0]);
+    this.setState({displayContacts : updatedContacts});
+  }
+
+  deleteRow(index) {
+    const updatedContacts = [...this.state.displayContacts];
+    updatedContacts.splice(index, 1);
+    this.setState({displayContacts : updatedContacts});
   }
 
   render() {
@@ -30,7 +36,7 @@ class App extends Component {
           <tbody>
           <THeader />
             {this.state.displayContacts.map((el, i) => (
-              <Contact key={i} name={el.name} pictureUrl={el.pictureUrl} popularity={el.popularity} />
+              <Contact key={i} {...el} deleteRow={() => this.deleteRow(i)} />
             ))}
           </tbody>
         </table>
