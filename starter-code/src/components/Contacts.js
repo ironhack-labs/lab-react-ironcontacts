@@ -1,10 +1,9 @@
 import React from 'react';
-import contacts from '../contacts.json'
 
-const Contact = ({name,pictureUrl,popularity})=>{
+const Contact = ({name, pictureUrl, popularity})=>{
     return(
     <tr>
-    <td><img src={pictureUrl}></img></td>
+    <td><img src={pictureUrl} alt={name}></img></td>
     <td>{name}</td>
     <td>{popularity}</td>
     </tr>
