@@ -5,22 +5,35 @@ import contacts from './contacts.json';
 import Contact from './components/Contacts';
 import THeader from './components/THeader';
 
+const firstContacts = contacts.splice(0, 5);
+
 class App extends Component {
-  firstContacts = contacts.slice(0, 6);
+  constructor() {
+    super();
+    this.state = {
+      displayContacts : firstContacts
+    };
+  }
+
+  addRandomContact() {
+    let index = Math.floor(Math.random() * contacts.length);
+    this.state.displayContacts.push(contacts.splice(index, 1)[0]);
+    this.setState({displayContacts : this.state.displayContacts});
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-       <table>
+        <h1>IronContacts</h1>
+        <button onClick={this.addRandomContact.bind(this)}>Add Random Contact</button>
+        <table>
+          <tbody>
           <THeader />
-         {this.firstContacts.map((el, i) => (
-           <Contact name={el.name} pictureUrl={el.pictureUrl} popularity={el.popularity}/>
-         ))}
-       </table>
+            {this.state.displayContacts.map((el, i) => (
+              <Contact key={i} name={el.name} pictureUrl={el.pictureUrl} popularity={el.popularity} />
+            ))}
+          </tbody>
+        </table>
       </div>
     )
   }

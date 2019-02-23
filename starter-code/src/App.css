@@ -22,6 +22,14 @@
   font-size: large;
 }
 
+.Contact img {
+  height: 100px;
+}
+
+table {
+  margin: 2vh auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
