@@ -8,6 +8,10 @@ class Contacts extends Component {
   };
 
   addRandomContact = () => {
+    if (this.state.contactList.length === contacts.length) {
+      alert("No more contacts to add");
+      return
+    }
     let nameList = this.state.contactList.map(el=>el.name)
     let filteredList = contacts.filter(el=>nameList.indexOf(el.name)< 0) //to avoid duplicates when clicking the randomm contnact button
     let randomContact = Math.floor(Math.random() * filteredList.length);
