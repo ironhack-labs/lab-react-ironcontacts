@@ -23,11 +23,28 @@ class Contacts extends Component {
     });
   };
 
+  sortByName = () => {
+    let newContactList = this.state.contactList.slice().sort((a,b)=> a.name > b.name ? 1 : -1)
+    this.setState({
+      contactList: newContactList
+  });
+  }
+
+  sortByPopularity = () => {
+    let newContactList = this.state.contactList.slice().sort((a,b)=> b.popularity - a.popularity)
+    this.setState({
+      contactList: newContactList
+  });
+  }
+
   render() {
     return (
       <div>
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add random Contact</button>
+        <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>
+
         <table>
           <thead>
             <tr>
@@ -48,7 +65,7 @@ class Contacts extends Component {
                   />
                 </td>
                 <td className="table-cell">{contact.name}</td>
-                <td className="table-cell">{contact.popularity.toFixed(2)}</td>
+                <td className="table-cell">{contact.popularity.toFixed(2)}</td> {/*No need for all those decimal points */}
               </tr>
             ))}
           </tbody>
