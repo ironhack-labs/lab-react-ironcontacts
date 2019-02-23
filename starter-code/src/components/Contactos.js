@@ -14,7 +14,7 @@ class Contacts extends Component {
       return
     }
     let nameList = this.state.contactList.map(el=>el.name)
-    let filteredList = contacts.filter(el=>nameList.indexOf(el.name)< 0) //to avoid duplicates when clicking the randomm contnact button
+    let filteredList = contacts.filter(el=>nameList.indexOf(el.name)< 0) //to avoid duplicates when clicking the randomm contact button
     let randomContact = Math.floor(Math.random() * filteredList.length);
     let newContactList = this.state.contactList.slice();
     newContactList.push(filteredList[randomContact]);
@@ -48,7 +48,7 @@ class Contacts extends Component {
                   />
                 </td>
                 <td className="table-cell">{contact.name}</td>
-                <td className="table-cell">{contact.popularity}</td>
+                <td className="table-cell">{contact.popularity.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
