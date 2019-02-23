@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
 import Contact from './components/Contacts';
@@ -21,11 +20,34 @@ class App extends Component {
     this.setState({displayContacts : this.state.displayContacts});
   }
 
+
+  sortContactsName(){
+    let newOrder = [...this.state.displayContacts];
+    newOrder = newOrder.sort((a, b) => {
+      if (a.name !== b.name) return (a.name > b.name) ? 1 : -1;
+      else return 0;
+    }); //Ordenas
+    this.setState({displayContacts : newOrder});
+  }
+
+  sortContactsPop(){
+    let newOrder = [...this.state.displayContacts];
+    newOrder = newOrder.sort((a, b) => b.popularity - a.popularity); //Ordenas
+    this.setState({displayContacts : newOrder});
+  }
+
+
+//fn de diego
+
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact.bind(this)}>Add Random Contact</button>
+        <button onClick={this.sortContactsName.bind(this)}>Sort by name</button>
+        <button onClick={this.sortContactsPop.bind(this)}>Sort by poop</button>
+
         <table>
           <tbody>
           <THeader />
