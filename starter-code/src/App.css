@@ -35,6 +35,11 @@
   width: 200px;
 }
 
+h1 {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
 th {
   font-weight: 700;
   font-size: 2rem;

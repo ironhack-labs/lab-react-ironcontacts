@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import contacts from "../contacts.json";
+
 const firstContacts = contacts.slice(0, 5);
 
 class Contacts extends Component {
@@ -25,8 +26,8 @@ class Contacts extends Component {
   render() {
     return (
       <div>
+        <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add random Contact</button>
-
         <table>
           <thead>
             <tr>
