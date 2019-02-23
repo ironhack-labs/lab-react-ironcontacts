@@ -37,6 +37,14 @@ class Contacts extends Component {
   });
   }
 
+  deleteContact = (index) => {
+    let newContactList = this.state.contactList.slice()
+    newContactList.splice(index,1)
+    this.setState({
+      contactList: newContactList
+  });
+  }
+
   render() {
     return (
       <div>
@@ -51,6 +59,7 @@ class Contacts extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
 
@@ -65,7 +74,9 @@ class Contacts extends Component {
                   />
                 </td>
                 <td className="table-cell">{contact.name}</td>
-                <td className="table-cell">{contact.popularity.toFixed(2)}</td> {/*No need for all those decimal points */}
+                <td className="table-cell">{contact.popularity.toFixed(2)}</td> 
+                <td className="table-cell"><button onClick={()=>this.deleteContact(index)}>Delete</button></td>
+
               </tr>
             ))}
           </tbody>
