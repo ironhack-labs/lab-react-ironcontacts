@@ -3,3 +3,36 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+ table{
+  width: 960px;
+ }
+ th{
+ width: 33%;
+ height: auto;
+ }
+
+ header{
+  height: 30px !important;
+ }
+ table{
+  width: 960px;
+ }
+ .col-1{
+ width: 200px;
+ float: left;
+ }
+
+ .thumb {
+   width: 50px;
+   height: 50px;
+ }
+ button{
+  width: 150px;
+  height: 50px;
+  background: burlywood;
+  border-radius: 30px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+ }
