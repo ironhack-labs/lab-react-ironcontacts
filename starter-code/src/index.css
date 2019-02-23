@@ -2,4 +2,47 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  text-align: center;
+}
+
+
+
+.cabrones-table img{
+  width: 100px;
+  height: auto;
+}
+
+.cabrones-table table {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cabrones-table .btn {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px; 
+  background-color: #4CAF50;
+  color: white;
+}
+
+.delete {
+  padding: 10px;
+  display: block;
+  margin: auto;
+  background-color: #f44336;
+  color: white;
 }
