@@ -8,12 +8,11 @@ class Contacts extends Component {
   };
 
   addRandomContact = () => {
-    let randomContact = Math.floor(Math.random() * contacts.length);
-    while (this.state.contactList.some(el=>el.name === contacts[randomContact].name)) {
-        randomContact = Math.floor(Math.random() * contacts.length);
-    }
+    let nameList = this.state.contactList.map(el=>el.name)
+    let filteredList = contacts.filter(el=>nameList.indexOf(el.name)< 0) //to avoid duplicates when clicking the randomm contnact button
+    let randomContact = Math.floor(Math.random() * filteredList.length);
     let newContactList = this.state.contactList.slice();
-    newContactList.push(contacts[randomContact]);
+    newContactList.push(filteredList[randomContact]);
     this.setState({
         contactList: newContactList
     });
