@@ -14,7 +14,7 @@ const ContactRow = (props) => {
             <h4>{props.popularity}</h4>
           </div>
           <div className="col-3 d-flex justify-content-left align-items-center t">
-           <button type="button" className="btn btn-danger"><strong>x</strong></button>
+           <button type="button" className="btn btn-danger" onClick={props.onClickDelete}><strong>x</strong></button>
           </div>
         </div>
   </div>
