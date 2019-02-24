@@ -11,12 +11,32 @@ class App extends Component {
     };
   }
 
+  // Check duplicate before adding a new contact
   addRandom = () => {
-    let contactsPlusOne = [...this.state.contacts];
-    const newContact = contacts[Math.floor(Math.random() * contacts.length)];
+    const contactsPlusOne = [...this.state.contacts];
+    let newContact = contactsPlusOne[0];
+    while (contactsPlusOne.includes(newContact)) {
+      newContact = contacts[Math.floor(Math.random() * contacts.length)];
+    }
     contactsPlusOne.push(newContact);
     this.setState({
       contacts: contactsPlusOne
+    });
+  };
+
+  sortByName = () => {
+    const sortedByName = [...this.state.contacts];
+    sortedByName.sort((a, b) => (a.name > b.name ? 1 : -1));
+    this.setState({
+      contacts: sortedByName
+    });
+  };
+
+  sortByPopularity = () => {
+    const sortedByPopularity = [...this.state.contacts];
+    sortedByPopularity.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
+    this.setState({
+      contacts: sortedByPopularity
     });
   };
 
@@ -25,6 +45,8 @@ class App extends Component {
       <div>
         <h1> IronContacts</h1>
         <button onClick={this.addRandom}> Add Random </button>
+        <button onClick={this.sortByName}> Sort by Name </button>
+        <button onClick={this.sortByPopularity}> Sort by Popularity </button>
         <table>
           <thead>
             <tr>

@@ -39,13 +39,12 @@ table {
 }
 
 .table-row {
-  text-align: justify;
+  text-align: center;
   margin: 0px auto;
 }
 
 .table-cell {
-  text-align: justify;
+  text-align: center;
   margin: 0px auto;
   padding: 30px;
 }
-
