@@ -11,10 +11,20 @@ class App extends Component {
     };
   }
 
+  addRandom = () => {
+    let contactsPlusOne = [...this.state.contacts];
+    const newContact = contacts[Math.floor(Math.random() * contacts.length)];
+    contactsPlusOne.push(newContact);
+    this.setState({
+      contacts: contactsPlusOne
+    });
+  };
+
   render() {
     return (
       <div>
         <h1> IronContacts</h1>
+        <button onClick={this.addRandom}> Add Random </button>
         <table>
           <thead>
             <tr>
