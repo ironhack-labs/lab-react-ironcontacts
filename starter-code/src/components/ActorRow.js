@@ -9,7 +9,10 @@ const actorRow = props => {
         </td>
         <td className="table-cell">{props.name}</td>
         <td className="table-cell">{props.popularity.toFixed(2)}</td>
+        <button onClick={props.onClick}> Delete </button> 
+
       </tr>
+
     </div>
   );
 };
