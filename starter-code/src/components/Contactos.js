@@ -23,8 +23,19 @@ class Contacts extends Component {
     });
   };
 
+  nameAscending = true
   sortByName = () => {
-    let newContactList = this.state.contactList.slice().sort((a,b)=> a.name > b.name ? 1 : -1)
+    let newContactList = this.state.contactList.slice().sort((a,b)=> this.nameAscending === true ? (a.name > b.name ? 1 : -1) : (a.name > b.name ? -1 : 1) )
+    this.nameAscending = !this.nameAscending
+    this.setState({
+      contactList: newContactList
+  });
+  }
+
+  lastNameAscending = true
+  sortByLastName = () => {
+    let newContactList = this.state.contactList.slice().sort((a,b)=> this.lastNameAscending === true ? ((a.name.split(" ")[1]||"") > (b.name.split(" ")[1]||"") ? 1 : -1) : ((a.name.split(" ")[1]||"") > (b.name.split(" ")[1]||"") ? -1 : 1) )
+    this.lastNameAscending = !this.lastNameAscending
     this.setState({
       contactList: newContactList
   });
@@ -50,7 +61,8 @@ class Contacts extends Component {
       <div>
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByName}>Sort by first name: {this.nameAscending ? "A-Z" : "Z-A"} </button>
+        <button onClick={this.sortByLastName}>Sort by last name: {this.lastNameAscending ? "A-Z" : "Z-A"} </button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
 
         <table>
