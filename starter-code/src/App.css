@@ -26,3 +26,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/* ________________TABLE CSS__________________ */
+
+.actor-picture {
+  width: 50px;
+}
+
+table {
+  margin: 0px auto;
+}
+
+.table-row {
+  text-align: justify;
+  margin: 0px auto;
+}
+
+.table-cell {
+  text-align: justify;
+  margin: 0px auto;
+  padding: 30px;
+}
+
