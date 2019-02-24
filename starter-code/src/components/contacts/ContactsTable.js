@@ -8,25 +8,46 @@ export default class ContactsTable extends Component {
         super(props);
         this.state = {
             contacts: this.props.contacts || [],
-            firstFive: this.props.contacts.slice(0, 5)
+            firstContacts: this.props.contacts.slice(0, 5)
         }
+    }
+
+    // function checkAvailability(arr, val) {
+    //     return arr.some(arrVal => val != arrVal);
+    // }
+
+    addNewContact = () => {
+        let randomContact = this.state.contacts[Math.floor(Math.random() * this.state.contacts.length)]
+        let newFirst = this.state.firstContacts
+        newFirst.push(randomContact)
+        this.setState({
+            firstContacts: newFirst
+        })
     }
 
     render() {
         return (
-            <table style= {{width: '50%', textAlign: 'center', margin: 'auto'}}>
-                <tbody>
-                    <tr>
-                        <th>Picture</th>
-                        <th>Name</th> 
-                        <th>Popularity</th>
-                    </tr>
-                
-                    {this.state.firstFive.map((contact, index) =>{
-                        return <ContacItem key={index} {...contact}/>
-                    })}
-                </tbody>
-            </table>
+            <div>
+                <div className="btn-group" role="group" aria-label="...">
+                        <button type="button" className="btn btn-default" onClick={this.addNewContact}>Add Random Contact</button>
+                        <button type="button" className="btn btn-default">Middle</button>
+                        <button type="button" className="btn btn-default">Right</button>
+                </div> 
+                <table style= {{width: '50%', textAlign: 'center', margin: 'auto'}}>
+                    
+                    <tbody>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th> 
+                            <th>Popularity</th>
+                        </tr>
+                    
+                        {this.state.firstContacts.map((contact, index) =>{
+                            return <ContacItem key={index} {...contact}/>
+                        })}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
