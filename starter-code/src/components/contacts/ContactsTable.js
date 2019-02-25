@@ -26,7 +26,22 @@ addNewContact = () => {
         firstContacts: newFirst
     })
 }
+sortByName = () => {
+    const sortedFirstByName = this.state.firstContacts.sort((a, b) => a.name.localeCompare(b.name))
+    this.setState({
+        firstContacts: sortedFirstByName
+    })
 
+}
+
+ 
+
+sortByPopularity = () => {
+    const sortedFirstByPopularity = this.state.firstContacts.sort( (a, b) => b.popularity - a.popularity )
+    this.setState({
+        firstContacts: sortedFirstByPopularity
+    })
+}
     
 
     render() {
@@ -34,8 +49,8 @@ addNewContact = () => {
             <div>
                 <div className="btn-group" role="group" aria-label="...">
                         <button type="button" className="btn btn-default" onClick={this.addNewContact}>Add Random Contact</button>
-                        <button type="button" className="btn btn-default">Sort By Name</button>
-                        <button type="button" className="btn btn-default">Sort By Popularity</button>
+                        <button type="button" className="btn btn-default" onClick={this.sortByName}>Sort By Name</button>
+                        <button type="button" className="btn btn-default" onClick={this.sortByPopularity}>Sort By Popularity</button>
                 </div> 
                 <table style= {{width: '50%', textAlign: 'center', margin: 'auto'}}>
                     
