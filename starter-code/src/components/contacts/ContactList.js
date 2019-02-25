@@ -3,9 +3,12 @@ import ContactItem from './ContactItem';
 import contacts from '../../contacts.json'
 
 export default class ContactList extends Component  {
-  state = {
-    contacts: [...contacts]
-  };
+
+  constructor(props){
+    super(props);
+    this.state = {
+      contacts : [...contacts].filter( (c, index) => index < 5)};
+  }
 
   onClickDeleteContact = (contact) => {
     this.setState({

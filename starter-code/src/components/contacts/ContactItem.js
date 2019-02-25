@@ -5,7 +5,7 @@ const ContactItem = (props) => {
     <tr>
       <td><img src={props.pictureUrl} alt="..." /></td>
       <td>{props.name}</td>
-      <td>{props.popularity}</td>
+      <td>{props.popularity.toFixed(2)}</td>
       <td><button className="btn btn-danger" onClick={props.onClickDelete}>x</button></td>
     </tr>
   );
