@@ -40,9 +40,9 @@ class App extends Component {
     });
   };
 
-  deleteContact = (index) => {
+  deleteContact = index => {
     const newContacts = [...this.state.contacts];
-    newContacts.splice(index,1)
+    newContacts.splice(index, 1);
     this.setState({
       contacts: newContacts
     });
@@ -61,6 +61,7 @@ class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th />
             </tr>
           </thead>
 
@@ -68,9 +69,11 @@ class App extends Component {
             {/* ...contact prend toutes les clés valeurs de contact[index] et les envoie en props au children */}
             {this.state.contacts.map((contact, index) => {
               return (
-                <div className="contact-row">
-                  <ActorRow onClick={this.deleteContact} key={index} {...contact} />
-                </div>
+                <ActorRow
+                  onClick={this.deleteContact}
+                  key={index}
+                  {...contact}
+                />
               );
             })}
           </tbody>
