@@ -16,22 +16,26 @@ export default class ContactsTable extends Component {
     //     return arr.some(arrVal => val != arrVal);
     // }
 
-    addNewContact = () => {
-        let randomContact = this.state.contacts[Math.floor(Math.random() * this.state.contacts.length)]
-        let newFirst = this.state.firstContacts
-        newFirst.push(randomContact)
-        this.setState({
-            firstContacts: newFirst
-        })
-    }
+   
+addNewContact = () => {
+    const newContacts = this.state.contacts.filter(c => !this.state.firstContacts.includes(c))
+    const randomContact = newContacts[Math.floor(Math.random() * newContacts.length)]
+    let newFirst = this.state.firstContacts
+    newFirst.push(randomContact)
+    this.setState({
+        firstContacts: newFirst
+    })
+}
+
+    
 
     render() {
         return (
             <div>
                 <div className="btn-group" role="group" aria-label="...">
                         <button type="button" className="btn btn-default" onClick={this.addNewContact}>Add Random Contact</button>
-                        <button type="button" className="btn btn-default">Middle</button>
-                        <button type="button" className="btn btn-default">Right</button>
+                        <button type="button" className="btn btn-default">Sort By Name</button>
+                        <button type="button" className="btn btn-default">Sort By Popularity</button>
                 </div> 
                 <table style= {{width: '50%', textAlign: 'center', margin: 'auto'}}>
                     
