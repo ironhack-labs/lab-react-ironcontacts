@@ -70,7 +70,7 @@ class App extends Component {
             {this.state.contacts.map((contact, index) => {
               return (
                 <ActorRow
-                  onClick={this.deleteContact}
+                  clickToDelete={() => this.deleteContact(index)}
                   key={index}
                   {...contact}
                 />
