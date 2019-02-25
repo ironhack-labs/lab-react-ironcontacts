@@ -12,9 +12,6 @@ export default class ContactsTable extends Component {
         }
     }
 
-    // function checkAvailability(arr, val) {
-    //     return arr.some(arrVal => val != arrVal);
-    // }
 
    
 addNewContact = () => {
@@ -42,7 +39,17 @@ sortByPopularity = () => {
         firstContacts: sortedFirstByPopularity
     })
 }
-    
+
+deleteContact = (index) => {
+    const newFirst = this.state.firstContacts
+    newFirst.splice(index, 1)
+    this.setState({
+        firstContacts: newFirst
+    })
+}
+
+
+
 
     render() {
         return (
@@ -59,10 +66,11 @@ sortByPopularity = () => {
                             <th>Picture</th>
                             <th>Name</th> 
                             <th>Popularity</th>
+                            <th></th>
                         </tr>
                     
                         {this.state.firstContacts.map((contact, index) =>{
-                            return <ContacItem key={index} {...contact}/>
+                            return <ContacItem key={index} {...contact} deleteContact={() => this.deleteContact(index)}/>
                         })}
                     </tbody>
                 </table>
