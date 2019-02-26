@@ -11,19 +11,24 @@ class App extends Component {
     };
   }
 
-  // Check duplicate before adding a new contact
+  // ADD A RANDOM CONTACT IN THE CONTACTS ARRAY
   addRandom = () => {
+    // on crée une copie du tableau
     const contactsPlusOne = [...this.state.contacts];
+    // on défini un nouveau contact en s'assurant qu'il n'existe pas déjà dans la liste
     let newContact = contactsPlusOne[0];
     while (contactsPlusOne.includes(newContact)) {
       newContact = contacts[Math.floor(Math.random() * contacts.length)];
     }
+    // on ajoute le nouveau contact à la liste
     contactsPlusOne.push(newContact);
+    // on change le state de la liste : on remplace l'ancienne liste pas la nouvelle
     this.setState({
       contacts: contactsPlusOne
     });
   };
 
+  // SORT THE CONTACTS ALPHABETICALLY BY NAME
   sortByName = () => {
     const sortedByName = [...this.state.contacts];
     sortedByName.sort((a, b) => (a.name > b.name ? 1 : -1));
@@ -32,6 +37,7 @@ class App extends Component {
     });
   };
 
+  // SORT THE CONTACTS BY POPULARITY (Most popular first)
   sortByPopularity = () => {
     const sortedByPopularity = [...this.state.contacts];
     sortedByPopularity.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
@@ -40,6 +46,7 @@ class App extends Component {
     });
   };
 
+  // DELETE A CONTACT FROM THE CONTACTS ARRAY
   deleteContact = index => {
     const newContacts = [...this.state.contacts];
     newContacts.splice(index, 1);
