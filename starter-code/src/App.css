@@ -30,9 +30,20 @@
   margin: 0 auto;
 }
 
+.align {
+  width: 400px
+}
+
 img {
   width: 50px;
   height: 50px;
+}
+
+.action-bar button{
+  margin: 5px;
+  background-color: white;
+  color: black;
+  border: 2px solid grey;
 }
 
 @keyframes App-logo-spin {
