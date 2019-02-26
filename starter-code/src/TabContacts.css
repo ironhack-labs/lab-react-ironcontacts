@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    
+    margin: auto;
+    padding: auto;
+
+}
+
+table {
+    margin-top: 25px;
+}
+
+.Tab {
+  background-color: #b4d6b4;
+}
+
+.Tab button.choice 
+{
+    
+    padding: 10px;
+	font:bold 13px Arial;
+	background:#6c6b6d;
+	color: #FFFFFF;
+	border-radius:5px;
+	border:1px solid #ccc;
+	box-shadow:1px 1px 3px #999;
+}
+.Tab button.delete{
+    margin-top: 15px;
+    padding: 10px;
+	font:bold 13px Arial;
+	background:#6c6b6d;
+	color: #FFFFFF;
+	border-radius:5px;
+	border:1px solid #ccc;
+	box-shadow:1px 1px 3px #999;
+}
+
+.Tab-head {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
