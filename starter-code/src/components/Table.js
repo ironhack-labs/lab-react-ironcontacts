@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import contacts from '../contacts.json'
+import { Button } from 'antd';
+import { Table as tabla} from 'antd';
 
 class Table extends Component{
 
@@ -19,12 +21,14 @@ class Table extends Component{
                     <p>{elem.popularity}</p>
                 </td>
                 <td>
-                    <button onClick={()=>{
+                    <Button type="danger" onClick={()=>{
                         console.log(index)
                         let {artistas} = this.state
                         artistas.splice(index, 1)
                         this.setState({artistas})
-                    }}>Delete</button>
+                    }}>Delete</Button>
+
+
 
                 </td>
 
@@ -88,15 +92,41 @@ class Table extends Component{
         console.log(this.state.artistas)
     }
     render(){
+        
+        const columns = [
+            {  
+                title: "Picture",
+                dataIndex: "pictureURL"
+             },{
+                 title:"Name",
+                 dataIndex: "name"
+             },{
+                 title:"Popularity",
+                 dataIndex: "popularity"
+             },{
+                 title:"Action",
+                 dataIndex: "action"
+             }]
+
+        const data = this.state.artistas.map(this.drawArtist)
+
         return(
             <div>
                 <div>
-                    <button onClick={this.addRandom}>Add random contact</button>
-                    <button onClick={this.sortName}>Sort by name</button>
-                    <button onClick={this.sortPop}>Sort by popularity</button>
+                    <Button type="primary" ghost onClick={this.addRandom}>Add random contact</Button>
+                    <Button type="primary" ghost onClick={this.sortName}>Sort by name</Button>
+                    <Button type="primary" ghost onClick={this.sortPop}>Sort by popularity</Button>
                 </div>
+
+                {/* <tabla columns={columns} dataSource={data}>
+
+
+
+                </tabla> */}
+
+
                 <table>
-                    <thead>
+                   <thead>
                     <tr>
                         <th>Picture</th>
                         <th>Name</th>
@@ -108,9 +138,8 @@ class Table extends Component{
                     <tbody>
                     {this.state.artistas.map(this.drawArtist)}
                     </tbody>
-
-
                 </table>
+
             </div>
         )
     }
