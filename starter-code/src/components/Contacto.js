@@ -10,7 +10,7 @@ const Contacto = (props) => {
                   />
                 </td>
                 <td className="table-cell">{props.name}</td>
-                <td className="table-cell">{props.popularity}</td> 
+                <td className="table-cell">{props.popularity.toFixed(2)}</td> 
                 <td className="table-cell"><button onClick={props.delete}>Delete</button></td>
 
     </tr>)

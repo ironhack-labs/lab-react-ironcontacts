@@ -75,7 +75,7 @@ class Contacts extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.contactList.map((contact, index) => <Contacto key = {index} name = {contact.name} delete = {()=>this.deleteContact(index)} popularity = {contact.popularity.toFixed(2)} pictureUrl = {contact.pictureUrl} />)}
+            {this.state.contactList.map((contact, index) => <Contacto key = {index} {...contact} delete={this.deleteContact}/>)}
           </tbody>
         </table>
       </div>
