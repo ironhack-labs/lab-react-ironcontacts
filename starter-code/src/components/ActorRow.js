@@ -1,4 +1,6 @@
 import React from "react";
+import {Table, Button} from 'bloomer';
+import 'bulma/css/bulma.css';
 
 const actorRow = props => {
   return (
@@ -6,10 +8,10 @@ const actorRow = props => {
       <td className="table-cell">
         <img className="actor-picture" src={props.pictureUrl} />
       </td>
-      <td className="table-cell">{props.name}</td>
-      <td className="table-cell">{props.popularity.toFixed(2)}</td>
+      <td className="table-cell"> <p className="text1">{props.name}</p></td>
+      <td className="table-cell"> <p className="text2">{props.popularity.toFixed(2)}</p> </td>
       <td>
-        <button onClick={props.clickToDelete}> Delete </button>
+        <Button className="delete-btn" onClick={props.clickToDelete}> Delete </Button>
       </td>
     </tr>
   );

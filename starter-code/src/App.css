@@ -23,10 +23,13 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 /* ________________TABLE CSS__________________ */
 
@@ -44,8 +47,51 @@ table {
 }
 
 .table-cell {
+  vertical-align: middle;
   text-align: center;
   margin: 0px auto;
-  padding: 30px;
+  text-align: center;
 }
 
+.table-cell .text1 {
+  margin: 0px auto;
+  padding-top: 20%;
+}
+
+.table-cell .text2 {
+  margin: 0px auto;
+  padding-top: 30%;
+}
+
+.everything {
+  vertical-align: middle;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  padding-left: 35%;
+  padding-right: 35%;
+  padding-top: 50px;
+
+}
+
+#buttons {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-radius: 0px;
+}
+
+.button.delete-btn {
+  color: red;
+}
+
+.delete-btn {
+  margin-top: 20%
+}
+
+.table-title {
+  font-size: 30px;
+}
+
+.center {
+  width: 33.3%;
+}

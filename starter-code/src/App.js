@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import contacts from "./contacts.json";
 import ActorRow from "./components/ActorRow.js";
+import { Table, Button } from "bloomer";
+import "bulma/css/bulma.css";
 
 class App extends Component {
   constructor() {
@@ -57,12 +59,21 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1> IronContacts</h1>
-        <button onClick={this.addRandom}> Add Random </button>
-        <button onClick={this.sortByName}> Sort by Name </button>
-        <button onClick={this.sortByPopularity}> Sort by Popularity </button>
-        <table>
+      <div className="everything">
+        <h1 className="table-title"> IronContacts</h1>
+        <div id="buttons">
+          <Button className="center" onClick={this.addRandom}>
+            Add Random
+          </Button>
+          <Button className="center" onClick={this.sortByName}>
+            Sort by Name
+          </Button>
+          <Button className="center" onClick={this.sortByPopularity}>
+            Sort by Popularity
+          </Button>
+        </div>
+
+        <Table isBordered isStriped isNarrow>
           <thead>
             <tr>
               <th>Picture</th>
@@ -84,7 +95,7 @@ class App extends Component {
               );
             })}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }
