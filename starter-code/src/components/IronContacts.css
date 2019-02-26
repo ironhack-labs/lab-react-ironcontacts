@@ -1,0 +1,46 @@
+.IronContacts img {
+  max-height: 200px;
+  border-radius: 50%;
+}
+
+.IronContacts {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.IronContacts button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 16px;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.IronContacts button:hover,
+.IronContacts button:focus,
+.IronContacts button:active,
+.IronContacts button.active,
+.open .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
