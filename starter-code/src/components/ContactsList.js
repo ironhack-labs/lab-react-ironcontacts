@@ -9,18 +9,30 @@ class ContactsList extends Component {
     };
   }
 
-  addContact() {
+  addContact = () => {
     const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
-    this.state.displayedContacts.push(randomContact);
+    const displayedContactsCopy = [...this.state.displayedContacts];
+    displayedContactsCopy.push(randomContact);
     this.setState({
-      displayedContacts: this.state.displayedContacts
+      displayedContacts: displayedContactsCopy
     });
-  }
+  };
+
+  sortContact = () => {
+    const sortArr = this.state.displayedContacts.sort((contact1, contact2) => {
+      return contact1.name.localeCompare(contact2.name);
+    });
+    this.setState({
+      displayedContacts: sortArr
+    });
+  };
 
   render() {
     return (
       <div>
-        <button onClick={this.addContact.bind(this)}>Add random contact</button>
+        <button onClick={this.addContact}>Add random contact</button>
+        <button onClick={this.sortContact}>Sort contact</button>
+
         <br />
         <table>
           <thead>
