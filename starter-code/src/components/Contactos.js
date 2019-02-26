@@ -42,11 +42,13 @@ class Contacts extends Component {
   });
   }
 
+  popularityAscending = true
   sortByPopularity = () => {
-    let newContactList = this.state.contactList.slice().sort((a,b)=> b.popularity - a.popularity)
+    let newContactList = this.state.contactList.slice().sort((a,b)=> this.popularityAscending ? b.popularity - a.popularity : a.popularity - b.popularity)
     this.setState({
       contactList: newContactList
   });
+  this.popularityAscending = !this.popularityAscending
   }
 
   deleteContact = (index) => {
@@ -61,10 +63,10 @@ class Contacts extends Component {
     return (
       <div>
         <h1>IronContacts</h1>
-        <button onClick={this.addRandomContact}>Add random Contact</button>
-        <button onClick={this.sortByName}>Sort by first name: {this.nameAscending ? "A-Z" : "Z-A"} </button>
-        <button onClick={this.sortByLastName}>Sort by last name: {this.lastNameAscending ? "A-Z" : "Z-A"} </button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort by First Name: {this.nameAscending ? "A-Z" : "Z-A"} </button>
+        <button onClick={this.sortByLastName}>Sort by Last Name: {this.lastNameAscending ? "A-Z" : "Z-A"} </button>
+        <button onClick={this.sortByPopularity}>Sort by Popularity {this.popularityAscending ? "(ascending)" : "(descending)"}</button>
         <table>
           <thead>
             <tr>
@@ -75,7 +77,7 @@ class Contacts extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.contactList.map((contact, index) => <Contacto key = {index} {...contact} delete={this.deleteContact}/>)}
+            {this.state.contactList.map((contact, index) => <Contacto key = {index} delete={this.deleteContact} {...contact /*destructuring the "contact" object and sending each of its properties as a prop*/} />)}
           </tbody>
         </table>
       </div>
