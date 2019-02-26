@@ -21,6 +21,33 @@ export default class Celebrities extends Component {
     })
   }
 
+  sort_name = () => {
+    let sortCelebrityName = this.state.contacts;
+    sortCelebrityName.sort(function(a, b) {
+      var textA = a.name.toUpperCase();
+      var textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  });
+    
+    this.setState({
+      contact: sortCelebrityName
+    })
+  }
+  
+  sort_popularity = () => {
+    let sortCelebrityPopularity = this.state.contacts;
+    sortCelebrityPopularity.sort(function(a, b) {
+      var textA = a.popularity;
+      var textB = b.popularity;
+      return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+  });
+    
+    this.setState({
+      contact: sortCelebrityPopularity
+    })
+
+  }
+
   render (){
 
    const celebrities = this.state.contacts
@@ -38,6 +65,8 @@ export default class Celebrities extends Component {
       <div className="container">
         <h1>Iron Contacts</h1>
         <button type="button" className="mb-3 btn btn-secondary" onClick={this.random_item}>Add Random</button>
+        <button type="button" className="mb-3 ml-2 btn btn-secondary" onClick={this.sort_name}>Sort by name</button>
+        <button type="button" className="mb-3 ml-2 btn btn-secondary" onClick={this.sort_popularity}>Sort by popularity</button>
         <table className="table">
           <thead>
             <tr>
