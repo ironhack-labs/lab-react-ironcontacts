@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import contacts from "../contacts.json";
+import Contacto from "./Contacto"
 
 const firstContacts = contacts.slice(0, 5);
 
@@ -64,7 +65,6 @@ class Contacts extends Component {
         <button onClick={this.sortByName}>Sort by first name: {this.nameAscending ? "A-Z" : "Z-A"} </button>
         <button onClick={this.sortByLastName}>Sort by last name: {this.lastNameAscending ? "A-Z" : "Z-A"} </button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
-
         <table>
           <thead>
             <tr>
@@ -74,23 +74,8 @@ class Contacts extends Component {
               <th>Action</th>
             </tr>
           </thead>
-
           <tbody>
-            {this.state.contactList.map((contact, index) => (
-              <tr className="table-row" key={index}>
-                <td className="table-cell">
-                  <img
-                    className="image"
-                    src={contact.pictureUrl}
-                    alt={contact.name}
-                  />
-                </td>
-                <td className="table-cell">{contact.name}</td>
-                <td className="table-cell">{contact.popularity.toFixed(2)}</td> 
-                <td className="table-cell"><button onClick={()=>this.deleteContact(index)}>Delete</button></td>
-
-              </tr>
-            ))}
+            {this.state.contactList.map((contact, index) => <Contacto key = {index} name = {contact.name} delete = {()=>this.deleteContact(index)} popularity = {contact.popularity.toFixed(2)} pictureUrl = {contact.pictureUrl} />)}
           </tbody>
         </table>
       </div>
