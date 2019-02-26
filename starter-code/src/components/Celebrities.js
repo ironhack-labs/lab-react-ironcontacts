@@ -33,7 +33,7 @@ export default class Celebrities extends Component {
       contact: sortCelebrityName
     })
   }
-  
+
   sort_popularity = () => {
     let sortCelebrityPopularity = this.state.contacts;
     sortCelebrityPopularity.sort(function(a, b) {
@@ -45,7 +45,13 @@ export default class Celebrities extends Component {
     this.setState({
       contact: sortCelebrityPopularity
     })
+  }
 
+  onClickDelete = (contact) => {
+    this.setState({
+      contacts: this.state.contacts.filter(f => f !== contact)
+    })
+    
   }
 
   render (){
@@ -57,6 +63,7 @@ export default class Celebrities extends Component {
           <td><img src={contact.pictureUrl} alt={contact.name} className="picture"/></td>
           <td>{contact.name}</td>
           <td>{contact.popularity.toFixed(2)}</td>
+          <td><button type="button" className="mb-3 btn btn-danger" onClick={this.onClickDelete.bind(this, contact)}>Delete</button></td>
         </tr>
       )
     })
