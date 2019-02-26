@@ -59,7 +59,7 @@ export default class Celebrities extends Component {
    const celebrities = this.state.contacts
     .map(contact => {
       return (
-        <tr>
+        <tr key={contact.name}>
           <td><img src={contact.pictureUrl} alt={contact.name} className="picture"/></td>
           <td>{contact.name}</td>
           <td>{contact.popularity.toFixed(2)}</td>
@@ -80,6 +80,7 @@ export default class Celebrities extends Component {
               <th scope="col">Picture</th>
               <th scope="col">Name</th>
               <th scope="col">Popularity</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
