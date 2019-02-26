@@ -47,7 +47,7 @@ class TabContacts extends React.Component {
 
   render() {
     return (
-        <div className="container">
+    <div className="container">
       <div className="Tab">
         <button className="choice" onClick={this.addContact}> Add New Random Contacts </button>
         <button className="choice" onClick={this.sortByName}> sortByName </button>
@@ -63,7 +63,7 @@ class TabContacts extends React.Component {
           </thead>
           <tbody className="Tab-body">
             {this.state.celebrities.map((oneCeleb, index) => (
-              <tr>
+              <tr key={index}>
                 <td>
                   <img
                     src={oneCeleb.pictureUrl}
@@ -80,7 +80,7 @@ class TabContacts extends React.Component {
           </tbody>
         </table>
       </div>
-      </div>
+    </div>
     );
   }
 }
