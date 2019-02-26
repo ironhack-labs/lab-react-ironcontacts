@@ -12,13 +12,14 @@ class IronContacts extends Component {
 
   addContact() {
     const newContact = contacts[Math.floor(Math.random() * contacts.length)];
-    this.state.contactArray.push(newContact);
-    this.setState({ contactArray: this.state.contactArray });
+    const contactArrayCopy = [...this.state.contactArray];
+    contactArrayCopy.push(newContact);
+    this.setState({ contactArray: contactArrayCopy });
   }
 
   sortByName() {
-    const newArray = this.state.contactArray;
-    newArray.sort(function(a, b) {
+    const contactArrayCopy = [...this.state.contactArray];
+    contactArrayCopy.sort(function(a, b) {
       if (a.name < b.name) {
         return -1;
       }
@@ -27,21 +28,21 @@ class IronContacts extends Component {
       }
       return 0;
     });
-    this.setState({ contactArray: newArray });
+    this.setState({ contactArray: contactArrayCopy });
   }
 
   sortByPopularity() {
-    const newArray = this.state.contactArray;
-    newArray.sort(function(a, b) {
+    const contactArrayCopy = [...this.state.contactArray];
+    contactArrayCopy.sort(function(a, b) {
       return b.popularity - a.popularity;
     });
-    this.setState({ contactArray: newArray });
+    this.setState({ contactArray: contactArrayCopy });
   }
 
   remove(index) {
-    const contact = this.state.contactArray;
-    contact.splice(index, 1);
-    this.setState({ contactArray: contact });
+    const contactArrayCopy = [...this.state.contactArray];
+    contactArrayCopy.splice(index, 1);
+    this.setState({ contactArray: contactArrayCopy });
   }
 
   render() {
