@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.picture{
+  width: 20%;
+  height: 20%;
+}
