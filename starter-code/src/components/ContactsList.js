@@ -27,11 +27,23 @@ class ContactsList extends Component {
     });
   };
 
+  sortPopularity = () => {
+    const sortPop = this.state.displayedContacts.sort((contact1, contact2) => {
+      return contact1.popularity - contact2.popularity;
+    });
+    this.setState({
+      displayedContacts: sortPop
+    });
+  };
+
   render() {
     return (
       <div>
         <button onClick={this.addContact}>Add random contact</button>
-        <button onClick={this.sortContact}>Sort contact</button>
+        <button onClick={this.sortContact}>Sort contact by name</button>
+        <button onClick={this.sortPopularity}>
+          Sort contact by popularity
+        </button>
 
         <br />
         <table>
