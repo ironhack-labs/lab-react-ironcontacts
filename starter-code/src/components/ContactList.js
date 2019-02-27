@@ -7,19 +7,26 @@ import contacts from '../data/contacts.json'
 export default class ContactList  extends Component {
 
   state = {
-    contacts: new Array(5).fill(null).map((_, index) => contacts[index])
+    contacts: new Array(5).fill(null).map((_, index) => contacts[index]),
+    activeSort: undefined
   }
 
   OnClickAddRandomItem = () => {
     const newContact = contacts[Math.floor(Math.random() * contacts.length)]
-    
-    this.setState({
-      contacts: [...this.state.contacts, newContact]
-    }, () => this.OnClickSortByName())
+
+    if (!this.state.contacts.includes(newContact)) {
+      this.setState({
+        contacts: [...this.state.contacts, newContact]
+      }, () => this.sorter(this.state.activeSort))
+    } else {
+      this.OnClickAddRandomItem()
+    }
+
   }
 
   OnClickSortByName = () => {
     this.setState({
+      activeSort: "name",
       contacts: this.state.contacts.sort((a,b) => {
         if(a.name < b.name) { return -1; }
         if(a.name > b.name) { return 1; }
@@ -30,6 +37,7 @@ export default class ContactList  extends Component {
 
   OnClickSortByRating = () => {
     this.setState({
+      activeSort: "rating",
       contacts: this.state.contacts.sort((a,b) => b.popularity - a.popularity)
     })
   }
@@ -38,6 +46,19 @@ export default class ContactList  extends Component {
     this.setState({
       contacts: this.state.contacts.filter(c => c.name !== contact.name)
     })
+  }
+
+
+  sorter = type => {
+
+    const values =  {
+      "name": this.OnClickSortByName,
+      "rating": this.OnClickSortByRating
+    }
+
+    console.log(this.state.activeSort, values[type])
+    values[type] && values[type]()
+
   }
 
   renderItems = () => {

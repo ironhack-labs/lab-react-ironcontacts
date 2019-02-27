@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Buttons = ({ OnClickAddRandomItem, OnClickSortByName, OnClickSortByRating }) => {
+const Buttons = ({ OnClickAddRandomItem, OnClickSortByName, OnClickSortByRating, sorter }) => {
     return(
       <div className="btn-group" role="group" aria-label="Basic example">
         <button type="button" className="btn btn-secondary" onClick={OnClickAddRandomItem}>Random contact</button>
