@@ -36,6 +36,14 @@ class ContactsList extends Component {
     });
   };
 
+  deleteContactHandler = contactIndex => {
+    const contactsCopy = [...this.state.displayedContacts];
+    contactsCopy.splice(contactIndex, 1);
+    this.setState({
+      displayedContacts: contactsCopy
+    });
+  };
+
   render() {
     return (
       <div>
@@ -63,6 +71,11 @@ class ContactsList extends Component {
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
+                  <td>
+                    <button onClick={this.props.clickToDelete}>
+                      Delete this contact
+                    </button>
+                  </td>
                 </tr>
               );
             })}
