@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Iron contact</h1>
-        <ContactsList clickToDelete={() => this.deleteContactHandler()} />
+        <ContactsList />
       </div>
     );
   }

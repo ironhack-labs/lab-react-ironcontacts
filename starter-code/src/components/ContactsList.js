@@ -5,7 +5,7 @@ class ContactsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayedContacts: contacts.slice(0, 5)
+      displayedContacts: contacts.splice(0, 5)
     };
   }
 
@@ -65,14 +65,14 @@ class ContactsList extends Component {
           <tbody>
             {this.state.displayedContacts.map(function(contact, index) {
               return (
-                <tr key={index}>
+                <tr key={index} index={index}>
                   <td>
                     <img className="contact-image" src={contact.pictureUrl} />
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
                   <td>
-                    <button onClick={this.props.clickToDelete}>
+                    <button onClick={this.deleteContactHandler(index)}>
                       Delete this contact
                     </button>
                   </td>
