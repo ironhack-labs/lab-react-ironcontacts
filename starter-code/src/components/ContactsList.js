@@ -63,7 +63,7 @@ class ContactsList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.displayedContacts.map(function(contact, index) {
+            {this.state.displayedContacts.map((contact, index) => {
               return (
                 <tr key={index} index={index}>
                   <td>
@@ -72,7 +72,7 @@ class ContactsList extends Component {
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
                   <td>
-                    <button onClick={this.deleteContactHandler(index)}>
+                    <button onClick={() => this.deleteContactHandler(index)}>
                       Delete this contact
                     </button>
                   </td>
