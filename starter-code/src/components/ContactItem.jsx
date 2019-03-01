@@ -4,7 +4,7 @@ const ContactItem = (props) => {
     return (
       <div className="columns row level-item">
         <div className="column">
-          <figure className="image container is-128x128">
+          <figure className="image container is-96x96">
             <img src={props.pictureUrl} alt={props.name} />
           </figure>
         </div>

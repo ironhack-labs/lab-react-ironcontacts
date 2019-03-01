@@ -9,7 +9,8 @@ export default class ContactList extends Component {
     super(props);
     this.state = {
       contacts: [...contacts].slice(0, 5) || [],
-      allContacts: [...contacts] || []
+      allContacts: [...contacts] || [],
+      sortedType: undefined
     };
   }
 
@@ -19,23 +20,42 @@ export default class ContactList extends Component {
     if (randomContact) {
       this.setState({
         contacts: [...this.state.contacts, randomContact]
-      })
+      }, () => this.state.sortedType && this.sortContacts(this.state.sortedType));
     }
   }
+
+  sortContacts = (sortedType) => {
+    const contacts = [...this.state.contacts].sort((c1, c2) => {
+      switch (sortedType) {
+        case 'name': 
+          return c1.name.localeCompare(c2.name);
+        case 'popularity': 
+          return c2.popularity - c1.popularity;
+      }
+    });
+    this.setState({
+      contacts: contacts,
+      sortedType: sortedType
+    })
+  } 
 
   render() {
 
     return (
       <Fragment>
-        <button type="button" className="btn btn-secondary row" onClick={this.randomContact}>Add random contact</button>
+        <div className="buttons row level-item">
+          <button type="button" className="button is-normal" onClick={this.randomContact}>Add random contact</button>
+          <button type="button" className="button is-normal" onClick={this.sortContacts.bind(this, 'name')}>Sort by name</button>
+          <button type="button" className="button is-normal" onClick={this.sortContacts.bind(this, 'popularity')}>Sort by popularity</button>
+        </div>
         <div className="columns row">
           <div className="column"><h3 className="title">Picture</h3></div>
           <div className="column"><h3 className="title">Name</h3></div>
           <div className="column"><h3 className="title">Popularity</h3></div>
         </div>
         {this.state.contacts.map((contact, index) => {
-            return <ContactItem key={index} {...contact} />
-          })}
+          return <ContactItem key={index} {...contact} />
+        })}
       </Fragment>
     );
   }

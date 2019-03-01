@@ -1,3 +1,7 @@
 .row {
   margin: 6vh 12vh;
 }
+
+.buttons button {
+  margin: 1vh 5vh;
+}
