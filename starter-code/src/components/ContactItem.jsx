@@ -14,6 +14,9 @@ const ContactItem = (props) => {
         <div className="column">
           <strong className="is-size-5">{props.popularity.toFixed(2)}</strong>
         </div>
+        <div className="column">
+          <button type="button" className="button is-normal" onClick={props.onClickDelete}>Remove</button>
+        </div>
       </div>
     );
   }
