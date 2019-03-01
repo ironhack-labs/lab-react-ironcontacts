@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
 
-export default class ContactItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    const { name, pictureUrl, popularity } = this.props.contact;
-
+const ContactItem = (props) => {
     return (
       <div className="columns row level-item">
         <div className="column">
           <figure className="image container is-128x128">
-            <img src={pictureUrl} alt={name} />
+            <img src={props.pictureUrl} alt={props.name} />
           </figure>
         </div>
         <div className="column">
-          <strong className="is-size-4">{name}</strong>
+          <strong className="is-size-4">{props.name}</strong>
         </div>
         <div className="column">
-          <strong className="is-size-4">{popularity}</strong>
+          <strong className="is-size-5">{props.popularity.toFixed(2)}</strong>
         </div>
       </div>
     );
   }
-}
+
+export default ContactItem;
