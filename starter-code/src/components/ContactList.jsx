@@ -27,9 +27,9 @@ export default class ContactList extends Component {
   sortContacts = (sortedType) => {
     const contacts = [...this.state.contacts].sort((c1, c2) => {
       switch (sortedType) {
-        case 'name': 
+        case 'name':
           return c1.name.localeCompare(c2.name);
-        case 'popularity': 
+        case 'popularity':
           return c2.popularity - c1.popularity;
       }
     });
@@ -37,11 +37,11 @@ export default class ContactList extends Component {
       contacts: contacts,
       sortedType: sortedType
     })
-  } 
+  }
 
   onClickDelete = (contact) => {
     this.setState({
-      contacts: [...this.state.contacts].filter(c => c!== contact)
+      contacts: [...this.state.contacts].filter(c => c !== contact)
     });
   }
 
@@ -49,20 +49,22 @@ export default class ContactList extends Component {
 
     return (
       <Fragment>
-        <div className="buttons row level-item">
-          <button type="button" className="button is-normal" onClick={this.randomContact}>Add random contact</button>
-          <button type="button" className="button is-normal" onClick={this.sortContacts.bind(this, 'name')}>Sort by name</button>
-          <button type="button" className="button is-normal" onClick={this.sortContacts.bind(this, 'popularity')}>Sort by popularity</button>
+        <div className="container contactList">
+          <div className="buttons row level-item">
+            <button type="button" className="button is-normal is-info is-inverted" onClick={this.randomContact}>Add random contact</button>
+            <button type="button" className="button is-normal is-info is-inverted" onClick={this.sortContacts.bind(this, 'name')}>Sort by name</button>
+            <button type="button" className="button is-normal is-info is-inverted" onClick={this.sortContacts.bind(this, 'popularity')}>Sort by popularity</button>
+          </div>
+          <div className="columns row">
+            <div className="column"><h3 className="title">Picture</h3></div>
+            <div className="column"><h3 className="title">Name</h3></div>
+            <div className="column"><h3 className="title">Popularity</h3></div>
+            <div className="column"><h3 className="title">Remove this contact</h3></div>
+          </div>
+          {this.state.contacts.map((contact, index) => {
+            return <ContactItem key={index} {...contact} onClickDelete={this.onClickDelete.bind(this, contact)} />
+          })}
         </div>
-        <div className="columns row">
-          <div className="column"><h3 className="title">Picture</h3></div>
-          <div className="column"><h3 className="title">Name</h3></div>
-          <div className="column"><h3 className="title">Popularity</h3></div>
-          <div className="column"><h3 className="title">Remove this contact</h3></div>
-        </div>
-        {this.state.contacts.map((contact, index) => {
-          return <ContactItem key={index} {...contact} onClickDelete={this.onClickDelete.bind(this,contact)} />
-        })}
       </Fragment>
     );
   }
