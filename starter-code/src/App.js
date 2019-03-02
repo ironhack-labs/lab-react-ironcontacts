@@ -1,18 +1,68 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
 import './App.css';
+import Table from './modules/Table.js'
+import contacts from './contacts.json'
+import Header from './modules/Header'
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 class App extends Component {
+  constructor(){
+    super();
+      this.state = {
+        contacts: contacts.slice(0, 5)
+      }
+    }
+    addContactsHandler = () =>{
+      const contactsCopy = this.state.contacts;
+      contactsCopy.push(contacts[contactsCopy.length]);
+      this.setState({
+        contacts: contactsCopy
+      })
+    }
+
+    compareName = (a,b) => {
+      if (a.name < b.name)
+        return -1;
+      if (a.name > b.name)
+        return 1;
+      return 0;
+    }
+
+    comparePopularity = (a,b) =>{
+      if (a.popularity < b.popularity)
+        return 1;
+      if (a.popularity > b.popularity)
+        return -1;
+      return 0;
+    }
+
+    sortByNameHandler = () => {
+      const contactsCopy = this.state.contacts;
+      contactsCopy.sort(this.compareName);
+      this.setState({
+        contacts: contactsCopy
+      })
+    }
+
+    sortByPopularityHandler = () => {
+      const contactsCopy2 = this.state.contacts;
+      contactsCopy2.sort(this.comparePopularity);
+      console.log(contactsCopy2);
+      this.setState({
+        contacts: contactsCopy2
+      })
+    }
+
+    
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Fragment>
+          <Header addContact={() => this.addContactsHandler()} sortName={() => this.sortByNameHandler()} sortPopularity={() => this.sortByPopularityHandler()}/>
+          <Table contacts={this.state.contacts}/>
+        </Fragment>
       </div>
     );
   }
