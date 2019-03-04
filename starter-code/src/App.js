@@ -21,10 +21,6 @@ class App extends Component {
     return list;
   }
 
-  // onClick = delete()
-  // onClick = functon delete(){}
-  //document.getElementById('something').onclick = function(){ delete() }
-
   addRandomContact = () => {
     let newList = [...this.state.contacts]
     newList.push(contacts[Math.floor(Math.random() * 199)+5])
