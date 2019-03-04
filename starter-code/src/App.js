@@ -2,19 +2,50 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import contacts from './contacts.json'
+
 class App extends Component {
+  
+  showContacts = () => {
+    let list = contacts.splice(0,5).map((contact,i) => {
+      return ( 
+      <tr key={i}> 
+        <td><img src={contact.pictureUrl} alt={contact.name} height="100" width="auto" ></img> </td>
+        <td> {contact.name} </td>
+        <td> {contact.popularity.toFixed(2)} </td>
+      </tr>
+      
+        )
+    })
+    return list;
+  }
+
+  addContact = () => {
+    let randomContact = contacts[Math.floor(Math.random()*contacts.length)];
+    list.push(randomContact);
+    return list;
+    
+    
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header>
+          <h1 className="AppTitle">IronContacts</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <button>Add Random Contact</button>
+        <table>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+          {this.showContacts()} 
+        </table>
+          
       </div>
-    );
+    )
   }
 }
 
