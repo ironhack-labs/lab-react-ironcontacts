@@ -15,16 +15,30 @@ class App extends Component {
         <td><img src={contact.pictureUrl} className="contactPhoto"></img></td>
         <td>{contact.name}</td>
         <td>{contact.popularity}</td>
+        <td><button onClick={()=>{this.deleteContact(i)}}>Delete</button></td>
         </tr>
     })
     return list;
   }
+
+  // onClick = delete()
+  // onClick = functon delete(){}
+  //document.getElementById('something').onclick = function(){ delete() }
 
   addRandomContact = () => {
     let newList = [...this.state.contacts]
     newList.push(contacts[Math.floor(Math.random() * 199)+5])
     this.setState({
       contacts: newList
+    })
+  }
+
+  deleteContact = (i) => {
+    //console.log(contacts[i])
+    let shorterList = [...this.state.contacts]
+    shorterList.splice(i, 1);
+    this.setState({
+      contacts: shorterList
     })
   }
 
@@ -72,6 +86,7 @@ class App extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
           {this.showContacts()}
         </table>
