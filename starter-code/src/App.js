@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import contacts from './contacts.json'
-
+let showContacts = contacts.splice(0,5); 
 class App extends Component {
   state = {
-    contacts:contacts.splice(0,5) //all the contacts we are messing with 
+    showContacts,
+    contacts
+    //all the contacts we are messing with 
   }
 
   showCelebs = () => {
-    let list = this.state.contacts.map((contact, i)=>{ //loo[ps throught contacts and returns an html list
+    let list = this.state.showContacts.map((contact, i)=>{ //loo[ps throught contacts and returns an html list
       return (
-        <tr>
+        <tr key={i}>
           <td><img src={contact.pictureUrl}/></td> 
           <td>{contact.name}</td>
           <td> {contact.popularity}</td>
@@ -20,13 +22,14 @@ class App extends Component {
     return list;
   }
 
-  addContact = () => {
-    let newContacts = [...this.state.contacts] //makes a copy of the contact state
-    newContacts.push({ //adds to the copy
-      name:"Henry"
-    })
+  addRandomContact = () => {
+    let newContacts = [...this.state.showContacts] //makes a copy of the contact state
+    let randomContact = contacts.splice(Math.floor((Math.random() * contacts.length)),1)[0];
+    console.log(randomContact)
+    //newContacts.splice(Math.floor((Math.random() * contacts.length) + 5));
+    newContacts.push(randomContact);
     this.setState({ //and resets the state to be this newlist with another henry
-      contacts:newContacts
+      showContacts:newContacts
     })
   }
 
@@ -34,17 +37,17 @@ class App extends Component {
     return (
       <div class="contactTable">
         <h1>IronContacts</h1>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-          {this.showCelebs()} {/* Calls function once */}
-        </table>
-        
-          
-        <button onClick={this.addContact}>Add Contact</button>
+          <tbody>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+            {this.showCelebs()} {/* Calls function once */}
+          </tbody>
+        </table>   
       </div>
     );
   }
