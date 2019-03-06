@@ -31,13 +31,32 @@ class App extends Component {
     this.setState({ //and resets the state to be this newlist with another henry
       showContacts:newContacts
     })
+    // }, ()=>{ //callback after u set state 
+    //   this.sortByName()
+    // })
   }
+
+  sortByName =() => {
+    let newContacts = [...this.state.showContacts] //makes a copy of the contact state
+    newContacts.sort(function(a, b){
+      if(a.name < b.name) { return -1; }
+      if(a.name > b.name) { return 1; }
+      return 0;
+    })
+    console.log(newContacts)
+    this.setState({
+      showContacts:newContacts
+    })
+  }
+
 
   render() {
     return (
       <div class="contactTable">
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort By Name</button>
+
         <table>
           <tbody>
             <tr>
