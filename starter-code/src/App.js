@@ -6,7 +6,6 @@ import contacts from './contacts.json'
 
 class App extends Component 
 {
-
   state = {
     contacts: contacts.splice(0,5), //First 5 
     allOtherContacts: contacts //Rest of
@@ -22,34 +21,35 @@ class App extends Component
           <li className="contact-name">{oneContact.name}</li>
           <img className="contact-image" src={oneContact.pictureUrl}></img>
           <li className="contact-popularity">{(Math.round(oneContact.popularity * 100)/100)}</li>
+          <button onClick={()=>this.deleteButton(index)} className="delete-contact">Delete</button>
         </div>
       )
     })
     return list;
   }
 
-  fidoButton = () => // Add Fido 
-  {
-    let celebFido = {
-        name: "fido",
-        pictureUrl: "https://r.hswstatic.com/w_907/gif/smilingdog-1.jpg",
-        popularity: 100,
-    }
-    console.log(celebFido)
+  // fidoButton = () => // Add Fido 
+  // {
+  //   let celebFido = {
+  //       name: "fido",
+  //       pictureUrl: "https://r.hswstatic.com/w_907/gif/smilingdog-1.jpg",
+  //       popularity: 100,
+  //   }
+  //   console.log(celebFido)
 
-    let contactsCopy = [...this.state.contacts]     // declares new copy from contacts inside of the state
-      contactsCopy.push(celebFido)                  // pushes celeb info (which is Fido) into the new copy of contacts
-      this.setState({                               // updates old contacts with the copied contacts that now has Fido
-        contacts: contactsCopy
-      })
-  }
+  //   let copyContacts = [...this.state.contacts]     // declares new copy from contacts inside of the state
+  //     copyContacts.push(celebFido)                  // pushes celeb info (which is Fido) into the new copy of contacts
+  //     this.setState({                               // updates old contacts with the copied contacts that now has Fido
+  //       contacts: copyContacts
+  //     })
+  // }
 
   randomButton = () => // Add Random Contact
   {
     let items = this.state.allOtherContacts;
     var item = items[Math.floor(Math.random()*items.length)];
 
-    let itemContacts = [...this.state.contacts]
+    let itemContacts = [...this.state.contacts];
    
     itemContacts.push(item)
     this.setState({
@@ -60,14 +60,25 @@ class App extends Component
     return item;
   }
 
+  deleteButton = (index) => // Delete a Contact 
+  {
+    let copyContacts = [...this.state.contacts];
+
+    copyContacts.splice(index, 1)
+    this.setState({
+      contacts: copyContacts
+    })
+  }
+
   nameSortButton = () => // Sort Contacts by name
   {
     let copyContacts = [...this.state.contacts];
-      copyContacts.sort(function(a, b){
-      if(a.name < b.name) { return -1; }
-      if(a.name > b.name) { return 1; }
-      return 0;
-  })
+      copyContacts.sort(function(a, b)
+      {
+        if(a.name < b.name) { return -1; }
+        if(a.name > b.name) { return 1; }
+        return 0;
+      })
     this.setState({
       contacts: copyContacts
     })
@@ -77,16 +88,18 @@ class App extends Component
   popularitySortButton = () => //Sort Contacts by popularity
   {
     let copyContacts = [...this.state.contacts];
-      copyContacts.sort(function(a, b){
-      if(a.popularity < b.popularity) { return 1; }
-      if(a.popularity > b.popularity) { return -1; }
-    return 0;
-  })
+      copyContacts.sort(function(a, b)
+      {
+        if(a.popularity < b.popularity) { return 1; }
+        if(a.popularity > b.popularity) { return -1; }
+        return 0;
+      })
     this.setState({
       contacts: copyContacts
     })
     return contacts;
   }
+
   
   render() 
   {
