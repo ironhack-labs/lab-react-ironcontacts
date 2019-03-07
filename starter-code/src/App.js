@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import contacts from './contacts.json'
 let showContacts = contacts.splice(0,5); 
+
 class App extends Component {
   state = {
     showContacts,
@@ -49,6 +50,22 @@ class App extends Component {
     })
   }
 
+  sortbyPopularity = () => {
+    //console.log(contacts[0].popularity);
+
+    let newContacts = [...this.state.showContacts] //makes a copy of the contact state
+    
+    newContacts.sort(function(a, b){
+      if(a.popularity < b.popularity) { return 1; }
+      if(a.popularity > b.popularity) { return -1; }
+      return 0;
+    })
+    //console.log(newContacts)
+    this.setState({
+      showContacts:newContacts
+    })
+  }
+
 
   render() {
     return (
@@ -56,6 +73,8 @@ class App extends Component {
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort By Name</button>
+        <button onClick={this.sortbyPopularity}>Sort By Popularity</button>
+
 
         <table>
           <tbody>
