@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     showContacts,
     contacts
-    //all the contacts we are messing with 
+  //all the contacts we are messing with 
   }
 
   showCelebs = () => {
@@ -17,6 +17,7 @@ class App extends Component {
           <td><img src={contact.pictureUrl}/></td> 
           <td>{contact.name}</td>
           <td> {contact.popularity}</td>
+          <td><button onClick={()=>this.deleteContact(i)}>Delete</button></td>
         </tr>
       )
     })
@@ -66,16 +67,26 @@ class App extends Component {
     })
   }
 
+  deleteContact = (contact) => {
+    let newContacts = [...this.state.showContacts]
+    newContacts.splice(contact, 1);
+    //let list = this.state.showContacts.map()
+    console.log(contact)
+    console.log(newContacts)
+    this.setState({
+      showContacts:newContacts
+    })
+  }
+  
+
 
   render() {
     return (
-      <div class="contactTable">
+      <div className="contactTable">
         <h1>IronContacts</h1>
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.addRandomContact}>Add Random</button>
         <button onClick={this.sortByName}>Sort By Name</button>
         <button onClick={this.sortbyPopularity}>Sort By Popularity</button>
-
-
         <table>
           <tbody>
             <tr>
