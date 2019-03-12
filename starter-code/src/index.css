@@ -3,3 +3,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.table{
+  display: flex;
+  justify-content: center;
+}
+
+.img-contact{
+  width: 100px;
+}
