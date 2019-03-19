@@ -55,10 +55,10 @@ class Table extends Component  {
       actors: sortingPop
     })
     }
-    deleteActors = movieIndex =>{
+    deleteActors = Index =>{
       let deleteAct = [...this.state.actors]
           // hacemos una copia del Array para no manipoular el estado original
-          deleteAct.splice(movieIndex, 1)
+          deleteAct.splice(Index, 1)
       this.setState({
           actors: deleteAct  // asignamos la copia
       })
@@ -69,18 +69,18 @@ class Table extends Component  {
  console.log(this.state.actors)
 return (
     <section>
-    <button onClick={this.clickHandler}>Add Random contacts</button>
-        <button onClick={this.sortHandler}>Sort by name</button>
-        <button onClick={this.sortpopularity}>Sort by popularity</button>  
+    <button className="random" onClick={this.clickHandler}>Add Random contacts</button>
+        <button className="sort-name" onClick={this.sortHandler}>Sort by name</button>
+        <button className="sort-pop" onClick={this.sortpopularity}>Sort by popularity</button>  
     <table className="table">
         <tbody>
-            <tr>
+            <tr className="present">
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
                 
             </tr>
-            {this.state.actors.map((actor, indx) => <Listcontacts {...actor} key={indx} delete={() => this.deleteAct(indx)}/>)}
+            {this.state.actors.map((actor, indx) => <Listcontacts {...actor} key={indx} delete={() => this.deleteActors(indx)}/>)}
             
         </tbody>
     </table>

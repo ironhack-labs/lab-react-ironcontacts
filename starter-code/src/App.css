@@ -28,9 +28,51 @@
 }
 
 .profile-pic img{
-  width: 200px
+  width: 200px;
+  padding: 10px;
+  box-shadow: 5px 9px 33px 5px rgba(0,0,0,0.73);
+
 }
 .table{
   padding: 100px;
-  margin: 0 25%
+  margin: 0 15%
+}
+button{
+  margin: 10px;
+  padding: 10px; 
+  border-radius: 8px;
+  font-size: 1.3em
+}
+th{
+  margin: 100px;
+  padding: 50px
+}
+.delete{
+  background-color: rgb(221, 86, 86);
+  color: white;
+  padding: 20px;
+  width: 100px;
+ 
+}
+.present th{
+  font-size: 1.8em
+}
+.act-name,.act-pop{
+  font-size: 1.6em
+}
+.random{
+  background-color: rgba(56, 56, 236, 0.945);
+  color: white;
+  padding: 20px
+}
+.sort-name{
+  background-color: rgba(100, 146, 62, 0.945);
+  color: white;
+  padding: 20px
+}
+.sort-pop{
+  background-color: rgba(96, 175, 199, 0.945);
+  color: white;
+  padding: 20px
+  
 }

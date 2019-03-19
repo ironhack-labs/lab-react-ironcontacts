@@ -8,9 +8,9 @@ return(
 <tr>
 
     <th className="profile-pic"><img src={props.pictureUrl}/></th>
-    <th>{props.name}</th>
-    <th>{props.popularity}</th>
-    <th><button onClick={props.delete}>Delete</button> </th>
+    <th className="act-name" >{props.name}</th>
+    <th className="act-pop">{props.popularity}</th>
+    <th><button className="delete" onClick={props.delete}>Delete</button> </th>
 </tr>
 )
 
