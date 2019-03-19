@@ -2,22 +2,30 @@
   text-align: center;
 }
 
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: center;
+}
+
 .App img{
   width: 80px;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 10s linear;
   height: 80px;
 }
 
 .App-header {
   height: 150px;
-  padding: 20px;
+  padding-top: 10px;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3em;
+  margin: 0;
 }
 
 #delete-button{
@@ -26,6 +34,7 @@
   border-radius: 5px;
   background-color: #E84B2F;
   color: white;
+  font-size: 15px;
 }
 
 .select-buttons{
@@ -33,9 +42,29 @@
   margin: 0 10px;
   background-color: #7291FF;
   border-radius: 5px;
+  font-size: 15px;
   color: white;
 }
 
+.table-container{
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+#contacts-container{
+  padding-top: 10px;
+}
+
+#image-with-button{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center
+}
+
+#image-with-button img{
+  padding-bottom: 5px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

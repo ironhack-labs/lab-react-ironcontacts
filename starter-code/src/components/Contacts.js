@@ -76,7 +76,7 @@ class Contacts extends Component {
                 <button onClick={this.sortByName} class="select-buttons">Sort by Name</button>
                 <button onClick={this.sortByPopularity} class="select-buttons">Sort by Popularity</button>
 
-                <table>
+                <table class="table-container">
                     <thead>
                         <tr>
                             <th>Picture</th>
