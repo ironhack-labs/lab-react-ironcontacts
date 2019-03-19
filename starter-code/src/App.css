@@ -22,6 +22,49 @@
   font-size: large;
 }
 
+.contact-photo {
+  width: 40px;
+}
+
+table {
+  margin: auto;
+  border: 1px solid black;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+table img {
+  border-radius: 5px;
+  border: 2px inset black;
+  -moz-box-shadow:    1px 2px 2px 3px #ccc;
+  -webkit-box-shadow: 1px 2px 2px 3px #ccc;
+  box-shadow:         1px 2px 2px 3px #ccc;
+}
+
+.custom-button {
+  border: 1px solid rgba(19, 50, 83, 0.8);
+  background: rgba(19, 50, 83, 0.8);
+}
+
+.delete-button {
+  border: 1px solid rgba(178, 0, 5, 0.8);
+  background: rgba(178, 0, 5, 0.8);
+
+}
+
+.button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 8px 6px -6px black;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
