@@ -26,3 +26,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.profile-pic img{
+  width: 200px
+}
+.table{
+  padding: 100px;
+  margin: 0 25%
+}
