@@ -1,21 +1,100 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import contacts from './contacts.json'
+
+import Contact from './components/Contacts'
+import Title from './components/Title'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+
+ constructor(){
+   super()
+   this.state = {
+     contacts: contacts.splice(0,5)
+   }
+ }
+
+ clickHandler=()=>{
+   const randomContacts = Math.floor(Math.random()*contacts.length)
+   contacts[randomContacts]
+   console.log(contacts[randomContacts])
+
+   let newContacts = this.state.contacts
+   newContacts.push(contacts[randomContacts])
+   this.setState({contacts: newContacts})
+ }
+
+ sortByName=()=>{
+
+   let newContacts=this.state.contacts.sort(function(a,b){
+     if(a.name>b.name){
+       return 1
+     }
+     if(a.name<b.name){
+       return -1
+     }
+     return 0
+   })
+   this.setState({contacts: newContacts})
+
+ }
+
+ sortByPopularity=()=>{
+
+  let newContacts=this.state.contacts.sort(function(a,b){
+    if(a.popularity>b.popularity){
+      return 1
+    }
+    if(a.popularity<b.popularity){
+      return -1
+    }
+    return 0
+  })
+  this.setState({contacts: newContacts})
+
+}
+
+deleteContact = (contactIndex) =>{
+  const contactsCopy  = [...this.state.contacts]
+  contactsCopy.splice(contactIndex,1)
+  this.setState({contacts: contactsCopy})
+}
+
+ render() {
+   console.log(this.state)
+   return (
+
+     <main>
+       <section className="contactos">
+
+       <div>
+       <Title text="Lista de contactos" />
+
+       <button onClick={this.clickHandler}>Add Random Contact</button>
+       <button onClick={this.sortByName}>Sort By Name</button>
+       <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+
+       
+         <table>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+
+         {this.state.contacts.map((contact,index) =>{
+           return <Contact key={index} {...contact} deleteContact={() => this.deleteContact(index)}/>
+         })}
+
+         </table>
+
+       </div>
+
+       </section>
+     </main>
+   )
+ }
 }
 
 export default App;
