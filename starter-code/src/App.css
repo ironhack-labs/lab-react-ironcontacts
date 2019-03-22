@@ -26,3 +26,45 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.list-style {
+  text-align: left;
+}
+
+.movies-list-item {
+  width: 400px;
+  border: 1px black solid;
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px auto;
+}
+
+img{
+  height: 20vh;
+}
+
+table {
+  border-collapse: collapse;
+  padding: 5vh 10vh;
+
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  height: 4vh;
+  border: 2px solid gray;
+  padding: 10px;
+  border-radius: 25px;
+}
