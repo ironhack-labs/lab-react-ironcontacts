@@ -79,6 +79,7 @@ class App extends Component {
             img= { contact.pictureUrl} 
             name={contact.name} 
             key= {index}
+            index= {index}
             popularity= {contact.popularity}
             deleteContact = { this.delete }
           />
