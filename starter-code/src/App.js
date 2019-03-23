@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import Contact from './components/Contact';
+import InsertContact from './components/InsertContact';
 import contacts from './data/contacts.json';
 import { sortByName } from './helpers';
 import { sortByPop } from './helpers';
+import { generateContact } from './helpers';
 
 import './App.css';
 
@@ -56,6 +58,13 @@ class App extends Component {
     })
   }
 
+  handleTask = (contact) => {
+    this.setState({
+      myContacts: [...this.state.myContacts, generateContact(contact)],
+      contact: '',
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -63,6 +72,7 @@ class App extends Component {
         <button onClick={this.addRandomContact}>Add random contact</button>
         <button onClick={this.sortAlpha}>Sort by name</button>
         <button onClick={this.sortPop}>Sort by popularity</button>
+        <div><InsertContact onClick={this.handleTask} /></div>
         <ul>
           { this.state.myContacts.map((contact, index) => {
             return < Contact 

@@ -14,3 +14,11 @@ export const sortByPop = (a,b) => {
   return b.popularity - a.popularity;
 }
 
+export const generateContact = (contact) => {
+  return {
+    name: contact,
+    pictureUrl: "https://image.tmdb.org/t/p/w500/qlT4904d8oi2NIs28RrgnIZDFZB.jpg",
+    popularity: 10,
+  } 
+}
+
