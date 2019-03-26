@@ -7,6 +7,17 @@
   height: 80px;
 }
 
+/* img is already an HTML tag so does not need to be '.img' */
+img {
+  width: 100px;
+  height: auto;
+}
+
+/* table is already an HTML tag so does not need to be '.table' */
+table {
+  margin: auto;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
