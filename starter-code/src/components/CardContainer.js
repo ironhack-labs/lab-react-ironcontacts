@@ -40,6 +40,13 @@ class CardContainer extends Component {
         this.setState({contacts: copyOfContacts});
     }
 
+    deleteContact = (contactId) => {
+        const {contacts} = this.state;
+        const copyOfContacts = [...contacts];
+        copyOfContacts.splice(+contactId, 1); // + converts/parses into integer
+        this.setState({contacts: copyOfContacts});
+    }
+
     render() {
     
         const {contacts} = this.state;
@@ -59,7 +66,8 @@ class CardContainer extends Component {
                         </tr>
                         {
                             contacts.map((contact, index)=>
-                            <ContactCard key={index} contact={contact}/>
+                            // <ContactCard key={index} contact={contact}/>
+                            <ContactCard index={index} key={index} contact={contact} deleteMethod={this.deleteContact}/>
                             )
                         }
                     </tbody>
