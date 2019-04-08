@@ -32,7 +32,27 @@ img {
   height: auto;
 }
 
-/* table is already an HTML tag so does not need to be '.table' */
 table {
   margin: auto;
 }
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even)
+ {
+   background-color: #f2f2f2;
+ }
+
+.isSpaced {
+  margin-left: 5px;
+}
+
+.td-data{
+  text-align: center;
+  vertical-align: middle;
+  width:140px;
+}
+
+

@@ -30,8 +30,10 @@ function CoolButton({
   isWhite,
   href,
   onClick,
+  isSpaced,
 }) {
   let classes = '';
+  classes += 'button';
   classes += isActive ? ' is-active' : '';
   classes += isBlack ? ' is-black' : '';
   classes += isCentered ? ' is-centered' : '';
@@ -57,8 +59,8 @@ function CoolButton({
   classes += isSuccess ? ' is-success' : '';
   classes += isText ? ' is-text' : '';
   classes += isWarning ? ' is-warning' : '';
-  classes += isWhite ? ' is-white' : '';
-  classes += ' button';
+  classes += isWhite ? ' is-white' : ''; 
+  classes += isSpaced ? ' isSpaced' : '';  
   return (
     <a href={href} onClick={onClick} className={classes}>
       {children}

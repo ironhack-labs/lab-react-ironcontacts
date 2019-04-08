@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import CardContainer from './components/CardContainer'
 import 'bulma/css/bulma.css'
+import './App.css';
 
 class App extends Component {
   render() {

@@ -6,15 +6,38 @@ import CoolButton from './CoolButton';
 
 class CardContainer extends Component {
   state = { contacts: contacts.slice(0,5)}
+            
+    
 
   addRandomContact = () => {
+    
     const {contacts} = this.state;
     const contactsCopy = [...otherContacts];
-    const restOfContacts = contactsCopy.splice(5);      
+    const restOfContacts = contactsCopy.splice(5);   
     const randomContact = Math.floor(Math.random() * restOfContacts.length);      
-    const newContact = restOfContacts[randomContact];
-    this.setState({contacts: [...contacts, newContact] });
-}
+    const newContact = restOfContacts[randomContact];       
+    this.setState({contacts: [...contacts, newContact] });   
+            
+  }
+
+  sortByName = () => {
+    const contactsCopy = [...this.state.contacts];   
+    contactsCopy.sort( (a, b) => a.name.localeCompare(b.name));    
+    this.setState({contacts: contactsCopy})
+  }
+  sortByPopularity = () => {
+    const contactsCopy = [...this.state.contacts];   
+    contactsCopy.sort( (a, b) => a.popularity - b.popularity);    
+    this.setState({contacts: contactsCopy})
+  }
+
+  deleteContact = (index) => {
+    const copyOfContacts = [...this.state.contacts];
+    copyOfContacts.splice(index, 1);
+    this.setState({
+      contacts: copyOfContacts
+    });
+  };
 
 
   render () {
@@ -23,17 +46,19 @@ class CardContainer extends Component {
     return (
       <div>
         <h1>Iron Contacts</h1>
-        <CoolButton onClick={this.addRandomContact} isInfo isSmall>Add Random Contact</CoolButton>
+        <CoolButton onClick={this.addRandomContact} isInfo isSmall isSpaced >Add Random Contact</CoolButton>
+        <CoolButton onClick={this.sortByName} isInfo isSmall isSpaced>Sort by Name</CoolButton>
+        <CoolButton onClick={this.sortByPopularity} isInfo isSmall isSpaced >Sort by Popularity</CoolButton>
         <table>
           <tbody>
             <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
+                <th className="td-data">Picture</th>
+                <th className="td-data">Name</th>
+                <th className="td-data">Popularity</th>
             </tr>
             {
                contacts.map((contact, index)=>
-                <ContactCard index={index} key={index} contact={contact} />            
+                <ContactCard deleteContactButton={this.deleteContact} index={index} key={index} contact={contact} />            
                )               
             }
           </tbody>
