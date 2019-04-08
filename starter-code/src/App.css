@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+/* table is already an HTML tag so does not need to be '.table' */
+table {
+  margin: auto;
+}
