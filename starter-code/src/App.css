@@ -26,3 +26,23 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.spacing{
+  padding:10px;
+  margin:10px;
+}
+.mg{
+margin:10px;
+}
+.card{
+  width: 250px;
+  height: 120px;
+}
+.screen{
+
+  width: 1080px;
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
