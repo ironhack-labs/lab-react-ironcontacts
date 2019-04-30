@@ -1,21 +1,138 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Movie from "./Components/Movie";
+import contacts from "./contacts.json";
 
-class App extends Component {
+let x = contacts.map(
+  (contact,idx) =>
+    (contact = {
+      name: contact.name,
+      pictureUrl: contact.pictureUrl,
+      popularity: contact.popularity,
+      key: idx
+    })
+);
+let z = [...x];
+
+function dynamicSort(property) {
+  var sortOrder = 1;
+
+  if(property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+  }
+
+  return function (a,b) {
+      if(sortOrder == -1){
+          return b[property].localeCompare(a[property]);
+      }else{
+          return a[property].localeCompare(b[property]);
+      }        
+  }
+}
+
+function sortProperties(obj)
+{
+  // convert object into array
+	var sortable=[];
+	for(var key in obj)
+		if(obj.hasOwnProperty(key))
+			sortable.push([key, obj[key]]); // each item is an array in format [key, value]
+	
+	// sort items by value
+	sortable.sort(function(a, b)
+	{
+		var x=a[1].toLowerCase(),
+			y=b[1].toLowerCase();
+		return x<y ? -1 : x>y ? 1 : 0;
+	});
+	return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}
+
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      allContacts: z.slice(0, 5),
+      counter: contacts.lenght
+    };
+  }
+
+  delteContact(id) {
+    console.log(id),
+      this.setState({
+        ...this.state,
+        allContacts: this.state.allContacts.filter(movie => movie.key !== id)
+      });
+  }
+
+  nuevoContacto() {
+    let nuevoContact = [...this.state.allContacts];
+    nuevoContact.push(z[Math.floor(Math.random() * z.length)]);
+    this.setState({
+      ...this.state,
+      allContacts: nuevoContact
+    });
+  }
+
+  sortPopularity(){
+    let ordenar = [...this.state.allContacts]
+    ordenar= ordenar.sort(function (a, b) {
+      return a.popularity - b.popularity;
+    })
+    this.setState({
+      ...this.state,
+      allContacts: ordenar
+    });
+
+  }
+
+  sortName(){
+
+    let ordenar = [...this.state.allContacts]
+    ordenar=ordenar.sort(dynamicSort("name"))
+    this.setState({
+      ...this.state,
+      allContacts: ordenar
+    });
+    
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">
+            Welcome to React Contacts {this.state.counter}
+          </h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <hr />
+
+        <button onClick={() => this.nuevoContacto()}>Add new Contact</button>
+
+        <button onClick={() => this.sortPopularity()}>Sort popularity</button>
+        <button onClick={() => this.sortName()}>Sort name</button>
+        <hr />
+        {this.state.allContacts.map(contact => {
+          return (
+            <div key={contact.key}>
+              <Movie
+                name={contact.name}
+                src={contact.pictureUrl}
+                popularity={contact.popularity}
+              />
+
+              <button onClick={() => this.delteContact(contact.key)}>
+                Borrar
+              </button>
+            </div>
+          );
+        })}
       </div>
     );
   }
 }
 
-export default App;
