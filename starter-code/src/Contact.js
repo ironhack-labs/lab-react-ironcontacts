@@ -3,7 +3,8 @@ import "./Contact.css"
 
 class Contact extends Component {
   render() {
-    return (
+    console.log(this.props);
+    return (        
         <div className="Contact" key={this.props._id}>
           <div className="contactDetail">
             <div id="left"><img src={this.props.pictureUrl} ></img></div>

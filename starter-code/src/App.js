@@ -36,7 +36,7 @@ class App extends React.Component {
 
   insertRandomCeleb(){
     var x = this.getRandomInt(0, this.state.celebs.length - 1);
-    var sliceArr = this.state.showCelebs;
+    var sliceArr = [...this.state.showCelebs];
     sliceArr.push(this.state.celebs[x]);
     this.setState({
       ...this.state,
@@ -45,11 +45,33 @@ class App extends React.Component {
   };
 
 
+  sortByName(){
+    var x = this.getRandomInt(0, this.state.celebs.length - 1);
+    var sliceArr = [...this.state.showCelebs];
+    sliceArr.sort((a,b)=>{ return a.name.localeCompare(b.name) });
+    this.setState({
+      ...this.state,
+      showCelebs: sliceArr
+    }) 
+
+  }
+
+  sortByPopularity(){
+    var x = this.getRandomInt(0, this.state.celebs.length - 1);
+    var sliceArr = [...this.state.showCelebs];  
+    sliceArr.sort((a,b)=>{ return +b.popularity - +a.popularity });
+    this.setState({
+      ...this.state,
+      showCelebs: sliceArr
+    }) 
+  }
+
   render() {
 
 
     let mappedCelebs =
       this.state.showCelebs.map(celeb => {
+        celeb["_id"] = Math.round(Math.random() * 10000000);
         return (
           <React.Fragment>
             <Contact {...celeb} />
@@ -65,8 +87,8 @@ class App extends React.Component {
           <p>IronContacts</p>
           <div className="HeadButtons">
             <div id="leftButton"><button onClick={() => this.insertRandomCeleb()} >Add Random Contact</button></div>
-            <div id="centerButton"><button>Sort By Name</button></div>
-            <div id="rightButton"><button>Sort By Popularity</button></div>
+            <div id="centerButton"><button onClick={()=>{this.sortByName()}}>Sort By Name</button></div>
+            <div id="rightButton"><button onClick={()=>{this.sortByPopularity()}}>Sort By Popularity</button></div>
           </div>
           <div className="HeadDetail">
             <div id="leftHead"><p>Picture</p></div>
