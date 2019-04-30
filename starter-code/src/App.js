@@ -1,18 +1,90 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import contacts from "./contacts.json";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contactList: contacts.slice(0, 5)
+    };
+  }
+
+  addRandomContact() {
+    let availableContacts = contacts.filter(
+      (contact, idx) =>
+        this.state.contactList.map(c => c.name).indexOf(contact.name) < 0
+    );
+    let randomIdx = Math.round(Math.random() * availableContacts.length);
+
+    this.state.contactList.push(availableContacts[randomIdx]);
+
+    this.setState({
+      ...this.state,
+      contactList: this.state.contactList
+    });
+  }
+
+  sortBy(prop) {
+    this.setState({
+      ...this.state,
+      contactList: this.state.contactList.sort((prev, curr) => {
+        if (prop === "name") {
+          return prev.name.localeCompare(curr.name);
+        }
+        if (prop === "popularity") {
+          return curr.popularity - prev.popularity;
+        }
+      })
+    });
+  }
+
+  deleteContact(index) {
+    this.setState({
+      ...this.state,
+      contactList: this.state.contactList.filter((el, idx) => idx !== index)
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>IronContacts</h1>
+        <div className="controls">
+          <button onClick={() => this.addRandomContact()}>
+            Add Random Contact
+          </button>
+          <button onClick={() => this.sortBy("name")}>Sort by name</button>
+          <button onClick={() => this.sortBy("popularity")}>
+            Sort by popularity
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.contactList.map((contact, idx) => {
+              return (
+                <tr className="actor-card" key={idx}>
+                  <td>
+                    <img src={contact.pictureUrl} />
+                  </td>
+                  <td>{contact.name}</td>
+                  <td>{contact.popularity}</td>
+                  <td>
+                    <button onClick={() => this.deleteContact(idx)}>Delete</button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
