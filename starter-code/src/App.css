@@ -29,10 +29,12 @@
 
 .contactContainer {
   width: 70%;
+  margin: 0 auto;
 }
 
 .contactTable {
   width: 100%;
+  margin: 10% 0;
 }
 
 .headingRow {
