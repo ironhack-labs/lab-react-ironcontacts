@@ -6,7 +6,6 @@ const firstFive = contacts.slice(0,5)
 
 function selectRandomContact(array) {
 	const randomIndex = Math.floor(Math.random()*contacts.length)
-	console.log("random contact: ", contacts[randomIndex])
 	return contacts[randomIndex];
 }
 
@@ -14,7 +13,8 @@ class Contact extends Component {
 	constructor() {
 		super()
 		this.state = {
-			contacts: firstFive
+			contacts: firstFive,
+			sort: "default"
 		}
 	}
 
@@ -26,15 +26,46 @@ class Contact extends Component {
 		this.setState( {
 			contacts: contactCopy
 		})
-		console.log("new state: ", this.state)
+	}
+
+	sortByName = () => {
+		const filteredContacts = [...this.state.contacts]
+		filteredContacts.sort( (a,b) => {
+			const nameA = a.name.toUpperCase();
+			const nameB = b.name.toUpperCase();
+
+			if (nameA > nameB) {
+				console.log("A")
+				return 1
+			} else if (nameA == nameB) {
+				console.log("B")
+				return 0
+			} else return -1;
+		})
+		this.setState( {
+			contacts: filteredContacts,
+			sort: "name"
+		})
+		return console.log("filtered: ", filteredContacts)
+	}
+
+	sortyByPopularity = () => {
+
 	}
 
 	render() {
-		console.log(this.state.contacts)
+		console.log("rendering.... state contacts: ", this.state.contacts)
+		// if (this.state.sort === "name") this.filteredContacts = this.sortByName()
+		// else if (this.state.sort === "popularity") this.filteredContacts = this.sortyByPopularity()
+		// else this.filteredContacts = this.state.contacts;
+
 		return (
 			<div className="contactContainer">
 				<header className="title">IronContacts</header>
-				<button className="randomButton" onClick={() => this.addRandomContact()} >Add Random Contact</button>
+				<button className="button randomButton" onClick={() => this.addRandomContact()} >Add Random Contact</button>
+				<button className="button" onClick={() => this.sortByName()} >Sort by Name</button>
+				<button className="button" onClick={() => this.sortyByPopularity()} >Sort by Popularity</button>
+
 				<table className="contactTable"> 
 					<thead className="tableHead">
 						<tr className="headingRow">
