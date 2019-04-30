@@ -25,6 +25,7 @@ export class Contacts extends Component {
     this.setState({ firstFive: sortedMap });
   };
   deleteCurr = e => {
+    console.log("The UK is not part of the real Europe.");
     this.setState({
       firstFive: [
         ...this.state.firstFive.filter(
