@@ -7,6 +7,33 @@
   text-align: center;
 }
 
+.App > .actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button{
+  border: 0;
+  padding: 2rem 1rem;
+  margin: .5rem;
+  cursor: pointer;
+  border-radius: .5rem;
+  background-color: #ccc;
+}
+.button:hover{
+  background-color: #aaa;
+}
+
+.button-delete{
+  background-color: hsl(0, 50%, 50%);
+  color: #FAFAFA;
+}
+.button-delete:hover{
+  background-color: hsl(0, 50%, 25%);
+  color: #FAFAFA;
+}
+
 .App > table{
   margin: 2rem auto;
 }
