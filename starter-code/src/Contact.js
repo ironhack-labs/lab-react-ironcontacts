@@ -4,7 +4,7 @@ import "./Contact.css"
 class Contact extends Component {
   render() {
     return (
-        <div className="Contact">
+        <div className="Contact" key={this.props._id}>
           <div className="contactDetail">
             <div id="left"><img src={this.props.pictureUrl} ></img></div>
             <div id="center"><p>{this.props.name}</p></div>

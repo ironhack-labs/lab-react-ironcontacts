@@ -7,7 +7,8 @@ import Contact from './Contact.js';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state =  {celebs : this.filterUniques(contacts)};
+    this.state =  {celebs : this.filterUniques(contacts),
+      showCelebs:this.filterUniques(contacts).slice(0,5)};
   }
 
   filterUniques(celebs){
@@ -27,11 +28,30 @@ class App extends React.Component {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
   }
 
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  insertRandomCeleb(){
+    var x = this.getRandomInt(0, this.state.celebs.length - 1);
+    var sliceArr = this.state.showCelebs;
+    sliceArr.push(this.state.celebs[x]);
+    this.setState({
+      ...this.state,
+      showCelebs: sliceArr
+    })   
+  };
+
+
   render() {
-    const mappedCelebs =
-      this.state.celebs.slice(0,5).map(celeb => {
+
+
+    let mappedCelebs =
+      this.state.showCelebs.map(celeb => {
         return (
-          <React.Fragment key={celeb._id}>
+          <React.Fragment>
             <Contact {...celeb} />
           </React.Fragment>
         )
@@ -44,7 +64,7 @@ class App extends React.Component {
         <div className="ContactHead">
           <p>IronContacts</p>
           <div className="HeadButtons">
-            <div id="leftButton"><button>Add Random Contact</button></div>
+            <div id="leftButton"><button onClick={() => this.insertRandomCeleb()} >Add Random Contact</button></div>
             <div id="centerButton"><button>Sort By Name</button></div>
             <div id="rightButton"><button>Sort By Popularity</button></div>
           </div>
