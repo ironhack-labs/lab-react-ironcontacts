@@ -5,7 +5,7 @@ export default class Contact extends React.Component {
     return (
       <React.Fragment>
         <td>
-          <img src={this.props.picture} height="100" weight="100" />
+          <img src={this.props.picture} alt='' height="100" weight="100" />
         </td>
         <td>
           <p>{this.props.name}</p>

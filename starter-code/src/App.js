@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
 import Contact from "./Contact";
@@ -10,42 +9,62 @@ class App extends Component {
   };
 
   addRandomContact() {
-    let newContacts = [...this.state.contacts]
-    newContacts.push(contacts[Math.floor(Math.random() * contacts.length)])
+    let newContacts = [...this.state.contacts];
+    newContacts.push(contacts[Math.floor(Math.random() * contacts.length)]);
     this.setState({
       ...this.state,
       contacts: newContacts
     });
   }
 
-  sortContacts() {
-    let newContacts = [...this.state.contacts]
-    newContacts.sort((a,b)=>a.Name - b.Name)
+  sortContactsByPopularity() {
+    let newContacts = [...this.state.contacts];
+    newContacts = newContacts.sort((a, b) => a.popularity - b.popularity);
     this.setState({
       ...this.state,
       contacts: newContacts
     });
+  }
 
+  sortContactsByName() {
+    let newContacts = [...this.state.contacts];
+    newContacts = newContacts.sort(function(a, b) {
+      return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
+    });
+    this.setState({
+      ...this.state,
+      contacts: newContacts
+    });
   }
 
   removeContact(id) {
-    let newContacts = [...this.state.contacts]
-    newContacts.splice(id,1)
+    let newContacts = [...this.state.contacts];
+    newContacts.splice(id, 1);
     this.setState({
       ...this.state,
       contacts: newContacts
-    })
+    });
   }
 
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={() => this.addRandomContact()}>
+        <button className="mainButton" onClick={() => this.addRandomContact()}>
           Add Random Contact
         </button>
-        <button onClick={() => this.sortContacts()}>Sort By Name</button>
-        <button onClick={() => this.sortContacts()}>Sort By Popularity</button>
+        <button
+          className="mainButton"
+          onClick={() => this.sortContactsByName()}
+        >
+          Sort By Name
+        </button>
+        <button
+          className="mainButton"
+          onClick={() => this.sortContactsByPopularity()}
+        >
+          Sort By Popularity
+        </button>
         <table>
           <tbody>
             <tr>
@@ -55,10 +74,9 @@ class App extends Component {
             </tr>
             {this.state.contacts.map((contact, i) => {
               return (
-                <React.Fragment>
+                <React.Fragment key={i}>
                   <tr>
                     <Contact
-                      key={i}
                       name={contact.name}
                       picture={contact.pictureUrl}
                       popularity={contact.popularity}
