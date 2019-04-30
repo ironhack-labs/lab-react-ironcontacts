@@ -22,6 +22,31 @@
   font-size: large;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  margin: auto;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
