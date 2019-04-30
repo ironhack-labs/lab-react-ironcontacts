@@ -1,6 +1,9 @@
+/* #root {
+  text-align: center;
+} */
+
 .App {
   text-align: center;
-  display: flex;
 }
 
 h1 {
@@ -9,11 +12,11 @@ h1 {
   font-size: 50px;
 }
 
-.titles {
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  border: 1px solid black;
+.table {
+  /* justify-content: center;
+  display: flex;
+  flex-direction: column; */
+  margin: auto;
 }
 
 .btn {
@@ -25,4 +28,9 @@ h1 {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+}
+
+.btnDelete {
+  display: flex;
+  padding: 7px;
 }

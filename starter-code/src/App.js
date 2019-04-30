@@ -58,15 +58,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="App">
         <h1>IronContacts</h1>
         <div className="buttons">
           <button onClick={() => this.addNewContact()} className="btn">Add Random Contact</button>
           <button onClick={() => this.sortByName()} className="btn">Sort by name</button>
           <button onClick={() => this.sortByPopularity()} className="btn">Sort by popularity</button>
         </div>
-        <table>
-          <thead className="titles">
+        <table className="table">
+          <thead>
             <tr>
               <th>Picture</th>
               <th>Name</th>
@@ -74,21 +74,21 @@ class App extends React.Component {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="contact">
+          <tbody>
             {this.state.contactsInfo.map((contact, idx) => {
               return (
                 <React.Fragment key={idx}>
                   <Contact
                     pictureUrl={contact.pictureUrl}
                     name={contact.name}
-                    popularity={contact.popularity} />
-                  <button onClick={() => this.deleteContact(contact.name)}>Delete this contact</button>
+                    popularity={contact.popularity} 
+                    deleteContact={() => this.deleteContact(contact.name)} />
                 </React.Fragment>
               )
             })}
           </tbody>
         </table>
-      </React.Fragment>
+      </div>
     );
   }
 }
