@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+
+#table {
+  margin: auto}
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+}
+
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -14,6 +26,29 @@
   color: white;
 }
 
+
+.button {
+  background-color: #4CAF50; 
+  border: none;
+  color: black bold;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+
+tr {
+  display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    justify-content: center;
+    border: 20px solid darkorchid;
+    background-color: rgba(20, 226, 116, 0.322);
+}
 .App-title {
   font-size: 1.5em;
 }
