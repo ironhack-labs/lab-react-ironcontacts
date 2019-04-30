@@ -22,6 +22,40 @@
   font-size: large;
 }
 
+.title {
+  font-size: 32px;
+  padding: 20px;
+}
+
+.contactContainer {
+  width: 70%;
+}
+
+.contactTable {
+  width: 100%;
+}
+
+.headingRow {
+  display: flex;
+  font-size: 28px;
+  justify-content: space-between;
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: row;
+  font-size: 22px;
+  justify-content: space-between;
+}
+
+.tableRow td {
+  text-align: left;
+}
+
+.contactImage {
+  width: 100px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
