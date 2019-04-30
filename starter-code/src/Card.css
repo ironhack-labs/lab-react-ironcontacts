@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+}
+
+.card{
+    background-color: rgba(0, 128, 0, 0.363);
+    border: 2px solid black;
+    border-radius: 10px;
+    
+    text-align: center;
+
+}
+
+.card img{
+    width: 15%;
+    height: 45%;
+}
+.card ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.card ul li{
+    list-style-type: none;
+
+}

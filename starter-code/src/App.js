@@ -1,19 +1,92 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import contacts from "./contacts.json";
+import Card from "./Card";
+const contactArr = contacts.splice(0, 5);
 
-class App extends Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      cont: contactArr
+    };
+  }
+  addNewContact() {
+    let allContacts = [...this.state.cont];
+    const randomContact = Math.floor(Math.random() * 200);
+    let newContact = contacts[randomContact];
+    console.log(contacts[randomContact]);
+    allContacts.push(newContact);
+    this.setState({
+      ...this.state,
+      cont: allContacts
+    });
+  }
+  sortByName() {
+    let allContacts = [...this.state.cont];
+
+    allContacts.sort(function(a, b) {
+      if (a.name > b.name) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    this.setState({
+      ...this.state,
+      cont: allContacts
+    });
+  }
+
+  sortByPopularity() {
+    let allContacts = [...this.state.cont];
+
+    allContacts.sort(function(a, b) {
+      if (a.popularity > b.popularity) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    this.setState({
+      ...this.state,
+      cont: allContacts
+    });
+  }
   render() {
+
+    const mappedCards = this.state.cont.map(contact => {
+      return (
+        <React.Fragment key={contact.popularity}>
+          <Card
+            name={contact.name}
+            pictureUrl={contact.pictureUrl}
+            popularity={contact.popularity}
+          />
+
+          {/* <Card {...card} /> */}
+        </React.Fragment>
+      );
+    });
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <React.Fragment>
+        <h1>Iron contacts</h1>
+        <div className="header">
+          <button onClick={() => this.addNewContact()}>Add new contact</button>
+          <button onClick={() => this.sortByName()}>Sort by name</button>
+          <button onClick={() => this.sortByPopularity()}>
+            Sort by popularity
+          </button>
+
+          <div className="cardBody">
+            <span>Picture</span>
+            <span>Name</span>
+            <span>Popularity</span>
+          </div>
+        </div>
+        {mappedCards}
+      </React.Fragment>
     );
   }
 }
