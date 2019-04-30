@@ -5,19 +5,21 @@ h1 {
 }
 
 .header {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
+  margin-top: 5%;
 }
 
 .header span{
-  padding: 5%;
+  padding: 10%;
   font-size: 1.2rem;
+  margin-bottom: 5%;
   font-weight: bold;
 }
 button{
   background-color: rgba(0, 0, 255, 0.534);
-  padding: 2% 5%;
+  padding: 1% 5%;
   margin: 5%;
   border: 2px solid black;
   border-radius: 10px;

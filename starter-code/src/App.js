@@ -54,6 +54,18 @@ class App extends React.Component {
       cont: allContacts
     });
   }
+  deleteCard(name) {
+    console.log(name)
+    this.setState({
+      ...this.state,
+      cont: this.state.cont.filter(con => con.name !== name)
+      
+    })  
+  }
+
+
+
+
   render() {
 
     const mappedCards = this.state.cont.map(contact => {
@@ -64,6 +76,7 @@ class App extends React.Component {
             pictureUrl={contact.pictureUrl}
             popularity={contact.popularity}
           />
+            <button onClick={() => this.deleteCard(contact.name)}>Delete</button>
 
           {/* <Card {...card} /> */}
         </React.Fragment>
@@ -73,17 +86,19 @@ class App extends React.Component {
       <React.Fragment>
         <h1>Iron contacts</h1>
         <div className="header">
-          <button onClick={() => this.addNewContact()}>Add new contact</button>
-          <button onClick={() => this.sortByName()}>Sort by name</button>
-          <button onClick={() => this.sortByPopularity()}>
-            Sort by popularity
-          </button>
-
           <div className="cardBody">
             <span>Picture</span>
             <span>Name</span>
             <span>Popularity</span>
           </div>
+          <div className="buttons">
+            <button onClick={() => this.addNewContact()}>Add new contact</button>
+            <button onClick={() => this.sortByName()}>Sort by name</button>
+            <button onClick={() => this.sortByPopularity()}>
+              Sort by popularity
+            </button>
+          </div>
+
         </div>
         {mappedCards}
       </React.Fragment>
