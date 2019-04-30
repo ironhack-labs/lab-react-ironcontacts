@@ -49,6 +49,13 @@ class App extends React.Component {
     })
   }
 
+  deleteContact(contactName) {
+    this.setState({
+      ...this.state,
+      contactsInfo: this.state.contactsInfo.filter(contact => contact.name !== contactName)
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -64,16 +71,20 @@ class App extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody className="contact">
             {this.state.contactsInfo.map((contact, idx) => {
-              return <Contact
-                key={idx}
-                pictureUrl={contact.pictureUrl}
-                name={contact.name}
-                popularity={contact.popularity}>
-              </Contact>
+              return (
+                <React.Fragment key={idx}>
+                  <Contact
+                    pictureUrl={contact.pictureUrl}
+                    name={contact.name}
+                    popularity={contact.popularity} />
+                  <button onClick={() => this.deleteContact(contact.name)}>Delete this contact</button>
+                </React.Fragment>
+              )
             })}
           </tbody>
         </table>
