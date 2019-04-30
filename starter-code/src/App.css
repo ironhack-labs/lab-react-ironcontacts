@@ -2,27 +2,27 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+.titles, .contact{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+ 
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
 }
+/* .contact{
+  text-align: center;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+} */
 
-.App-title {
-  font-size: 1.5em;
+button{
+  padding: 10px;
+  background-color: aquamarine;
+  border-radius: 15px;
+  border: 0px;
+  margin:15px;
 }
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.containerButton{
+  margin: 0 auto;
 }
