@@ -5,10 +5,28 @@ import contacts from './contacts.json';
 import Contact from './Contact';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      contacts: contacts.slice(0, 5)
+    }
+  }
+
+  addRandomContact(){
+    let currentContacts = [...this.state.contacts];
+    currentContacts.push(contacts[Math.floor(Math.random()*contacts.length)]);
+    
+    this.setState({
+      ...this.state,
+      contacts: currentContacts
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <h1>IronContacts</h1>
+        <button onClick={()=>this.addRandomContact()}>Add random Actor</button>
         <table>
           <thead>
             <tr>
@@ -18,7 +36,7 @@ class App extends Component {
             </tr>
           </thead>
           <tbody>
-            {contacts.slice(0, 5).map((contact, index) => <Contact key={contact.name} {...contact}/>)}
+            {this.state.contacts.map((contact, index) => <Contact key={contact.name} {...contact}/>)}
           </tbody>
         </table>
       </React.Fragment>
