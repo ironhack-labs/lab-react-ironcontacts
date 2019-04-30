@@ -1,0 +1,17 @@
+.contact {
+  max-width: 900px;
+  margin: auto;
+}
+
+.column-body {
+  width: 200px;
+  height: 100px;
+}
+
+img.picture {
+  width: 50px;
+}
+
+.row {
+  text-align: center;
+}
