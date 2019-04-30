@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 h1 {
@@ -8,11 +9,11 @@ h1 {
   font-size: 50px;
 }
 
-.titles, .contact{
+.titles {
   text-align: center;
-  display: flex;
   align-items: center;
   justify-content: space-around;
+  border: 1px solid black;
 }
 
 .btn {

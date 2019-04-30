@@ -14,8 +14,34 @@ class App extends React.Component {
   addNewContact() {
     let allTheContacts = [...this.state.contactsInfo];
     let contactsLength = contacts.length;
-    let randomContact = Math.floor(Math.random()*contactsLength);
+    let randomContact = Math.floor(Math.random() * contactsLength);
     allTheContacts.push(contacts[randomContact]);
+
+    this.setState({
+      ...this.state,
+      contactsInfo: allTheContacts
+    })
+  }
+
+  sortByName() {
+    let allTheContacts = [...this.state.contactsInfo];
+    allTheContacts.sort((a, b) => {
+      if (a.name > b.name) return 1
+      if (a.name < b.name) return -1
+    })
+
+    this.setState({
+      ...this.state,
+      contactsInfo: allTheContacts
+    })
+  }
+
+  sortByPopularity() {
+    let allTheContacts = [...this.state.contactsInfo];
+    allTheContacts.sort((a, b) => {
+      if (a.popularity > b.popularity) return 1
+      if (a.popularity < b.popularity) return -1
+    })
 
     this.setState({
       ...this.state,
@@ -25,25 +51,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h1>IronContacts</h1>
         <div className="buttons">
           <button onClick={() => this.addNewContact()} className="btn">Add Random Contact</button>
-          
+          <button onClick={() => this.sortByName()} className="btn">Sort by name</button>
+          <button onClick={() => this.sortByPopularity()} className="btn">Sort by popularity</button>
         </div>
-        <tr className="titles">
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-        </tr>
-        {this.state.contactsInfo.map((contact) => {
-          return <Contact
-            pictureUrl={contact.pictureUrl}
-            name={contact.name}
-            popularity={contact.popularity}>
-          </Contact>
-        })}
-      </div>
+        <table>
+          <thead className="titles">
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody className="contact">
+            {this.state.contactsInfo.map((contact, idx) => {
+              return <Contact
+                key={idx}
+                pictureUrl={contact.pictureUrl}
+                name={contact.name}
+                popularity={contact.popularity}>
+              </Contact>
+            })}
+          </tbody>
+        </table>
+      </React.Fragment>
     );
   }
 }
