@@ -1,0 +1,59 @@
+/* div{
+  outline: 1px solid silver;
+} */
+
+.Contact{
+  /* background-color: green; */
+  width:50%;
+  margin-top: 15px;
+  margin-left:auto;
+  margin-right:auto;
+  align-items:center;
+}
+
+.contactDetail:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#left {
+  
+  float:left;
+  width:25%;
+}
+
+#left img{
+  height: 60%;
+  width: 60%;
+}
+
+#center {
+  display: inline-block;
+  margin-top: 5%;
+  width:25%;
+  text-align: left;
+}
+
+#right {
+  margin-top: 5%;
+  display: inline-block;
+  width:25%;
+}
+
+#action {
+  margin-top: 5%;
+  float:right;
+  width:25%;
+}
+
+#action>button {
+  margin-top: 10%;
+  font-size: 25px;
+}
+
+#left, #center, #right p{
+  font-size: 25px; 
+  font-weight: bold;
+}
+
