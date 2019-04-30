@@ -1,63 +1,91 @@
-import React, { Component } from 'react';
-import './App.css';
-import  Contacts from "./Contacts"
-import contacts from './contacts.json';
+import React, { Component } from "react";
+import "./App.css";
+import Contacts from "./Contacts";
+import contacts from "./contacts.json";
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      contactsInfo: contacts.slice(0,5),
-       
-    }
+      contactsInfo: contacts.slice(0, 5)
+    };
   }
   addNewContact() {
     let allTheContacts = [...this.state.contactsInfo];
     let contactsLength = contacts.length;
     let randomContacts = Math.floor(Math.random() * contactsLength);
     allTheContacts.push(contacts[randomContacts]);
-    
-    
+
     this.setState({
       ...this.state,
       contactsInfo: allTheContacts
-    })
+    });
   }
 
-  
+  sortByName() {
+    let allTheContacts = [...this.state.contactsInfo];
+   
+    this.setState({
+      ...this.state,
+      contactsInfo: allTheContacts.sort((a, b) => {
+        if (a.name > b.name) return 1;
+        if (a.name < b.name) return -1;
+      })
+    });
+  }
+
+  sortByPopularity() {
+    let allTheContacts = [...this.state.contactsInfo];
+   
+    this.setState({
+      ...this.state,
+      contactsInfo: allTheContacts.sort((a, b) => {
+        if (a.popularity > b.popularity) return 1;
+        if (a.popularity < b.popularity) return -1;
+      })
+    });
+  }
+
+
+
   render() {
     return (
-      <div className="App">
-       
+      <React.Fragment >
         <h1>IronContacts</h1>
         <div className="containerButton">
-         <button onClick={() => this.addNewContact()}> Add Random Concat</button>
-          <button onClick={() =>this.sortByName()}> Sort By Name</button>
-          <button onClick={() =>this.sortByPopularity()}> Sort By Popularity</button>
+          <button onClick={() => this.addNewContact()}>
+            {" "}
+            Add Random Concat
+          </button>
+          <button onClick={() => this.sortByName()}> Sort By Name</button>
+          <button onClick={() => this.sortByPopularity()}>
+            {" "}
+            Sort By Popularity
+          </button>
         </div>
-        <tr className="titles">
-            <th>
-                Picture
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Popularity
-            </th>
-        </tr>
-        <tr>
-        {this.state.contactsInfo.map((contacts )=>{
-          return  <Contacts
-          pictureUrl = {contacts.pictureUrl}
-          name = {contacts.name}
-          popularity =  {contacts.popularity}>
-          </Contacts>
-        })
-        }
-        
-
-      </tr>
-      </div>
+        <table>
+          <thead>
+            <tr className="titles">
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {this.state.contactsInfo.map((contacts, idx) => {
+                return (
+                  <Contacts
+                    key={idx}
+                    pictureUrl={contacts.pictureUrl}
+                    name={contacts.name}
+                    popularity={contacts.popularity}
+                  />
+                );
+              })}
+            </tr>
+          </tbody>
+        </table>
+      </React.Fragment>
     );
   }
 }
