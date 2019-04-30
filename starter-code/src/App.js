@@ -43,7 +43,7 @@ class App extends Component {
     this.setState({
       ...this.state,
       contactList: this.state.contactList.filter((el, idx) => idx !== index)
-    })
+    });
   }
 
   render() {
@@ -51,8 +51,8 @@ class App extends Component {
       <div className="App">
         <h1>IronContacts</h1>
         <div className="controls">
-          <button onClick={() => this.addRandomContact()}>
-            Add Random Contact
+          <button className="add-btn" onClick={() => this.addRandomContact()}>
+            <i className="fas fa-plus-circle" /> Add Random Contact
           </button>
           <button onClick={() => this.sortBy("name")}>Sort by name</button>
           <button onClick={() => this.sortBy("popularity")}>
@@ -78,7 +78,9 @@ class App extends Component {
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
                   <td>
-                    <button onClick={() => this.deleteContact(idx)}>Delete</button>
+                    <button onClick={() => this.deleteContact(idx)}>
+                      Delete <i className="far fa-times-circle" />
+                    </button>
                   </td>
                 </tr>
               );
