@@ -20,9 +20,9 @@ class App extends Component {
   }
 
   sortPopularity() {
-    this.state.allContacts.sort(function(celeb1, celeb2) {
-      if (celeb1.popularity < celeb2.popularity) return -1;
-      if (celeb1.popularity > celeb2.popularity) return 1;
+    this.state.allContacts.sort(function(celebrity1, celebrity2) {
+      if (celebrity1.popularity < celebrity2.popularity) return -1;
+      if (celebrity1.popularity > celebrity2.popularity) return 1;
       else return 0;
     });
     this.setState({ listContacts: this.state.allContacts });
@@ -36,6 +36,11 @@ class App extends Component {
     });
     this.setState({ listContacts: this.state.allContacts });
   }
+
+  delete = name => {
+    this.state.contacts.splice(name, 1);
+    this.setState({ contacts: this.state.contacts });
+  };
 
   render() {
     return (
@@ -56,8 +61,15 @@ class App extends Component {
               <th>Name</th>
               <th>Popularity</th>
             </tr>
-            {this.state.allContacts.map(celeb => {
-              return <Info celeb={celeb} key={celeb.pictureUrl} />;
+            {this.state.allContacts.map(celebrity => {
+              return (
+                <Info
+                  celebrity={celebrity}
+                  delete={() => this.deleteInfo(celebrity.name)}
+                  key={celebrity.pictureUrl}
+                />
+              );
+              // bu silme olayını parent'a yazıyoruz çünkü ondan silinicek ve Info satırındaki bilgiler silinicek
             })}
           </tbody>
         </table>
