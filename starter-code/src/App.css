@@ -1,28 +1,24 @@
-.App {
+.App{
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.App > h1{
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App > table{
+  margin: 2rem auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App > table th{
+  font-size: 2.4rem;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App > table > tbody tr{
+  text-align: center;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App > table td img{
+  width: 10rem;
 }
