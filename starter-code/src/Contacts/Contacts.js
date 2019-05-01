@@ -12,10 +12,13 @@ const Contacts = ({ contacts }) => (
               <span className="name">{contact.name}</span>
             </td>
             <td className="column-body">
-              <span className="popularity">{contact.popularity}</span>
+              <span className="popularity">{contact.popularity.toFixed(2)}</span>
             </td>
             <td className="column-body">
               <img className="picture" src={contact.pictureUrl} alt="contact image" />
+            </td>
+            <td className="column-body">
+              <span className="delete">X</span>
             </td>
           </tr>
         ))

@@ -35,6 +35,29 @@ class App extends Component {
     return randomItem;
   };
 
+  //Sort by name de la lista al hacer click 
+  handleClickSortName = () => {
+    const sortByName = this.state.contacts;
+    sortByName.sort(function (contact1, contact2) {
+      if (contact1.name < contact2.name) return -1;
+      if (contact1.name > contact2.name) return 1;
+      else return 0;
+    });
+    this.setState({ contacts: sortByName });
+  }
+
+  //Sort by popularity de la lista al hacer click 
+  handleClickSortPopularity = () => {
+    const sortByPopu = this.state.contacts;
+    sortByPopu.sort(function (contact1, contact2) {
+      if (contact1.popularity < contact2.popularity) return -1;
+      if (contact1.popularity > contact2.popularity) return 1;
+      else return 0;
+    });
+    this.setState({ contacts: sortByPopu });
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -44,6 +67,18 @@ class App extends Component {
           onClick={this.handleClick}
           className="button is-success"
           button="Add a Random Contact"
+        />
+        <CoolButton
+          //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
+          onClick={this.handleClickSortName}
+          className="button is-success"
+          button="Sort by Name"
+        />
+        <CoolButton
+          //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
+          onClick={this.handleClickSortPopularity}
+          className="button is-success"
+          button="Sort by Popularity"
         />
         <Contacts contacts={this.state.contacts} />
       </div>
