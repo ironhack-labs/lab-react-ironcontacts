@@ -43,7 +43,6 @@ class App extends Component {
   } 
 
   deleteActor(actorName) {
-    console.log(this.state)
     this.setState({
       ...this.state,
       fistsActors: this.state.fistsActors.filter(actor => actor.name !== actorName)
