@@ -27,7 +27,7 @@ const Contacts = ({ contacts, clbk }) => (
               <CoolButton
                 //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
                 onClick={() => clbk(i)}
-                className="button is-success"
+                className="button is-danger"
                 button="Delete"
               />
             </td>

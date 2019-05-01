@@ -71,25 +71,35 @@ class App extends Component {
     return (
       <div className="App">
         <h2 className="title">Contacts List</h2>
-        <CoolButton
-          //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
-          onClick={this.handleClick}
-          className="button is-success"
-          button="Add a Random Contact"
-        />
-        <CoolButton
-          //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
-          onClick={this.handleClickSortName}
-          className="button is-success"
-          button="Sort by Name"
-        />
-        <CoolButton
-          //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
-          onClick={this.handleClickSortPopularity}
-          className="button is-success"
-          button="Sort by Popularity"
-        />
+        <div className="buttons-menu">
+          <CoolButton
+            //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
+            onClick={this.handleClick}
+            className="button is-success"
+            button="Add a Random Contact"
+          />
+          <CoolButton
+            //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
+            onClick={this.handleClickSortName}
+            className="button is-success"
+            button="Sort by Name"
+          />
+          <CoolButton
+            //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
+            onClick={this.handleClickSortPopularity}
+            className="button is-success"
+            button="Sort by Popularity"
+          />
+        </div>
+        <div className="row_head">
+          <div>Name</div>
+          <div>Popularity</div>
+          <div>Picture</div>
+          <div>Delete</div>
+        </div>
+
         <Contacts clbk={this.deletePeople} contacts={this.state.contacts} />
+        {/* hemos pasado clbk como props a Contacts para poder usar la función de deletePeople en el componente */}
       </div>
     );
   }

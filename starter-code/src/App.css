@@ -11,3 +11,18 @@
 .column-head {
   width: 200px;
 }
+
+.buttons-menu {
+  display: flex;
+  margin: 30px auto;
+  justify-content: space-around;
+}
+
+.row {
+  text-align: center;
+}
+
+.row_head {
+  display: flex;
+  justify-content: space-around;
+}
