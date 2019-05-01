@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import Contact from './Contact'
+import contactsData from "./contacts.json"
+
+
 
 export default class Contacts extends Component {
     render() {
+        
         return (
             <React.Fragment>
-                <table class="trAlign">
-                    <tbody >
+              
+                <table className="trAlign">
+                <tbody >
                 <tr>
                     <th>Picture</th>
                     <th>Name</th>

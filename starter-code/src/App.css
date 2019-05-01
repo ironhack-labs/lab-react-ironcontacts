@@ -2,7 +2,17 @@
   width: 25%;
   margin: 0 auto;
 }
+.titulo{
+display: flex;
+margin: 5% 0px;
+justify-content: center;
+font-size: 30px;
+}
+.btn{
+  width: 25%;
+  margin: 0 auto;
 
+}
 
 .App-header {
   height: 150px;
