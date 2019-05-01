@@ -45,47 +45,51 @@ class App extends Component {
     });
   }
 
-
+  deleteContact(contactsName) {
+    this.setState({
+      ...this.state,
+      contactsInfo: this.state.contactsInfo.filter(contacts => contacts.name !== contactsName)
+    })
+  }
 
   render() {
     return (
-      <React.Fragment >
+      <div className="app">
         <h1>IronContacts</h1>
         <div className="containerButton">
-          <button onClick={() => this.addNewContact()}>
-            {" "}
-            Add Random Concat
-          </button>
+          <button onClick={() => this.addNewContact()}> Add Random Contact</button>
           <button onClick={() => this.sortByName()}> Sort By Name</button>
-          <button onClick={() => this.sortByPopularity()}>
-            {" "}
-            Sort By Popularity
-          </button>
+          <button onClick={() => this.sortByPopularity()}> Sort By Popularity</button>
         </div>
-        <table>
-          <thead>
-            <tr className="titles">
+        <table width="600px">
+          <thead className="titles">
+            <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               {this.state.contactsInfo.map((contacts, idx) => {
                 return (
+                  <React.Fragment key={idx}>
                   <Contacts
-                    key={idx}
+                    
                     pictureUrl={contacts.pictureUrl}
                     name={contacts.name}
                     popularity={contacts.popularity}
+                    deleteContact={() => this.deleteContact(contacts.name)}
                   />
-                );
+                  
+                  </React.Fragment>
+                )
               })}
             </tr>
           </tbody>
         </table>
-      </React.Fragment>
+      </div>
     );
   }
 }

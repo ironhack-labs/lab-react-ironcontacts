@@ -14,6 +14,7 @@ class Contacts extends Component {
             <td><img  src={this.props.pictureUrl} height="100px"/></td>
             <td>{this.props.name}</td>
             <td> {this.props.popularity}</td>
+            <td><button className="deleteBtn" onClick={this.props.deleteContact}>Delete </button></td> 
           </tr>
             
       
