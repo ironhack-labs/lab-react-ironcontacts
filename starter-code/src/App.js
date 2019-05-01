@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import "./App.css";
+
+//Components
 import Contacts from "./Contacts/Contacts";
-import JSONContacts from "./contacts.json";
 import CoolButton from "./CoolButton/CoolButton";
 
-class App extends Component {
+//Asets
+import "./App.css";
+import JSONContacts from "./contacts.json";
 
+class App extends Component {
   constructor() {
     super();
     this.state = {
       //El estado inicial es directamente el slice del array completo
       contacts: JSONContacts.slice(0, 5)
-    }
+    };
   }
-
 
   //es una funcion que primero almacena en randomContact un elemento aleatorio de todo el array de contactos
   handleClick = () => {
@@ -24,39 +26,46 @@ class App extends Component {
     updatedTmpContacts.push(randomContact);
     console.log("clicked", randomContact, JSONContacts);
     //actualizamos el estado. Cada vez que actualizamos el estado, el componente se vuelve a refrescar
-    this.setState({ contacts: updatedTmpContacts })
+    this.setState({ contacts: updatedTmpContacts });
   };
-
 
   //Toma un elemento aleatorio del array completo JSONContacts
   getRandom = () => {
-    const randomItem = JSONContacts[Math.floor(Math.random() * JSONContacts.length)];
+    const randomItem =
+      JSONContacts[Math.floor(Math.random() * JSONContacts.length)];
     console.log(randomItem);
     return randomItem;
   };
 
-  //Sort by name de la lista al hacer click 
+  //Sort by name de la lista al hacer click
   handleClickSortName = () => {
     const sortByName = this.state.contacts;
-    sortByName.sort(function (contact1, contact2) {
+    sortByName.sort(function(contact1, contact2) {
       if (contact1.name < contact2.name) return -1;
       if (contact1.name > contact2.name) return 1;
       else return 0;
     });
     this.setState({ contacts: sortByName });
-  }
+  };
 
-  //Sort by popularity de la lista al hacer click 
+  //Sort by popularity de la lista al hacer click
   handleClickSortPopularity = () => {
     const sortByPopu = this.state.contacts;
-    sortByPopu.sort(function (contact1, contact2) {
+    sortByPopu.sort(function(contact1, contact2) {
       if (contact1.popularity < contact2.popularity) return -1;
       if (contact1.popularity > contact2.popularity) return 1;
       else return 0;
     });
     this.setState({ contacts: sortByPopu });
-  }
+  };
 
+  //Delete contact de la lista al hacer click
+  deletePeople = index => {
+    console.log("click delete");
+    const deleteContact = this.state.contacts;
+    deleteContact.splice(index, 1);
+    this.setState({ contacts: deleteContact });
+  };
 
   render() {
     return (
@@ -80,7 +89,7 @@ class App extends Component {
           className="button is-success"
           button="Sort by Popularity"
         />
-        <Contacts contacts={this.state.contacts} />
+        <Contacts clbk={this.deletePeople} contacts={this.state.contacts} />
       </div>
     );
   }

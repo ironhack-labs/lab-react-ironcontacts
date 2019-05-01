@@ -1,10 +1,16 @@
 import React from "react";
 import "./Contacts.css";
+import App from "../App";
 
-const Contacts = ({ contacts }) => (
-  <table className="contact">
+import CoolButton from "../CoolButton/CoolButton";
+
+
+
+const Contacts = ({ contacts, clbk }) => (
+  // console.log(clbk)
+  < table className="contact" >
     {/* JSX pide tbody obligatoriamente */}
-    <tbody>
+    < tbody >
       {
         contacts.map((contact, i) => (
           <tr className="row" key={i}>
@@ -18,14 +24,19 @@ const Contacts = ({ contacts }) => (
               <img className="picture" src={contact.pictureUrl} alt="contact image" />
             </td>
             <td className="column-body">
-              <span className="delete">X</span>
+              <CoolButton
+                //ponemos onClick como metodo directo del boton para ver que se click, pasamos al componente del boton el handleClick
+                onClick={() => clbk(i)}
+                className="button is-success"
+                button="Delete"
+              />
             </td>
           </tr>
         ))
       }
-    </tbody>
+    </tbody >
 
-  </table>
+  </table >
 );
 
 export default Contacts;
