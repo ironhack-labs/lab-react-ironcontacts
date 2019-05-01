@@ -37,7 +37,16 @@ class App extends React.Component {
   insertRandomCeleb(){
     var x = this.getRandomInt(0, this.state.celebs.length - 1);
     var sliceArr = [...this.state.showCelebs];
+    var firstSize = sliceArr.length;
     sliceArr.push(this.state.celebs[x]);
+    sliceArr = this.filterUniques(sliceArr);
+    var secondSize = sliceArr.length;
+    while(secondSize <= firstSize){
+      x = this.getRandomInt(0, this.state.celebs.length - 1);
+      sliceArr.push(this.state.celebs[x]);
+      sliceArr = this.filterUniques(sliceArr);
+      secondSize = sliceArr.length;
+    }
     this.setState({
       ...this.state,
       showCelebs: sliceArr
@@ -60,6 +69,16 @@ class App extends React.Component {
     var x = this.getRandomInt(0, this.state.celebs.length - 1);
     var sliceArr = [...this.state.showCelebs];  
     sliceArr.sort((a,b)=>{ return +b.popularity - +a.popularity });
+    this.setState({
+      ...this.state,
+      showCelebs: sliceArr
+    }) 
+  }
+
+  removeElementById(id){
+    var x = this.getRandomInt(0, this.state.celebs.length - 1);
+    var sliceArr = [...this.state.showCelebs];  
+    sliceArr = sliceArr.filter((a)=>{ return ! a._id === id });
     this.setState({
       ...this.state,
       showCelebs: sliceArr
