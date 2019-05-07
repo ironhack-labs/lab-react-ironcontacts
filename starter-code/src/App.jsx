@@ -15,7 +15,7 @@ class App extends Component {
   }
   randomContact() {
     const random = contacts[Math.floor(Math.random() * contacts.length)];
-    const list = this.state.contactList.slice();
+    const list = [...this.state.contactList];
     if (!list.includes(random)) {
       list.push(random)
       this.setState({
@@ -24,8 +24,9 @@ class App extends Component {
     } else {
       this.randomContact();
     };
-    console.log(this.state.contactList);
   }
+
+  
 
   render() {
     return (
