@@ -1,19 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json'
+import Datos from './components/Datos';
+import Selection from './components/Selection';
 
 class App extends Component {
+  state = {
+    contactsArr: contacts
+  }
+
+  handleContacts = e => {
+    console.log('')
+  }
+
+  handleClick = e => {
+    const  contacts  = this.state.contactsArr.slice(0,5)
+    const {contactsArr} = this.state
+
+    //Math.random() * (max - min) + min; slice(1, 3);
+    let random = Math.floor((Math.random() * (contacts.length-5)+5));
+    
+    if (e.target.name === 'rand') 
+    contacts.push(contactsArr[random])
+    console.log(contacts)
+    //console.log(contacts[random])
+    //return contacts[random]
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Selection handleClick={this.handleClick}/>
+        <table >
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+          <Datos contactsArr={this.state.contactsArr} />
+        </table >
       </div>
+
     );
   }
 }
