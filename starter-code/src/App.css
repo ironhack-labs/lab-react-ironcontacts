@@ -26,3 +26,41 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+img{
+width:100px;
+}
+
+.body{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #9d97a3;
+
+}
+table{
+  margin:5%;
+justify-content: space-between;
+padding: 10px;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+
+}
+.botones{
+  width:200px;
+  height: 60px;
+  margin-bottom: 60px;
+  margin-left:45%;
+  display:flex;
+  align-content: space-between;
+}
+
+.columnName{
+  align-content: space-between;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top:20px;
+  padding: 10px;
+}
