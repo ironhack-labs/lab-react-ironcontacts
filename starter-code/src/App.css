@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+  width: 500px;
 }
 
 .App-logo {
@@ -20,6 +22,29 @@
 
 .App-intro {
   font-size: large;
+}
+
+.contact{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  border: 2px solid black;
+  margin: 10px 0;
+}
+
+.contact img {
+  width: 100px;
+  margin: 5px;
+}
+
+button {
+  padding: 10px;
+  background: transparent;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0 20px;
 }
 
 @keyframes App-logo-spin {
