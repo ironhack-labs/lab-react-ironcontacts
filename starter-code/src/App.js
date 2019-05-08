@@ -5,16 +5,22 @@ import contacts from './contacts.json'
 
 class App extends Component {
   
+  contacto = contacts.slice(0,5) //estoy tomando solo los primeros 5 - no incluye el último
+  
+  state={ /* NECESITO STATE PARA CUALQUIER MODIFICACIÓN AL LOS DATOS */
+    contacts : this.contacto
+  }
 
   render() {
 
-    console.log(contacts)
-
+    //console.log(contacts)
+      
     return(
       <div>
-        {contacts.map((e, i) => {
+        {this.state.contacts.map((e, i) => {
           return(
-            <Table key={i}
+            <Table 
+            key={i}
             picture={e.pictureUrl}
             name={e.name}
             popularity={e.popularity}
@@ -26,5 +32,7 @@ class App extends Component {
     ) 
   }
 }
+
+
 
 export default App;
