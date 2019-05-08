@@ -1,0 +1,9 @@
+.img {
+  height: 30px;
+  width: 40px;
+}
+
+.center-table {
+  margin-left: 50%;
+  transform: translateX(-50%);  
+}
