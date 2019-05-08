@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Contacts from './components/Contacts';
+
 import contacts from './contacts.json'
 import styled from 'styled-components';
 import { Button, Navbar, Table, Section, Img } from './styles'
