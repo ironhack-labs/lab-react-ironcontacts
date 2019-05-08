@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Contacts from './components/Contacts';
 import contacts from './contacts.json'
 import styled from 'styled-components';
 import { Button, Navbar, Table, Section, Img } from './styles'
@@ -68,11 +68,11 @@ class App extends Component {
           <tbody>
             {this.state.data.map((e, i, a) => {
               return (
-                <tr key={e.index}>
+                <tr key={i}>
                   <td><Img src={e.pictureUrl} /></td>
                   <td>{e.name}</td>
                   <td>{(e.popularity).toFixed(2)}</td>
-                  <td><Button type="Delete" onClick={this.hanldleDelete}>Delete</Button></td>
+                  <td><Button type="Delete" onClick={() => this.hanldleDelete(i)}>Delete</Button></td>
                 </tr>
               )
             })}
