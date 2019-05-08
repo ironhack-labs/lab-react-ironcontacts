@@ -1,8 +1,7 @@
 import React from 'react';
-import ContactCard from './ContactCard/ContactCard';
+import ContactRow from '../ContactRow/ContactRow';
 
 const Table = (props) => {
-  console.log('É Araaaayyyyyyy, mano?', props.contactList);
     return (
         <table>
           <thead>
@@ -10,12 +9,13 @@ const Table = (props) => {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
         </thead>
         <tbody>
           {
             props.contactList.map((e, idx) => {
-              return <ContactCard fn={e} key={idx} />
+              return <ContactRow onClick={props.onClick}fn={e} key={idx} />
           })
           }
         </tbody>
