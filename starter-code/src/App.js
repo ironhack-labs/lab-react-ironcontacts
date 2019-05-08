@@ -15,18 +15,29 @@ class App extends Component {
     /* Generar el random con Math */
   //  let randomContact = contacts[(contacts.length * Math.random())]
     /*empujo el random */
-  //  contact = this.state.contacto
+  //  const {contact} = this.state.contacto
   //  contact.push(randomContact)
     /* setState para que genere un cambio en state */
   //  this.setState({contacts: randomContact})
   }
 
   sortByName= () => {
-
+    /* llamar contact del state */
+    const {contact} = this.state.contacto
+    /* crear el sort */
+    const sortName = contact.sort((a,b) => (a.name < b.name ? -1 : 1))
+    /* setState para que genere cambio en state */
+    this.setState({
+      contacts: sortName
+    })
   }
 
   sortByPopularity = () => {
+      /* llamar contact del state */
+    const {contact} = this.state.contacto
+    /* crear el sort */
 
+    /* setState para que genere cambio a state */
   }
 
   render() {
