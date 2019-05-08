@@ -6,43 +6,68 @@ import Selection from './components/Selection';
 
 class App extends Component {
   state = {
-    contactsArr: contacts
+    contactsArr: contacts.slice(0, 5)
   }
+  
+  handleClick = (e) => {
+    const { contactsArr } = this.state
+    let random = Math.floor((Math.random() * (contacts.length - 5) + 5));
 
-  handleContacts = e => {
-    console.log('')
-  }
+    if (e.target.name === 'rand') {
+      if(!contactsArr.includes(contacts[random])){
+        contactsArr.push(contacts[random])
+      } 
+    }
+    else if (e.target.name === 'sortname') {
+      contactsArr.sort((a, b) => {
+        if (a.name.toUpperCase() < b.name.toUpperCase()) {
+          return -1
+        }
+        if (a.name.toUpperCase() > b.name.toUpperCase()) {
+          return 1
 
-  handleClick = e => {
-    const  contacts  = this.state.contactsArr.slice(0,5)
-    const {contactsArr} = this.state
-
-    //Math.random() * (max - min) + min; slice(1, 3);
-    let random = Math.floor((Math.random() * (contacts.length-5)+5));
-    
-    if (e.target.name === 'rand') 
-    contacts.push(contactsArr[random])
-    console.log(contacts)
-    //console.log(contacts[random])
-    //return contacts[random]
+        }
+        return 0
+      })
+    }
+    else if (e.target.name === 'sortpopularity') {
+      contactsArr.sort((a, b) => {
+        if (a.popularity < b.popularity) {
+          return -1
+        } else {
+          return 1
+        }
+      })
+    }
+    else if (e.target.name === 'delete') {
+      const i = e.target.value
+      const { contactsArr } = this.state
+      contactsArr.splice(i, 1);
+    }
+    this.setState({ contactsArr })
   }
 
   render() {
     return (
       <div className="App">
-        <Selection handleClick={this.handleClick}/>
+        <Selection handleClick={this.handleClick} />
         <table >
           <tr>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
           </tr>
-          <Datos contactsArr={this.state.contactsArr} />
+          <Datos deleteContact={this.deleteContact} contactsArr={this.state.contactsArr} handleClick={this.handleClick} />
         </table >
       </div>
 
     );
   }
 }
-
 export default App;
+
+/* deleteContact = i => {
+    const { contactsArr } = this.state
+    const arr = ['juan', 'isma']
+    contactsArr.splice(i, 1);
+  } */
