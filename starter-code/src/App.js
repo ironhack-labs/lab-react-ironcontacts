@@ -11,12 +11,36 @@ class App extends Component {
     contacts : this.contacto
   }
 
+  addRandomContact = () => {
+    /* Generar el random con Math */
+  //  let randomContact = contacts[(contacts.length * Math.random())]
+    /*empujo el random */
+  //  contact = this.state.contacto
+  //  contact.push(randomContact)
+    /* setState para que genere un cambio en state */
+  //  this.setState({contacts: randomContact})
+  }
+
+  sortByName= () => {
+
+  }
+
+  sortByPopularity = () => {
+
+  }
+
   render() {
 
     //console.log(contacts)
       
     return(
       <div>
+        <br/>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort by Name</button>
+        <button onClick={this.sortByPopularity}>Sort by Popularity</button>
+        <br/>
+        <br/>
         {this.state.contacts.map((e, i) => {
           return(
             <Table 
