@@ -2,7 +2,6 @@ import React from 'react'
 import Button from './Button'
 
 function Row (props) {
-  console.log('########', props)
   return ( 
     <tr>
       <td><img src={props.data.pictureUrl} width="100px"/></td>
