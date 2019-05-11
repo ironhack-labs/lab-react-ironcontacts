@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 
 class Artist extends Component {
-	state = {
-		name: this.props.name,
-		picture: this.props.picture,
-		popularity: this.props.popularity
-	};
-
 	render() {
 		return (
 			<tr>
 				<th>
-					<img src={this.state.picture} />
+					<img src={this.props.picture} height="150" />
 				</th>
-				<th>{this.state.name}</th>
-				<th>{this.state.popularity}</th>
+				<th>{this.props.name}</th>
+				<th>{this.props.popularity}</th>
 			</tr>
 		);
 	}
