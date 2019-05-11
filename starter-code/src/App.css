@@ -1,28 +1,33 @@
+.contact-image {
+  width: 80px;
+  border-radius: 40px;
+}
+
 .App {
-  text-align: center;
+  margin: 10px auto;
+  width: 800px;
+  text-align: center; 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.contact-table {
+  margin: 0 auto;
+} 
+
+.contact-table td {
+  padding: 0px 20px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.button-action {
+  padding: 15px 20px;
+  margin: 10px 10px 30px;
+  border: 1px solid grey;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.button-delete {
+  background-color: rgba(241, 70, 70, 0.527);
+  margin: 10px;
 }
