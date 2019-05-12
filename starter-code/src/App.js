@@ -33,7 +33,7 @@ class App extends Component {
     this.setState({ contacts });
   };
 
-  handleSortByNAme = e => {
+  handleSortByName = e => {
     let { contacts } = this.state;
     contacts.sort((cont1, cont2) => {
       const cont1Lower = cont1.name.toLowerCase();
@@ -46,7 +46,13 @@ class App extends Component {
       }
       return 0;
     });
-    this.setState({contacts});
+    this.setState({ contacts });
+  };
+
+  handleSortByPopularity = e => {
+    let { contacts } = this.state;
+    contacts.sort((cont1, cont2) => cont2.popularity - cont1.popularity);
+    this.setState({ contacts });
   };
 
   render() {
@@ -66,12 +72,18 @@ class App extends Component {
                 </button>
               </div>
               <div>
-                <button className="uk-button uk-button-primary uk-button-small uk-width-1-1" onClick={this.handleSortByNAme}>
+                <button
+                  className="uk-button uk-button-primary uk-button-small uk-width-1-1"
+                  onClick={this.handleSortByName}
+                >
                   Sort by Name
                 </button>
               </div>
               <div>
-                <button className="uk-button uk-button-primary uk-button-small uk-width-1-1">
+                <button
+                  className="uk-button uk-button-primary uk-button-small uk-width-1-1"
+                  onClick={this.handleSortByPopularity}
+                >
                   Sort by Popularity
                 </button>
               </div>
