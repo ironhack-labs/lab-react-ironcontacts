@@ -1,18 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Table from "./components/Table/Table";
+import contactsData from "./contacts.json";
+import TableRow from "./components/Table/TableRow";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = { contacts: this.getContacts(5) };
+    console.log(this.state);
+  }
+
+  state = {
+    contacts: []
+  };
+
+  getContacts = qty => {
+    return contactsData.slice(0, qty);
+  };
+
+  handleDelete = (e, index) => {
+    console.log(index);
+  };
+
   render() {
+    const { contacts } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section className="uk-section uk-section-secondary">
+          <div className="uk-container uk-container-xsmall">
+            <h1 className="uk-heading-medium">IronContacts</h1>
+            <Table>
+              {contacts.map((contact, index) => (
+                <TableRow
+                  key={index}
+                  {...contact}
+                  handleDelete={e => this.handleDelete(e, index)}
+                />
+              ))}
+            </Table>
+          </div>
+        </section>
       </div>
     );
   }
