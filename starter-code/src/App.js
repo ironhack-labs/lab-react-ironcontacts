@@ -63,7 +63,15 @@ class App extends Component {
       <div className="App">
         <section className="uk-section uk-section-default">
           <div className="uk-container uk-container-xsmall">
-            <h1 className="uk-heading-medium">IronContacts</h1>
+            <div className="uk-flex">
+              <span className="uk-logo" href="#">
+                <img
+                  src="https://i.imgur.com/1QgrNNw.png"
+                  alt="IronHack-logo"
+                />
+              </span>
+              <h1 className="uk-heading-medium uk-margin-left">IronContacts</h1>
+            </div>
             <div className="uk-grid-small uk-child-width-1-3" uk-grid="true">
               <div>
                 <button
@@ -75,7 +83,7 @@ class App extends Component {
               </div>
               <div>
                 <button
-                  className="uk-button uk-button-primary uk-button-small uk-width-1-1"
+                  className="uk-button uk-button-default greenBack uk-button-small uk-width-1-1"
                   onClick={this.handleSortByName}
                 >
                   Sort by Name
@@ -83,7 +91,7 @@ class App extends Component {
               </div>
               <div>
                 <button
-                  className="uk-button uk-button-primary uk-button-small uk-width-1-1"
+                  className="uk-button uk-button-default greenBack uk-button-small uk-width-1-1"
                   onClick={this.handleSortByPopularity}
                 >
                   Sort by Popularity

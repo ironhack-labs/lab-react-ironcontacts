@@ -3,3 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* UIKit overrides */
+.uk-table-hover tbody tr:hover,
+.uk-table-hover > tr:hover {
+  background: rgba(81, 192, 255, 0.5);
+}
+
+.greenBack:hover{
+  background-color: rgb(67,209,178);
+  color: white;
+}

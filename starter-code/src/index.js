@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -10,6 +9,9 @@ import Icons from "uikit/dist/js/uikit-icons";
 
 // Uikit CSS import
 import "uikit/dist/css/uikit.min.css";
+
+// index styles
+import './index.css';
 
 // loads the Icon plugin
 UIkit.use(Icons);

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Table = ({ children }) => (
-  <table className="uk-table uk-table-divider">
+  <table className="uk-table uk-table-divider uk-table-hover uk-table-striped">
     <thead>
       <tr>
         <th className="uk-width-small"><span className="uk-text-bold uk-text-lead">Picture</span></th>
