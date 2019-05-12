@@ -28,8 +28,24 @@ class App extends Component {
 
   handleAddRandom = e => {
     const randomContact = this.getRandomContact();
-    let {contacts} = this.state;
+    let { contacts } = this.state;
     contacts.push(randomContact);
+    this.setState({ contacts });
+  };
+
+  handleSortByNAme = e => {
+    let { contacts } = this.state;
+    contacts.sort((cont1, cont2) => {
+      const cont1Lower = cont1.name.toLowerCase();
+      const cont2Lower = cont2.name.toLowerCase();
+      if (cont1Lower < cont2Lower) {
+        return -1;
+      }
+      if (cont1Lower > cont2Lower) {
+        return 1;
+      }
+      return 0;
+    });
     this.setState({contacts});
   };
 
@@ -42,12 +58,15 @@ class App extends Component {
             <h1 className="uk-heading-medium">IronContacts</h1>
             <div className="uk-grid-small uk-child-width-1-3" uk-grid="true">
               <div>
-                <button className="uk-button uk-button-primary uk-button-small uk-width-1-1" onClick={this.handleAddRandom}>
+                <button
+                  className="uk-button uk-button-primary uk-button-small uk-width-1-1"
+                  onClick={this.handleAddRandom}
+                >
                   Add Random Contact
                 </button>
               </div>
               <div>
-                <button className="uk-button uk-button-primary uk-button-small uk-width-1-1">
+                <button className="uk-button uk-button-primary uk-button-small uk-width-1-1" onClick={this.handleSortByNAme}>
                   Sort by Name
                 </button>
               </div>
