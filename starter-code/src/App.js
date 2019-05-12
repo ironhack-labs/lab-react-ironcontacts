@@ -23,7 +23,9 @@ class App extends Component {
   };
 
   handleDelete = (e, index) => {
-    console.log(index);
+    let { contacts } = this.state;
+    contacts.splice(index, 1);
+    this.setState({ contacts });
   };
 
   handleAddRandom = e => {
