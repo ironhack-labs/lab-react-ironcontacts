@@ -7,7 +7,7 @@ const ContactTableItems = ({initialContact, deleteItem}) => (
     </td>
     <td>{initialContact.name}</td>
     <td>{initialContact.popularity}</td>
-    <td><button onClick={deleteItem}>Delete</button></td>
+    <td><button onClick={deleteItem} className="uk-button uk-button-danger uk-button-small">Delete</button></td>
   </tr>
 );
 

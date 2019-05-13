@@ -3,7 +3,7 @@ import ContactTableItems from "./ContactTableItems";
 
 const ContactTable = ({ initialContacts, deleteItem }) => (
   <div className="contact-table-container">
-    <table className="contact-table">
+    <table className="contact-table uk-table uk-table-striped uk-table-hover uk-table-small uk-table-middle">
       <tr>
         <th>Picture</th>
         <th>Name</th>

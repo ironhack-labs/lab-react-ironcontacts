@@ -57,9 +57,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        <button onClick={this.addRandomContact} className="uk-button uk-button-primary main-button">Add Random Contact</button>
+        <button onClick={this.sortByName} className="uk-button uk-button-default main-button">Sort by name</button>
+        <button onClick={this.sortByPopularity} className="uk-button uk-button-default main-button">Sort by popularity</button>
         <ContactTable initialContacts={initialContacts} contacts={contacts} deleteItem={this.deleteItem}/>
       </div>
     );
