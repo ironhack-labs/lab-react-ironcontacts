@@ -1,18 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import contacts from "./contacts.json";
+import ContactTable from "./components/ContactTable"
 
 class App extends Component {
+  state = {
+    initialContacts: [contacts[0], contacts[1], contacts[2], contacts[3], contacts[4]],
+    randomContact: []
+  };
+
+  addRandomContact = e => {
+    e.preventDefault();
+    let {randomContact} = this.state;
+    randomContact.push(contacts[Math.floor(Math.random() * contacts.length)])
+  }
+
   render() {
+    const { initialContacts, randomContact } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>IronContacts</h1>
+        <button>Add Random Contact</button>
+        <ContactTable initialContacts={initialContacts}/>
       </div>
     );
   }
