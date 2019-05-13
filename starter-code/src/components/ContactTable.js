@@ -1,8 +1,8 @@
 import React from "react";
 import ContactTableItems from "./ContactTableItems";
-import RandomTableItems from "./RandomTableItems"
+import RandomTableItems from "./RandomTableItems";
 
-const ContactTable = ({initialContacts, randomContact}) => (
+const ContactTable = ({ initialContacts, randomContact }) => (
   <div className="contact-table-container">
     <table className="contact-table">
       <tr>
@@ -10,9 +10,14 @@ const ContactTable = ({initialContacts, randomContact}) => (
         <th>Name</th>
         <th>Popularity</th>
       </tr>
-      {initialContacts.map(initialContact => <ContactTableItems initialContact={initialContact}/>)}
-      {randomContact.map(randomContact => <RandomTableItems randomContact={randomContact}/>)}
-
+      <tbody>
+        {initialContacts.map((initialContact, index) => (
+          <ContactTableItems initialContact={initialContact} key={index} />
+        ))}
+        {randomContact.map((randomContact, index) => (
+          <RandomTableItems randomContact={randomContact} key={index} />
+        ))}
+      </tbody>
     </table>
   </div>
 );
