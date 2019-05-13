@@ -46,6 +46,12 @@ class App extends Component {
     this.setState({initialContacts})
   }
 
+  deleteItem = index => {
+    let {initialContacts} = this.state;
+    initialContacts.splice(index, 1);
+    this.setState({initialContacts})
+  }
+
   render() {
     const { initialContacts } = this.state;
     return (
@@ -54,7 +60,7 @@ class App extends Component {
         <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
-        <ContactTable initialContacts={initialContacts} contacts={contacts} />
+        <ContactTable initialContacts={initialContacts} contacts={contacts} deleteItem={this.deleteItem}/>
       </div>
     );
   }
