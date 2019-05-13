@@ -1,12 +1,12 @@
 import React from "react";
 
-const RandomTableItems = ({randomContact}) => (
+const RandomTableItems = ({initialContact}) => (
   <tr>
     <td>
-      <img src={randomContact.pictureUrl} alt={randomContact.name} />
+      <img src={initialContact.pictureUrl} alt={initialContact.name} />
     </td>
-    <td>{randomContact.name}</td>
-    <td>{randomContact.popularity}</td>
+    <td>{initialContact.name}</td>
+    <td>{initialContact.popularity}</td>
   </tr>
 );
 
