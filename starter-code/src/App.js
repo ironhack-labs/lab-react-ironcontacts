@@ -9,10 +9,10 @@ class App extends Component {
     randomContact: []
   };
 
-  addRandomContact = e => {
-    e.preventDefault();
+  addRandomContact = () => {
     let {randomContact} = this.state;
     randomContact.push(contacts[Math.floor(Math.random() * contacts.length)])
+    this.setState({randomContact})
   }
 
   render() {
@@ -20,8 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button>Add Random Contact</button>
-        <ContactTable initialContacts={initialContacts}/>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <ContactTable initialContacts={initialContacts} contacts={contacts} randomContact={randomContact}/>
       </div>
     );
   }
