@@ -1,4 +1,4 @@
-[
+const contacts = [
   {
     "name": "Idris Elba",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
@@ -995,3 +995,12 @@
     "popularity": 6.914606
   }
 ]
+
+
+export function getContacts() {
+  return contacts
+}
+
+export function getFirstFive() {
+  return contacts.slice(0, 5)
+}
