@@ -1,24 +1,22 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-// import TableComponent from "./TableComponent";
 import Contacts from "./contacts.json";
 
 class App extends Component {
   state = {
-    mainCounter: 13,
     contacts: Contacts.splice(0, 5),
     randomContacts: Contacts.splice(Math.floor(Math.random() * 100), 5),
     addContacts: Contacts
   };
   addContact = () => {
     let contactsCopy = [...this.state.contacts];
-    let i = Math.floor(Math.random() * 200);
+    let i = Math.floor(Math.random() * contactsCopy.length);
+
     contactsCopy.push(this.state.addContacts[i]);
     this.setState({
       contacts: contactsCopy
     });
-    console.log("TESTING ADD");
+    // console.log("TESTING ADD");
   };
 
   deleteContact = i => {
@@ -33,6 +31,7 @@ class App extends Component {
 
   sortName = () => {
     let contactsCopy = [...this.state.contacts];
+
     let comp = (a, b) => {
       const nameA = a.name.toUpperCase();
       const nameB = b.name.toUpperCase();
@@ -48,7 +47,6 @@ class App extends Component {
 
     contactsCopy.sort(comp);
 
-    console.log("SORT ISSUED");
     this.setState({
       contacts: contactsCopy
     });
@@ -78,6 +76,8 @@ class App extends Component {
   };
   displayAll = () => {
     return this.state.contacts.map((oneContact, i) => {
+      console.log(i);
+      console.log("=========================================", oneContact);
       return (
         <tr key={i}>
           <td>
@@ -87,6 +87,7 @@ class App extends Component {
           <td>{oneContact.popularity}</td>
           <td>
             <button
+              className="delete-button"
               onClick={() => {
                 this.deleteContact(i);
               }}
@@ -102,28 +103,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="App-title">IronContacts</h1>
-        <button
-          onClick={() => {
-            this.addContact();
-          }}
-        >
-          Add A Random Contact
-        </button>
-        <button
-          onClick={() => {
-            this.sortName();
-          }}
-        >
-          Sort By Name
-        </button>
-        <button
-          onClick={() => {
-            this.sortPopularity();
-          }}
-        >
-          Sort By Popularity
-        </button>
+        <h1 className="App-title">🎇 IronContacts 🎇</h1>
+        <div className="button-container">
+          <button
+            onClick={() => {
+              this.addContact();
+            }}
+          >
+            Add A Random Contact
+          </button>
+          <button
+            onClick={() => {
+              this.sortName();
+            }}
+          >
+            Sort By Name
+          </button>
+          <button
+            onClick={() => {
+              this.sortPopularity();
+            }}
+          >
+            Sort By Popularity
+          </button>
+        </div>
         <table className="main-table">
           <tbody>
             <tr>
