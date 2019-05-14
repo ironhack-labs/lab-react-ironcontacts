@@ -1,28 +1,29 @@
-.App {
+.App{
+  background-color: steelblue;
+}
+.contactpic {
+  height: 95px;
+  width: 80px;
+}
+.main-table {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+.button-container > button {
+  background-color: #eb0a0a2c;
+  border-radius: 3px;
+  width: 100px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+button{
+  background-color: red;
+  border-color: black;
 }
