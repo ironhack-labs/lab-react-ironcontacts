@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -25,4 +25,41 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} */
+
+h1 {
+text-align: center;
+text-decoration: underline;
+}
+
+
+
+.button {
+  padding: 10px;
+  border: 2px solid lightpink;
+  border-radius: 20px;
+  margin: 20px 10px;
+}
+
+
+
+
+ td, th{
+  border: 1px solid black;
+  width: 150px;
+  text-align: center;
+}
+
+th {
+  background-color: lightpink;
+  padding: 30px;
+}
+.picture {
+  background-color: lightgrey;
+}
+
+.delete {
+  border: 2px solid lightpink;
+  border-radius: 20px;
+  padding: 10px;
 }
