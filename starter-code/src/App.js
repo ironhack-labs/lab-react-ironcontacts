@@ -31,6 +31,51 @@ class App extends Component {
     }
   };
 
+  sortName = () => {
+    let contactsCopy = [...this.state.contacts];
+    let comp = (a, b) => {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+
+      let comp = 0;
+      if (nameA > nameB) {
+        comp = 1;
+      } else if (nameA < nameB) {
+        comp = -1;
+      }
+      return comp;
+    };
+
+    contactsCopy.sort(comp);
+
+    console.log("SORT ISSUED");
+    this.setState({
+      contacts: contactsCopy
+    });
+  };
+
+  sortPopularity = () => {
+    let contactsCopy = [...this.state.contacts];
+    let comp = (a, b) => {
+      const popA = a.popularity;
+      const popB = b.popularity;
+
+      let comp = 0;
+      if (popA > popB) {
+        comp = -1;
+      } else if (popA < popB) {
+        comp = +1;
+      }
+      return comp;
+    };
+
+    contactsCopy.sort(comp);
+
+    console.log("SORT ISSUED");
+    this.setState({
+      contacts: contactsCopy
+    });
+  };
   displayAll = () => {
     return this.state.contacts.map((oneContact, i) => {
       return (
@@ -65,8 +110,20 @@ class App extends Component {
         >
           Add A Random Contact
         </button>
-        <button>Sort By Name</button>
-        <button>Sort By Popularity</button>
+        <button
+          onClick={() => {
+            this.sortName();
+          }}
+        >
+          Sort By Name
+        </button>
+        <button
+          onClick={() => {
+            this.sortPopularity();
+          }}
+        >
+          Sort By Popularity
+        </button>
         <table className="main-table">
           <tbody>
             <tr>
