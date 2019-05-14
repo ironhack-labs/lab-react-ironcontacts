@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.headshot {
+  width: 50px;
+  height: auto;
+}
+
+.content {
+  display: flex; 
+  justify-content: center;
+  padding: 40px;
+}
