@@ -27,7 +27,6 @@ You can find the starter code in the starter code folder of this GitHub repo.
 ## Installation
 
 ```
-$ cd starter-code
 $ npm install
 $ npm start
 ```
