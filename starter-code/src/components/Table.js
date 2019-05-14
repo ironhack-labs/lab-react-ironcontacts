@@ -2,7 +2,7 @@ import React from "react";
 import Contact from "./Contact"
 
 
-const Table = ({celebrities})=>(
+const Table = ({celebrities,deleteItem})=>(
     <div>
         <table >
             <tbody>
@@ -12,7 +12,7 @@ const Table = ({celebrities})=>(
             <th>Popularity</th>
 						</tr>
 
-						{celebrities.map( (celebrity)=><Contact {...celebrity}/> )}
+						{celebrities.map( (celebrity,index) =><Contact deleteItem={() => deleteItem(index)} key={index} {...celebrity}/> )}
 						
 						</tbody>
         </table>
