@@ -8,7 +8,8 @@ import ContactList from './components/ContactList';
 class App extends Component {
   state = {
     arrayofContacts: contacts,
-    contacts: contacts.splice(0, 5)
+    contacts: contacts.splice(0, 5),
+   // name: contacts.name
     }
 
   addRandomContact = () => {
@@ -20,6 +21,20 @@ class App extends Component {
     this.setState({contacts: newCon})
   }
 
+  sortedContacts = () => {
+     const sorted = this.state.contacts.sort( (a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+     })
+     this.setState({contacts: sorted})
+  }
+
   render() {
 
     const { contacts } = this.state;
@@ -29,6 +44,7 @@ class App extends Component {
       <div className="App">
 
         <button onClick={this.addRandomContact}>New Contact</button>
+        <button onClick={this.sortedContacts}>Sort Contacts</button>
         {
           contacts.map( (contacts) => {
               return <ContactList contacts={contacts} />
