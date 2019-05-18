@@ -35,6 +35,17 @@ class App extends Component {
      this.setState({contacts: sorted})
   }
 
+sortByPopularity = () => {
+  const sortedbyPop = this.state.contacts.sort( (a, b) => {
+    return b.popularity - a.popularity;
+  })
+  this.setState({contacts: sortedbyPop})
+}
+
+deleteContact = (index) => {
+  this.state.contacts.splice(index, 1)
+  this.setState({contacts: [...this.state.contacts]})
+}
   render() {
 
     const { contacts } = this.state;
@@ -43,11 +54,12 @@ class App extends Component {
 
       <div className="App">
 
-        <button onClick={this.addRandomContact}>New Contact</button>
+        <button onClick={this.addRandomContact}>Add New Contact</button>
         <button onClick={this.sortedContacts}>Sort Contacts</button>
+        <button onClick={this.sortByPopularity}>Sort Popularity</button>
         {
-          contacts.map( (contacts) => {
-              return <ContactList contacts={contacts} />
+          contacts.map( (contacts, index) => {
+              return <ContactList contacts={contacts} key={index} delete={this.deleteContact} />
           })
         }
         
