@@ -3,7 +3,8 @@ import Contact from './Contact'
 
 const ContactList = ( props ) => {
 
-  const listContact = props.contacts.map((contacts, index) => (
+  const size = 5;
+  const listContact = props.contacts.slice(0, size).map((contacts, index) => (
     <div className="col-4 mb-4" key={index}>
       <Contact contacts={contacts} />
     </div>
