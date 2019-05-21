@@ -1,15 +1,16 @@
 import React from 'react'
+import contacts from '../contacts.json'
 import Contact from './Contact'
 
-const ContactList = ({contacts}) => {
+const ContactList = ({addedContacts}) => {
 
   const list = contacts.map( (item, i) => {
     return ( 
         <Contact contact={item} key={i}/>
     )
-})
+  })
 
-const firstFive = list.splice(0,5)
+  const firstFive = list.splice(0,5)
 
   return (
     <div>
@@ -19,6 +20,7 @@ const firstFive = list.splice(0,5)
         <div className="contact-popularity"><h2>Popularity</h2></div>
       </div>
       <div>{firstFive}</div>
+      <div>{addedContacts}</div>
     </div>
   )
 }
