@@ -7,7 +7,11 @@ import Button from './components/Button'
 
 class App extends Component {
   state = {
-    listOfContacts: []
+    listOfContacts: contacts.map( (item, i) => {
+      return ( 
+          <Contact contact={item} key={i}/>
+      )
+    }).splice(0,5)
   }
 
   list = contacts.map( (item, i) => {
@@ -18,7 +22,7 @@ class App extends Component {
 
   addContact = (contact => {
     this.setState({
-      listOfContacts: [contact, ...this.state.listOfContacts]
+      listOfContacts: [...this.state.listOfContacts, contact]
     })
   })
 
