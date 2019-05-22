@@ -13,13 +13,22 @@ const Button = (props) => {
       if (nameA < nameB){return -1} 
       if (nameA > nameB){return 1}
       else{return 0}
+      })
+    return orgArr
+  }
+
+  const sortByPop = arr => {const orgArr = arr.sort((a,b) => {
+    const popA = a.props.contact.popularity
+    const popB = b.props.contact.popularity
+    return popB - popA 
     })
     return orgArr
   }
   
   const buttonPosibility = () => {
-    if(props.options === "1"){return addRandom(props.contacts)}
-    if(props.options === "2"){return sortByName(props.addedContacts)}
+    if (props.options === "1"){return addRandom(props.contacts)}
+    if (props.options === "2"){return sortByName(props.addedContacts)}
+    if (props.options === "3"){return sortByPop(props.addedContacts)}
   }
 
   return (
