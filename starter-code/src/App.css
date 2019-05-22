@@ -6,6 +6,15 @@
   font-size: 4rem;
 }
 
+.button-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap
+}
+.button-list button {
+  margin: 0 5px;
+}
+
 .contacts-list{
   display: flex;
   flex-direction: row;
