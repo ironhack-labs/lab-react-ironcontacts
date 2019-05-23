@@ -1,0 +1,26 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.row-headers {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.buttons button {
+    font-size: 1.8em;
+    padding: 10px 16px;
+    background-color: #fff;
+    border: 1px solid powderblue;
+    border-radius: 5px;
+}
+

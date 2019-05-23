@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+
+.card img {
+    height: 30vh;
+}
+
+.card button {
+    font-size: 1em;
+    padding: 10px 16px;
+    background-color: #fff;
+    border: 1px solid powderblue;
+    border-radius: 5px;
+}
