@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import ContactList from './components/ContactsList';
+import Header from './components/Header';
 
 class App extends Component {
   render() {
@@ -13,6 +16,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Header />
+        <main className="container">
+
+          <ContactList contacts={contacts}/>
+        </main>
       </div>
     );
   }
