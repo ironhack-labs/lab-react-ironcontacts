@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import Contacts from './components/Contacts';
+import ContactList from './components/ContactList'
 
 class App extends Component {
+  state = {
+    contactos : contacts.slice(0,5),
+    totalElem : contacts.length
+  }
+  addRandomContact = () => {
+     this.setState({
+     })
+  }
+  sortByName = () => {
+    this.setState({
+      contactos: [...this.state.contactos].sort((a,b)=> a.name.localeCompare(b.name))
+    })
+  }
+  sortByPopularity = () => {
+    this.setState({
+      contactos: [...this.state.contactos].sort((a,b)=> a.popularity-b.popularity)
+    })
+  }
+  delete = (i) => {
+    this.setState({
+      contactos: this.state.contactos.slice(0, i)
+    })
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App"> 
+      <h4>IronContacts</h4>
+
+      <ContactList 
+      contact={this.state.contactos}
+      addRandomContact = {this.addRandomContact}
+      sortByName={this.sortByName}
+      sortByPopularity={this.sortByPopularity}
+      />
       </div>
     );
   }
