@@ -21,7 +21,6 @@ class ContactList extends React.Component {
 
   sortBy = (keyword) => {
     const contactsCopy = [...this.state.contacts]
-    console.log(contactsCopy)
 
     if (keyword === 'name') {
       contactsCopy.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)); 
@@ -32,6 +31,17 @@ class ContactList extends React.Component {
     this.setState({
       contacts: contactsCopy
     })
+  }
+
+  deleteContact = (index) => {
+    const contactsCopy = [...this.state.contacts]
+    console.log(contactsCopy)
+    contactsCopy.splice(index,1)
+    
+    this.setState({
+      contacts: contactsCopy
+    })
+
   }
   
   render() {
@@ -53,7 +63,7 @@ class ContactList extends React.Component {
             <tbody>
             {
               this.state.contacts.map((elemento, index) => {
-              return <Contact data={elemento} key={index}/>
+              return <Contact data={elemento} key={index} deleteContact={() => this.deleteContact(index)}/>
               })
             }
             </tbody>
