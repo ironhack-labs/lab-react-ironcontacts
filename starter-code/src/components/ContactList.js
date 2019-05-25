@@ -1,12 +1,29 @@
 import React from 'react';
 import Contact from './Contact';
 
+class ContactList extends React.Component {
+  state = {
+    contacts:this.props.contacts.slice(0,5)
+  }
 
-const ContactList = (props) => {
+  addContactHandler = () => {
+    const min = 0;
+    const max = this.props.contacts.length - 1;
+    const randomIndex = Math.floor(Math.random() * (+max - +min)) + +min; 
+    const obj = this.props.contacts[randomIndex]
 
-  const fiveContacts = props.contacts.splice(0,5)
-
+    const contactsCopy = [...this.state.contacts]
+    contactsCopy.push(obj)
+    this.setState({
+      contacts:contactsCopy
+    })
+  }
+  
+  render() {
+  console.log(this.state.contacts)
   return (
+    <div>
+    <button onClick={this.addContactHandler}> Add Random Contact</button>
     <table className='table'>
       <thead>
         <tr>
@@ -15,13 +32,17 @@ const ContactList = (props) => {
           <th scope="col">Popularity</th>
         </tr>
       </thead>
+        <tbody>
         {
-          fiveContacts.map((elemento, index) => {
+          this.state.contacts.map((elemento, index) => {
           return <Contact data={elemento} key={index}/>
           })
         }
+        </tbody>
     </table>
+    </div>
   )
+  }
 }
 export default ContactList
 
