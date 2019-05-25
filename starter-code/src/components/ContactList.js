@@ -18,28 +18,46 @@ class ContactList extends React.Component {
       contacts:contactsCopy
     })
   }
+
+  sortBy = (keyword) => {
+    const contactsCopy = [...this.state.contacts]
+    console.log(contactsCopy)
+
+    if (keyword === 'name') {
+      contactsCopy.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)); 
+    } else {
+      contactsCopy.sort((a,b) => (a.popularity > b.popularity) ? -1 : ((b.popularity > a.popularity) ? 1 : 0)); 
+    }
+    
+    this.setState({
+      contacts: contactsCopy
+    })
+  }
   
   render() {
   console.log(this.state.contacts)
   return (
     <div>
-    <button onClick={this.addContactHandler}> Add Random Contact</button>
-    <table className='table'>
-      <thead>
-        <tr>
-          <th scope="col">Picture</th>
-          <th scope="col">Name</th>
-          <th scope="col">Popularity</th>
-        </tr>
-      </thead>
-        <tbody>
-        {
-          this.state.contacts.map((elemento, index) => {
-          return <Contact data={elemento} key={index}/>
-          })
-        }
-        </tbody>
-    </table>
+      <button onClick={this.addContactHandler}> Add Random Contact</button>
+      <button onClick={() => this.sortBy('name')}> Sort By Name</button>
+      <button onClick={() => this.sortBy('popularity')}> Sort By Popularity</button>
+
+        <table className='table'>
+          <thead>
+            <tr>
+              <th scope="col">Picture</th>
+              <th scope="col">Name</th>
+              <th scope="col">Popularity</th>
+            </tr>
+          </thead>
+            <tbody>
+            {
+              this.state.contacts.map((elemento, index) => {
+              return <Contact data={elemento} key={index}/>
+              })
+            }
+            </tbody>
+        </table>
     </div>
   )
   }
