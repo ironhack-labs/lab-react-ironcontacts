@@ -28,22 +28,18 @@
 }
 
 .Contact {
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 .contact-names{
   display: flex;
   width: 500px;
-  border: 1px solid black;
   margin: 0 auto 20px auto;
   justify-content: space-between;
 }
 .contact-item{
   width: 500px;
-  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,6 +48,7 @@
 .contact-image{
   width: 30%;
 }
-.contact-item-name{
-
+.Button{    
+  margin: 30px 10px;
+  display: inline-block;
 }

@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
+import Button from './../components/Button';
 
-class Contact extends React.Component {
+const Contact = ({contact}) => {
 
-  render() {
-    const {contacts} = this.props
-    return (
-      <div className="Contact">
-        <div className="contact-item">
-          <img src={contacts.pictureUrl} className="contact-image"/>
-          <div className="contact-item-name">{contacts.name}</div>
-          <div className="contact-item-name">{contacts.popularity}</div>
-        </div>
+  return (
+    <div className="Contact">
+      <div className="contact-item">
+        <img src={contact.pictureUrl} className="contact-image"/>
+        <div className="contact-item-name"><p>{contact.name}</p></div>
+        <div className="contact-item-name"><p>{contact.popularity}</p></div>
+        <Button children="Eliminar contacto"
+          function={this.deleteContacts} />
       </div>
-    );
-  }
+    </div>
+  )
 }
 
 export default Contact
