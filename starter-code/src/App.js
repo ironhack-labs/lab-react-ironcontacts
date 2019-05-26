@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-//import contacts from './contacts.json';
+import contacts from './contacts.json';
 import Header from './components/Header';
-import ContactsList from './components/Header';
+import ContactsList from './components/ContactList';
 
 class App extends Component {
   render() {
@@ -10,7 +10,9 @@ class App extends Component {
       <div>
         <Header />
 
-        <ContactsList />
+        <div className="row">
+        <ContactsList contacts={contacts} />
+        </div>
       </div>
     );
   }
