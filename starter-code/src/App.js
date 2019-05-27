@@ -17,7 +17,6 @@ class App extends Component {
       newList.push(randomContact);
       this.setState({ contactsToDisplay: newList });
     } else { this.addRamdon(); }
-
   }
 
   render() {
