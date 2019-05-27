@@ -5,12 +5,11 @@ class Contacts extends React.Component {
     console.log(this.props);
     const popularity = this.props.contact.popularity.toFixed(2);
     return (
-      //const {contact} = this.props.contact.name
-      <ul className="contacts-header">
-        <img src={this.props.contact.pictureUrl} alt={this.props.contact.name} height="100"/>
-        <li>{this.props.contact.name}</li>
-        <li>{popularity}</li>
-      </ul>
+      <tr className="contact-elem">
+        <td><img src={this.props.contact.pictureUrl} alt={this.props.contact.name} height="100"/></td>
+        <td>{this.props.contact.name}</td>
+        <td>{popularity}</td>
+      </tr>
     )
   }
 }
