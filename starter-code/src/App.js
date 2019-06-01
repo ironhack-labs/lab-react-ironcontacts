@@ -31,6 +31,12 @@ class App extends Component {
       chosenContacts: this.state.chosenContacts.sort((a,b)=> b.popularity-a.popularity)
     });
   };
+  deleteActor = (contact) => {
+  console.log(contact.name)
+    this.setState({
+      chosenContacts: this.state.chosenContacts.filter(deleteActor => deleteActor.name !== contact.name)
+    });
+  };
   render() {
     return (
       <div className="App">
@@ -42,7 +48,7 @@ class App extends Component {
             action={this.sortByPopularity}
             text="Sort by popularity"
           />
-          <MyContacts chosenContacts={this.state.chosenContacts} />
+          <MyContacts chosenContacts={this.state.chosenContacts} deleteActor={this.deleteActor} />
         </p>
       </div>
     );

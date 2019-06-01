@@ -2,18 +2,19 @@ import React, {Component} from 'react'
 import Contacts from '../src/contacts'
 
 
- const MyContacts =({chosenContacts})=>(
+ const MyContacts =({chosenContacts, deleteActor})=>(
                 <table className="table">
                     <thead>
                         <tr className='tr-header'>
-                        <th>Name</th>
                         <th>Picture</th>
+                        <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     { chosenContacts.map ((contact, i) =>
-                    <Contacts contact={contact} index={i}/>
+                    <Contacts contact={contact} index={i} deleteActor={deleteActor}/>
                     )}
                     </tbody>
             
