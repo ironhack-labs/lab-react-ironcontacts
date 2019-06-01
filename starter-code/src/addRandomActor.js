@@ -2,8 +2,8 @@ import React from 'react';
 import contacts from '../src/contacts'
 
 
-const ButtonRandom = ({addContact})=>( 
-    <button type="button" class="btn btn-info" onClick={addContact}>Add Random Actor</button>
+const ButtonRandom = ({action,text})=>( 
+    <button type="button" className="btn btn-info mr-2" onClick={action}>{text}</button>
 
     )
 
