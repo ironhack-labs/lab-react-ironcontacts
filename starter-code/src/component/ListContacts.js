@@ -1,21 +1,24 @@
 import React from 'react';
 import RowContacts from './RowContact';
 
-const ListContacts = ({fiveContacts}) => (
-  <div className="">
-    <table>
-      <thead>
+const ListContacts = ({ choosenContacts }) => (
+  <div>
+    <table className="table w-50 mx-auto">
+      <thead className="thead-dark">
         <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
+          <th scope="col">Picture</th>
+          <th scope="col">Name</th>
+          <th scope="col">Popularity</th>
         </tr>
       </thead>
-      {fiveContacts.map(contact => (
-        <RowContacts contact={contact}/>
-      ))}
+      <tbody>
+        {choosenContacts.map((contact, i) => (<RowContacts contact={contact} key={i} />))}
+      </tbody>
     </table>
   </div>
-);
+)
 
 export default ListContacts
+
+
+  
