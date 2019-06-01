@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Contacts = ({contact})=>( 
+const Contacts = ({contact, index})=>( 
 
  
-    <tr>
+    <tr key={index}>
 
       
       <td ><img src={contact.pictureUrl} height="300" width="175" alt="img"></img></td>
