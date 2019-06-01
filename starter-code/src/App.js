@@ -9,13 +9,18 @@ class App extends React.Component {
 
   state = {
     choosenContacts : contacts.slice(0, 5),
-    estado: false
   }
 
   addContact = () => {
     const ramdonContact = contacts.slice(this.state.choosenContacts.length, this.state.choosenContacts.length+1)
     this.setState({
       choosenContacts: [...this.state.choosenContacts, ...ramdonContact]
+    })
+  }
+
+  deleteContact = (contact) => {
+    this.setState({
+      choosenContacts: this.state.choosenContacts.filter(contactToDel => contactToDel.name !== contact.name)
     })
   }
 
@@ -47,8 +52,7 @@ class App extends React.Component {
         <ButtonActions text="Add Ramdon Actor" action={this.addContact}/>
         <ButtonActions text="Sort by name" action={this.sortByName}/>
         <ButtonActions text="Sort by popularity" action={this.sortByPopularity}/>
-
-        <ListContacts choosenContacts={this.state.choosenContacts}/>
+        <ListContacts choosenContacts={this.state.choosenContacts} deleteContact={this.deleteContact}/>
       </div>
     );
   }
