@@ -13,12 +13,27 @@ class App extends React.Component {
   }
 
   addContact = () => {
-    const ramdonContact = contacts.slice(this.state.choosenContacts.length, this.state.choosenContacts.length+1)[0]
+    const ramdonContact = contacts.slice(this.state.choosenContacts.length, this.state.choosenContacts.length+1)
     this.setState({
-      choosenContacts: [...this.state.choosenContacts, ramdonContact],
-      estado:true,
+      choosenContacts: [...this.state.choosenContacts, ...ramdonContact]
     })
-    console.log(this.state.choosenContacts)
+  }
+
+  sortByName = () => {
+
+    this.setState({
+      choosenContacts: this.state.choosenContacts.sort((a, b) => {
+        if (a.name < b.name) { return -1 }
+        if (b.name < a.name) { return 1 }
+        return 0
+      })
+    })
+  }
+
+  sortByPopularity = () => {
+    this.setState({
+      choosenContacts: this.state.choosenContacts.sort((a, b)=>  b.popularity - a.popularity)
+    })
   }
 
   render() {
@@ -29,8 +44,9 @@ class App extends React.Component {
             <h1 className="display-4">IronContacts</h1>
           </div>
         </div>
-        {this.state.estado ? <p>hola</p> : null }
-        <ButtonActions addContact={this.addContact}/>
+        <ButtonActions text="Add Ramdon Actor" action={this.addContact}/>
+        <ButtonActions text="Sort by name" action={this.sortByName}/>
+        <ButtonActions text="Sort by popularity" action={this.sortByPopularity}/>
 
         <ListContacts choosenContacts={this.state.choosenContacts}/>
       </div>

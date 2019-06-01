@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ButtonActions = ({addContact}) => (
+const ButtonActions = ({text, action}) => (
   <button 
     type="button" 
-    className="my-3 btn btn-dark" 
-    onClick={addContact}>Add Ramdon Actor</button>
+    className="my-3 ml-1 btn btn-dark" 
+    onClick={action}>{text}</button>
 );
 
 export default ButtonActions
