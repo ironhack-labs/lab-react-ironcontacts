@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import data from '../contacts.json';
-import _ from 'lodash';
 import Contact from './Contact';
 
 const randomSelector = (array) => array[Math.floor(Math.random() * array.length)];
