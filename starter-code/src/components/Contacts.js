@@ -25,8 +25,7 @@ class Contacts extends Component {
 	sortByName = () => {
 		const contacts = [ ...this.state.contacts ];
 		contacts.sort((a, b) => a.name.localeCompare(b.name));
-
-		console.log(contacts);
+		//console.log(contacts);
 		this.setState({
 			contacts
 		});
@@ -34,7 +33,16 @@ class Contacts extends Component {
 	sortByPopularity = () => {
 		const contacts = [ ...this.state.contacts ];
 		contacts.sort((a, b) => b.popularity - a.popularity);
-		console.log(contacts);
+		//console.log(contacts);
+		this.setState({
+			contacts
+		});
+	};
+
+	deleteContact = (i) => {
+		const contacts = [ ...this.state.contacts ];
+		contacts.splice(i, 1);
+		//console.log(contacts);
 		this.setState({
 			contacts
 		});
@@ -45,7 +53,7 @@ class Contacts extends Component {
 		// console.log(properties);
 		//return <table>{properties.forEach((property) => <th>{property}</th>)}</table>;
 		return (
-			<section>
+			<section className="contact-list">
 				<button onClick={() => this.addRandomContact()}>Add random contact</button>
 				<button onClick={() => this.sortByName()}>Sort by Name</button>
 				<button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
@@ -55,11 +63,12 @@ class Contacts extends Component {
 							<th>Picture</th>
 							<th>Name</th>
 							<th>Popularity</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						{this.state.contacts.map((contact, i) => {
-							return <Contact key={i} {...contact} />;
+							return <Contact key={i} {...contact} delete={() => this.deleteContact(i)} />;
 						})}
 					</tbody>
 				</table>
