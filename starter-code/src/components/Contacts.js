@@ -22,6 +22,24 @@ class Contacts extends Component {
 		});
 	};
 
+	sortByName = () => {
+		const contacts = [ ...this.state.contacts ];
+		contacts.sort((a, b) => a.name.localeCompare(b.name));
+
+		console.log(contacts);
+		this.setState({
+			contacts
+		});
+	};
+	sortByPopularity = () => {
+		const contacts = [ ...this.state.contacts ];
+		contacts.sort((a, b) => b.popularity - a.popularity);
+		console.log(contacts);
+		this.setState({
+			contacts
+		});
+	};
+
 	render() {
 		// const properties = _.keys(this.state.contacts[0]);
 		// console.log(properties);
@@ -29,6 +47,8 @@ class Contacts extends Component {
 		return (
 			<section>
 				<button onClick={() => this.addRandomContact()}>Add random contact</button>
+				<button onClick={() => this.sortByName()}>Sort by Name</button>
+				<button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
 				<table>
 					<thead>
 						<tr>
