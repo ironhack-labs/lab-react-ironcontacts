@@ -19,10 +19,40 @@
 }
 
 .App-intro {
-  font-size: large;
+  font-size: 3em;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.actorList li{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  background: black;
+color: white;
+border-radius: 15px;
+}
+
+.actorList li p{
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 1.5em
+}
+.actorList li img{
+  height: 12em;
+  border: 1px;
+  border-radius: 65px;
+}
+.actorList li button{
+  color:white;
+  background: black;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(255,255,255,0.55);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(255,255,255,0.55);
+  box-shadow: 0px 0px 5px 2px rgba(255,255,255,0.55);
+  border: 1px;
+  padding: 5px;
+  border-radius: 5px;
 }
