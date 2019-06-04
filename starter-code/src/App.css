@@ -26,3 +26,51 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table img {
+  height: 100px;
+}
+
+thead {
+  border-bottom: 1px solid black;
+}
+
+thead td {
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 2% 0;
+  margin-bottom: 2%;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+  padding: 2% 0;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+}
+
+.delete {
+  background-color: red;
+}
+
+header button {
+  background-color: lightblue;
+  margin-right: 1%;
+}

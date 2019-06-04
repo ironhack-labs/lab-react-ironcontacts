@@ -1,4 +1,4 @@
-[
+export const contacts = [
   {
     "name": "Idris Elba",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
@@ -995,3 +995,14 @@
     "popularity": 6.914606
   }
 ]
+
+export const getRandomContacts = () => {
+  const randomContacts = [];
+
+  for (let i = 0; i < 5; i++) {
+    const random = Math.floor(Math.random() * contacts.length);
+    randomContacts.push(contacts[random]);
+  }
+
+  return randomContacts;
+}
