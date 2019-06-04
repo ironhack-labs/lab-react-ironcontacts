@@ -66,32 +66,43 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Aplicacion hecha con React en Front :D</h1>
         </header>
-        <button onClick={() => this.addRandom()}>Add Random Contact</button>
-        <button onClick={() => this.sortName()}>Sort By Name</button>
-        <button onClick={() => this.sortPopu()}>Sort By Popularity</button>
+        <main>
+          <div className="buttons">
+          <button className="addContact" onClick={() => this.addRandom()}>
+            Add Random Contact
+          </button>
+          <button className="sortName" onClick={() => this.sortName()}>
+            Sort By Name
+          </button>
+          <button className="sortPopu" onClick={() => this.sortPopu()}>
+            Sort By Popularity
+          </button>
+          </div>
 
-        <table className="container">
-          <thead>
-            <tr className="title-table">
-              <td>Picture</td>
-              <td>Name</td>
-              <td>Popularity</td>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.firstContacts.map((elm, idx) => (
-              <Table
-                key={idx}
-                name={elm.name}
-                picture={elm.pictureUrl}
-                popularity={elm.popularity}
-                DeleteOneArtist={() => this.DeleteOneArtist(idx)}
-              />
-            ))}
-          </tbody>
-        </table>
+          <table className="container">
+            <thead>
+              <tr className="title-table">
+                <td>Picture</td>
+                <td>Name</td>
+                <td>Popularity</td>
+                <td>Delete Button</td>
+              </tr>
+            </thead>
+            <tbody className="allArtist-table">
+              {this.state.firstContacts.map((elm, idx) => (
+                <Table
+                  key={idx}
+                  name={elm.name}
+                  picture={elm.pictureUrl}
+                  popularity={elm.popularity}
+                  DeleteOneArtist={() => this.DeleteOneArtist(idx)}
+                />
+              ))}
+            </tbody>
+          </table>
+        </main>
       </div>
     );
   }

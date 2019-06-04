@@ -6,7 +6,9 @@
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
+main {
+  background-color: rgba(203, 225, 238, 0.76)
+}
 .App-header {
   background-color: #222;
   height: 150px;
@@ -15,33 +17,57 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.65em;
 }
 
 .App-intro {
   font-size: large;
 }
 .title-table{
-  font-size: 50px;
+  background-color: rgba(205,205,205,.8);
+  border-bottom-style: dotted;
+  font-size: 40px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 60px;
-  align-items: baseline;
+
 }
+.title-table td{
+    margin:50px;
+
+}
+.container{
+  width: 100vw;
+}
+
 button {
-  padding:15px 70px 15px 70px;
+  padding:25px 90px 25px 90px;
+  border-radius: 8%; 
+  font-size: 25px;
+}
+.buttons { 
+  display:flex;
+  justify-content: space-around;
 }
 .contacts-table img {
   width: 100px;
 }
 .contacts-table{
-  font-size: 50px;
+  font-size: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+  align-items: center;
+  margin-top: 100px;
+  
 }
-.container {
+
+.tbody {
     display: flex;
     flex-direction: column;
+    align-items: baseline;
+
 }
 
 @keyframes App-logo-spin {
