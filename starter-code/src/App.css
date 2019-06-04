@@ -21,6 +21,25 @@
 .App-intro {
   font-size: large;
 }
+.title-table{
+  font-size: 50px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 60px;
+  align-items: baseline;
+}
+.contacts-table img {
+  width: 100px;
+}
+.contacts-table{
+  font-size: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
