@@ -1,0 +1,38 @@
+ul {
+  list-style: none;
+}
+
+.innerUl{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.innerUl li{
+  margin: 0 30px;
+  display: inline-block;
+}
+
+.innerUl img{
+ width: 120px;
+}
+
+section {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.titleUl {
+  padding-left: 150px;
+}
+
+button {
+  margin: 0 30px;
+}
+
+.btnContainer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
