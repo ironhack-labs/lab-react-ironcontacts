@@ -1,0 +1,22 @@
+.actorsTable {
+  width: 100vw;
+  margin: 20px auto;
+  font-size: 2em;
+  padding: 5px 0;
+}
+
+.actorsTable td{
+  border: 3px solid whitesmoke;
+}
+
+.actorsTable button {
+  display: block;
+  margin-top: 20%;
+  padding: 10px 20px;
+}
+
+.filter {
+  padding: 10px 20px;
+  margin: 15px;  
+  font-size: 1.3em;
+}

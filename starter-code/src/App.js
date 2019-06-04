@@ -16,14 +16,16 @@ class App extends Component {
     }
   }
 
-  sorted = true
+  sorted = true   // ESTE A VECES DA PROBLEMAS, PONLO EN FALSE SI VES ALGO RARO
 
   addRandom = () => {
     const randPos = Math.floor(Math.random()*this.state.famousFull.length)
-    const newFamous = [...this.state.famous]//
+    const newFamous = [...this.state.famous]
+    if(newFamous.includes(this.state.famousFull[randPos]) ) {this.addRandom() } else {
     newFamous.push(this.state.famousFull[randPos])
     console.log(newFamous)
     this.setState({famous: newFamous})
+  }
   }
 
   sortName = () => {
@@ -58,10 +60,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
-        </header>
+        </header> */}
         <Table famous={this.state.famous} addRand={this.addRandom} sortName={this.sortName} sortPop={this.sortPop} delete={this.deleteFam}/>
       </div>
     );
