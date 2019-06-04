@@ -1,13 +1,17 @@
 import React from 'react'
 
-const Card = ({ name, pictureUrl, popularity }) => {
+const Card = ({ pictureUrl, name, popularity }) => {
   return (
-    <div>
-      <h2>{name}</h2>
-      <img src={pictureUrl} alt="artist image"></img>
-      <p>{popularity}</p>
 
-    </div>
+    <tr>
+      <td><img src={pictureUrl} alt="artist image"></img></td>
+
+
+      <td><h2>{name}</h2></td>
+
+      <td><p>{popularity}</p></td>
+    </tr>
+
   )
 }
 
