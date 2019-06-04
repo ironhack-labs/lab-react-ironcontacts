@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+body {
+
+  background-color: #7E1;
+  color: red;
+  font-family: cursive;
+  font-style: oblique;
+  font-size: 30px
+}
+
+
+.imageB {
+
+border: red 5px;
+
+}
