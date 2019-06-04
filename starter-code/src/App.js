@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import allContacts from './contacts.json'
+import Contact from './components/Contact'
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+  constructor() {
 
+    super()
+
+    this.state = {
+    firstFive: allContacts.splice(0, 5)
+  }
+  
+}
+    render() {
+      return (
+        <div className="App">
+        <h1>IronContacts</h1>
+        <table>
+          <thead>
+          <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+                
+          </tr>
+          </thead>
+          
+          { this.state.firstFive.map((contact, idx) => <Contact {...contact} key={idx} />) }
+        
+        </table>
+        </div>
+      )
+    }
+  }
 export default App;
