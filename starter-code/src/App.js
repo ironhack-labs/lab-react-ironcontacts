@@ -52,7 +52,14 @@ class App extends Component {
     })
   }
                   
-  
+   DeleteOneArtist = idx => {
+        const firstContactsCopy = [...this.state.firstContacts]
+        firstContactsCopy.splice(idx, 1)
+        this.setState({
+            firstContacts: firstContactsCopy
+        })
+    }
+
 
   render() {
     return (
@@ -80,6 +87,7 @@ class App extends Component {
                 name={elm.name}
                 picture={elm.pictureUrl}
                 popularity={elm.popularity}
+                DeleteOneArtist={() => this.DeleteOneArtist(idx)}
               />
             ))}
           </tbody>
