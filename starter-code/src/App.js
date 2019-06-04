@@ -15,15 +15,43 @@ class App extends Component {
  
   addRandom = () =>{
     let randomNumber = Math.floor(Math.random() * contacts.length);
-    console.log(randomNumber)
     const firstContactsCopy = [...this.state.firstContacts]
     firstContactsCopy.push(contacts[randomNumber])
     this.setState({
       firstContacts:firstContactsCopy
     })
-    console.table(this.state.firstContacts);
     
   }
+  sortName = () => {
+    let sortedArr = this.state.firstContacts.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    this.setState({
+      firstContacts:sortedArr
+    })
+                   }
+  sortPopu = () => {
+    let sortedArr = this.state.firstContacts.sort((a, b) => {
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      return 0;
+    });
+    this.setState({
+      firstContacts:sortedArr
+    })
+  }
+                  
   
 
   render() {
@@ -34,6 +62,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <button onClick={() => this.addRandom()}>Add Random Contact</button>
+        <button onClick={() => this.sortName()}>Sort By Name</button>
+        <button onClick={() => this.sortPopu()}>Sort By Popularity</button>
 
         <table className="container">
           <thead>

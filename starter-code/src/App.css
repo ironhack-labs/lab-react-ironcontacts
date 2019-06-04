@@ -28,6 +28,9 @@
   margin-bottom: 60px;
   align-items: baseline;
 }
+button {
+  padding:15px 70px 15px 70px;
+}
 .contacts-table img {
   width: 100px;
 }

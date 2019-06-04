@@ -5,7 +5,7 @@ const Table = props =>{
   return (
     
       <tr className="contacts-table">
-        <td><img src={props.picture}></img></td>
+        <td><img src={props.picture} alt="Artist"></img></td>
         <td>{props.name}</td>
         <td>{props.popularity}</td>
       </tr>
