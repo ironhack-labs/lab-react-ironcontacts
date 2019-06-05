@@ -26,3 +26,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.container-buttons{
+  margin: 30px 0 50px 0;
+}
+
+.main-button{
+  margin: 0 10px;
+}
+
+.row{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+.col {
+  width: 20%;
+  text-align: center;
+}
+
+.col > img {
+  width: 200px;
+}
