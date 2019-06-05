@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App-table {
+  display: block;
+}
+
+.App-table-head {
+  font-size: 2.4em;
+}
+
+.App-table-body {
+  font-size: 1.8em;
+}
