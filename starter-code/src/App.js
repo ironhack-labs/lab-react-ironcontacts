@@ -3,6 +3,7 @@ import './App.css';
 import allContacts from './contacts.json'
 import Contact from './components/Contact'
 
+let firstFive;
 
 class App extends Component {
   constructor() {
@@ -14,10 +15,34 @@ class App extends Component {
   }
   
 }
-    render() {
+
+addRandom = () =>{
+
+  console.log(this.state.firstFive)
+
+  const contactsCopy = [...this.state.allContacts]
+  this.state.firstFive.push( Math.floor(Math.random() * (allContacts.length)) + 1)
+  this.setState({
+      firstFive: contactsCopy
+  })
+
+
+
+
+
+
+
+
+  console.log(this.state.firstFive)
+     
+  }
+  
+  render() {
+    console.log(allContacts.length)
       return (
         <div className="App">
         <h1>IronContacts</h1>
+        <button onClick={() => this.addRandom()}>Add Random Contact</button>
         <table>
           <thead>
           <tr>
