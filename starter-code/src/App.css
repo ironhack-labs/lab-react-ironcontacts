@@ -23,6 +23,26 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
+
+.imagem {
+  height: 100px;
+}
+
+.linha {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.mybtn {
+  margin:1em;
+}
+
