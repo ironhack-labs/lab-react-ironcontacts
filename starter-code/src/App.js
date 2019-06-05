@@ -85,7 +85,7 @@ class App extends Component {
         <button onClick={() => this.sortByName()}>Sort by Name</button>
         <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
 
-        <table>
+        <table className="contact-list">
           <tr>
             <th>Picture</th>
             <th>Name</th>

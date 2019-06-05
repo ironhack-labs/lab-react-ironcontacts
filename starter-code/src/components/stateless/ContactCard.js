@@ -3,7 +3,7 @@ import React from 'react'
 const Card = props => {
   return (
 
-    <tr>
+    <tr className="card">
       <td><img src={props.pictureUrl} alt="artist image"></img></td>
 
 

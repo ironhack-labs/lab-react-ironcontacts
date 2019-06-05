@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.contact-list {
+  margin: 20px auto;
+  width: 70%
+}
+
+button {
+  margin: 20px;
+  background-color: rgb(41, 41, 41);
+  padding: 20px;
+  border-radius: 10px;
+  color: white
+}
+
+.card button {
+  background-color: rgb(236, 61, 61)
+}
