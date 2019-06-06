@@ -61,7 +61,10 @@ class Containeer extends Component {
 
   deleteItem(name){
     const contacts = this.state.contacts;
-    console.log(contacts[name]);
+    const filterItems = contacts.filter((element) => {
+      return element.name != name
+    });
+    this.setState({contacts:filterItems})
   }
 
   render() {
