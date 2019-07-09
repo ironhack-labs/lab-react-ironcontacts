@@ -1,0 +1,73 @@
+/* Containers */
+
+
+
+.divTableContainer {
+
+  display: flex;
+  justify-content: center;
+}
+
+.ButtonsContainer {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+/* Titles and names */
+
+.mainTitle {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.names {
+  text-align: center;
+}
+
+.popularities {
+  text-align: center;
+}
+
+.divContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.ActionHead {
+  width: 200%;
+}
+
+
+/* Buttons */
+
+.randomButton,
+.sortNameButton,
+.sortPopularityButton {
+  width: 180px;
+  height: 50px;
+  border-radius: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  border: 2px solid black;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.sortNameButton {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.deleteButton {
+  text-align: center;
+  width: 100%;
+  font-size: 1em;
+  border: 2px solid black;
+  font-weight: bold;
+  border-radius: 20px;
+  margin-left: 80px;
+}
