@@ -32,6 +32,11 @@ class Table extends Component {
         this.setState( {value: this.state.value})
     }
 
+    handleDelete = (index)=>{
+        let actors=[...this.state.value]
+        actors.splice(index, 1)
+        this.setState( {value: actors}, () => console.log(this.state))
+    }
 
 
     render(){
@@ -48,15 +53,19 @@ class Table extends Component {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                    
                     {this.state.value.map( (contact, index) => (
-                            <ActorCard key={index}
+                            <ActorCard 
+                                key={index}
+                                index={index}
                                 picture={contact.pictureUrl}
                                 name={contact.name}
                                 popularity={contact.popularity} 
+                                clbk={this.handleDelete}
                             />     
                     ))} 
                  </tbody>     
