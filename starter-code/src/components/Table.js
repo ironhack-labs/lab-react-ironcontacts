@@ -14,26 +14,33 @@ class Table extends Component {
         value:  contacts.splice(0,5)  
     }
 
-    handleclick = (evt)=> {
+    handleRandom = (evt)=> {
         let nbActor=contacts.length
         let randomIndex=Math.floor(Math.random()*nbActor)
         let randomActor= contacts[randomIndex]
-        console.log("value",this.state.value)
-        console.log("random", randomActor)
-        console.log("typeof", typeof(this.state.value))
         this.state.value.push(randomActor)
-
-        console.log( this.state.value)
-
-        //this.setState( state => state.push(contacts[randomIndex])  )
         this.setState( {value: this.state.value})
     }
+
+    handleName = () =>{
+        this.state.value.sort( (a,b) =>  (a.name < b.name) ? -1 : ( (a.name > b.name) ? 1:0 ) )
+        this.setState( {value: this.state.value})
+    }
+
+    handlePopularity = () =>{
+        this.state.value.sort( (a,b) => (a.popularity < b.popularity) ? -1 : ( (a.popularity > b.popularity) ? 1:0 )    )
+        this.setState( {value: this.state.value})
+    }
+
+
 
     render(){
         return (
             <React.Fragment>
 
-            <button onClick={this.handleclick}> Add Random Contact </button>
+            <button onClick={this.handleRandom}> Add Random Contact </button>
+            <button onClick={this.handleName}> Sort by Name </button>
+            <button onClick={this.handlePopularity}> Sort by Popularity</button>
 
             <table className="table-actors"> 
                 <thead>
