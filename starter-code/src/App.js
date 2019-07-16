@@ -75,14 +75,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
-
         <section className="toolbar-btns">
           <button className="btn" onClick={() => this.addRandomContact(1)}>
             ADD RANDOM CONTACT
@@ -97,10 +89,21 @@ class App extends Component {
           </button>
         </section>
 
-        <ContactsDisplayer
-          contactsSelected={this.state.rndContacts}
-          deletebtn={this.deleteContact}
-        />
+        <section className="body-wrapper">
+          <div>
+            <ContactsDisplayer
+              contactsSelected={this.state.rndContacts}
+              deletebtn={this.deleteContact}
+            />
+          </div>
+          <div>
+            <img
+              className="logoOscar"
+              src="https://i.pinimg.com/236x/6b/ec/40/6bec40dfc606e5a324558a5b93415cbc--clipart-emojis.jpg"
+              alt="logo oscar"
+            />
+          </div>
+        </section>
       </div>
     );
   }
