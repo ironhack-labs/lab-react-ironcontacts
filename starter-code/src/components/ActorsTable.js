@@ -8,20 +8,41 @@ class ActorsTable extends Component {
     super();
 
     this.state = {
-      actors: contacts.filter((actor, idx) => idx <= 4)
+        //Mi versión
+      //   actors: contacts.filter((actor, idx) => idx <= 4)
+      actors: [...contacts].splice(0, 5)
     };
   }
 
   //ITERATION 2
 
   addRandom = () => {
-    const randomActor = () => Math.floor(Math.random() * contacts.length + 1);
-    const actorsSpreadOperator = [...this.state.actors];
-    actorsSpreadOperator.push(contacts[randomActor()]);
+    let actorsSpreadOperator = [...contacts];
+    let filteredActor = actorsSpreadOperator.filter(
+      actor =>
+        this.state.actors
+          .map(actorMap => actorMap.name)
+          .indexOf(actor.name) < 0
+    );
+
+    const randomActor =
+      filteredActor[Math.floor(Math.random() * filteredActor.length)];
+    this.state.actors.push(randomActor);
     this.setState({
-      actors: actorsSpreadOperator
+      ...this.state.actors
     });
-  };
+  };ç
+
+  //MI FORMA, DA RANDOM IGUALES
+
+//   addRandom = () => {
+//     const randomActor = () => Math.floor(Math.random() * contacts.length + 1);
+//     const actorsSpreadOperator = [...this.state.actors];
+//     actorsSpreadOperator.push(contacts[randomActor()]);
+//     this.setState({
+//       actors: actorsSpreadOperator
+//     });
+//   };
 
   //ITERATION 3
 
@@ -57,14 +78,14 @@ class ActorsTable extends Component {
     });
   };
 
-// ITERATION 4
-  deleteActor = (actorIndex) => {
-      let actorsSpreadOperator = [...this.state.actors]
-      actorsSpreadOperator.splice(actorIndex, 1)
-      this.setState({
-          actors: actorsSpreadOperator
-      })
-  }
+  // ITERATION 4
+  deleteActor = actorIndex => {
+    let actorsSpreadOperator = [...this.state.actors];
+    actorsSpreadOperator.splice(actorIndex, 1);
+    this.setState({
+      actors: actorsSpreadOperator
+    });
+  };
 
   render() {
     return (
