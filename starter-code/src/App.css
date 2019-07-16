@@ -49,3 +49,9 @@
   font-size: 16px;
   margin: 20px;
 }
+
+.toolbar-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

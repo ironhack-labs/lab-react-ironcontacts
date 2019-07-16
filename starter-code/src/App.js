@@ -33,6 +33,35 @@ class App extends Component {
     });
   }
 
+  sortByName() {
+    let clonedArray = [...this.state.rndContacts];
+    let sortArray = clonedArray.sort(function(contactA, contactB) {
+      var nA = contactA.name.toLowerCase();
+      var nB = contactB.name.toLowerCase();
+
+      if (nA < nB) return -1;
+      else if (nA > nB) return 1;
+      return 0;
+    });
+
+    this.setState({
+      ...this.state,
+      rndContacts: sortArray
+    });
+  }
+
+  sortByPopularity() {
+    let clonedArray = [...this.state.rndContacts];
+    let sortArray = clonedArray.sort(function(PopuContactA, PopuContactB) {
+      return PopuContactB.popularity - PopuContactA.popularity;
+    });
+
+    this.setState({
+      ...this.state,
+      rndContacts: sortArray
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,9 +73,19 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p> */}
 
-        <button className="btn" onClick={() => this.addRandomContact(1)}>
-          ADD RANDOM CONTACT
-        </button>
+        <section className="toolbar-btns">
+          <button className="btn" onClick={() => this.addRandomContact(1)}>
+            ADD RANDOM CONTACT
+          </button>
+
+          <button className="btn" onClick={() => this.sortByName()}>
+            SORT BY NAME
+          </button>
+
+          <button className="btn" onClick={() => this.sortByPopularity()}>
+            SORT BY POPULARITY
+          </button>
+        </section>
 
         <ContactsDisplayer contactsSelected={this.state.rndContacts} />
       </div>
