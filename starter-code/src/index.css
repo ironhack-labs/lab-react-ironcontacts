@@ -1,23 +1,37 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  color: aliceblue;
+  transition: all .5s;
+  animation: fade 5s;
 }
 
 .container-table {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 25px;
 }
-
 
 .table {
   text-align: center;
 }
 
 .delBtn {
-padding: 10px;
-border-radius: 15px;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 15px;
+  background-color: rgba(230, 14, 14, 0.5);
+  color: aliceblue;
+  transition: all .5s;
+  font-weight: bold;
+ 
+}
+
+.delBtn:hover {
+  background-color: rgba(230, 14, 14, 1);
+  
 }
 
 .table th {
@@ -25,15 +39,79 @@ border-radius: 15px;
 }
 
 .table .buttons button {
-  margin-right:50px; 
+  margin-right: 50px;
   padding: 10px;
   border-radius: 15px;
-
+  font-size: 15px;
+  background-color: rgba(25, 159, 45, 0.5);
+  color: aliceblue;
+  transition: all .5s;
+  font-weight: bold;
 }
 
+.table .buttons button:hover {
+  background-color: rgba(25, 159, 45, 1);
+}
+
+.title {
+  font-size: 100px;
+  font-family: "Barriecito", cursive;
+  position: relative;
+  transform: rotate(-5deg)
+}
+
+.category th {
+  font-size: 30px;
+}
 
 .photo img {
   width: 100px;
-  border: 5px solid black;
+  border: 2px solid aliceblue;
+}
+
+.celeb {
+  transition: all 3s;
+  animation: fade 3s;
+}
+
+.celeb:hover {
+  background: rgba(245, 245, 245, 0.1);
   
+}
+
+.logo {
+  width: 100px;
+  height: 110px;
+  position: absolute;
+  transition: all 3s;
+  animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-reverse {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

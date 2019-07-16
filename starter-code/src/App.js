@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import TableRow from "./TableRow";
 import contacts from "./contacts.json";
+import Ih from "./Ih";
 
 class App extends Component {
   constructor() {
     super();
+    this.counterName = 0;
+    this.counterPopularity = 0;
     this.state = {
       persons: [...contacts].slice(0, 5)
     };
@@ -27,47 +30,85 @@ class App extends Component {
   }
 
   sortName() {
-    this.state.persons.sort((a, b) => {
-      
-      if(a.name < b.name)  {return -1}
+    this.counterName++;
 
-      if(a.name > b.name) {return 1}
+    if (this.counterName % 2 == 0) {
+      this.state.persons.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
 
-      return 0
-  
-    });
+        if (a.name > b.name) {
+          return 1;
+        }
 
-    this.setState({ ...this.state});
+        return 0;
+      });
+    } else {
+      this.state.persons.sort((a, b) => {
+        if (a.name < b.name) {
+          return 1;
+        }
+
+        if (a.name > b.name) {
+          return -1;
+        }
+
+        return 0;
+      });
+    }
+
+    this.setState({ ...this.state });
   }
 
   sortPopularity() {
-    this.state.persons.sort((a, b) => {
-      
-      if(a.popularity < b.popularity)  {return 1}
+    this.counterPopularity++;
 
-      if(a.popularity > b.popularity) {return -1}
+    if (this.counterPopularity % 2 == 0) {
+      this.state.persons.sort((a, b) => {
+        if (a.popularity < b.popularity) {
+          return 1;
+        }
 
-      return 0
-  
-    });
+        if (a.popularity > b.popularity) {
+          return -1;
+        }
 
-    this.setState({ ...this.state});
+        return 0;
+      });
+    } else {
+      this.state.persons.sort((a, b) => {
+        if (a.popularity < b.popularity) {
+          return -1;
+        }
+
+        if (a.popularity > b.popularity) {
+          return 1;
+        }
+
+        return 0;
+      });
+    }
+
+    this.setState({ ...this.state });
   }
 
   deleteElement(personName) {
     this.setState({
-      persons: this.state.persons.filter( person => person.name !== personName)
-    })
+      persons: this.state.persons.filter(person => person.name !== personName)
+    });
   }
-
 
   render() {
     return (
       <div className="container-table">
+        <Ih />
         <table className="table">
           <tbody>
             <tr>
-              <th colSpan="4">IronContacts</th>
+              <th className="title" colSpan="4">
+                IronContacts
+              </th>
             </tr>
             <tr>
               <td colSpan="4" className="buttons">
@@ -75,10 +116,12 @@ class App extends Component {
                   Add Random Contact
                 </button>
                 <button onClick={() => this.sortName()}>Sort by Name</button>
-                <button onClick={() => this.sortPopularity()}>Sort by Popularity</button>
+                <button onClick={() => this.sortPopularity()}>
+                  Sort by Popularity
+                </button>
               </td>
             </tr>
-            <tr>
+            <tr className="category">
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
@@ -90,9 +133,15 @@ class App extends Component {
                   photo={person.pictureUrl}
                   name={person.name}
                   popularity={person.popularity}
-                  button = {<button className="delBtn" onClick={() => this.deleteElement(person.name)}>Delete</button>}
+                  button={
+                    <button
+                      className="delBtn"
+                      onClick={() => this.deleteElement(person.name)}
+                    >
+                      Delete
+                    </button>
+                  }
                   key={idx}
-                  
                 />
               );
             })}

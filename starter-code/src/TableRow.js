@@ -4,7 +4,7 @@ import contacts from "./contacts.json";
 export default class TableRow extends Component {
   render() {
     return (
-      <tr>
+      <tr className="celeb">
         <td className="photo">
           <img src={this.props.photo} />
         </td>
