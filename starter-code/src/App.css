@@ -1,3 +1,7 @@
+body{
+  background: lightblue;
+}
+
 .App {
   text-align: center;
 }
@@ -26,3 +30,41 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.actor{
+  width: 100px;
+
+}
+.tabla{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  
+}
+th{
+  font-size: 25px;
+
+}
+.btnDelete{
+  padding: 15px;
+  border-radius: 20%;
+  background: red;
+  color: white;
+  font-size: 20px;
+}
+.btn{
+  padding: 10px;
+  border-radius: 20%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: blue;
+  color: white;
+  font-size: 15px; 
+}
+
+h1{
+  font-size: 70px;
+ 
+  
+}
+
