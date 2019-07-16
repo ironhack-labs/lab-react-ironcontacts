@@ -26,3 +26,55 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.table {
+  display:table;
+  margin: 0 auto;
+ 
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  
+}
+
+button {
+    padding: 18px 30px;
+   border-radius: 5px;  
+   margin: 10px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+
+}
+
+table {
+  margin: 50px;
+  
+}
+
+th {
+  padding-bottom: 20px;
+}
+
+table img {
+  width: 160px;
+  height: 250px;
+  padding-right: 20px;
+}
+
+table td {
+  text-align: center;
+}
+
+
+.action-th{
+  padding-left: 18px;
+}
