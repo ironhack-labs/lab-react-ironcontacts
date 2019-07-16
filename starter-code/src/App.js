@@ -1,21 +1,84 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json'
+import Actor from './components/Actor/Actor';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    constructor() {
+        super()
+        this.state = {
+            contacts: [...contacts].splice(0, 5)
+
+        }
+    }
+
+
+
+    addRandomContact() {
+
+        const otherContacts = [...contacts].filter((contact) => !this.state.contacts.includes(contact));
+        this.state.contacts.push(otherContacts[Math.floor(Math.random() * otherContacts.length)])
+        this.setState({
+            ...this.state.contacts
+        })
+
+    }
+
+    sortByName() {
+
+        this.setState({
+            ...this.state.contacts.sort((a, b) => {
+                return a.name.localeCompare(b.name);
+            })
+        })
+    }
+
+    sortByPopularity() {
+
+        this.setState({
+            ...this.state.contacts.sort((a, b) => (a.popularity > b.popularity) ? 1 : -1)
+
+        })
+
+    }
+
+    render() {
+        return (
+            <div className="App" >
+                <h1>IronContacts</h1>
+                <button onClick={() => this.addRandomContact()}>Add random Contact</button>
+                <button onClick={() => this.sortByName()}>Sort by name</button>
+                <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
+                <table className="tabla" >
+                    <thead>
+
+                        <tr>
+                            <th> Picture </th>
+                            <th> Name </th>
+                            <th> Popularity </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.contacts.map((actor, idx) =>
+
+                                <Actor url={actor.pictureUrl}
+                                    name={actor.name}
+                                    sergio={actor.popularity}
+                                    key={idx}
+                                />
+
+                            )
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        );
+    }
 }
 
 export default App;
