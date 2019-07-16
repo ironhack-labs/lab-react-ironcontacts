@@ -1,0 +1,26 @@
+.contactDisplayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+table {
+  padding: 10px;
+}
+
+/* tr {
+  display: flex;
+  align-items: center;
+} */
+
+th,
+tr {
+  font-size: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
+  padding: 20px;
+  text-align: center;
+}
