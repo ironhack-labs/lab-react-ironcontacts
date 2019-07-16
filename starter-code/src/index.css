@@ -3,3 +3,36 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+th{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.pict{
+  width: 100px;
+}
+
+.table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.dlt-btn{
+  padding: 10px;
+  font-size: 15px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn{
+  padding: 15px;
+  font-size: 15px;
+  color:white;
+  background-color: black;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
