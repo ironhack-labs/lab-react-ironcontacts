@@ -12,6 +12,7 @@ export default class ContactsDisplayer extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +22,8 @@ export default class ContactsDisplayer extends React.Component {
                 pictureUrl={contact.pictureUrl}
                 popularity={contact.popularity}
                 key={idx}
+                deleteContact={() => this.props.deletebtn()}
+                idx={idx}
               />
             ))}
           </tbody>

@@ -62,6 +62,16 @@ class App extends Component {
     });
   }
 
+  deleteContact = contactIndex => {
+    let allContacts = [...this.state.rndContacts];
+    allContacts.splice(contactIndex, 1);
+
+    this.setState({
+      ...this.state,
+      rndContacts: allContacts
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -87,7 +97,10 @@ class App extends Component {
           </button>
         </section>
 
-        <ContactsDisplayer contactsSelected={this.state.rndContacts} />
+        <ContactsDisplayer
+          contactsSelected={this.state.rndContacts}
+          deletebtn={this.deleteContact}
+        />
       </div>
     );
   }

@@ -1,3 +1,10 @@
-tr th {
-  font-size: 18px;
+table {
+  table-layout: fixed;
+}
+td {
+  width: 100px;
+}
+
+thead {
+  font-size: 24px;
 }

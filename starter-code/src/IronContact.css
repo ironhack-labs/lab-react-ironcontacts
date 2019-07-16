@@ -3,7 +3,9 @@
   flex-direction: row;
   align-items: center;
 }
-
+table {
+  font-size: 18px;
+}
 img {
   width: 100px;
 }

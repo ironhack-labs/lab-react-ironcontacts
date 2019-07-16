@@ -10,13 +10,16 @@ export default class IronContact extends React.Component {
         </td>
         <td>{this.props.name}</td>
         <td>{this.props.popularity}</td>
+        <td>
+          <button
+            onClick={() => {
+              this.props.deleteContact(this.props.idx);
+            }}
+          >
+            DELETE
+          </button>
+        </td>
       </tr>
-
-      // <section className="contact-wrapper">
-      //   <img src={this.props.pictureUrl} alt={this.props.name} />
-      //   <h2>{this.props.name}</h2>
-      //   <span className="popularity">{this.props.popularity}</span>
-      // </section>
     );
   }
 }
