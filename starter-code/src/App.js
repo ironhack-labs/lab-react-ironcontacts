@@ -5,15 +5,32 @@ import contacts from "./contacts.json";
 import ContactsDisplayer from "./ContactsDisplayer";
 
 class App extends Component {
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
+
+    this.state = { rndContacts: this.getRandomContacts(5) };
+  }
   getRandomContacts(qty) {
     // Shuffle contacts
 
     const contactsShuffled = contacts.sort(() => 0.5 - Math.random());
     // return sub-array of first n elements after shuffled
     return contactsShuffled.slice(0, qty);
+  }
+
+  addRandomContact(qty) {
+    let newContact = this.getRandomContacts(qty);
+    let clonedArray = [...this.state.rndContacts];
+    clonedArray.push({
+      name: newContact[0].name,
+      pictureUrl: newContact[0].pictureUrl,
+      popularity: newContact[0].popularity
+    });
+
+    this.setState({
+      ...this.state,
+      rndContacts: clonedArray
+    });
   }
 
   render() {
@@ -27,11 +44,11 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p> */}
 
-        <button onClick={() => this.getRandomContacts(5)}>
-          SELECT RANDOM CONTACTS
+        <button className="btn" onClick={() => this.addRandomContact(1)}>
+          ADD RANDOM CONTACT
         </button>
 
-        <ContactsDisplayer contactsSelected={this.getRandomContacts(5)} />
+        <ContactsDisplayer contactsSelected={this.state.rndContacts} />
       </div>
     );
   }
