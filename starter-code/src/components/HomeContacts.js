@@ -25,7 +25,7 @@ function HomeContacts(props){
       title: 'Action',
       key: 'id',
       render: id => (
-        <Button onClick = {props.deleteContact(id)}>Delete</Button>
+        <Button onClick={()=>props.deleteContact(id)}>Delete</Button>
       ),
     }
   ]
