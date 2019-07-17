@@ -112,13 +112,13 @@ class App extends Component {
       <section>
         <Navbar />
         <div className="potorrocolumn">
-          <h1>Ironwhatever</h1>
+          <h1>Rent a Celebrity by Amazon</h1>
           <table>
             <tbody>
             <tr>
                 <td colSpan="4">
                   <button className="btn" onClick={() => this.addRandomCeleb()}>
-                    Add Random Shithead
+                    Add Random Celebrity
                   </button>
                   <button className="btn" onClick={() => this.sortByName()}>
                     Sort by name
