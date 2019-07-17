@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.deleteButton{
+    background-color: red;
+}
+
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
@@ -29,4 +33,9 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+button{
+    background-color: aqua;
+    font-size: 30px;
 }

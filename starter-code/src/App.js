@@ -37,10 +37,19 @@ class App extends Component {
     sortByPopularity() {
 
         this.setState({
-            ...this.state.contacts.sort((a, b) => (a.popularity > b.popularity) ? 1 : -1)
+            ...this.state.contacts.sort((a, b) => (a.popularity > b.popularity) ? -1 : 1)
 
         })
 
+    }
+
+    deleteContact = (idx) => {
+    
+        this.setState({
+            ...this.state.contacts.splice(idx, 1),  
+         
+
+        })
     }
 
     render() {
@@ -68,6 +77,7 @@ class App extends Component {
                                     name={actor.name}
                                     sergio={actor.popularity}
                                     key={idx}
+                                    delete={this.deleteContact}
                                 />
 
                             )
