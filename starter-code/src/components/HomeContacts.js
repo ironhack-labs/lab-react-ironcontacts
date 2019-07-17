@@ -20,14 +20,14 @@ function HomeContacts(props){
       dataIndex: 'popularity',
       key: 'popularity',
       render: popularity => <b>{popularity.toFixed(2)}</b>
+    },
+    {
+      title: 'Action',
+      key: 'id',
+      render: id => (
+        <Button onClick = {props.deleteContact(id)}>Delete</Button>
+      ),
     }
-    // {
-    //   title: 'Action',
-    //   key: 'action',
-    //   render: action => (
-    //     <Button onClick = {props.removeContact(action)}></Button>
-    //   ),
-    // }
   ]
   return <Table dataSource={props.contacts} columns={columns} />
 }

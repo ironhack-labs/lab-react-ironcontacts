@@ -37,10 +37,10 @@ class App extends Component {
 	}
 
   // //Checar
-	// removeContact = id => {
-	// 	const contacts = [...this.state.initialContacts];
-	// 	this.setState({ initialContacts: contacts.filter(contact => contact.id !== id) });
-	// };
+	deleteContact = id => {
+		const contacts = [...this.state.initialContacts];
+		this.setState({ initialContacts: contacts.filter(contact => contact.id !== id) });
+	};
 
   render() {
     return (
@@ -57,7 +57,7 @@ class App extends Component {
 						Sort by popularity
 					</Button>
         </div>
-        <HomeContacts contacts={this.state.initialContacts} removeContact ={this.removeContact}/>
+        <HomeContacts contacts={this.state.initialContacts} deleteContact ={this.deleteContact}/>
       </div>
     );
   }
