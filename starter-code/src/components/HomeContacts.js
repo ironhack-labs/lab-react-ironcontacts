@@ -23,6 +23,7 @@ function HomeContacts(props){
     },
     {
       title: 'Action',
+      dataIndex: 'id',
       key: 'id',
       render: id => (
         <Button onClick={()=>props.deleteContact(id)}>Delete</Button>
