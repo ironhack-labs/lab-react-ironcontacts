@@ -36,10 +36,11 @@ class App extends Component {
       )})
 	}
 
-	removeContact = id => {
-		const contacts = [...this.state.initialContacts];
-		this.setState({ initialContacts: contacts.filter(c => c.id !== id) });
-	};
+  // //Checar
+	// removeContact = id => {
+	// 	const contacts = [...this.state.initialContacts];
+	// 	this.setState({ initialContacts: contacts.filter(contact => contact.id !== id) });
+	// };
 
   render() {
     return (
