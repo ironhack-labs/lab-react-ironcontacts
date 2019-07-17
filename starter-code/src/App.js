@@ -28,11 +28,15 @@ class App extends Component {
     });
   };
 
-  compare = (a, b) => {
-    if (a > b) return 1;
-    if (a < b) return -1;
+  compare(a, b) {
+    if (a < b) {
+      return -1;
+    }
+    if (a > b) {
+      return 1;
+    }
     return 0;
-  };
+  }
   sortByPop = () => {
     console.log("ok");
   };
