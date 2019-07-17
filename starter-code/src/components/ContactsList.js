@@ -1,18 +1,26 @@
 import React, { Component } from "react";
 import Contact from "./Contact";
+import AddContact from "./AddContact";
 
 class ContactsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: props.contacts.splice(0, 5),
-      sort: "none"
+      contacts: props.contacts.splice(0, 5)
     };
   }
 
   deleteContactHandler = contactIndex => {
-    const contactsCopy = this.state.contacts;
+    const contactsCopy = [...this.state.contacts];
     contactsCopy.splice(contactIndex, 1);
+    this.setState({
+      contacts: contactsCopy
+    });
+  };
+
+  addContactHandler = contact => {
+    const contactsCopy = [...this.state.contacts];
+    contactsCopy.unshift(contact);
     this.setState({
       contacts: contactsCopy
     });
@@ -27,24 +35,23 @@ class ContactsList extends Component {
   };
 
   sortByName = () => {
-    let sortedByName = this.state.contacts.sort((a, b) => {
+    let sortedByName = [...this.state.contacts].sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
-    console.log(sortedByName);
-    this.setState({ contacts: sortedByName, sort: "name" });
+    this.setState({ contacts: sortedByName });
   };
 
   sortByPopularity = () => {
-    let sortedByPop = this.state.contacts.sort((a, b) => {
+    let sortedByPop = [...this.state.contacts].sort((a, b) => {
       return b.popularity - a.popularity;
     });
-    console.log(sortedByPop);
-    this.setState({ contacts: sortedByPop, sort: "popularity" });
+    this.setState({ contacts: sortedByPop });
   };
 
   render() {
     return (
       <div>
+        <AddContact addTheContact={this.addContactHandler} />
         <button onClick={this.addContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort by Name</button>
         <button onClick={this.sortByPopularity}>Sort by Popularity</button>
