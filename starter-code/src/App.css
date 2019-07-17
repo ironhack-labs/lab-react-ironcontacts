@@ -26,3 +26,52 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.container1 {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 70px;
+  height: 100px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+th {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+
+.text1 {
+  font-size: 28px;
+  width: 100px;
+  padding-right: 20px;
+}
+
+button {
+  padding: 7px 14px;
+  background-color: white;
+  font-size: 18px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+table {
+  margin-top: 40px;
+}
+
+button:hover {
+  box-shadow: 6px 6px blue;
+  background-color: aqua;
+}
+
+.dlt-btn:hover {
+  box-shadow: 6px 6px red;
+  background-color: lightcoral;
+}
