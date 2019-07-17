@@ -1,5 +1,10 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -20,6 +25,25 @@
 
 .App-intro {
   font-size: large;
+}
+
+
+.contacts-container {
+  padding: 20px 0;
+}
+.contacts img {
+  width: 50px;
+}
+
+.contacts button {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.buttons button {
+  margin: 0 10px;
 }
 
 @keyframes App-logo-spin {
