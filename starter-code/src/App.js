@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   addRandom() {
-
+    console.log("fuckmaer")
     let Contactscopy = [...this.state.contacts]
     let Listadocopy = [...this.state.Listado]
 
@@ -27,9 +27,9 @@ class App extends Component {
     Contactscopy.push(Listadocopy[random])
 
     this.setState({
-      // ...this.state.Listadocopy
+      ...this.state.Listadocopy
 
-      Listado: Listadocopy
+      // Listado: Listadocopy
       // contacts: Contactscopy
     })
   }
@@ -48,6 +48,7 @@ class App extends Component {
     });
 
     this.setState({
+      ...this.state,
       Listado: orderedList
     })
   }
@@ -82,9 +83,9 @@ class App extends Component {
   render() {
         return(
       <div className = "Listado" >
-            <button onClick={() => this.addRandom}>Add random contact</button>
-            <button onClick={() => this.sortContactsByName}>Sort by Name</button>
-            <button onClick={() => this.sortContactsByPopularity}>Sort by Popularity</button>
+            <button onClick={() => this.addRandom()}>Add random contact</button>
+            <button onClick={() => this.sortByName()}>Sort by Name</button>
+            <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
 
             <Contacts Listado={this.state.Listado} />
       </div>
