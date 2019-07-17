@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
 
-function Contact({ obj, index, deleteCn }) {
+function Contact({ obj, deleteCn }) {
   return (
     <tr>
       <td>
@@ -16,7 +16,7 @@ function Contact({ obj, index, deleteCn }) {
       <td>
         <Button
           onClick={() => {
-            deleteCn({ index })
+            deleteCn()
           }}
         >
           Delete
@@ -39,9 +39,8 @@ function HomeContacts(props) {
       <tbody>
         {props.contacts.map((contact, i) => (
           <Contact
-            index={i}
             deleteCn={() => {
-              props.deleteFn()
+              props.deleteFn(i)
             }}
             key={i}
             obj={contact}
