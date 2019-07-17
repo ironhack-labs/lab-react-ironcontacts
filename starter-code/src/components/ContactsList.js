@@ -21,7 +21,8 @@ class ContactsList extends Component {
   addContact = () => {
     let rand = Math.floor(Math.random() * this.props.contacts.length);
     let contact = this.props.contacts[rand];
-    const contactsNew = this.state.contacts;
+    const contactsNew = [...this.state.contacts]; // or .slice()
+   
     contactsNew.unshift(contact);
     this.setState({ contacts: contactsNew });
   };
