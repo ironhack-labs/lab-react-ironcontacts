@@ -11,7 +11,7 @@ function Contact({ obj, deleteCn }) {
         <h4>{obj.name}</h4>
       </td>
       <td>
-        <h4>{obj.popularity}</h4>
+        <h4>{obj.popularity.toFixed(2)}</h4>
       </td>
       <td>
         <Button
