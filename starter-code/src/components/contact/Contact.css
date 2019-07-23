@@ -1,6 +1,7 @@
 .contact {
   display: flex;
-  
+  justify-content: space-between;
+  margin: 15px;
 }
 .contact > img {
   width: 100px;

@@ -28,7 +28,7 @@
 }
 .d-flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 80%;
 }
 .d-flex > p {

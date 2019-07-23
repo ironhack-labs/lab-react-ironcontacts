@@ -43,8 +43,6 @@ class App extends Component {
     clone.unshift(random)
     restClone.splice(randomNumber, 1)
     this.setState({names: clone, allTheRest: restClone})
-    
-
   }
 
   sortByName = () => {
@@ -96,14 +94,14 @@ class App extends Component {
 
       <div className="App">
         <h2>IronContacts</h2>
+        <Button value="Add random contact" role={()=>{this.addRandomContact()}}/>
+        <Button value="Sort By name" role={()=>{this.sortByName()}}/>
+        <Button value="Sort By popularity" role={()=>{this.sortByPopularity()}}/>
         <div className="d-flex">
           <p>Picture</p>
           <p>Name</p>
           <p>Popularity</p>
         </div>
-        <Button value="Add random contact" role={()=>{this.addRandomContact()}}/>
-        <Button value="Sort By name" role={()=>{this.sortByName()}}/>
-        <Button value="Sort By popularity" role={()=>{this.sortByPopularity()}}/>
         {this.showContacts()}
         
       </div>
