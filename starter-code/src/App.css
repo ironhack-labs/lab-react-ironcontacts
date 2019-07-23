@@ -21,8 +21,43 @@
 .App-intro {
   font-size: large;
 }
+.titles {
+  display: flex;
+  justify-content: center;
+}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.titles h3 {
+  margin: 20px 50px;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.contact-card img {
+  width: 10%;
+  object-fit: contain;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  align-items: center;
+  /* margin: 0 400px; */
+  height: 100px;
+}
+
+.contact button {
+  padding: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
 }
