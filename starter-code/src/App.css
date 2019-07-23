@@ -26,3 +26,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img.movie-img {
+  width: 100px;
+}
+
+h1 {
+  text-align: center;
+}
