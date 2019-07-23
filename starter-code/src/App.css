@@ -26,3 +26,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.actor{
+  width: 90%;
+  height: 200px;
+  margin: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.actor img{
+  height: 200px;
+}
+
+.actor h2{
+  margin: 10px;
+}
+
+.actor button{
+  width: 100px;
+  height: 25px;
+  margin: 10px;
+}
