@@ -53,7 +53,7 @@ class App extends Component {
     let randomNumber = Math.floor(Math.random() * copyInactiveArray.length);
     let randomContact = copyInactiveArray.splice(randomNumber, 1);
     console.log(randomContact);
-    copyActiveArray.push(randomContact[0]);
+    copyActiveArray.unshift(randomContact[0]);
 
     this.setState({ activeContacts: copyActiveArray, inactiveContacts: copyInactiveArray });
   }
