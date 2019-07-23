@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .App-logo {
@@ -25,4 +28,31 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+#buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.link-btn {
+  border: none;
+  background-color: goldenrod;
+  box-shadow: 1px 1px 7px #CCC;
+  border-radius: 5px;
+
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.link-btn:active {
+  box-shadow: none;
+  cursor: pointer;
 }
