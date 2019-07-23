@@ -4,6 +4,7 @@
   justify-content: center;
   flex-flow: column;
   align-items: center;
+  align-content: center;
   width: 100%;
 }
 
@@ -37,6 +38,7 @@
   display: flex;
   justify-content: space-evenly;
   margin: 15px;
+  width: 80%;
 }
 
 .top-buttons button{
@@ -48,9 +50,20 @@
 .scroll{
   text-align: center;
   display: flex;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-  overflow: scroll;
+  
   height: 80vh;
   width: 100vw;
+  overflow-y: scroll;
+overflow-x: hidden;
+}
+
+
+.btn{
+  border-radius: 22px;
+  background-color: grey;
+  border: none;
+  font-size: 1.7em;
 }

@@ -113,9 +113,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="top-buttons">
-          <button onClick={() => { this.getRandom() }}>Add Random Contact</button>
-          <button onClick={() => { this.sortByName() }}>Sort By Name</button>
-          <button onClick={() => { this.sortByPopularity() }}>Sort By Popularity</button>
+          <button className="btn isSuccess" onClick={() => { this.getRandom() }}>Add Random Contact</button>
+          <button className="btn isSuccess" onClick={() => { this.sortByName() }}>Sort By Name</button>
+          <button className="btn isSuccess" onClick={() => { this.sortByPopularity() }}>Sort By Popularity</button>
         </div>
         <div className="scroll">
            {this.showContact()}
