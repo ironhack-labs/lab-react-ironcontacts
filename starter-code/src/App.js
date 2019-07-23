@@ -117,7 +117,9 @@ class App extends Component {
           <button onClick={() => { this.sortByName() }}>Sort By Name</button>
           <button onClick={() => { this.sortByPopularity() }}>Sort By Popularity</button>
         </div>
-        {this.showContact()}
+        <div className="scroll">
+           {this.showContact()}
+        </div>
       </div>
     );
   }

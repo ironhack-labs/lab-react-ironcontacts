@@ -44,3 +44,13 @@
   padding: 10px;
   border-radius: 8px;
 }
+
+.scroll{
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: scroll;
+  height: 80vh;
+  width: 100vw;
+}
