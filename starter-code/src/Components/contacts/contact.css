@@ -1,0 +1,13 @@
+.theImage{
+    width:75px;
+    height:75px;
+}
+
+
+.card{
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
