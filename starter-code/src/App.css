@@ -26,3 +26,36 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table {
+  margin: 20px auto;
+  width: 50%;
+  border: 2px solid grey;
+  font-size: 1.2em;
+  border-collapse: collapse;
+}
+td {
+  width: 25%;
+  border-bottom: 2px solid grey;
+}
+th {
+  background-color: darkgrey;
+  padding: 20px;
+  font-size: 2em;
+}
+img {
+  width: 100%;
+}
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 20px 40px;
+  margin: 20px;
+  background-color:blueviolet;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.delete-btn {
+  background-color: rgb(255,0,0);
+}
