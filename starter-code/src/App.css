@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.d-flex {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+.d-flex > p {
+  padding: 0 15px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
