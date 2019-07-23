@@ -1,5 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  width: 40%;
+  margin: 60px auto;
+  box-shadow: 0px 0px 20px 0px #e1e1e1;
+  padding: 50px;
+  border-radius: 10px;
 }
 
 .App-logo {
@@ -23,6 +34,54 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+table {
+  margin: 0 auto;
+  border-spacing: 0;
+  margin-top: 50px;
+}
+
+td {
+  border-bottom: 1px solid #bababa;
+  padding: 15px;
+}
+
+button {
+  background: white;
+  border: 1px solid #bababa;
+  padding: 10px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #e1e1e1;
+  border: 1px solid white;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.delete-btn {
+  background: #D9524F;
+  border: none;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #C82433;
 }
