@@ -37,7 +37,7 @@ class App extends Component {
   addRandomContact = () => {
     let clone = [...this.state.names];
     let restClone = [...this.state.allTheRest]
-    let randomNumber = Math.floor(Math.random()*contacts.length);
+    let randomNumber = Math.floor(Math.random()*this.state.allTheRest.length);
     let random = this.state.allTheRest[randomNumber]
     
     clone.unshift(random)

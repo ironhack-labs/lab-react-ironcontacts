@@ -15,13 +15,7 @@
   height: 3px;
   background: #f7f7f7;
 }
-.btn:nth-of-type(4):after {
-  left: 0;
-  bottom: auto;
-  top: -3px;
-  width: 100%;
-  top: calc(100% - 3px);
-}
+
 
 .btn:hover {
   cursor: pointer;
