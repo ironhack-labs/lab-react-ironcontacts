@@ -1,0 +1,14 @@
+.contact-card {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  /* font-weight: bolder; */
+}
+
+.contact-card div {
+  margin: 10px;
+}
+
+.contact-picture img {
+  width: 75px;
+}
