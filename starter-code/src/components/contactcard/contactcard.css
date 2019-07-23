@@ -1,0 +1,15 @@
+.contact-card {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.contact-card > div {
+  margin: 10px;
+}
+
+.contact-picture {
+  width: 75px;
+}
