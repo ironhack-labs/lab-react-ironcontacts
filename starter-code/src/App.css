@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin-left: 40%;
+
 }
 
 .App-logo {
@@ -22,7 +24,19 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.contacts{
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 3%;
+}
+
+.contacts h4{
+  padding: 0 2%;
+}
+
+.btn-del{
+  width: 70px;
+  height: 20px;
+  background-color: pink;
+
 }
