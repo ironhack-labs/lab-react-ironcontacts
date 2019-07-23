@@ -6,7 +6,12 @@
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
+.table-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px yellow solid;
+}
 .App-header {
   background-color: #222;
   height: 150px;
@@ -26,3 +31,41 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+body{
+background-color: lightblue;
+}
+.theButtons button{
+  background-color: darkblue;
+  color: yellow;
+  padding: 10px;
+  margin: 2% 5%;
+  border-radius: 10%;
+  size: 30px;
+}
+.card{
+  border: 2px yellow solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 10px 0;
+  margin: 10px 30px;
+  width: 20%;
+}
+.title{
+  color: yellow;
+}
+.card img{
+  align-self: center;
+}
+.card button{
+  background-color: red;
+  color: white;
+  margin: 0 10px;
+}
+.cards{
+  display: flex;
+  margin: 0 20px;
+  flex-wrap: wrap;
+}
+
