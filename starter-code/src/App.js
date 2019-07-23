@@ -32,7 +32,15 @@ class App extends Component {
   sortByName = () =>{
     let clone = [...this.state.contacts];
 
-// ...
+    clone.sort((a,b)=>{
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (b.name > a.name) {
+        return -1;
+      }
+      return 0;
+    })
     this.setState({contacts: clone})
   }
 
@@ -40,10 +48,24 @@ class App extends Component {
   sortByPop = () =>{
     let clone = [...this.state.contacts];
 
-// ...
+    clone.sort((a,b)=>{
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      if (b.popularity > a.popularity) {
+        return 1;
+      }
+      return 0;
+    })
     this.setState({contacts: clone})
   }
 
+
+  delete = (index) =>{
+    let clone = [...this.state.contacts];
+    clone.splice(index, 1)
+    this.setState({contacts: clone})
+  }
 
   showContacts = () => {
     return(
@@ -52,6 +74,7 @@ class App extends Component {
 
           <Card
             key = {i}
+            Delete = {()=>{this.delete(i)}}
             Name = {eachContact.name}
             Picture = {eachContact.pictureUrl}
             Popularity = {eachContact.popularity}
@@ -72,6 +95,7 @@ class App extends Component {
         </div>
         <div className="App">
           {this.showContacts()}
+          {/* {this.delete} */}
         </div>
       </div>
     );

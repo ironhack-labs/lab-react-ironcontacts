@@ -8,6 +8,7 @@ class Card extends Component {
         <p>{this.props.Name}</p>
         <img src={this.props.Picture} />
         <p>Popularity: {this.props.Popularity}</p>
+        <button onClick={this.props.Delete}>DELETE</button>
       </div>
     );
   }

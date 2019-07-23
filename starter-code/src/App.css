@@ -17,3 +17,15 @@
   width: 1110px;
   justify-content: space-around;
 }
+
+button {
+  background-color: black;
+  border: 3px solid black;
+  color: white;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}

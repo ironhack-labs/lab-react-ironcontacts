@@ -2,19 +2,24 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  color: rgb(70, 70, 70);
+  color: black;
 }
 
 .Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 300px;
-  border: 5px solid rgb(100, 100, 100);
+  border: 5px solid black;
   border-radius: 10px;
   margin: 20px;
   padding: 10px;
 }
 
 .Card img {
-  width: 80%;
+  /* width: 80%; */
+  height: 350px;
   border: 10px solid rgb(190, 190, 190);
   border-radius: 10px;
 }
