@@ -38,7 +38,7 @@ $ npm start
 
 Let's take a look at the starter code.
 
-Inside `src` folder, we can find `contacts.json`, a JSON file with the producer's contacts. Import this file and **create an array of the 5 first contacts** to use as your initial state.
+Inside `src/data` folder, we can find `contacts.json`, a JSON file with the producer's contacts. Import this file and **create an array of the 5 first contacts** to use as your initial state.
 
 Display that array of 5 contacts in a `<table>` and display the `picture`, `name`, and `popularity` of each contact.
 
