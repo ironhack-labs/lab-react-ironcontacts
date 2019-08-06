@@ -3,36 +3,38 @@ import './App.css';
 import contacts from './contacts.json'
 import ContactRow from './components/ContactRow.js';
 
-// Create full array of ContactRows
-
-var contactsFull = contacts.map((contact, index) => {
-  return(
-    <ContactRow
-      index = {contact.index}
-      pictureUrl = {contact.pictureUrl}
-      name = {contact.name}
-      popularity = {contact.popularity}
-      />
-  );
-});
-
-// Create App
-
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      contactsFull: contactsFull,
-      contactsDisplay: contactsFull
-    }
+      contactsBackup: contacts,
+      contactsAll: contacts,
+      contactsDisplay: contacts
+    };
+  };
+
+  removeContact = (index) => {        // Needs to be bound to App (using arrow fn to do this)
+    let contactsDisplayCopy = [...this.state.contactsDisplay];
+    let contactsAllCopy = [...this.state.contactsAll];
+
+    contactsDisplayCopy.splice(index, 1);
+    contactsAllCopy.splice(index, 1);
+
+    this.setState({contactsDisplay: contactsDisplayCopy})
+    this.setState({contactsAll: contactsAllCopy})
+  };
+
+  resetRemovals = () => {
+    this.setState({contactsAll: [...this.state.contactsBackup]});
+    this.setState({contactsDisplay: [...this.state.contactsBackup]});
   }
 
   searchContacts = (event) => {
     let searchTerm = event.target.value;
 
-    let contactsToLoadIn = this.state.contactsFull.filter((contact) => {
-      return contact.props.name.indexOf(searchTerm) >= 0;
+    let contactsToLoadIn = this.state.contactsAll.filter((contact) => {
+      return contact.name.indexOf(searchTerm) >= 0;
     });
   
     this.setState({contactsDisplay: contactsToLoadIn})   
@@ -41,8 +43,8 @@ class App extends Component {
   sortContactsByName = () => {
     let contactsDisplayCopy = [...this.state.contactsDisplay];
     contactsDisplayCopy = contactsDisplayCopy.sort( (a, b) => {
-      if(a.props.name < b.props.name) { return -1; }
-      if(a.props.name > b.props.name) { return 1; }
+      if(a.name < b.name) { return -1; }
+      if(a.name > b.name) { return 1; }
       return 0;
       });
     this.setState({contactsDisplay: contactsDisplayCopy})
@@ -52,10 +54,11 @@ class App extends Component {
     let contactsDisplayCopy = [...this.state.contactsDisplay];
 
     contactsDisplayCopy = contactsDisplayCopy.sort( (a, b) => {
-      return b.props.popularity - a.props.popularity;
+      return b.popularity - a.popularity;
     });
     this.setState({contactsDisplay: contactsDisplayCopy})
   };
+
   
   render() {
     return (
@@ -66,6 +69,7 @@ class App extends Component {
         <input onChange={this.searchContacts} placeholder='Search for contact' type='search'></input>
         <button onClick={this.sortContactsByName}>Sort by Name</button>
         <button onClick={this.sortContactsByPopularity}>Sort by Popularity</button>
+        <button onClick={this.resetRemovals}>Reset removals</button>
 
         <table>
           <thead>
@@ -76,7 +80,19 @@ class App extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.contactsDisplay}
+            {
+              this.state.contactsDisplay.map((contact, index) => {
+                return(
+                  <ContactRow
+                    index = {index.toString()}
+                    pictureUrl = {contact.pictureUrl}
+                    name = {contact.name}
+                    popularity = {contact.popularity}
+                    removeContact = {this.removeContact}
+                  />
+                );
+              })
+            }
           </tbody>
         </table>
 
@@ -86,6 +102,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
