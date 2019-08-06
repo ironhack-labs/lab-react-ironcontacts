@@ -3,7 +3,11 @@
 }
 
 .App h1 {
-  margin: 50px 0;
+  margin: 30px 0 20px 0;
+}
+
+.App input {
+  margin: 10px 0 30px 0;
 }
 
 .App table {
