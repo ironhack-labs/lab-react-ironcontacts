@@ -51,22 +51,19 @@ class App extends Component {
   };
 
   sortContactsByName = () => {
-    let contactsDisplayCopy = [...this.state.contactsDisplay];
-    contactsDisplayCopy = contactsDisplayCopy.sort( (a, b) => {
+    let contactsDisplaySorted = this.state.contactsDisplay.sort( (a, b) => {
       if(a.name < b.name) { return -1; }
       if(a.name > b.name) { return 1; }
       return 0;
       });
-    this.setState({contactsDisplay: contactsDisplayCopy})
+    this.setState({contactsDisplay: contactsDisplaySorted})
   };
 
   sortContactsByPopularity = () => {
-    let contactsDisplayCopy = [...this.state.contactsDisplay];
-
-    contactsDisplayCopy = contactsDisplayCopy.sort( (a, b) => {
+    let contactsDisplaySorted = this.state.contactsDisplay.sort( (a, b) => {
       return b.popularity - a.popularity;
     });
-    this.setState({contactsDisplay: contactsDisplayCopy})
+    this.setState({contactsDisplay: contactsDisplaySorted})
   };
 
   
@@ -97,9 +94,13 @@ class App extends Component {
                 return(
                   <ContactRow
                     index = {index.toString()}
-                    pictureUrl = {contact.pictureUrl}
-                    name = {contact.name}
-                    popularity = {contact.popularity}
+
+                    {...contact}
+                    // Equivalent of:
+                    //   pictureUrl = {contact.pictureUrl}
+                    //   name = {contact.name}
+                    //   popularity = {contact.popularity}
+
                     removeContact = {this.removeContact}
                   />
                 );
