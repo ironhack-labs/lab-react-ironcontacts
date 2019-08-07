@@ -3,6 +3,11 @@
   font-size: 20px;
 }
 
+.App button {
+  width: 150px;
+  height: 35px;
+}
+
 table {
   margin: auto;
 }

@@ -68,7 +68,7 @@ class App extends Component {
     const actorList = this.state.contactsFive.map((contacts, index) => {
         return (   
             <tr key={index}>
-              <td><img src={contacts.pictureUrl} width="100px" height="100px" alt={contacts.name} /></td>
+              <td><img src={contacts.pictureUrl} width="100px" height="150px" alt={contacts.name} /></td>
               <td>{contacts.name}</td>
               <td>{contacts.popularity}</td>
               <td><button onClick={() => this.deleteOne(index)}>Delete</button></td>
