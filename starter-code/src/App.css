@@ -22,7 +22,53 @@
   font-size: large;
 }
 
+.card{
+  width:100vw;
+  text-align: center;
+  border: 0;
+  margin: 30px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.col-12 {
+  display:flex
+}
+
+.photos {
+  width: 20px
+}
+
+.info{
+  width:50%
+}
+
+button {
+  margin-right: 20px;
+  /* border: 1px solid grey */
+}
+
+.btn {
+  border: 1px solid grey
+}
+
+h1, h2, h3 {
+  margin: 20px 0
+}
+
+h1 {
+  font-weight: bolder
+}
+
+h2 {
+  font-weight: bold
+}
+
+.columns {
+  background: rgba(0,0,0,0.05);
+  margin-top: 20px;
+  border: solid 1px rgba(0,0,0,0.1)
 }
