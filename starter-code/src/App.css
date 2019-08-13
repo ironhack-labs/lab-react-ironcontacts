@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.picture {
+  width: 20%;
+}
+h1 {
+  font-weight: bold;
+}
+thead {
+  font-size: 1.5em;
+  font-weight: bold;
+}
