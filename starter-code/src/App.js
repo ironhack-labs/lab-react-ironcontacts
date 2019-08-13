@@ -77,11 +77,11 @@ constructor () {
 
         <h1>IronContacts</h1>  
 
-        <button onClick={this.randomContacts}>Add Random Contact</button>
+        <button type="button" className="btn btn-primary" onClick={this.randomContacts}>Add Random Contact</button>
 
-        <button onClick={this.sortByName}>Sort by name</button>
+        <button type="button" className="btn btn-success" onClick={this.sortByName}>Sort by name</button>
 
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        <button type="button" className="btn btn-success" onClick={this.sortByPopularity}>Sort by popularity</button>
 
         <table>
             <thead>

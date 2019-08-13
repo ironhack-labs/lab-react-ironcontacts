@@ -22,18 +22,22 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+
 
 .picture {
   width: 20%;
 }
+
 h1 {
   font-weight: bold;
+  margin: 40px 0;
 }
+
 thead {
   font-size: 1.5em;
   font-weight: bold;
+}
+
+button {
+  margin: 0 30px 30px 0;
 }
