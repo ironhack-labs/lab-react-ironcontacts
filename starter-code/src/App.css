@@ -19,7 +19,63 @@
 }
 
 .App-intro {
-  font-size: large;
+  font-size: large
+}
+
+.container-fluid{
+  background-color: #E8EFA1;
+}
+.cabecera{
+  background-color: #5A4559;
+  color:#F6F6F6;
+  font-size: 24px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.table-back{
+  background-color: #BBDB6A ;
+ 
+}
+.thead-tab{
+  background-color:#7BB35A;
+  width: 100%;
+}
+.cabecera-th{
+  background-color: #458534;
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  font-size: 20px;
+  color:#fff;
+  width: 35%;
+}
+.images{
+  width: 40%;
+  margin: 5px;
+  border: 2px solid #316C31;
+  padding: 7px;
+}
+
+.btn-boton{
+  background-color: #316C31;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.texto1{
+  color:#fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.texto2{
+  color:#fff;
+  font-size: 20px;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
