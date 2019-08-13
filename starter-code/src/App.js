@@ -16,16 +16,41 @@ constructor () {
   }
 
   randomContacts = () => {
-    const contactsCopy = [...this.state.listOfContacts]
+    const stateCopy = [...this.state.listOfContacts]
   
     const newRandomContact = Math.floor(Math.random() * contacts.length)
   
     // console.log(contacts[newRandomContact])
     
-    contactsCopy.push(contacts[newRandomContact])
+    stateCopy.push(contacts[newRandomContact])
     
     this.setState ({
-      listOfContacts: contactsCopy
+      listOfContacts: stateCopy
+    })
+  }
+
+  sortByName = () => {
+    const stateCopy = [...this.state.listOfContacts]
+    // console.log(stateCopy)
+
+    const nameSorted = stateCopy.sort(function(a,b) {
+      return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0
+    })
+
+    this.setState ({
+      listOfContacts: nameSorted
+    })
+  }
+
+  sortByPopularity = () => {
+    const stateCopy = [...this.state.listOfContacts]
+
+    const popularSorted = stateCopy.sort(function(a,b) {
+      return (a.popularity > b.popularity) ? -1 : (a.popularity < b.popularity) ? 1 : 0
+    })
+
+    this.setState ({
+      listOfContacts: popularSorted
     })
   }
 
@@ -39,6 +64,10 @@ constructor () {
         <h1>IronContacts</h1>  
 
         <button onClick={this.randomContacts}>Add Random Contact</button>
+
+        <button onClick={this.sortByName}>Sort by name</button>
+
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>
 
         <table>
             <thead>
