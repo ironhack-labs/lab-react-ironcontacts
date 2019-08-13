@@ -29,6 +29,7 @@ constructor () {
     })
   }
 
+
   sortByName = () => {
     const stateCopy = [...this.state.listOfContacts]
     // console.log(stateCopy)
@@ -42,6 +43,7 @@ constructor () {
     })
   }
 
+
   sortByPopularity = () => {
     const stateCopy = [...this.state.listOfContacts]
 
@@ -53,6 +55,18 @@ constructor () {
       listOfContacts: popularSorted
     })
   }
+
+
+   deleteOneContact = idx => {
+      const stateCopy = [...this.state.listOfContacts]
+
+      stateCopy.splice(idx, 1)
+
+      this.setState ({
+        listOfContacts: stateCopy
+      })
+   } 
+
 
 
   render() {
@@ -75,6 +89,7 @@ constructor () {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>  
 
@@ -83,7 +98,7 @@ constructor () {
         {
         this.state.listOfContacts.map((elm, idx) => {
             return (
-                <Table key={idx} picture= {elm.pictureUrl} name={elm.name} popularity={elm.popularity}/>
+                <Table key={idx} picture= {elm.pictureUrl} name={elm.name} popularity={elm.popularity} deleteContact={() => this.deleteOneContact(idx)}/>
 
             )
           })
