@@ -8,41 +8,59 @@ class App extends Component {
 
 
 constructor () {
-  super()
-  this.state = {
-    listOfContacts : contacts.splice(0,5)
-    
+    super()
+    this.state = {
+      listOfContacts : contacts.splice(0,5)
+      
+    }
   }
-}
+
+  randomContacts = () => {
+    const contactsCopy = [...this.state.listOfContacts]
+  
+    const newRandomContact = Math.floor(Math.random() * contacts.length)
+  
+    // console.log(contacts[newRandomContact])
+    
+    contactsCopy.push(contacts[newRandomContact])
+    
+    this.setState ({
+      listOfContacts: contactsCopy
+    })
+  }
+
 
   render() {
-    console.log(this.state)
-    const eachContact = [...this.state.listOfContacts]
+    // console.log(this.state)
 
     return (
       <div className="container"> 
+
         <h1>IronContacts</h1>  
-          <table>
-              <thead>
-                <tr>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Popularity</th>
-                </tr>
-              </thead>  
 
-              <tbody>
+        <button onClick={this.randomContacts}>Add Random Contact</button>
 
-          {
-          eachContact.map((elm, idx) => {
-              return (
-                 <Table key={idx} picture= {elm.pictureUrl} name={elm.name} popularity={elm.popularity}/>
+        <table>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+              </tr>
+            </thead>  
 
-              )
-            })
-          }
-              </tbody>
-          </table>
+            <tbody>
+
+        {
+        this.state.listOfContacts.map((elm, idx) => {
+            return (
+                <Table key={idx} picture= {elm.pictureUrl} name={elm.name} popularity={elm.popularity}/>
+
+            )
+          })
+        }
+            </tbody>
+        </table>
       </div>
     );
   }
