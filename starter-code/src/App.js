@@ -63,13 +63,13 @@ class App extends Component {
           <h1 className="App-title">IronContacts</h1>
         </header>
         <div >
-        <button onClick={this.addRandomContact}>
+        <button className="btn btn-dark" onClick={this.addRandomContact}>
                     Add Random Contact
         </button>
-        <button onClick={this.sortByName}>
+        <button className="btn btn-dark" onClick={this.sortByName}>
                     Sort by Name
         </button>
-        <button onClick={this.sortByPopularity}>
+        <button className="btn btn-dark" onClick={this.sortByPopularity}>
                     Sort by Popularity
          </button>
         <table className="table">

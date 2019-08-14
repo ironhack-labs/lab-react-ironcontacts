@@ -8,7 +8,7 @@ const Card = ({ name, pictureUrl, popularity, deleteContact }) => {
        <td> <img src={pictureUrl} alt={name}></img> </td> 
        <td> {name} </td>
        <td> {popularity} </td> 
-       <td> <button onClick={deleteContact}>Delete</button> </td>
+       <td> <button className="btn btn-danger" onClick={deleteContact}>Delete</button> </td>
     </tr>
   )
 }
