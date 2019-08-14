@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import contacts from './contacts.json'
+import ContactsList from './components/contacts-list'
+import Headers from './components/headers'
+
+
 
 class App extends Component {
+
+  constructor(){
+    super()
+    this.state =  {
+      contacts: []
+    } 
+}
+
+
+
+
+clickHandler = () => {
+ //   this.document.alert("I am being clicked!!!")
+}
+  
   render() {
     return (
+
+      
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section>
+      
+      <button onClick={this.clickHandler}>Add Random Contact</button>
+      <Headers
+        title="IronContacts"
+        subtitlea ="Picture" 
+        subtitleb = "Name"
+        subtitlec = "Popularity"/>
+      </section>
+     
+        <ContactsList />   
       </div>
     );
   }
