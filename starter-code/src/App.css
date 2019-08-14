@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.btn-add {
+  padding: 10px;
+  font-size: .9em;
+  border-radius: 10px;
+}
+.table-contact {
+  text-align: center;
+}
+.element-table {
+  margin-right: 100px;
+}
+
+.row-table {
+display: flex;
+justify-content: center;
+margin-left: 250px;
+}
