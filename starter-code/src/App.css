@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.App img{
+  height: 100px;
+  width: 100px;
+}
+.table{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}	
