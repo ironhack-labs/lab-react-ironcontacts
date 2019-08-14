@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+main{
+  margin-top: 30px;
 }
 
 .App-logo {
@@ -13,7 +13,19 @@
   padding: 20px;
   color: white;
 }
-
+table {
+  margin-left: 30px;
+  margin-top:10px;
+  padding-top: 30px;
+  text-align: center;
+}
+img{
+  width: 50px;
+}
+button{
+  margin-left: 30px;
+  width: 30px;
+}
 .App-title {
   font-size: 1.5em;
 }
