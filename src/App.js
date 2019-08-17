@@ -11,6 +11,7 @@ const listaInicial = [];
 let i = 0;
 DataContacts.forEach(c => {
 	c.isAdd = false;
+	c.id=i+1;
 	if (i < 5) {
 		c.isAdd = true;
 		listaInicial.push(c);
@@ -48,8 +49,47 @@ class App extends React.Component {
 		},
 		sortByName: () => {
 
+			this.setState({
+				listaContactos: this.state.listaContactos.sort((a, b) => {
+					if (a.name === b.name) {
+						return 0;
+					}
+
+					if (a.name > b.name) {
+						return 1;
+					}
+
+					return -1;
+				})
+			})
 		},
 		sortByPopularuty: () => {
+
+			this.setState({
+				listaContactos: this.state.listaContactos.sort((a, b) => {
+					if (a.popularity === b.popularity) {
+						return 0;
+					}
+
+					if (a.popularity > b.popularity) {
+						return 1;
+					}
+
+					return -1;
+				})
+			})
+
+		},
+		removeItem: (id) => {
+
+			let newList= this.state.listaContactos.filter( c=>{
+				return c.id !== id;
+			});
+
+			this.setState({
+				listaContactos: newList
+			});
+
 
 		}
 
@@ -65,6 +105,7 @@ class App extends React.Component {
 					/>
 					<ListaContacts
 						lista={this.state.listaContactos}
+						onRemoveItem={this.proContactos.removeItem}
 
 
 					/>

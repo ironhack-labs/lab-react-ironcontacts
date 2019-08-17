@@ -9,14 +9,20 @@ import React from "react";
 
 class ListaContacts extends React.Component {
 
-
 	render() {
 
+		console.log(this.props);
+
 		const listaItems = this.props.lista.map((c, index) => {
-			return <tr key={c.name}>
+			return <tr key={c.id}>
 				<td><img alt={c.name} src={c.pictureUrl} className="imgContact" /></td>
 				<td>{c.name}</td>
 				<td><span className="badge badge-primary">{c.popularity}</span></td>
+				<td>
+					<button className="btn btn-danger"
+									onClick={event=>this.props.onRemoveItem(c.id)}
+
+					><i className="fa fa-trash"></i> Eliminar</button></td>
 			</tr>
 		});
 
@@ -27,6 +33,7 @@ class ListaContacts extends React.Component {
 					<th>Picture</th>
 					<th>Name</th>
 					<th>Popularity</th>
+					<th></th>
 				</tr>
 				</thead>
 				<tbody>
