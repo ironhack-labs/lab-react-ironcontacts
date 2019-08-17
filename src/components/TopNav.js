@@ -8,6 +8,10 @@ import * as React from "react";
 
 class TopNav extends React.Component {
 
+	constructor(p){
+		super(p);
+
+	}
 	render() {
 		return <div>
 			<h1>IronContacts</h1>

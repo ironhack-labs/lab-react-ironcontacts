@@ -1,4 +1,4 @@
-[
+const DataContacts=[
   {
     "name": "Idris Elba",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
@@ -994,4 +994,7 @@
     "pictureUrl": "https://image.tmdb.org/t/p/w500/aqZ9RjL5j44HMlBMvTaawhHiGOH.jpg",
     "popularity": 6.914606
   }
-]
+];
+
+
+export default DataContacts;
