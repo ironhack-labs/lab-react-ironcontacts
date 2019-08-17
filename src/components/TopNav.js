@@ -8,15 +8,19 @@ import * as React from "react";
 
 class TopNav extends React.Component {
 
-	constructor(p){
-		super(p);
 
-	}
 	render() {
+
+		 const p= this.props;
+
+		 console.log(p);
+
 		return <div>
 			<h1>IronContacts</h1>
 			<div className="btn-group">
-				<button className="btn btn-default">Add Random Contact</button>
+				<button className="btn btn-default"
+					onClick={p.pro.addRandom}
+				>Add Random Contact</button>
 				<button className="btn btn-default">Sort by name</button>
 				<button className="btn btn-default">Sort by populaity</button>
 			</div>

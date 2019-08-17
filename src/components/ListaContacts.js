@@ -13,7 +13,7 @@ class ListaContacts extends React.Component {
 	render() {
 
 		const listaItems = this.props.lista.map((c, index) => {
-			return <tr>
+			return <tr key={c.name}>
 				<td><img alt={c.name} src={c.pictureUrl} className="imgContact" /></td>
 				<td>{c.name}</td>
 				<td><span className="badge badge-primary">{c.popularity}</span></td>
