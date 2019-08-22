@@ -22,6 +22,27 @@
   font-size: large;
 }
 
+.contact {
+  margin: 0 auto;
+  width: 400px; 
+  display: grid;   
+  grid-template-columns: 18% 30% 20% 20%;  
+  padding-top: 10px;  
+  align-items: center;  
+}
+.contact-name {
+  text-align: start
+}
+
+.contact-title{
+  font-weight: bold;
+  text-align: left
+}
+
+.contact-image{
+  height: 80px
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
