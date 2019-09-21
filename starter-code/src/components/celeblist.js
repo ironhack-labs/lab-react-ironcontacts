@@ -111,8 +111,10 @@ class CelebList extends Component {
 
     let newList = [...this.state.list];
 
+    // Delete contact with the given index
     newList.splice(indexOfContactToRemove, 1);
 
+    // Update the state
     this.setState({ list: newList })
 
   }
