@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 class ContactList extends Component {
 
     displayContacts = () => {
-
         return this.props.filteredContacts.map((contact, index) => {
             return (
                 <div key={index}
@@ -47,6 +46,16 @@ class ContactList extends Component {
                 >
                     Add Random Contact
                 </button>
+
+                <button onClick={this.props.onSort}>
+                    Sort By Popularity
+                </button>
+
+                <button onClick={this.props.onNameSort}>
+                    Sort By Name
+                </button>
+
+
             </div>
         );
     }

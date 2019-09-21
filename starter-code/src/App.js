@@ -17,13 +17,15 @@ class App extends Component {
   }
 
 
-
-
   handleContactAdd = () => {
     let contacts = [...this.state.contacts]
     let newContacts = [...this.state.contactsToRender]
     let randomContact = Math.floor(Math.random() * contacts.length)
-    newContacts.push(contacts[randomContact])
+    if (newContacts.indexOf(randomContact) < 0) {
+      newContacts.push(contacts[randomContact])
+    } else {
+      this.handleContactAdd()
+    }
     this.setState({
       contactsToRender: newContacts
     })
@@ -37,6 +39,36 @@ class App extends Component {
     })
   }
 
+  handleSort = () => {
+    let contacts = [...this.state.contactsToRender]
+    contacts.sort((a, b) => {
+      if (a.popularity > b.popularity) {
+        return -1
+      } else {
+        return 1
+      }
+      return 0
+    })
+    this.setState({
+      contactsToRender: contacts
+    })
+  }
+
+  handleNameSort = () => {
+    let contacts = [...this.state.contactsToRender]
+    contacts.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1
+      } else {
+        return -1
+      }
+      return 0
+    })
+    this.setState({
+      contactsToRender: contacts
+    })
+  }
+
 
   render() {
     return (
@@ -45,6 +77,8 @@ class App extends Component {
           filteredContacts={this.state.contactsToRender}
           onContactAdd={this.handleContactAdd}
           onItemRemove={this.handleDelete}
+          onSort={this.handleSort}
+          onNameSort={this.handleNameSort}
         />
       </React.Fragment>
 
