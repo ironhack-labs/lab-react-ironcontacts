@@ -5,7 +5,8 @@ class ContactList extends Component {
 
         return this.props.filteredContacts.map((contact, index) => {
             return (
-                <li key={index}
+                <div key={index}
+                    className="card"
                     style={{
                         border: "solid black 1px",
                         padding: "10px",
@@ -13,17 +14,23 @@ class ContactList extends Component {
                         width: "50%"
                     }}
                 >
-                    <h5>{contact.name}</h5>
-                    <img style={{
-                        height: "300px",
-                        width: "220px"
-                    }}
+                    <h5 className="card-title" >
+                        {contact.name}
+                    </h5>
+                    <img
+                        className="card-img-top"
+                        style={{
+                            height: "300px",
+                            width: "220px"
+                        }}
                         src={contact.pictureUrl} alt="" />
-                    <p>{contact.popularity}</p>
-                    <button onClick={() => this.props.onItemRemove(index)} >
+                    <p className="card-text" >{contact.popularity}</p>
+                    <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() => this.props.onItemRemove(index)} >
                         delete
                     </button>
-                </li>
+                </div>
             )
 
         })
@@ -35,6 +42,7 @@ class ContactList extends Component {
             <div>
                 {this.displayContacts()}
                 <button
+                    className="btn btn-sm btn-primary"
                     onClick={this.props.onContactAdd}
                 >
                     Add Random Contact
