@@ -7,25 +7,23 @@ class CelebList extends Component {
     super(props)
 
     this.state = {
-
-      // The list of Celebs (Only get 5)
-      list: contacts
+      
+      list: contacts.slice(0, 5)
 
     }
 
   }
 
-  initialTableRows = () => {
+  displayTableRows = () => {
 
-    // Return a table of the first 5 contacts
-
-    return this.state.list.slice(0, 5).map((eachContact, index) => {
+    // Return a row for every contact in current state
+    return this.state.list.map((eachContact, index) => {
 
       return (
 
         <tr>
 
-          <td> <img src={eachContact.pictureUrl} height = "200px" /> </td>
+          <td> <img src={eachContact.pictureUrl} height="200px" alt="Celebrity" /> </td>
           <td> {eachContact.name} </td>
           <td> {eachContact.popularity} </td>
 
@@ -37,32 +35,68 @@ class CelebList extends Component {
 
   }
 
+  addRandomContact = () => {
+
+    let randomIndex, randomContact;
+
+    // Get length of list so we know how the random index can go
+    // lengthOfList = this.state.list.length - 1;
+
+    // A random number between the 5th in array and length of the list ex/ 5-20
+    // This way we don't accidentally add any of the first 5 elements
+    randomIndex = Math.floor(Math.random() * contacts.length);
+
+    // Get a random contact from the data file (NOT OUR STATE)
+    randomContact = contacts[randomIndex];
+
+    // Make copy of state so we can manipulate it
+    let updatedList = [...this.state.list];
+    updatedList.push(randomContact);
+
+    // Change the state of the list to updated list with random contact
+    this.setState({ list: updatedList })
+    console.log(this.state.list);
+
+  }
+
   render() {
 
     return (
 
       <div>
 
+        <h1> Iron Cart </h1>
+
         <table>
 
-          <thead>
+          <tbody>
+
             <tr>
-              <th colspan="3">The Iron Contacts</th>
+
+              <td>
+
+                <button onClick={() => { this.addRandomContact() }}>
+                  Add Random Contact
+                </button>
+
+              </td>
+
             </tr>
-          </thead>
 
-          <tr>
+            <tr>
 
-            <td> Picture </td>
-            <td> Name </td>
-            <td> Popularity </td>
+              <td> Picture </td>
+              <td> Name </td>
+              <td> Popularity </td>
 
-          </tr>
-          
-          {this.initialTableRows()}
+            </tr>
+
+            {this.displayTableRows()}
+
+          </tbody>
+
 
         </table>
-
 
       </div>
 
