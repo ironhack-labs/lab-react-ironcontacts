@@ -1,5 +1,6 @@
 import React from 'react';
 import contacts from '../contacts.json'
+import CoolButton from '../components/CoolButton'
 
 class ContactList extends React.Component {
 
@@ -20,18 +21,7 @@ class ContactList extends React.Component {
     return this.state.list.map((eachContact, index)=>{
 
         return (
-            
-          // <table key={index}>
-          // <thead>
-          // <tr>
-          //   <th>Picture</th>
-          //   <th>Name</th>
-          //   <th>Popularity</th>
-          //   <th>Action</th>
-          // </tr>
-          // </thead>
-          // <tbody>
-              <tr>
+              <tr key={index} className="">
                 <td>{eachContact.name}</td>
                 <td><img src={eachContact.pictureUrl} alt=""/></td>
                 <td>{eachContact.popularity.toFixed(2)}</td>
@@ -155,23 +145,46 @@ addRandomContact = () =>{
     this.setState({list: copy})
   }
       
+
+  refreshPage = () => {
+    window.location.reload(false);
+  }
+ 
       
   render(){
     return(
-      <div>
+      <div className="container">
 
-        <button onClick = {this.addRandomContact}
-          >Add Random Contact</button>
-        <button onClick = {this.sortContactsByName}
-          >Sort by Name</button>
-        <button onClick = {this.sortContactsByPopularity}
-          >Sort by Popularity</button>
-            
-        <table key="">
-        <thead>
+        <div className="field has-addons">
+          <p className="control">
+            <a CoolButton className="button is-small is-outlined is-dark" onClick = {this.addRandomContact}>
+                <i className="fas fa-align-left"></i>
+              <span>Add Random Contact</span>
+            </a>
+          </p>
+          <p className="control">
+            <a CoolButton className="button is-small is-outlined is-dark" onClick = {this.sortContactsByName}>
+                <i className="fas fa-align-center"></i>
+              <span>Sort by Name</span>
+            </a>
+          </p>
+          <p className="control">
+          <a CoolButton className="button is-small is-outlined is-dark" onClick = {this.sortContactsByPopularity}>
+                <i className="fas fa-align-right"></i>
+              <span>Sort by Popularity</span>
+            </a>
+          </p>
+        
+        <button CoolButton className="button is-small is-outlined is-dark" value="Refresh Contacts" onClick={() => window.location.reload(false)}>Reset Contacts</button>
+        </div>
+
+
+        <div className="container" id="table-container">
+        <table key="" className="table is-narrow is-hoverable">
+        <thead className="is-bordered">
         <tr>
-          <th>Picture</th>
           <th>Name</th>
+          <th>Picture</th>
           <th>Popularity</th>
           <th>Action</th>
         </tr>
@@ -180,6 +193,7 @@ addRandomContact = () =>{
         {this.showContacts()}
         </tbody>
         </table>
+        </div>
 
         
         

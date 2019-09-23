@@ -27,7 +27,41 @@
   to { transform: rotate(360deg); }
 }
 
+.title {
+  font-size: 42px;
+  margin: 20px 0 10px 0;
+}
+
 img {
 width: 25%;
 
+}
+
+.has-addons {
+display: flex;
+
+}
+
+tr td:first-child {
+  width:25%;
+  white-space:nowrap;
+}
+
+tr td:nth-child(2) {
+  width:35%;
+  white-space:nowrap;
+}
+
+tr td:nth-child(3) {
+  width:25%;
+  white-space:nowrap;
+}
+
+#table-container {
+  width: 80%
+}
+
+.field:first-child {
+  margin: 5% 0 5% 25%;
+  padding-bottom: 5%
 }

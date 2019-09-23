@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
        
 
-       <h1>IronContacts</h1>
+       <h2 className="title is-2 is-spaced">IronContacts</h2>
 
       <ContactList />
 
