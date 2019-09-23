@@ -21,28 +21,26 @@ class ContactList extends React.Component {
 
         return (
             
-          <table key={index}>
-          <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action</th>
-          </tr>
-          </thead>
-          <tbody>
+          // <table key={index}>
+          // <thead>
+          // <tr>
+          //   <th>Picture</th>
+          //   <th>Name</th>
+          //   <th>Popularity</th>
+          //   <th>Action</th>
+          // </tr>
+          // </thead>
+          // <tbody>
               <tr>
                 <td>{eachContact.name}</td>
                 <td><img src={eachContact.pictureUrl} alt=""/></td>
-                <td>{eachContact.popularity}</td>
+                <td>{eachContact.popularity.toFixed(2)}</td>
                 <td><button onClick = {
                   ()=>{
                     this.deleteContact(index)
                   }
                 }> Delete </button></td>
               </tr>
-        </tbody>
-        </table>
 )
 })
 }
@@ -69,29 +67,9 @@ addRandomContact = () =>{
   
   this.setState({
     list: shortList,
-  }) 
-
-
-  sortByNameAndPopularity = () =>{
-    // e.preventDefault();
-    
-    let listToSort = [...this.state.list]
-
-    listToSort.sort(function(a, b){
-      var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase() if (nameA < nameB) //sort string ascending
-      return -1
-      if (nameA > nameB)
-      return 1
-      return 0 //default return value (no sorting)
-      })
-    
-    
-    
-    this.setState({
-      // list: shortList,
-    }) 
+  })
   
-  // return (
+    // return (
     
     //     <tr>
     //       <td>{randomContact.name}</td>
@@ -109,35 +87,102 @@ addRandomContact = () =>{
         
         
       } //end of grab random contact
-      
-      
-      updateTheValue = (e) =>{
-        // this.state[e.target.name] = e.target.value
-        // never do this
-        // never update the state directly
-        // instead use this.setState
-        this.setState({
-          [e.target.name]: e.target.value
-        })   
-      }
-      
-      
-      deleteContact = (whichOne) =>{
-        let copy = [...this.state.list];
-        copy.splice(whichOne, 1);
-        this.setState({list: copy})
-      }
-      
-      
-      render(){
-        return(
-          <div>
-              <button onClick = {this.addRandomContact}
-                >Add Random Contact</button>
 
-          {this.showContacts()}
+
+
+  sortContactsByName = () =>{
+    // e.preventDefault();
+    
+    let listToSort = [...contacts]
+
+    listToSort.sort(function(a, b){
+      var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase() 
+      if (nameA < nameB) {//sort string ascending
+        return -1
+      } 
+      if (nameA > nameB) {
+        return 1
+      }
+      return 0 //default return value (no sorting)
+      })
+    
+    
+    this.setState({
+      list: listToSort,
+    })
+    
+  }
+
+  sortContactsByPopularity = () =>{
+    // e.preventDefault();
+    
+    let listToSort = [...contacts]
+
+    listToSort.sort(function(a, b){
+      var popA=a.popularity, popB=b.popularity 
+      if (popA < popB) {//sort string ascending
+        return 1
+      } 
+      if (popA > popB) {
+        return -1
+      }
+      return 0 //default return value (no sorting)
+      })
+    
+    
+    this.setState({
+      list: listToSort,
+    })
+    
+  }
+
+      
+      
+  updateTheValue = (e) =>{
+    // this.state[e.target.name] = e.target.value
+    // never do this
+    // never update the state directly
+    // instead use this.setState
+    this.setState({
+      [e.target.name]: e.target.value
+    })   
+  }
+      
+      
+  deleteContact = (whichOne) =>{
+    let copy = [...this.state.list];
+    copy.splice(whichOne, 1);
+    this.setState({list: copy})
+  }
+      
+      
+  render(){
+    return(
+      <div>
+
+        <button onClick = {this.addRandomContact}
+          >Add Random Contact</button>
+        <button onClick = {this.sortContactsByName}
+          >Sort by Name</button>
+        <button onClick = {this.sortContactsByPopularity}
+          >Sort by Popularity</button>
             
-           
+        <table key="">
+        <thead>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {this.showContacts()}
+        </tbody>
+        </table>
+
+        
+        
         </div>
     )
 }
