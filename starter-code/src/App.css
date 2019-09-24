@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+th{
+  font-size: 2.3em;
+}
+
+td{
+  font-size:1.8em;
+}
+table{
+
+  margin: 0 auto;
+}
