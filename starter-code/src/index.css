@@ -1,5 +1,18 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 2%;
   font-family: sans-serif;
+  height: 100vh;
+}
+
+.main-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.action-button {
+  margin: 10px;
+  width: 200px;
 }
