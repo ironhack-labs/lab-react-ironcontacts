@@ -2,7 +2,7 @@ import React from 'react'
 import contacts from './contacts.json'
 import './App.css'
 import { Card } from 'antd'
-import { Button } from 'antd';
+import { Button } from 'antd'
 
 class App extends React.Component {
   state = {
@@ -65,36 +65,45 @@ class App extends React.Component {
           <h1>Contacts</h1>
         </div>
         <div className="button">
-          <Button type="primary" onClick={this.addContacts}>random</Button>
-          <Button type="primary" onClick={this.sortContactsAlphabetically}>sort by name</Button>
-          <Button type="primary" onClick={this.sortContactsNumerically}>sort by popularity</Button>
+          <Button type="primary" onClick={this.addContacts}>
+            random
+          </Button>
+          <Button type="primary" onClick={this.sortContactsAlphabetically}>
+            sort by name
+          </Button>
+          <Button type="primary" onClick={this.sortContactsNumerically}>
+            sort by popularity
+          </Button>
         </div>
         <div style={{ background: '#ECECEC', padding: '30px', display: 'flex', justifyContent: 'center' }}>
           <Card title="Contacts" bordered={false} style={{ width: 600 }}>
             <table>
-              <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-              </tr>
-
-              {contacts.map(contact => {
-                return (
-                  <tr>
-                    <td>
-                      <img style={{ height: '100px', width: '100px' }} src={contact.pictureUrl} alt="" />
-                    </td>
-                    <td>{contact.name}</td>
-                    <td>{contact.popularity}</td>
-                    <td>
-                      <button key={contact.popularity} onClick={() => this.deleteContacts(contact.popularity)}>
-                        {' '}
-                        Delete{' '}
-                      </button>
-                    </td>
-                  </tr>
-                )
-              })}
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>Name</th>
+                  <th>Popularity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.map(contact => {
+                  return (
+                    <tr key={contact.name}>
+                      <td>
+                        <img style={{ height: '100px', width: '100px' }} src={contact.pictureUrl} alt="" />
+                      </td>
+                      <td>{contact.name}</td>
+                      <td>{contact.popularity}</td>
+                      <td>
+                        <button key={contact.popularity} onClick={() => this.deleteContacts(contact.popularity)}>
+                          {' '}
+                          Delete{' '}
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
             </table>
           </Card>
         </div>
