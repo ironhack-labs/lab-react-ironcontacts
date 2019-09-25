@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.title {
+  padding-left: 8vw;
+}
+
+.buttons {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1.5vh 0
+}
+
+.buttons>button {
+  margin: 1rem;
+}
