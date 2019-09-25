@@ -51,7 +51,7 @@ class App extends Component {
     this.setState(prevState => {
       const { contacts } = prevState;
 
-      contacts.sort((a, b) => a.popularity - b.popularity);
+      contacts.sort((a, b) => b.popularity - a.popularity);
       return { contacts };
     });
   };
