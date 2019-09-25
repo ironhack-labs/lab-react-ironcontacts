@@ -1,28 +1,38 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  background: rgb(55, 62, 65);
+}
+.botones {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+}
+.bot1 {
+  color: white;
+  background: rgb(112, 112, 126);
+  font-weight: bold;
+}
+.bot2 {
+  background: lightgray;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.title {
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.table {
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.ant-table-tbody {
+  color: rgb(69, 99, 99);
+  font-weight: bold;
 }
