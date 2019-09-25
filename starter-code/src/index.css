@@ -3,3 +3,16 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.ant-card-head-title {
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  background-color: #FFFEAD;
+}
+
+.buttons-div {
+  display: flex;
+  justify-content: space-evenly;
+}
