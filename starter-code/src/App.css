@@ -26,3 +26,34 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+#buttons{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+
+.ant-btn-danger {
+  color: #fff;
+  background-color: black;
+  border-color: turquoise;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  width: 30vw;
+}
+
+.ant-btn-danger:hover, .ant-btn-danger:focus {
+  color: #fff;
+  background-color: turquoise;
+  border-color: black;
+}
+
+.ant-btn-dashed {
+  color: aliceblue;
+  background-color: black;
+  border-color: turquoise;
+  border-style: dashed;
+}
