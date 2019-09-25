@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+h1{
+  text-align: center;
+  color:#5a6c96;
+}
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0;
+}
