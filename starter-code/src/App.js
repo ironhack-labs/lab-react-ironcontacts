@@ -73,13 +73,13 @@ class App extends Component {
         </Header>
         <Content >
           <ButtonGroup className="buttongroup">
-            <Button className="Button" icon="user-add" onClick={() => this.addRandomContact}>Add Random Contact</Button>
+            <Button className="Button" icon="user-add" onClick={this.addRandomContact}>Add Random Contact</Button>
             <Button className="Button" icon="sort-ascending" onClick={() => this.sortBy('name')}>Sort by name</Button>
             <Button className="Button" icon="sort-ascending" onClick={() => this.sortBy('popularity')}>Sort by popularity</Button>
           </ButtonGroup>
           <Columns />
           {contacts.map(e => (
-            <Contacts key={contacts.popularity} contact={e} deleteContact={this.deleteContact} />
+            <Contacts key={e.popularity} contact={e} deleteContact={this.deleteContact} />
           )
           )}
         </Content >

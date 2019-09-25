@@ -2,9 +2,9 @@ import React from 'react'
 import { Row, Col, Typography, Button } from 'antd'
 const { Text } = Typography
 
-function Contacts({ key, contact, deleteContact }) {
+function Contacts({ contact, deleteContact }) {
   return (
-    <Row type="flex" justify="center" align="middle" key={key}>
+    <Row type="flex" justify="center" align="middle">
       <Col span={4}>
         <img src={contact.pictureUrl} title={contact.name} alt={contact.name} width="80px" />
       </Col>
