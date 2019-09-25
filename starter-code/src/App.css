@@ -23,6 +23,41 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.h1 h1 {
+  text-align: center;
+  color: white;
+}
+
+.h1 {
+  background-color: #031620;
+  height: 40px;
+}
+.button {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  background-color: #2A6080;
+}
+
+.button button {
+  width: 200px;
+}
+
+.ant-card-body {
+  display: flex;
+  justify-content: center;
+}
+
+.ant-card-head-title {
+  margin-left: 250px;
 }
