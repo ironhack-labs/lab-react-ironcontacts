@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-color: bisque;
+}
+
+.filterButtons{
+  padding-bottom: 20px;
+}
+
+
+
+.contacts{
+  display: inline-block; 
+  text-align: center; 
+}
+
+.wholeContacts{
+  display: flex;
+  justify-content: center;
+}
