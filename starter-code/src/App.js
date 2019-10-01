@@ -26,11 +26,14 @@ function compared( a, b ) {
 }
 
 class App extends Component {
-  // actors = contacts.splice(0,5);
+
+
   state = {
     actors : contacts.splice(0,5),
     actorsLeft: contacts
   }
+
+
   showListOfActors = () => {
     console.log(this.state.actors)
     let listOfActors = this.state.actors.map((eachActor,i)=> {
@@ -39,20 +42,30 @@ class App extends Component {
         <td><img width="100px" src={eachActor.pictureUrl}></img></td>
         <td>{eachActor.name}</td>
         <td>{eachActor.popularity}</td>
-        <button>Delete</button>
+        <button onClick={()=>this.deleteActor(i)}>Delete {i}</button>
       </tr>
     })
     return listOfActors
 }
 
   getRandomActor = () => {
+    
+     
       let allActors = [...this.state.actors]
       let randomIndex = Math.floor(Math.random()*(allActors.length))
-      allActors.push(contacts[randomIndex])
+      allActors.push(this.state.actorsLeft[randomIndex])
+
+      let allContactList = [...this.state.actorsLeft]
+      allContactList.splice(randomIndex,1)
+
       this.setState({
           actors: allActors,
+          actorsLeft: allContactList
       })
   }
+
+
+
 
   sortByName = ()=>{
     this.setState({
@@ -65,6 +78,14 @@ class App extends Component {
       actors:[...this.state.actors].sort( compared )
     });
 
+  }
+
+  deleteActor =(index)=>{
+    let actorList =[...this.state.actors]
+    actorList.splice(index,1)
+    this.setState({
+      actors:actorList
+    })
   }
 
   render() {
