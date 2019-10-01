@@ -1,0 +1,27 @@
+.flex {
+  display: flex;
+}
+
+.flex-v {
+  flex-direction: column;
+}
+
+.jcsb {
+  justify-content: space-between
+}
+
+.aic {
+  align-items: center;
+}
+
+#celeb-list {
+  margin: 0 auto;
+  width: 30%;
+}
+
+#row-titles h2 {
+  display: inline;
+  width: 33%;
+  padding: .2rem 1rem;
+  text-align: left;
+}

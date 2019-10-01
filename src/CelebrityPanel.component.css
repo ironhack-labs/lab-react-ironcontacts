@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+}
+
+.profile-photo {
+  width: auto;
+}
+
+.celeb-panel {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.celeb-panel>* {
+  padding: 1rem;
+  text-align: left;
+  width: 33%;
+}
+
+.celeb-panel>p {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.celeb-panel img {
+  width: 75px;
+}
