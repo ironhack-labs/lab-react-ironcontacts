@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import contacts from "./contacts.json";
+import Contact from "./Contact";
 
 const sortLookup = {
   name: (a, b) => a.name.localeCompare(b.name),
@@ -46,8 +47,19 @@ class Celebrity extends Component {
     });
   };
 
+  sortContacts = sortMethod => {
+    let descending = sortLookup[sortMethod + "-dsc"];
+    let sorted = [...this.state.activeContacts].sort(sortLookup[sortMethod]);
+    if (descending) sorted.reverse();
+    sortLookup[sortMethod + "-dsc"] = !descending;
+
+    this.setState({
+      activeContacts: sorted
+    });
+  };
+
   render() {
-    return <div></div>;
+    return <tbody>{this.createRow()}</tbody>;
   }
 }
 

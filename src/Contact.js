@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Celebrity from "./Celebrity";
+// import Celebrity from "./Celebrity";
 
 class Contact extends Component {
 
