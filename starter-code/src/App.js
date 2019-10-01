@@ -9,9 +9,9 @@ class App extends Component {
     super();
     this.state = {
       contacts: contacts.slice(0, 5)
+   
     }
   }
-
 
   addRandomContact() {
     const newContact = contacts[Math.floor(Math.random()*contacts.length)];
@@ -25,6 +25,20 @@ class App extends Component {
     this.setState({ contacts:newContacts })
   }
 
+  sortByName() {
+    let sortedContacts = [...this.state.contacts];
+    sortedContacts = sortedContacts.sort((a,b) => { return (a.name < b.name) ? -1 : 1})
+
+    this.setState({ contacts:sortedContacts })
+  }
+
+  sortByPopularity(){
+    let sortedContacts = [...this.state.contacts];
+    sortedContacts = sortedContacts.sort((a,b) =>  b.popularity - a.popularity)
+
+    this.setState({ contacts:sortedContacts })
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,6 +48,8 @@ class App extends Component {
         <nav>
           <ul>
             <li><button onClick={() => this.addRandomContact()} >Add Random Contact</button></li>
+            <li><button onClick={() => this.sortByName()} >Sort by name</button></li>
+            <li><button onClick={() => this.sortByPopularity()} >Sort by popularity</button></li>
           </ul>
         </nav>
         <table>
