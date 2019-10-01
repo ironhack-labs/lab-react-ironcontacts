@@ -17,7 +17,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeContacts: contacts.slice(0, 5)
+      activeContacts: contacts.slice(0, 5),
+      allContacts: contacts,
     };
   }
 
@@ -68,13 +69,15 @@ class App extends Component {
 
   addRandom = () => {
     // console.log(contacts);
-    let i = ~~(Math.random() * contacts.length);
-    let newContact = contacts[i];
+    let i = ~~(Math.random() * this.state.allContacts.length);
+    let newContact = this.state.allContacts[i];
     let addedContacts = this.state.activeContacts;
     addedContacts.push(newContact);
-    // console.log(this.state.activeContacts);
+    // let contactsCopy = [...contacts];
+    // contactsCopy.splice(i, 1);
     this.setState({
-      activeContacts: addedContacts
+      activeContacts: addedContacts,
+      // allContacts: contactsCopy
     });
   };
 
