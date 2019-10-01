@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
+import './SortDropdown.css'
 
 export default class SortDropdown extends Component {
   render() {
     return (
       <div className="sort-dropdown">
-        <span>Sort by {this.props.sortBy}</span>
-        {this.props.children}
+        <div className="options">
+          Sort by {this.props.sortBy}
+          <div className="sort-dropdown-options">
+            {this.props.children}
+          </div>
+        </div>
+        
       </div>
     )
   }

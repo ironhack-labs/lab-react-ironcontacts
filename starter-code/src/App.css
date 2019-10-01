@@ -1,28 +1,123 @@
-.App {
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Concert+One|Roboto+Slab:400,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+  background-color: #F8F8F8;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-title {
   text-align: center;
+  margin-bottom: 6rem;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  letter-spacing: 8px;
+  font-family: 'Concert One', cursive;
+  position: relative;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.main-title::after, .main-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #008888;
+  -webkit-box-shadow: 1rem 0 #008888CC, -1rem 0 #008888CC, 2rem 0 #008888AA, -2rem 0 #008888AA, 3rem 0 #00888888, -3rem 0 #00888888, 4rem 0 #00888866, -4rem 0 #00888866, 5rem 0 #00888833, -5rem 0 #00888833, 6rem 0 #00888811, -6rem 0 #00888811, 0 1rem #008888, 1rem 1rem #008888CC, -1rem 1rem #008888CC, 2rem 1rem #008888AA, -2rem 1rem #008888AA, 3rem 1rem #00888888, -3rem 1rem #00888888, 4rem 1rem #00888866, -4rem 1rem #00888866, 5rem 1rem #00888833, -5rem 1rem #00888833, 6rem 1rem #00888811, -6rem 1rem #00888811;
+          box-shadow: 1rem 0 #008888CC, -1rem 0 #008888CC, 2rem 0 #008888AA, -2rem 0 #008888AA, 3rem 0 #00888888, -3rem 0 #00888888, 4rem 0 #00888866, -4rem 0 #00888866, 5rem 0 #00888833, -5rem 0 #00888833, 6rem 0 #00888811, -6rem 0 #00888811, 0 1rem #008888, 1rem 1rem #008888CC, -1rem 1rem #008888CC, 2rem 1rem #008888AA, -2rem 1rem #008888AA, 3rem 1rem #00888888, -3rem 1rem #00888888, 4rem 1rem #00888866, -4rem 1rem #00888866, 5rem 1rem #00888833, -5rem 1rem #00888833, 6rem 1rem #00888811, -6rem 1rem #00888811;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.main-title::before {
+  top: -2rem;
 }
 
-.App-title {
-  font-size: 1.5em;
+.main-title::after {
+  bottom: -1rem;
 }
 
-.App-intro {
-  font-size: large;
+.sort-options {
+  background-color: #EEEEEE;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.sort-options .first {
+  margin-left: 1rem;
 }
+
+.sort-dropdown-options .button {
+  color: #DDDDDD;
+  width: 100%;
+  border-radius: 0;
+  text-align: left;
+}
+
+.sort-dropdown-options .button:first-child::before, .sort-dropdown-options .button:last-child::before {
+  margin-right: 1rem;
+}
+
+.sort-dropdown-options .button:first-child::before {
+  content: "⬆";
+}
+
+.sort-dropdown-options .button:last-child::before {
+  content: "⬇";
+}
+
+.sort-dropdown-options .button:hover {
+  background-color: #454545;
+  color: #FFFFFF;
+}
+
+.contacts {
+  width: 650px;
+  margin: auto;
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+}
+
+.contacts th {
+  text-align: left;
+  padding: 1rem;
+}
+/*# sourceMappingURL=App.css.map */

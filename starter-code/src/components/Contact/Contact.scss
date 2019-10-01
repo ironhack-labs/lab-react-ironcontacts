@@ -1,0 +1,73 @@
+.contact {
+  padding-bottom: 2rem;
+  transition: background-color .2s;
+
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid #DDDDDD;
+  }
+
+  &:hover {
+    background-color: #00AAAA11;
+  }
+
+  .button-is-secondary {
+    margin-right: 2rem;
+  }
+
+  td {
+    padding: 1rem;
+  }
+}
+
+.contact-name {
+  font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 250px;
+  white-space: nowrap;
+  color: #454545;
+}
+
+.contact-picture-container {
+  height: 60px;
+  width: 40px;
+  overflow: hidden;
+  margin-right: 0;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .35);
+}
+
+.contact-picture img {
+  transition: transform 3s, opacity 1s;
+
+  &:hover {
+    transform: scale(2) rotateZ(-20deg);
+    opacity: .6;
+  }
+}
+
+.contact-delete {
+  position: relative;
+}
+
+.contact .button-is-danger {
+  position: absolute;
+  right: -2rem;
+  box-shadow: 0 3px 15px #FF0000AA;
+  transition: all .2s;
+
+  &:hover {
+    right: -2.5rem;
+  }
+}
+
+.contact-popularity {
+  color: #888888;
+}
+
+.contact-popularity span {
+  display: inline-block;
+  margin-right: .75rem;
+  color: #575757;
+}

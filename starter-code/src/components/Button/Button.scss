@@ -1,0 +1,64 @@
+$button-primary: #008888;
+$button-primary-dark: #007777;
+$button-on-primary: #FFFFFF;
+$button-on-primary-dark: #FFFFFF;
+$button-is-danger: #ef5350;
+$button-is-danger-dark: #e53935;
+$button-on-is-danger: #FFFFFF;
+
+$button-danger: #FFF;
+
+$button-transition-delay: .2s;
+
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: transparent;
+  transition:
+    background-color $button-transition-delay,
+    box-shadow $button-transition-delay;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button-is-primary {
+  background-color: $button-primary;
+  color: $button-on-primary;
+  box-shadow: 0 2px 4px $button-primary;
+
+  &:hover {
+    background-color: $button-primary-dark;
+    box-shadow: 0 3px 6px $button-primary-dark;
+  }
+}
+
+.button-is-danger {
+  background-color: $button-is-danger;
+  color: $button-on-is-danger;
+  box-shadow: 0 3px 6px $button-is-danger;
+
+  &:hover {
+    background-color: $button-is-danger-dark;
+    box-shadow: 0 3px 6px $button-is-danger-dark;
+  }
+}
+
+.button-is-secondary {
+  color: $button-primary;
+  background-color: #00888811;
+
+  &:hover {
+    background-color: #00888833;
+  }
+}
+
+.sort-button {
+  display: block;
+}

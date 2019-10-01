@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One|Roboto+Slab:400,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+  background-color: #F8F8F8;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 6rem;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  letter-spacing: 8px;
+  font-family: 'Concert One', cursive;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #008888;
+    box-shadow:
+      1rem 0 #008888CC,
+      -1rem 0 #008888CC,
+      2rem 0 #008888AA,
+      -2rem 0 #008888AA,
+      3rem 0 #00888888,
+      -3rem 0 #00888888,
+      4rem 0 #00888866,
+      -4rem 0 #00888866,
+      5rem 0 #00888833,
+      -5rem 0 #00888833,
+      6rem 0 #00888811,
+      -6rem 0 #00888811,
+      
+      0 1rem #008888,
+      1rem 1rem #008888CC,
+      -1rem 1rem #008888CC,
+      2rem 1rem #008888AA,
+      -2rem 1rem #008888AA,
+      3rem 1rem #00888888,
+      -3rem 1rem #00888888,
+      4rem 1rem #00888866,
+      -4rem 1rem #00888866,
+      5rem 1rem #00888833,
+      -5rem 1rem #00888833,
+      6rem 1rem #00888811,
+      -6rem 1rem #00888811,
+      ;
+  }
+
+  &::before {
+    top: -2rem;
+  }
+
+  &::after {
+    bottom: -1rem;
+  }
+}
+
+.sort-options {
+  background-color: #EEEEEE;
+  display: flex;
+  z-index: 10;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
+  width: 100%;
+
+  .first {
+    margin-left: 1rem;
+  }
+}
+
+.sort-dropdown-options .button {
+  color: #DDDDDD;
+  width: 100%;
+  border-radius: 0;
+  text-align: left;
+
+  &:first-child::before,
+  &:last-child::before {
+    margin-right: 1rem;
+  }
+
+  &:first-child {
+
+    &::before {
+      content: "⬆"
+    }
+  }
+
+  &:last-child {
+    
+    &::before {
+      content: "⬇"
+    }
+  }
+
+  &:hover {
+    background-color: #454545;
+    color: #FFFFFF;
+  }
+}
+
+.contacts {
+  width: 650px;
+  margin: auto;
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 1rem;
+  }
+}

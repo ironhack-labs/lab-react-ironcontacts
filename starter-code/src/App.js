@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Contact from "./components/Contact/Contact";
 import contactsList from "./data/contacts.json";
 import Button from "./components/Button/Button";
-import "./App.css";
 import SortDropdown from "./components/SortDropdown/SortDropdown";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -54,26 +54,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="buttons">
-          <Button clickHandler={() => this.addRandomContact()}>Add a random contact</Button>
-          <SortDropdown sortBy="popularity">
-            <Button clickHandler={() => this.sortContactsListByPopularity(1)}>Ascendent</Button>
-            <Button clickHandler={() => this.sortContactsListByPopularity(-1)}>Descendent</Button>
+        <h1 className="main-title">Contacts</h1>
+        <div className="sort-options">
+          <Button classes="button-is-primary first" clickHandler={() => this.addRandomContact()}>Add a random contact</Button>
+          <SortDropdown sortBy="popularity ★">
+            <Button clickHandler={() => this.sortContactsListByPopularity(1)}>Asc</Button>
+            <Button clickHandler={() => this.sortContactsListByPopularity(-1)}>Des</Button>
           </SortDropdown>
           <SortDropdown sortBy="name">
-            <Button clickHandler={() => this.sortContactsListByName(1)}>Ascendent</Button>
-            <Button clickHandler={() => this.sortContactsListByName(-1)}>Descendent</Button>
+            <Button clickHandler={() => this.sortContactsListByName(1)}>Asc</Button>
+            <Button clickHandler={() => this.sortContactsListByName(-1)}>Desc</Button>
           </SortDropdown>
         </div>
         <table className="contacts">
-          <thead>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
           <tbody>
             {this.state.contactsList.map((contact, idx) => {
               return <Contact
