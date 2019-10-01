@@ -45,14 +45,20 @@ class App extends Component {
     });
   }
 
+  removeContact = (name) => {
+    this.setState({
+      ...this.state,
+      contacts: this.state.contacts
+        .filter(contact => contact.name !== name)
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <div className="menu">
-        <button onClick={() => this.addRandomContact()}>
-          Add random contact
-        </button>
+        <button onClick={() => this.addRandomContact()}>Add random contact</button>
         <button onClick={() => this.sortByName()}>Sort by name</button>
         <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
         </div>
@@ -62,6 +68,7 @@ class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -71,6 +78,7 @@ class App extends Component {
                 pictureUrl={contact.pictureUrl}
                 name={contact.name}
                 popularity={contact.popularity}
+                remove={this.removeContact}
               ></Contact>
             ))}
           </tbody>
