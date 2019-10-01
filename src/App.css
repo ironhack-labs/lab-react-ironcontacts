@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.headshot{
+  width: 100px;
+}
+
+table{
+  margin: 0 auto;
+}
+
+.big-p{
+  font-size: 22px;
+  width: 200px;
+}
+
+button{
+  padding: 10px;
+  margin: 0 10px 10px 10px;
+}
