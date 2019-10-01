@@ -3,7 +3,7 @@ import contacts from './contacts.json'
 import './App.css';
 import Contact from './Contact.js';
 
-class App extends Component {
+export default class App extends Component {
  
   constructor() {
     super();
@@ -39,6 +39,13 @@ class App extends Component {
     this.setState({ contacts:sortedContacts })
   }
 
+  deleteContact(index) {
+    let newContacts = [...this.state.contacts];
+    newContacts = newContacts.filter((value, idx) => idx !== index );
+
+    this.setState({ contacts:newContacts })
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,13 +63,16 @@ class App extends Component {
           <thead>
           <tr>
             <th>Picture</th>
-            <th>name</th>
+            <th>Name</th>
             <th>Popularity</th>
+            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
-            {this.state.contacts.map((val, idx) => 
-              <Contact key={idx} {...val} />
+            {this.state.contacts.map((val, idx) =>  
+                <Contact key={idx} {...val}>
+                  <button onClick={() => this.deleteContact(idx)}>Delete</button>
+                </Contact>      
             )}
           </tbody>
         </table>
@@ -70,5 +80,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

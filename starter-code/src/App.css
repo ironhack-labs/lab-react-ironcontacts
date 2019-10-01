@@ -2,27 +2,90 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
 .App-title {
   font-size: 1.5em;
+  background-color: silver;
+  color: #0a0e22;
+  padding: 20px 0;
+  text-transform: capitalize;
+  font-weight: bold;
 }
+nav {
+  margin: 20px 0;
+}
+  nav ul {
+    display: flex; 
+    justify-content: center;
+  }
+  nav li {
+    list-style: none;
+    margin: 0;
+  }
+  nav button {
+    border: 1px solid #ccc;
+    border-left: 0;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+  }
+  nav li:first-child button{
+    border-left: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  nav li:last-child button{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 
-.App-intro {
-  font-size: large;
-}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+table button {
+  border: 1px solid rgb(138, 69, 69);
+  background-color: #e48282;
+  padding: 10px 20px;
+  cursor: pointer;
+  color:rgb(138, 69, 69);
+  transition: 1s ease-in-out;
 }
+  table button:hover {
+    background-color: #ee9a9a;
+  }
+  nav button:hover {
+    background-color: #f9f9f9;
+  }
+
+
+table {
+  width: 60%;
+  margin: 0 auto;
+  
+}
+  thead {
+    background-color: silver;
+    color: #0a0e22;
+    margin-bottom: 20px;
+  }
+
+  table img {
+    width: 80px;
+    -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      transition: 1s ease-in-out;
+  }
+  table tr:hover img {
+    -webkit-filter: none;
+    filter:none;
+  }
+  table tr:nth-child(2n) {
+    background-color: #f1f1f1;
+  } 
+  table td {
+    vertical-align: middle;
+    padding: 10px;
+  }
+  table th {
+    padding: 20px 0;
+    font-weight: bold;
+    padding: 10px;
+  }
