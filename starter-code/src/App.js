@@ -4,8 +4,8 @@ import contacts from "./contacts.json";
 import Contact from "./components/Contact";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       contacts: contacts.slice(0, 5)
