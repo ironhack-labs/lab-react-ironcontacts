@@ -1,5 +1,11 @@
+body {
+  background-color: #222;
+  color: whitesmoke;
+}
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -26,3 +32,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.table-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+img {
+  width: 100px;
+}
+
+
