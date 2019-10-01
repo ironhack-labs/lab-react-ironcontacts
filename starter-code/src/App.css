@@ -1,28 +1,42 @@
-.App {
+.App{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactsTable{
+width: 50%;
+margin: 50px;
+padding: 60px;
+}
+
+.categories{
+  /* margin: 500px; */
+}
+
+.categories th{
+  font-size: 16px;
+  padding-bottom: 40px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-decoration: underline;
+
+}
+td {
+  width: 20px;
+  border-left: 1px solid #eee;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.contactsTable img{
+  height: 100px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+*{
+  transition: all .2s;
 }
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+tr:hover {
+  color: slategrey;
 }
