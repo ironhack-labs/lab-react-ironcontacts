@@ -1,18 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import contacts from "./contacts.json";
+import Contact from "./Contact/Contact";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.firstFive = contacts.slice(0, 5);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>IronContacts</h1>
+        <table className="contacts">
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+          {this.firstFive.map((contact, i) => (
+            <Contact
+              key={i}
+              pictureUrl={contact.pictureUrl}
+              name={contact.name}
+              popularity={contact.popularity}
+            ></Contact>
+          ))}
+        </table>
       </div>
     );
   }
