@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.menu {
+  display: flex;
+}
+
 .contacts {
   text-align: center;
 }
