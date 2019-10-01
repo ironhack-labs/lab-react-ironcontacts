@@ -3,7 +3,6 @@ import contacts from './contacts.json'
 import './App.css';
 import Contact from './Contact.js';
 
-contacts.slice(0, 5).forEach(val => console.log(val));
 class App extends Component {
  
   constructor() {
@@ -14,8 +13,17 @@ class App extends Component {
   }
 
 
+  addRandomContact() {
+    const newContact = contacts[Math.floor(Math.random()*contacts.length)];
+    const existingContact = this.state.contacts.find(contact => contact.name === newContact.name);
 
+    if(existingContact) return this.addRandomContact();
 
+    const newContacts = [...this.state.contacts];
+    newContacts.push(newContact);
+
+    this.setState({ contacts:newContacts })
+  }
 
   render() {
     return (
@@ -25,7 +33,7 @@ class App extends Component {
         </header>
         <nav>
           <ul>
-            <li><button >Add Random Contact</button></li>
+            <li><button onClick={() => this.addRandomContact()} >Add Random Contact</button></li>
           </ul>
         </nav>
         <table>
