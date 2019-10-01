@@ -27,7 +27,16 @@
   to { transform: rotate(360deg); }
 }
 
-.table{
-  display:flex;
-  justify-content: center;
+
+
+
+.picture{
+  width:20%;
 }
+
+.button{
+  padding:20px;
+  background-color:rgb(168, 253, 218);
+  font-size: 20px;
+}
+
