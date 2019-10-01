@@ -1,0 +1,11 @@
+.all-buttons {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+}

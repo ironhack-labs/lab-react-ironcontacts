@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100vw;
+  height: 100;
+  display: grid;
+  justify-content: center;
+  align-self: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 60px;
+}
+
+.table-titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+}
