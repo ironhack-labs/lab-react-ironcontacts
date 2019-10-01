@@ -364,7 +364,7 @@ If you use a custom server for your app in production and want to modify the tit
 
 ## Installing a Dependency
 
-The generated project includes React and ReactDOM as dependencies. It also includes a set of scripts used by Create React App as a development dependency. You may install other dependencies (for example, React Router) with `npm`:
+The generated project includes React and ReacdivOM as dependencies. It also includes a set of scripts used by Create React App as a development dependency. You may install other dependencies (for example, React Router) with `npm`:
 
 ```sh
 npm install --save react-router
@@ -973,7 +973,7 @@ Files on the left have more priority than files on the right:
 * `npm test`: `.env.test.local`, `.env.test`, `.env` (note `.env.local` is missing)
 
 These variables will act as the defaults if the machine does not explicitly set them.<br>
-Please refer to the [dotenv documentation](https://github.com/motdotla/dotenv) for more details.
+Please refer to the [dotenv documentation](https://github.com/modivotla/dotenv) for more details.
 
 >Note: If you are defining environment variables for development, your CI and/or hosting platform will most likely need
 these defined as well. Consult their documentation how to do this. For example, see the documentation for [Travis CI](https://docs.travis-ci.com/user/environment-variables/) or [Heroku](https://devcenter.heroku.com/articles/config-vars).
@@ -982,7 +982,7 @@ these defined as well. Consult their documentation how to do this. For example, 
 
 >Note: this feature is available with `react-scripts@1.1.0` and higher.
 
-Expand variables already on your machine for use in your `.env` file (using [dotenv-expand](https://github.com/motdotla/dotenv-expand)).
+Expand variables already on your machine for use in your `.env` file (using [dotenv-expand](https://github.com/modivotla/dotenv-expand)).
 
 For example, to get the environment variable `npm_package_version`:
 
@@ -1331,12 +1331,12 @@ Different projects choose different testing tradeoffs based on how often compone
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReacdivOM from 'react-dom';
 import App from './App';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReacdivOM.render(<App />, div);
 });
 ```
 
@@ -1382,7 +1382,7 @@ it('renders without crashing', () => {
 });
 ```
 
-Unlike the previous smoke test using `ReactDOM.render()`, this test only renders `<App>` and doesn’t go deeper. For example, even if `<App>` itself renders a `<Button>` that throws, this test will pass. Shallow rendering is great for isolated unit tests, but you may still want to create some full rendering tests to ensure the components integrate correctly. Enzyme supports [full rendering with `mount()`](http://airbnb.io/enzyme/docs/api/mount.html), and you can also use it for testing state changes and component lifecycle.
+Unlike the previous smoke test using `ReacdivOM.render()`, this test only renders `<App>` and doesn’t go deeper. For example, even if `<App>` itself renders a `<Button>` that throws, this test will pass. Shallow rendering is great for isolated unit tests, but you may still want to create some full rendering tests to ensure the components integrate correctly. Enzyme supports [full rendering with `mount()`](http://airbnb.io/enzyme/docs/api/mount.html), and you can also use it for testing state changes and component lifecycle.
 
 You can read the [Enzyme documentation](http://airbnb.io/enzyme/) for more testing techniques. Enzyme documentation uses Chai and Sinon for assertions but you don’t have to use them because Jest provides built-in `expect()` and `jest.fn()` for spies.
 
@@ -1506,7 +1506,7 @@ global.localStorage = localStorageMock
 >```js
 >"jest": {
 >   // ...
->   "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
+>   "setupTestFrameworkScriptFile": "<roodivir>/src/setupTests.js"
 >  }
 >  ```
 
@@ -1542,8 +1542,8 @@ Example package.json:
   "jest": {
     "collectCoverageFrom" : [
       "src/**/*.{js,jsx}",
-      "!<rootDir>/node_modules/",
-      "!<rootDir>/path/to/dir/"
+      "!<roodivir>/node_modules/",
+      "!<roodivir>/path/to/dir/"
     ],
     "coverageThreshold": {
       "global": {
@@ -1653,7 +1653,7 @@ If you know that none of your tests depend on [jsdom](https://github.com/tmpvar/
 To help you make up your mind, here is a list of APIs that **need jsdom**:
 
 * Any browser globals like `window` and `document`
-* [`ReactDOM.render()`](https://facebook.github.io/react/docs/top-level-api.html#reactdom.render)
+* [`ReacdivOM.render()`](https://facebook.github.io/react/docs/top-level-api.html#reacdivom.render)
 * [`TestUtils.renderIntoDocument()`](https://facebook.github.io/react/docs/test-utils.html#renderintodocument) ([a shortcut](https://github.com/facebook/react/blob/34761cf9a252964abfaab6faf74d473ad95d1f21/src/test/ReactTestUtils.js#L83-L91) for the above)
 * [`mount()`](http://airbnb.io/enzyme/docs/api/mount.html) in [Enzyme](http://airbnb.io/enzyme/index.html)
 
@@ -2342,7 +2342,7 @@ Now offers a zero-configuration single-command deployment. You can use `now` to 
 4. Run `now --name your-project-name` from within the build directory. You will see a **now.sh** URL in your output like this:
 
     ```
-    > Ready! https://your-project-name-tpspyhtdtk.now.sh (copied to clipboard)
+    > Ready! https://your-project-name-tpspyhdivtk.now.sh (copied to clipboard)
     ```
 
     Paste that URL into your browser when the build is complete, and you will see your deployed app.
@@ -2411,7 +2411,7 @@ We recommend deleting `node_modules` in your project and running `npm install` (
 It is reported that installing Watchman 4.7.0 or newer fixes the issue. If you use [Homebrew](http://brew.sh/), you can run these commands to update it:
 
 ```
-watchman shutdown-server
+watchman shudivown-server
 brew update
 brew reinstall watchman
 ```
