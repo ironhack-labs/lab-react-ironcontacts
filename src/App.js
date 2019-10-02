@@ -73,11 +73,11 @@ class App extends Component {
     let newContact = this.state.allContacts[i];
     let addedContacts = this.state.activeContacts;
     addedContacts.push(newContact);
-    // let contactsCopy = [...contacts];
-    // contactsCopy.splice(i, 1);
+    let contactsCopy = [...this.state.allContacts];
+    contactsCopy.splice(i, 1);
     this.setState({
       activeContacts: addedContacts,
-      // allContacts: contactsCopy
+      allContacts: contactsCopy
     });
   };
 
