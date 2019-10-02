@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { contacts } from "./contacts";
 import "./App.css";
+import Contact from "./Contact";
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,8 @@ class App extends Component {
     let sortbyName = newState.contacts.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
-      } return 1
+      }
+      return 1;
     });
     this.setState(sortbyName);
   };
@@ -75,21 +77,11 @@ class App extends Component {
           <tbody>
             {this.state.contacts.map((contact, idx) => {
               return (
-                <tr key={idx}>
-                  <td>
-                    <img className="contact-pic"
-                      src={contact.pictureUrl}
-                      alt={contact.name + "profile picture"}
-                    />
-                  </td>
-                  <td>{contact.name}</td>
-                  <td>{contact.popularity.toFixed(2)}</td>
-                  <td>
-                    <button onClick={() => this.removeContact(contact.name)}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                <Contact
+                  key={idx}
+                  {...contact}
+                  onClick={() => this.removeContact(contact.name)}
+                ></Contact>
               );
             })}
           </tbody>
