@@ -8,7 +8,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      contacts: contacts.splice(0, 5)
+      contacts: contacts.splice(0, 5),
+      classRow: "active"
     };
   }
   random(max) {
@@ -51,11 +52,15 @@ class App extends Component {
   }
 
   deleteMe (btn) {
-    let newContacts = [...this.state.contacts.slice(0, btn), ...this.state.contacts.slice(btn+1, this.state.contacts.length)]
-    this.setState({
-      ...this.state,
-      contacts : newContacts
-    });
+    let newContacts = [...this.state.contacts.slice(0, btn), ...this.state.contacts.slice(btn+1, this.state.contacts.length)];
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        classRow : "active deleted",
+        contacts : newContacts
+      });
+    }, 1000);
+    
   }
 
   render() {
@@ -64,10 +69,10 @@ class App extends Component {
         <h1>Iron Contacts</h1>
         <div className="buttons-container">
         <button onClick={() => this.addRandomContact()}>
-          Add Random Contact
+          ADD RANDOM CONTACT
         </button>
-        <button onClick={() => this.sortName()}>Sort by name</button>
-        <button onClick={() => this.sortPopularity()}>Sort by popularity</button>
+        <button onClick={() => this.sortName()}>SORT BY NAME</button>
+        <button onClick={() => this.sortPopularity()}>SORT BY POPULARITY</button>
         </div>
         <table>
           <thead>
@@ -80,7 +85,7 @@ class App extends Component {
           </thead>
           <tbody>
             {this.state.contacts.map((actor, idx) => (
-              <Contact key={idx} btn={idx} {...actor} delete={()=> this.deleteMe(idx)}></Contact>
+              <Contact key={idx} className={this.state.classRow} {...actor} delete={()=> this.deleteMe(idx)}></Contact>
             ))}
           </tbody>
         </table>

@@ -1,7 +1,6 @@
 * {
-  font-family: 'helvetica';
+  font-family: "helvetica";
   color: aliceblue;
-  
 }
 .App {
   width: 100vw;
@@ -24,10 +23,7 @@ button {
   padding: 10px 20px;
   font-size: 17;
   font-weight: bold;
-
 }
-
-
 
 img {
   width: 100px;
@@ -37,14 +33,21 @@ img {
   width: 500px;
   justify-content: space-between;
   align-items: center;
-
 }
 
 table {
   margin: 100px;
   width: 700px;
-  
 }
 td {
   width: 100px;
 }
+
+.active{
+  transition: all ease opacity 1s;
+}
+.deleted{
+  opacity: 0%;
+}
+
+
