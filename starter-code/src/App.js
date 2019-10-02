@@ -16,7 +16,7 @@ class App extends Component {
     let sortbyName = newState.contacts.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
-      }
+      } return 1
     });
     this.setState(sortbyName);
   };
