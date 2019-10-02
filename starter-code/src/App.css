@@ -1,5 +1,7 @@
 .App {
+  font-family: "Lucida Grande", sans-serif;
   text-align: center;
+  
 }
 
 .App-logo {
@@ -22,7 +24,27 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+tbody {
+  display: table-row;
+  justify-content: space-between;
 }
+
+button {
+  width: 150px;
+  height: 30px;
+  margin: 40px 20px;
+  border-radius: 4px;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+img {
+  width: 150px;
+  height: 215px;
+  margin-left: 160px;
+}
+
