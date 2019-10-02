@@ -57,19 +57,22 @@ class App extends Component {
   }
 
 
-  deleteContact = () =>{
-    let contactList =  [...this.state.showContact]
-  }
+  // deleteContact = () =>{
+  //   let contactList =  [...this.state.showContact]
+  //   contactList.splice(index, 1)
+  //   this.state({
+  //     showContacs: contactList;
+  //   })
+  // }
 
 
   showTheContacts = ()=>{
-    let listOfContacts = this.state.firstContacts.map((eachContact)=>{
-      x++
-       return<tr>
+    let listOfContacts = this.state.firstContacts.map((eachContact, i)=>{
+       return<tr key={i}>
        <td><img src={eachContact.pictureUrl}/></td>
        <td>{eachContact.name}</td>
        <td>{eachContact.popularity}</td>
-       <td><button onClick={this.DeleteContact}>Delete {x}</button></td>
+       <td><button onClick={()=>this.deleteContact(i)}>Delete {i} </button></td>
      </tr> 
       
       
@@ -83,12 +86,11 @@ class App extends Component {
     }
 
 
-    DeleteContact = () => {
-      console.log({x})
+    deleteContact = (index) => {
       let allContacs = [ ...this.state.allContacts ] //copy of all guys not seen
         //  this.state.allContacts.splice(randomIndex,1) //take contact out of old list
          let newContactList = [...this.state.firstContacts]
-        //  newContactList.unshift(newContact) //make new copy of firstContacts adn add newContact to that
+        newContactList.splice(index, 1) //make new copy of firstContacts adn add newContact to that
          console.log(newContactList)
          this.setState({
               firstContacts: newContactList,
