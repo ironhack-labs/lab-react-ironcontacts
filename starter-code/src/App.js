@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json'
-
+import Row from './components/row.js'
 
 class App extends Component {
 
@@ -69,12 +69,7 @@ class App extends Component {
       </tr>
 
       {this.state.contacts.map((item, index) => {
-         return <tr key={index}>
-         <td><img width="100" height="100" src={item.pictureUrl}></img></td>
-         <td>{item.name}</td>
-         <td>{item.popularity}</td>
-         <td><button onClick={ () => { this.deleteContact(index) } }>Delete</button></td>
-         </tr>
+        return <Row key={index} {...item} clickToDelete={() => this.deleteContact(index)} />
       })}
 
         </table>
