@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json'
 import Row from './components/row.js'
+import Table from './components/table.js'
+
 
 class App extends Component {
 
@@ -46,9 +48,6 @@ class App extends Component {
       })
     })
   }
-
-  
-  
   
   render() {
 
@@ -61,18 +60,25 @@ class App extends Component {
 
     <div>
     <table>
+      <thead>
       <tr>
       <th>Picture</th>
       <th>Name</th>
       <th>Popularity</th>
       <th>Action</th>
       </tr>
+      </thead>
+      <tbody>
 
       {this.state.contacts.map((item, index) => {
         return <Row key={index} {...item} clickToDelete={() => this.deleteContact(index)} />
       })}
+      </tbody>
+      </table>
 
-        </table>
+      <div> the info below is practicing a component that wraps entire table</div>
+
+      <Table info={this.state.contacts} clickToDelete={() => this.deleteContact()}></Table>
       </div>
       </div>
     );
