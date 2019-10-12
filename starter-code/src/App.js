@@ -6,6 +6,7 @@ import Row from './components/row.js'
 import Table from './components/table.js'
 
 
+
 class App extends Component {
 
   state = {
@@ -14,6 +15,7 @@ class App extends Component {
   }
 
   deleteContact = (index) => {
+    alert(index);
     let temp = [... this.state.contacts]
     temp.splice(index, 1)
     this.setState({
@@ -78,8 +80,16 @@ class App extends Component {
 
       <div> the info below is practicing a component that wraps entire table</div>
 
-      <Table info={this.state.contacts} clickToDelete={() => this.deleteContact()}></Table>
+      <Table info={this.state.contacts} aMethod={this.deleteContact}></Table>
       </div>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
       </div>
     );
   }

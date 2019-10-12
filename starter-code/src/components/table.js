@@ -5,8 +5,8 @@ class Table extends Component {
   constructor(props){
       super(props);
        this.state={
-       data:this.props.info,
-       myclick:this.deletecontact
+       data:this.props.info
+       
 
      }
 
@@ -35,11 +35,11 @@ class Table extends Component {
       </thead>
       <tbody>
       {
-        this.state.data.map((item, i) => {
+        this.props.info.map((item, i) => {
         return <tr key={i}><td>{item.name}</td>
         <td>{item.popularity}</td>
         <td><img width="50" height="50" src={item.pictureUrl}></img></td>
-        <td><button onClick={this.deletecontact(i)}>Delete</button></td>
+        <td><button onClick={  () => this.props.aMethod(i)  } >Delete</button></td>
        </tr>
       })
     }

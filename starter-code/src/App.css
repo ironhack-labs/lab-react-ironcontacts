@@ -17,6 +17,13 @@
 .App-title {
   font-size: 1.5em;
 }
+.red{
+  color:red;
+}
+
+.blue{
+  color:blue;
+}
 
 .App-intro {
   font-size: large;
