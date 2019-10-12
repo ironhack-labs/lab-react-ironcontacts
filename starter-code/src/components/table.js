@@ -6,16 +6,13 @@ class Table extends Component {
       super(props);
        this.state={
        data:this.props.info
-       
-
      }
-
-     
-
   }
 
-  deletecontact = (a) => {
-    console.log(a);
+  updateContacts = (temp) => {
+    this.setState({
+       data:temp
+    });
   }
 
   render() {
@@ -35,8 +32,11 @@ class Table extends Component {
       </thead>
       <tbody>
       {
-        this.props.info.map((item, i) => {
-        return <tr key={i}><td>{item.name}</td>
+         //   this.props.info.map((item, i) => {
+         // if using props line above then you dont have to call  this.tableRef.current.updateContacts(temp) in parent
+         
+          this.state.data.map((item, i) => {
+            return <tr key={i}><td>{item.name}</td>
         <td>{item.popularity}</td>
         <td><img width="50" height="50" src={item.pictureUrl}></img></td>
         <td><button onClick={  () => this.props.aMethod(i)  } >Delete</button></td>

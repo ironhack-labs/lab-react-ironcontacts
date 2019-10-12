@@ -9,19 +9,30 @@ import Table from './components/table.js'
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+    this.tableRef=React.createRef();
+  }
+
   state = {
     contacts: contacts.splice(0,5),
     allContacts: contacts,
   }
 
   deleteContact = (index) => {
-    alert(index);
+    
     let temp = [... this.state.contacts]
     temp.splice(index, 1)
+
     this.setState({
       contacts: temp
     })
+
+    this.tableRef.current.updateContacts(temp);
+
   }
+
+  
 
   sortByPopularity = (a) => {
     let contacts = this.state.contacts
@@ -80,7 +91,7 @@ class App extends Component {
 
       <div> the info below is practicing a component that wraps entire table</div>
 
-      <Table info={this.state.contacts} aMethod={this.deleteContact}></Table>
+      <Table ref={this.tableRef} info={this.state.contacts} aMethod={this.deleteContact}></Table>
       </div>
 
 
