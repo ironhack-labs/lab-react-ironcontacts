@@ -10,6 +10,8 @@ class App extends Component {
     contacts: contacts.slice(0, 5)
    }
    this.addRandomContact = this.addRandomContact.bind(this);
+   this.sortbyName = this.sortbyName.bind(this);
+   this.sortbyPop = this.sortbyPop.bind(this);
  }
 
  addRandomContact(){
@@ -24,6 +26,21 @@ class App extends Component {
    }
 
  
+ sortbyName(){
+   let newOrder = [...this.state.contacts];
+    let contacts = newOrder.sort((a, b) => {
+      return a.name > b.name ? 1 : -1;
+    });
+     this.setState({ contacts })
+   }
+
+   sortbyPop(){
+    let newOrderPop = [...this.state.contacts];
+     let contacts = newOrderPop.sort((a, b) => {
+       return a.popularity > b.popularity ? 1 : -1;
+     });
+      this.setState({ contacts })
+    }
 
  render() {
    return (
@@ -31,6 +48,8 @@ class App extends Component {
      <div>
        <h1>Iron Contacts</h1>
        <button onClick={this.addRandomContact}>Add Random Contacts</button>
+       <button onClick={this.sortbyName}>Sort by name</button>
+       <button onClick={this.sortbyPop}>Sort by popularity</button>
         <Table contacts={this.state.contacts} />
      </div>
 
