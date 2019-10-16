@@ -27,11 +27,28 @@ class App extends Component {
   addRandomContact() {
     let random = Math.floor(Math.random() * (contacts.length - 5) + 5);
     const listCopy = [...this.state.list];
-  //  { name, pictureUrl, popularity } = this.state.contacts[random]
     listCopy.push(contacts[random]);
     this.setState({ 
       list: listCopy })
     console.log(listCopy)
+  }
+
+  sortByName(){
+    const listCopy = [...this.state.list];
+      listCopy.sort((a,b) => a.name.localeCompare(b.name));
+      this.setState({ 
+        list: listCopy 
+      })
+      // console.log(listCopy)
+  }
+
+  sortByPopularity(){
+    const listCopy = [...this.state.list];
+      listCopy.sort((a,b) => a.popularity - b.popularity);
+      this.setState({ 
+        list: listCopy 
+      })
+      // console.log(listCopy)
   }
 
   render() {
@@ -41,6 +58,12 @@ class App extends Component {
         <h1>IronContacts</h1>
         <button onClick={() => this.addRandomContact()}>
           Add Random Contact
+        </button>
+        <button onClick={() => this.sortByName()}>
+          Sort By Name
+        </button>
+        <button onClick={() => this.sortByPopularity()}>
+        Sort By Popularity
         </button>
 
         <table>
