@@ -1,28 +1,101 @@
 .App {
+  width: 60rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.app-header {
+  font-size: 6.5rem;
+  margin: 5rem 0 2rem 0;
+}
+
+.contacts-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;;
+}
+
+.contacts-container__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+  align-items: center;;
+}
+
+
+
+.contacts-container__row:not(:first-child) {
+  margin-bottom: 1.5rem;
+}
+
+.contacts-container__row--header {
+  width: 25%;
   text-align: center;
+  font-size: 2.8rem;
+  margin: 1rem 0;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.contacts-container__row--img {
+  width: 7rem;
+  width: 25%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.contacts-container__row--name {
+  text-align: center;
+  padding: 0 1rem;
+  font-size: 3rem;
+  width: 25%;
+}
+
+.contacts-container__row--popularity {
+  text-align: center;
+  padding: 0 1rem;
+  font-size: 3rem;
+  width: 25%;
+}
+
+.myBtn {
+  padding: 1rem 2rem;
+  margin: 1rem 0 2rem 0;
+  border: 1px solid #666;
+  background-color: #fff;
+  font-size: 1.8rem;
+  transition: all .4s;
+  outline: none;
+}
+
+.myBtn:hover {
+  cursor: pointer;
+  background-color: #666;
+  border: 1px solid #fff;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.btns-container {
+  width: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.App-intro {
-  font-size: large;
+.btn-delete {
+  font-size: 1.8rem;
+  width: 20%;
+  padding: 1rem 0;
+  margin: 0 2.5%;
+  background-color: #fff;
+  border: 1px solid #666;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn-delete:hover {
+  cursor: pointer;
 }
