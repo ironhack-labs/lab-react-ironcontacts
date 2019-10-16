@@ -1,5 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+body {
+  background-color: rgb(214, 223, 132);
+  font-family: "Poppins", sans-serif;
+}
 .App {
   text-align: center;
+}
+
+.button-sort-name {
+  background-color: violet;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  height: 30px;
+}
+
+
+.button-random-contact {
+  background-color: rgb(130, 213, 238);
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  height: 30px;
+}
+
+.button-sort-popularity {
+  background-color: rgb(238, 182, 130);
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  height: 30px;
+
+}
+
+.Contact-Image {
+border-radius: 20px;
+}
+
+.delete-btn {
+background-color:rgb(250, 132, 132) ;
+text-decoration: solid;
+border-radius: 9px;
+height: 30px;
+font-weight: bold;
+}
+
+.Contact-Table{
+  display: flex;
+  justify-content: center;
+}
+
+.Contact-Image{
+  height: 90px;
+  width: 70px;
 }
 
 .App-logo {
