@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "react": "^16.9.0",
+    "react-app": "^1.1.2",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.2"
+    "react-player": "^1.13.0",
+    "react-scripts": "3.1.2",
+    "web-pack": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
