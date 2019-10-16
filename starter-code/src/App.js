@@ -11,7 +11,7 @@ class App extends Component {
   
   addNewRandom(){
     let copyContatos = this.state.contatos.map(e => e);
-    copyContatos.unshift(contacts[Math.floor(Math.random() * contacts.length)])
+    copyContatos.unshift(contacts[Math.floor(Math.random() * contacts.length - 1)])
     this.setState({
       contatos: copyContatos
     }) 
@@ -34,11 +34,14 @@ class App extends Component {
   sortByPopularity(){
     let copyContatos = this.state.contatos.map(e => e);
     copyContatos.sort((a, b) => {
-      if (a.popularity > b.popularity) {
+      if (a.popularity < b.popularity) {
         return 1
       } else {
         return -1
       }
+    })
+    this.setState({
+      contatos: copyContatos
     })
   }
 
