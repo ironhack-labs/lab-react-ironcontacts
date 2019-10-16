@@ -12,7 +12,7 @@ class App extends Component {
       contacts: contacts.slice(0,5)
     }
     AddContact() {
-    let max = contacts.length - 1
+    let max = contacts.length
     let min = this.state.contacts.length
     let newContacts = [...this.state.contacts];
     console.log(newContacts)
