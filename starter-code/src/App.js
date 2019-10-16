@@ -15,13 +15,14 @@ class App extends Component {
     this.sortListByPopularity = this.sortListByPopularity.bind(this);
   }
   getFirstFive() {
-    let result = contacts.slice(0, 5);
+    let result = contacts.splice(0, 5);
     return result;
   }
   addRandom() {
-    const randomIdx = Math.floor(Math.random() * (contacts.length - 5) + 5);
     const newList = [...this.state.list];
-    newList.push(contacts[randomIdx]);
+    const randomIdx = Math.floor(Math.random() * (contacts.length - newList.length) + newList.length);
+    newList.push(contacts.splice(randomIdx, 1)[0]);
+    console.log(newList);
     this.setState({ list: newList });
   }
   sortListByName() {
