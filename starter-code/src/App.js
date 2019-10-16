@@ -16,7 +16,7 @@ class App extends Component {
     let min = this.state.contacts.length
     let newContacts = [...this.state.contacts];
     console.log(newContacts)
-    newContacts.push(contacts[(Math.floor(Math.random() * (max - min + 1)) + min)])
+    newContacts.unshift(contacts[(Math.floor(Math.random() * (max - min + 1)) + min)])
     this.setState({
       contacts: newContacts
       })
