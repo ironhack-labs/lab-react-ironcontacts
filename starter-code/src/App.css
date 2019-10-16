@@ -22,6 +22,18 @@
   font-size: large;
 }
 
+.content {
+  text-align: center;
+}
+
+.tableCelebs{
+  margin: 0 auto;
+}
+
+.imgCelebs {
+  height: 30%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
