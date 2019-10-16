@@ -46,9 +46,9 @@ class App extends Component {
     let contacts = this.state.fiveContacts
     this.setState({
       contacts: contacts.sort((a,b) => {
-        if(a.popularity > b.popularity) {
+        if(a.popularity < b.popularity) {
           return 1
-        } else if(a.popularity < b.popularity) {
+        } else if(a.popularity > b.popularity) {
           return -1
         } else {
           return 0
