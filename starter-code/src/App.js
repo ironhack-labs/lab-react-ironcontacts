@@ -34,7 +34,11 @@ class App extends Component {
     sortedList.sort((a, b) => b.popularity - a.popularity);
     this.setState({ list: sortedList });
   }
-
+  deleteRow(idx) {
+    const newList = [...this.state.list];
+    newList.splice(idx, 1);
+    this.setState({ list: newList });
+  }
   render() {
     return (
       <div className="App">
@@ -56,7 +60,13 @@ class App extends Component {
             </thead>
             <tbody>
               {this.state.list.map((item, idx) => (
-                <TableRow key={idx} pictureUrl={item.pictureUrl} name={item.name} popularity={item.popularity} />
+                <TableRow
+                  key={idx}
+                  pictureUrl={item.pictureUrl}
+                  name={item.name}
+                  popularity={item.popularity}
+                  deleteRow={() => this.deleteRow(idx)}
+                />
               ))}
             </tbody>
           </table>

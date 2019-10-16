@@ -5,7 +5,7 @@ class TableRow extends Component {
     super(props);
   }
   render() {
-    const { name, pictureUrl, popularity } = this.props;
+    const { name, pictureUrl, popularity, deleteRow } = this.props;
     return (
       <tr>
         <td>
@@ -13,6 +13,9 @@ class TableRow extends Component {
         </td>
         <td>{name}</td>
         <td>{Math.round(popularity * 100) / 100}</td>
+        <td>
+          <button onClick={deleteRow}>Detele</button>{" "}
+        </td>
       </tr>
     );
   }
