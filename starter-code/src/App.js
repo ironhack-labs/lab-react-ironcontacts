@@ -10,19 +10,28 @@ class App extends Component {
       list: this.getFirstFive()
     };
     this.addRandom = this.addRandom.bind(this);
+    this.sortListByName = this.sortListByName.bind(this);
+    this.sortListByPopularity = this.sortListByPopularity.bind(this);
   }
   getFirstFive() {
     let result = contacts.slice(0, 5);
     return result;
   }
   addRandom() {
-    console.log("clicked");
     const randomIdx = Math.floor(Math.random() * (contacts.length - 5) + 5);
     const newList = [...this.state.list];
     newList.push(contacts[randomIdx]);
     this.setState({ list: newList });
-    console.log(newList);
-    console.log(this.state.list);
+  }
+  sortListByName() {
+    const sortedList = [...this.state.list];
+    sortedList.sort((a, b) => a.name.localeCompare(b.name));
+    this.setState({ list: sortedList });
+  }
+  sortListByPopularity() {
+    const sortedList = [...this.state.list];
+    sortedList.sort((a, b) => b.popularity - a.popularity);
+    this.setState({ list: sortedList });
   }
 
   render() {
@@ -33,6 +42,8 @@ class App extends Component {
           <h1 className="App-title">IronContacts</h1>
         </header>
         <button onClick={this.addRandom}>Add Random Contact</button>
+        <button onClick={this.sortListByName}>Sort by Name</button>
+        <button onClick={this.sortListByPopularity}>Sort by Popularity</button>
         <div className="Table-container">
           <table>
             <thead>
