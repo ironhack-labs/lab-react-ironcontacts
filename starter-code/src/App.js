@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
+import TableRow from "./TableRow";
 import contacts from "./contacts.json";
 
 class App extends Component {
@@ -55,13 +56,7 @@ class App extends Component {
             </thead>
             <tbody>
               {this.state.list.map((item, idx) => (
-                <tr key={idx}>
-                  <td>
-                    <img src={item.pictureUrl} alt="" />
-                  </td>
-                  <td>{item.name}</td>
-                  <td>{Math.round(item.popularity * 100) / 100}</td>
-                </tr>
+                <TableRow key={idx} pictureUrl={item.pictureUrl} name={item.name} popularity={item.popularity} />
               ))}
             </tbody>
           </table>
