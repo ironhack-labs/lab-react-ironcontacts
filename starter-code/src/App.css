@@ -1,15 +1,13 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: blue;
+  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -18,11 +16,16 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.actor-container img{
+  width: 100px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn, .search, .search input, .filters tr, .filters th{
+  padding : 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.delbtn{
+  background-color: red;
 }
