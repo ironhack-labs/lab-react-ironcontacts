@@ -9,16 +9,20 @@ class App extends Component {
     this.state = {
       list: this.getFirstFive()
     };
-    this.getFirstFive = this.getFirstFive.bind(this);
+    this.addRandom = this.addRandom.bind(this);
   }
   getFirstFive() {
-    let result = [];
-    console.log(contacts);
-    for (let idx = 0; idx < 5; idx += 1) {
-      result.push(contacts[idx]);
-    }
-    // this.setState({list:result});
+    let result = contacts.slice(0, 5);
     return result;
+  }
+  addRandom() {
+    console.log("clicked");
+    const randomIdx = Math.floor(Math.random() * (contacts.length - 5) + 5);
+    const newList = [...this.state.list];
+    newList.push(contacts[randomIdx]);
+    this.setState({ list: newList });
+    console.log(newList);
+    console.log(this.state.list);
   }
 
   render() {
@@ -28,6 +32,7 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 className="App-title">IronContacts</h1>
         </header>
+        <button onClick={this.addRandom}>Add Random Contact</button>
         <div className="Table-container">
           <table>
             <thead>
@@ -38,8 +43,8 @@ class App extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.list.map(item => (
-                <tr>
+              {this.state.list.map((item, idx) => (
+                <tr key={idx}>
                   <td>
                     <img src={item.pictureUrl} alt="" />
                   </td>
