@@ -9,17 +9,29 @@ class App extends Component {
     super(props);
 
     this.state = {
-      contacts
+      list: this.getFiveContacts()
     };
+    this.addRandomContact = this.addRandomContact.bind(this);
+    this.getFiveContacts = this.getFiveContacts.bind(this);
   }
   getFiveContacts() {
-    let five = [];
+    const result=[]
     for (let i = 0; i < 5; i += 1) {
-      const { name, pictureUrl, popularity } = this.state.contacts[i];
+      const { name, pictureUrl, popularity } = contacts[i];
       console.log({ name, pictureUrl, popularity });
-      five.push({ name, pictureUrl, popularity });
+      result.push({ name, pictureUrl, popularity });
     }
-    return five;
+    return result;
+  }
+
+  addRandomContact() {
+    let random = Math.floor(Math.random() * (contacts.length - 5) + 5);
+    const listCopy = [...this.state.list];
+  //  { name, pictureUrl, popularity } = this.state.contacts[random]
+    listCopy.push(contacts[random]);
+    this.setState({ 
+      list: listCopy })
+    console.log(listCopy)
   }
 
   render() {
@@ -27,21 +39,25 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
+        <button onClick={() => this.addRandomContact()}>
+          Add Random Contact
+        </button>
+
         <table>
           <tr>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
           </tr>
-          {this.getFiveContacts().map((item, idx) => {
+          {this.state.list.map((item, idx) => {
             return (
               <tr>
-              <User
-                key={idx}
-                name={item.name}
-                pictureUrl={item.pictureUrl}
-                popularity={item.popularity}
-              />
+                <User
+                  key={idx}
+                  name={item.name}
+                  pictureUrl={item.pictureUrl}
+                  popularity={item.popularity}
+                />
               </tr>
             );
           })}
