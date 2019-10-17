@@ -1,0 +1,9 @@
+.posiitionTable{
+    margin-left:300px;
+    margin-top: 50px;
+}
+
+.pictures{
+    width: 60px;
+    display: flex;
+}
