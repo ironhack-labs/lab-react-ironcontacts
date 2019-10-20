@@ -9,8 +9,8 @@ const Table = (props) => {
         <th>Name</th>
         <th>Popularity</th>
       </tr>
-      {props.contacts.map((elem , idx)=> {
-       return <TableDataRow key={idx} name={elem.name} picture={elem.pictureUrl} pop={elem.popularity} />
+      {props.contacts.map((elem, idx)=> {
+       return <TableDataRow key={idx} name={elem.name} picture={elem.pictureUrl} pop={elem.popularity} delete={props.delete} idx={idx} />
       })}
     </table>
   );

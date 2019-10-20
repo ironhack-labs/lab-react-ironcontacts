@@ -12,6 +12,7 @@ class App extends Component {
    this.addRandomContact = this.addRandomContact.bind(this);
    this.sortbyName = this.sortbyName.bind(this);
    this.sortbyPop = this.sortbyPop.bind(this);
+   this.delContacts= this.delContacts.bind(this);
  }
 
  addRandomContact(){
@@ -42,6 +43,14 @@ class App extends Component {
       this.setState({ contacts })
     }
 
+  delContacts(idx){
+  let newContact = [...this.state.contacts];
+    newContact.splice(idx, 1);
+    this.setState({
+        contacts: newContact
+    })
+  }
+
  render() {
    return (
      
@@ -50,7 +59,7 @@ class App extends Component {
        <button onClick={this.addRandomContact}>Add Random Contacts</button>
        <button onClick={this.sortbyName}>Sort by name</button>
        <button onClick={this.sortbyPop}>Sort by popularity</button>
-        <Table contacts={this.state.contacts} />
+        <Table contacts={this.state.contacts} delete={this.delContacts}/>
      </div>
 
    )
