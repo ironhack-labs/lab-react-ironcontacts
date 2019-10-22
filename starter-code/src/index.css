@@ -3,3 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.contact-list{
+  display: flex;
+  justify-content: center;
+}
+
+.contact-list img {
+  height: 100px;
+}
