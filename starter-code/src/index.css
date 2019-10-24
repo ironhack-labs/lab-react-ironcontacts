@@ -12,3 +12,9 @@ body {
 .contact-list img {
   height: 100px;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
