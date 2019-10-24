@@ -4,7 +4,7 @@ import { Table } from "reactstrap";
 
 const CelebList = ({ deleteItem, contact }) => {
   return (
-    <Table bordered>
+    <Table striped dark>
       <thead>
         <tr>
           <th>Picture:</th>

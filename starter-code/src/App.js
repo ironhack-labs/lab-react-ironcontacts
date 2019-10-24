@@ -16,15 +16,17 @@ class App extends Component {
     })
   }
 
-  // sortByName = (i) => {
+  sortByName = (i) => {
+    this.setState({
+      contact: this.state.contact.sort((a, b) => a.name > b.name ? 1 : -1)
+    })
+  }
 
-  //   this.setState({
-  //     contact: this.state.contact.sort((a, b) => (a.name > b.name) ? : -1)
-
-  //   })
-
-
-  // }
+  sortByPopularity = (i) => {
+    this.setState({
+      contact: this.state.contact.sort((a, b) => b.popularity - a.popularity)
+    })
+  }
 
   addRandom = (e) => {
     const randomIdx = Math.floor(Math.random() * Contact.length)
@@ -40,10 +42,14 @@ class App extends Component {
           <h1 className="App-title">IronContacts</h1>
         </header>
 
+        <Button color="light" onClick={this.addRandom}> Add Random Contact</Button>
+        <Button color="light" onClick={this.sortByName}> Sort by Name</Button>
+        <Button color="light" onClick={this.sortByPopularity}> Sort by Popularity</Button>
         <div>
           <CelebList contact={this.state.contact} deleteItem={this.deleteItem}
           />
-          <Button color="primary" onClick={this.addRandom}> Add Random Contact</Button>
+
+
         </div>
       </div >
     );
