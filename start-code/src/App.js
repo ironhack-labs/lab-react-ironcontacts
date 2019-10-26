@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import contactsJson from "./contacts.json";
+import "./styles/button.scss";
 
 import Line from "./components/Line";
 
@@ -45,29 +46,40 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <h2>IronContacts</h2>
-        <button onClick={this.addPerson}>Add random Contact</button>
-        <button onClick={this.sortByName}>Sort by Name</button>
-        <button onClick={this.sortByName}>Sort by Populararity</button>
-        <table
-          style={{
-            textAlign: "center"
-          }}
-        >
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Populararity</th>
-          </tr>
+        <nav>
+          <h2>IronContacts</h2>
+        </nav>
+        <div className="flex-container">
+          <table
+            cellpadding="20"
+            style={
+              {
+                // textAlign: "center"
+              }
+            }
+          >
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Populararity</th>
+            </tr>
 
-          {this.state.contacts.map((person, i) => (
-            <Line person={person} deletePerson={this.deletePerson} index={i} />
-          ))}
-        </table>
+            {this.state.contacts.map((person, i) => (
+              <Line
+                person={person}
+                deletePerson={this.deletePerson}
+                index={i}
+              />
+            ))}
+          </table>
+          <div>
+            <button className="btn btn-primary" onClick={this.addPerson}>
+              <p>Add random Contact</p>
+            </button>
+            <button onClick={this.sortByName}>Sort by Name</button>
+            <button onClick={this.sortByName}>Sort by Populararity</button>
+          </div>
+        </div>
       </div>
     );
   }
