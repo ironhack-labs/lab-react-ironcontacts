@@ -12,7 +12,12 @@ nav h2 {
 
 .flex-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin: 80px;
+}
+
+.flex-container div:last-child {
+  margin-top: 40px;
 }
 
 /* 

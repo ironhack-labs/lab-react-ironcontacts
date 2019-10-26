@@ -15,7 +15,7 @@ class App extends Component {
     return a.name.localeCompare(b.name);
   };
   comparePopularity = (a, b) => {
-    return a.popularity.localeCompare(b.popularity);
+    return b.popularity.localeCompare(a.popularity);
   };
 
   addPerson = () => {
@@ -50,14 +50,7 @@ class App extends Component {
           <h2>IronContacts</h2>
         </nav>
         <div className="flex-container">
-          <table
-            cellpadding="20"
-            style={
-              {
-                // textAlign: "center"
-              }
-            }
-          >
+          <table cellpadding="20">
             <tr>
               <th>Picture</th>
               <th>Name</th>
@@ -74,10 +67,14 @@ class App extends Component {
           </table>
           <div>
             <button className="btn btn-primary" onClick={this.addPerson}>
-              <p>Add random Contact</p>
+              Add random Contact
             </button>
-            <button onClick={this.sortByName}>Sort by Name</button>
-            <button onClick={this.sortByName}>Sort by Populararity</button>
+            <button className="btn btn-primary" onClick={this.sortByName}>
+              Sort by Name
+            </button>
+            <button className="btn btn-primary" onClick={this.sortByPopularity}>
+              Sort by Populararity
+            </button>
           </div>
         </div>
       </div>
