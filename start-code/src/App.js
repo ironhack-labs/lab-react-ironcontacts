@@ -4,7 +4,7 @@ import "./App.css";
 import contactsJson from "./contacts.json";
 import "./styles/button.scss";
 
-import Line from "./components/Line";
+import Row from "./components/Row";
 
 class App extends Component {
   constructor() {
@@ -34,7 +34,9 @@ class App extends Component {
 
   sortByPopularity = () => {
     const contacts = [...this.state.contacts];
-    let sortedArray = contacts.sort(this.comparePopularity);
+    let sortedArray = contacts.sort((a, b) =>
+      a.popularity < b.popularity ? 1 : -1
+    );
     this.setState({ contacts: sortedArray });
   };
 
@@ -58,11 +60,7 @@ class App extends Component {
             </tr>
 
             {this.state.contacts.map((person, i) => (
-              <Line
-                person={person}
-                deletePerson={this.deletePerson}
-                index={i}
-              />
+              <Row person={person} deletePerson={this.deletePerson} index={i} />
             ))}
           </table>
           <div>
