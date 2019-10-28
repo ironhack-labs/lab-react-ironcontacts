@@ -56,7 +56,7 @@ class App extends Component {
             <tr>
               <th>Picture</th>
               <th>Name</th>
-              <th>Populararity</th>
+              <th>Popularity</th>
             </tr>
 
             {this.state.contacts.map((person, i) => (
