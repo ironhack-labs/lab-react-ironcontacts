@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import Button from "./Button.js";
 
 class Row extends Component {
   render() {
@@ -10,10 +11,12 @@ class Row extends Component {
         </td>
         <td>{name}</td>
         <td>{popularity}</td>
+        <td>
+          <Button text={"Delete"} />
+        </td>
       </tr>
-
-    )
+    );
   }
 }
 
-export default Row
+export default Row;
