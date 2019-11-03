@@ -22,6 +22,12 @@
   font-size: large;
 }
 
+
+.main-container{
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
