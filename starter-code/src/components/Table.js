@@ -3,7 +3,7 @@ import Row from "./Row.js";
 
 class Table extends Component {
   render() {
-    const { contacts } = this.props;
+    const { contacts, onDelete } = this.props;
 
     return (
       <table>
@@ -17,7 +17,13 @@ class Table extends Component {
         </thead>
         <tbody>
           {contacts.map((contact, index) => {
-            return <Row key={index} {...contact} />;
+            return (
+              <Row
+                buttonAbility={() => onDelete(index)}
+                key={index}
+                {...contact}
+              />
+            );
           })}
         </tbody>
       </table>

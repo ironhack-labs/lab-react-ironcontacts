@@ -34,7 +34,15 @@ class App extends Component {
   sortByPopularity = () => {
     let contactsCopy = [...this.state.contacts];
     contactsCopy.sort(sortPopularity);
-    console.log(contactsCopy);
+    this.setState({
+      contacts: contactsCopy
+    });
+  };
+
+  handleDelete = contactIndex => {
+    console.log(contactIndex);
+    let contactsCopy = [...this.state.contacts];
+    contactsCopy.splice(contactIndex, 1);
     this.setState({
       contacts: contactsCopy
     });
@@ -60,7 +68,10 @@ class App extends Component {
             />
           </div>
           <div>
-            <Table contacts={this.state.contacts} />
+            <Table
+              contacts={this.state.contacts}
+              onDelete={this.handleDelete}
+            />
           </div>
         </div>
       </div>

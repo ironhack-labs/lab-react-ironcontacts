@@ -3,7 +3,7 @@ import Button from "./Button.js";
 
 class Row extends Component {
   render() {
-    const { pictureUrl, name, popularity } = this.props;
+    const { pictureUrl, name, popularity, buttonAbility } = this.props;
     return (
       <tr>
         <td>
@@ -12,7 +12,7 @@ class Row extends Component {
         <td>{name}</td>
         <td>{popularity}</td>
         <td>
-          <Button text={"Delete"} />
+          <Button ability={buttonAbility} text={"Delete"} />
         </td>
       </tr>
     );
