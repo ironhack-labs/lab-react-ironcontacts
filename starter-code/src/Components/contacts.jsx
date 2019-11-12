@@ -12,10 +12,10 @@ class ContactList extends Component {
 
   addNewContact = () => {
     console.log(this.state.restOfContacts);
-    let randomContact = this.state.restOfContacts[
+    const randomContact = this.state.restOfContacts[
       Math.floor(Math.random() * this.state.restOfContacts.length)
     ];
-    let copyContacts = [...this.state.contacts];
+    const copyContacts = [...this.state.contacts];
     copyContacts.push(randomContact);
     this.setState({ contacts: copyContacts });
   };
@@ -23,13 +23,13 @@ class ContactList extends Component {
   sortByName = () => {
     this.setState({ sort: !this.state.sort });
     if (this.state.sort === true) {
-      let sortedArr = this.state.contacts.sort((a, b) =>
+      const sortedArr = this.state.contacts.sort((a, b) =>
         a.name > b.name ? 1 : -1
       );
       this.setState({ contacts: sortedArr });
       console.log("sorting");
     } else {
-      let sortedArr = this.state.contacts.sort((a, b) =>
+      const sortedArr = this.state.contacts.sort((a, b) =>
         a.name < b.name ? 1 : -1
       );
       this.setState({ contacts: sortedArr });
@@ -40,7 +40,7 @@ class ContactList extends Component {
   deleteRow = theIndex => {
     console.log(theIndex);
     console.log(this.state.contacts);
-    let clonedArr = [...this.state.contacts];
+    const clonedArr = [...this.state.contacts];
     clonedArr.splice(theIndex, 1);
     console.log(clonedArr);
     this.setState({ contacts: clonedArr });
@@ -50,13 +50,13 @@ class ContactList extends Component {
   sortByPop = () => {
     this.setState({ sort: !this.state.sort });
     if (this.state.sort === true) {
-      let sortedArr = this.state.contacts.sort((a, b) =>
+      const sortedArr = this.state.contacts.sort((a, b) =>
         a.popularity > b.popularity ? 1 : -1
       );
       this.setState({ contacts: sortedArr });
       console.log("sorting");
     } else {
-      let sortedArr = this.state.contacts.sort((a, b) =>
+      const sortedArr = this.state.contacts.sort((a, b) =>
         a.popularity < b.popularity ? 1 : -1
       );
       this.setState({ contacts: sortedArr });
