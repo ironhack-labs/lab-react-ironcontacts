@@ -1,3 +1,14 @@
+
+.gallery img{
+  
+  margin-right: 10%;
+  width:30px;
+  height:40px;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+
 .App {
   text-align: center;
 }
