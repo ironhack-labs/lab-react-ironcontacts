@@ -36,7 +36,7 @@ class ContactList extends Component {
       console.log("sortingBack");
     }
   };
-
+  test;
   deleteRow = theIndex => {
     console.log(theIndex);
     console.log(this.state.contacts);
