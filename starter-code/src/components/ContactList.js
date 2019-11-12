@@ -17,7 +17,7 @@ const ContactList = props => {
                     <tr key={idx}>
                         <td><img src={contact.pictureURL} alt={contact.name} width={100} /></td>
                         <td>{contact.name}</td>
-                        <td>{contact.popularity}</td>
+                        <td>{contact.popularity.toFixed(2)}</td>
                     </tr>
                  ))}
             </tbody>

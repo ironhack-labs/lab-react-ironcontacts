@@ -14,29 +14,47 @@ class App extends Component {
     let restOfContacts = this.state.restOfContacts;
     let index = Math.floor(Math.random() * restOfContacts.length);
     let newContact = this.state.restOfContacts[index];
-    let immutableStateOfContacts = [...this.state.contacts];
+    let contacts = [...this.state.contacts];
 
     // add contact to the list to be displayed
-    immutableStateOfContacts.push(newContact);
+    contacts.push(newContact);
 
     // remove recently added contact from rest of contacs
     restOfContacts.splice(index, 1);
 
     // Update state
     this.setState({
-      contacts: immutableStateOfContacts,
+      contacts,
       restOfContacts
     })
+  }
 
+  sortByName = () => {
+    let contacts = [...this.state.contacts];
+    let namesSorted = contacts.sort( (a, b) => (a.name > b.name) ? 1 : (a.name < b.name) ? -1 : 0);
+    this.setState({
+      contacts: namesSorted
+    })
+  }
+
+  sortByPopularity = () => {
+    let contacts = [...this.state.contacts];
+    let popularitySorted = contacts.sort((a, b) => b.popularity - a.popularity);
+    this.setState({
+      contacts: popularitySorted
+    })
   }
 
   render() {
-    console.log(this.state.restOfContacts);
     
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <Button outline theme="light" onClick={this.randomContact}>Add Random Contact</Button>
+        <div className='ButtonSet'>
+          <Button outline theme="light" onClick={this.randomContact}>Add Random Contact</Button>
+          <Button outline theme="light" onClick={this.sortByName}>Sort By Name</Button>
+          <Button outline theme="light" onClick={this.sortByPopularity}>Sort By Popularity</Button>
+        </div>
         <ContactList contacts={this.state.contacts}/>
       </div>
     );
