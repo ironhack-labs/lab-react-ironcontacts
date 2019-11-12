@@ -1,0 +1,16 @@
+.contact-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.the-buttons button {
+    margin: 0 5px;
+}
+
+
+
+.contact-table img {
+    width: 70px;
+    height: 100px
+}
