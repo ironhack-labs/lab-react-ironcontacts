@@ -21,12 +21,30 @@ export default class App extends Component {
       return <FirstFive key={i} thePerson={eachOne} />;
     });
   };
+  sortbyp = () => {
+    let clone = [...this.state.vcontacts].sort(
+      (a, b) => a.popularity - b.popularity
+    );
+    this.setState({ vcontacts: clone });
+  };
+  sortbyn = () => {
+    let clone = [...this.state.vcontacts].sort((a, b) =>
+      a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+    );
+    this.setState({ vcontacts: clone });
+  };
   render() {
     return (
       <div>
         <h1>IronContacts</h1>
         <button className="btn btn-info" onClick={this.addRandom}>
           Add Random Contact
+        </button>{" "}
+        <button className="btn btn-secondary" onClick={this.sortbyn}>
+          Sort by Name
+        </button>{" "}
+        <button className="btn btn-secondary" onClick={this.sortbyp}>
+          Sort by Popularity
         </button>
         <br />
         <br />
