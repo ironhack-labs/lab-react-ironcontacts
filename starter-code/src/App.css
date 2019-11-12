@@ -1,5 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+  background-image: url(./images/stars.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.App h2 {
+  font-size: 3em;
+  padding: 40px 0;
+  color: white;
 }
 
 .App-logo {
@@ -21,8 +33,81 @@
 .App-intro {
   font-size: large;
 }
+.menubar {
+  width: 500px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.menubar button {
+  padding: 10px 12px;
+  border-radius: 5px;
+  font-size: 1em;
+}
+.menubar button, .card button {
+  cursor: pointer;
+}
+.actorTable {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.actorTable table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  width: 100%;
+  table-layout: fixed;
+}
+.spacing-table thead {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.actorTable table tbody td {
+  border-width: 2px 0;
+  width: 50%;
+  border-color: turquoise;
+  border-style: solid;
+  background-color: black;
+  color: white;
+  padding: 5px 15px;
+}
+.actorTable table td:first-child {
+  border-left-width: 3px;
+  border-radius: 5px 0 0 5px;
+}
+.actorTable table td:last-child {
+  border-right-width: 3px;
+  border-radius: 0 5px 5px 0;
+}
+.actorTable table thead tr td {
+  font-weight: bold;
+  text-align: left;
+  font-size: 1.4em;
+  padding-bottom: 20px;
+  color: white;
+}
+.card {
+  padding: 12px;
+  background-color: black;
+  border: 2px solid turquoise;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.card img {
+  width: 80px;
+}
+.card td {
+  text-align: left;
+  font-size: 1.6em;
+  padding-right: 10px;
+  color: white;
+}
+.card button {
+  padding: 10px 12px;
+  border-radius: 5px;
+  font-size: 0.7em;
 }
