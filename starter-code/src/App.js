@@ -13,7 +13,7 @@ class App extends Component {
 
   // CreateContact
   createContact = () => {
-      let movieTable = this.state.contacts.map((contact, i) => {
+    let movieTable = this.state.contacts.map((contact, i) => {
       return (
         <tr key={i}>
           {/* the key helps React to keep track of each elements in array*/}
@@ -49,7 +49,7 @@ class App extends Component {
 
   // getRandomContact
   getRandomContact = () => {
-    if(this.state.allContacts.length > 0){
+    if (this.state.allContacts.length > 0) {
       const randomIndex = Math.floor(
         Math.random() * this.state.allContacts.length
       );
@@ -61,7 +61,7 @@ class App extends Component {
       const contactArray = this.state.contacts;
       contactArray.push(randomContact);
       console.log(randomIndex, randomContact);
-  
+
       this.setState({
         contacts: contactArray,
         allContacts: newAllContact // update state of allContacts too
@@ -92,9 +92,12 @@ class App extends Component {
   // deleteContact
   deleteContact = i => {
     let copy = [...this.state.contacts];
-    copy.splice(i, 1);
+    let copyAll = [...this.state.allContacts];
+    copyAll.push(copy[i]); // add to allContacts when deleted
+    copy.splice(i, 1); //remove from contacts
     this.setState({
-      contacts: copy
+      contacts: copy,
+      allContacts: copyAll
     });
   };
 
