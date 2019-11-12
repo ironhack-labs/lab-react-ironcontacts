@@ -16,8 +16,8 @@ export default class App extends Component {
       <div>
         <h1>IronContacts</h1>
         <button className="btn btn-info">Add Random Contact</button>
-        <br />
-        <br />
+        <br />  
+        <br />  
         <table>
           <thead>
             <tr>
