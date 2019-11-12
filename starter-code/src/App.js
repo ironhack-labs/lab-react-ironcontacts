@@ -45,6 +45,14 @@ class App extends Component {
     })
   }
 
+  deleteContact = index => {
+    const contacts = [...this.state.contacts];
+    contacts.splice(index, 1);
+    this.setState({
+      contacts
+    })
+  }
+
   render() {
     
     return (
@@ -55,7 +63,8 @@ class App extends Component {
           <Button outline theme="light" onClick={this.sortByName}>Sort By Name</Button>
           <Button outline theme="light" onClick={this.sortByPopularity}>Sort By Popularity</Button>
         </div>
-        <ContactList contacts={this.state.contacts}/>
+        <ContactList contacts={this.state.contacts} clickToDelete={() => this.deleteContact}/>
+
       </div>
     );
   }
