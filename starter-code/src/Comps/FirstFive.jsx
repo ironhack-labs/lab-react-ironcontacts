@@ -8,6 +8,7 @@ export default function FirstFivey(props) {
           src={props.thePerson.pictureUrl}
           className="imgstyle"
           alt={props.thePerson.name}
+          title={props.thePerson.name}
         />
       </th>
       <th>
