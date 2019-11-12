@@ -56,14 +56,23 @@ class App extends Component {
     });
   };
 
-  // sortContact
-  sortContacts = () => {
-    let sortedContacts = [...this.state.contacts].sort((a, b) =>
-      a.name > b.name ? -1 : 1
+  //sortContactsByName
+  sortContactsByName = () => {
+    let sortedContactsByName = [...this.state.contacts].sort((a, b) =>
+      a.name > b.name ? 1 : -1
     );
-    console.log(sortedContacts);
     this.setState({
-      contacts: sortedContacts
+      contacts: sortedContactsByName
+    });
+  };
+
+  //sortContactsByPopularity
+  sortContactsByPopularity = () => {
+    let sortedContactsByPopularity = [...this.state.contacts].sort(
+      (a, b) => a.popularity - b.popularity
+    );
+    this.setState({
+      contacts: sortedContactsByPopularity
     });
   };
 
@@ -72,8 +81,10 @@ class App extends Component {
     return (
       <>
         <button onClick={this.getRandomContact}>Get Random Contact</button>
-        <button onClick={this.sortContacts}>Sort by name</button>
-        <button onClick={this.sortContacts}>Sort by popularity</button>
+        <button onClick={this.sortContactsByName}>Sort by name</button>
+        <button onClick={this.sortContactsByPopularity}>
+          Sort by popularity
+        </button>
         <h1>IronhackContacts</h1>
         {this.createTable()}
       </>
