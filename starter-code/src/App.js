@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   // Create Row
-  createRow = () => {
+  createContact = () => {
     let movieTable = this.state.contacts.map((contact, i) => {
       return (
         <tr key={i}>
@@ -21,6 +21,9 @@ class App extends Component {
           </th>
           <th>{contact.name}</th>
           <th>{Math.round(contact.popularity * 100) / 100}</th>
+          <th>
+            <button onClick={this.deleteContact}>Delete</button>
+          </th>
         </tr>
       );
     });
@@ -38,7 +41,7 @@ class App extends Component {
             <th>Popularity</th>
           </tr>
         </thead>
-        <tbody>{this.createRow()}</tbody>
+        <tbody>{this.createContact()}</tbody>
       </table>
     );
   };
@@ -69,10 +72,19 @@ class App extends Component {
   //sortContactsByPopularity
   sortContactsByPopularity = () => {
     let sortedContactsByPopularity = [...this.state.contacts].sort(
-      (a, b) => a.popularity - b.popularity
+      (a, b) => b.popularity - a.popularity
     );
     this.setState({
       contacts: sortedContactsByPopularity
+    });
+  };
+
+  // deleteContact
+  deleteContact = i => {
+    let copy = [...this.state.contacts];
+    copy.splice(i, 1);
+    this.setState({
+      contacts: copy
     });
   };
 
