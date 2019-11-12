@@ -13,7 +13,7 @@ class App extends Component {
 
   // CreateContact
   createContact = () => {
-    let movieTable = this.state.contacts.map((contact, i) => {
+      let movieTable = this.state.contacts.map((contact, i) => {
       return (
         <tr key={i}>
           {/* the key helps React to keep track of each elements in array*/}
@@ -23,7 +23,7 @@ class App extends Component {
           <th>{contact.name}</th>
           <th>{Math.round(contact.popularity * 100) / 100}</th>
           <th>
-            <button onClick={this.deleteContact}>Delete</button>
+            <button onClick={() => this.deleteContact(i)}>Delete</button>
           </th>
         </tr>
       );
@@ -49,21 +49,24 @@ class App extends Component {
 
   // getRandomContact
   getRandomContact = () => {
-    const randomIndex = Math.floor(
-      Math.random() * this.state.allContacts.length
-    );
-    const randomContact = this.state.allContacts[randomIndex];
-    const newAllContact = this.state.allContacts.filter(
-      // filter randomContact out
-      (v, i) => i !== randomIndex
-    );
-    const contactArray = this.state.contacts;
-    contactArray.push(randomContact);
-    console.log(randomIndex, randomContact);
-    this.setState({
-      contacts: contactArray,
-      allContacts: newAllContact // update state of allContacts too
-    });
+    if(this.state.allContacts.length > 0){
+      const randomIndex = Math.floor(
+        Math.random() * this.state.allContacts.length
+      );
+      const randomContact = this.state.allContacts[randomIndex];
+      const newAllContact = this.state.allContacts.filter(
+        // filter randomContact out
+        (v, i) => i !== randomIndex
+      );
+      const contactArray = this.state.contacts;
+      contactArray.push(randomContact);
+      console.log(randomIndex, randomContact);
+  
+      this.setState({
+        contacts: contactArray,
+        allContacts: newAllContact // update state of allContacts too
+      });
+    }
   };
 
   //sortContactsByName
