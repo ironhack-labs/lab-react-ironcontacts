@@ -1,0 +1,21 @@
+.pic {
+    height: 10vh;
+    width:5vw;
+}
+td {
+    text-align: center;
+}
+.delete {
+    height: 4vh;
+    width: 6vw;
+    border-radius: 10px;
+    background-color: rgba(241, 171, 19, 0.856);
+    color: black;
+    border: solid 2px black;
+    font-weight: bold;
+  }
+  .delete:hover {
+    background-color: rgba(126, 54, 7, 0.884);
+    color: white;
+    border: solid 2px black;
+  }

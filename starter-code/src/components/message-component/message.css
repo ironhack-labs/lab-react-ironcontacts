@@ -1,0 +1,16 @@
+.mes-body{
+    position: absolute;
+    left: 40%;
+    z-index: 5;
+    background-color: white;
+  }
+  
+
+.message {
+    height: 20vh;
+    width: 30vw;
+    
+    border: solid 2px black;
+    
+    
+}
