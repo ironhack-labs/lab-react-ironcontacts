@@ -92,13 +92,20 @@ class App extends Component {
     // console.log(this.state.contacts);
     return (
       <>
-        <button onClick={this.getRandomContact}>Get Random Contact</button>
-        <button onClick={this.sortContactsByName}>Sort by name</button>
-        <button onClick={this.sortContactsByPopularity}>
-          Sort by popularity
-        </button>
+      <div className="iron-contacts">
         <h1>IronhackContacts</h1>
-        {this.createTable()}
+        <div className="buttons">
+          <button onClick={this.getRandomContact}>Get Random Contact</button>
+          <button onClick={this.sortContactsByName}>Sort by name</button>
+          <button onClick={this.sortContactsByPopularity}>
+            Sort by popularity
+          </button>
+        </div>
+        <div className="tabel">
+          {this.createTable()}
+          <hr />
+        </div>
+      </div>
       </>
     );
   }
