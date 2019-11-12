@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.imgstyle {
+  width: 80px;
+}
+.imgTh {
+  width: 30%;
+}
