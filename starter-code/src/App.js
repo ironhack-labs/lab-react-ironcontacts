@@ -49,6 +49,9 @@ class App extends Component {
     console.log(this.state.showContacts);
   }
 
+
+
+
  sortContacts = () =>{
    let contactsCopy = [...this.state.showContacts]
    
@@ -66,7 +69,11 @@ class App extends Component {
    this.setState({
     showContacts: sorted
   })
-   }
+  
+}
+
+
+
    else{
    let sorted = contactsCopy.sort((a,b) =>{
     if(a.name < b.name){
@@ -82,8 +89,13 @@ class App extends Component {
     showContacts: sorted
   })
 
-   }
  }
+
+ 
+ }
+
+
+
  sortPop = () =>{
   let contactsCopy = [...this.state.showContacts]
 
@@ -101,6 +113,9 @@ class App extends Component {
    showContacts: sorted
  })
 }
+
+
+
 else{
   let sorted = contactsCopy.sort((a,b) =>{
    if(a.popularity < b.popularity){
