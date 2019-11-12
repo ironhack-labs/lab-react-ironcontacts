@@ -31,3 +31,11 @@ h1{
 Button{
   text-align:center;
 }
+
+.name{
+  display:inline-flex;
+  width:200px;
+}
+.popularity{
+  width:200px;
+}

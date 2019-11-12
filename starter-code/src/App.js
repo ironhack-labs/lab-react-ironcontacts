@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import contacts from './contacts.json'
 import './App.css';
 import Button from './Button'
-
+let value = true;
 class App extends Component {
   state = {
     showContacts : contacts.splice(0,5),
@@ -11,7 +11,26 @@ class App extends Component {
 
   getContacts = () => {
       let contactArray = this.state.showContacts.map((thisContact,i) => {
-        return <div><img width="25px" height="40px" src={thisContact.pictureUrl} alt="celeb"/> &nbsp; {thisContact.name} &nbsp; {thisContact.popularity} <Button onClick={()=>this.deleteContact(i)}>Delete</Button></div>
+        return (
+          <div>
+            <span id="image">
+            <img width="40px" height="65px" src={thisContact.pictureUrl} alt="celeb"/>
+            </span>
+
+            <span id="name">
+            &nbsp; {thisContact.name}
+            </span>
+
+            <span id="popularity">
+             &nbsp; {thisContact.popularity} 
+            </span>
+
+            <span id="button">
+             <Button onClick={()=>this.deleteContact(i)}>Delete</Button>
+             </span>
+             
+          </div>
+        )
       })
       return contactArray
     }
@@ -32,8 +51,8 @@ class App extends Component {
 
  sortContacts = () =>{
    let contactsCopy = [...this.state.showContacts]
-   let state = 0;
    
+   if (value){
    let sorted = contactsCopy.sort((a,b) =>{
     if(a.name < b.name){
       return -1
@@ -43,16 +62,32 @@ class App extends Component {
     }
    })
 
-    console.log(state)
+    value = false;
+   this.setState({
+    showContacts: sorted
+  })
+   }
+   else{
+   let sorted = contactsCopy.sort((a,b) =>{
+    if(a.name < b.name){
+      return 1
+    }
+    if(a.name > b.name){
+      return -1
+    }
+   })
+
+    value = true;
    this.setState({
     showContacts: sorted
   })
 
-
-
+   }
  }
  sortPop = () =>{
   let contactsCopy = [...this.state.showContacts]
+
+  if(value){
   let sorted = contactsCopy.sort((a,b) =>{
    if(a.popularity < b.popularity){
      return 1
@@ -61,10 +96,27 @@ class App extends Component {
      return -1
    }
   })
+  value = false;
   this.setState({
    showContacts: sorted
  })
 }
+else{
+  let sorted = contactsCopy.sort((a,b) =>{
+   if(a.popularity < b.popularity){
+     return -1
+   }
+   if(a.popularity > b.popularity){
+     return 1
+   }
+  })
+  value = true;
+  this.setState({
+   showContacts: sorted
+ })
+}
+
+ }
  deleteContact = (i) =>{
    console.log('delete',i)
    let contactsCopy = [...this.state.showContacts]
@@ -81,13 +133,13 @@ class App extends Component {
       
       <div id="menu"> 
         <h1>Iron Contacts</h1>
-        <Button style ="text-align:center;"onClick={this.getRandomContact}>Add Random Contact</Button>
-        <Button style ="text-align:center;" onClick={this.sortContacts}>Sort by Name</Button>
-        <Button style ="text-align:center;" onClick={this.sortPop}>Sort by Popularity</Button>
+        <Button onClick={this.getRandomContact}>Add Random Contact</Button>
+        <Button onClick={this.sortContacts}>Sort by Name</Button>
+        <Button onClick={this.sortPop}>Sort by Popularity</Button>
         <div className="flex-inline">
         <p>Picture &nbsp;</p>
         <p>Name&nbsp;</p>
-        <p>popularity&nbsp;</p>
+        <p>Popularity&nbsp;</p>
       </div>
         <div id="contactList">
         {this.getContacts()}
