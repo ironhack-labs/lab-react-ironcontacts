@@ -48,6 +48,7 @@ class App extends Component {
           </td>
           <td>
             <button
+              className="button"
               onClick={() => {
                 this.deleteContact(i);
               }}
@@ -81,74 +82,97 @@ class App extends Component {
   sortByName = () => {
     let currentList = [...this.state.contactsList];
     if (this.state.aZ === false) {
-      let sortedList = currentList.sort(function(a, b) {
-        let nameA = a.name,
-          nameB = b.name;
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        return 0;
-      });
-      this.setState({ contactsList: sortedList, aZ: true });
+      currentList = this.sortAToZ(currentList);
+      this.setState({ contactsList: currentList, aZ: true });
     } else {
-      let sortedList = currentList.sort(function(a, b) {
-        let nameA = a.name,
-          nameB = b.name;
-        if (nameA < nameB) {
-          return 1;
-        }
-        if (nameA > nameB) {
-          return -1;
-        }
-        return 0;
-      });
-      this.setState({ contactsList: sortedList, aZ: false });
+      currentList = this.sortZToA(currentList);
+      this.setState({ contactsList: currentList, aZ: false });
     }
+  };
+
+  sortAToZ = list => {
+    let sortedList = list.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    return sortedList;
+  };
+
+  sortZToA = list => {
+    let sortedList = list.sort((a, b) => {
+      if (a.name < b.name) {
+        return 1;
+      }
+      if (a.name > b.name) {
+        return -1;
+      }
+      return 0;
+    });
+    return sortedList;
   };
 
   sortByPopularity = () => {
     let currentList = [...this.state.contactsList];
 
     if (this.state.pop === false) {
-      let sortedList = currentList.sort(function(a, b) {
-        let popA = a.popularity,
-          popB = b.popularity;
-        if (popA < popB) {
-          return 1;
-        }
-        if (popA > popB) {
-          return -1;
-        }
-        return 0;
-      });
-      this.setState({ contactsList: sortedList, pop: true });
+      currentList = this.sortHighLow(currentList);
+      this.setState({ contactsList: currentList, pop: true });
     } else {
-      let sortedList = currentList.sort(function(a, b) {
-        let popA = a.popularity,
-          popB = b.popularity;
-        if (popA < popB) {
-          return -1;
-        }
-        if (popA > popB) {
-          return 1;
-        }
-        return 0;
-      });
-      this.setState({ contactsList: sortedList, pop: false });
+      currentList = this.sortLowHigh(currentList);
+      this.setState({ contactsList: currentList, pop: false });
     }
   };
 
+  sortHighLow = list => {
+    let sortedList = list.sort(function(a, b) {
+      let popA = a.popularity,
+        popB = b.popularity;
+      if (popA < popB) {
+        return 1;
+      }
+      if (popA > popB) {
+        return -1;
+      }
+      return 0;
+    });
+    return sortedList;
+  };
+
+  sortLowHigh = list => {
+    let sortedList = list.sort(function(a, b) {
+      let popA = a.popularity,
+        popB = b.popularity;
+      if (popA < popB) {
+        return -1;
+      }
+      if (popA > popB) {
+        return 1;
+      }
+      return 0;
+    });
+    return sortedList;
+  };
   render() {
     return (
       <div className="App">
         <div>
-          <h1>IronContacts</h1>
-          <button onClick={this.addRandomContact}>Add Random Contact</button>
-          <button onClick={this.sortByName}>Sort By Name</button>
-          <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+          <div className="title">
+            <h1>IronContacts</h1>
+            <button className="button" onClick={this.addRandomContact}>
+              Add Random Contact
+            </button>
+            <button className="button" onClick={this.sortByName}>
+              Sort By Name
+            </button>
+            <button className="button" onClick={this.sortByPopularity}>
+              Sort By Popularity
+            </button>
+          </div>
           {this.displayContacts()}
         </div>
       </div>
