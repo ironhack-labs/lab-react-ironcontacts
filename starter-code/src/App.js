@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Contacts from "./contacts.json";
-import FirstFive from "./Comps/FirstFive";
-import RandomCon from "./Comps/RandomCon";
 
 export default class App extends Component {
   state = {
@@ -18,12 +16,35 @@ export default class App extends Component {
   };
   showFirstFive = () => {
     return this.state.vcontacts.map((eachOne, i) => {
-      return <FirstFive key={i} thePerson={eachOne} />;
+      return (
+        <tr key={i}>
+          <th className="imgTh">
+            <img
+              src={eachOne.pictureUrl}
+              className="imgstyle"
+              alt={eachOne.name}
+              title={eachOne.name}
+            />
+          </th>
+          <th>
+            <h4>{eachOne.name}</h4>
+          </th>
+          <th>{eachOne.popularity}</th>
+          <th>
+            <button
+              className="btn btn-danger"
+              onClick={() => this.deleteline(i)}
+            >
+              x
+            </button>
+          </th>
+        </tr>
+      );
     });
   };
   sortbyp = () => {
     let clone = [...this.state.vcontacts].sort(
-      (a, b) => a.popularity - b.popularity
+      (a, b) => b.popularity - a.popularity
     );
     this.setState({ vcontacts: clone });
   };
@@ -31,6 +52,11 @@ export default class App extends Component {
     let clone = [...this.state.vcontacts].sort((a, b) =>
       a.name < b.name ? -1 : a.name > b.name ? 1 : 0
     );
+    this.setState({ vcontacts: clone });
+  };
+  deleteline = theIndex => {
+    let clone = [...this.state.vcontacts];
+    clone.splice(theIndex, 1);
     this.setState({ vcontacts: clone });
   };
   render() {
@@ -54,6 +80,7 @@ export default class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
             {this.showFirstFive()}
           </thead>

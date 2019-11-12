@@ -7,6 +7,9 @@ body {
 .imgstyle {
   width: 80px;
 }
+th {
+  width: 10vh;
+}
 .imgTh {
-  width: 30%;
+  width: 5% !important;
 }
