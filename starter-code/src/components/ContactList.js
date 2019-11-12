@@ -4,7 +4,7 @@ const ContactList = props => {
     console.log(props);
     
     return (
-        <table>
+        <table className='ContactList'>
             <thead>
                 <tr>
                     <th>Picture</th>
@@ -15,7 +15,7 @@ const ContactList = props => {
             <tbody>
                 {props.contacts.map( (contact, idx) => (
                     <tr key={idx}>
-                        <td><img src={contact.pictureURL} alt={contact.name} width='100'/></td>
+                        <td><img src={contact.pictureURL} alt={contact.name} width={100} /></td>
                         <td>{contact.name}</td>
                         <td>{contact.popularity}</td>
                     </tr>
