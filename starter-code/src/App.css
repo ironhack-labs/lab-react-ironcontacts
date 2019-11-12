@@ -57,7 +57,7 @@ button:hover {
   flex-direction: column;
   align-self: center;
   justify-content: space-around;
-  width: 30vw;
+  width: 40vw;
   padding: 1vw;
 }
 
@@ -92,4 +92,9 @@ button:hover {
 
 .tablePop {
   justify-self: flex-start;
+}
+
+th,
+td {
+  width: 25%;
 }
