@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import contacts from "./contacts.json";
 import "./App.css";
-import { isArgumentPlaceholder } from "@babel/types";
 
 class App extends Component {
   constructor(props) {
