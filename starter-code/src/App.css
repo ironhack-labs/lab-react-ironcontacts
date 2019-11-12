@@ -1,3 +1,7 @@
+body {
+  background-color: #088008;
+}
+
 .App {
   text-align: center;
 }
@@ -23,6 +27,48 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tableContainer {
+  width: 100vw;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.contactTable {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between;
+  width: 20vw;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tableBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tablePicture {
+  width: 50px;
+}
+
+.tableName {
+  width: 8rem;
+}
+
+.tablePop {
+  justify-self: flex-start;
+  /* align-self: ; */
 }
