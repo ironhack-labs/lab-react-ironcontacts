@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   // Create Row
-  createRow = _ => {
+  createRow = () => {
     let movieTable = this.state.contacts.map((contact, i) => {
       return (
         <tr key={i}>
@@ -28,7 +28,7 @@ class App extends Component {
   };
 
   // createTable
-  createTable = _ => {
+  createTable = () => {
     return (
       <table>
         <thead>
@@ -43,14 +43,39 @@ class App extends Component {
     );
   };
 
+  // getRandomContact
+  getRandomContact = () => {
+    const getRandom = this.state.allContacts[
+      Math.floor(Math.random() * this.state.allContacts.length)
+    ];
+    const contactArray = this.state.contacts;
+    contactArray.push(getRandom);
+    const newContact = Array.from(new Set(contactArray));
+    this.setState({
+      contacts: newContact
+    });
+  };
+
+  // sortContact
+  sortContacts = () => {
+    let sortedContacts = [...this.state.contacts].sort((a, b) =>
+      a.name > b.name ? -1 : 1
+    );
+    console.log(sortedContacts);
+    this.setState({
+      contacts: sortedContacts
+    });
+  };
+
   render() {
-    console.log(this.state.contacts);
+    // console.log(this.state.contacts);
     return (
       <>
-        <div>
-          <h1>IronhackContacts</h1>
-          {this.createTable()}
-        </div>
+        <button onClick={this.getRandomContact}>Get Random Contact</button>
+        <button onClick={this.sortContacts}>Sort by name</button>
+        <button onClick={this.sortContacts}>Sort by popularity</button>
+        <h1>IronhackContacts</h1>
+        {this.createTable()}
       </>
     );
   }
