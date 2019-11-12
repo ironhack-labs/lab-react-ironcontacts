@@ -26,3 +26,9 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#flex-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 300px 0px 300px;
+}

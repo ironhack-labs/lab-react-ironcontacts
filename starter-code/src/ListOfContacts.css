@@ -1,0 +1,21 @@
+#flex-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 200px 0px 200px;
+    width: 70%;
+  }
+
+#flex-box-two {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 200px 0px 0px;
+}
+  
+#flex-box-three {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 200px 0px 200px;
+}
+
+
+  
