@@ -15,12 +15,12 @@ const ContactList = props => {
                 </tr>
             </thead>
             <tbody>
-                {props.contacts.map( (contact, idx) => (
-                    <tr key={idx}>
-                        <td><img src={contact.pictureURL} alt={contact.name} width={100} /></td>
+                {props.contacts.map( (contact, i) => (
+                    <tr key={i}>
+                        <td><img src={contact.pictureUrl} alt={contact.name} width={100} /></td>
                         <td>{contact.name}</td>
                         <td>{contact.popularity.toFixed(2)}</td>
-                        <td><Button outline theme="light" onClick={props.clickToDelete(idx)}>Delete</Button></td>
+                        <td><Button outline theme="light" onClick={()=>props.clickToDelete(i)}>Delete</Button></td>
                     </tr>
                  ))}
             </tbody>
