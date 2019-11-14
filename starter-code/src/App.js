@@ -35,42 +35,21 @@ class App extends Component {
     });
   };
 
-  // addContact = () => {
-  //   let newContacts = [...this.state.contacts];
-  //   let randomIndex = Math.floor(
-  //     Math.random() * this.state.restOfContacts.length
-  //   );
-  //   let randomContact = this.state.restOfContacts[randomIndex];
-  //   let restOfContactsCopy = [...this.state.restOfContacts];
-  //   // console.log(randomContact);
-  //   restOfContactsCopy.splice(randomIndex, 1);
-
-  //   newContacts.push(randomContact);
-
-  //   this.setState({
-  //     contacts: randomContact,
-  //     restOfContacts: restOfContactsCopy
-  //   });
-  // };
-
   addContact = () => {
     let newContacts = [...this.state.contacts];
-
     let randomIndex = Math.floor(
       Math.random() * this.state.restOfContacts.length
     );
-
     let randomContact = this.state.restOfContacts[randomIndex];
-
-    let newRestOfContacts = [...this.state.restOfContacts];
-
-    newRestOfContacts.splice(randomIndex, 1);
+    let restOfContactsCopy = [...this.state.restOfContacts];
+    // console.log(randomContact);
+    restOfContactsCopy.splice(randomIndex, 1);
 
     newContacts.push(randomContact);
 
     this.setState({
       contacts: newContacts,
-      restOfContacts: newRestOfContacts
+      restOfContacts: restOfContactsCopy
     });
   };
 
