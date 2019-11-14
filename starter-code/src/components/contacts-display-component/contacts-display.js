@@ -14,12 +14,16 @@ class ContactsDisplay extends React.Component {
 
         delete = (ind) => {
             this.props.changeShow();
-            this.state.visibleList.splice(ind, 1);
-            console.log(this.state.visibleList)
-            this.setState({
-                visibleList: this.state.visibleList
-            })
-            this.visibleList = this.perform();
+            console.log(this.props.deleteFlag)
+            if(this.props.deleteFlag) {
+                this.state.visibleList.splice(ind, 1);
+                console.log(this.state.visibleList)
+            }
+                this.setState({
+                    visibleList: this.state.visibleList
+                })
+                this.visibleList = this.perform();
+          
             return this.visibleList;
         }
    perform = () => {

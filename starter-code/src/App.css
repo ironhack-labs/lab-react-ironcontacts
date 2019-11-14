@@ -21,6 +21,18 @@
 .App-intro {
   font-size: large;
 }
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.content {
+  /* width: 80vw; */
+  height: 100%;
+  padding: 5px 15px 5px 15px;
+}
 .table-content {
   width: 100%;
   height: 50%;
@@ -37,10 +49,11 @@ table {
   justify-content: space-around;
   align-items: center;
   height: 10vh;
+  width: 55vw;
 }
 .operations button {
   height: 4vh;
-  width: 15vw;
+  width: 10vw;
   border-radius: 10px;
   background-color: rgba(241, 171, 19, 0.856);
   color: black;

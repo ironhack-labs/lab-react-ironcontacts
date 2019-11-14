@@ -13,8 +13,16 @@ class App extends Component {
       sortName:{sortFlag:false},
       sortPop:{sortFlag:false},
       show: false,
-      coverGray: {'display':'none'}
+      coverGray: {'display':'none'},
+      deleteFlag: false
     }
+}
+setDeleteFlag = (del) => {
+  console.log(del)
+  this.setState({
+    deleteFlag: del
+  })
+  
 }
 changeShow = () => {
     this.setState({show:!this.state.show})
@@ -56,17 +64,20 @@ changeShow = () => {
   render() {
 
     return (
-      <div className="App">
+      <div>
      
-      <Message show={this.state.show} changeShow={this.changeShow} />
+      <Message setDeleteFlag = {this.setDeleteFlag} show={this.state.show} changeShow={this.changeShow} />
 
-      
-        <h1>IronContacts</h1>
+      <div className="content">
+      <header>
+      <h1>IronContacts</h1>
         <div className="operations">
           <button onClick={this.addContact}><strong>Add Random Contact</strong></button>
           <button onClick={this.sortName}><strong>Sort By Name</strong></button>
           <button onClick={this.sortPopularity}><strong>Sort By Popularity</strong></button>
         </div>
+      </header>
+       
         
         <br/>
         <div className="table-content">
@@ -85,10 +96,12 @@ changeShow = () => {
           sortPop = {this.state.sortPop}
           rand = {this.state.random}
           changeShow={this.changeShow}
+          deleteFlag = {this.state.deleteFlag}
           />
           </tbody>
         </table>
         </div>
+      </div>
         <div id="overlay" style={this.state.coverGray}></div>
         
       </div>
