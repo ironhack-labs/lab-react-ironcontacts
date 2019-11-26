@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App-logo {
@@ -25,4 +29,37 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.imgArtist {
+  width: 50px;
+}
+
+/* .AppTable {
+  width: 30%;
+} */
+
+.ArtistCell {
+  text-align: start;
+}
+
+.AppTableHeaderCell{
+  text-align: start;
+  font-weight: bold;
+}
+
+.AppBlock {
+  width: 30vw;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.AppButton {
+  margin: 0 0 30px 0;
+}
+
+.AppButtons{
+  display: flex;
+  flex-direction: row;
 }
