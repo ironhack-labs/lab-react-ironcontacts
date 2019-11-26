@@ -19,7 +19,7 @@ export default class Instruments extends Component {
         this.setState({ contacts: contactsCopy });
     }
 
-    handleClickSortName = e => {
+    handleClickSortName = (e) => {
         const contactsCopy = [...this.state.contacts];
         contactsCopy.sort((a, b) => {
             if (a.name > b.name) {
@@ -39,7 +39,12 @@ export default class Instruments extends Component {
         const contactsCopy = [...this.state.contacts];
         contactsCopy.sort((a, b) => a.popularity - b.popularity);
         this.setState({ contacts: contactsCopy });
-        console.log(contactsCopy);
+    }
+
+    handleClickDelete = index => { // syntax de JSX pour déclarer une fonction. au lieu de handleClickDelete (index) => {}
+        const contactsCopy = [...this.state.contacts];
+        contactsCopy.splice(index, 1);
+        this.setState({ contacts: contactsCopy });
     }
 
     render() {
@@ -59,15 +64,20 @@ export default class Instruments extends Component {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        {this.state.contacts.map((c, i) => (
-                            <tr key={i}>
-                                <td><img src={c.pictureUrl} alt={c.name} /></td>
-                                <td>{c.name}</td>
-                                <td>{RoundedTo(2, c.popularity)}</td>
+                        {this.state.contacts.map((contact, index) => (
+                            <tr key={index}>
+                                <td><img src={contact.pictureUrl} alt={contact.name} /></td>
+                                <td>{contact.name}</td>
+                                <td>{RoundedTo(2, contact.popularity)}</td>
+                                <td><button onClick={() => this.handleClickDelete(index)}
+                                // les 2 parenthèses vides ci-dessus permettent de ne pas appeler la fonction tout de suite mais au mmt de l'event
+                                // handleClickDelete(index) : ici la fonction prend un paramètre parce que déclaré l.44
+                                >Delete</button></td>
                             </tr>
                         ))}
 
