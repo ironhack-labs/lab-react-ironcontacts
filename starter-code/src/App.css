@@ -11,6 +11,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
+  margin-bottom: 40px;
   color: white;
 }
 
@@ -22,7 +23,47 @@
   font-size: large;
 }
 
+tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px;
+}
+
+td {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.contactPicture {
+  height: 300px;
+  width: 200px;
+}
+
+.tableHeader {
+  margin-bottom: 50px;
+  font-size: 3em;
+}
+
+.btn {
+  width: 200px;
+  height: 40px;
+  background: white;
+  margin-bottom: 50px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
