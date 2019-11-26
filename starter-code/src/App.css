@@ -22,7 +22,32 @@
   font-size: large;
 }
 
+.coucou {
+  width: 60px;
+  height: 100px;
+  ;
+}
+
+.contacts {
+  margin: auto;
+}
+
+.IronContact {
+  text-align: center;
+}
+
+.Buttons {
+  display: block;
+  margin: auto;
+}
+
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
