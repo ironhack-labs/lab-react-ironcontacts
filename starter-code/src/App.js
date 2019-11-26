@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import "./index.css";
 import RandomContact from "./RandomContact";
 import contacts from "./contacts.json";
 
@@ -8,7 +8,6 @@ import contacts from "./contacts.json";
 class App extends Component {
   state = {
     contacts: contacts.slice(0, 5)
-    // filteredContact: contacts.slice(6)
   };
   // Add Random Contact
   addRandomContact = () => {
@@ -37,10 +36,10 @@ class App extends Component {
       contacts: sort
     });
   };
+
   deleteContact = e => {
     console.log("here is the btn delete on click");
     var newArray = [...this.state.contacts];
-    console.log(newArray);
     var index = newArray.indexOf(e.target.value);
     if (index !== 1) {
       newArray.splice(index, 1);
@@ -53,17 +52,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <h1>IronContacts</h1>
-        <RandomContact clbk={this.addRandomContact} />
-        <button onClick={this.sortByName}>Sort By Name</button>
-        <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+        <div className="btn-container">
+          <RandomContact clbk={this.addRandomContact} />
+          <button
+            onClick={this.sortByName}
+            type="button"
+            className="btn btn-outline-dark"
+          >
+            Sort By Name
+          </button>
+          <button
+            onClick={this.sortByPopularity}
+            type="button"
+            className="btn btn-outline-dark"
+          >
+            Sort By Popularity
+          </button>
+        </div>
         <div className="table">
           <table className="contact-table">
-            <thead>
+            <thead className="thead-dark">
               <tr>
                 <th>Picture</th>
                 <th>Name</th>
@@ -80,7 +89,13 @@ class App extends Component {
                   <td>{c.name}</td>
                   <td>{c.popularity}</td>
                   <td>
-                    <button onClick={this.deleteContact}>Delete</button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-dark"
+                      onClick={this.deleteContact}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 img {
-  width: 30%;
+  width: 40%;
 }
 .table {
   display: flex;
@@ -13,4 +13,23 @@ img {
 }
 td {
   width: 10%;
+  align-content: center;
+  align-items: center;
+}
+.table {
+  padding: 5%;
+}
+h1 {
+  padding: 5% 0;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+}
+.btn-container {
+  justify-content: center;
+  display: flex;
+  padding-top: 3%;
+  width: 100%;
+  align-items: center;
+  align-content: center;
 }
