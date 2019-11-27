@@ -10,14 +10,40 @@ class App extends Component {
   }
 
   findOneRandomContact() {
-    const randomContact = Contacts.slice(5)[9];
+    const randomContact = Contacts.slice(5)[Math.floor(Math.random() * Contacts.length)];
     return randomContact;
   }
 
   addRandomContact = evt => {
-    const contactsArr = [this.state.Contacts];
+    const contactsArr = [...this.state.Contacts];
     contactsArr.push(this.findOneRandomContact());
     this.setState({ Contacts: contactsArr });
+  }
+
+  sortByName = evt => {
+    const sortContactsArr = [...this.state.Contacts]
+    sortContactsArr.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (b.name > a.name) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({ Contacts: sortContactsArr })
+  }
+
+  sortByPopularity = evt => {
+    const sortContactsArr = [...this.state.Contacts];
+    sortContactsArr.sort((a, b) => b.popularity - a.popularity);
+    this.setState({ Contacts: sortContactsArr })
+  }
+
+  deleteOneContact = evt => {
+    const deletedContactArr = [...this.state.Contacts];
+    deletedContactArr.splice(evt, 1);
+    this.setState({ Contacts: deletedContactArr })
   }
 
   render() {
@@ -25,6 +51,8 @@ class App extends Component {
       <>
         <section>
           <button onClick={this.addRandomContact}>Add random contact</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
         </section>
         <table>
           <thead>
@@ -37,9 +65,11 @@ class App extends Component {
           <tbody>
             {this.state.Contacts.map((cont, i) => (
               <Contact key={i}
+                index={i}
                 picture={cont.pictureUrl}
                 name={cont.name}
                 popularity={cont.popularity.toFixed(2)}
+                clbk={this.deleteOneContact}
               />
             ))}
           </tbody>
