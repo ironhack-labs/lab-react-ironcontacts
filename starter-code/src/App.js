@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import "./App.css";
 import contacts from "./contacts.json";
-import Contact from "./Contact";
 import HandlingEvent from "./HandlingEvent";
+// import DeleteContatc from "./DeleteContact";
 
 class App extends Component {
-  state = { contacts: contacts.slice(0, 5) };
-
-  // addRandomContact = () => {
-  //   const copy = [...this.state.contacts];
-  //   console.log("click");
-  //   // do smth avec random ...
-  //   copy.push({ name: "toto", popularity: 5 });
-  //   this.setState({ contacts: copy });
-  // };
+  constructor(props) {
+    super(props);
+    this.state = {
+      contacts: contacts.slice(0, 5),
+      memoryContacts: contacts.slice(5)
+    };
+  }
 
   addRandomContact = () => {
-    console.log("clicked");
     let random = Math.floor(Math.random() * (contacts.length - 1 - 5)) + 5;
+    console.log(random);
+    const newMemoryContact = this.state.memoryContacts.splice(random, 1);
+    const newContacts = [...this.state.contacts, contacts[random]];
+
     this.setState({
-      contacts: [...this.state.contacts, contacts[random]]
+      contacts: newContacts,
+      memoryContacts: newMemoryContact
     });
-    contacts.splice(random, 1);
   };
 
   sortByName = () => {
@@ -49,17 +50,29 @@ class App extends Component {
     });
   };
 
+  deleteContact = index => {
+    const copyContacts = [...this.state.contacts];
+
+    copyContacts.splice(index, 1);
+
+    this.setState({ contacts: copyContacts });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
+
         <HandlingEvent clbk={this.addRandomContact} />
-        <button className="button" onClick={this.sortByName}>
+
+        <button className="btn btn-light" onClick={this.sortByName}>
           Sort By Name
         </button>
-        <button className="button" onClick={this.sortByPopularity}>
+
+        <button className="btn btn-light" onClick={this.sortByPopularity}>
           Sort By Popularity
         </button>
+
         <table className="table">
           <thead>
             <tr>
@@ -70,12 +83,22 @@ class App extends Component {
           </thead>
           <tbody className="contacts">
             {this.state.contacts.map((contact, i) => (
-              <Contact
-                pictureUrl={contact.pictureUrl}
-                name={contact.name}
-                popularity={contact.popularity}
-                key={i}
-              />
+              <tr key={i}>
+                <td>
+                  <img className="Image" src={contact.pictureUrl} />
+                </td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity}</td>
+
+                <td>
+                  <button
+                    className="btn btn-light"
+                    onClick={() => this.deleteContact(i)}
+                  >
+                    Delete contact
+                  </button>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>
