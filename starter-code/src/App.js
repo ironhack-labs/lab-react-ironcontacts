@@ -17,6 +17,10 @@ const Contact = props => {
   );
 };
 
+const Button = props => {
+  return <button onClick={props.action}>{props.content}</button>;
+};
+
 class Contacts extends Component {
   state = {
     showedProducers: contacts.slice(0, 5)
@@ -84,9 +88,15 @@ class Contacts extends Component {
 
     return (
       <div>
-        <button onClick={this.addContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort By Name</button>
-        <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+        <Button
+          action={() => this.addContact()}
+          content={"Add Random Contact"}
+        />
+        <Button action={() => this.sortByName()} content={"Sort By Name"} />
+        <Button
+          action={() => this.sortByPopularity()}
+          content={"Sort By Popularity"}
+        />
         <table>
           <thead>
             <tr>
