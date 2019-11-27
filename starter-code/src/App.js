@@ -37,16 +37,13 @@ class App extends Component {
     });
   };
 
-  deleteContact = e => {
+  deleteContact = index => {
     console.log("here is the btn delete on click");
-    var newArray = [...this.state.contacts];
-    var index = newArray.indexOf(e.target.value);
-    if (index !== 1) {
-      newArray.splice(index, 1);
-      this.setState({
-        contacts: newArray
-      });
-    }
+    const copyContacts = [...this.state.contacts];
+    copyContacts.splice(index, 1);
+    this.setState({
+      contacts: copyContacts
+    });
   };
 
   render() {
@@ -92,7 +89,7 @@ class App extends Component {
                     <button
                       type="button"
                       className="btn btn-outline-dark"
-                      onClick={this.deleteContact}
+                      onClick={() => this.deleteContact(i)}
                     >
                       Delete
                     </button>

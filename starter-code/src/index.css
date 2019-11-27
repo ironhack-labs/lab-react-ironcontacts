@@ -10,15 +10,14 @@ img {
   display: flex;
   justify-content: center;
   width: 100%;
+  padding: 5%;
 }
 td {
   width: 10%;
   align-content: center;
   align-items: center;
 }
-.table {
-  padding: 5%;
-}
+
 h1 {
   padding: 5% 0;
   font-weight: 600;
