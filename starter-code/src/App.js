@@ -8,8 +8,8 @@ class App extends Component {
     super();
     this.randomInt = (min, max) =>
       Math.floor(Math.random() * (max - min + 1) + min);
-    this.contacts = [...contacts];
-    this.newContacts = this.contacts.splice(0, 5);
+    this.contactsClone = [...contacts];
+    this.newContacts = this.contactsClone.splice(0, 5);
 
     this.state = {
       actors: this.newContacts
@@ -17,14 +17,14 @@ class App extends Component {
   }
 
   addNewContact() {
-    let randomIndex = this.randomInt(0, this.contacts.length);
-    let allContacts = this.state.actors;
-
-    allContacts.push(this.contacts[randomIndex]);
+    let contacts2 = this.contactsClone.filter(contact => !this.newContacts.includes(contact));
+    console.log(contacts2)
+    let randomIndex = this.randomInt(0, contacts2.length -1);
+    this.newContacts.push(contacts2[randomIndex]);
 
     this.setState({
       ...this.state,
-      actors: allContacts
+      actors: this.newContacts
     });
   }
 
@@ -66,6 +66,15 @@ class App extends Component {
     });
   }
 
+  deleteContact(index) {
+    this.newContacts.splice(index, 1);
+
+    this.setState({
+      ...this.state,
+      actors: this.newContacts
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -83,6 +92,7 @@ class App extends Component {
                   picture={actor.pictureUrl}
                   name={actor.name}
                   popularity={actor.popularity}
+                  deleteContact={() => this.deleteContact(idx)}
                 ></ContactList>
               );
             })}
