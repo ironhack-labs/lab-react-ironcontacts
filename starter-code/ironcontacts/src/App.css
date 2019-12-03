@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+.App img{
+  width:15%
+}
+
+.App table{
+  margin-top:20px
+}
+
+.App div{
+  display:block;
+  justify-content: center;
+}
