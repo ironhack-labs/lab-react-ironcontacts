@@ -17,19 +17,17 @@ class App extends Component {
     console.log(this.state)
   }
 
-  // addRandom = () => {
-  //   let filteredArr=[...contacts].filter(contact=> this.state.list.includes(contact))
-  //   console.log(filteredArr.length)
-
-  //   let newContact = filteredArr[Math.floor(Math.random() * contacts.length)];
-
-  //   let newArray = [...this.state.list];
-  //   newArray.push(newContact);
-  //   this.setState({
-  //     ...this.state,
-  //     list: newArray
-  //   });
-  // };
+  addRandom = () => {
+    let filteredArr=[...contacts].filter(contact=> !this.state.list.includes(contact))
+    console.log(filteredArr.length)
+    let newContact = filteredArr[Math.floor(Math.random() * contacts.length)];
+    let newArray = [...this.state.list];
+    newArray.push(newContact);
+    this.setState({
+      ...this.state,
+      list: newArray
+    });
+  };
 
 
   
