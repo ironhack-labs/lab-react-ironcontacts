@@ -37,6 +37,14 @@ const ContactTable = () => {
     });
     setContacts(sortedArr);
   }
+  
+  const deleteItem = e => {
+    const item = e.target.attributes.contact.value;
+    const index = contacts.findIndex(el => el.id === item);
+    const newArr = [...contacts];
+    newArr.splice(index, 1);
+    setContacts(newArr);
+  }
 
   return (
     <div className="container-fluid">
@@ -49,6 +57,7 @@ const ContactTable = () => {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -59,6 +68,9 @@ const ContactTable = () => {
               </td>
               <td>{cont.name}</td>
               <td>{cont.popularity.toFixed(2)}</td>
+              <td>
+                <Button onClick={deleteItem} contact={cont.id}>Delete</Button>
+              </td>
             </tr>
           ))}
         </tbody>
