@@ -5,7 +5,8 @@ body {
 }
 
 .card {
-  max-width: 10%;
+  max-width: 12%;
+  min-width: 10%;
   margin: 5px;
   display: flex;
   flex-direction: column;
@@ -23,6 +24,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: default
 }
 
 .button-bar button:hover {
@@ -39,7 +41,7 @@ a {
   text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
-.card:hover button {
+.card button:hover {
   background-color: red;
   color: white;
   box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
@@ -58,9 +60,11 @@ a {
 }
 
 .whole {
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {

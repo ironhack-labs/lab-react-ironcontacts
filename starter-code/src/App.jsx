@@ -38,9 +38,9 @@ class App extends Component {
             return <Celebs contacts={each} delete={this.deleteOne} />;
           })}
         </div>
-        <p className="App-intro">
+        <div className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        </div>
       </div>
     );
   }
