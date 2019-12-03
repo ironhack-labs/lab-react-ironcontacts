@@ -17,22 +17,52 @@ class App extends Component {
   }
 
   addNewContact() {
-
     let randomIndex = this.randomInt(0, this.contacts.length);
-    let allContacts = this.state.actors
+    let allContacts = this.state.actors;
 
-    allContacts.push(this.contacts[randomIndex])
+    allContacts.push(this.contacts[randomIndex]);
 
     this.setState({
       ...this.state,
       actors: allContacts
-    })
+    });
   }
+
+  sortByName() {
+    let newAllContacts = [...this.state.actors];
+
+    let contactsSort = newAllContacts.sort(function(a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+
+    this.setState({
+      ...this.state,
+      actors: contactsSort
+    });
+  }
+
+  // sortByPopularity(){
+
+  //   this.setState({
+  //     ...this.state,
+  //     actors: allContacts
+  //   })
+  // }
 
   render() {
     return (
       <div className="App">
         <button onClick={() => this.addNewContact()}>Add new Contact</button>
+        <button onClick={() => this.sortByName()}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity()}>
+          Sort by popularity
+        </button>
         <table>
           <tbody>
             {this.state.actors.map((actor, idx) => {
