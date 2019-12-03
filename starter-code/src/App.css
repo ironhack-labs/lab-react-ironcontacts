@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.table img {
+  width: 150px;
+  object-fit: cover;
+}
+.App h1 {
+  margin-bottom: 80px;
+  font-size: 70px;
+  font-weight: 100;
+}
