@@ -62,6 +62,10 @@ class App extends Component {
     const deletedContact = this.state.contactsList.filter(value => {
       return value.id === id ? false : true;
     });
+    this.setState({
+      contactsList: [...deletedContact]
+    });
+    console.log(deletedContact);
   }
 
   render() {
@@ -87,11 +91,7 @@ class App extends Component {
               <div>
                 <tr key={value.id}>
                   <td>
-                    <button
-                      onClick={() => 
-                        this.deleteContact(value.id);
-                      }
-                    >
+                    <button onClick={() => this.deleteContact(value.id)}>
                       Delete Contact
                     </button>
                   </td>
