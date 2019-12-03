@@ -18,6 +18,7 @@ class AllContacts extends Component {
         this.state.contacts.forEach(contact => contact.id = shortid.generate() );
     }
 
+    // ITERATION 2 - Add New Random Contacts
     showRandomContact = () => {
         const randomIndex = Math.floor(Math.random() * this.state.restofcontacts.length);
         const randomValue = this.state.restofcontacts[randomIndex];
@@ -27,6 +28,7 @@ class AllContacts extends Component {
         this.setState( { randomContact: randomValue });
     }
 
+    // ITERATION 3 - Sort Contacts By Name 
     sortByName = () => {
         const sortedContactsByName = this.state.contacts.sort(function(a, b) {
             var nameA = a.name.toUpperCase();
@@ -37,6 +39,7 @@ class AllContacts extends Component {
         this.setState( { contacts: sortedContactsByName });
     }
 
+    // ITERATION 3 - Sort Contacts By Popularity 
     sortByPopularity = () => {
         const sortedContactsByPopularity = this.state.contacts.sort(function(a, b) {
             var popA = a.popularity;
@@ -47,6 +50,7 @@ class AllContacts extends Component {
         this.setState( { contacts: sortedContactsByPopularity });
     }
 
+    // ITERATION 4 - Remove Contacts
     deleteContact = contactId => {
         // Copy the contacts array from the state
         const contactsCopy = [...this.state.contacts];
@@ -62,24 +66,26 @@ class AllContacts extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.showRandomContact}>Add Random Contact</button>
-                <button onClick={this.sortByName}>Sort by name</button>
-                <button onClick={this.sortByPopularity}>Sort by popularity</button>
+                <div className="buttons">
+                    <button onClick={this.showRandomContact}>Add Random Contact</button>
+                    <button onClick={this.sortByName}>Sort by name</button>
+                    <button onClick={this.sortByPopularity}>Sort by popularity</button>
+                </div>
                 <table>
                     <thead>
                     <tr>
                         <th>Picture</th>
-                        <th>Name</th>
-                        <th>Popularity</th>
+                        <th className="name">Name</th>
+                        <th className="pop">Popularity</th>
                         <th>Action</th>
                     </tr> 
                     </thead>
                     <tbody>
-                    { this.state.contacts.map( contact => 
+                    { this.state.contacts.map( (contact, index) => 
                         <OneContact 
                             oneContact={contact}  
                             key={contact.id}
-                            clickToDelete={ () => this.deleteContact(contact.id) } 
+                            clickToDelete={ () => this.deleteContact(index) } 
                         />
                     )}
                     </tbody>

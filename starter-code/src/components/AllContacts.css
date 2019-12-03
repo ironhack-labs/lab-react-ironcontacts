@@ -1,10 +1,43 @@
+.buttons {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.buttons button, .btn-detele{
+    margin: 50px 0;
+    padding: 5px 10px;
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
 table {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
 }
 
-thead tr {
+thead, tbody {
+    width: 60%;
+}
+
+.buttons, thead tr, tbody tr {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+thead tr, tbody tr {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+th, td {
+    width: 100%;
+}
+
+.name, .pop {
+    text-align: left;
 }
