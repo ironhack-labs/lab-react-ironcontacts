@@ -49,22 +49,20 @@ class App extends Component {
     // const contacts = contacts;
     return (
       <div className="App">
-        <h1>IronContacts</h1>
-        <button onClick={this.addRandom}>Add Random Contact</button>
-        <button onClick={this.sortName}>Sort by Name</button>
-        <button onClick={this.sortPop}>Sort by Popularity</button>
+        <nav className="navbar">
+          <h1>IronContacts</h1>
+          <div>
+            <button onClick={this.addRandom}>Add Random Contact</button>
+            <button onClick={this.sortName}>Sort by Name</button>
+            <button onClick={this.sortPop}>Sort by Popularity</button>
+          </div>
+        </nav>
 
-        <table>
+        <table className="table">
           <tr>
-            <th>
-              <h1>Picture</h1>
-            </th>
-            <th>
-              <h1>Name</h1>
-            </th>
-            <th>
-              <h1>Popularity</h1>
-            </th>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
           </tr>
           {this.state.celebs.map(element => {
             return (
