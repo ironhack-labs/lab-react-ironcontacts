@@ -1,0 +1,18 @@
+<tr key={contact.id}>
+                  <td>
+                    <img src={contact.pictureUrl} alt='' />
+                  </td>
+                  <td>{contact.name}</td>
+                  <td>{contact.popularity.toFixed(2)}</td>
+                  <td><button onClick={() => this.delete(contact)}>Delete</button></td>
+                </tr>
+
+                delete=(contact)=>{
+  let cleanArr= [...this.state.list].filter(person=>
+    contact.id !== person.id)
+    console.log(cleanArr)
+    this.setState({
+      ...this.state,
+      list: cleanArr
+    });
+}

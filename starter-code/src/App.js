@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
+import Contact from "./contact";
 
 let contactsList = [...contacts].splice(0, 5);
 console.log(contactsList);
@@ -9,11 +10,11 @@ console.log(contactsList);
 class App extends Component {
   constructor() {
     super();
-    this.state = {
+    this.deleteContact=this.deleteContact.bind(this)
+  }
+  state = {
       list: [...contactsList]
     };
-    console.log(this.state);
-  }
 
   addRandom = () => {
     let filteredArr = [...contacts].filter(contact => !this.state.list.includes(contact));
@@ -39,13 +40,22 @@ class App extends Component {
 
   sortPopularity = () => {
     let popularSorted = [...this.state.list].sort((a, b) => {
-      return a.popularity- b.popularity;
+      return b.popularity - a.popularity;
     });
     this.setState({
       ...this.state,
       list: popularSorted
     });
   };
+
+deleteContact=(idx)=>{
+  let cleanArr= [...this.state.list]
+  cleanArr.splice(idx,1)
+    this.setState({
+      ...this.state,
+      list: cleanArr
+    });
+}
 
 
   render() {
@@ -69,13 +79,9 @@ class App extends Component {
           <tbody>
             {this.state.list.map((contact, idx) => {
               return (
-                <tr key={contact.id}>
-                  <td>
-                    <img src={contact.pictureUrl} alt='' />
-                  </td>
-                  <td>{contact.name}</td>
-                  <td>{contact.popularity}</td>
-                </tr>
+                <Contact idx={idx.toString()} {...contact} delete={this.deleteContact}>
+
+                </Contact>
               );
             })}
           </tbody>
