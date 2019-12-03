@@ -51,6 +51,20 @@ class App extends Component {
   }
 
 
+  // removeActors(){
+  //   this.state.actors.delete()
+  // }
+
+  removeClick = (contactIndex) => {
+    let listOfContacts = [...this.state.actors];
+    listOfContacts.splice(contactIndex,1);
+    this.setState({
+      actors: listOfContacts
+    })
+  }
+
+
+
 
 
 
@@ -62,7 +76,7 @@ class App extends Component {
         <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
 
         {this.state.actors.map((actor, idx) =>
-          <IronContacts name={actor.name} img={actor.pictureUrl} popularity={actor.popularity} key={idx} ></IronContacts>
+          <IronContacts name={actor.name} img={actor.pictureUrl} popularity={actor.popularity} key={idx}  removeClick={() => this.removeClick(idx)} ></IronContacts>
         )}
 
       </div>
