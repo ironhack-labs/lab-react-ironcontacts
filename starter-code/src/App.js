@@ -1,18 +1,75 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import contacts from './contacts.json'
+import Navbar from "./components/Navbar/Navbar";
+import Table from "./components/Table/Table";
+
+
+import './App.scss';
+
+const listOfFive =  contacts.filter((value, index) =>
+    index < 5 ? true : false)
 
 class App extends Component {
+  state = {
+    listOfContacts: listOfFive
+  }
+
+  getRandomHandler = () => {
+    const random = contacts[Math.floor(Math.random() * contacts.length)];
+    this.setState({
+      listOfContacts: [...this.state.listOfContacts, random]
+    })    
+  }
+
+  sortByNameHandler = () => {    
+    const sortedNames = this.state.listOfContacts.sort((a, b) => a.name < b.name ? -1 : 1);
+    this.setState({
+      listOfContacts: sortedNames
+    })
+  }
+
+  sortByPopularityHandler = () => {
+    const sortedPopular = this.state.listOfContacts.sort((a, b) => a.popularity > b.popularity ? -1 : 1);
+    this.setState({
+      listOfContacts: sortedPopular
+    })
+  }
+
+  deleteContactHandler = (index) => {
+    const newContactList = this.state.listOfContacts;
+    newContactList.splice(index, 1);
+    this.setState({
+      listOfContacts: newContactList
+    })   
+  }
+
   render() {
+    const table = this.state.listOfContacts.map((item, index) => 
+      <Table
+        key={index} 
+        { ...item }
+        delete={() => this.deleteContactHandler(index)}
+      />
+    )
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Navbar />
+        <button type="button" onClick={this.getRandomHandler}>Add random contact</button>
+        <button type="button" onClick={this.sortByNameHandler}>Sort by name</button>
+        <button type="button" onClick={this.sortByPopularityHandler}>Sort by popularity</button>
+
+        <table>
+          <thead>
+            <tr className="table-header">
+              <td>Picture</td>
+              <td>Name</td>
+              <td>Popularity</td>
+            </tr>
+        </thead>
+        {table}
+        </table>
+
       </div>
     );
   }
