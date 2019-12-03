@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(158, 196, 201);
+}
+
 .App {
   text-align: center;
 }
@@ -25,4 +29,29 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App table{
+ margin-left:auto;
+ margin-right:auto;
+ width:60%;
+}
+
+.App table{
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+  background-color: #ffffff;
+}
+
+.App table img{
+  width:100px;
+}
+
+.buttons-wrapper{
+  margin: 10px
+}
+
+.App table tr:hover{
+  background-color: #fdff8a;
+  font-weight: 600;
+  transition:0.3s;
 }
