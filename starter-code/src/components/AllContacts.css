@@ -1,0 +1,10 @@
+table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+thead tr {
+    display: flex;
+    justify-content: center;
+}
