@@ -4,12 +4,10 @@ import contacts from './contacts.json'
 
 class App extends Component {
 
-constructor(props) {
-  super();
-  this.state = {
-    contacts: props.splice(0, 5)
+  state = {
+    contacts: contacts.splice(0, 5)
   }
-}
+
 
 clickRandom = randomContact => {
   //random index
