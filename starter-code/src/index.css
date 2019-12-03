@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+table{
+  border: 2px solid red;
+  width: 100%;
+}
+
+
+th {
+  height: 50px;
+  border: 2px solid green;
+  
+
+}
+
+img{
+  width: 20%;
+  height: 30%;
+}
