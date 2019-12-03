@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -22,7 +23,31 @@
   font-size: large;
 }
 
+.title {
+  display: flex;
+  flex-direction: row;
+}
+
+.table-content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin: 30px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 3px;
+  margin: 20px;
+}
+
+td {
+  border: 1px solid #222;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
