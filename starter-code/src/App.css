@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  display: flex;
+
+  align-items:center;
+  flex-direction: column;
+  background-image: url('https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&w=1000&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .App-logo {
@@ -25,4 +34,26 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+img {
+  height: 80px;
+}
+.buttonsrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tablee {
+  border: 15px solid burlywood;
+  background-color: beige;
+}
+h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+button {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border-radius: 0;
+  border: 1px outset brown;
+  background-color: chocolate;
+  color: white;
 }
