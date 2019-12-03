@@ -15,17 +15,46 @@ body {
   padding: 5px;
   transition: ease-in-out;
   transition-duration: 100ms;
+  border-radius: 1rem;
 
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button-bar button:hover {
+  background-color: red;
+  color: white;
+  box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
 .card:hover {
-  transform: rotate3d(11, 0, 1, 1deg) scale(1.2);
+  transform: scale(1.1);
   background-color: rgba(68, 2, 2, 0.9);
   border: 1px solid rgb(250, 2, 2);
+  box-shadow: 5px 5px;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.card:hover button {
+  background-color: red;
+  color: white;
+  box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.card:hover img {
+  transform: scale(1.025);
+  box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  mix-blend-mode: lighten;
 }
 
 .card img {
+  border-radius: 1rem;
   max-width: 100%;
+  mix-blend-mode: multiply;
 }
 
 .whole {

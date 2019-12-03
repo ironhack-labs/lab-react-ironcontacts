@@ -9,9 +9,15 @@ class Celebs extends Component {
     let deleteOne = this.props.delete;
     return (
       <div className="card">
-        <img src={names.pictureUrl} alt={names.name} />
-        <h3> {names.name}</h3>
-        <p>popularity: {names.popularity}</p>
+        <a
+          href={`https://www.google.co.uk/search?q=${names.name}`}
+          target="_new"
+        >
+          {' '}
+          <img src={names.pictureUrl} alt={names.name} />
+          <h3> {names.name}</h3>
+        </a>
+        <p>popularity: {names.popularity.toFixed(2)}</p>
         <button onClick={() => deleteOne(names)}>deleet this</button>
       </div>
     );
