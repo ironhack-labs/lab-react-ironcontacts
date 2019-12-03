@@ -13,7 +13,18 @@ class App extends Component {
       //contactsList: contacts.slice(0, 5)
       contactsList: [...contactsArray]
     };
+    this.addRandomContact = this.addRandomContact.bind(this);
   }
+
+  addRandomContact() {
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    const newContactsList = [...this.state.contactsList, randomContact];
+    this.setState({
+      contactsList: newContactsList
+    });
+    console.log('Random Contact');
+  }
+
   render() {
     const contactsList = this.state.contactsList;
     return (
@@ -21,17 +32,26 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
+          <button class="button" onClick={this.addRandomContact}>
+            Add Random Contact
+          </button>
         </header>
         <table>
           {contactsList.map(value => {
             return (
-              <tr key={value.id}>
-                <td>
-                  <img src={value.pictureUrl} className="image-actor" alt="logo" />
-                </td>
-                <td>{value.name}</td>
-                <td>{value.popularity}</td>
-              </tr>
+              <div>
+                <tr key={value.id}>
+                  <td>
+                    <img
+                      src={value.pictureUrl}
+                      className="image-actor"
+                      alt="logo"
+                    />
+                  </td>
+                  <td>{value.name}</td>
+                  <td>{value.popularity.toFixed(0)}</td>
+                </tr>
+              </div>
             );
           })}
         </table>

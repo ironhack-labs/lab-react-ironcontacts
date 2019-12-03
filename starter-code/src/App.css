@@ -34,3 +34,8 @@
 .image-actor {
   height: 200px;
 }
+
+.button {
+  background-color: #555555;
+  color: white;
+}
