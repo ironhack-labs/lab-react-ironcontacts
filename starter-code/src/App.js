@@ -9,7 +9,8 @@ class App extends Component {
     this.randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
     
     this.actors = [...Contacts]
-    this.actorsInit = this.actors.splice(0, 5)
+    this.actorsFiltered = this.actors
+    this.actorsInit = this.actors.slice(0, 5)
     
     this.state = {
       contacts: this.actorsInit,
@@ -18,29 +19,26 @@ class App extends Component {
 
   addRandom() {
     let randomNumber = this.randomInt(0,this.actors.length-1)
-    this.actorsInit.push(this.actors[randomNumber])
+    this.actorsInit.push(this.actorsFiltered[randomNumber])
     
-    this.actors = this.actors.filter(contact => !this.actorsInit.includes(contact));
+    this.actorsFiltered = this.actors.filter(contact => !this.actorsInit.includes(contact));
     
     this.setState({
       ...this.state,
       contacts: this.actorsInit,
     })
   }
-
 
   sortByName() {
     this.actorsInit.sort((a,b) => {
       return a.name.localeCompare(b.name);
     })
 
-    console.log(this.actorsInit)
     this.setState({
       ...this.state,
       contacts: this.actorsInit,
     })
   }
-
 
   sortByPopularity() {
     this.actorsInit.sort((a,b) => {
@@ -53,8 +51,17 @@ class App extends Component {
     })
   }
 
+  deleteActor(idToDelete) {
+    this.actorsInit = this.actorsInit.filter(contact => idToDelete !== contact.id)
+    this.actorsFiltered = this.actorsFiltered.filter(contact => idToDelete !== contact.id);
+
+    this.setState({
+      ...this.state,
+      contacts: this.actorsInit,
+    })
+  }
+
   render() {
-    console.log(this.state.contacts);
     return (
       <div className="App">
         <h1>IronContacts</h1>
@@ -73,8 +80,8 @@ class App extends Component {
           </thead>
 
           <tbody>
-            {this.state.contacts.map(contact => (
-              <Contact key={contact.id} name={contact.name} picture={contact.pictureUrl} popularity={contact.popularity}></Contact>
+            {this.state.contacts.map((contact, idx) => (
+              <Contact key={contact.id} name={contact.name} picture={contact.pictureUrl} popularity={contact.popularity} delete={() => this.deleteActor(contact.id)}></Contact>
             ))}
           </tbody>
         </table>
