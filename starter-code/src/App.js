@@ -69,17 +69,17 @@ deleteContact=(idx)=>{
         </nav>
         <table>
           <thead>
-           
+           <tr>
               <th>Photo</th>
               <th>Name</th>
               <th>Popularity</th>
-           
+              </tr>
           </thead>
 
           <tbody>
             {this.state.list.map((contact, idx) => {
               return (
-                <Contact idx={idx} {...contact} delete={() =>this.deleteContact(idx)}>
+                <Contact key={idx} {...contact} delete={() =>this.deleteContact(idx)}>
 
                 </Contact>
               );
