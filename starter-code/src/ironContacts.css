@@ -1,0 +1,54 @@
+
+
+.containerStyle {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactStyle {
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin: 20px;
+    border: 1px solid black;
+    width: 500px;
+    background-color: black ;
+}
+
+h1 {
+    margin: 30px;
+    font-size: 35px;
+}
+
+button {
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
+}
+
+img {
+    margin: 10px;
+}
+
+.delete {
+    font-size: 15px;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    margin: 20px;
+    background-color: red;
+
+}
+button {
+    
+    font-size: 15px;
+    padding: 10px 20px;
+
+    color: black;
+    margin: 20px;
+}
