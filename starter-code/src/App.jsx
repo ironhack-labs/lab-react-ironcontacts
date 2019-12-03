@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import contacts from './contacts.json';
 import Celebrity from './Components/Celebrity';
 
@@ -14,12 +14,32 @@ class App extends Component {
       contactsArray: contactos
     };
     this.addRandom = this.addRandom.bind(this);
+    this.sortByName = this.sortByName.bind(this);
+    this.sortByPopularity = this.sortByPopularity.bind(this);
+  }
+
+  sortByName() {
+    const sortedContacts = this.state.contactsArray.sort((a, b) =>
+      a.name < b.name ? -1 : 1
+    );
+    this.setState({
+      contactsArray: [...sortedContacts]
+    });
+  }
+
+  sortByPopularity() {
+    const sortedContacts = this.state.contactsArray.sort((a, b) =>
+      a.popularity < b.popularity ? 1 : -1
+    );
+    this.setState({
+      contactsArray: [...sortedContacts]
+    });
   }
 
   addRandom() {
     const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
     this.setState({
-      contactsArray: [...this.state.contactsArray, randomContact]
+      contactsArray: [randomContact, ...this.state.contactsArray]
     });
   }
 
@@ -29,22 +49,26 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">IronContacts</h1>
-          <button onClick={this.addRandom}>Add Random Contact</button>
         </header>
-        <p className="App-intro">
-          <table>
+        <div className="App-intro">
+          <div className="buttonGroup">
+            <button onClick={this.addRandom}>Add Random Contact</button>
+            <button onClick={this.sortByName}>Sort by Name</button>
+            <button onClick={this.sortByPopularity}>Sort by Popularity</button>
+          </div>
+          <ul>
             {contacts.map(contact => {
               return (
                 <Celebrity
+                  key={contact.id}
                   name={contact.name}
                   picture={contact.pictureUrl}
                   popularity={contact.popularity}
-                  id={contact.id}
                 ></Celebrity>
               );
             })}
-          </table>
-        </p>
+          </ul>
+        </div>
       </div>
     );
   }

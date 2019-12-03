@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: white;
+  padding: 20px;
+  color: #222;
+  border-bottom: 2px solid #222;
+}
+
+.App-title {
+  font-size: 3em;
+  margin: 0 auto;
+  width: 89.5%;
+  padding: 10px 20px;
+  color: #222;
+  background-color: white;
+  cursor: pointer;
+  border-radius: inherit;
+  text-transform: capitalize;
+  border-top: 2px solid #222;
+  border-left: 2px solid #222;
+  border-right: 2px solid #222;
+  border-bottom: 4px solid #222;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  border-top: 2px solid #222;
+
+  li {
+    &:nth-child(2n + 1) {
+      background-color: #efefef96;
+    }
+  }
+}
+
+.buttonGroup {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  width: 90%;
+  margin: 20px auto 20px auto;
+  border-radius: 0;
+
+  button {
+    padding: 10px 20px;
+    width: 100%;
+    color: #222;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+    border-radius: inherit;
+    margin: 0 10px;
+    text-transform: capitalize;
+    border-top: 2px solid #222;
+    border-left: 2px solid #222;
+    border-right: 2px solid #222;
+    border-bottom: 4px solid #222;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: #efefef;
+    }
+  }
+}

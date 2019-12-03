@@ -3,20 +3,32 @@ import React, { Component } from 'react';
 import './style.scss';
 
 class Celebrity extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.deleteCelebrity = this.deleteCelebrity.bind(this);
+  }
+
+  deleteCelebrity() {}
 
   render() {
     return (
-      <tr className="celebrityCard">
-        <td>
-          <img src={this.props.picture}></img>
-        </td>
-        <td>{this.props.name}</td>
-        <td>{this.props.popularity.toFixed(2)}</td>
-        {/* <td>{this.props.id}</td> */}
-      </tr>
+      <li className="celebrityCard">
+        <div className="celebrityLine animated fadeInLeft">
+          <div>
+            <img src={this.props.picture}></img>
+          </div>
+          <div>
+            <p>
+              {this.props.name}
+              <br />
+              <small>popularity: {this.props.popularity.toFixed(2)}</small>
+            </p>
+          </div>
+          <div>
+            <button onClick={this.deleteCelebrity}>Delete</button>
+          </div>
+        </div>
+      </li>
     );
   }
 }
