@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.scss';
 import contacts from './contacts.json';
 import Celebrity from './Components/Celebrity';
+import DeleteButton from './Components/DeleteButton';
 
 class App extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class App extends Component {
     this.addRandom = this.addRandom.bind(this);
     this.sortByName = this.sortByName.bind(this);
     this.sortByPopularity = this.sortByPopularity.bind(this);
+    this.deleteButton = this.deleteButton.bind(this);
   }
 
   sortByName() {
@@ -43,6 +45,15 @@ class App extends Component {
     });
   }
 
+  deleteButton(id) {
+    const deleteContacts = this.state.contactsArray.filter(value => {
+      return value.id === id ? false : true;
+    });
+    this.setState({
+      contactsArray: [...deleteContacts]
+    });
+  }
+
   render() {
     const contacts = this.state.contactsArray;
     return (
@@ -59,12 +70,23 @@ class App extends Component {
           <ul>
             {contacts.map(contact => {
               return (
-                <Celebrity
-                  key={contact.id}
-                  name={contact.name}
-                  picture={contact.pictureUrl}
-                  popularity={contact.popularity}
-                ></Celebrity>
+                <li className="celebrityCard">
+                  <div className="celebrityLine">
+                    <Celebrity
+                      key={contact.id}
+                      name={contact.name}
+                      picture={contact.pictureUrl}
+                      popularity={contact.popularity}
+                    ></Celebrity>
+                    <DeleteButton
+                      key={contact.id
+                        .split('')
+                        .reverse()
+                        .join('')}
+                      onChange={() => this.deleteButton(contact.id)}
+                    />
+                  </div>
+                </li>
               );
             })}
           </ul>

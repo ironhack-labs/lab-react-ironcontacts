@@ -51,6 +51,7 @@ ul {
   list-style-type: none;
   padding: 0;
   border-top: 2px solid #222;
+  margin-top: 0;
 
   li {
     &:nth-child(2n + 1) {
@@ -63,14 +64,14 @@ ul {
   font-size: 1em;
   display: flex;
   align-items: center;
-  justify-content: stretch;
+  justify-content: space-between;
   width: 90%;
-  margin: 20px auto 20px auto;
+  padding: 25px 5%;
   border-radius: 0;
 
   button {
     padding: 10px 20px;
-    width: 100%;
+    width: 30%;
     color: #222;
     font-size: 1em;
     background-color: white;

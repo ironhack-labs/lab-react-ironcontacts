@@ -8,24 +8,20 @@
     display: flex;
     align-items: stretch;
     justify-content: start;
-    background-color: white;
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(230, 230, 230, 1);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(230, 230, 230, 1);
-    box-shadow: 5px 5px 10px 5px rgba(230, 230, 230, 1);
-    border: 2px solid #222;
     width: 90%;
-    margin: 0 auto;
+    margin: auto;
 
-    div {
-      height: 100px;
-      display: flex;
-      align-items: center;
+    .celebrityInfo {
+      background-color: white;
+      -webkit-box-shadow: 5px 5px 10px 5px rgba(230, 230, 230, 1);
+      -moz-box-shadow: 5px 5px 10px 5px rgba(230, 230, 230, 1);
+      box-shadow: 5px 5px 10px 5px rgba(230, 230, 230, 1);
+      border: 2px solid #222;
+      width: 90%;
+      margin: 0;
+      z-index: 0;
 
-      img {
-        height: 100%;
-      }
-
-      &:nth-of-type(2) {
+      p {
         padding: 0 20px;
         font-weight: 700;
         color: #222;
@@ -34,18 +30,15 @@
           font-weight: 200;
         }
       }
+    }
 
-      &:last-of-type {
-        margin-left: auto;
-        margin-right: 20px;
-        button {
-          padding: 5px 10px;
-          font-size: 0.9em;
-          background-color: white;
-          color: #222;
-          border: 2px solid #222;
-          border-bottom-width: 3px;
-        }
+    div {
+      height: 100px;
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 100%;
       }
 
       p {
