@@ -3,8 +3,8 @@ import React, { Component } from "react";
 export default class ContactList extends Component {
   render() {
     return (
-      <div>
-        <tr class="contacts-table">
+      
+        <tr className="contacts-table">
           <td>
             <img
               src={this.props.picture}
@@ -15,7 +15,6 @@ export default class ContactList extends Component {
           <td>{this.props.name}</td>
           <td>{this.props.popularity}</td>
         </tr>
-      </div>
     );
   }
 }
