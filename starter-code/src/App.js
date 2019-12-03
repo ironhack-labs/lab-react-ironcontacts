@@ -55,9 +55,9 @@ class App extends Component {
     
     return (
       <div className="App">
-        <button onClick={this.generateRandomContact}>Generate Random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by Popularity</button>
+        <button onClick={this.generateRandomContact} className="top-buttons">Generate Random Contact</button>
+        <button onClick={this.sortByName} className="top-buttons">Sort by name</button>
+        <button onClick={this.sortByPopularity} className="top-buttons">Sort by Popularity</button>
         <ContactsTable contactsArr={this.state.contactsArr} />
       </div>
     );
