@@ -9,7 +9,7 @@ export default class Contact extends Component {
             </td>
             <td>{this.props.name}</td>
             <td>{this.props.popularity.toFixed(2)}</td>
-            <td><button className="delete" onClick={() => this.props.delete(this.props.idx)}>Delete</button></td>
+            <td><button className="delete" onClick={this.props.delete}>Delete</button></td>
           </tr>
         )
     }

@@ -79,7 +79,7 @@ deleteContact=(idx)=>{
           <tbody>
             {this.state.list.map((contact, idx) => {
               return (
-                <Contact idx={idx.toString()} {...contact} delete={this.deleteContact}>
+                <Contact idx={idx} {...contact} delete={() =>this.deleteContact(idx)}>
 
                 </Contact>
               );
