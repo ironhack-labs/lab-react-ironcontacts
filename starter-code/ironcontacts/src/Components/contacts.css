@@ -1,0 +1,12 @@
+.tableImg {
+    width: 100px;
+  }
+
+td, th {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+button {
+    margin-right: 4px;
+}
