@@ -8,21 +8,24 @@ class App extends Component {
   
   generateRandomContact = this.generateRandomContact.bind(this);
   generateRandomContact () {
-    console.log('function called!');
     let randomNum = Math.floor(Math.random()*contacts.length-1);
     const contactsArrCopy = [...this.state.contactsArr];
+    const newContact = {...contacts[randomNum]};
+    newContact.deleteAction = () => this.deleteContact(newContact.id);
     
-    if(!contactsArrCopy.find(contact => contact.name===contacts[randomNum].name)) {
-      contactsArrCopy.unshift(contacts[randomNum]);
+    if(!contactsArrCopy.find(contact => contact.name===newContact.name)) {
+      contactsArrCopy.unshift(newContact);
       this.setState({contactsArr:contactsArrCopy});
     }else this.generateRandomContact();
   }
   deleteContact = this.deleteContact.bind(this);
-  deleteContact (contactIndex) {
+  deleteContact (contactId) {
     const contactsArrCopy = [...this.state.contactsArr];
-    console.log(contactIndex);
-    contactsArrCopy.splice(contactIndex,1);
-    this.setState({contactsArr:contactsArrCopy});  
+    console.log(contactId);
+    const contactToDelete = contactsArrCopy.indexOf(contactsArrCopy.find(contact => contact.id === contactId));
+    console.log(contactToDelete);
+    contactsArrCopy.splice(contactToDelete,1);
+    this.setState({contactsArr:contactsArrCopy});
   }
 
   sortByName = this.sortByName.bind(this);
@@ -39,8 +42,8 @@ class App extends Component {
   }
   addDeleteFunction = () => {
     const contactsArrCopy = [...this.state.contactsArr];
-    contactsArrCopy.forEach( (contact, index) => {
-      contact.deleteAction = () => this.deleteContact(index);
+    contactsArrCopy.forEach( contact => {
+      contact.deleteAction = () => this.deleteContact(contact.id);
     })
     this.setState({contactsArr:contactsArrCopy});
   }
