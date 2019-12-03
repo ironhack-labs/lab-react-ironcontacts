@@ -5,7 +5,7 @@ import './style.scss';
 class DeleteButton extends Component {
   render() {
     return (
-      <div className="deleteButton">
+      <div className="deleteButton  animated fadeIn">
         <button onClick={this.props.onChange}>Delete</button>
       </div>
     );

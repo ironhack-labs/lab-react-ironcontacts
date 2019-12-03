@@ -9,7 +9,7 @@ class Celebrity extends Component {
 
   render() {
     return (
-      <div className="celebrityInfo animated fadeInDown">
+      <div className="celebrityInfo animated fadeIn">
         <div>
           <img src={this.props.picture}></img>
         </div>
