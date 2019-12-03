@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json'
+import IronContacts from './ironContacts/ironContacts'
+
 
 class App extends Component {
+ constructor() {
+   super();
+   this.contacts = [...contacts]
+   this.fiveContacts = this.contacts.splice(0,5);
+   this.state = {
+     actors: this.fiveContacts
+   }
+
+  
+
+ }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <button>Add Random</button>
+        <button>Sort by Name</button>
+        <button>Sort by Popularity</button>
+
+       {this.state.actors.map((actor,idx) => 
+         <IronContacts name = {actor.name} img = {actor.pictureUrl} popularity = {actor.popularity} key = {idx} ></IronContacts>
+       )}
+       
+       </div>
     );
   }
 }
