@@ -13,12 +13,28 @@ class App extends Component {
     };
     //gives access to the (this) property inside the method
     this.randomContact = this.randomContact.bind(this);
+    this.sortByName = this.sortByName.bind(this);
+    this.sortByPopularity = this.sortByPopularity.bind(this);
   }
 
   randomContact() {
     const random = contacts[Math.floor(Math.random() * contacts.length)];
     this.setState({
-      actors: [...this.state.actors, random]
+      actors: [random, ...this.state.actors]
+    });
+  }
+
+  sortByName() {
+    const newActors = this.state.actors.sort((a, b) => a.name > b.name ? 1 : -1);
+    this.setState({
+      actors: [...newActors]
+    });
+  }
+
+  sortByPopularity() {
+    const newActors = this.state.actors.sort((a, b) => a.popularity < b.popularity ? 1 : -1);
+    this.setState({
+      actors: [...newActors]
     });
   }
 
@@ -29,8 +45,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Iron Hack Contacts</h1>
           <button onClick={this.randomContact}>Add Random Contact</button>
-          <button onClick='#'>Sort by name</button>
-          <button onClick='#'>Sort by popularity</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
         </header>
 
         <div className='table-content'>
