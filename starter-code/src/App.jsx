@@ -22,11 +22,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-          <button onClick={this.addName}> add name</button>
-          <button onClick={this.addRandom}>add random</button>
-          <button onClick={this.sortByName}>sort by naim</button>
-          <button onClick={this.sortByPopularity}>sort by popularity</button>
+          <h1 className="App-title">
+            Welcome to Leo's wonderful list of famous people
+          </h1>
+          <div className="button-bar">
+            {' '}
+            <button onClick={this.addName}> add one</button>
+            <button onClick={this.addRandom}>add random</button>
+            <button onClick={this.sortByName}>sort by naim</button>
+            <button onClick={this.sortByPopularity}>sort by popularity</button>
+          </div>
         </header>
         <div className="whole">
           {this.state.names.map(each => {

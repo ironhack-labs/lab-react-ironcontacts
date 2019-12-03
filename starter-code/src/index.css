@@ -11,14 +11,17 @@ body {
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid red;
-  background-color: rgba(68, 2, 2, 0.5);
-  transition: ease-in-out;
+  background-color: rgba(68, 2, 2, 0.8);
   padding: 5px;
+  transition: ease-in-out;
+  transition-duration: 100ms;
+
 }
 
 .card:hover {
-  transform: scale(1.1);
-  background-color: rgba(68, 2, 2, 0.9)
+  transform: rotate3d(11, 0, 1, 1deg) scale(1.2);
+  background-color: rgba(68, 2, 2, 0.9);
+  border: 1px solid rgb(250, 2, 2);
 }
 
 .card img {
@@ -29,4 +32,24 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+button {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: crimson;
+
+}
+
+.button-bar {
+  margin-bottom: 1rem;
+}
+
+.button-bar button {
+  width: 15rem;
 }
