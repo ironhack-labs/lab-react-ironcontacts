@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
 import Contact from "./contact";
@@ -10,7 +9,6 @@ console.log(contactsList);
 class App extends Component {
   constructor() {
     super();
-    this.deleteContact=this.deleteContact.bind(this)
   }
   state = {
       list: [...contactsList]
@@ -64,16 +62,18 @@ deleteContact=(idx)=>{
         <header className='App-header'>
           <h1 className='App-title'>Ironcontacts</h1>
         </header>
+        <nav>
         <button onClick={() => this.addRandom()}>Add Random Contact</button>
         <button onClick={() => this.sortName()}>Sort by name</button>
         <button onClick={() => this.sortPopularity()}>Sort by popularity</button>
+        </nav>
         <table>
           <thead>
-            <tr>
+           
               <th>Photo</th>
               <th>Name</th>
               <th>Popularity</th>
-            </tr>
+           
           </thead>
 
           <tbody>
