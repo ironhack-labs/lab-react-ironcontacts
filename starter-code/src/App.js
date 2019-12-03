@@ -7,7 +7,6 @@ import Contact from "./Contact";
 class App extends Component {
   constructor() {
     super();
-
     this.actorsArr = [...contacts];
     this.state = {
       currentActors: this.actorsArr.splice(0, 5)
@@ -21,19 +20,26 @@ class App extends Component {
       randomInt(0, this.actorsArr.length - 1),
       1
     )[0];
-    this.state.currentActors.push(newActor);
-    this.setState({ ...this.state, currentActors: this.state.currentActors });
+    let actors = [...this.state.currentActors]
+    actors.push(newActor);
+    this.setState({ ...this.state, currentActors: actors });
   };
 
   sortByName = () => {
-    this.state.currentActors.sort((a,b)=> a.name.localeCompare(b.name) );
-    this.setState({ ...this.state, currentActors: this.state.currentActors });
+    let actors = [...this.state.currentActors]
+    actors.sort((a,b)=> a.name.localeCompare(b.name) );
+    this.setState({ ...this.state, currentActors: actors });
   };
 
   sortByPop = () => {
-    this.state.currentActors.sort((a,b)=>a.popularity>b.popularity ? -1 : 1);
-    this.setState({ ...this.state, currentActors: this.state.currentActors });
+    let arr = [...this.state.currentActors]
+    arr.sort((a,b)=>a.popularity>b.popularity ? -1 : 1);
+    this.setState({ ...this.state, currentActors: arr });
   };
+
+  deleteSelf = (id) => {
+    this.setState({ ...this.state, currentActors: (this.state.currentActors.filter(actor => actor.id !== id)) })
+  }
 
   render() {
     return (
@@ -58,6 +64,7 @@ class App extends Component {
                 name={actor.name}
                 pictureUrl={actor.pictureUrl}
                 popularity={actor.popularity.toFixed(2)}
+                deleteMe = {() => this.deleteSelf(actor.id)}
               ></Contact>
             ))}
           </tbody>

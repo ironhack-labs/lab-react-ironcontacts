@@ -15,7 +15,7 @@ export default class Contact extends Component {
           <p>{this.props.popularity}</p>
         </td>
         <td>
-          <button>Delete</button>
+          <button onClick={(id) => this.props.deleteMe(id)}>Delete</button>
         </td>
       </tr>
     );
