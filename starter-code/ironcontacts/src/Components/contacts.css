@@ -10,3 +10,7 @@ td, th {
 button {
     margin-right: 4px;
 }
+
+button:hover {
+    color: black;
+}

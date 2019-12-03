@@ -10,7 +10,7 @@ const ContactCard = (props) => {
                 <td className="space"><img className="tableImg" src={props.pictureUrl} alt="Famosito"/></td>
                 <td>{props.name}</td>
                 <td>{props.popularity}</td>    
-                <td><button className="btn btn-small btn-dark" onClick={props.deleteContact}>Delete</button></td>    
+                <td><button className="btn btn-small btn-danger" onClick={props.deleteContact}>Delete</button></td>    
 
             </tr>  
 

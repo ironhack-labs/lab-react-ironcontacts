@@ -27,7 +27,6 @@ class List extends Component {
         contactCopy.push(contactJson[id])
         this.state.contacts.splice(id, 1)
 
-
         this.setState( { fiveContact: contactCopy} )
 
         console.log(id)
@@ -76,9 +75,9 @@ class List extends Component {
 		return (
         <>
 
-        <button className="btn btn-small btn-dark" onClick={this.addOne} >Add Random Contact</button>
-        <button className="btn btn-small btn-dark" onClick={this.sortByName}>Sort by Name</button>
-        <button className="btn btn-small btn-dark" onClick={this.sortByPopularity}>Sort by Popularity</button>
+        <button className="btn btn-small btn-outline-primary" onClick={this.addOne} >Add Random Contact</button>
+        <button className="btn btn-small btn-primary" onClick={this.sortByName}>Sort by Name</button>
+        <button className="btn btn-small btn-primary" onClick={this.sortByPopularity}>Sort by Popularity</button>
 
         <table>
             <thead>
