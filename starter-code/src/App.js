@@ -6,24 +6,26 @@ import Contact from "./contact/Contact";
 class App extends Component {
   constructor() {
     super();
-    this.actors = [...Contacts];
-    this.actorsIni = this.actors.splice(0, 5)
-    this.actorsRest = this.actors.splice(5)
+    this.randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+    
+    this.actors = [...Contacts]
+    this.actorsInit = this.actors.splice(0, 5)
     
     this.state = {
-      contacts: this.actorsIni
-    };
+      contacts: this.actorsInit,
+    }
   }
 
-  addRandom(){
-    const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);  
-   
-    let contactsCopy = [...this.state.contacts]
-    contactsCopy.push(this.actorsRest[randomInt(0, this.actorsRest.length -1)])
+  addRandom() {
+    let randomNumber = this.randomInt(0,this.actors.length-1)
+    this.actorsInit.push(this.actors[randomNumber])
+    
+    this.actors = this.actors.filter(contact => !this.actorsInit.includes(contact));
     
     this.setState({
-      contacts : contactsCopy
-    });
+      ...this.state,
+      contacts: this.actorsInit,
+    })
   }
 
   render() {
