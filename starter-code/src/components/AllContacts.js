@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './AllContacts.css';
 import OneContact from './OneContact';
+import shortid from 'shortid';
 
 
 class AllContacts extends Component { 
@@ -12,6 +13,9 @@ class AllContacts extends Component {
             restofcontacts: this.props.contactsArr.splice(5),
             randomContact: ''
         }
+
+        // add a unique id to each contact obj inside the contacts array
+        this.state.contacts.forEach(contact => contact.id = shortid.generate() );
     }
 
     showRandomContact = () => {
@@ -43,6 +47,18 @@ class AllContacts extends Component {
         this.setState( { contacts: sortedContactsByPopularity });
     }
 
+    deleteContact = contactId => {
+        // Copy the contacts array from the state
+        const contactsCopy = [...this.state.contacts];
+
+        // Edit the copy of the movies
+        contactsCopy.splice(contactId, 1);
+
+        // Set back the new movie array to the state (update the state with the updated movies)
+        this.setState({ contacts: contactsCopy });
+    }
+
+
     render() {
         return (
             <div>
@@ -55,14 +71,19 @@ class AllContacts extends Component {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr> 
                     </thead>
                     <tbody>
-                    { this.state.contacts.map(contact => 
-                        <OneContact oneContact={contact} />
+                    { this.state.contacts.map( contact => 
+                        <OneContact 
+                            oneContact={contact}  
+                            key={contact.id}
+                            clickToDelete={ () => this.deleteContact(contact.id) } 
+                        />
                     )}
                     </tbody>
-                </table>
+                </table> 
             </div>
         )
     }
