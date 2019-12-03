@@ -14,6 +14,7 @@ class App extends Component {
       contactsList: [...contactsArray]
     };
     this.addRandomContact = this.addRandomContact.bind(this);
+    this.sortByName = this.sortByName.bind(this);
   }
 
   addRandomContact() {
@@ -25,6 +26,21 @@ class App extends Component {
     console.log('Random Contact');
   }
 
+  sortByName() {
+    const sortArr = [...this.state.contactsList].sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      } else if (a.name > b.name) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    this.setState({
+      contactsList: sortArr
+    });
+  }
+
   render() {
     const contactsList = this.state.contactsList;
     return (
@@ -34,6 +50,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
           <button class="button" onClick={this.addRandomContact}>
             Add Random Contact
+          </button>
+          <button class="button" onClick={this.sortByName}>
+            Sort by Name
           </button>
         </header>
         <table>
