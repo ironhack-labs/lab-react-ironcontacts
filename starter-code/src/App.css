@@ -22,6 +22,34 @@
   font-size: large;
 }
 
+
+/* My styles */
+img{
+  /* height: 250px; */
+  width: 150px;
+}
+
+.table-contact{
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.table-header{
+  display:flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+.picture-table{
+  padding: 40px;
+}
+.name-table{
+  padding: 40px;
+}
+
+.popul-table{
+  padding: 40px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
