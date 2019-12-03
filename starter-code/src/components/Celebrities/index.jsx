@@ -13,6 +13,7 @@ class Celebrities extends Component {
     this.addContact = this.addContact.bind(this);
     this.sortByName = this.sortByName.bind(this);
     this.sortByPopularity = this.sortByPopularity.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
   }
 
   addContact() {
@@ -36,12 +37,22 @@ class Celebrities extends Component {
 
   sortByPopularity() {
     // console.log("Sort by pop");
-    let contactsDisp = this.state.contactsDisp.sort((a, b) =>
+    const contactsDisp = this.state.contactsDisp.sort((a, b) =>
       a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
     );
     this.setState({
       contactsDisp
     });
+  }
+
+  deleteContact(contactToDel) {
+    const contactsDisp = this.state.contactsDisp.filter(
+      contact => contact.name !== contactToDel.name
+    );
+    this.setState({
+      contactsDisp
+    });
+    // console.log(this);
   }
 
   render() {
@@ -62,6 +73,7 @@ class Celebrities extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -73,6 +85,14 @@ class Celebrities extends Component {
                   </td>
                   <td>{contact.name}</td>
                   <td>{Math.round(contact.popularity * 100) / 100}</td>
+                  <td>
+                    <button
+                      className="btn-delete"
+                      onClick={() => this.deleteContact(contact)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
