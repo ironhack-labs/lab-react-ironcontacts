@@ -15,6 +15,9 @@ function CardContact(props) {
           <th className="popul-table">
             <p>{contact.popularity}</p>
           </th>
+          <th className="button-table">
+            <button onClick={props.clickToDelete}>Delete</button>
+          </th>
         </tr>
       </table>
     </div>
