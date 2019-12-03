@@ -5,10 +5,10 @@ import shortid from 'shortid';
 class ContactsTable extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             contacts: this.props.contactsArr.slice(0,5),
         }
+        
     }
 
     render() { 

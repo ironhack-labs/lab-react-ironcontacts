@@ -1,12 +1,12 @@
 import React from 'react'
 
 export default function ContactRow(props) {
-    //TODO add good alt description
+    const {pictureUrl, name, popularity} = props.contact;
     return (
         <tr>
-            <td><img src={props.pictureUrl} alt='actor' /></td>
-            <td>Name1</td>
-            <td>Popularity1</td>
+            <td><img src={pictureUrl} alt='actor' /></td>
+            <td>{name}</td>
+            <td>{popularity}</td>
         </tr> 
     )
 }
