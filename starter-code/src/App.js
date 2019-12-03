@@ -8,12 +8,21 @@ class App extends Component {
   
   generateRandomContact = this.generateRandomContact.bind(this);
   generateRandomContact () {
-    const randomNum = Math.floor(Math.random()*this.state.contactsArr.length);
+    console.log('function called!');
+    let randomNum = Math.floor(Math.random()*contacts.length-1);
     const contactsArrCopy = [...this.state.contactsArr];
-    //if (contactsArrCopy.find(contacts[randomNum])) {
+    
+    if(!contactsArrCopy.find(contact => contact.name===contacts[randomNum].name)) {
       contactsArrCopy.unshift(contacts[randomNum]);
       this.setState({contactsArr:contactsArrCopy});
-    //}
+    }else this.generateRandomContact();
+  }
+  deleteContact = this.deleteContact.bind(this);
+  deleteContact (contactIndex) {
+    const contactsArrCopy = [...this.state.contactsArr];
+    console.log(contactIndex);
+    contactsArrCopy.splice(contactIndex,1);
+    this.setState({contactsArr:contactsArrCopy});  
   }
 
   sortByName = this.sortByName.bind(this);
@@ -28,8 +37,19 @@ class App extends Component {
     contactsArrCopy.sort((a,b) => b.popularity - a.popularity);
     this.setState({contactsArr:contactsArrCopy});
   }
-  
+  addDeleteFunction = () => {
+    const contactsArrCopy = [...this.state.contactsArr];
+    contactsArrCopy.forEach( (contact, index) => {
+      contact.deleteAction = () => this.deleteContact(index);
+    })
+    this.setState({contactsArr:contactsArrCopy});
+  }
+  componentDidMount(){
+    this.addDeleteFunction();
+  }
+    
   render() {
+    
     return (
       <div className="App">
         <button onClick={this.generateRandomContact}>Generate Random Contact</button>

@@ -5,7 +5,6 @@ import shortid from 'shortid';
 
 
 const ContactsTable = (props) => {
-    console.log(props);
     return (
         <table>
             <thead>
@@ -13,6 +12,7 @@ const ContactsTable = (props) => {
                     <th>Contacts</th>
                     <th>Name</th>
                     <th>Popularity</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
