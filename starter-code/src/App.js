@@ -15,13 +15,26 @@ class App extends Component {
       this.setState({contactsArr:contactsArrCopy});
     //}
   }
+
+  sortByName = this.sortByName.bind(this);
+  sortByName () {
+    const contactsArrCopy = [...this.state.contactsArr];
+    contactsArrCopy.sort((a,b) => a.name.localeCompare(b.name));
+    this.setState({contactsArr:contactsArrCopy});
+  }
+  sortByPopularity = this.sortByPopularity.bind(this);
+  sortByPopularity () {
+    const contactsArrCopy = [...this.state.contactsArr];
+    contactsArrCopy.sort((a,b) => b.popularity - a.popularity);
+    this.setState({contactsArr:contactsArrCopy});
+  }
   
   render() {
-    console.log('render');
-    //console.log(this.state.contactsArr);
     return (
       <div className="App">
         <button onClick={this.generateRandomContact}>Generate Random Contact</button>
+        <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByPopularity}>Sort by Popularity</button>
         <ContactsTable contactsArr={this.state.contactsArr} />
       </div>
     );
