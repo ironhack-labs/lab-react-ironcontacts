@@ -24,11 +24,24 @@ class App extends Component {
     this.state.currentActors.push(newActor);
     this.setState({ ...this.state, currentActors: this.state.currentActors });
   };
+
+  sortByName = () => {
+    this.state.currentActors.sort((a,b)=> a.name.localeCompare(b.name) );
+    this.setState({ ...this.state, currentActors: this.state.currentActors });
+  };
+
+  sortByPop = () => {
+    this.state.currentActors.sort((a,b)=>a.popularity>b.popularity ? -1 : 1);
+    this.setState({ ...this.state, currentActors: this.state.currentActors });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Iron Contacts</h1>
         <button onClick={this.addRandom}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByPop}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
