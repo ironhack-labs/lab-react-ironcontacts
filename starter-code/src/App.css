@@ -30,3 +30,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#root .container{
+ padding: 32px;
+}
+
+#root header {
+  margin-bottom: 24px;
+}
+
+#root header button{
+  margin-left: 16px
+}
+
+table{
+  width: 100%;
+}

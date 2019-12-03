@@ -8,7 +8,7 @@ export default class Contact extends Component {
         <td><img src={this.props.picture} alt={this.props.name}/></td>
         <td>{this.props.name}</td>
         <td>{this.props.popularity}</td>
-        <td><button onClick={this.props.delete}>Delete</button></td>
+        <td><button className="button is-danger" onClick={this.props.delete}>Delete</button></td>
       </tr>
     );
   }
