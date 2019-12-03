@@ -1,18 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Contacts from "./contacts.json";
+import Contact from "./contact/Contact";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.actors = [...Contacts];
+    this.state = {
+      actors: this.actors.splice(0, 5)
+    };
+  }
+
   render() {
+    console.log(this.state.actors);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>IronContacts</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {this.state.actors.map(actor => (
+              <Contact key={actor.id} name={actor.name} picture={actor.pictureUrl} popularity={actor.popularity}></Contact>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
