@@ -15,6 +15,8 @@ class App extends Component {
     };
     this.addRandomContact = this.addRandomContact.bind(this);
     this.sortByName = this.sortByName.bind(this);
+    this.sortByPopularity = this.sortByPopularity.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
   }
 
   addRandomContact() {
@@ -41,6 +43,27 @@ class App extends Component {
     });
   }
 
+  sortByPopularity() {
+    const sortArr = [...this.state.contactsList].sort((a, b) => {
+      if (a.popularity < b.popularity) {
+        return -1;
+      } else if (a.popularity > b.popularity) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    this.setState({
+      contactsList: sortArr
+    });
+  }
+
+  deleteContact(id) {
+    const deletedContact = this.state.contactsList.filter(value => {
+      return value.id === id ? false : true;
+    });
+  }
+
   render() {
     const contactsList = this.state.contactsList;
     return (
@@ -54,12 +77,24 @@ class App extends Component {
           <button class="button" onClick={this.sortByName}>
             Sort by Name
           </button>
+          <button class="button" onClick={this.sortByPopularity}>
+            Sort by Popularity
+          </button>
         </header>
         <table>
           {contactsList.map(value => {
             return (
               <div>
                 <tr key={value.id}>
+                  <td>
+                    <button
+                      onClick={() => 
+                        this.deleteContact(value.id);
+                      }
+                    >
+                      Delete Contact
+                    </button>
+                  </td>
                   <td>
                     <img
                       src={value.pictureUrl}
@@ -68,7 +103,7 @@ class App extends Component {
                     />
                   </td>
                   <td>{value.name}</td>
-                  <td>{value.popularity.toFixed(0)}</td>
+                  <td>{value.popularity.toFixed(2)}</td>
                 </tr>
               </div>
             );
