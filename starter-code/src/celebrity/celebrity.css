@@ -1,0 +1,8 @@
+.celebrityImage {
+    width: 3rem;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+}
