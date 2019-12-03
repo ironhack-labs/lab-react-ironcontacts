@@ -1,0 +1,15 @@
+tr.celebrityCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  td {
+    width: 33%;
+  }
+
+  img {
+    width: 100%;
+    max-width: 40px;
+  }
+}
