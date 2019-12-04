@@ -9,10 +9,11 @@ console.log(contactsList);
 class App extends Component {
   constructor() {
     super();
-  }
-  state = {
+    this.state = {
       list: [...contactsList]
     };
+  }
+  
 
   addRandom = () => {
     let filteredArr = [...contacts].filter(contact => !this.state.list.includes(contact));
