@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+}
+
+#row-container{
+  display: flex;
+  justify-content: center;
+}
+
+#row img {
+  height: 100px;
+}
+
+#row div {
+  font-size: 2em;
+  padding: 10px;
+}
