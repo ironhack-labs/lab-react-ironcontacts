@@ -24,7 +24,10 @@ export default function Table(props) {
                             <td>
                                 <Tilt className="Tilt" options={{ 
                                     max : 30,
-                                    scale: 1.2}}>
+                                    scale: 1.2,
+                                    reverse: true,
+                                    perspective: 300,
+                                    }}>
                                     <img className="tilt" data-tilt src={contact.pictureUrl} alt="" className="picture"/>
                                 </Tilt>
                             </td>
