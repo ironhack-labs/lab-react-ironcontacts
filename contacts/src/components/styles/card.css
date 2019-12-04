@@ -1,0 +1,19 @@
+img{
+
+    width: 90px;
+  height: 90px;
+  object-fit: cover;
+ 
+}
+.name{
+    text-align: center;
+}
+td{
+    padding: 30px 10px;
+    
+}
+.back{
+    background-color: bisque;
+    opacity: 0.8;
+    border-radius: 25px;
+}
