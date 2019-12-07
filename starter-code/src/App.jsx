@@ -38,6 +38,13 @@ class App extends Component {
     });
   }
 
+  delete(item){
+    const deleted = this.state.actors.filter(i => i.id !== item.id)
+    this.setState({
+     actors: [...deleted]
+    })
+  }
+
   render() {
     const actors = this.state.actors;
     return (
@@ -63,7 +70,7 @@ class App extends Component {
                 <td><img src={value.pictureUrl} width="100" height="100" alt="" /></td>
                 <td>{value.name}</td>
                 <td>{value.popularity}</td>
-                <td><button onClick='#'>Delete</button></td>
+                <td key={value.id}><button onClick={this.delete.bind(this, value)}>Delete</button></td>
               </tr>
             )
           })}
