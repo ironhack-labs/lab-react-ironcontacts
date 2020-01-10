@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import contacts from './contacts.json'
-import logo from './logo.svg';
+import Data from './contacts.json'
 import './App.css';
+import Header from './components/Header'
+import Main from './components/Main'
 
 class App extends Component {
   state = {
-    contacts: contacts.slice(0,5)
+    contacts: [Data.slice(0,5)]
   }
 
   componentDidMount(){
-    
+ 
   }
 
   
@@ -17,7 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {alert(this.state.contacts.length)}
+        <Header/>
+        <Main contacts={this.state.contacts}/>
+        {/* {console.log(this.state.contacts)} */}
       </div>
     );
   }
