@@ -1,0 +1,7 @@
+.ContactCard td{
+    padding: 0.5rem 0;
+}
+
+.ContactCard img{
+    max-height: 150px;
+}
