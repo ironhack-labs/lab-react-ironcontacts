@@ -39,13 +39,21 @@ class Main extends Component {
       })
   }
 
+  deleteContact(index){
+      console.log('entra')
+      this.setState({
+          contacts: this.state.contacts.filter((c, i) => i !== index)
+      })
+  }
+
   render() {
     return (
       <div className="container">
         <ButtonList addContact={() => this.addContact()}
          sortContacts={() => this.sortContacts()}
          sortPopularity={() => this.sortPopularity()}/>
-        <ContactTable contacts={this.state.contacts} />
+        <ContactTable contacts={this.state.contacts}
+        deleteContact={(i) => this.deleteContact(i)} />
       </div>
     );
   }
