@@ -52,6 +52,12 @@ class ContactList extends Component {
     })
   }
 
+  onClickDeleteContact(contact) {
+    this.setState({
+      contacts: this.state.contacts.filter(c => c !== contact)
+    })
+  }
+
   // ESTO ES IGUAL QUE LO DE ARRIBA
   render() {
     return (
@@ -67,6 +73,7 @@ class ContactList extends Component {
             <ContactItem
               key={index}
               {...contact}
+              onClickDelete={() => this.onClickDeleteContact(contact)}
             />
           ))}
         </div>
