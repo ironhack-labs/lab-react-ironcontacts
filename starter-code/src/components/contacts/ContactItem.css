@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 33%;
+  width: 30%;
   height: 50%;
   box-shadow: 0 0 10px black;
   animation: creation 0.2s linear;
