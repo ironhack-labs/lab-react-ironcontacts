@@ -6,14 +6,12 @@ const ContactCard = ({
     pictureUrl,
     popularity,
     id
-}) => {
-    return (
+}) => (
         <tr className="ContactCard">
             <td><img src={pictureUrl} alt={name} /></td>
             <td>{name}</td>
-            <td>{popularity}</td>
+            <td>{popularity.toFixed(2)}</td>
         </tr>
     )
-}
 
 export default ContactCard
