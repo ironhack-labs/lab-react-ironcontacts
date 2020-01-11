@@ -47,7 +47,7 @@ class ContactList extends Component {
   sortByPopularity() {
     this.setState({
       contacts: this.state.contacts.sort((c1, c2) => {
-        return c1.popularity - c2.popularity
+        return c2.popularity - c1.popularity
       })
     })
   }
@@ -67,7 +67,6 @@ class ContactList extends Component {
           <SortByNameButton sortByName={() => this.sortByName()} />
           <SortByPopularityButton sortByPopularity={() => this.sortByPopularity()} />
         </div>
-
         <div className="contacts-container">
           {this.state.contacts.map((contact, index) => (
             <ContactItem

@@ -1,6 +1,7 @@
 import React from 'react'
 import './ContactItem.css'
 
+// el id es el id del json, el key es como algo interno de react
 const ContactItem = ({
   id,
   name,

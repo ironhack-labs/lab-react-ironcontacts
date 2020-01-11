@@ -15,8 +15,16 @@
 .buttons-container {
   display: flex;
   justify-content: space-around;
+  width: 100%
 }
 
 .buttons-container button {
-  width: 20%;
+  margin-top: 10px;
+  width: 15%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.buttons-container button:hover {
+  box-shadow: 0 0 10px red;
 }

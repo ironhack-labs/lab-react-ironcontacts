@@ -7,15 +7,40 @@
 .contact {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 33%;
   height: 50%;
-  box-shadow: 0 0 10px blue;
+  box-shadow: 0 0 10px black;
+  animation: creation 0.2s linear;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.contact:hover {
+  box-shadow: 0 0 20px green;
+}
+
+@keyframes creation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: #b3ffec;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px 10px 5px;
+  box-shadow: 0 0 10px black;
 }
 
 .contact-info p {
@@ -25,5 +50,11 @@
 .contact img {
   width: auto;
   height: 80%;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.contact-info button {
+  width: 100%;
 }
 
