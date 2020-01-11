@@ -1,34 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import Contact from "./Contact";
+import "../styles/ContactTable.css";
 
-class ContactTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contacts: [this.props.contacts]
-    };
-  }
+const ContactTable = ({ contacts }) => {
+  const contactsList = contacts.map((contact, i) => (
+    <Contact key={i} {...contact} />
+  ));
 
-  render() {
-    const contactsList = this.state.contacts.map((contact, i) => (
-       <Contact key={i} {...contact} />
-    ));
-
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.props.contacts.length > 0 ? contactsList : "No items"}
-        </tbody>
-      </table>
-    );
-  }
-}
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {contacts.length > 0 ? contactsList : "No items"}
+      </tbody>
+    </table>
+  );
+};
 
 export default ContactTable;

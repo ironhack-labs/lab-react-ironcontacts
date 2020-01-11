@@ -1,14 +1,17 @@
 
 import React from 'react';
+import '../styles/Contact.css'
 
-const Contact = (props) => ( 
-        <tr>
-            {console.log(props)}
-            {/* <td><img src={pictureUrl} alt="img"></img> </td>
+const Contact = ({pictureUrl, name, popularity}) => {
+    const popRounded = Number(popularity).toFixed(2)
+
+    return(
+        <tr className="contactRow">
+            <td><img src={pictureUrl} alt="img"></img> </td>
             <td>{name}</td>
-            <td>{popularity}</td> */}
+            <td>{popRounded}</td>
         </tr>
      );
-
+    }
  
 export default Contact;

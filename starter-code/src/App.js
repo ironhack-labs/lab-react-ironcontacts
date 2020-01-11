@@ -6,7 +6,7 @@ import Main from './components/Main'
 
 class App extends Component {
   state = {
-    contacts: [Data.slice(0,5)]
+    contacts: Data.slice(0,5)
   }
 
   componentDidMount(){
