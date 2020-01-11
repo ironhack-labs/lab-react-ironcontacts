@@ -49,7 +49,7 @@ class ContactsList extends Component {
              alert('No more contacts available')
          }
     }
-
+/*
     handleClickSortByName = () => {
         this.setState({
             contacts: [...this.state.contacts].sort((a,b) => a.name.localeCompare(b.name))
@@ -61,14 +61,34 @@ class ContactsList extends Component {
             contacts: [...this.state.contacts].sort((a,b) => b.popularity - a.popularity)
         })
     }
+*/
+    handleClickSortByKey = (key) => {
+
+        const result = [...this.state.contacts].sort((a, b) => {
+            switch (key) {
+              case 'name':
+                return a.name.localeCompare(b.name);
+              case 'popularity':
+                return b.popularity - a.popularity;
+              default:
+                  return [...this.state.contacts]
+            }
+          });
+      
+          this.setState({
+            contacts: result
+          });
+
+    }
     
     render() {
       return (
         <div className="ContactsList row flex-row">
             <Buttons 
                 randomContact={() => this.handleClickRandom()}
-                sortByName={() => this.handleClickSortByName()}
-                sortByPopularity={() => this.handleClickSortByPopularity()}
+                //sortByName={() => this.handleClickSortByName()}
+                //sortByPopularity={() => this.handleClickSortByPopularity()}
+                sortByKey={(key) => this.handleClickSortByKey(key)}
             />
             <div className='col offset-4 col-8'>
                 <table>
