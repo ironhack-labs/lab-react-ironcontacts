@@ -28,6 +28,7 @@ class ContactsList extends Component {
             <ContactCard 
                 key={i}
                 {...c}
+                deleteContact={() => this.deleteContact(c)}
             />
         ))
 
@@ -50,6 +51,8 @@ class ContactsList extends Component {
          }
     }
 /*
+    REFACTORED INTO 1 FUNCTION
+
     handleClickSortByName = () => {
         this.setState({
             contacts: [...this.state.contacts].sort((a,b) => a.name.localeCompare(b.name))
@@ -80,6 +83,13 @@ class ContactsList extends Component {
           });
 
     }
+
+    deleteContact = (contact) =>  {
+        this.setState({
+            contacts: this.state.contacts.filter(c => c !== contact),
+            poolContacts: [contact, ...this.state.poolContacts]
+        })
+    }
     
     render() {
       return (
@@ -90,13 +100,14 @@ class ContactsList extends Component {
                 //sortByPopularity={() => this.handleClickSortByPopularity()}
                 sortByKey={(key) => this.handleClickSortByKey(key)}
             />
-            <div className='col offset-4 col-8'>
-                <table>
+            <div className='col col-12'>
+                <table className='table table-hover'>
                     <thead>
                         <tr>
-                            <td>PICTURE</td>
-                            <td>NAME</td>
-                            <td>POPULARITY</td>
+                            <th scope="col">PICTURE</th>
+                            <th scope="col">NAME</th>
+                            <th scope="col">POPULARITY</th>
+                            <th scope="col">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -1,5 +1,5 @@
 .ContactCard td{
-    padding: 0.5rem 0;
+    vertical-align:middle;
 }
 
 .ContactCard img{
