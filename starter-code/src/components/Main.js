@@ -40,7 +40,6 @@ class Main extends Component {
   }
 
   deleteContact(index){
-      console.log('entra')
       this.setState({
           contacts: this.state.contacts.filter((c, i) => i !== index)
       })

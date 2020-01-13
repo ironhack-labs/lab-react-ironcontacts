@@ -1,3 +1,19 @@
 table {
-    margin: auto;
+  margin: auto;
+  margin-top: 15px;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th, td{
+    border: 1px solid #20232a;
+}
+
+tr:nth-child(even){background-color: #20232a34;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #20232a;
+  color: white;
 }

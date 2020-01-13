@@ -20,7 +20,6 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Main contacts={this.state.contacts}/>
-        {/* {console.log(this.state.contacts)} */}
       </div>
     );
   }

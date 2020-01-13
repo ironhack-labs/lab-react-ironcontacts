@@ -1,5 +1,17 @@
 .buttonList{
-    margin: 10px 0;
+    width: 45%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.button-list{
+    width: 130px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #20232a;
+    color: white;
+    font-weight: bold;
 }

@@ -10,7 +10,7 @@ const Contact = ({pictureUrl, name, popularity, deleteContact}) => {
             <td><img src={pictureUrl} alt="img"></img> </td>
             <td>{name}</td>
             <td>{popRounded}</td>
-            <td><button onClick={deleteContact}>delete</button></td>
+            <td><button className="button-delete" onClick={deleteContact}>delete</button></td>
         </tr>
      );
     }

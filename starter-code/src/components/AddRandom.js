@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddRandom = ({addContact}) => {
     return ( 
-        <button onClick={() => addContact()}>Add Random Contact</button>
+        <button className="button-list" onClick={() => addContact()}>Add Random Contact</button>
      );
 }
  

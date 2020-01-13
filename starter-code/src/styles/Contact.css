@@ -1,3 +1,11 @@
 .contactRow td img{
     width: 60px;
 }
+
+.button-delete{
+    height: 35px;
+    background-color: rgb(122, 20, 2);
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}

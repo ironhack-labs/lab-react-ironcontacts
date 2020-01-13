@@ -2,7 +2,7 @@ import React from 'react';
 
 const SortPopularity = ({sortPopularity}) => {
     return ( 
-        <button onClick={sortPopularity}>Sort by popularity</button>
+        <button className="button-list" onClick={sortPopularity}>Sort by popularity</button>
      );
 }
  
