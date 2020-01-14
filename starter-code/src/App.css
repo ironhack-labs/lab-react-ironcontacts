@@ -22,6 +22,29 @@
   font-size: large;
 }
 
+.App-buttons {
+  text-align:left;
+  padding-top:16px;
+  padding-bottom:16px;
+  background-color:lightblue;
+}
+.App-buttons button{
+  font-size:1.6rem;
+  padding:20px;
+  margin-left:20px;
+  margin-right:20px;
+  border-radius:5%;
+}
+
+.App-table{
+  font-size:1.6rem;
+  color:#444;
+}
+
+.App-table tr:nth-child(odd) {
+  background:#eee
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -1,0 +1,10 @@
+[
+    {"name":"Bo Derek","popularity":5,"picture":"./images/bo_derek.jpg"},
+    {"name":"Keira Knightley","popularity":7,"picture":"./images/keira_knightley.jpg"},
+    {"name":"Brad Pitt","popularity":8,"picture":"./images/brad_pitt.jpg"},
+    {"name":"Angelina Jolie","popularity":9,"picture":"./images/angelina_jolie.jpg"},
+    {"name":"Uma Thurman","popularity":10,"picture":"./images/uma_thurman.jpg"},
+    {"name":"Sandra Bullock","popularity":8,"picture":"./images/sandra_bullock.jpg"},
+    {"name":"Antonio Banderas","popularity":9,"picture":"./images/antonio_banderas.jpg"},
+    {"name":"Mel Gibson","popularity":6,"picture":"./images/mel_gibson.jpg"}
+]
