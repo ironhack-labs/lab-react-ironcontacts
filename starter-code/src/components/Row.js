@@ -9,6 +9,9 @@ const Row = props => {
       </td>
       <td>{props.name}</td>
       <td>{props.popularity}</td>
+      <td>
+        <button onClick={props.clickToDelete}>Delete</button>
+      </td>
     </tr>
   );
 };

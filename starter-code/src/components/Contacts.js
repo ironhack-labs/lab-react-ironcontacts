@@ -38,6 +38,14 @@ export class Contacts extends Component {
     });
   };
 
+  deleteCelebrity = index => {
+    var celebCopy = [...this.state.celebrities];
+    celebCopy.splice(index, 1);
+    this.setState({
+      celebrities: celebCopy
+    });
+  };
+
   render() {
     return (
       <div className="contacts">
@@ -51,13 +59,15 @@ export class Contacts extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
-            {this.state.celebrities.map(x => (
+            {this.state.celebrities.map((x, index) => (
               <Row
-                key={x.pictureUrl}
+                key={index}
                 pictureUrl={x.pictureUrl}
                 name={x.name}
                 popularity={x.popularity.toFixed(2)}
+                clickToDelete={this.deleteCelebrity.bind(index)}
               />
             ))}
           </tbody>
