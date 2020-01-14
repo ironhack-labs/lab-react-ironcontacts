@@ -14,11 +14,13 @@ export default class App extends Component {
     }
   
   pickRandomElementFromArray = (array) => {
+    console.log(contacts.slice(0,5))
     return array[Math.floor(Math.random()*array.length)];
   }
 
   
   addRandomContact = () => {
+    console.log(contacts.slice(0,5))
     this.setState({
       visibleContacts: [...this.state.visibleContacts, this.pickRandomElementFromArray(contacts)]
     })
@@ -26,16 +28,16 @@ export default class App extends Component {
 
   sortByName = () => {
     this.setState({
-      visibleContacts: this.state.visibleContacts.sort(function(a, b) {
-        return a.name.localeCompare(b.name); //????
+      visibleContacts: this.state.visibleContacts.sort(function (a,b) {
+        return a.name.localeCompare(b.name); // what are a and b?
       })
     });
   };
 
   sortByPopularity = () => {
     this.setState({
-      visibleContacts: this.state.visibleContacts.sort(function(a, b){
-        return b.popularity -a.popularity;
+      visibleContacts: this.state.visibleContacts.sort(function (a,b) {
+        return b.popularity -a.popularity; //a.popularity.localeCompare(b.popularity, {numeric: "true"})???
       })
     })
   }
@@ -48,20 +50,24 @@ export default class App extends Component {
         <button onClick={this.sortByName}>Sort by name</button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-
-          {this.state.visibleContacts.map((contact, index)=> 
-          <List
-              key={contact.name}
-              name={contact.name} 
-              pictureUrl={contact.pictureUrl}
-              popularity={contact.popularity}
-          />
-        )}
+          <thead>
+            <tr>  
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {this.state.visibleContacts.map((contact, index)=> 
+              <List
+                key={contact.name}
+                name={contact.name} 
+                pictureUrl={contact.pictureUrl}
+                popularity={contact.popularity}
+              />
+            )}
+          </tbody>
         </table>
          
       </div>
