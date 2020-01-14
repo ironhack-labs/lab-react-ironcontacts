@@ -7,7 +7,7 @@ export class Contacts extends Component {
     super(props);
 
     this.state = {
-      celebrities: [this.findRandomContact()]
+      celebrities: contacts.slice(0, 5)
     };
   }
 
@@ -16,11 +16,26 @@ export class Contacts extends Component {
   };
 
   addRandomContact = () => {
+    this.setState({
+      celebrities: [...this.state.celebrities, this.findRandomContact()]
+    });
+  };
+
+  sortByName = () => {
+    this.setState({
+      celebrities: this.state.celebrities.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+      })
+    });
+  };
+
+  sortByPopularity = () => {
     console.log(this.state.celebrities);
     this.setState({
-      celebrities: this.state.celebrities.push(this.findRandomContact())
+      celebrities: this.state.celebrities.sort(function(a, b) {
+        return b.popularity - a.popularity;
+      })
     });
-    console.log(this.state.celebrities);
   };
 
   render() {
@@ -28,6 +43,8 @@ export class Contacts extends Component {
       <div className="contacts">
         <h1>IronContacts</h1>
         <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort by Name</button>
+        <button onClick={this.sortByPopularity}>Sort by Popularity</button>
         <table>
           <tbody>
             <tr>
@@ -40,7 +57,7 @@ export class Contacts extends Component {
                 key={x.pictureUrl}
                 pictureUrl={x.pictureUrl}
                 name={x.name}
-                popularity={x.popularity}
+                popularity={x.popularity.toFixed(2)}
               />
             ))}
           </tbody>
