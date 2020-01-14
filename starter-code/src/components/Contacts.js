@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import contacts from "../contacts.json";
 import Row from "./Row";
+import "bulma/css/bulma.css";
 
 export class Contacts extends Component {
   constructor(props) {
@@ -16,8 +17,10 @@ export class Contacts extends Component {
   };
 
   addRandomContact = () => {
+    var celebCopy = this.state.celebrities;
+    celebCopy.push(this.findRandomContact());
     this.setState({
-      celebrities: [...this.state.celebrities, this.findRandomContact()]
+      celebrities: celebCopy
     });
   };
 
@@ -47,33 +50,66 @@ export class Contacts extends Component {
   };
 
   render() {
-    return (
-      <div className="contacts">
-        <h1>IronContacts</h1>
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by Name</button>
-        <button onClick={this.sortByPopularity}>Sort by Popularity</button>
-        <table>
-          <tbody>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-              <th>Action</th>
-            </tr>
-            {this.state.celebrities.map((x, index) => (
-              <Row
-                key={index}
-                pictureUrl={x.pictureUrl}
-                name={x.name}
-                popularity={x.popularity.toFixed(2)}
-                clickToDelete={this.deleteCelebrity.bind(index)}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
+    if (this.state.celebrities.length == 0) {
+      return (
+        <div className="contacts">
+          <h1>IronContacts</h1>
+          <button className="button" onClick={this.addRandomContact}>
+            Add Random Contact
+          </button>
+          <button className="button" onClick={this.sortByName}>
+            Sort by Name
+          </button>
+          <button className="button" onClick={this.sortByPopularity}>
+            Sort by Popularity
+          </button>
+          <h2>ADD A CELEBRITY</h2>
+        </div>
+      );
+    } else {
+      return (
+        <div className="contacts">
+          <h2>IronContacts</h2>
+          <button
+            className="button is-info is-small is-outlined"
+            onClick={this.addRandomContact}
+          >
+            Add Random Contact
+          </button>
+          <button
+            className="button is-info is-small is-outlined"
+            onClick={this.sortByName}
+          >
+            Sort by Name
+          </button>
+          <button
+            className="button is-info is-small is-outlined"
+            onClick={this.sortByPopularity}
+          >
+            Sort by Popularity
+          </button>
+          <table className="table is-bordered is-striped is-narrow is-hoverable">
+            <tbody>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+                <th>Action</th>
+              </tr>
+              {this.state.celebrities.map((x, index) => (
+                <Row
+                  key={index}
+                  pictureUrl={x.pictureUrl}
+                  name={x.name}
+                  popularity={x.popularity.toFixed(2)}
+                  clickToDelete={this.deleteCelebrity.bind(this, index)}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
   }
 }
 

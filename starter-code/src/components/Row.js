@@ -1,5 +1,6 @@
 import React from "react";
 import "./Row.css";
+import "bulma/css/bulma.css";
 
 const Row = props => {
   return (
@@ -10,7 +11,9 @@ const Row = props => {
       <td>{props.name}</td>
       <td>{props.popularity}</td>
       <td>
-        <button onClick={props.clickToDelete}>Delete</button>
+        <button className="button is-danger" onClick={props.clickToDelete}>
+          Delete
+        </button>
       </td>
     </tr>
   );
