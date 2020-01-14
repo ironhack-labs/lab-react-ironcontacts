@@ -8,6 +8,18 @@ const Controls = ({onClickSortContacts, onClickRandomContact }) => {
     onClick={onClickRandomContact}>
       Add
     </button>
+
+    <button type="button"
+    className="btn btn-secondary ml-4"
+    onClick={() => onClickSortContacts('name')}>
+      Sort by Name
+    </button>
+
+    <button type="button"
+    className="btn btn-secondary ml-4"
+    onClick={() => onClickSortContacts('popularity')}>
+      Sort by Popularity
+    </button>     
   </div>
   )
 }

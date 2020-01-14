@@ -5,7 +5,8 @@ import Controls from './Controlls'
 
 class ContactTable extends Component {
   state = {
-    contacts: []
+    contacts: [],
+    sortedBy: null
   }
 
   componentDidMount() {
@@ -14,6 +15,7 @@ class ContactTable extends Component {
     }, 1000)
   }
 
+  //delete selected contact
   onClickDeleteContact(contact) {
     this.setState({
       contacts: this.state.contacts.filter(c =>
@@ -21,10 +23,32 @@ class ContactTable extends Component {
     });
   }
 
+  //add random contact at the strat of the table
   onClickRandomContact() {
-    // const randContact = this.props.contacts[Math.floor(Math.random() * this.props.contacts.length)];
+    const randContact = this.props.contacts[Math.floor(Math.random() * this.props.contacts.length)];
 
-    
+    if(randContact){
+      this.setState({
+        contacts: [randContact, ...this.state.contacts]
+      })
+    }
+  }
+
+  //sort contacts by name or popularity
+  onClickSortContacts(sortKey) {
+    const contacts = [...this.state.contacts].sort((c1, c2) => {
+      switch (sortKey) {
+        case 'name':
+          return c1.name.localeCompare(c2.name);
+        case 'popularity':
+          return c2.popularity - c1.popularity;
+      }
+    });
+
+    this.setState({
+      contacts: contacts,
+      sortedBy: sortKey
+    })
   }
 
   render() {
@@ -32,6 +56,8 @@ class ContactTable extends Component {
       <div>
         <Controls
           onClickRandomContact={() => this.onClickRandomContact()}
+          onClickSortContacts={(key) => this.onClickSortContacts(key)}
+          sortedBy={this.state.sortedBy}
         />
         <table className="table">
         <thead>

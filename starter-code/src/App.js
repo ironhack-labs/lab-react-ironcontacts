@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ContactsTable from './components/contacts/ContactsTable';
+import contactsData from './data/contacts.json'
 
 class App extends Component {
   render() {
@@ -8,7 +9,7 @@ class App extends Component {
       <div className="App">
         <h1>IronContacts</h1>
 
-        <ContactsTable/>
+        <ContactsTable contacts={contactsData}/>
       </div>
     );
   }
