@@ -8,6 +8,9 @@ const Row = (props) => {
             <th><img className="picture" src={props.pictureUrl} alt=""/></th>
             <th className = "name">{props.name}</th>
             <th className = "popularity">{props.popularity}</th>
+            <div className="buttonDelete">
+                 <button>Delete</button>
+            </div>
         </tr>
 
     );

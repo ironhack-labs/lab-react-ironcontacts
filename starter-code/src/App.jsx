@@ -38,12 +38,12 @@ sortByPopularity = () => {
         return ( 
         <div className = "App">
             <h1 className = "IronTitle">IronContacts</h1>
-            <button onClick={this.pickRandomCelebrity}>Add Random Contact</button>
-            <button onClick={this.sortByName}>Sort by name</button>
-            <button onClick={this.sortByPopularity}>Sort by popularity</button>
+            <button className="addButton" onClick={this.pickRandomCelebrity}>Add Random Contact</button>
+            <button className="nameButton" onClick={this.sortByName}>Sort by name</button>
+            <button className="popularityButton" onClick={this.sortByPopularity}>Sort by popularity</button>
             <table>
                 <tr className="titles">
-                    <th>Picture</th>
+                    <th className="pictureTitle">Picture</th>
                     <th>Name</th>
                     <th>Popularity</th>
                 </tr>
