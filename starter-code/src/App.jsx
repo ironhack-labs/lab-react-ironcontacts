@@ -14,17 +14,33 @@ constructor (props){
 pickRandomElementFromArray = (anArray)=> {
     return anArray[Math.floor(Math.random()*anArray.length)];
 }
-pickRandomCelebrity = ()=> {
-this.setState({
-    visibleCelebrities: [...this.state.visibleCelebrities,  this.pickRandomElementFromArray(celebrities)]
+pickRandomCelebrity = () => {
+    this.setState({
+        visibleCelebrities: [...this.state.visibleCelebrities, this.pickRandomElementFromArray(celebrities)]
 })
+}
+sortByName = () => {
+    this.setState({
+        visibleCelebrities: this.state.visibleCelebrities.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        })
+    })
+}
+sortByPopularity = () => {
+    this.setState({
+        visibleCelebrities: this.state.visibleCelebrities.sort(function(a, b) {
+            return b.popularity - a.popularity;
+        })
+    })
 }
 
     render() {
         return ( 
         <div className = "App">
             <h1 className = "IronTitle">IronContacts</h1>
-            <button onClick={this.pickRandomCelebrity}className="buttonAdd">Add Random Contact</button>
+            <button onClick={this.pickRandomCelebrity}>Add Random Contact</button>
+            <button onClick={this.sortByName}>Sort by name</button>
+            <button onClick={this.sortByPopularity}>Sort by popularity</button>
             <table>
                 <tr className="titles">
                     <th>Picture</th>
