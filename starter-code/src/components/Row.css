@@ -1,16 +1,14 @@
 .picture {
     width: 60px;
-    padding: 0 80px 0 0;
-    margin: 0 0 0 50px;
 }
 
 .name {
-    text-align: left;
+    text-align: center;
     padding-right: 20px;
 }
 
 .popularity {
-    text-align: left;
+    text-align: center;
     padding-right: 20px;
 }
 
@@ -24,5 +22,4 @@
     background-color: rgb(148, 0, 0);
     color: white;
     border: 1px solid rgb(148, 0, 0);
-    margin-left: 75px
 }

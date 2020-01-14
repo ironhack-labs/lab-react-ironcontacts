@@ -6,7 +6,7 @@ body {
 
 .App {
     text-align: left;
-    margin-left: 35%;
+    margin-left: 30%;
 }
 
 .App-logo {
@@ -44,13 +44,18 @@ body {
 }
 
 .titles {
-    text-align: left;
+    text-align: center;
     padding-left: 20px;
+}
+
+.title2,
+.title3 {
+    padding-left: 50px
 }
 
 button {
     margin-right: 15px;
-    padding: 7px 15px;
+    padding: 7px 20px;
     border-radius: 3px;
     font-size: 1em;
     align-items: center;
@@ -58,6 +63,11 @@ button {
 
 table {
     margin-top: 20px;
+    margin-left: 6%
+}
+
+th {
+    padding: 0 75px 0 0;
 }
 
 button.addButton {
@@ -76,9 +86,5 @@ button.popularityButton {
     background-color: rgb(202, 155, 0);
     color: white;
     border: 1px solid rgb(202, 155, 0);
-    margin-left: 30px;
-}
-
-.pictureTitle {
-    padding-left: 50px;
+    margin-left: 20px;
 }

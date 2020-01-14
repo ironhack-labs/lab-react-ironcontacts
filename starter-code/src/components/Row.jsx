@@ -9,10 +9,9 @@ const Row = (props) => {
             <th className = "name">{props.name}</th>
             <th className = "popularity">{props.popularity}</th>
             <div className="buttonDelete">
-                 <button>Delete</button>
+                 <button onClick={props.clickToDelete}>Delete</button>
             </div>
         </tr>
-
     );
 }
 
