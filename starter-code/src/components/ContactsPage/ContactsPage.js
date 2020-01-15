@@ -47,6 +47,17 @@ class ContactsPage extends Component {
       }
     )
   }
+  deleteContact = (event) => {
+    console.log("here");
+    console.log(event.target.getAttribute('data-index'));
+    let index = event.target.getAttribute('data-index')
+    let array = [...this.state.DB]
+    array.splice(index, 1)
+    this.setState({
+      DB: array
+    })
+  }
+
   render() {
     return (
       <div>
@@ -60,13 +71,14 @@ class ContactsPage extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Populatity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {
-              this.state.DB.map(p => {
+              this.state.DB.map((p, i) => {
                 return (
-                  <Contact key={p.id} name={p.name} pictureUrl={p.pictureUrl} popularity={p.popularity} />
+                  <Contact key={i} name={p.name} pictureUrl={p.pictureUrl} popularity={p.popularity} deleteFunc={this.deleteContact} index={i} />
                 )
               })}
           </tbody>
