@@ -78,7 +78,7 @@ class ContactsPage extends Component {
             {
               this.state.DB.map((p, i) => {
                 return (
-                  <Contact key={i} name={p.name} pictureUrl={p.pictureUrl} popularity={p.popularity} deleteFunc={this.deleteContact} index={i} />
+                  <Contact key={i} name={p.name} pictureUrl={p.pictureUrl} popularity={p.popularity} deleteFunc={this.deleteContact} />
                 )
               })}
           </tbody>
