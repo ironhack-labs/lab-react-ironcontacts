@@ -10,7 +10,11 @@ constructor (props){
     super(props)
     this.state = {
     visibleCelebrities: celebrities.slice(0,5),
-}}
+    search:"" 
+    
+    }
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+}
 pickRandomElementFromArray = (anArray)=> {
     return anArray[Math.floor(Math.random()*anArray.length)];
 }
@@ -40,11 +44,21 @@ deleteCelebrity = (index) => {
         visibleCelebrities: celebritiesCopy
   })
 }
+handleSearchChange(event) {
+    let inputValue = event.target.value;
+    this.setState({
+    search: inputValue
+    }) 
+}
 
     render() {
         return ( 
         <div className = "App">
             <h1 className = "IronTitle">IronContacts</h1>
+            <div className="searchBox">
+            <p>Search by name:</p>
+            <input className="searchField" type="text" name="search" value={this.state.search} onChange={this.handleSearchChange}/>
+            </div>
             <button className="addButton" onClick={this.pickRandomCelebrity}>Add Random Contact</button>
             <button className="nameButton" onClick={this.sortByName}>Sort by name</button>
             <button className="popularityButton" onClick={this.sortByPopularity}>Sort by popularity</button>
@@ -54,7 +68,10 @@ deleteCelebrity = (index) => {
                     <th className="title2">Name</th>
                     <th className="title3">Popularity</th>
                 </tr>
-                    {this.state.visibleCelebrities.map((celebrity, index)=>
+                    {this.state.visibleCelebrities
+                     .filter(celeb =>
+                     celeb.name.toLowerCase().includes(this.state.search.toLowerCase()))
+                .map((celebrity, index) =>(
                 <Row
                     key={index}
                     pictureUrl={celebrity.pictureUrl}
@@ -62,8 +79,9 @@ deleteCelebrity = (index) => {
                     popularity={celebrity.popularity.toFixed(2)}
                     clickToDelete = {this.deleteCelebrity.bind(this,index)}
                 />
-                )}
+                ))}
             </table>
+            
         </div>
         );
     }

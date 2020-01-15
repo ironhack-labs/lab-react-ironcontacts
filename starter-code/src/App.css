@@ -88,3 +88,14 @@ button.popularityButton {
     border: 1px solid rgb(202, 155, 0);
     margin-left: 20px;
 }
+
+.searchBox {
+    display: flex;
+    align-items: center;
+}
+
+input.searchField {
+    height: 15px;
+    width: 190px;
+    margin-left: 20px;
+}
