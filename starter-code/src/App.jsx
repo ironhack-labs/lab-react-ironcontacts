@@ -69,8 +69,8 @@ handleSearchChange(event) {
                     <th className="title3">Popularity</th>
                 </tr>
                     {this.state.visibleCelebrities
-                     .filter(celeb =>
-                     celeb.name.toLowerCase().includes(this.state.search.toLowerCase()))
+                     .filter(celebrity =>
+                     celebrity.name.toLowerCase().includes(this.state.search.toLowerCase()))
                 .map((celebrity, index) =>(
                 <Row
                     key={index}
