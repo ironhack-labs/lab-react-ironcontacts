@@ -4,20 +4,19 @@ import './App.css';
 import contacts from "./contacts.json";
 import List from "./components/List";
 
-export default class App extends Component {
+export class App extends Component {
 
-  constructor(props){
-    super(props)
-      this.state = {
-        visibleContacts: contacts.slice(0, 5), //change the state of contacts.json to a list of 5 elements
-      }
-    }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visibleContacts: contacts.slice(0, 5)
+    };
+  }
   
   pickRandomElementFromArray = (array) => {
-    console.log(contacts.slice(0,5))
-    return array[Math.floor(Math.random()*array.length)];
-  }
-
+    return array[Math.floor(Math.random() * array.length)];
+  }; 
   
   addRandomContact = () => {
     console.log(contacts.slice(0,5))
@@ -26,22 +25,39 @@ export default class App extends Component {
     })
   }
 
+  /*addRandomContact = () => {
+    var visibleContactsCopy = this.state.visibleContacts;
+    visibleContactsCopy.push(this.pickRandomElementFromArray(contacts));
+    this.setState({
+      visibleContacts: visibleContactsCopy
+    });
+  }; */
+
   sortByName = () => {
     this.setState({
-      visibleContacts: this.state.visibleContacts.sort(function (a,b) {
-        return a.name.localeCompare(b.name); // what are a and b?
+      visibleContacts: this.state.visibleContacts.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
       })
     });
   };
 
   sortByPopularity = () => {
+    console.log(this.state.celebrities);
     this.setState({
-      visibleContacts: this.state.visibleContacts.sort(function (a,b) {
-        return b.popularity -a.popularity; //a.popularity.localeCompare(b.popularity, {numeric: "true"})???
+      visibleContacts: this.state.visibleContacts.sort(function(a, b) {
+        return b.popularity - a.popularity;
       })
-    })
-  }
-  
+    });
+  };
+
+  deleteContact = index => {
+    var visibleContactsCopy = [...this.state.visibleContacts];
+    visibleContactsCopy.splice(index, 1);
+    this.setState({
+      visibleContacts: visibleContactsCopy
+    });
+  };
+  //////////////////////////
   render() {
     return (
       <div className="App">
@@ -55,16 +71,18 @@ export default class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           
           <tbody>
-            {this.state.visibleContacts.map((contact, index)=> 
+            {this.state.visibleContacts.map((contact, index)=> //important to use index in your function if you pass it as an parameter
               <List
-                key={contact.name}
+                key={index} 
                 name={contact.name} 
                 pictureUrl={contact.pictureUrl}
-                popularity={contact.popularity}
+                popularity={contact.popularity.toFixed(3)}
+                clickAndDelete={this.deleteContact.bind(this, index)}
               />
             )}
           </tbody>
@@ -74,3 +92,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
