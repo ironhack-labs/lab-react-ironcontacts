@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import './style.css'
 class Contact extends Component {
   render() {
     return (
-      <div className='contact'>
-        <p>{this.props.name}</p>
-      </div>
+      <tr>
+        <td><img className='thumbnail' src={this.props.pictureUrl} alt='contact'/></td>
+        <td>{this.props.name}</td>
+        <td>{this.props.popularity}</td>
+      </tr>
     )
   }
 }
