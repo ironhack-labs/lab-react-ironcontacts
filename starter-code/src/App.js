@@ -12,7 +12,6 @@ export default class App extends Component {
       visibleCelebrity: contacts.slice(0,5)
     }
   }
-
   
   pickRandomCelebrityFromArray = (contacts)=> {
     return contacts[Math.floor(Math.random()*contacts.length)];
@@ -29,8 +28,7 @@ export default class App extends Component {
 
   orderByName = () => {
     var celeb = this.state.visibleCelebrity;
-    celeb.sort()
-
+    
     this.setState({
       nameOrder: celeb
     })
@@ -49,6 +47,14 @@ export default class App extends Component {
     });
   }
 
+  deleteCelebrity = (index) => {
+    const celebritiesCopy = [...this.state.visibleCelebrity];
+    celebritiesCopy.splice(index, 1);
+    this.setState({
+          visibleCelebrity: celebritiesCopy
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,20 +62,23 @@ export default class App extends Component {
       <button onClick={this.pickNewCelebrity}>Add Random Contact</button>
       <button onClick={this.orderByName}>Sort by name</button>
       <button onClick={this.orderByPop}>Sort by popularity</button>
+      
 
       <table>
         <tr>
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Action</th>
         </tr>
         
-        {this.state.visibleCelebrity.map((contacts)=> 
+        {this.state.visibleCelebrity.map((contacts,index)=> 
           <Celebrity
               
         picture={contacts.pictureUrl}
         name={contacts.name}
         popularity={contacts.popularity}
+        toDelete = {this.deleteCelebrity.bind(this,index)}
           />
         )}
       
