@@ -13,7 +13,10 @@ class App extends Component {
       fiveContacts: contacts.slice(0,5)
       }}
   render() {
-
+      let keysArr =  Object.keys(this.state.fiveContacts[0]);
+      let imgUrl = keysArr.splice(1,1);
+      
+      keysArr.unshift(...imgUrl);
 
     return (
       <div className="App">
@@ -25,7 +28,7 @@ class App extends Component {
         <table>
   <thead>
     <tr> 
-     {Object.keys(this.state.fiveContacts[0]).map((keys, idx) => <th key={idx}>{keys}</th>)} 
+     {keysArr.map((keys, idx) => <th key={idx}>{keys}</th>)} 
     </tr>
   </thead>
         <tbody>
@@ -33,10 +36,10 @@ class App extends Component {
     { this.state.fiveContacts.map((oneContact, idx) => {
       return (
       <tr>
-        <td key={idx} name={oneContact.name}>{oneContact.name}</td>
         <td key={idx} name={oneContact.pictureUrl}>
         <img style={{width: "100px"}} src={oneContact.pictureUrl}></img>  
         </td>
+        <td key={idx} name={oneContact.name}>{oneContact.name}</td>
         <td key={idx} name={oneContact.popularity}>{oneContact.popularity}</td>
         <td key={idx} name={oneContact.id} hidden >{oneContact.id}</td>
       </tr>
