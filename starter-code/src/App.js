@@ -31,10 +31,8 @@ class App extends Component {
         <div className="divTable">
 
           <ContactsTable keysArr={this.state.keysArr} fiveContacts={this.state.fiveContacts} />
-
           
         </div>
-    
       </div>
       );
     }
