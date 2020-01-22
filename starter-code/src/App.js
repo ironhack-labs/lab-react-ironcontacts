@@ -29,7 +29,35 @@ class App extends Component {
 
     this.setState({
       actorsContacts: copyContacts
-    })
+    });
+  }
+
+  sortByName() {
+    let sortedArr = [...this.state.actorsContacts];
+    sortedArr.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    this.setState({
+      actorsContacts: sortedArr,
+    });
+  }
+
+  sortByPopularity() {
+    let sortedArr = [...this.state.actorsContacts];
+    sortedArr.sort((a, b) => {
+      return a.popularity - b.popularity;
+    });
+
+    this.setState({
+      actorsContacts: sortedArr,
+    });
   }
 
   render() {
@@ -42,7 +70,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">IronContacts</h1>
         </header>
+
         <button onClick={() => this.addContact()}>Add Random Contact</button>
+        <button onClick={() => this.sortByName()}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
+
         <div className="divTable">
 
           <ContactsTable keysArr={this.state.keysArr} actorsContacts={this.state.actorsContacts} />
