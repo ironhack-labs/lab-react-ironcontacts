@@ -12,7 +12,7 @@ class ContactsTable extends Component {
     return (
       <table>
         <TableHead keysArr={this.props.keysArr} />
-        <TableBody fiveContacts={this.props.fiveContacts} />
+        <TableBody actorsContacts={this.props.actorsContacts} />
       </table>
     )
   }

@@ -9,7 +9,7 @@ class TableBody extends Component {
   render() {
     return (
       <tbody>
-        { this.props.fiveContacts.map((oneContact, idx) => {
+        { this.props.actorsContacts.map((oneContact, idx) => {
           return (
             <tr>
               <td key={`tbodypic-${idx}`} name={oneContact.pictureUrl}>
