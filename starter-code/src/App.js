@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   addRandomCelebrity() {
+    console.log(this.state.celebritiesArr)
     const celebrity = this.getCelebrityRow(contacts);
     const newArr = getArrCopy(this.state.celebritiesArr);
     newArr.push(celebrity);
@@ -39,8 +40,8 @@ class App extends Component {
   sortByName() {
     const newArr = getArrCopy(this.state.celebritiesArr);
     newArr.sort((a, b) => {
-      const { name: nameA } = a[0];
-      const { name: nameB } = b[0];
+      const { name: nameA } = a;
+      const { name: nameB } = b;
       return nameA.localeCompare(nameB);
     });
     this.setState({
@@ -51,8 +52,8 @@ class App extends Component {
   sortByPopularity() {
     const newArr = getArrCopy(this.state.celebritiesArr);
     newArr.sort((a, b) => {
-      const { popularity: popA } = a[0];
-      const { popularity: popB } = b[0];
+      const { popularity: popA } = a;
+      const { popularity: popB } = b;
       return Number(popB) - Number(popA);
     });
     this.setState({
@@ -76,7 +77,7 @@ class App extends Component {
 
   RenderRows() {
     return this.state.celebritiesArr.map((e, i) => {
-      const { name, pictureUrl, popularity } = e[0]; // TODO: Eu não entendo porque esse elemento e os outros elementos e[0] são um array de arrays.
+      const { name, pictureUrl, popularity } = e; // TODO: Eu não entendo porque esse elemento e os outros elementos e[0] são um array de arrays.
       const RoundedPop = Math.round(Number(popularity) * 100) / 100;
       return (
         <tr key={`r-${i}`}>
