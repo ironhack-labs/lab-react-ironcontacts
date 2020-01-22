@@ -1,14 +1,25 @@
-table, td {
-  border: 1px solid black;
-  padding: 3px;
+table, th {
+  margin: 0 auto;
+  border-bottom: 1px solid black;
 }
 
 img {
-  max-width: 80px;
+  margin: 0 auto;
+  max-width: 50px;
   height: auto;
 }
 
 .tabNum {
   text-align: right;
   padding-right: 5px;
+}
+
+.center {
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+}
+
+.name {
+  min-width: 180px;
 }
