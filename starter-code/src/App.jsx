@@ -19,6 +19,12 @@ class App extends Component {
     });
   }
 
+delete = (i) => {
+  this.setState({
+    contact: this.state.contact.filter((actor, index) => index !== i)
+  })
+}
+
   render() {
     return (
       <div>
@@ -31,8 +37,9 @@ class App extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
-          {this.state.contact.map(elem => <ContactTable pictureUrl={elem.pictureUrl} name={elem.name} popularity={elem.popularity} />)}
+          {this.state.contact.map((elem, i) => <ContactTable pictureUrl={elem.pictureUrl} name={elem.name} popularity={elem.popularity} onDelete={() => this.delete(i)} />)}
         </table>
       </div>
     );

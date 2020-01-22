@@ -3,7 +3,8 @@ import React from 'react';
 const ContactTable = ({
   name,
   pictureUrl,
-  popularity
+  popularity,
+  onDelete
 }) => {
   return (
     <tr>
@@ -15,6 +16,9 @@ const ContactTable = ({
       </td>
       <td>
         {popularity}
+      </td>
+      <td>
+        <button onClick={onDelete}>Delete</button>
       </td>
     </tr>
   );
