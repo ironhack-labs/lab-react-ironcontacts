@@ -12,10 +12,12 @@ class App extends Component {
 
     this.state = {
       actorsContacts: contacts.slice(0,5),
-      keysArr: ['Picture', 'Name', 'Popularity'],
+      keysArr: ['Picture', 'Name', 'Popularity', 'Action'],
     }
 
+    this.deleteActor = this.deleteActor.bind(this);
   }
+
 
   addContact() {
     let contactsLen = contacts.length;
@@ -60,6 +62,14 @@ class App extends Component {
     });
   }
 
+  deleteActor(actorIdx) {
+    let copyArr = [...this.state.actorsContacts];
+    copyArr.splice(actorIdx, 1);
+    this.setState({
+      actorsContacts: copyArr,
+    })
+  }
+
   render() {
     // let keysArr =  Object.keys(this.state.fiveContacts[0]);
     // let imgUrl = keysArr.splice(1,1);
@@ -77,7 +87,7 @@ class App extends Component {
 
         <div className="divTable">
 
-          <ContactsTable keysArr={this.state.keysArr} actorsContacts={this.state.actorsContacts} />
+          <ContactsTable keysArr={this.state.keysArr} actorsContacts={this.state.actorsContacts} clickToDelete={this.deleteActor} />
           
         </div>
       </div>
