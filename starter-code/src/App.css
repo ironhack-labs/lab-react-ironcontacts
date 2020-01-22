@@ -26,3 +26,38 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table, th, td {
+  /* border: 2px solid gray; */
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 30px;
+}
+
+th, td {
+  border: 2px solid gray;
+  padding: 15px;
+  text-align: center;
+  min-width: 180px;
+}
+
+.header{
+  font-size: 64px;
+  font-weight: bolder;
+}
+
+.App{
+  align-self: center;
+  align-content: center;
+  margin: auto;
+  max-width: 600px;
+}
+
+img{
+  max-width: 130px;
+  height: auto;
+}
+
+.delete{
+  border: 0;
+}
