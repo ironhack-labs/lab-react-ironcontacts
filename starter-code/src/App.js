@@ -12,14 +12,35 @@ class App extends Component {
   
   addMovieHandler = () => {
     let randomMovie = contacts[Math.floor(Math.random()*contacts.length)];
-    console.log(randomMovie);
     this.setState( prevState => ({
       filteredContacts: [...prevState.filteredContacts, randomMovie]
     }))
   }
+
+  sortNameHandler = () => {
+    let sortNameArr = this.state.filteredContacts.slice().sort((a,b)=>{
+          let aName = a.name, bName = b.name;
+          return aName.localeCompare(bName);
+    });
+    //console.log(sortNameArr);
+    this.setState( 
+      {filteredContacts: sortNameArr}
+    )
+  }
+
+  sortPopulHandler = () => {
+    let sortPopulArr = this.state.filteredContacts.slice().sort((a,b)=>{
+          let aName = a.popularity, bName = b.popularity;
+          return (bName - aName);
+    });
+    //console.log(sortNameArr);
+    this.setState( 
+      {filteredContacts: sortPopulArr}
+    )
+  }
   
   render() {
-   console.log(this.state.filteredContacts);
+   //console.log(this.state.filteredContacts);
     return (
       <div className="App">
         <header className="App-header">
@@ -28,6 +49,8 @@ class App extends Component {
         </header>
         <div className="App-intro">
         <button onClick = {this.addMovieHandler}>Add random contact</button>
+        <button onClick = {this.sortNameHandler}>Sort by name</button>
+        <button onClick = {this.sortPopulHandler}>Sort by popularity</button>
         <table style={{width: "100%"}}> 
         <thead>
         <tr>
