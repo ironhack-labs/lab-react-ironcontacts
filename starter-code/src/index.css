@@ -12,6 +12,7 @@ body {
 .contacttable  {
   display: flex;
   justify-content: center;
+
 }
 
 .contacttable table {
@@ -22,3 +23,9 @@ body {
 .contacttable td {
   padding-right: 10px;
 }
+
+.add-random-button {
+  display: flex;
+  justify-content: center;
+}
+
