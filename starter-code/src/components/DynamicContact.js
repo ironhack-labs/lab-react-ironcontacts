@@ -62,6 +62,13 @@ export default class DynamicContact extends Component {
     })
   }
 
+  deleteContacteHandler = contactId => {
+    console.log("Delete Contact with Id:" + contactId);
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+    });
+  };
+
   render() {
     console.log("random contact added ", this.addRandomContactHandler);
 
@@ -77,11 +84,12 @@ export default class DynamicContact extends Component {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {this.state.contacts.map(oneContact => {
-                return <ShowContact key={oneContact.id} {...oneContact} />;
+                return <ShowContact key={oneContact.id} {...oneContact} clickToDelete={() => this.deleteContacteHandler(oneContact.id)} />;
               })}
             </tbody>
           </table>
