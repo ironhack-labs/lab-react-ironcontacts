@@ -7,7 +7,7 @@ import Contacts from './components/contacts.js';
 class App extends Component {
 
   state = {
-    filteredContacts: [...contacts.filter((elem, ind) => ind < 5)]
+    filteredContacts: contacts.slice(0,5)
   }
 
   addMovieHandler = () => {
@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   render() {
-    //console.log(this.state.filteredContacts);
+    console.log(this.state.filteredContacts);
     return (
       <div className="App">
         <header className="App-header">
