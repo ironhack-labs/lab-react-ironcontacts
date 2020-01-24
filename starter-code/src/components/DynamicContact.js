@@ -9,25 +9,38 @@ export default class DynamicContact extends Component {
       contacts: contacts.slice(0, 5)
     };
   }
-  render() {
+
+  addRandomContactHandler = () => {
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)]; //fix contact for test
+    
+    this.setState({
+      contacts: [...this.state.contacts, randomContact]
+    });
     console.log(this.state.contacts);
+  };
+
+  render() {
+    console.log("random contact added ", this.addRandomContactHandler);
 
     return (
-      <div className='contacttable'>
-        <table>
-          <thead>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.contacts.map(oneContact => {
-              return <ShowContact key={oneContact.id} {...oneContact} />;
-            })}
-          </tbody>
-        </table>
+      <div>
+        <button onClick={this.addRandomContactHandler}>Add Rondom Contact</button>
+        <div className="contacttable">
+          <table>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.contacts.map(oneContact => {
+                return <ShowContact key={oneContact.id} {...oneContact} />;
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

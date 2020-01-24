@@ -5,7 +5,7 @@ const showContact = props => {
     <tr>
         <td><img src={props.pictureUrl} alt="bla" /></td>
         <td>{props.name}</td>
-        <td>{props.popularity}</td>
+        <td>{props.popularity.toFixed(2)}</td>
     </tr>
   );
 };
