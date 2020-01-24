@@ -17,12 +17,31 @@ export default class Contact extends Component {
         })
     }
 
+    sortName = () => {
+        this.setState({
+            contacts: this.state.contacts.sort((a,b) => {
+             return   a.name.localeCompare(b.name) })
+            
+            }
+        )
+    }
+
+    sortPop = () => {
+        this.setState({
+            contacts: this.state.contacts.sort((x,y) => {
+                return y.popularity - x.popularity
+            }),
+        })
+    }
+
 
     render() {
         console.log(this.state.contacts)
         return (
             <div>
             <div className="add-random-button"><button onClick={this.clickRandom}>Add Random Contact</button></div><br />
+            <div className="add-random-button"><button onClick={this.sortName}>Sort by name</button></div><br />
+            <div className="add-random-button"><button onClick={this.sortPop}>Sort by popularity</button></div><br />
             <div className="contacttable">
                 
                 <table >
