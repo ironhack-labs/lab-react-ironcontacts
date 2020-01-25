@@ -35,9 +35,11 @@ export default class Contact extends Component {
         })
     }
 
-    deleteContact = contactId => {
+    deleteContact = (index) => {
+        const contactsAfterDelete =  [...this.state.contacts];
+        contactsAfterDelete.splice(index, 1)
         this.setState({
-            contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+            contacts: contactsAfterDelete
         });
     };
 
@@ -62,13 +64,13 @@ export default class Contact extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.contacts.map(oneP => {
+                            {this.state.contacts.map((oneP, index) => {
                                 return (
-                                    <tr key={oneP.id} {...oneP} clickToDelete={() => this.deleteContact(oneP.id)}>
+                                    <tr key={oneP.id}>
                                         <td><img src={oneP.pictureUrl} alt="bild" /> </td>
                                         <td>{oneP.name}</td>
                                         <td>{oneP.popularity.toFixed(2)}</td>
-                                        <td><button onClick={this.clickToDelete}>Delete</button></td>
+                                        <td><button onClick={() => this.deleteContact(index)}>Delete</button></td>
                                     </tr>)
                             })}
 
