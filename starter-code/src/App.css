@@ -26,3 +26,23 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.contact-row {
+  padding: 20px 0 0 100px;
+  width: 500px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+img {
+  margin-right: 20px;
+}
+
+.toolbar button {
+  width: 300px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
