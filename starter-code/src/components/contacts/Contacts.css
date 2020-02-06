@@ -1,0 +1,26 @@
+.App{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 80%;
+}
+
+.Header{
+    padding: 5% 0% 5% 0%;
+    background-color: #f9f9f9;
+}
+
+.Fila{
+    width: 100%;
+}
+
+.Fila img{
+    width: 150px;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    width: 33% !important;
+}
