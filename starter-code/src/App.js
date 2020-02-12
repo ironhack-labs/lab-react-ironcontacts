@@ -9,14 +9,15 @@ class App extends Component {
   };
 
   showFiveContacts = () => {
-    return this.state.fiveContacts.map((eachContact, index) => {
+    return this.state.fiveContacts.map((eachContact, i) => {
       return (
-        <tr key={index}>
+        <tr key={i}>
           <th>
             <img src={eachContact.pictureUrl} alt={eachContact.name} />
           </th>
           <th>{eachContact.name}</th>
-          <th>{(eachContact.popularity).toFixed(2)}</th>
+          <th>{eachContact.popularity.toFixed(2)}</th>
+          <th><button onClick={() => this.deleteActor(i)} >Delete</button></th>
         </tr>
       );
     });
@@ -53,6 +54,14 @@ class App extends Component {
     });
   }
 
+  deleteActor = (i) => {
+    let newActorList = [...this.state.fiveContacts];
+    newActorList.splice(i, 1);
+    this.setState({
+      fiveContacts: newActorList
+    });
+  }
+
   render() {
     console.log("Render App.js");
     console.log(this.state.fiveContacts);
@@ -61,13 +70,16 @@ class App extends Component {
         <h1>IronContacts</h1>
         <button onClick={() => this.addActor()}>Add Actor</button>
         <button onClick={() => this.sortByName()}>Sort by Name</button>
-        <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
+        <button onClick={() => this.sortByPopularity()}>
+          Sort by Popularity
+        </button>
         <table>
           <thead>
             <tr>
               <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
+              <th onClick={() => this.sortByName()}>Name</th>
+              <th onClick={() => this.sortByPopularity()}>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>{this.showFiveContacts()}</tbody>
