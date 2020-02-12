@@ -30,6 +30,10 @@ table {
   background-color: #BA2D0B;
   border: 3px solid #D58936;
   width: 50%;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 table.center {
@@ -46,6 +50,7 @@ th, tr {
   text-align: center;
   background-color: #D58936;
   color: white;
+  border-radius: 16px;
 }
 
 button {
