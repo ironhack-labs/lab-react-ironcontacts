@@ -1,28 +1,67 @@
+html{
+  background-color: #A44200;
+}
+
 .App {
   text-align: center;
+  color: #FFF94F;
+  /* margin: 20px; */
+  font-family: "OpenSans";
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1 {
+  color: #FFF94F;
+  font-size: 48px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+body {
+  text-align: center;
+  color: #FFF94F;
+  margin: 20px;
+  font-family: "OpenSans";
+}
+
+img {
+  height: 15%;
+}
+
+table {
+  margin: 0 auto;
+  background-color: #BA2D0B;
+  border: 3px solid #D58936;
+  width: 50%;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th:hover, tr:hover {
+  background-color: #BA2D0B;
+}
+
+th, tr {
+  padding: 15px;
+  text-align: center;
+  background-color: #D58936;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+button {
+  transition-duration: 0.4s;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+button:hover {
+  background-color: #BA2D0B;
+  /* Green */
+  color: white;
 }
