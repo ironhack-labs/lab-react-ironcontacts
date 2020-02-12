@@ -14,9 +14,7 @@ class App extends Component {
     let newActorsList = [...this.state.actors]
     let random = Math.floor(Math.random()*199)
     newActorsList.push(allContacts[random])
-    this.setState({
-      actors: newActorsList
-    })
+    this.setState({actors: newActorsList})
   }
 
   sortByName = () => {
@@ -25,9 +23,7 @@ class App extends Component {
       if(a.name > b.name) { return 1; }
       return 0;
     })
-    this.setState({
-      actors: newActorsList
-    })
+    this.setState({actors: newActorsList})
 
   }
 
@@ -37,10 +33,14 @@ class App extends Component {
       if(a.popularity > b.popularity) { return -1; }
       return 0;
     })
-    this.setState({
-      actors: newActorsList
-    })
+    this.setState({actors: newActorsList})
 
+  }
+
+  deleteFunction = (index) => {
+    let newActorsList = [...this.state.actors];
+    newActorsList.splice(index, 1);
+    this.setState({actors: newActorsList})
   }
 
   render() {
@@ -49,10 +49,11 @@ class App extends Component {
 
         <Actors
           
-          actorProps    = { this.state.actors } 
+          actorProps    = {this.state.actors} 
           randomProp    = {this.randomRow}
           sortNameProp  = {this.sortByName}
           sortPopProp   = {this.sortByPopularity}
+          deleteProp    = {this.deleteFunction}
         
         />
 

@@ -16,6 +16,9 @@ class Actors extends Component {
             <td><img src={this.addUrl(actorIndex)} alt="" height={100}></img></td>
             <td>{this.props.actorProps[actorIndex].name}</td>
             <td>{this.props.actorProps[actorIndex].popularity.toFixed(2)}</td>
+            <td><button onClick={() => this.props.deleteProp(actorIndex)} >Delete</button></td> 
+            {/* This is because we want it to pass on click, if we just did this.props.deleteProp(ActorIndex), */}
+            {/* it would pass the parameter immediatly and be called upon render */}
         </tr>
         
         )
@@ -32,7 +35,7 @@ class Actors extends Component {
     render() {
         return (
             <div>
-                <h1>Ironhack Contacts</h1>
+                <h1>Ironhack Hollywood Contacts (For the Apocalypse)</h1>
                 <button onClick={this.props.randomProp}>Add People</button>
                 <button onClick={this.props.sortNameProp}>Sort by Name</button>
                 <button onClick={this.props.sortPopProp}>Sort by Popularity</button>
