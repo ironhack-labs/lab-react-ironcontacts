@@ -1,26 +1,18 @@
 import React, { Component } from "react";
+import TableBody from './TableBody';
+import TableHead from './TableHead';
 
 class Artists extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     const { name, pictureUrl, popularity } = this.props;
     return (
       <div>
-      <table>
-          <tr>
-            <td>
-              <img src={pictureUrl} alt="artist" />
-            </td>
-            <td>
-              <p>{name}</p>
-            </td>
-            <td>
-              <p>{popularity}</p>
-            </td>
-          </tr>
-      </table>
+        <TableHead artistArray={this.props.artistArray} />
+        <TableBody artistArray={this.props.artistArray} clickToDelete={this.props.clickToDelete}/>
       </div>
     );
   }

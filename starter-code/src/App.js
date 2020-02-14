@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import contacts from './contacts.json'
 import Artists from './components/Artists.js'
+import TableBody from './components/TableBody';
+import TableHead from './components/TableHead';
 
 
 class App extends Component {
@@ -11,7 +13,12 @@ class App extends Component {
     this.state = {
       artistArray: this.fiveArtist(),
     }
-    this.clickHandler = this.clickHandler.bind(this);
+    this.clickHandlerRandomContacts = this.clickHandlerRandomContacts.bind(this);
+    this.clickHandlerSortName = this.clickHandlerSortName.bind(this);
+    this.clickHandlerSortPop = this.clickHandlerSortPop.bind(this);
+    this.clickHandlerDelete = this.clickHandlerDelete.bind(this);
+
+
   }
 
   fiveArtist() { //Accessing the 5 first contacts from contacts array
@@ -24,10 +31,10 @@ class App extends Component {
   }
 
   randomContact(){ //Select a random contact from contacts array
-    return contacts[Math.floor(Math.random() * contacts.length)];
+    return contacts[Math.floor(Math.random() * contacts.length + 1)];
   }
 
-  clickHandler(){ //Click render
+  clickHandlerRandomContacts(){
     const artistArrayCopy = [...this.state.artistArray];
     artistArrayCopy.unshift(this.randomContact())
     this.setState({
@@ -35,25 +42,47 @@ class App extends Component {
     })
   }
 
+  clickHandlerSortName(){
+    const sortedArr = [...this.state.artistArray];
+    sortedArr.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    this.setState({
+      artistArray: sortedArr,
+    });
+  }
+
+  clickHandlerSortPop(){
+    const sortedArr = [...this.state.artistArray];
+    sortedArr.sort((a, b) => b.popularity - a.popularity)
+    this.setState({
+      artistArray: sortedArr,
+    });
+  }
+
+  clickHandlerDelete(idx){
+   const copyArr = [...this.state.artistArray]
+   copyArr.splice(idx, 1)
+   this.setState({
+    artistArray: copyArr,
+   }) 
+  }
+
   render()  {
     return (
       <div className="container">
       <h2>IronContacts</h2>
-      <button onClick={this.clickHandler}>Add Random Contact</button>
-        <div class='table_container'>
-          <div class='table_titles'>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </div>
-          <div>
-            {
-            this.state.artistArray.map((artist, idx) => {
-              return <Artists key={idx} name={this.state.artistArray[idx].name} pictureUrl={this.state.artistArray[idx].pictureUrl} popularity={this.state.artistArray[idx].popularity}/>
-            })
-            }
-          </div>
-        </div>
+      <button onClick={this.clickHandlerRandomContacts}>Add Random Contact</button>
+      <button onClick={this.clickHandlerSortName}>Sort by name</button>
+      <button onClick={this.clickHandlerSortPop}>Sort by Popularity</button>
+        <Artists artistArray={this.state.artistArray} clickToDelete={this.clickHandlerDelete} />
       </div>
     );
   }
