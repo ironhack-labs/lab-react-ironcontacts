@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -22,7 +17,67 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(15, 8, 78), rgb(228, 228, 228));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.pp {
+  width: 80px;
+  height: auto;
+  box-shadow: grey 8px 8px 5px;
+}
+
+.ux {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: rgb(44, 44, 85);
+  color: white;
+  font-weight: bold;
+  border-radius: 100px;
+}
+
+.ux:hover {
+  background-color: rgb(100, 100, 197);
+}
+
+.delete {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 100px;
+}
+.delete:hover {
+  background-color: rgb(182, 58, 58);
+  color: white;
+  animation: bounce 0.7s ease infinite ;
+}
+@keyframes bounce {
+  from {margin-bottom: 0px;}
+  50%  {margin-bottom: 15px;}
+  to   {margin-bottom: 0px;}
+}
+
+.contactList {
+  border: solid;
+  margin: auto;
+  border-collapse: collapse;
+}
+.contactList th {
+  border: solid;
+  width: 170px;
+}
+
+.contact {
+  border-bottom: solid;
+}
+.contact>td {
+  padding: 20px;
+}
+
+
+
