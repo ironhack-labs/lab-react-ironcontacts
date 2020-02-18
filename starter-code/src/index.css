@@ -3,3 +3,31 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+img {
+  width: 100px;
+}
+
+.App {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  background-color: black;
+  color: white;
+}
