@@ -26,6 +26,12 @@ export default class DisplayContacts extends Component {
         copy.sort((a,b) => a.popularity < b.popularity ? 1: -1);
         this.setState({displayedContacts:copy});
     }
+
+    deleteArtist = index => {
+        const copy = [...this.state.displayedContacts];
+        copy.splice(index, 1);
+        this.setState({displayedContacts:copy});
+    };
    
     render() {
         return (
@@ -40,17 +46,21 @@ export default class DisplayContacts extends Component {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-            {this.state.displayedContacts.map((contact,i) => (
+                    {this.state.displayedContacts.length? (<tbody>
+                        {this.state.displayedContacts.map((contact,i) => (
                         <tr key={i}>
                             <td><img src={contact.pictureUrl} alt=""/></td>
                             <td>{contact.name}</td>
                             <td>{contact.popularity.toFixed(2)}</td>
+                            <td><button onClick={() => this.deleteArtist(i)}>Delete</button></td>
                         </tr>
             ))}
-                    </tbody>
+                    </tbody>):(
+                    <td colSpan="4">No contacts yet!</td>
+                )}
                     </table>
             </div>
         )
