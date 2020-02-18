@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import contacts from './contacts.json';
-import Contact from './Contact'
+// import Contact from './Contact'
 import './App.css';
 
 
