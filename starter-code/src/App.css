@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.App h1 {
+  color: #32c3ff;
 }
 
 .App-logo {
@@ -30,3 +35,42 @@
 .displayContacts img {
   width: 70px;
 }
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+  padding:0 4vw 2vw 4vw;
+  margin: 0;
+  gap: 4vw;
+}
+
+.btns button {
+  background-color: #32c3ff;
+  color: white;
+  height: 5vh;
+  border-radius: 6px;
+  font-size: 0.8em;
+  border: none;
+}
+
+.displayContacts table {
+  border-collapse: collapse;
+}
+
+.displayContacts td,th {
+  border: 1px solid gray;
+  width: 50vw;
+}
+
+.displayContacts table button {
+  background-color: rgba(206, 20, 66, 0.918);
+  color: white;
+  width: 70%;
+  height: 5vh;
+  border-radius: 6px;
+  font-size: 0.8em;
+  border: none;
+}
+
+

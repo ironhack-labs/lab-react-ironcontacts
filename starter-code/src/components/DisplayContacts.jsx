@@ -36,9 +36,11 @@ export default class DisplayContacts extends Component {
     render() {
         return (
             <div className="displayContacts">
-            <button onClick={this.addContact}>Add Random Contact</button>
-            <button onClick={this.sortByName}>Sort by name</button>
-            <button onClick={this.sortByPopularity}>Sort by popularity</button>
+            <div className="btns">
+                <button onClick={this.addContact}>Add Random Contact</button>
+                <button onClick={this.sortByName}>Sort by name</button>
+                <button onClick={this.sortByPopularity}>Sort by popularity</button>
+            </div>
             
             <table>
                     <thead>
