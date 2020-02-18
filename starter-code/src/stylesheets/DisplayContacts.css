@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+    color: white;
+    background-color: #131025;
+}
+
+h1 {
+    font-family: Alegreya Sans;
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+}
+
+.display-contacts img {
+    width: 150px;
+    border-radius: 0.55rem;
+}
+
+.display-contacts th {
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+table {
+    margin: 50px;
+}
+td {
+    padding: 15px;
+    font-family: Roboto;
+    font-size: 1.5rem;
+}
+
+th {
+    font-size: 1.5rem;
+}
+
+button {
+    border-radius: 0.55rem;
+    width: 230px;
+    background-color: darkslateblue;
+    font-weight: 300;
+    font-size: 1rem;
+    color: white;
+    border-style: none;
+    padding: 2rem;
+    margin: 15px
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+button:hover {
+    background-color: #6960a0;
+}
+
+.delete-btn {
+    width: 50px;
+    font-family: Roboto;
+    background-color: darkslategray;
+    padding: 15px;
+    text-align: center;
+    font-size: smaller;
+    font-weight: 100;
+}
+
+.display-contacts table{
+    margin: 1rem auto 1rem;
+}
