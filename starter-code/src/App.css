@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.fondo{
+  margin-left: 30%;
+}
+
+h2{
+  text-align: center;
+}
+.caja-btn{
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+}
+
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
