@@ -5,12 +5,20 @@ export default class DisplayContacts extends Component {
 
     state = {
         contacts: this.props.contacts,
-        fiveFirstContacts: this.props.contacts.splice(0,5)
+        displayedContacts: this.props.contacts.splice(0,5),
     };
+
+    addContact = () => {
+        var newContact = this.state.contacts[Math.floor(Math.random() * (this.props.contacts.length-5))+5]
+        const copy = [...this.state.displayedContacts];
+        copy.push(newContact);
+        this.setState({displayedContacts:copy});
+    }
    
     render() {
         return (
             <div className="displayContacts">
+            <button onClick={this.addContact}>Add Random Contact</button>
             <table>
                     <thead>
                         <tr>
@@ -20,11 +28,11 @@ export default class DisplayContacts extends Component {
                         </tr>
                     </thead>
                     <tbody>
-            {this.state.fiveFirstContacts.map((contact,i) => (
+            {this.state.displayedContacts.map((contact,i) => (
                         <tr key={i}>
                             <td><img src={contact.pictureUrl} alt=""/></td>
                             <td>{contact.name}</td>
-                            <td>{contact.popularity}</td>
+                            <td>{contact.popularity.toFixed(2)}</td>
                         </tr>
             ))}
                     </tbody>
