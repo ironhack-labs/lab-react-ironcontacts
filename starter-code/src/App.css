@@ -26,3 +26,29 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img{
+  height: 10%;
+  width: 15%;
+}
+
+
+
+
+.iron-contacts{
+  border: solid 2px black;
+}
+
+th{
+  border: solid 2px black;
+  width: 10px;
+  height: fit-content;
+}
+
+.contact-row{
+  border: solid 2px black;
+}
+
+td{
+  border: solid 2px black;
+}
