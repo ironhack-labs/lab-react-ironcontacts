@@ -14,11 +14,26 @@ export default class DisplayContacts extends Component {
         copy.push(newContact);
         this.setState({displayedContacts:copy});
     }
+
+    sortByName = () => {
+        const copy = [...this.state.displayedContacts];
+        copy.sort((a,b) => a.name.toUpperCase() > b.name.toUpperCase()? 1: -1);
+        this.setState({displayedContacts:copy});
+    }
+
+    sortByPopularity = () => {
+        const copy = [...this.state.displayedContacts];
+        copy.sort((a,b) => a.popularity < b.popularity ? 1: -1);
+        this.setState({displayedContacts:copy});
+    }
    
     render() {
         return (
             <div className="displayContacts">
             <button onClick={this.addContact}>Add Random Contact</button>
+            <button onClick={this.sortByName}>Sort by name</button>
+            <button onClick={this.sortByPopularity}>Sort by popularity</button>
+            
             <table>
                     <thead>
                         <tr>
