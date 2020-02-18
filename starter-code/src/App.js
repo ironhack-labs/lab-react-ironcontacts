@@ -7,9 +7,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Iron Contacts</h1>
+        <h1>Ironhack Movie Stars</h1>
 
-        <ContactManager contacts={contacts.splice(0,5)} />
+        <ContactManager contacts={contacts} />
 
       </div>
     );
