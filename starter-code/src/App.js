@@ -40,6 +40,24 @@ class App extends Component {
     });
   };
 
+  deleteContact = index => {
+    // when we receive an index
+    console.log(this.state.contactsLists);
+    console.log(JSON.parse(JSON.stringify(this.state.contactsLists)));
+    console.log("delete contact", index);
+    // let currentContact = JSON.parse(JSON.stringify(this.state.contactsLists));
+    // let newContact = currentContact.splice(index, 1);
+
+    this.state.contactsLists.splice(index, 1);
+    // splice
+    // console.log(JSON.parse(JSON.stringify(currentContact)));
+
+    this.setState({
+      contactsLists: this.state.contactsLists
+    });
+    // update the state with setstate
+  };
+
   render() {
     return (
       <div className="App">
@@ -47,7 +65,10 @@ class App extends Component {
         <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort By Name</button>
         <button onClick={this.sortByPopularity}>Sort By Popularity</button>
-        <Contacts contacts={this.state.contactsLists} />
+        <Contacts
+          contacts={this.state.contactsLists}
+          deleteContact={this.deleteContact}
+        />
       </div>
     );
   }
