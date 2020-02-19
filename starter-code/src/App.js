@@ -1,21 +1,61 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import CelebDetails from './components/CelebDetails';
 
-class App extends Component {
+export default class App extends Component {
+
+  state = {
+    allContacts: contacts,
+    displayedContacts: contacts.splice(0,5),
+    remainingContacts: contacts
+  }
+
+  // ===== ADD RANDOM CONTACT =====
+
+  randomAdd = () => {
+    let randomNum = Math.floor(Math.random() * Math.floor(this.state.remainingContacts.length));
+    let randomContact = this.state.remainingContacts[randomNum];
+
+    this.setState({
+      displayedContacts: [...this.state.displayedContacts, randomContact],
+      remainingContacts: [...this.state.remainingContacts].filter((element,index)=> index !== randomNum)
+    });
+  }
+
+  // ===== SORT CONTACT =====
+
+  
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>IronContacts</h1>
+        <button onClick={this.randomAdd}>Add random contact</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.displayedContacts.length ?
+              (this.state.displayedContacts.map((contact, i) => (
+                <CelebDetails 
+                  celeb={contact}
+                  i={i}
+                  key={i}
+                />
+              ))) : (
+                <tr> No contacts yet</tr>
+              )   
+            }
+          </tbody>
+        </table>
       </div>
     );
   }
 }
-
-export default App;

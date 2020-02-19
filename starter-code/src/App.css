@@ -1,5 +1,12 @@
-.App {
+/* .App {
   text-align: center;
+} */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -25,4 +32,19 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* TABLE */
+
+th {
+  width: 200px;
+}
+
+tr {
+  text-align: center;
+}
+
+tr img {
+  width: 100px;
+  text-align: center;
 }
