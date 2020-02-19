@@ -37,6 +37,17 @@ class Contacts extends Component {
     });
   };
 
+  togglePopular = () => {
+    let sortedRates = this.state.contacts;
+    console.log(this.state.contacts);
+    console.log(sortedRates);
+    sortedRates.sort((a, b) => (a.popularity > b.popularity ? 1 : -1));
+
+    this.setState({
+      contacts: sortedRates
+    });
+  };
+
   render() {
     let output = this.state.contacts.map((contact, index) => {
       return (
@@ -59,6 +70,7 @@ class Contacts extends Component {
         <h1>IronContacts</h1>
         <button onClick={this.toggleContact}>Add Random Contact</button>
         <button onClick={this.toggleName}>Sort by Name</button>
+        <button onClick={this.togglePopular}>Sort by Popularity</button>
         <div className="contacts">
           <table>
             <thead>
