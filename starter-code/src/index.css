@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#contacts {
+  border: 3px solid #000;
+}
