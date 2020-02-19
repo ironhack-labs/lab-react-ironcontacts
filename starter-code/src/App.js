@@ -8,14 +8,14 @@ export default class App extends Component {
 
   state = {
     allContacts: contacts,
-    displayedContacts: contacts.splice(0,5),
+    displayedContacts: contacts.slice(0,5),
     remainingContacts: contacts
   }
 
   // ===== ADD RANDOM CONTACT =====
 
   randomAdd = () => {
-    let randomNum = Math.floor(Math.random() * Math.floor(this.state.remainingContacts.length));
+    let randomNum = Math.floor(Math.random() * Math.floor(this.state.remainingContacts.length - 5)) + 5;
     let randomContact = this.state.remainingContacts[randomNum];
 
     this.setState({
@@ -24,7 +24,7 @@ export default class App extends Component {
     });
   }
 
-  // ===== SORT CONTACT =====
+  // ===== SORT CONTACTS =====
 
   sortByName = () => {
     this.setState({
@@ -47,21 +47,18 @@ export default class App extends Component {
     })
   }
 
+  // ===== DELETE CONTACT =====
 
-  // ===== REMOVE CONTACT =====
-
-
+  deleteContact = index => {
+    this.setState({
+      displayedContacts: this.state.displayedContacts.filter((el,i) => i !== index) 
+    })
+  }
   
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        {/* <div className="buttons">
-          <button onClick={this.randomAdd}>Add random contact</button>
-          <button onClick={this.sortByName}>Sort by name</button>
-          <button onClick={this.sortByPopularity}>Sort by popularity</button>
-        </div> */}
-        
         <table>
           <thead>
             <tr className="buttons">
@@ -73,7 +70,7 @@ export default class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
-              {/* <th>Action</th> */}
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +80,7 @@ export default class App extends Component {
                   celeb={contact}
                   i={i}
                   key={i}
+                  handleDelete = {this.deleteContact}
                 />
               ))) : (
                 <tr> No contacts yet</tr>

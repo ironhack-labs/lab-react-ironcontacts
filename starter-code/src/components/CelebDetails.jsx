@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CelebDetails({celeb, i}) {
+export default function CelebDetails({celeb, i, handleDelete}) {
   return (
     <tr>
       <td>
@@ -8,7 +8,7 @@ export default function CelebDetails({celeb, i}) {
       </td>
       <td>{celeb.name}</td>
       <td>{celeb.popularity.toFixed(2)}</td>
-      {/* <td><button>Delete</button></td> */}
+      <td><button onClick={()=>handleDelete(i)}>Delete</button></td>
     </tr>
   );
 }
