@@ -1,6 +1,21 @@
 .App {
   text-align: center;
 }
+.App table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .App table thead,
+.App table tbody {
+  width: 50%;
+}
+.App table thead tr,
+.App table tbody tr {
+  display: flex;
+  justify-content: space-evenly;
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -23,6 +38,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
