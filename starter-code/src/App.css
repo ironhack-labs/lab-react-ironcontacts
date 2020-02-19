@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -25,4 +25,30 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} */
+
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.contact-img {
+  width: 100px;
+}
+
+table {
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+}
+
+button {
+  margin: 12px;
+  background-color: #696969;
+  color: #fff;
+  padding: 12px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
 }
