@@ -15,7 +15,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 50px;
 }
 
 .App-intro {
@@ -25,4 +25,39 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.picwidth {
+  width: 100px;
+}
+
+.title, .contacts {
+  display: flex;
+  justify-content: left;
+}
+
+.title h1 {
+  display: flex;
+  justify-content: left;
+  padding: 0 50px;
+}
+
+.contacts {
+  width: 35%;
+}
+
+.contacts td {
+  display: flex;
+  padding: 0 45px 20px;
+}
+
+.subtitle {
+  font-size: 30px;
+  padding: 0 45px 20px;
+}
+
+.addbtn {
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
 }
