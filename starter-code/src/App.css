@@ -1,3 +1,8 @@
+body {
+background-color: whitesmoke;
+margin-left: 30px;
+}
+
 .App {
   text-align: center;
 }
@@ -26,3 +31,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+button {
+    text-align: center;
+    border-radius: 2px;
+    color: white;
+    padding: 7px;
+    margin: 7px;
+    background-color:orange;
+    border-style: none;
+  }
+
+  .delete {
+    background-color:red;
+     color: white;
+  }
+
+  .add {
+    background-color: rgb(136, 204, 34);
+    color: white;
+  }
+
+  button:hover {
+    background: grey;
+    color: yellow;
+  }
