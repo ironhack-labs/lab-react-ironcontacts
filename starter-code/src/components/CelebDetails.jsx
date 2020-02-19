@@ -8,7 +8,7 @@ export default function CelebDetails({celeb, i}) {
       </td>
       <td>{celeb.name}</td>
       <td>{celeb.popularity.toFixed(2)}</td>
-      {/* <td>{celeb.popularity}</td> */}
+      {/* <td><button>Delete</button></td> */}
     </tr>
   );
 }

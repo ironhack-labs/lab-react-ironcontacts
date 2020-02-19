@@ -37,7 +37,7 @@
 /* TABLE */
 
 th {
-  width: 200px;
+  width: 150px;
 }
 
 tr {
@@ -47,4 +47,17 @@ tr {
 tr img {
   width: 100px;
   text-align: center;
+}
+
+/* BUTTONS */
+
+/* .buttons {
+  display: flex;
+  flex-direction: row;
+
+} */
+
+.buttons > * {
+  padding: 10px;
+  margin: 0 10px 20px;
 }
