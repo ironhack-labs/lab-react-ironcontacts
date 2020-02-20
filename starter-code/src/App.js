@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import contacts from "./contacts.json";
 import Contacts from "./Contacts";
+import SearchBar from "./SearchBar";
 
 class App extends Component {
   state = {
@@ -65,6 +66,9 @@ class App extends Component {
         <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort By Name</button>
         <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+
+        <SearchBar />
+
         <Contacts
           contacts={this.state.contactsLists}
           deleteContact={this.deleteContact}
