@@ -9,6 +9,7 @@ const Table = props => {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,15 @@ const Table = props => {
                 </td>
                 <td>{name}</td>
                 <td>{popularity.toFixed(2)} </td>
+                <td>
+                  <button
+                    onClick={() => {
+                      props.deleteContact(index);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}

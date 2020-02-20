@@ -62,6 +62,17 @@ class App extends Component {
     });
   };
 
+  deleteContact = index => {
+    console.log("deleteContact", index);
+    // filter the array of contacts to exclude the element at a given index
+    const withoutContact = [...this.state.contactData];
+    withoutContact.splice(index, 1);
+
+    this.setState({
+      contactData: withoutContact
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -70,7 +81,10 @@ class App extends Component {
         <button onClick={this.sortByName}>Sort by name</button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
 
-        <Table contacts={this.state.contactData} />
+        <Table
+          deleteContact={this.deleteContact}
+          contacts={this.state.contactData}
+        />
       </div>
     );
   }
