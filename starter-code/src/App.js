@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Table from "./Table";
+import SearchBar from "./SearchBar";
 import contacts from "./contacts.json";
 
 class App extends Component {
   state = {
-    contactData: contacts.slice(0, 5)
+    contactData: contacts.slice(0, 5),
+    searchText: ""
   };
 
   // simple addRandom function, not checking for duplicates
@@ -73,6 +75,12 @@ class App extends Component {
     });
   };
 
+  updateSearchText = text => {
+    this.setState({
+      searchText: text
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -81,9 +89,15 @@ class App extends Component {
         <button onClick={this.sortByName}>Sort by name</button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
 
+        <SearchBar
+          updateSearchText={this.updateSearchText}
+          search={this.state.searchText}
+        />
+
         <Table
           deleteContact={this.deleteContact}
           contacts={this.state.contactData}
+          search={this.state.searchText}
         />
       </div>
     );
