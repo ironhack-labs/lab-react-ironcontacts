@@ -37,12 +37,26 @@ class App extends Component {
     })
   };
 
+  sortByPopularityHandler = () => {
+    let newArray = this.state.arreglo.slice().sort((a, b) => {
+      const valueA = a.popularity;
+      const valueB = b.popularity;
+
+      return valueB - valueA;
+    })
+
+    this.setState({
+      arreglo: newArray
+    })
+  };
+
   render() { 
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={this.addContactHandler} >Add Random Contact</button>
-        <button onClick={this.sortByNameHandler} >Sort by name</button>
+        <button onClick={this.addContactHandler}>Add Random Contact</button>
+        <button onClick={this.sortByNameHandler}>Sort by name</button>
+        <button onClick={this.sortByPopularityHandler}>Sort by popularity</button>
         <Table data={this.state.arreglo}/>
       </div>
     );
