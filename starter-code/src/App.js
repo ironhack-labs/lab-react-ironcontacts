@@ -50,6 +50,15 @@ class App extends Component {
     })
   };
 
+  deleteHandler = (id) => {
+    let newArray = this.state.arreglo.slice();
+    let idx = newArray.findIndex(item => item.id === id);
+    newArray.splice(idx, 1);
+    this.setState({
+      arreglo: newArray
+    })
+  }
+
   render() { 
     return (
       <div className="App">
@@ -57,7 +66,7 @@ class App extends Component {
         <button onClick={this.addContactHandler}>Add Random Contact</button>
         <button onClick={this.sortByNameHandler}>Sort by name</button>
         <button onClick={this.sortByPopularityHandler}>Sort by popularity</button>
-        <Table data={this.state.arreglo}/>
+        <Table clickToDelete={this.deleteHandler} data={this.state.arreglo}/>
       </div>
     );
   }
