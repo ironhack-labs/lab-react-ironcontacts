@@ -18,11 +18,31 @@ class App extends Component {
     });
   };
 
+  sortByNameHandler = () => {
+    let newArray = this.state.arreglo.slice().sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      let comparison = 0;
+      if (nameA > nameB) {
+        comparison = 1;
+      } else if (nameA < nameB) {
+        comparison = -1;
+      }
+      return comparison;
+    })
+
+    this.setState({
+      arreglo: newArray
+    })
+  };
+
   render() { 
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.addContactHandler} >Add Random Contact</button>
+        <button onClick={this.sortByNameHandler} >Sort by name</button>
         <Table data={this.state.arreglo}/>
       </div>
     );
