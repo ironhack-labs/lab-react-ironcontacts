@@ -4,7 +4,7 @@ const Tablerow = (props) => {
     return (
         <tr key={props.id}>
             <td>
-                <img src ={props.pictureUrl}/>
+                <img width="48px" src ={props.pictureUrl} alt="avatar"/>
             </td>
             <td>
                 <span>{props.name}</span>
