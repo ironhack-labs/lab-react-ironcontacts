@@ -33,6 +33,18 @@ class Directory extends Component {
             })
         );
     }
+
+    deleteContact = (id) => {
+        const newContac = this.state.contacts;
+        newContac.forEach((contact, index) => {
+            if(contact.id === id){
+                newContac.splice(index, 1);
+                return
+            }
+        })
+        this.changeContacts(newContac);
+    }
+
     render() {
         return (
             <div>
@@ -46,11 +58,12 @@ class Directory extends Component {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.contacts.map(contact => {
-                            return <Contact contact={contact} key={contact.id}></Contact>
+                            return <Contact contact={contact} key={contact.id} handler={this.deleteContact}></Contact>
                         })}
                     </tbody>
                 </table>

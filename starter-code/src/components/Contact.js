@@ -12,6 +12,7 @@ class Contact extends Component {
                 </td>
                 <td>{this.props.contact.name}</td>
                 <td>{this.props.contact.popularity.toFixed(2)}</td>
+                <td><button onClick={() => this.props.handler(this.props.contact.id)}>Delete</button></td>
                 
             </tr>
         );
