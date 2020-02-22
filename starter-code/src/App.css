@@ -40,13 +40,16 @@ th {
   width: 150px;
 }
 
-tr {
+.each-contact {
   text-align: center;
+  margin: 20px;
 }
 
 tr img {
   width: 100px;
+  border-radius: 10px;
   text-align: center;
+  margin: 10px 0;
 }
 
 /* BUTTONS */
@@ -57,7 +60,27 @@ tr img {
 
 } */
 
-.buttons > * {
+/* .buttons > * {
   padding: 10px;
   margin: 0 10px 20px;
+} */
+
+.btn {
+  /* padding: 10px; */
+  margin: 20px 0;
+  /* border: none; */
+}
+
+.btn-add {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 20px;
+}
+
+.btn-delete {
+  padding: 5px 10px;
+  background-color: maroon;
+  color: white;
+  border-radius: 20px;
 }

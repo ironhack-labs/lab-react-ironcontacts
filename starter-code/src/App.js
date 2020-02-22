@@ -7,7 +7,7 @@ import CelebDetails from './components/CelebDetails';
 export default class App extends Component {
 
   state = {
-    allContacts: contacts,
+    // allContacts: contacts,
     displayedContacts: contacts.slice(0,5),
     remainingContacts: contacts
   }
@@ -62,9 +62,9 @@ export default class App extends Component {
         <table>
           <thead>
             <tr className="buttons">
-              <th><button onClick={this.randomAdd}>Add random contact</button></th>
-              <th><button onClick={this.sortByName}>Sort by name</button></th>
-              <th><button onClick={this.sortByPopularity}>Sort by popularity</button></th>
+              <th><button class="btn btn-add" onClick={this.randomAdd}>Add random contact</button></th>
+              <th><button class="btn btn-sort" onClick={this.sortByName}>Sort by name</button></th>
+              <th><button class="btn btn-sort" onClick={this.sortByPopularity}>Sort by popularity</button></th>
             </tr>
             <tr>
               <th>Picture</th>
