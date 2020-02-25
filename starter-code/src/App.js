@@ -78,7 +78,7 @@ class App extends Component {
                   <td><img src={contact.pictureUrl} width="50" ></img></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
-                  <td><button onClick={(popositionsit) => {this.deleteContact(position)}}>Delete</button></td>
+                  <td><button onClick={() => {this.deleteContact(position)}}>Delete</button></td>
                 </tr>
               )
             })}
