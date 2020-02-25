@@ -14,7 +14,7 @@ export default class ConctactList extends React.Component {
       contacts: contacts.slice(0, 6)
     };
   }
-  // componentDidMount() {
+  // componentDidMount() { // tambien se puede hacer así pero lo veremos manana
   //   let sliceArr = this.state.contacts.slice(0, 6);
   //   this.setState({
   //     contacts: sliceArr
@@ -61,29 +61,34 @@ export default class ConctactList extends React.Component {
   render() {
     return (
       <tbody>
-        <button
-          onClick={() => {
-            this.addContact();
-          }}
-        >
-          Add
-        </button>
-        <button
-          onClick={() => {
-            this.sortContactName();
-          }}
-        >
-          Short Name
-        </button>
-        <button
-          onClick={() => {
-            this.sortContactPop();
-          }}
-        >
-          Short Popularity
-        </button>
+        <tr>
+          <td>
+            <button
+              onClick={() => {
+                this.addContact();
+              }}
+            >
+              Add
+            </button>
+            <button
+              onClick={() => {
+                this.sortContactName();
+              }}
+            >
+              Short Name
+            </button>
+            <button
+              onClick={() => {
+                this.sortContactPop();
+              }}
+            >
+              Short Popularity
+            </button>
+          </td>
+        </tr>
         {this.state.contacts.map((oneContact, index) => (
           <Card
+            key={oneContact.id}
             {...oneContact}
             button={() => this.deleteContact(oneContact.id)}
           />
