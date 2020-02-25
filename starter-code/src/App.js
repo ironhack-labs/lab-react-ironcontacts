@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import contacts from "./contacts.json";
+import Contact from "./contact.js";
 
 class App extends Component {
+  state = { contacts };
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="contacts-grid">
+        <h1>IronContacts</h1>
+        <div className="oneContacts">
+          {this.state.contacts.map(contact => (
+            <Contact
+              picture={contact.pictureUrl}
+              name={contact.name}
+              popularity={contact.popularity}
+            ></Contact>
+          ))}
+        </div>
       </div>
     );
   }
