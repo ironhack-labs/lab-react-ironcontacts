@@ -10,12 +10,22 @@ class ActorsList extends Component {
             contacts: contacts.slice(0, 5)
         }
     }
+
+    //iteration2
     addContacts = idx => {
         const newContacts = [...this.state.contacts]
         let randomContacts = Math.floor(Math.random() * (contacts.length + 1))
         newContacts.push(contacts[randomContacts])
         this.setState({ contacts: newContacts })
     }
+
+    //iteration 4
+    deleteContact = idx => {
+        const contactsCopy = [...this.state.contacts]
+        contactsCopy.splice(idx, 1)
+        this.setState({ contacts: contactsCopy })
+    }
+
     render() {
 
         return (
@@ -27,7 +37,7 @@ class ActorsList extends Component {
                         <th>Name</th>
                         <th>Popularity</th>
                     </tr>
-                    {this.state.contacts.map((elm, idx) => <Card key={idx} {...elm} />)}
+                    {this.state.contacts.map((elm, idx) => <Card key={idx} {...elm} deleteContact={() => this.deleteContact(idx)} />)}
                 </table>
 
             </>
