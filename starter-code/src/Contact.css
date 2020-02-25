@@ -1,14 +1,19 @@
 .list{
-    margin: 10px;
+    margin: 20px;
 }
+
+.list td{
+    border: 1px green;
+}
+
 .btn-delete {
     font-size: 15px;
     border-radius: 5px;
-    background-color: rgb(201, 200, 200);
+    background-color: rgb(187, 6, 6);
+    color: wheat;
     margin-left: 10px;
     padding: 5px;
 }
 .btn-delete:hover{
-    background-color: rgb(187, 6, 6);
-    color: wheat;
+    box-shadow: 2px 2px rgb(163, 163, 163);
   }

@@ -76,8 +76,8 @@ class App extends Component {
         <h1>IRONCONTACTS</h1>
         <div class="btn">
           <button onClick={() => this.addContact()}>Add random contacts</button>
-          <button onClick={() => this.sortContact()}>Sort contacts by Name</button>
-          <button onClick={() => this.sortContactPopularity()}>Sort contacts by Popularity</button>
+          <button onClick={() => this.sortContact()}>Sort by Name</button>
+          <button onClick={() => this.sortContactPopularity()}>Sort by Popularity</button>
         </div>
         <table class="table">
           {/* <thead>
@@ -87,7 +87,7 @@ class App extends Component {
               <th>Popularity</th>
             </tr>
           </thead> */}
-          <tbody>
+          <tbody class="body-table">
             {this.state.contacts.map(contact => (
             <Contact clickToDelete={() => this.deleteContact(contact.id)} key={contact.id} pictureUrl={contact.pictureUrl} popularity={contact.popularity} name={contact.name}></Contact>
             ))}
