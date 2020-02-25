@@ -1,0 +1,14 @@
+/* tr {
+    display: flex;
+} */
+tr td {
+    font-size: 2em;
+}
+
+tr td button {
+    font-size: 1em;
+}
+
+tr td img{
+    width: 100px;
+}
