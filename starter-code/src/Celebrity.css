@@ -1,0 +1,45 @@
+body{
+    margin-left: 50px;
+}
+
+img{
+    border: solid 3px white;
+}
+
+/* Flat button */
+.tlacidlo {
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 18px 40px;
+	font-size: 19px;
+	line-height: 1em;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	color: white;
+	display:inline-block;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.1s ease-in-out;
+	-webkit-transition: background 0.1s ease-in-out;
+	-moz-transition: background 0.1s ease-in-out;
+	-ms-transition: background 0.1s ease-in-out;
+	-o-transition: background 0.1s ease-in-out;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-family: 'Quicksand',sans-serif;
+  background-color: #2980B9;
+	box-shadow: 0px 6px 0px 0px #155886;
+  text-decoration: none;
+}
+
+.tlacidlo:hover {
+	background-color: #2980B9;
+  color: #fff;
+}
+.tlacidlo:active {
+	box-shadow: 0px 1px 0px 0px #2475AB;
+}
