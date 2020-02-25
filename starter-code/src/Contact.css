@@ -1,6 +1,7 @@
 .card {
     height: 200px;
-    background-color: blue;
+    background-color: whitesmoke;
+    border-radius: 20px;
 }
 
 .card img {
@@ -8,5 +9,6 @@
 }
 
 .card td {
-    padding: 1rem
+    padding: 1rem;
+    border:0;
 }
