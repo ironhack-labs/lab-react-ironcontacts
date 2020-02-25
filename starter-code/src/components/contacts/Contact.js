@@ -1,7 +1,7 @@
 import React from 'react'
 import './Contact.css'
 
-const Contact = ({ name, pictureUrl, popularity }) => {
+const Contact = ({ name, pictureUrl, popularity, deleteOneContact }) => {
 
     return (
         <tr className='contactLine'>
@@ -17,7 +17,7 @@ const Contact = ({ name, pictureUrl, popularity }) => {
                 <p>{popularity}</p>
             </td>
             <td>
-                <button onClick={this.sortByPopularity}>DELETE</button>
+                <button onClick={deleteOneContact}>DELETE</button>
             </td>
         </tr>
     )

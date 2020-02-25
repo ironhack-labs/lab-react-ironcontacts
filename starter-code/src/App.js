@@ -69,7 +69,7 @@ class App extends Component {
           </thead>
 
           <tbody>
-            {this.state.contacts.map((elm, idx) => <Contact key={idx} {...elm} />)}
+            {this.state.contacts.map((elm, idx) => <Contact key={idx} {...elm} deleteOneContact={() => this.deleteContact(idx)} />)}
           </tbody>
 
         </table>
