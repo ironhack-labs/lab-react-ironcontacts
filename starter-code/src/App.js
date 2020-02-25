@@ -25,17 +25,17 @@ class App extends Component {
     this.setState(newState);
   }
 
-  addRandomContact() {
-    let newState = {
-      ...this.state
-    };
-    let random = Math.floor(Math.random() * (contacts.length - 0)) + 0;
-    let newContact = contacts[random];
+  // addRandomContact() {
+  //   let newState = {
+  //     ...this.state
+  //   };
+  //   let random = Math.floor(Math.random() * (contacts.length - 0)) + 0;
+  //   let newContact = contacts[random];
 
-    newState.shownContacts.push(newContact);
+  //   newState.shownContacts.push(newContact);
 
-    this.setState(newState);
-  }
+  //   this.setState(newState);
+  // }
 
   sortByName() {
     let newState = {
