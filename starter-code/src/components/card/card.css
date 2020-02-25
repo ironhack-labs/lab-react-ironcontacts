@@ -1,0 +1,7 @@
+.table-row td {
+    vertical-align: inherit !important;
+}
+
+.table-row img {
+    width: 50px;
+}
