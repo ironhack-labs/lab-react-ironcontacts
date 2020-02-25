@@ -7,9 +7,6 @@ const randomInt = (min, max) =>
 export default class ConctactList extends React.Component {
   constructor() {
     super();
-    // const randomInt = (min, max) =>
-    //   Math.floor(Math.random() * (max - min + 1) + min);
-
     this.state = {
       contacts: contacts.slice(0, 6)
     };
@@ -31,7 +28,7 @@ export default class ConctactList extends React.Component {
   sortContactPop() {
     let newContactsArr = this.state.contacts;
 
-    let sortedArr = newContactsArr.sort((a, b) => a.popularity - b.popularity);
+    let sortedArr = newContactsArr.sort((a, b) => b.popularity - a.popularity);
     this.setState({
       sortedArr
     });
