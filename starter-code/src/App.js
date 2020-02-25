@@ -12,7 +12,7 @@ class App extends Component {
   addContact = () => {
     const contactsArr = this.state.contactsList;
     const randomNumber = Math.floor(Math.random() * contacts.length);
-    contactsArr.push(contacts[randomNumber]);
+    contactsArr.unshift(contacts[randomNumber]);
     this.setState({ contactsList: contactsArr });
   };
 
@@ -56,17 +56,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Iron Contacts</h1>
-        <button onClick={this.addContact}> Add Random Contact </button>
-        <button onClick={this.sortContactsByName}> Sort by Name</button>
-        <button onClick={this.sortContactsByPop}> Sort by Popularity </button>
+      <div className="App" className="container">
+        <h1 align="center">Iron Contacts</h1>
+        <div className="btns">
+        <button class="btn btn-success" onClick={this.addContact}> Add Random Contact </button>
+        <button class="btn btn-info" onClick={this.sortContactsByName}> Sort by Name</button>
+        <button class="btn btn-info" onClick={this.sortContactsByPop}> Sort by Popularity </button>
+        </div>
 
-        <table>
-          <thead>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
+        <table class="table">
+          <thead class="thead-dark">
+            <th scope="col">Picture</th>
+            <th scope="col">Name</th>
+            <th scope="col">Popularity</th>
+            <th scope="col">Delete?</th>
           </thead>
           <tbody>
             {this.state.contactsList.map(contactObj => {

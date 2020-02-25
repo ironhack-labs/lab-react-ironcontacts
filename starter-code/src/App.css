@@ -26,3 +26,18 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.btns {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px;
+}
+
+.table th {
+align-items: center;
+}
+
+.table td {
+  align-items: center;
+  justify-content: center;
+  }
