@@ -26,3 +26,24 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.table{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.btn button{
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(201, 200, 200);
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.btn button:hover{
+  background-color: rgb(129, 128, 128);
+}
