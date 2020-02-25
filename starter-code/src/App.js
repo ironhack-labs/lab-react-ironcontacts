@@ -80,13 +80,13 @@ class App extends Component {
           <button onClick={() => this.sortContactPopularity()}>Sort contacts by Popularity</button>
         </div>
         <table class="table">
-          <thead>
+          {/* <thead>
             <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
             </tr>
-          </thead>
+          </thead> */}
           <tbody>
             {this.state.contacts.map(contact => (
             <Contact clickToDelete={() => this.deleteContact(contact.id)} key={contact.id} pictureUrl={contact.pictureUrl} popularity={contact.popularity} name={contact.name}></Contact>

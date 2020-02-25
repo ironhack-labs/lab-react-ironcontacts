@@ -1,7 +1,14 @@
 .list{
     margin: 10px;
 }
-tr td button {
-    font-size: 20px;
-    
+.btn-delete {
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: rgb(201, 200, 200);
+    margin-left: 10px;
+    padding: 5px;
 }
+.btn-delete:hover{
+    background-color: rgb(187, 6, 6);
+    color: wheat;
+  }
