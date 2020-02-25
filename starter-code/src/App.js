@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json'
+import Contacts from './Contacts';
 
 class App extends Component {
   state= {
@@ -48,7 +48,13 @@ class App extends Component {
         return 0;
       }
     })
-    this.setState({contactsList: sortedContactsList})
+    this.setState({contactsList: sortedContactsList})    
+  }
+
+  deleteContact = contactId => {
+    const updatedContactsList = this.state.contactsList.filter(contact1 => contact1.id !== contactId);
+
+    this.setState({ contactsList: updatedContactsList });
   }
 
 
@@ -63,9 +69,13 @@ class App extends Component {
         {this.state.contactsList.map(contactObj => {
           return (
             <div className="actor-card" key={contactObj.id}>
-              <img src={contactObj.pictureUrl} alt=""/>
-              <h1>{contactObj.name}</h1>
-              <h2>{contactObj.popularity}</h2>            
+             <Contacts  
+               key={contactObj.id}
+               {...contactObj}
+               clickToDelete = {()=>{
+                 this.deleteContact(contactObj.id)
+               }}
+             />    
             </div>
           );
         })}
