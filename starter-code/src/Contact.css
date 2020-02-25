@@ -1,0 +1,12 @@
+.card {
+    height: 200px;
+    background-color: blue;
+}
+
+.card img {
+    width: 100px;
+}
+
+.card td {
+    padding: 1rem
+}
