@@ -1,0 +1,15 @@
+button{
+    border:1px solid black;
+    padding: 10px;
+    margin:10px;
+    background-color: whitesmoke;
+}
+
+button:hover{
+    background-color: yellow;
+}
+
+.align-center{
+    display: flex;
+    justify-content: center;
+}
