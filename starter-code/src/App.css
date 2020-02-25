@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+table{
+  margin: auto;
+  margin-top: 100px;
+}
+thead {
+  font-weight: 700;
+}
+table img {
+  width: 60px
+}
