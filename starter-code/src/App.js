@@ -18,10 +18,13 @@ class App extends Component {
     let random = Math.floor(Math.random() * (contacts.length - 0)) + 0;
     let newContact = contacts[random];
 
-    newState.shownContacts.push(newContact);
+    newState.shownContacts.find(contact => contact.id === newContact.id)
+      ? this.addRandomContact()
+      : newState.shownContacts.push(newContact);
 
     this.setState(newState);
   }
+
 
   sortByName() {
     let newState = {
@@ -38,9 +41,7 @@ class App extends Component {
       ...this.state
     };
 
-    newState.shownContacts.sort((a, b) =>
-      a.popularity-b.popularity
-    );
+    newState.shownContacts.sort((a, b) => a.popularity - b.popularity);
 
     this.setState(newState);
   }
@@ -50,7 +51,9 @@ class App extends Component {
     console.log(`I am gonna delete the id ${contactID}`);
 
     let newState = { ...this.state };
-    let filteredContacts = newState.shownContacts.filter(contact => contact.id !== contactID);
+    let filteredContacts = newState.shownContacts.filter(
+      contact => contact.id !== contactID
+    );
 
     newState.shownContacts = filteredContacts;
 
@@ -71,21 +74,25 @@ class App extends Component {
           </button>
         </nav>
         <table>
-          <tr>
-            <th>Picure</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action</th>
-          </tr>
-          {this.state.shownContacts.map(contact => (
-            <Contact
-            clickToDelete={() => this.deleteContact(contact.id)}
-              key={contact.id}
-              pictureUrl={contact.pictureUrl}
-              popularity={contact.popularity}
-              name={contact.name}
-            ></Contact>
-          ))}
+          <thead>
+            <tr>
+              <th>Picure</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.shownContacts.map(contact => (
+              <Contact
+                clickToDelete={() => this.deleteContact(contact.id)}
+                key={contact.id}
+                pictureUrl={contact.pictureUrl}
+                popularity={contact.popularity}
+                name={contact.name}
+              ></Contact>
+            ))}
+          </tbody>
         </table>
       </div>
     );

@@ -1,3 +1,16 @@
 img{
-  width:100px
+  width:100px;
+  height: auto;
+}
+
+td{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.delete {
+  background-color: red;
+}
+
+.contact {
+  border: 1px solid black;
 }
