@@ -25,8 +25,8 @@ let newState ={
   ...this.state
 };
 
-  let randomState = contacts[Math.floor(Math.random() * (contacts.length + 1) )];
-  newState.contacts.push(randomState)
+  let randomState = contacts[Math.floor(Math.random() * (contacts.length) )];
+  newState.displayFive.push(randomState)
   this.setState(randomState)
   console.log(randomState)
 }
@@ -36,7 +36,7 @@ sortContact(){
     ...this.state
   };
   
-newState.contacts.sort((a, b) => a.name.localeCompare(b.name));
+newState.displayFive.sort((a, b) => a.name.localeCompare(b.name));
 this.setState(newState)
 }
 sortContactByPopularity(){
@@ -44,7 +44,7 @@ sortContactByPopularity(){
     ...this.state
   };
   
-newState.contacts.sort((a, b) => b.popularity - a.popularity);
+newState.displayFive.sort((a, b) => b.popularity - a.popularity);
 this.setState(newState)
 }
 
@@ -76,7 +76,7 @@ deleteContact(contactID) {
             <td><h2>Name</h2></td>
             <td><h2>Popularity</h2></td>
             </tr>
-            {this.state.contacts.map(contact=> 
+            {this.state.displayFive.map(contact=> 
               <IronContact clickToDelete={()=> this.deleteContact(contact.id)} key={contact._id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}></IronContact>
               )
               }
