@@ -37,10 +37,10 @@ class App extends Component {
   sortByPopularity = () => {
     let copyList = [...this.state.contactsList];
     let newList = copyList.sort((a, b) => {
-      if (a.popularity > b.popularity) {
+      if (a.popularity < b.popularity) {
         return 1;
       }
-      if (a.popularity < b.popularity) {
+      if (a.popularity > b.popularity) {
         return -1;
       }
       return 0;
