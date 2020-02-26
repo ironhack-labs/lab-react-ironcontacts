@@ -19,6 +19,25 @@ class ActorsList extends Component {
         this.setState({ contacts: newContacts })
     }
 
+    //iteration 3
+    sortByName = () => {
+        const contactCopy = [...this.state.contacts]
+        contactCopy.sort((a, b) =>a.name < b.name ? -1 : 1)
+
+        this.setState({
+            contacts: contactCopy
+        })
+    }
+
+    sortByPopularity = () => {
+        const contactCopy = [...this.state.contacts]
+        contactCopy.sort((a, b) => a.popularity < b.popularity ? 1 : -1)
+
+        this.setState({
+            contacts: contactCopy
+        })
+    }
+
     //iteration 4
     deleteContact = idx => {
         const contactsCopy = [...this.state.contacts]
@@ -31,6 +50,8 @@ class ActorsList extends Component {
         return (
             <>
                 <button onClick={this.addContacts}>Add Random Contact</button>
+                <button onClick={this.sortByName}>Sort by Name</button>
+                <button onClick={this.sortByPopularity}>Sort by Popularity</button>
                 <table>
                     <tr>
                         <th>Picture</th>
