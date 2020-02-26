@@ -6,9 +6,23 @@
 
 .card img {
     width: 100px;
+    height: 100px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 
 .card td {
     padding: 1rem;
-    border:0;
+    border: none;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.card button {
+    background-color: red;
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid black;
 }

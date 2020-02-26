@@ -86,7 +86,7 @@ class App extends Component {
           </thead>
           <tbody>
           {this.state.contactsToShow.map(contact => {
-            return <Contact clickToDelete={() => this.deleteContact(contact.id)} key={contact.id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}></Contact>
+            return <Contact clickToDelete={() => this.deleteContact(contact.id)} key={contact.id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity.toFixed(2)}></Contact>
           })
           }
           </tbody>

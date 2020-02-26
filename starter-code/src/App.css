@@ -1,8 +1,52 @@
 .main {
   margin: 0;
   padding: 0;
+  background-color: #0b0166;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+table {
+  background-color: #aaaaaa;
+  margin: 8rem 0;
+  padding: 3rem;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 46px 0px rgba(240, 160, 22, 1);
+  -moz-box-shadow: 0px 0px 46px 0px rgba(240, 160, 22, 1);
+  box-shadow: 0px 0px 46px 0px #f0a016;
+}
+
+table thead th {
+  font-size: 2rem;
+  background-color: #777676;
+  padding: 1rem; 
+  border-radius: 10px;
+}
+
+
+
 nav {
-  background-color: darkgoldenrod;
+  background-color: #f0a016;
+  width: 100%;
+  position: fixed;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav h1 {
+  font-size: 2rem;
+  padding-left: 2rem;
+}
+
+nav button {
+  font-weight: bold;
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  margin: 1rem;
+  border-radius: 20px;
 }
