@@ -1,0 +1,9 @@
+.coolbutton{
+    background-color: rgb(255, 51, 0);
+    border: 1px solid black;
+    box-shadow: 2px black;
+    color: black;
+}
+img{
+    box-sizing: 100%;
+}

@@ -1,0 +1,14 @@
+.coolbuttonblue{
+background-color: rgb(7, 26, 204);
+    border: 1px solid black;
+    box-shadow: 2px black;
+    color: black;
+}
+.coolbuttongreen{background-color: rgb(0, 255, 64);
+    border: 1px solid black;
+    box-shadow: 2px black;
+    color: black;}
+.coolbuttonorange{background-color: rgb(255, 174, 0);
+    border: 1px solid black;
+    box-shadow: 2px black;
+    color: black;}
