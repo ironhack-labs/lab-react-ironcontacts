@@ -1,0 +1,22 @@
+.border-right {
+  border-right: 1px solid grey;
+  border-color: #fff;
+}
+
+.border-bottom {
+  border-bottom: 1px solid grey;
+  border-color: #fff;
+}
+
+.delete {
+  background-color: rgb(213, 61, 68);
+  border: none;
+  padding: 7px 15px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.delete:hover {
+    background-color: rgb(223, 12, 23);
+}

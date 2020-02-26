@@ -80,14 +80,14 @@ class App extends Component {
     ));
     return (
       <div className="App">
-        <nav>
-          <button onClick={() => this.addContact()}>Add a Contact</button>
+        <nav className="navbar">
+          <button onClick={() => this.addContact()}>Add Contact</button>
           <button onClick={() => this.sortContacts()}>Sort Contacts</button>
           <button onClick={() => this.sortByPopularity("")}>Popularity</button>
         </nav>
         <table>
           <thead>
-            <tr>
+            <tr className="header-table">
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
