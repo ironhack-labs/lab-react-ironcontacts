@@ -56,13 +56,13 @@ class App extends Component {
     })
 }
 
-  deleteContact = (contactId) => {
-    let listToUpdate = this.state.contactList;
-    let updatedList = listToUpdate.filter( (contactObj) => {
-      return (contactObj.id !== contactId)
-    })
+  deleteContact = (contactIndex) => {
+    let contactsCopy = this.state.contactList;
+
+    contactsCopy.splice(contactIndex, 1)
+
     this.setState({
-      contactList: updatedList
+      contactList: contactsCopy
     })
   }
 
@@ -80,7 +80,7 @@ class App extends Component {
           <th><strong>Popularity</strong></th>
           </tr>
           <tbody>
-          {this.state.contactList.map((contactObj) => {
+          {this.state.contactList.map((contactObj, index) => {
             return (
             <tr key={contactObj.id}>
               
@@ -89,7 +89,10 @@ class App extends Component {
               </td>
             <td>{contactObj.name}</td>
             <td>{contactObj.popularity}</td>
-            <button onClick={() => this.deleteContact(contactObj.id)}>Delete contact</button>
+            <button onClick={() => {this.deleteContact(index)} }>Delete contact</button>
+            {/* this is done to avoid the function from being invoked immediately and
+            deleting all elements. By using a callback function this is executed only
+            when clicked */}
             </tr>
             )
           })}
