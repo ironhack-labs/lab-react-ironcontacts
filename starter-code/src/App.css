@@ -1,12 +1,25 @@
 .App {
   background-color: lightgray;
   text-align: center;
-  margin: 3em;
+  
+  display: row;
+  align-items: center;
+
 }
 .button{
   margin-left: 40px;
 }
 
+.App h1{
+
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.App h2{
+  font-weight: bold;
+  font-size: 1.5em;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

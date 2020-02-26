@@ -64,9 +64,9 @@ deleteContact(contactID) {
       <div className="App">
          <h1>IronContacts</h1>
          <nav>
-           <button onClick={()=> this.addRandomContact()}>Add Random Contact</button>
-           <button onClick={() => this.sortContact()}>Sort by name</button>
-           <button onClick={() => this.sortContactByPopularity()}>Sort by Popularity</button>
+           <button class="button is-medium is rounded" onClick={()=> this.addRandomContact()}>Add Random Contact</button>
+           <button class="button is-medium is rounded" onClick={() => this.sortContact()}>Sort by name</button>
+           <button class="button is-medium is rounded" onClick={() => this.sortContactByPopularity()}>Sort by Popularity</button>
            
          </nav>
        
