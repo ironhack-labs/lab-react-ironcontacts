@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import contacts from './contacts.json';
@@ -20,14 +19,9 @@ class App extends Component {
   }
 
   sortByName = () => {
-    let copyList = [...this.state.contactsList];
-    let newList = copyList.sort((a, b) => {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
+    let newList = this.state.contactsList.sort((a, b) => {
+      if (a.name > b.name) { return 1 }
+      if (a.name < b.name) { return -1 }
       return 0;
     });
 
@@ -35,14 +29,9 @@ class App extends Component {
   }
 
   sortByPopularity = () => {
-    let copyList = [...this.state.contactsList];
-    let newList = copyList.sort((a, b) => {
-      if (a.popularity < b.popularity) {
-        return 1;
-      }
-      if (a.popularity > b.popularity) {
-        return -1;
-      }
+    let newList = this.state.contactsList.sort((a, b) => {
+      if (a.popularity < b.popularity) { return 1 }
+      if (a.popularity > b.popularity) { return -1 }
       return 0;
     });
 
@@ -72,13 +61,12 @@ class App extends Component {
           </thead>
           <tbody>
             {this.state.contactsList.map((contact, index) => {
-              let position = index;
               return (
                 <tr key={contact.id}>
                   <td><img src={contact.pictureUrl} width="50" ></img></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
-                  <td><button onClick={() => {this.deleteContact(position)}}>Delete</button></td>
+                  <td><button onClick={ () => { this.deleteContact(index) } }>Delete</button></td>
                 </tr>
               )
             })}
