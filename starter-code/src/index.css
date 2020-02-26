@@ -1,5 +1,7 @@
 body {
+  background-image: url('back.png');
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  text-align: center;
 }

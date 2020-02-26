@@ -2,3 +2,8 @@
     width: 60px;
     height: 100px;
 }
+
+table {
+    margin: 0 auto;
+    border: 1px solid green;
+}
