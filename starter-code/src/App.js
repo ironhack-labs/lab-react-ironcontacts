@@ -29,14 +29,55 @@ console.log(pickRandom);
 
 let updatedList = this.state.contactsList
 updatedList.push(pickRandom);
-console.log('updatedList', updatedList)
+console.log('updatedList', updatedList
 this.setState( { contactsList: updatedList } );
 }
+
+sortByPopularity = () => {
+  let fullContactList = this.state.contactsList
+
+  let sortedList = fullContactList.sort(  (a, b) => {
+    return a.popularity - b.popularity
+  })
+  this.setState({
+    contactList: sortedList
+  })
+}
+
+sortByName = () => {
+    let fullContactList = this.state.contactsList
+    let sortedNameList = fullContactList.sort(function compare(a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if(a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    })
+    this.setState({
+      contactList: sortedNameList
+    })
+}
+
+deleteContact = (contactId) => {
+      let fullContactList = this.state.contactsList
+      let updatedList = fullContactList.filter( (contactObj) => {
+        return (contactObj.id !== contactId)
+      })
+      this.setState({
+        contactList:updatedList
+      })
+}
+
+
 
   render() {
     return (
       <div className="App">
         <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+        <button onClicl={this.sortByName}>Sort By Name</button>
         <table>
           <tr>
             <th>
@@ -63,6 +104,7 @@ this.setState( { contactsList: updatedList } );
                   </td>
                   <td>{contactObj.name}</td>
                   <td>{contactObj.popularity}</td>
+                  <button onClick= { () => this.deleteContact(contactObj.id)}>Delete contact</button>
                 </tr>
               );
             })}
