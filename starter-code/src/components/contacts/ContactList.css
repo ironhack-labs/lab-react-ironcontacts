@@ -1,0 +1,31 @@
+.all-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  height: 100vh;
+  margin-top: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%
+}
+
+.buttons-container button {
+  margin-top: 10px;
+  width: 15%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.buttons-container button:hover {
+  box-shadow: 0 0 10px red;
+}
