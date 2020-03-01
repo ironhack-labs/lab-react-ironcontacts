@@ -20,6 +20,18 @@ class App extends Component {
  
 
   }
+  sortByName = ()=>{
+    const sortArray = [...this.state.contactList];
+      sortArray.sort(function(a, b){
+      
+        if(a.name < b.name) { return -1; }
+        if(a.name > b.name) { return 1; }
+        return 0;
+    })
+  this.setState({
+    contactList : sortArray
+  })
+  }
   
   render() {
     return (
@@ -31,6 +43,7 @@ class App extends Component {
 
               <h1>IronContacts</h1>
               <button onClick={this.addRandom}>Add random contact </button>
+              <button onClick={this.sortByName}>Sort by name </button>
               <table>
                 <thead>
                     <tr>
