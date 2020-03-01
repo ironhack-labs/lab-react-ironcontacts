@@ -6,8 +6,19 @@ import ContactRow from './components/ContactRow'
 class App extends Component {
   
   state={
-      contactList : contacts.slice(0,5) 
+      contactList : contacts.slice(0,5),
+      data: contacts
     
+  }
+
+  addRandom = ()=>{
+    const randomElement  =Math.floor(Math.random() * this.state.data.length ) + 0;  
+    const newElement = this.state.data[randomElement];
+   this.setState({
+      contactList : [...this.state.contactList, newElement ] 
+    })
+ 
+
   }
   
   render() {
@@ -17,7 +28,9 @@ class App extends Component {
           <div className="container">
             <div className="columns">
               <div className="column is-12">
+
               <h1>IronContacts</h1>
+              <button onClick={this.addRandom}>Add random contact </button>
               <table>
                 <thead>
                     <tr>
