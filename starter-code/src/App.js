@@ -1,18 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import 'bulma/css/bulma.css'
+import contacts from './contacts.json';
+import ContactRow from './components/ContactRow'
 class App extends Component {
+  
+  state={
+      contactList : contacts.slice(0,5)
+    
+  }
+  
+
+  displayFiveElements = () =>{
+    const contactsCopy = [...this.state.contactList]
+    this.setState= ({
+            contacts : contactsCopy.slice(0,3)
+    })
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-12">
+              <h1>IronContacts</h1>
+              <table>
+                <thead>
+                    <tr>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Popularity</th>
+                    </tr>  
+
+                </thead>
+                <tbody>
+                {this.state.contactList.map( (contact,index) =>{
+                  return(<ContactRow key={"contact-"+index}  contact={contact}/>)
+                })}
+                </tbody>
+              
+              </table>
+              </div>
+            </div>
+          </div>
+        </section>
+       
+       
       </div>
     );
   }
