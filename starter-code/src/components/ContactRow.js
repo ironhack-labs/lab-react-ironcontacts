@@ -18,6 +18,9 @@ class ContactRow extends Component {
                     <th>
                         {contact.popularity}
                     </th>
+                    <th>
+                        <button onClick={this.props.clickToDelete}>Delete</button>
+                    </th>
                 </tr>
        
         )

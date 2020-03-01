@@ -45,7 +45,16 @@ class App extends Component {
     })
     
   }
-   
+
+deleteContacHandler = id =>{
+  const contactsCopy = [...this.state.contactList];
+  const contacIndex = contactsCopy.findIndex(contact => contact.id === id);
+contactsCopy.splice(contacIndex,1);
+this.setState({
+  contactList: contactsCopy
+})
+
+}   
   render() {
     return (
       <div className="App">
@@ -64,12 +73,14 @@ class App extends Component {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr>  
 
                 </thead>
                 <tbody>
+                
                 {this.state.contactList.map( (contact,index) =>{
-                  return(<ContactRow key={"contact-"+index}  contact={contact}/>)
+                  return(<ContactRow key={contact.id}  contact={contact} clickToDelete={ () => this.deleteContacHandler(contact.id)}/>)
                 })}
                 </tbody>
               
