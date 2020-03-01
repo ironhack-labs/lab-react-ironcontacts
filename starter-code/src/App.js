@@ -28,11 +28,24 @@ class App extends Component {
         if(a.name > b.name) { return 1; }
         return 0;
     })
-  this.setState({
-    contactList : sortArray
-  })
+    this.setState({
+      contactList : sortArray
+    })
   }
-  
+  sortByPopularity = () =>{
+    const sortArray = [...this.state.contactList];
+      sortArray.sort(function(a, b){
+      
+        if(a.popularity >   b.popularity) { return -1; }
+        if(a.popularity < b.popularity) { return 1; }
+        return 0;
+    })
+    this.setState({
+      contactList : sortArray
+    })
+    
+  }
+   
   render() {
     return (
       <div className="App">
@@ -44,6 +57,7 @@ class App extends Component {
               <h1>IronContacts</h1>
               <button onClick={this.addRandom}>Add random contact </button>
               <button onClick={this.sortByName}>Sort by name </button>
+              <button onClick={this.sortByPopularity}>Sort by popularity</button>
               <table>
                 <thead>
                     <tr>
