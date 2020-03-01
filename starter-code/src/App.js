@@ -60,13 +60,21 @@ this.setState({
       <div className="App">
         <section className="section">
           <div className="container">
-            <div className="columns">
+            <div className="columns  is-desktop is-multiline ">
+            <div className=" column is-12">
+              <h1 className="title">IronContacts</h1>
+            </div>
+              <div className=" column is-4">
+                <button className="button" onClick={this.addRandom}>Add random contact </button>
+              </div>
+              <div className=" column is-4">
+                <button className="button" onClick={this.sortByName}>Sort by name </button>
+              </div>
+              <div className=" column is-4">
+                <button className="button" onClick={this.sortByPopularity}>Sort by popularity</button>
+              </div>
               <div className="column is-12">
 
-              <h1>IronContacts</h1>
-              <button onClick={this.addRandom}>Add random contact </button>
-              <button onClick={this.sortByName}>Sort by name </button>
-              <button onClick={this.sortByPopularity}>Sort by popularity</button>
               <table>
                 <thead>
                     <tr>

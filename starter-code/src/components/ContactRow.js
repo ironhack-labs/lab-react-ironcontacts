@@ -9,7 +9,7 @@ class ContactRow extends Component {
                 <tr>
                     <th>
                    
-                        <img className ="image  is-96x96" alt="" src={contact.pictureUrl}/>
+                        <img className ="image is-64x64" alt="" src={contact.pictureUrl}/>
                    
                     </th>
                     <th>
@@ -19,7 +19,7 @@ class ContactRow extends Component {
                         {contact.popularity}
                     </th>
                     <th>
-                        <button onClick={this.props.clickToDelete}>Delete</button>
+                        <button className ="button" onClick={this.props.clickToDelete}>Delete</button>
                     </th>
                 </tr>
        
