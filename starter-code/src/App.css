@@ -23,6 +23,55 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+img {
+  width: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.row {
+  display: flex;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  width: 200px;
+  padding: 0;
+}
+
+.text h4 {
+  width: 200px;
+}
+
+/* div {
+  border: 1px solid black;
+} */
+
+.celebrity {
+  width: 600px;
+  margin-bottom: 1em;
+}
+
+button {
+  padding: 1em 5em;
+  margin-top: 15px;
+}
+
+.erase {
+  padding: 10px;
+  margin-top: 58px;
+  margin-bottom: 58px;
 }
