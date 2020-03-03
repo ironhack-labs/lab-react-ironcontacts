@@ -57,10 +57,16 @@ class ContactsList extends Component {
 		return (
 			console.log({ contacts }),
 			(
-				<div>
-					<button onClick={this.addContact}>Add Random Contact</button>
-					<button onClick={this.sortByName}>Sort by name</button>
-					<button onClick={this.sortByPopularity}>Sort by Popularity</button>
+				<div className="contactList">
+					<button className="button" onClick={this.addContact}>
+						Add Random Contact
+					</button>
+					<button className="button" onClick={this.sortByName}>
+						Sort by name
+					</button>
+					<button className="button" onClick={this.sortByPopularity}>
+						Sort by Popularity
+					</button>
 					<table>
 						<thead>
 							<tr className="parts">
@@ -74,7 +80,7 @@ class ContactsList extends Component {
 								return (
 									<tr key={contacts.id}>
 										<td>
-											<img width="50px" src={contacts.pictureUrl}></img>
+											<img width="50vh" src={contacts.pictureUrl}></img>
 										</td>
 										<td>
 											<p>{contacts.name}</p>
@@ -83,7 +89,7 @@ class ContactsList extends Component {
 											<p> {contacts.popularity}</p>
 										</td>
 										<td>
-											<button onClick={() => this.deleteContact(contacts.id)}>Delete</button>
+											<button className="deleteBtn"  onClick={() => this.deleteContact(contacts.id)}>Delete</button>
 										</td>
 									</tr>
 								);

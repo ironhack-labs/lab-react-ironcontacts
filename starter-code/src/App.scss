@@ -1,0 +1,30 @@
+.App {
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	min-width: 100vw;
+	min-height: 100vh;
+}
+section {
+	width: 98vw;
+}
+
+table {
+	border-style: solid;
+	justify-content: center;
+	align-content: center;
+	width: 100%;
+}
+.button,
+.deleteBtn {
+	transition-duration: 0.4s;
+}
+
+.button:hover {
+	background-color: #4caf50;
+	color: white;
+}
+.deleteBtn:hover {
+	background-color: red;
+	color: white;
+}
