@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-weight: bold;
+  font-size: large;
 }
 
 .App-logo {
@@ -23,6 +25,23 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App table {
+  margin: auto;
+}
+
+img {
+  width: 70px;
+}
+
+.remove-btn button {
+  display: flex;
+  align-items: center;
 }
