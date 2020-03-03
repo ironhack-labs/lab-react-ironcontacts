@@ -1,0 +1,67 @@
+body {
+  background-color: darkgoldenrod;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: white;
+  }
+
+  > div {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    border-radius: 5px;
+    > button {
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+  }
+  img {
+    width: 50px;
+    border-radius: 50px;
+  }
+  table {
+    background-color: rgb(14, 14, 83);
+    color: darkgoldenrod;
+    padding: 30px;
+    border-radius: 5px;
+    width: 500px;
+  }
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
