@@ -9,17 +9,25 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
   color: white;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .App-title {
   font-size: 1.5em;
+  align-self: center;
 }
 
 .App-intro {
   font-size: large;
+  display: flex;
+  justify-content: space-between;
+}
+
+.celebriety {
+  min-width: 40%;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
@@ -32,6 +40,48 @@
 }
 
 img {
-  width: 100px;
+  margin-left: 5%;
+  width: 80px;
   height: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 5% 0%;
+}
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: #0069ed;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #0053ba;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+.delete {
+  margin: 10% 5%;
+  vertical-align: middle;
 }
