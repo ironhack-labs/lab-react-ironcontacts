@@ -1,0 +1,22 @@
+.App {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+table,
+td {
+  border: 1px solid white;
+  padding: 20px;
+  min-width: 150px;
+}
+
+img {
+  max-width: 150px;
+}
+
+button {
+  background-color: white;
+  padding: 20px 30px;
+  color: #222;
+}
