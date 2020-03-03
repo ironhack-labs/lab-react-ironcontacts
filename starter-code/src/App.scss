@@ -1,0 +1,102 @@
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  .button-row {
+    padding: 10px;
+    button {
+      display: inline-block;
+      border: 2px solid rgb(29, 29, 46);
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      margin: 10px;
+      text-decoration: none;
+      background: rgb(61, 61, 82);
+      color: white;
+      font-family: sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+  table {
+    color: white;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 70%;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    button {
+      display: inline-block;
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      margin: 0;
+      text-decoration: none;
+      background: #ffffff;
+      color: black;
+      font-family: sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+    }
+    tbody {
+      font-size: 1.2em;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: rgb(61, 61, 82);
+      border: 1px solid black;
+    }
+    tbody tr:nth-child(even) {
+      background-color: rgb(29, 29, 46);
+      border: 1px solid black;
+    }
+    thead {
+      color: black;
+      font-size: 1.8em;
+    }
+  }
+
+  img {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 7em;
+    height: auto;
+  }
+}
+
+/* .contact-single * {
+  padding: 10px;
+  border-collapse: ;
+  border: 1px solid black;
+  border-radius: 5px;
+}  */
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
