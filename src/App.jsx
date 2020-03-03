@@ -3,49 +3,111 @@ import './App.css';
 
 import contacts from './contacts.json';
 
+const original = contacts.slice(0, 5);
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      random: Math.floor(Math.random() * contacts.length)
+      contacts: original
     };
-    this.addRandomContact = this.addRandomContact.bind(this);
+    this.addRandom = this.addRandom.bind(this);
+    this.sortbyPopularity = this.sortbyPopularity.bind(this);
+    this.sortByname = this.sortByname.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
   }
 
-  addRandomContact() {
-    // this.setState(( => {
-    //   random:
-    // }))
+  addRandom() {
+    const random = contacts[Math.floor(Math.random() * contacts.length)];
+    const newContacts = [...this.state.contacts, random];
+
+    console.log(newContacts);
+
+    if (!this.state.contacts.includes(random)) {
+      this.setState({
+        contacts: newContacts
+      });
+    } else {
+      this.addRandom();
+    }
+  }
+
+  sortbyPopularity() {
+    const sorted = this.state.contacts.sort(function(firstEl, secondEl) {
+      return secondEl.popularity - firstEl.popularity;
+    });
+
+    const newSortedByPop = [...sorted];
+
+    this.setState({
+      contacts: newSortedByPop
+    });
+  }
+
+  sortByname() {
+    const sorted = this.state.contacts.sort(function(firstEl, secondEl) {
+      if (firstEl.popularity < secondEl.popularity) return -1;
+      if (firstEl.popularity > secondEl.popularity) return 1;
+      return 0;
+    });
+
+    const newSortedByName = [...sorted];
+
+    this.setState({
+      contacts: newSortedByName
+    });
+  }
+
+  deleteContact(error) {
+    const deleteContact = [...this.state.contacts];
+    deleteContact.splice(error, 1);
+    this.setState({
+      contacts: deleteContact
+    });
   }
 
   render() {
+    const contacts = this.state.contacts;
     return (
       <div className="App">
-        <h1>IronContacts</h1>
-        <button onClick={addRandomContact}>Add Random Contact</button>
-        <table>
-          {contacts.slice(0, 5).map(singleContact => {
-            return (
-              <div>
-                <tbody>
-                  <tr>
-                    <td>Picture</td>
-                    <td>Name</td>
-                    <td>Popularity</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src={singleContact.pictureUrl} alt={singleContact.pictureUrl} />
-                    </td>
-                    <td>{singleContact.name}</td>
-                    <td>{singleContact.popularity}</td>
-                  </tr>
-                </tbody>
-              </div>
-            );
-            // <div>{singleContact.name}</div>;
-          })}
-        </table>
+        <header className="App-header">
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <main>
+          <h2>Iron Contacts</h2>
+          <button onClick={this.addRandom}>Add Random Contact</button>
+          <button onClick={this.sortbyPopularity}>Sort by popularity</button>
+          <button onClick={this.sortByname}>Sort by name</button>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>Name</th>
+                  <th>Popularity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.map(contact => {
+                  return (
+                    <tr key={contact.name}>
+                      <td>
+                        <img src={contact.pictureUrl} alt={contact.name} />
+                      </td>
+                      <td>{contact.name}</td>
+                      <td>{contact.popularity.toFixed(2)}</td>
+                      <td>
+                        <button onClick={this.deleteContact} className="delete">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </main>
       </div>
     );
   }

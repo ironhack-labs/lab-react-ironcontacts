@@ -1,14 +1,37 @@
 .App {
   background-color: #222;
-  padding: 20px;
   color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+header {
+  padding: 0 10%;
+}
+
+main {
+  max-width: 80%;
+  margin: auto;
+}
+
+h1 {
+  margin-top: 0;
 }
 
 table,
 td {
   border: 1px solid white;
   padding: 20px;
-  min-width: 150px;
+  min-width: 100%;
+}
+
+td {
+  min-width: 200px;
+  max-width: 200px;
+}
+
+th {
+  padding: 10px 0 20px;
 }
 
 img {
@@ -19,4 +42,13 @@ button {
   background-color: white;
   padding: 20px 30px;
   color: #222;
+  font-size: 1em;
+  margin: 20px;
+  min-width: 210px;
+  max-width: 210px;
+}
+
+.delete {
+  min-width: 150px;
+  max-width: 150px;
 }
