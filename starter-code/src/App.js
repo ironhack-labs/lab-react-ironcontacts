@@ -1,11 +1,10 @@
 import React from 'react';
-import { ConctactsList } from './components/ContactsList';
+import { ContactsList } from './components/ContactsList';
 
 const App = () => {
 	return (
 		<div>
-			<h1>IronContacts</h1>
-			<ConctactsList />
+			<ContactsList />
 		</div>
 	);
 };
