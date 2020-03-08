@@ -3,10 +3,10 @@ import React from "react";
 
 export const Item = ({ name, pictureUrl, popularity }) => {
   return (
-    <div>
-      <img src={pictureUrl} alt={`${name}'s face`} />
-      <p>{name}</p>
-      <p>{popularity}</p>
+    <div className="container">
+      <img src={pictureUrl} alt={`${name}'s face`} className="picture" />
+      <p className="name">{name}</p>
+      <p className="popularity">{popularity}</p>
     </div>
   );
 };

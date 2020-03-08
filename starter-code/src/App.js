@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import { Item } from "./components/item";
 import contacts from "./contacts.json";
+import { Title } from "./components/title";
 
 export const App = () => {
   const n = 5;
@@ -10,6 +11,7 @@ export const App = () => {
 
   return (
     <div>
+      <Title />
       {displayedContacts.map(e => (
         <Item
           key={e.id}
