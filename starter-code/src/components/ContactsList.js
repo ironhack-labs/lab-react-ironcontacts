@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Contacts from '../contacts.json';
+import { Celebrity } from './Celebrity';
 
 export const ConctactsList = () => {
 	console.log(Contacts.slice(0, 5));
@@ -8,14 +9,14 @@ export const ConctactsList = () => {
 
 	return (
 		<div>
-			<h3>La lista</h3>
-			{contacts.map(contact => {
+			{contacts.map((contact, index) => {
 				return (
-					<div>
-						<p>{contact.name}</p>
-						<p>{contact.popularity}</p>
-						<img src={contact.pictureUrl} />
-					</div>
+					<Celebrity
+						key={index}
+						name={contact.name}
+						popularity={contact.popularity}
+						picture={contact.pictureUrl}
+					/>
 				);
 			})}
 		</div>
