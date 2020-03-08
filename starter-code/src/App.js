@@ -22,6 +22,17 @@ class App extends Component {
         this.setState({ contacts: newContacts });
     }
 
+    handleSortBy = (field) => {
+        const { contacts } = this.state;
+        let sortedContacts = [...contacts];
+
+        sortedContacts.sort((a, b) => {
+            return field === 'name' ? a[field].localeCompare(b[field]) : b[field] - a[field];
+        })
+
+        this.setState({ contacts: sortedContacts });
+    }
+
     render() {
         const { contacts } = this.state;
         return (
@@ -29,6 +40,8 @@ class App extends Component {
                 <div className="app__head">
                     <h1>IronContacts</h1>
                     <button className="app__add-btn" onClick={this.handleAddContact}>Add random contact</button>
+                    <button className="app__add-btn" onClick={() => this.handleSortBy('name')}>Sort by name</button>
+                    <button className="app__add-btn" onClick={() => this.handleSortBy('popularity')}>Sort by popularity</button>
                 </div>
                 <table className="app__table">
                     <thead>
