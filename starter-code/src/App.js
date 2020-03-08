@@ -21,7 +21,9 @@ const App = () => {
   return (
     <div>
       <h1>IronContacts</h1>
-      <button onClick={() => random()}>Add Random Contact</button>
+      <button className="container" onClick={() => random()}>
+        Add Random Contact
+      </button>
       <Title />
       {displayedContacts.map(e => (
         <Item
