@@ -33,6 +33,15 @@ class App extends Component {
         this.setState({ contacts: sortedContacts });
     }
 
+    handleDeleteContact = (id) => {
+        const { contacts } = this.state;
+        let newContacts = [...contacts];
+
+        newContacts = newContacts.filter(contact => id !== contact.id);
+
+        this.setState({ contacts: newContacts });
+    }
+
     render() {
         const { contacts } = this.state;
         return (
@@ -49,6 +58,7 @@ class App extends Component {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,8 +70,17 @@ class App extends Component {
                                     </td>
                                     <td>{contact.name}</td>
                                     <td>{contact.popularity.toFixed(2)}</td>
+                                    <td>
+                                        <button onClick={() => this.handleDeleteContact(contact.id)}>Delete</button>
+                                    </td>
                                 </tr>
                             ))
+                        }
+                        {
+                            !contacts.length &&
+                            <tr>
+                                <td colSpan="4">You have no contacts... 😱</td>
+                            </tr>
                         }
                     </tbody>
                 </table>
