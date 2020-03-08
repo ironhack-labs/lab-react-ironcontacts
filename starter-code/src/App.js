@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 //import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
@@ -7,16 +7,23 @@ import Title from "./components/titleOfContacts";
 
 const NumberOfContacts = 5;
 
-const NewContacts = contacts.slice(0, NumberOfContacts);
+const Contacts = contacts.slice(0, NumberOfContacts);
 
 const App = () => {
-  console.log(NewContacts);
-
+  const [displayedContacts, setState] = useState(Contacts);
+  const random = () => {
+    const newContact = [...displayedContacts];
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    newContact.push(randomContact);
+    setState(newContact);
+    console.log(newContact);
+  };
   return (
     <div>
       <h1>IronContacts</h1>
+      <button onClick={() => random()}>Add Random Contact</button>
       <Title />
-      {NewContacts.map(e => (
+      {displayedContacts.map(e => (
         <Item
           key={e.id}
           name={e.name}
