@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Contacts from '../contacts.json';
 import { Celebrity } from './Celebrity';
-import { TableHeader } from '../styles/ListItem';
+import { Header } from './Header';
 
 export const ContactsList = () => {
 	console.log(Contacts.slice(0, 5));
@@ -10,11 +10,7 @@ export const ContactsList = () => {
 
 	return (
 		<div>
-			<TableHeader>
-				<p>Picture</p>
-				<p>Name</p>
-				<p>Popularity</p>
-			</TableHeader>
+			<Header />
 			{contacts.map((contact, index) => {
 				return (
 					<Celebrity
