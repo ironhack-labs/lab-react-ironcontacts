@@ -9,14 +9,28 @@ class App extends Component {
         contacts: contacts.slice(0, 5)
     }
 
+    getRandomNumber = (min, max) => {
+        return Math.round(Math.random() * (max - min) + min);
+    }
+
+    handleAddContact = () => {
+        let randomPosition = this.getRandomNumber(0, contacts.length - 1);
+        let newContacts = [...this.state.contacts];
+
+        newContacts.unshift(contacts[randomPosition]);
+
+        this.setState({ contacts: newContacts });
+    }
+
     render() {
         const { contacts } = this.state;
         return (
-            <>
-                <div className="App">
+            <div className="app">
+                <div className="app__head">
                     <h1>IronContacts</h1>
+                    <button className="app__add-btn" onClick={this.handleAddContact}>Add random contact</button>
                 </div>
-                <table>
+                <table className="app__table">
                     <thead>
                         <tr>
                             <th>Picture</th>
@@ -38,7 +52,7 @@ class App extends Component {
                         }
                     </tbody>
                 </table>
-            </>
+            </div>
         );
     }
 }
