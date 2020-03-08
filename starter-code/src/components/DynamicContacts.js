@@ -57,6 +57,14 @@ export default class DynamicContacts extends Component{
         })        
     }
 
+
+    deleteContact = contactId => {
+        this.setState({
+            contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+        });
+    };
+
+
     render () {
         return (
             <div>
@@ -69,12 +77,13 @@ export default class DynamicContacts extends Component{
                             <tr>
                             <th>Picture</th>
                             <th>Name</th>
-                            <th>Popularity</th>                            
+                            <th>Popularity</th> 
+                            <th>Actions</th>                           
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.contacts.map(oneContact => {
-                                return <ShowContact key={oneContact.id} {...oneContact} />;
+                                return <ShowContact key={oneContact.id} {...oneContact} clickToDelete={() => this.deleteContact(oneContact.id)} />;
                             })}
                         </tbody>
                     </table>
