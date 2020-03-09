@@ -18,9 +18,27 @@ export const App = () => {
     setState(newContacts);
   };
 
+  const sortName = () => {
+    const newContacts = [...displayedContacts];
+    newContacts.sort((a, b) => {
+      return a.name < b.name ? -1 : 1;
+    });
+    setState(newContacts);
+  };
+
+  const sortPopularity = () => {
+    const newContacts = [...displayedContacts];
+    newContacts.sort((a, b) => {
+      return a.popularity > b.popularity ? -1 : 1;
+    });
+    setState(newContacts);
+  };
+
   return (
     <div>
       <button onClick={() => addRandom()}>Add a random contact</button>
+      <button onClick={() => sortName()}>Sort by name</button>
+      <button onClick={() => sortPopularity()}>Sort by popularity</button>
       <Title />
       {displayedContacts.map(e => (
         <Item
