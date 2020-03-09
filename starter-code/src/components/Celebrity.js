@@ -1,14 +1,14 @@
 import React from 'react';
 import { ItemRow, ImageContainer } from '../styles/ListItem';
 
-export const Celebrity = props => {
+export const Celebrity = ({ picture, name, popularity }) => {
 	return (
 		<ItemRow>
 			<ImageContainer>
-				<img src={props.picture} />
+				<img src={picture} />
 			</ImageContainer>
-			<p>{props.name}</p>
-			<p>{Number.parseFloat(props.popularity).toFixed(2)}</p>
+			<p>{name}</p>
+			<p>{Number.parseFloat(popularity).toFixed(2)}</p>
 		</ItemRow>
 	);
 };
