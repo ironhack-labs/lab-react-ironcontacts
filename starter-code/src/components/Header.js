@@ -7,6 +7,7 @@ export const Header = () => {
 			<p>Picture</p>
 			<p>Name</p>
 			<p>Popularity</p>
+			<p />
 		</TableHeader>
 	);
 };

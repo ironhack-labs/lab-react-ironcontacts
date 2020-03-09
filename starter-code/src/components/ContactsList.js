@@ -29,6 +29,13 @@ export const ContactsList = () => {
 		setContacts(sortedList);
 	};
 
+	const removeContact = id => {
+		const newList = [ ...contacts ].filter(contact => contact.id !== id);
+
+		console.log('list after deleting contact', newList);
+		setContacts(newList);
+	};
+
 	return (
 		<div>
 			<Button onClick={handleAddContact}>Add Random Contact</Button>
@@ -42,6 +49,8 @@ export const ContactsList = () => {
 						name={contact.name}
 						popularity={contact.popularity}
 						picture={contact.pictureUrl}
+						id={contact.id}
+						removeContact={removeContact}
 					/>
 				);
 			})}
