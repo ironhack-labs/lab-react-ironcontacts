@@ -19,16 +19,12 @@ export const ContactsList = () => {
 		setContacts(updatedList);
 	};
 
-	const handleSortByName = () => {
-		const sortedList = [ ...contacts ].sort((a, b) => a.name.localeCompare(b.name));
-		console.log('sorted list by name', sortedList);
+	const sortByName = (a, b) => a.name.localeCompare(b.name);
+	const sortByPopularity = (a, b) => b.popularity - a.popularity;
 
-		setContacts(sortedList);
-	};
-
-	const handleSortByPopularity = () => {
-		const sortedList = [ ...contacts ].sort((a, b) => b.popularity - a.popularity);
-		console.log('sorted list by popularity', sortedList);
+	const handleSort = cb => {
+		const sortedList = [ ...contacts ].sort(cb);
+		console.log('sorted list', sortedList);
 
 		setContacts(sortedList);
 	};
@@ -36,8 +32,8 @@ export const ContactsList = () => {
 	return (
 		<div>
 			<Button onClick={handleAddContact}>Add Random Contact</Button>
-			<Button onClick={handleSortByName}>Sort by name</Button>
-			<Button onClick={handleSortByPopularity}>Sort by popularity</Button>
+			<Button onClick={() => handleSort(sortByName)}>Sort by name</Button>
+			<Button onClick={() => handleSort(sortByPopularity)}>Sort by popularity</Button>
 			<Header />
 			{contacts.map((contact, index) => {
 				return (
