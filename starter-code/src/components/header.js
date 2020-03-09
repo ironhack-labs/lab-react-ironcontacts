@@ -2,7 +2,7 @@ import React from "react";
 
 import logo from "../../public/img/logo.svg";
 
-import "./Header.css";
+import "./Header.css"
 
 export const Header = () => (
   <header className="App-header">

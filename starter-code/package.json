@@ -1,12 +1,14 @@
 {
   "name": "ironcontacts",
   "version": "0.1.0",
+  "main": "index.js",
   "private": true,
   "dependencies": {
+    "parcel": "^1.12.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel public/index.html"
   }
 }

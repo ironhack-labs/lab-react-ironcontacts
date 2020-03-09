@@ -1,15 +1,13 @@
 import React from "react";
 
 import { Header } from "./components/Header";
-import { TaskList } from "./components/TaskList";
-
-import "./App.css";
+import { Table } from "./components/Table";
 
 export const App = () => (
   <div className="App">
     <Header />
     <main>
-      <TaskList />
+      <Table />
     </main>
   </div>
 );
