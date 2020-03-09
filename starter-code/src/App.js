@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import logo from "./logo.svg";
+import ReactDOM from "react-dom";
 import "./App.css";
 import { Item } from "./components/item";
 import contacts from "./contacts.json";
@@ -14,6 +14,14 @@ export const App = () => {
   const addRandom = () => {
     const newContacts = [...displayedContacts];
     const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    // never choose a contact that is rendered
+    /* this is to never set a contact that is displayed without modifiyng the array
+    do {
+      randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+      console.log("do");
+    } while (newContacts.indexOf(randomContact) > -1);
+    */
+    contacts.splice(contacts.indexOf(randomContact), 1); // this is another aproach but changing the contacts array
     newContacts.push(randomContact);
     setState(newContacts);
   };
@@ -60,4 +68,7 @@ export const App = () => {
   );
 };
 
-export default App;
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
+  ReactDOM.render(<App />, root);
+});
