@@ -6,22 +6,25 @@ import contacts from "./contacts.json";
 import { Title } from "./components/title";
 
 const n = 5;
-const data = contacts.splice(0, n);
+const data = contacts.slice(0, n);
 
 export const App = () => {
   const [displayedContacts, setState] = useState(data);
 
   const addRandom = () => {
     const newContacts = [...displayedContacts];
-    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+
     // never choose a contact that is rendered
-    /* this is to never set a contact that is displayed without modifiyng the array
+    let randomContact;
     do {
       randomContact = contacts[Math.floor(Math.random() * contacts.length)];
-      console.log("do");
+      console.log(contacts);
     } while (newContacts.indexOf(randomContact) > -1);
-    */
+
+    /*
     contacts.splice(contacts.indexOf(randomContact), 1); // this is another aproach but changing the contacts array
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    */
     newContacts.push(randomContact);
     setState(newContacts);
   };
