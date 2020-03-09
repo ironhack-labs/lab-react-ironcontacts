@@ -36,7 +36,6 @@ export const App = () => {
 
   const handleDelete = index => {
     const newContacts = [...displayedContacts];
-    console.log(index);
     newContacts.splice(index, 1);
     setState(newContacts);
   };
