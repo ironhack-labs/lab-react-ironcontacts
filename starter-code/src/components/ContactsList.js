@@ -19,9 +19,21 @@ export const ContactsList = () => {
 		setContacts(updatedList);
 	};
 
+	const sortByName = (a, b) => a.name.localeCompare(b.name);
+	const sortByPopularity = (a, b) => b.popularity - a.popularity;
+
+	const handleSort = cb => {
+		const sortedList = [ ...contacts ].sort(cb);
+		console.log('sorted list', sortedList);
+
+		setContacts(sortedList);
+	};
+
 	return (
 		<div>
 			<Button onClick={handleAddContact}>Add Random Contact</Button>
+			<Button onClick={() => handleSort(sortByName)}>Sort by name</Button>
+			<Button onClick={() => handleSort(sortByPopularity)}>Sort by popularity</Button>
 			<Header />
 			{contacts.map((contact, index) => {
 				return (
