@@ -34,18 +34,26 @@ export const App = () => {
     setState(newContacts);
   };
 
+  const handleDelete = index => {
+    const newContacts = [...displayedContacts];
+    newContacts.splice(index, 1);
+    setState(newContacts);
+  };
+
   return (
     <div>
       <button onClick={() => addRandom()}>Add a random contact</button>
       <button onClick={() => sortName()}>Sort by name</button>
       <button onClick={() => sortPopularity()}>Sort by popularity</button>
       <Title />
-      {displayedContacts.map(e => (
+      {displayedContacts.map((e, i) => (
         <Item
           key={e.id}
           name={e.name}
           pictureUrl={e.pictureUrl}
           popularity={e.popularity}
+          setDelete={index => handleDelete(index)}
+          index={i}
         ></Item>
       ))}
     </div>
