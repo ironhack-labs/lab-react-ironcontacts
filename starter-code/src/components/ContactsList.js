@@ -3,6 +3,7 @@ import Contacts from '../contacts.json';
 import { Celebrity } from './Celebrity';
 import { Header } from './Header';
 import { Button } from '../styles/Button';
+import { Container } from '../styles/Table';
 
 export const ContactsList = () => {
 	const [ contacts, setContacts ] = useState(Contacts.slice(0, 5));
@@ -38,19 +39,24 @@ export const ContactsList = () => {
 			<Button onClick={handleAddContact}>Add Random Contact</Button>
 			<Button onClick={() => handleSort(sortByName)}>Sort by name</Button>
 			<Button onClick={() => handleSort(sortByPopularity)}>Sort by popularity</Button>
-			<Header />
-			{contacts.map((contact, index) => {
-				return (
-					<Celebrity
-						key={index}
-						name={contact.name}
-						popularity={contact.popularity}
-						picture={contact.pictureUrl}
-						id={contact.id}
-						removeContact={removeContact}
-					/>
-				);
-			})}
+			<Container>
+				<Header />
+				<Header />
+			</Container>
+			<Container>
+				{contacts.map((contact, index) => {
+					return (
+						<Celebrity
+							key={index}
+							name={contact.name}
+							popularity={contact.popularity}
+							picture={contact.pictureUrl}
+							id={contact.id}
+							removeContact={removeContact}
+						/>
+					);
+				})}
+			</Container>
 		</div>
 	);
 };

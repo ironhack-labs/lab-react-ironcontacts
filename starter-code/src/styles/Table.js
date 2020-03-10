@@ -1,24 +1,25 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 2em;
+`;
+
 export const ItemRow = styled.div`
 	display: flex;
 	padding-top: 1em;
-	justify-content: center;
-
+	justify-content: space-between;
+	width: 40%;
 	p {
 		width: 20%;
 		align-self: center;
 		text-align: center;
 	}
-
-	p:nth-child(3),
-	p:nth-child(4) {
-		width: 10%;
-	}
 `;
 
 export const ImageContainer = styled.div`
-	width: 20%;
 	display: flex;
 	justify-content: center;
 	img {

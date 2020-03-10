@@ -7,7 +7,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonContainer = styled.div`
-	width: 10%;
+	/* width: 10%; */
 	align-self: center;
 	text-align: center;
 `;
