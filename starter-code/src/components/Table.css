@@ -21,3 +21,10 @@ td {
   width: 33%;
   background-color: #fff;
 }
+
+.wrapper-btn {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 0;
+}
