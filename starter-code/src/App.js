@@ -50,9 +50,9 @@ const App = () => {
         <button onClick={() => sortPopularity()}>Sort By Popularity</button>
       </div>
       <Title />
-      {displayedContacts.map((e, id) => (
+      {displayedContacts.map((e, index) => (
         <Item
-          key={e.id}
+          key={index}
           name={e.name}
           pictureUrl={e.pictureUrl}
           popularity={e.popularity.toFixed(2)}
