@@ -4,12 +4,14 @@ import contacts from "../../public/data/contacts.json";
 
 import { Row } from "./Row.js";
 
+import "./Table.css";
+
 export const Table = () => {
-  const list = contacts.slice(0, 4);
+  const list = contacts.slice(0, 5);
 
   return (
-    <div>
-      <table>
+    <div className="Table">
+      <table className="table-content">
         <thead>
           <tr>
             <th>Picture</th>
@@ -18,9 +20,9 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {list.map((e,i) => {
-            <Row />
-          })}
+          {list.map((e, i) => (
+            <Row key={i}>{e}</Row>
+          ))}
         </tbody>
       </table>
     </div>
