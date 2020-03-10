@@ -15,6 +15,20 @@ const App = () => {
     setContacts([...contacts, randomContact]);
   };
 
+  const sortByName = () => {
+    const contactsOrdered = contacts.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setContacts([...contactsOrdered]);
+  };
+
+  const sortByPopularity = () => {
+    const contactsOrdered = contacts.sort(
+      (a, b) => a.popularity - b.popularity
+    );
+    setContacts([...contactsOrdered]);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -24,6 +38,12 @@ const App = () => {
 
       <div className="mt-4">
         <Button onClick={addRandomContact}>Add random contact</Button>
+        <Button onClick={sortByName} className="ml-2">
+          Sort by name
+        </Button>
+        <Button onClick={sortByPopularity} className="ml-2">
+          Sort by popularity
+        </Button>
       </div>
 
       <ContactsList contacts={contacts} />
