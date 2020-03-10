@@ -40,23 +40,31 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>IronContacts</h1>
-      <div className="container">
-        <button onClick={() => random()}>Add Random Contact</button>
-        <button onClick={() => sortName()}>Sort By Name</button>
-        <button onClick={() => sortPopularity()}>Sort By Popularity</button>
+    <div className="app">
+      <div className="appHead">
+        <h1>IronContacts</h1>
+        <button className="appAdd-btn" onClick={() => random()}>
+          Add Random Contact
+        </button>
+        <button className="appAdd-btn" onClick={() => sortName()}>
+          Sort By Name
+        </button>
+        <button className="appAdd-btn" onClick={() => sortPopularity()}>
+          Sort By Popularity
+        </button>
       </div>
-      <Title />
-      {displayedContacts.map((e, index) => (
-        <Item
-          key={index}
-          name={e.name}
-          pictureUrl={e.pictureUrl}
-          popularity={e.popularity.toFixed(2)}
-          deleteOne={id => deleteContact(e.id)}
-        />
-      ))}
+      <table>
+        <Title />
+        {displayedContacts.map((e, index) => (
+          <Item
+            key={index}
+            name={e.name}
+            pictureUrl={e.pictureUrl}
+            popularity={e.popularity.toFixed(2)}
+            deleteOne={id => deleteContact(e.id)}
+          />
+        ))}
+      </table>
     </div>
   );
 };
