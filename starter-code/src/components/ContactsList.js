@@ -9,12 +9,9 @@ export const ContactsList = () => {
 
 	const handleAddContact = () => {
 		const addedContact = Contacts[Math.floor(Math.random() * Contacts.length)];
-		console.log('adding new one', addedContact);
 
 		const updatedList = [ ...contacts ];
-		updatedList.push(addedContact);
-
-		console.log('new list', updatedList);
+		contacts.includes(addedContact) ? handleAddContact() : updatedList.push(addedContact);
 
 		setContacts(updatedList);
 	};
