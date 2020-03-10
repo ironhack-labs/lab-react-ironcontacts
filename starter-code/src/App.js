@@ -15,29 +15,27 @@ const App = () => {
   const random = () => {
     const newContact = [...displayedContacts];
     const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
-    newContact.push(randomContact);
-    setState(newContact);
+
+    if (newContact.includes(randomContact) !== true) {
+      newContact.push(randomContact);
+      setState(newContact);
+    }
   };
   const sortName = () => {
     const newContact = [...displayedContacts];
     newContact.sort((a, b) => a.name.localeCompare(b.name));
-    console.log(newContact);
     setState(newContact);
-    console.log("hola");
   };
 
   const sortPopularity = () => {
     const newContact = [...displayedContacts];
-    console.log(newContact.popularity);
     newContact.sort((a, b) => a.popularity - b.popularity);
-    console.log(newContact);
     setState(newContact);
-    console.log("adios");
   };
 
   const deleteContact = id => {
-    const newContact = [...displayedContacts];
-    newContact.splice(id, 1);
+    let newContact = [...displayedContacts];
+    newContact = newContact.filter(contact => id !== contact.id);
     setState(newContact);
   };
 
@@ -56,26 +54,11 @@ const App = () => {
           name={e.name}
           pictureUrl={e.pictureUrl}
           popularity={e.popularity.toFixed(2)}
+          deleteOne={id => deleteContact(e.id)}
         />
       ))}
     </div>
   );
 };
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;
