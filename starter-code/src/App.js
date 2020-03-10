@@ -10,7 +10,7 @@ import _ from "lodash";
 const App = () => {
   const [contacts, setContacts] = useState(contactsJSON.splice(0, 5));
 
-  const addRandomContact = e => {
+  const addRandomContact = () => {
     const randomContact = contactsJSON[_.random(contactsJSON.length)];
     setContacts([...contacts, randomContact]);
   };
@@ -24,9 +24,14 @@ const App = () => {
 
   const sortByPopularity = () => {
     const contactsOrdered = contacts.sort(
-      (a, b) => a.popularity - b.popularity
+      (a, b) => b.popularity - a.popularity
     );
     setContacts([...contactsOrdered]);
+  };
+
+  const deleteContact = index => {
+    contacts.splice(index, 1);
+    setContacts([...contacts]);
   };
 
   return (
@@ -46,7 +51,10 @@ const App = () => {
         </Button>
       </div>
 
-      <ContactsList contacts={contacts} />
+      <ContactsList
+        contacts={contacts}
+        deleteContact={index => deleteContact(index)}
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "react-bootstrap";
 
 const Row = styled.tr`
   .contactImg {
@@ -10,9 +11,7 @@ const Row = styled.tr`
   }
 `;
 
-const ContactItem = props => {
-  const contact = props.contact;
-
+const ContactItem = ({ contact, deleteContact }) => {
   return (
     <Row>
       <td className="py-1">
@@ -24,6 +23,11 @@ const ContactItem = props => {
       </td>
       <td className="align-middle">{contact.name}</td>
       <td className="align-middle">{contact.popularity}</td>
+      <td className="align-middle">
+        <Button className="btn btn-sm" onClick={deleteContact}>
+          Delete
+        </Button>
+      </td>
     </Row>
   );
 };
