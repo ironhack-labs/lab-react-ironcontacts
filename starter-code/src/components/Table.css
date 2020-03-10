@@ -4,32 +4,23 @@
   justify-content: center;
   align-items: center;
   padding: 5vh 5vw;
-}
-
-.table-content {
-  width: 70%;
+  text-align: center;
 }
 
 table {
-  border: 1px solid #999;
   border-radius: 5px;
+  background-color: #333;
 }
 
-thead {
-  background-color: #111;
+thead{
   color: #fff;
 }
 
-tbody {
-  background-color: #aaa;
+th {
+  padding: 2vh 0;
 }
-
 
 td {
   width: 33%;
-}
-
-th {
-  background-color: #999;
-  margin: 5vh 0;
+  background-color: #fff;
 }

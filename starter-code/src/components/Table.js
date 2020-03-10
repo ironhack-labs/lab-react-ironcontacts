@@ -11,7 +11,7 @@ export const Table = () => {
 
   return (
     <div className="Table">
-      <table className="table-content">
+      <table>
         <thead>
           <tr>
             <th>Picture</th>
