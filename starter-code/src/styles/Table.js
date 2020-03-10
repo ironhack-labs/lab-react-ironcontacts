@@ -11,7 +11,8 @@ export const ItemRow = styled.div`
 		text-align: center;
 	}
 
-	p:last-child {
+	p:nth-child(3),
+	p:nth-child(4) {
 		width: 10%;
 	}
 `;

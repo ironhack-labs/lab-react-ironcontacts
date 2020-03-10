@@ -1,5 +1,5 @@
 import React from 'react';
-import { ItemRow, ImageContainer } from '../styles/ListItem';
+import { ItemRow, ImageContainer } from '../styles/Table';
 import { DeleteButton, ButtonContainer } from '../styles/Button';
 
 export const Celebrity = ({ picture, name, popularity, id, removeContact }) => {

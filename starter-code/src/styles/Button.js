@@ -6,7 +6,11 @@ export const Button = styled.button`
 	font-size: .8rem;
 `;
 
-export const ButtonContainer = styled.div`align-self: center;`;
+export const ButtonContainer = styled.div`
+	width: 10%;
+	align-self: center;
+	text-align: center;
+`;
 
 export const DeleteButton = styled(Button)`
 	background-color: red;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableHeader } from '../styles/ListItem';
+import { TableHeader } from '../styles/Table';
 
 export const Header = () => {
 	return (
