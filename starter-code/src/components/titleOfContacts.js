@@ -2,12 +2,14 @@ import React from "react";
 
 const Title = () => {
   return (
-    <div className="container">
-      <h2 className="picture">Picture</h2>
-      <h2 className="name">Name</h2>
-      <h2 className="popularity">Popularity</h2>
-      <h2 className="action">Action</h2>
-    </div>
+    <thead>
+      <tr>
+        <th className="picture">Picture</th>
+        <th className="name">Name</th>
+        <th className="popularity">Popularity</th>
+        <th className="action">Action</th>
+      </tr>
+    </thead>
   );
 };
 
