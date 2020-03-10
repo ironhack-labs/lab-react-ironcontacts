@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import logo from "../public/logo.svg";
+import "./App.css"
+import { Ironcontacts } from "./ironcontacts"
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <h1 className="App-title">Welcome to React</h1>
+    </header>
+    <Ironcontacts />
+</div>
+);
 
-export default App;
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
+  ReactDOM.render(<App />, root);
+});
