@@ -12,12 +12,9 @@ table {
   background-color: #333;
 }
 
-thead{
-  color: #fff;
-}
-
 th {
   padding: 2vh 0;
+  color: #fff;
 }
 
 td {
