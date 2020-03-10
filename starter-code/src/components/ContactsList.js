@@ -13,7 +13,7 @@ const ContactsList = props => (
     </thead>
     <tbody>
       {props.contacts.map((contact, index) => (
-        <ContactItem contact={contact} />
+        <ContactItem key={index} contact={contact} />
       ))}
     </tbody>
   </Table>
