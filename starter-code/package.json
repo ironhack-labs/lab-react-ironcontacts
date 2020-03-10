@@ -8,7 +8,7 @@
     "react-dom": "^16.9.0"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html -p 1111"
   },
   "eslintConfig": {
     "extends": "react-app"
