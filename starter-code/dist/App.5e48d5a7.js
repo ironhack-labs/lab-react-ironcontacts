@@ -28311,9 +28311,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/public/logo.svg":[function(require,module,exports) {
-module.exports = "/logo.2c9b1597.svg";
-},{}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -29382,24 +29380,23 @@ module.exports = [{
   "popularity": 6.914606,
   "id": "58624810-eebd-447a-8320-40bee9ab4a05"
 }];
-},{}],"src/App.jsx":[function(require,module,exports) {
+},{}],"src/public/logo.svg":[function(require,module,exports) {
+module.exports = "/logo.2c9b1597.svg";
+},{}],"src/components/Header.jsx":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Header = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _logo = _interopRequireDefault(require("./public/logo.svg"));
-
-require("./public/App.css");
-
-var _contacts = _interopRequireDefault(require("./public/contacts.json"));
+var _logo = _interopRequireDefault(require("../public/logo.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_contacts.default);
-
-const App = () => _react.default.createElement("div", {
+const Header = () => _react.default.createElement("div", {
   className: "App"
 }, _react.default.createElement("header", {
   className: "App-header"
@@ -29411,12 +29408,32 @@ const App = () => _react.default.createElement("div", {
   className: "App-title"
 }, "Welcome to React")));
 
+exports.Header = Header;
+},{"react":"node_modules/react/index.js","../public/logo.svg":"src/public/logo.svg"}],"src/App.jsx":[function(require,module,exports) {
+"use strict";
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+require("./public/App.css");
+
+var _contacts = _interopRequireDefault(require("./public/contacts.json"));
+
+var _Header = require("./components/Header");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log(_contacts.default);
+
+const App = () => _react.default.createElement(_Header.Header, null);
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("root");
 
   _reactDom.default.render(_react.default.createElement(App, null), root);
 });
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./public/logo.svg":"src/public/logo.svg","./public/App.css":"src/public/App.css","./public/contacts.json":"src/public/contacts.json"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./public/App.css":"src/public/App.css","./public/contacts.json":"src/public/contacts.json","./components/Header":"src/components/Header.jsx"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
