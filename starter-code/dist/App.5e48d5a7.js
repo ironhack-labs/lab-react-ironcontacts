@@ -28383,7 +28383,38 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"src/public/contacts.json":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"src/public/logo.svg":[function(require,module,exports) {
+module.exports = "/logo.2c9b1597.svg";
+},{}],"src/components/Header.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Header = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _logo = _interopRequireDefault(require("../public/logo.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react.default.createElement("div", {
+    className: "App"
+  }, _react.default.createElement("header", {
+    className: "App-header"
+  }, _react.default.createElement("img", {
+    src: _logo.default,
+    className: "App-logo",
+    alt: "logo"
+  }), _react.default.createElement("h1", {
+    className: "App-title"
+  }, "Welcome to React")));
+};
+
+exports.Header = Header;
+},{"react":"node_modules/react/index.js","../public/logo.svg":"src/public/logo.svg"}],"src/public/contacts.json":[function(require,module,exports) {
 module.exports = [{
   "name": "Idris Elba",
   "pictureUrl": "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
@@ -29380,36 +29411,60 @@ module.exports = [{
   "popularity": 6.914606,
   "id": "58624810-eebd-447a-8320-40bee9ab4a05"
 }];
-},{}],"src/public/logo.svg":[function(require,module,exports) {
-module.exports = "/logo.2c9b1597.svg";
-},{}],"src/components/Header.jsx":[function(require,module,exports) {
+},{}],"src/components/ContactItem.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Header = void 0;
+exports.ContactItem = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _logo = _interopRequireDefault(require("../public/logo.svg"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ContactItem = function ContactItem(_ref) {
+  var picture = _ref.picture,
+      name = _ref.name,
+      popularity = _ref.popularity;
+  return _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("td", null, _react.default.createElement("img", {
+    src: picture,
+    alt: "contact image"
+  })), _react.default.createElement("td", null, name), _react.default.createElement("td", null, popularity))));
+};
+
+exports.ContactItem = ContactItem;
+},{"react":"node_modules/react/index.js"}],"src/components/ContactList.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ContactList = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _contacts = _interopRequireDefault(require("../public/contacts.json"));
+
+var _ContactItem = require("./ContactItem");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Header = () => _react.default.createElement("div", {
-  className: "App"
-}, _react.default.createElement("header", {
-  className: "App-header"
-}, _react.default.createElement("img", {
-  src: _logo.default,
-  className: "App-logo",
-  alt: "logo"
-}), _react.default.createElement("h1", {
-  className: "App-title"
-}, "Welcome to React")));
+var ContactList = function ContactList() {
+  return _react.default.createElement("div", {
+    className: "contact-list"
+  }, _contacts.default.map(function (item, i) {
+    _react.default.createElement(_ContactItem.ContactItem, {
+      key: i,
+      picture: item.pictureUrl,
+      name: item.name,
+      popularity: item.popularity
+    });
+  }));
+};
 
-exports.Header = Header;
-},{"react":"node_modules/react/index.js","../public/logo.svg":"src/public/logo.svg"}],"src/App.jsx":[function(require,module,exports) {
+exports.ContactList = ContactList;
+},{"react":"node_modules/react/index.js","../public/contacts.json":"src/public/contacts.json","./ContactItem":"src/components/ContactItem.jsx"}],"src/App.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29418,22 +29473,22 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 require("./public/App.css");
 
-var _contacts = _interopRequireDefault(require("./public/contacts.json"));
-
 var _Header = require("./components/Header");
+
+var _ContactList = require("./components/ContactList");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_contacts.default);
+var App = function App() {
+  return _react.default.createElement("div", null, _react.default.createElement(_Header.Header, null), _react.default.createElement(_ContactList.ContactList, null));
+};
 
-const App = () => _react.default.createElement(_Header.Header, null);
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("root");
+document.addEventListener("DOMContentLoaded", function () {
+  var root = document.getElementById("root");
 
   _reactDom.default.render(_react.default.createElement(App, null), root);
 });
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./public/App.css":"src/public/App.css","./public/contacts.json":"src/public/contacts.json","./components/Header":"src/components/Header.jsx"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./public/App.css":"src/public/App.css","./components/Header":"src/components/Header.jsx","./components/ContactList":"src/components/ContactList.jsx"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29461,7 +29516,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57156" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64912" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
