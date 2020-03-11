@@ -1,19 +1,30 @@
 import React, { useState } from "react";
-//import logo from "./logo.svg";
+import ReactDOM from "react-dom";
 import "./App.css";
 import { Item } from "./components/item";
 import contacts from "./contacts.json";
 import { Title } from "./components/title";
 
 const n = 5;
-const data = contacts.splice(0, n);
+const data = contacts.slice(0, n);
 
 export const App = () => {
   const [displayedContacts, setState] = useState(data);
 
   const addRandom = () => {
     const newContacts = [...displayedContacts];
+
+    // never choose a contact that is rendered
+    let randomContact;
+    do {
+      randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+      console.log(contacts);
+    } while (newContacts.indexOf(randomContact) > -1);
+
+    /*
+    contacts.splice(contacts.indexOf(randomContact), 1); // this is another aproach but changing the contacts array
     const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    */
     newContacts.push(randomContact);
     setState(newContacts);
   };
@@ -60,4 +71,7 @@ export const App = () => {
   );
 };
 
-export default App;
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
+  ReactDOM.render(<App />, root);
+});
