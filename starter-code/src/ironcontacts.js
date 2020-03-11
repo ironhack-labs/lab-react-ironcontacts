@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { ListItem } from "./ListItem";
 import contacts from "./contacts.json";
 import styled from "styled-components";
-
-console.log(contacts);
 
 const Contain = styled.div`
   display: block;
@@ -18,6 +16,28 @@ const H2Title = styled.h2`
   margin: 50px auto 20px;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
+`;
+
+const Buttons = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  .btn {
+    background-color: rgba(0, 100, 0, 0.4);
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #000;
+    display: block;
+    max-width: 32%;
+    padding: 7px 10px;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+      background-color: rgba(0, 100, 0, 1);
+      transition: all ease 1000ms;
+    }
+  }
 `;
 
 const Table = styled.table`
@@ -38,6 +58,7 @@ const Table = styled.table`
       width: 33%;
       img {
         display: block;
+        border-radius: 6px;
         max-width: 100px;
         width: 100%;
       }
@@ -46,10 +67,44 @@ const Table = styled.table`
 `;
 
 export const Ironcontacts = () => {
+  const initLista = contacts.slice(0, 5);
+  const [lista, setLista] = useState(initLista);
+
+  const random = (max, min) => {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  const addRandomIron = e => {
+    e.preventDefault();
+    const newIron = contacts[random(contacts.length, 0)];
+    setLista([...lista, newIron]);
+  };
+
   return (
     <Contain className="contain">
       <H2Title>Ironcontacts</H2Title>
-
+      <Buttons>
+        <a
+          id="addBtn"
+          className="btn"
+          href="#"
+          title="Add Random"
+          onClick={addRandomIron}
+        >
+          Add Random Contact
+        </a>
+        <a id="sortName" className="btn" href="#" title="Sort By Name">
+          Sort By Name
+        </a>
+        <a
+          id="sortPopularity"
+          className="btn"
+          href="#"
+          title="Sort By popularity"
+        >
+          Sort By popularity
+        </a>
+      </Buttons>
       <Table>
         <tbody>
           <tr>
@@ -57,7 +112,7 @@ export const Ironcontacts = () => {
             <th>Name</th>
             <th>Popularity</th>
           </tr>
-          {contacts.slice(0, 5).map((item, i) => (
+          {lista.map((item, i) => (
             <ListItem key={i}>
               <td>
                 <img src={item.pictureUrl} title={item.name} />

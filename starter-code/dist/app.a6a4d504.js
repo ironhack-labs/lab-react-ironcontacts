@@ -32648,7 +32648,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Ironcontacts = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _ListItem = require("./ListItem");
 
@@ -32658,8 +32658,38 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  tr {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px 0;\n    width: 100%;\n    td,\n    th {\n      font-size: 30px;\n      display: flex;\n      justify-content: center;\n      width: 33%;\n      img {\n        display: block;\n        border-radius: 6px;\n        max-width: 100px;\n        width: 100%;\n      }\n    }\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  tr {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px 0;\n    width: 100%;\n    td,\n    th {\n      font-size: 30px;\n      display: flex;\n      justify-content: center;\n      width: 33%;\n      img {\n        display: block;\n        max-width: 100px;\n        width: 100%;\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n  .btn {\n    background-color: rgba(0, 100, 0, 0.4);\n    border-radius: 6px;\n    box-sizing: border-box;\n    color: #000;\n    display: block;\n    max-width: 32%;\n    padding: 7px 10px;\n    text-decoration: none;\n    &:hover {\n      color: #fff;\n      background-color: rgba(0, 100, 0, 1);\n      transition: all ease 1000ms;\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -32690,18 +32720,53 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-console.log(_contacts.default);
-
 var Contain = _styledComponents.default.div(_templateObject());
 
 var H2Title = _styledComponents.default.h2(_templateObject2());
 
-var Table = _styledComponents.default.table(_templateObject3());
+var Buttons = _styledComponents.default.div(_templateObject3());
+
+var Table = _styledComponents.default.table(_templateObject4());
 
 var Ironcontacts = function Ironcontacts() {
+  var initLista = _contacts.default.slice(0, 5);
+
+  var _useState = (0, _react.useState)(initLista),
+      _useState2 = _slicedToArray(_useState, 2),
+      lista = _useState2[0],
+      setLista = _useState2[1];
+
+  var random = function random(max, min) {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  var addRandomIron = function addRandomIron(e) {
+    e.preventDefault();
+
+    var newIron = _contacts.default[random(_contacts.default.length, 0)];
+
+    setLista([].concat(_toConsumableArray(lista), [newIron]));
+  };
+
   return _react.default.createElement(Contain, {
     className: "contain"
-  }, _react.default.createElement(H2Title, null, "Ironcontacts"), _react.default.createElement(Table, null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity")), _contacts.default.slice(0, 5).map(function (item, i) {
+  }, _react.default.createElement(H2Title, null, "Ironcontacts"), _react.default.createElement(Buttons, null, _react.default.createElement("a", {
+    id: "addBtn",
+    className: "btn",
+    href: "#",
+    title: "Add Random",
+    onClick: addRandomIron
+  }, "Add Random Contact"), _react.default.createElement("a", {
+    id: "sortName",
+    className: "btn",
+    href: "#",
+    title: "Sort By Name"
+  }, "Sort By Name"), _react.default.createElement("a", {
+    id: "sortPopularity",
+    className: "btn",
+    href: "#",
+    title: "Sort By popularity"
+  }, "Sort By popularity")), _react.default.createElement(Table, null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity")), lista.map(function (item, i) {
     return _react.default.createElement(_ListItem.ListItem, {
       key: i
     }, _react.default.createElement("td", null, _react.default.createElement("img", {
@@ -32778,7 +32843,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52259" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49444" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
