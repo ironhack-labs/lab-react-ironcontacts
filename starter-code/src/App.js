@@ -24,7 +24,9 @@ const Contact = ({pic,name,pop}) => {
     <th>{pop}</th>
   </tr>)
 }
-console.log(contacts)
+
+const starterContacts = contacts.slice(0,5);
+
 const App = () => {
   return (
     <div className="App">
@@ -45,7 +47,7 @@ const App = () => {
             <th>Name</th>
             <th>Popularity</th>
           </tr>
-          {contacts.map((e, i) => (
+          {starterContacts.map((e, i) => (
             <Contact pic={e.pictureUrl} name={e.name} pop={e.popularity} key={i} />
           ))}
           </tbody>
