@@ -28410,7 +28410,7 @@ var Header = function Header() {
     alt: "logo"
   }), _react.default.createElement("h1", {
     className: "App-title"
-  }, "Welcome to React")));
+  }, "IronContacts")));
 };
 
 exports.Header = Header;
@@ -29427,10 +29427,13 @@ var ContactItem = function ContactItem(_ref) {
   var picture = _ref.picture,
       name = _ref.name,
       popularity = _ref.popularity;
-  return _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("td", null, _react.default.createElement("img", {
+  return _react.default.createElement("tr", null, _react.default.createElement("td", null, _react.default.createElement("img", {
     src: picture,
-    alt: "contact image"
-  })), _react.default.createElement("td", null, name), _react.default.createElement("td", null, popularity))));
+    alt: "contact image",
+    className: "contact-img"
+  })), _react.default.createElement("td", {
+    className: "contact-name"
+  }, name), _react.default.createElement("td", null, popularity));
 };
 
 exports.ContactItem = ContactItem;
@@ -29452,15 +29455,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var ContactList = function ContactList() {
   return _react.default.createElement("div", {
-    className: "contact-list"
-  }, _contacts.default.map(function (item, i) {
-    _react.default.createElement(_ContactItem.ContactItem, {
+    className: "contacts-list"
+  }, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", {
+    className: "contacts-header"
+  }, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", {
+    className: "contact-name"
+  }, "Name"), _react.default.createElement("th", null, "Populatiry")), _contacts.default.map(function (item, i) {
+    return _react.default.createElement(_ContactItem.ContactItem, {
       key: i,
       picture: item.pictureUrl,
       name: item.name,
-      popularity: item.popularity
+      popularity: Math.round(item.popularity * 100) / 100
     });
-  }));
+  }))));
 };
 
 exports.ContactList = ContactList;
