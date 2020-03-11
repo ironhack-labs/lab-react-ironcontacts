@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Table from "./components/Table";
+
 function App() {
   return (
     <div className="App">
@@ -12,7 +13,7 @@ function App() {
           <p>Popularity</p>
         </div>
       </header>
-      <Table></Table>
+      <Table />
     </div>
   );
 }
