@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./public/App.css";
-import contacts from "./public/contacts.json";
 import { Header } from "./components/Header";
+import { ContactList } from "./components/ContactList";
 
-console.log(contacts);
-
-const App = () => <Header />;
+const App = () => (
+  <div>
+    <Header />
+    <ContactList />
+  </div>
+);
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("root");
+  const root = document.getElementById("root");
   ReactDOM.render(<App />, root);
 });

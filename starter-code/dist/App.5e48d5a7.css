@@ -6,6 +6,7 @@ body {
 
 .App {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .App-logo {
@@ -26,6 +27,19 @@ body {
 
 .App-intro {
   font-size: large;
+}
+.contacts-list {
+  display: flex;
+  justify-content: center;
+}
+.contact-img {
+  width: 100px;
+}
+.contact-name {
+  padding-left: 50px;
+}
+.contacts-header {
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
