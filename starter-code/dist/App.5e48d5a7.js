@@ -29435,14 +29435,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ContactItem = function ContactItem(_ref) {
   var picture = _ref.picture,
       name = _ref.name,
-      popularity = _ref.popularity;
+      popularity = _ref.popularity,
+      deleteContact = _ref.deleteContact;
   return _react.default.createElement("tr", null, _react.default.createElement("td", null, _react.default.createElement("img", {
     src: picture,
     alt: "contact image",
     className: "contact-img"
   })), _react.default.createElement("td", {
     className: "contact-name"
-  }, name), _react.default.createElement("td", null, popularity));
+  }, name), _react.default.createElement("td", null, popularity), _react.default.createElement("td", null, _react.default.createElement("button", {
+    className: "delete-btn",
+    onClick: deleteContact
+  }, "Delete")));
 };
 
 exports.ContactItem = ContactItem;
@@ -29461,7 +29465,8 @@ var _ContactItem = require("./ContactItem");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ContactList = function ContactList(_ref) {
-  var list = _ref.list;
+  var list = _ref.list,
+      _deleteContact = _ref.deleteContact;
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
     className: "contacts-list"
   }, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", {
@@ -29473,7 +29478,10 @@ var ContactList = function ContactList(_ref) {
       key: i,
       picture: item.pictureUrl,
       name: item.name,
-      popularity: Math.round(item.popularity * 100) / 100
+      popularity: Math.round(item.popularity * 100) / 100,
+      deleteContact: function deleteContact(e) {
+        return _deleteContact(item);
+      }
     });
   })))));
 };
@@ -48687,6 +48695,13 @@ var App = function App() {
     setList([randomItem].concat(_toConsumableArray(list)));
   };
 
+  var deleteContact = function deleteContact(item) {
+    var filteredList = list.filter(function (contact) {
+      return contact !== item;
+    });
+    setList(filteredList);
+  };
+
   var sort = function sort(key) {
     var order = key === "name" ? "asc" : "desc";
 
@@ -48694,7 +48709,6 @@ var App = function App() {
       return contact[key];
     }], [order]);
 
-    console.log(sorted);
     setList(sorted);
   };
 
@@ -48707,7 +48721,8 @@ var App = function App() {
       return sort("popularity");
     }
   }), _react.default.createElement(_ContactList.ContactList, {
-    list: list
+    list: list,
+    deleteContact: deleteContact
   }));
 };
 
@@ -48744,7 +48759,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53017" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63535" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

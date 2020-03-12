@@ -1,7 +1,7 @@
 import React from "react";
 import { ContactItem } from "./ContactItem";
 
-export const ContactList = ({ list }) => {
+export const ContactList = ({ list, deleteContact }) => {
   return (
     <>
       <div className="contacts-list">
@@ -13,7 +13,7 @@ export const ContactList = ({ list }) => {
               <th>Populatiry</th>
             </tr>
             {list.map((item, i) => (
-              <ContactItem key={i} picture={item.pictureUrl} name={item.name} popularity={Math.round(item.popularity * 100) / 100}></ContactItem>
+              <ContactItem key={i} picture={item.pictureUrl} name={item.name} popularity={Math.round(item.popularity * 100) / 100} deleteContact={e => deleteContact(item)}></ContactItem>
             ))}
           </tbody>
         </table>
