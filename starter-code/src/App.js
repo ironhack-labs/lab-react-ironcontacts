@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import ContactList from './components/ContactList';
+import RandomButton from './components/RandomButton';
 import ContactContextProvider from './contexts/ContactContext';
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
     </header>
     <div>
       <ContactContextProvider>
+        <RandomButton/>
         <ContactList/>
       </ContactContextProvider>
     </div>
