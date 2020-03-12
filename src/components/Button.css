@@ -1,0 +1,20 @@
+.btn-sort, .btn-add, .btn-delete {
+    padding: 1vh 1vw;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.btn-sort {
+    border: 1px solid #333;
+    color: #333;
+}
+
+.btn-add {
+    border: 1px solid #0a0;
+    color: #0a0;
+}
+
+.btn-delete {
+    border: 1px solid #a00;
+    color: #a00;
+}
