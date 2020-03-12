@@ -14,17 +14,21 @@ const App = () => {
     setList([randomItem, ...list]);
   };
 
-  const sortByName = () => {
-    const sortedByName = _.sortBy(list, [e => e.name]);
-    console.log(sortedByName);
+  const deleteContact = item => {
+    const filteredList = list.filter(contact => contact !== item);
+    setList(filteredList);
+  };
 
-    setList(sortedByName);
+  const sort = key => {
+    const order = key === "name" ? "asc" : "desc";
+    const sorted = _.orderBy(list, [contact => contact[key]], [order]);
+    setList(sorted);
   };
 
   return (
     <div>
-      <Header addRandomContact={addRandomContact} sortByName={sortByName} />
-      <ContactList list={list} />
+      <Header addRandomContact={addRandomContact} sortByName={e => sort("name")} sortByPopularity={e => sort("popularity")} />
+      <ContactList list={list} deleteContact={deleteContact} />
     </div>
   );
 };

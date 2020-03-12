@@ -29398,7 +29398,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Header = function Header(_ref) {
   var addRandomContact = _ref.addRandomContact,
-      sortByName = _ref.sortByName;
+      sortByName = _ref.sortByName,
+      sortByPopularity = _ref.sortByPopularity;
   return _react.default.createElement("div", {
     className: "App"
   }, _react.default.createElement("header", {
@@ -29413,7 +29414,9 @@ var Header = function Header(_ref) {
     onClick: addRandomContact
   }, "Add Random Contact"), _react.default.createElement("button", {
     onClick: sortByName
-  }, "Sort By Name")));
+  }, "Sort By Name"), _react.default.createElement("button", {
+    onClick: sortByPopularity
+  }, "Sort By Popularity")));
 };
 
 exports.Header = Header;
@@ -29432,14 +29435,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ContactItem = function ContactItem(_ref) {
   var picture = _ref.picture,
       name = _ref.name,
-      popularity = _ref.popularity;
+      popularity = _ref.popularity,
+      deleteContact = _ref.deleteContact;
   return _react.default.createElement("tr", null, _react.default.createElement("td", null, _react.default.createElement("img", {
     src: picture,
     alt: "contact image",
     className: "contact-img"
   })), _react.default.createElement("td", {
     className: "contact-name"
-  }, name), _react.default.createElement("td", null, popularity));
+  }, name), _react.default.createElement("td", null, popularity), _react.default.createElement("td", null, _react.default.createElement("button", {
+    className: "delete-btn",
+    onClick: deleteContact
+  }, "Delete")));
 };
 
 exports.ContactItem = ContactItem;
@@ -29458,7 +29465,8 @@ var _ContactItem = require("./ContactItem");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ContactList = function ContactList(_ref) {
-  var list = _ref.list;
+  var list = _ref.list,
+      _deleteContact = _ref.deleteContact;
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
     className: "contacts-list"
   }, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", {
@@ -29470,7 +29478,10 @@ var ContactList = function ContactList(_ref) {
       key: i,
       picture: item.pictureUrl,
       name: item.name,
-      popularity: Math.round(item.popularity * 100) / 100
+      popularity: Math.round(item.popularity * 100) / 100,
+      deleteContact: function deleteContact(e) {
+        return _deleteContact(item);
+      }
     });
   })))));
 };
@@ -48684,20 +48695,34 @@ var App = function App() {
     setList([randomItem].concat(_toConsumableArray(list)));
   };
 
-  var sortByName = function sortByName() {
-    var sortedByName = _lodash.default.sortBy(list, [function (e) {
-      return e.name;
-    }]);
+  var deleteContact = function deleteContact(item) {
+    var filteredList = list.filter(function (contact) {
+      return contact !== item;
+    });
+    setList(filteredList);
+  };
 
-    console.log(sortedByName);
-    setList(sortedByName);
+  var sort = function sort(key) {
+    var order = key === "name" ? "asc" : "desc";
+
+    var sorted = _lodash.default.orderBy(list, [function (contact) {
+      return contact[key];
+    }], [order]);
+
+    setList(sorted);
   };
 
   return _react.default.createElement("div", null, _react.default.createElement(_Header.Header, {
     addRandomContact: addRandomContact,
-    sortByName: sortByName
+    sortByName: function sortByName(e) {
+      return sort("name");
+    },
+    sortByPopularity: function sortByPopularity(e) {
+      return sort("popularity");
+    }
   }), _react.default.createElement(_ContactList.ContactList, {
-    list: list
+    list: list,
+    deleteContact: deleteContact
   }));
 };
 
@@ -48734,7 +48759,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57589" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63535" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
