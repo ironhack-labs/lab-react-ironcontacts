@@ -1,0 +1,30 @@
+.contact-list {
+  position: relative;
+}
+nav {
+  padding-top: 2vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+button {
+  background-color: #00d8ff;
+  margin-bottom: 2vh;
+  margin-inline: 20px;
+  border: none;
+  color: #222;
+  padding: 10px 15px;
+  font-size: 12pt;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 12pt;
+}
+table {
+  margin-bottom: 10vh;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  color: white;
+  background-color: #222;
+}
