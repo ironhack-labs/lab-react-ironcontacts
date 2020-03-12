@@ -29454,13 +29454,17 @@ var _ContactItem = require("./ContactItem");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ContactList = function ContactList() {
+  var displayNumber = 5;
+
+  var displayList = _contacts.default.splice(0, displayNumber);
+
   return _react.default.createElement("div", {
     className: "contacts-list"
   }, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", {
     className: "contacts-header"
   }, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", {
     className: "contact-name"
-  }, "Name"), _react.default.createElement("th", null, "Populatiry")), _contacts.default.map(function (item, i) {
+  }, "Name"), _react.default.createElement("th", null, "Populatiry")), displayList.map(function (item, i) {
     return _react.default.createElement(_ContactItem.ContactItem, {
       key: i,
       picture: item.pictureUrl,
@@ -29523,7 +29527,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64912" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57589" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

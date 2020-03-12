@@ -3,6 +3,8 @@ import contactsList from "../public/contacts.json";
 import { ContactItem } from "./ContactItem";
 
 export const ContactList = () => {
+  const displayNumber = 5;
+  const displayList = contactsList.splice(0, displayNumber);
   return (
     <div className="contacts-list">
       <table>
@@ -12,7 +14,7 @@ export const ContactList = () => {
             <th className="contact-name">Name</th>
             <th>Populatiry</th>
           </tr>
-          {contactsList.map((item, i) => (
+          {displayList.map((item, i) => (
             <ContactItem key={i} picture={item.pictureUrl} name={item.name} popularity={Math.round(item.popularity * 100) / 100}></ContactItem>
           ))}
         </tbody>
