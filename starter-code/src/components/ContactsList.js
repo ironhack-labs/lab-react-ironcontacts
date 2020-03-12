@@ -8,6 +8,7 @@ import { Container } from '../styles/Table';
 export const ContactsList = () => {
 	const [ contacts, setContacts ] = useState(Contacts.slice(0, 5));
 	const [ isSorted, setSortedList ] = useState({ byName: false, byPopularity: false });
+	const [ unsortedList, setUnsortedList ] = useState(contacts);
 
 	const sortByName = (a, b) => a.name.localeCompare(b.name);
 	const sortByPopularity = (a, b) => b.popularity - a.popularity;
@@ -17,6 +18,8 @@ export const ContactsList = () => {
 
 		const updatedList = [ ...contacts ];
 		contacts.includes(addedContact) ? handleAddContact() : updatedList.push(addedContact);
+
+		setUnsortedList(updatedList);
 
 		if (isSorted.byName) updatedList.sort(sortByName);
 
@@ -35,10 +38,16 @@ export const ContactsList = () => {
 		setContacts(sortedList);
 	};
 
+	const handleReset = () => {
+		setContacts(unsortedList);
+		setSortedList({ ...isSorted, byName: false, byPopularity: false });
+	};
+
 	const removeContact = id => {
 		const newList = [ ...contacts ].filter(contact => contact.id !== id);
+		const newUnorderedList = [ ...unsortedList ].filter(contact => contact.id !== id);
 
-		console.log('list after deleting contact', newList);
+		setUnsortedList(newUnorderedList);
 		setContacts(newList);
 	};
 
@@ -48,6 +57,7 @@ export const ContactsList = () => {
 				<Button onClick={handleAddContact}>Add Random Contact</Button>
 				<Button onClick={() => handleSort(sortByName, 'name')}>Sort by name</Button>
 				<Button onClick={() => handleSort(sortByPopularity, 'popularity')}>Sort by popularity</Button>
+				<Button onClick={() => handleReset()}>Reset order</Button>
 			</ButtonContainer>
 			<Container>
 				<Header />
