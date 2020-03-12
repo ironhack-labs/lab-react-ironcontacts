@@ -14,11 +14,9 @@ const App = () => {
     setList([randomItem, ...list]);
   };
 
-  const sort = value => {
-    const key = Object.key(value);
-    console.log(key);
-
-    const sorted = _.sortBy(list, [contact => contact[key]]);
+  const sort = key => {
+    const order = key === "name" ? "asc" : "desc";
+    const sorted = _.orderBy(list, [contact => contact[key]], [order]);
     console.log(sorted);
 
     setList(sorted);
@@ -26,7 +24,7 @@ const App = () => {
 
   return (
     <div>
-      <Header addRandomContact={addRandomContact} sortByName={sort("name")} />
+      <Header addRandomContact={addRandomContact} sortByName={e => sort("name")} sortByPopularity={e => sort("popularity")} />
       <ContactList list={list} />
     </div>
   );

@@ -29398,7 +29398,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Header = function Header(_ref) {
   var addRandomContact = _ref.addRandomContact,
-      sortByName = _ref.sortByName;
+      sortByName = _ref.sortByName,
+      sortByPopularity = _ref.sortByPopularity;
   return _react.default.createElement("div", {
     className: "App"
   }, _react.default.createElement("header", {
@@ -29413,7 +29414,9 @@ var Header = function Header(_ref) {
     onClick: addRandomContact
   }, "Add Random Contact"), _react.default.createElement("button", {
     onClick: sortByName
-  }, "Sort By Name")));
+  }, "Sort By Name"), _react.default.createElement("button", {
+    onClick: sortByPopularity
+  }, "Sort By Popularity")));
 };
 
 exports.Header = Header;
@@ -48684,13 +48687,12 @@ var App = function App() {
     setList([randomItem].concat(_toConsumableArray(list)));
   };
 
-  var sort = function sort(value) {
-    var key = Object.key(value);
-    console.log(key);
+  var sort = function sort(key) {
+    var order = key === "name" ? "asc" : "desc";
 
-    var sorted = _lodash.default.sortBy(list, [function (contact) {
+    var sorted = _lodash.default.orderBy(list, [function (contact) {
       return contact[key];
-    }]);
+    }], [order]);
 
     console.log(sorted);
     setList(sorted);
@@ -48698,7 +48700,12 @@ var App = function App() {
 
   return _react.default.createElement("div", null, _react.default.createElement(_Header.Header, {
     addRandomContact: addRandomContact,
-    sortByName: sort("name")
+    sortByName: function sortByName(e) {
+      return sort("name");
+    },
+    sortByPopularity: function sortByPopularity(e) {
+      return sort("popularity");
+    }
   }), _react.default.createElement(_ContactList.ContactList, {
     list: list
   }));
@@ -48737,7 +48744,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49780" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53017" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
