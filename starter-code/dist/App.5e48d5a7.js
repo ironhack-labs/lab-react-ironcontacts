@@ -48684,18 +48684,21 @@ var App = function App() {
     setList([randomItem].concat(_toConsumableArray(list)));
   };
 
-  var sortByName = function sortByName() {
-    var sortedByName = _lodash.default.sortBy(list, [function (e) {
-      return e.name;
+  var sort = function sort(value) {
+    var key = Object.key(value);
+    console.log(key);
+
+    var sorted = _lodash.default.sortBy(list, [function (contact) {
+      return contact[key];
     }]);
 
-    console.log(sortedByName);
-    setList(sortedByName);
+    console.log(sorted);
+    setList(sorted);
   };
 
   return _react.default.createElement("div", null, _react.default.createElement(_Header.Header, {
     addRandomContact: addRandomContact,
-    sortByName: sortByName
+    sortByName: sort("name")
   }), _react.default.createElement(_ContactList.ContactList, {
     list: list
   }));
@@ -48734,7 +48737,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57589" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49780" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
