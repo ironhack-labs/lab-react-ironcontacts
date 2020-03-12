@@ -15,13 +15,15 @@ th {
 }
  `;
 
-const Contact = ({ pic, name, pop }) => {
+const Contact = ({ pic, name, pop, idx, deleteFunction }) => {
+
     return (
         <tr>
             <th><img src={pic} alt={name} /></th>
             <th>{name}</th>
             <th>{Math.round(pop * 100) / 100}</th>
-        </tr>)
+            <th><button onClick={() => deleteFunction(idx)}>Delete</button></th>
+        </tr >)
 }
 
 
@@ -49,6 +51,13 @@ const ContactList = () => {
         setContacts(sortedContactList);
     }
 
+    //Delete
+    const deleteContact = (idx) => {
+        const newContactList = [...contactList];
+        newContactList.splice(idx, 1);
+        setContacts(newContactList);
+    }
+
     return (<>
         <h1>IronContacts</h1>
 
@@ -63,9 +72,10 @@ const ContactList = () => {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr>
                     {contactList.map((e, i) => (
-                        <Contact pic={e.pictureUrl} name={e.name} pop={e.popularity} key={i} />
+                        <Contact pic={e.pictureUrl} name={e.name} pop={e.popularity} key={i} deleteFunction={deleteContact} idx={i} />
                     ))}
                 </tbody>
             </table>
