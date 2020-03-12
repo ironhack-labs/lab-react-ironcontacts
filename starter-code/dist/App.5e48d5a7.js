@@ -29397,7 +29397,8 @@ var _logo = _interopRequireDefault(require("../public/logo.svg"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Header = function Header(_ref) {
-  var addRandomContact = _ref.addRandomContact;
+  var addRandomContact = _ref.addRandomContact,
+      sortByName = _ref.sortByName;
   return _react.default.createElement("div", {
     className: "App"
   }, _react.default.createElement("header", {
@@ -29410,7 +29411,9 @@ var Header = function Header(_ref) {
     className: "App-title"
   }, "IronContacts"), _react.default.createElement("button", {
     onClick: addRandomContact
-  }, "Add Random Contact")));
+  }, "Add Random Contact"), _react.default.createElement("button", {
+    onClick: sortByName
+  }, "Sort By Name")));
 };
 
 exports.Header = Header;
@@ -48681,8 +48684,18 @@ var App = function App() {
     setList([randomItem].concat(_toConsumableArray(list)));
   };
 
+  var sortByName = function sortByName() {
+    var sortedByName = _lodash.default.sortBy(list, [function (e) {
+      return e.name;
+    }]);
+
+    console.log(sortedByName);
+    setList(sortedByName);
+  };
+
   return _react.default.createElement("div", null, _react.default.createElement(_Header.Header, {
-    addRandomContact: addRandomContact
+    addRandomContact: addRandomContact,
+    sortByName: sortByName
   }), _react.default.createElement(_ContactList.ContactList, {
     list: list
   }));

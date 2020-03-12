@@ -14,9 +14,16 @@ const App = () => {
     setList([randomItem, ...list]);
   };
 
+  const sortByName = () => {
+    const sortedByName = _.sortBy(list, [e => e.name]);
+    console.log(sortedByName);
+
+    setList(sortedByName);
+  };
+
   return (
     <div>
-      <Header addRandomContact={addRandomContact} />
+      <Header addRandomContact={addRandomContact} sortByName={sortByName} />
       <ContactList list={list} />
     </div>
   );
