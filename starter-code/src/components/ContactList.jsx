@@ -3,6 +3,8 @@ import contactsList from "../public/contacts.json";
 import { ContactItem } from "./ContactItem";
 
 export const ContactList = () => {
+  const random = Math.floor(Math.random() * contactsList.length);
+  const randomItem = contactsList[random];
   const displayNumber = 5;
   const displayList = contactsList.splice(0, displayNumber);
   return (

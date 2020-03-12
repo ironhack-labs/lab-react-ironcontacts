@@ -29454,6 +29454,8 @@ var _ContactItem = require("./ContactItem");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ContactList = function ContactList() {
+  var random = Math.floor(Math.random() * _contacts.default.length);
+  var randomItem = _contacts.default[random];
   var displayNumber = 5;
 
   var displayList = _contacts.default.splice(0, displayNumber);
