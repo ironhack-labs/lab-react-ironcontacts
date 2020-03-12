@@ -1,9 +1,9 @@
 import React from "react";
 
-class RandomButton extends React.Component {
+class SortNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { random: 0 };
+    this.state = { sort: 0 };
   }
 
   render() {
@@ -12,10 +12,10 @@ class RandomButton extends React.Component {
         <>
           <p className="nameSize">{this.props.name}</p>
         </>
-        <button onClick={this.props.randomClick}>Add Random Contact </button>{" "}
+        <button onClick={this.props.sortNameClick}>Sort Contacts </button>{" "}
       </div>
     );
   }
 }
 
-export default RandomButton;
+export default SortNameButton;
