@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import logo from "../public/logo.svg";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import List from "./components/ContactList";
 
 const App = () => (
   <>
-    <div className="App">Hola</div>
+    <Navbar />
+    <List />
   </>
 );
 
