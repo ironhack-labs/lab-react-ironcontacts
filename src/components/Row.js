@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./Row.css";
-
 export const Row = ({ check, setChecked, children }) => {
   return (
     <tr>
