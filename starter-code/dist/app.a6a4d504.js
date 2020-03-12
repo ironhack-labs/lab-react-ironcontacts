@@ -32748,6 +32748,40 @@ var Ironcontacts = function Ironcontacts() {
     setLista([].concat(_toConsumableArray(lista), [newIron]));
   };
 
+  var sortName = function sortName(e) {
+    e.preventDefault();
+    var sortNameIron = lista.map(function (iron) {
+      return iron.name;
+    }).sort();
+    var newIronSortName = [];
+    sortNameIron.forEach(function (name) {
+      _toConsumableArray(lista).forEach(function (iron) {
+        if (name === iron.name) {
+          newIronSortName.push(iron);
+        }
+      });
+    });
+    setLista(newIronSortName);
+  };
+
+  var sortPopularity = function sortPopularity(e) {
+    e.preventDefault();
+    var sortPopularityIron = lista.map(function (iron) {
+      return iron.popularity;
+    }).sort(function (a, b) {
+      return b - a;
+    });
+    var newIronSortPopularity = [];
+    sortPopularityIron.forEach(function (popularity) {
+      _toConsumableArray(lista).forEach(function (iron) {
+        if (popularity === iron.popularity) {
+          newIronSortPopularity.push(iron);
+        }
+      });
+    });
+    setLista(newIronSortPopularity);
+  };
+
   return _react.default.createElement(Contain, {
     className: "contain"
   }, _react.default.createElement(H2Title, null, "Ironcontacts"), _react.default.createElement(Buttons, null, _react.default.createElement("a", {
@@ -32760,12 +32794,14 @@ var Ironcontacts = function Ironcontacts() {
     id: "sortName",
     className: "btn",
     href: "#",
-    title: "Sort By Name"
+    title: "Sort By Name",
+    onClick: sortName
   }, "Sort By Name"), _react.default.createElement("a", {
     id: "sortPopularity",
     className: "btn",
     href: "#",
-    title: "Sort By popularity"
+    title: "Sort By popularity",
+    onClick: sortPopularity
   }, "Sort By popularity")), _react.default.createElement(Table, null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity")), lista.map(function (item, i) {
     return _react.default.createElement(_ListItem.ListItem, {
       key: i
@@ -32843,7 +32879,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57470" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57582" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

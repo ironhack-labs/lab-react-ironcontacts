@@ -80,6 +80,42 @@ export const Ironcontacts = () => {
     setLista([...lista, newIron]);
   };
 
+  const sortName = e => {
+    e.preventDefault();
+    let sortNameIron = lista
+      .map(iron => {
+        return iron.name;
+      })
+      .sort();
+    const newIronSortName = [];
+    sortNameIron.forEach(name => {
+      [...lista].forEach(iron => {
+        if (name === iron.name) {
+          newIronSortName.push(iron);
+        }
+      });
+    });
+    setLista(newIronSortName);
+  };
+
+  const sortPopularity = e => {
+    e.preventDefault();
+    let sortPopularityIron = lista
+      .map(iron => {
+        return iron.popularity;
+      })
+      .sort((a, b) => b - a);
+    const newIronSortPopularity = [];
+    sortPopularityIron.forEach(popularity => {
+      [...lista].forEach(iron => {
+        if (popularity === iron.popularity) {
+          newIronSortPopularity.push(iron);
+        }
+      });
+    });
+    setLista(newIronSortPopularity);
+  };
+
   return (
     <Contain className="contain">
       <H2Title>Ironcontacts</H2Title>
@@ -93,7 +129,13 @@ export const Ironcontacts = () => {
         >
           Add Random Contact
         </a>
-        <a id="sortName" className="btn" href="#" title="Sort By Name">
+        <a
+          id="sortName"
+          className="btn"
+          href="#"
+          title="Sort By Name"
+          onClick={sortName}
+        >
           Sort By Name
         </a>
         <a
@@ -101,6 +143,7 @@ export const Ironcontacts = () => {
           className="btn"
           href="#"
           title="Sort By popularity"
+          onClick={sortPopularity}
         >
           Sort By popularity
         </a>
