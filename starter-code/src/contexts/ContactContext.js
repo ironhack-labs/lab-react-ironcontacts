@@ -27,8 +27,12 @@ const ContactContextProvider = (props) => {
     setContacts([...newContacts]);
   }
 
+  const remove = (id) => {
+    setContacts(contacts.filter(contact => contact.id !== id));
+  }
+
   return(
-    <ContactContext.Provider value={{contacts, addRandom, sortByName, sortByPopularity}}>
+    <ContactContext.Provider value={{contacts, addRandom, sortByName, sortByPopularity, remove}}>
       {props.children}
     </ContactContext.Provider>
   );
