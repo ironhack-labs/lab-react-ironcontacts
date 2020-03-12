@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import contacts from './contacts.json';
 import styled from "styled-components";
+import './ContactList.css';
 
 
 const Tabla = styled.div`
@@ -61,29 +62,30 @@ const ContactList = () => {
         setContacts(newContactList);
     }
 
-    return (<>
-        <h1>IronContacts</h1>
-
-        <button onClick={() => addRandomContact()}>Add Random Contact</button>
-        <button onClick={() => sortBy("name")}>Sort by name</button>
-        <button onClick={() => sortBy("popularity")}>Sort by popularity</button>
-
+    return (<div className="contact-list">
+        <nav>
+            <button onClick={() => addRandomContact()}>Add Random Contact</button>
+            <button onClick={() => sortBy("name")}>Sort by name</button>
+            <button onClick={() => sortBy("popularity")}>Sort by popularity</button>
+        </nav>
+        <p>You currently have {contactList.length} contacts</p>
         <Tabla>
             <table>
                 <tbody>
                     <tr>
-                        <th>Picture</th>
-                        <th>Name</th>
-                        <th>Popularity</th>
-                        <th>Action</th>
+                        <th><h3>Picture</h3></th>
+                        <th><h3>Name</h3></th>
+                        <th><h3>Popularity</h3></th>
+                        <th><h3>Action</h3></th>
                     </tr>
+
                     {contactList.map((e, i) => (
                         <Contact pic={e.pictureUrl} name={e.name} pop={e.popularity} key={i} deleteFunction={deleteContact} idx={i} />
                     ))}
                 </tbody>
             </table>
         </Tabla>
-    </>
+    </div >
     )
 }
 
