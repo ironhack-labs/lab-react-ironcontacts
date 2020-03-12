@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Contacts from '../contacts.json';
 import { Celebrity } from './Celebrity';
 import { Header } from './Header';
-import { Button } from '../styles/Button';
+import { Button, ButtonContainer } from '../styles/Button';
 import { Container } from '../styles/Table';
 
 export const ContactsList = () => {
@@ -44,9 +44,11 @@ export const ContactsList = () => {
 
 	return (
 		<div>
-			<Button onClick={handleAddContact}>Add Random Contact</Button>
-			<Button onClick={() => handleSort(sortByName, 'name')}>Sort by name</Button>
-			<Button onClick={() => handleSort(sortByPopularity, 'popularity')}>Sort by popularity</Button>
+			<ButtonContainer>
+				<Button onClick={handleAddContact}>Add Random Contact</Button>
+				<Button onClick={() => handleSort(sortByName, 'name')}>Sort by name</Button>
+				<Button onClick={() => handleSort(sortByPopularity, 'popularity')}>Sort by popularity</Button>
+			</ButtonContainer>
 			<Container>
 				<Header />
 				<Header />
@@ -56,11 +58,13 @@ export const ContactsList = () => {
 					return (
 						<Celebrity
 							key={index}
+							index={index}
 							name={contact.name}
 							popularity={contact.popularity}
 							picture={contact.pictureUrl}
 							id={contact.id}
 							removeContact={removeContact}
+							isSorted={isSorted.byName || isSorted.byPopularity}
 						/>
 					);
 				})}
