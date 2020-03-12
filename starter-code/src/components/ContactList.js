@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Contact from "./ListItem";
 import Header from "./ListItem";
+import RamdomButton from "./RamdomButton";
 import contacts from "../../src/contacts.json";
 
 const ContactTable = styled.table`
@@ -15,6 +16,7 @@ const List = () => {
   return (
     <div className="App-wrapper">
       <h1>Iron contacts</h1>
+      <RamdomButton />
       <ContactTable>
         <Header>
           <td>
