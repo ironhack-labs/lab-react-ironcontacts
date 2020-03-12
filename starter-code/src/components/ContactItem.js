@@ -1,12 +1,13 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image'
 
 const ContactItem = ({contact}) => {
-  console.log("EL contacto es " + contact);
   return(
-    <li>
-      <div className="name">{contact.name}</div>
-      <div className="popularity">{contact.popularity}</div>
-    </li>
+    <tr>
+      <td><Image src={contact.pictureUrl} rounded style={{width: "10%"}}/></td>
+      <td className="name">{contact.name}</td>
+      <td className="popularity">{contact.popularity}</td>
+    </tr>
   );
 }
 
