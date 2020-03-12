@@ -32,6 +32,10 @@ const Buttons = styled.div`
     max-width: 32%;
     padding: 7px 10px;
     text-decoration: none;
+    &.deleteItem {
+      max-width: 100%;
+      font-size: 20px;
+    }
     &:hover {
       color: #fff;
       background-color: rgba(0, 100, 0, 1);
@@ -52,10 +56,10 @@ const Table = styled.table`
     width: 100%;
     td,
     th {
-      font-size: 26px;
+      font-size: 22px;
       display: flex;
       justify-content: center;
-      width: 33%;
+      width: 20%;
       img {
         display: block;
         border-radius: 6px;
@@ -116,6 +120,14 @@ export const Ironcontacts = () => {
     setLista(newIronSortPopularity);
   };
 
+  const deleteIron = (item, i) => {
+    const itemDelete = item.id;
+    const newIronSortPopularity = lista.filter(item => {
+      return item.id != itemDelete;
+    });
+    setLista(newIronSortPopularity);
+  };
+
   return (
     <Contain className="contain">
       <H2Title>Ironcontacts</H2Title>
@@ -154,6 +166,7 @@ export const Ironcontacts = () => {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
           {lista.map((item, i) => (
             <ListItem key={i}>
@@ -162,6 +175,19 @@ export const Ironcontacts = () => {
               </td>
               <td className="name">{item.name}</td>
               <td className="popularity">{item.popularity.toFixed(2)}</td>
+              <td>
+                <Buttons style={{ margin: 0 }}>
+                  <a
+                    id={`deleteItem-${i}`}
+                    className="btn deleteItem"
+                    href="#"
+                    title="delete"
+                    onClick={() => deleteIron(item, i)}
+                  >
+                    Delete
+                  </a>
+                </Buttons>
+              </td>
             </ListItem>
           ))}
         </tbody>

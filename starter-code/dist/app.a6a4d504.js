@@ -32679,7 +32679,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  tr {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px 0;\n    width: 100%;\n    td,\n    th {\n      font-size: 26px;\n      display: flex;\n      justify-content: center;\n      width: 33%;\n      img {\n        display: block;\n        border-radius: 6px;\n        max-width: 100px;\n        width: 100%;\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  tr {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px 0;\n    width: 100%;\n    td,\n    th {\n      font-size: 22px;\n      display: flex;\n      justify-content: center;\n      width: 20%;\n      img {\n        display: block;\n        border-radius: 6px;\n        max-width: 100px;\n        width: 100%;\n      }\n    }\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -32689,7 +32689,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n  .btn {\n    background-color: rgba(0, 100, 0, 0.4);\n    border-radius: 6px;\n    box-sizing: border-box;\n    color: #000;\n    display: block;\n    max-width: 32%;\n    padding: 7px 10px;\n    text-decoration: none;\n    &:hover {\n      color: #fff;\n      background-color: rgba(0, 100, 0, 1);\n      transition: all ease 1000ms;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n  .btn {\n    background-color: rgba(0, 100, 0, 0.4);\n    border-radius: 6px;\n    box-sizing: border-box;\n    color: #000;\n    display: block;\n    max-width: 32%;\n    padding: 7px 10px;\n    text-decoration: none;\n    &.deleteItem {\n      max-width: 100%;\n      font-size: 20px;\n    }\n    &:hover {\n      color: #fff;\n      background-color: rgba(0, 100, 0, 1);\n      transition: all ease 1000ms;\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -32782,6 +32782,14 @@ var Ironcontacts = function Ironcontacts() {
     setLista(newIronSortPopularity);
   };
 
+  var deleteIron = function deleteIron(item, i) {
+    var itemDelete = item.id;
+    var newIronSortPopularity = lista.filter(function (item) {
+      return item.id != itemDelete;
+    });
+    setLista(newIronSortPopularity);
+  };
+
   return _react.default.createElement(Contain, {
     className: "contain"
   }, _react.default.createElement(H2Title, null, "Ironcontacts"), _react.default.createElement(Buttons, null, _react.default.createElement("a", {
@@ -32802,7 +32810,7 @@ var Ironcontacts = function Ironcontacts() {
     href: "#",
     title: "Sort By popularity",
     onClick: sortPopularity
-  }, "Sort By popularity")), _react.default.createElement(Table, null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity")), lista.map(function (item, i) {
+  }, "Sort By popularity")), _react.default.createElement(Table, null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity"), _react.default.createElement("th", null, "Action")), lista.map(function (item, i) {
     return _react.default.createElement(_ListItem.ListItem, {
       key: i
     }, _react.default.createElement("td", null, _react.default.createElement("img", {
@@ -32812,7 +32820,19 @@ var Ironcontacts = function Ironcontacts() {
       className: "name"
     }, item.name), _react.default.createElement("td", {
       className: "popularity"
-    }, item.popularity.toFixed(2)));
+    }, item.popularity.toFixed(2)), _react.default.createElement("td", null, _react.default.createElement(Buttons, {
+      style: {
+        margin: 0
+      }
+    }, _react.default.createElement("a", {
+      id: "deleteItem-".concat(i),
+      className: "btn deleteItem",
+      href: "#",
+      title: "delete",
+      onClick: function onClick() {
+        return deleteIron(item, i);
+      }
+    }, "Delete"))));
   }))));
 };
 
@@ -32879,7 +32899,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57582" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49836" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
