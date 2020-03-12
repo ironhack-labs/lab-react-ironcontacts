@@ -32679,7 +32679,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  tr {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px 0;\n    width: 100%;\n    td,\n    th {\n      font-size: 30px;\n      display: flex;\n      justify-content: center;\n      width: 33%;\n      img {\n        display: block;\n        border-radius: 6px;\n        max-width: 100px;\n        width: 100%;\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  tr {\n    display: flex;\n    justify-content: space-between;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px 0;\n    width: 100%;\n    td,\n    th {\n      font-size: 26px;\n      display: flex;\n      justify-content: center;\n      width: 33%;\n      img {\n        display: block;\n        border-radius: 6px;\n        max-width: 100px;\n        width: 100%;\n      }\n    }\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -32843,7 +32843,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57470" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

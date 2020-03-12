@@ -52,7 +52,7 @@ const Table = styled.table`
     width: 100%;
     td,
     th {
-      font-size: 30px;
+      font-size: 26px;
       display: flex;
       justify-content: center;
       width: 33%;
