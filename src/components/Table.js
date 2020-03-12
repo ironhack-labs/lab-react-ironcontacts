@@ -5,8 +5,6 @@ import contacts from "../../public/data/contacts.json";
 import { Row } from "./Row.js";
 import { Button } from "./Button.js";
 
-import "./Table.css";
-
 const initContacts = contacts.slice(0, 5).map(e => {
   e.check = false;
   return e;

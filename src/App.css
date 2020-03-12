@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* HEADER */
+.App-header {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  height: 20vh;
+  padding: 2vh 2vw;
+  color: white;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-title {
+  font-size: 3.5em;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* TABLE */
+.Table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 5vw;
+  text-align: center;
+}
+
+table {
+  border-radius: 5px;
+  background-color: #333;
+}
+
+th {
+  padding: 2vh 0;
+  color: #fff;
+}
+
+td {
+  width: 25%;
+  background-color: #fff;
+}
+
+.wrapper-btn {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 0;
+}
+
+/* ROW */
+.picture {
+  width: 20%;
+}
+
+/* BUTTON */
+.btn-sort,
+.btn-add,
+.btn-delete {
+  padding: 1vh 1vw;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.btn-sort {
+  border: 1px solid #333;
+  color: #333;
+}
+
+.btn-add {
+  border: 1px solid #0a0;
+  color: #0a0;
+}
+
+.btn-delete {
+  border: 1px solid #a00;
+  color: #a00;
+}
