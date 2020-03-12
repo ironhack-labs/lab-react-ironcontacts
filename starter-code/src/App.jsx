@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "./public/App.css";
 import contactsList from "./public/contacts.json";
 import { Header } from "./components/Header";
 import { ContactList } from "./components/ContactList";
