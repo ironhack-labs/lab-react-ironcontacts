@@ -48,6 +48,9 @@ const ContactList = () => {
     //Sort by
     const sortBy = (e) => {
         const sortedContactList = [...contactList].sort((a, b) => (a[e] > b[e]) ? 1 : -1);
+        if (e === "popularity") {
+            sortedContactList.reverse();
+        }
         setContacts(sortedContactList);
     }
 
