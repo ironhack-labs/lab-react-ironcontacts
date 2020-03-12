@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import ContactList from './components/ContactList';
 import RandomButton from './components/RandomButton';
+import SortNameButton from './components/SortNameButton';
+import SortPopButton from './components/SortPopButton';
 import ContactContextProvider from './contexts/ContactContext';
 
 const App = () => (
@@ -14,6 +15,8 @@ const App = () => (
     <div>
       <ContactContextProvider>
         <RandomButton/>
+        <SortNameButton/>
+        <SortPopButton/>
         <ContactList/>
       </ContactContextProvider>
     </div>
