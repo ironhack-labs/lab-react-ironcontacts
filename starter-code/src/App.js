@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
 import ContactList from './components/ContactList';
+import ContactContextProvider from './contexts/ContactContext';
 
 const App = () => (
   <div className="App">
@@ -11,7 +12,9 @@ const App = () => (
       <h1 className="App-title">Welcome to React</h1>
     </header>
     <div>
-      <ContactList/>
+      <ContactContextProvider>
+        <ContactList/>
+      </ContactContextProvider>
     </div>
   </div>
 );

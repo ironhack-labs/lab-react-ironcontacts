@@ -1,9 +1,12 @@
 import React from 'react';
 
-const ContactItem = () => {
-
+const ContactItem = ({contact}) => {
+  console.log("EL contacto es " + contact);
   return(
-    <div>Contact Item cargado</div>
+    <li>
+      <div className="name">{contact.name}</div>
+      <div className="popularity">{contact.popularity}</div>
+    </li>
   );
 }
 
