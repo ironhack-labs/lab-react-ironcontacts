@@ -30,21 +30,31 @@ const starterContacts = contacts.slice(0, 5);
 const ContactList = () => {
 
     const [contactList, setContacts] = useState(starterContacts);
-    const getRandomContact = () => ( contacts[Math.floor(Math.random() * contacts.length)])
 
+    // Add random contact
+    const getRandomContact = () => (contacts[Math.floor(Math.random() * contacts.length)])
     const addRandomContact = () => {
         const newContactList = [...contactList];
         let newContact = getRandomContact();
-        while (contactList.includes(newContact)){
+        while (contactList.includes(newContact)) {
             newContact = getRandomContact();
         }
         newContactList.push(newContact);
         setContacts(newContactList);
     }
 
-    return (<div>
+    //Sort by
+    const sortBy = (e) => {
+        const sortedContactList = [...contactList].sort((a, b) => (a[e] > b[e]) ? 1 : -1);
+        setContacts(sortedContactList);
+    }
+
+    return (<>
         <h1>IronContacts</h1>
+
         <button onClick={() => addRandomContact()}>Add Random Contact</button>
+        <button onClick={() => sortBy("name")}>Sort by name</button>
+        <button onClick={() => sortBy("popularity")}>Sort by popularity</button>
 
         <Tabla>
             <table>
@@ -60,7 +70,7 @@ const ContactList = () => {
                 </tbody>
             </table>
         </Tabla>
-    </div>
+    </>
     )
 }
 
