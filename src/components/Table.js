@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import contacts from "../../public/data/contacts.json";
 
-import { Row } from "./Row.js.js";
-import { Button } from "./Button.js.js";
+import { Row } from "./Row.js";
+import { Button } from "./Button.js";
 
 import "./Table.css";
 
