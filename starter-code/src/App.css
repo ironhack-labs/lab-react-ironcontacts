@@ -1,43 +1,8 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.picture {
-  width: 100px;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 200px;
-  align-items: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Major Mono Display";
+  background-color: #0e3b43;
 }
