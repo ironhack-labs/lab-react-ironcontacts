@@ -79,6 +79,47 @@ export const Ironcontacts = () => {
     setLista([...lista, newIron]);
   };
 
+  // Para ordenar por nombre
+  const sortNameIron = e => {
+    // lo primero siempre es un preventDefault para que react no refresque antes de tiempo
+    e.preventDefault();
+    let sortNameIron = lista
+      .map(iron => {
+        return iron.name;
+      })
+      .sort();
+    // Creo una nueva lista en la que iré metiendo los Ironcontacts según su nombre
+    const newIronSortName = [];
+    sortNameIron.forEach(name => {
+      [...lista].forEach(iron => {
+        if (name === iron.name) {
+          newIronSortName.push(iron);
+        }
+      });
+    });
+    // Meto la lista reordenada con SetLista
+    setLista(newIronSortName);
+  };
+
+  // Para ordenar por popularidad hago lo mismo pero en lugar de comparar los nombres comparo la popularity
+  const sortPopularityIron = e => {
+    e.preventDefault();
+    let sortPopularityIron = lista
+      .map(iron => {
+        return iron.popularity;
+      })
+      .sort((a, b) => b - a);
+    const newIronSortPopularity = [];
+    sortPopularityIron.forEach(popularity => {
+      [...lista].forEach(iron => {
+        if (popularity === iron.popularity) {
+          newIronSortPopularity.push(iron);
+        }
+      });
+    });
+    setLista(newIronSortPopularity);
+  };
+
   // ListItem lo importo de otro archivo por que son todos iguales
   return (
     <Contain className="contain">
@@ -91,6 +132,17 @@ export const Ironcontacts = () => {
           onClick={addRandomIron}
         >
           Add Random Contact
+        </a>
+        <a id="sortNameButton" className="btn" href="#" onClick={sortNameIron}>
+          Sort By Name
+        </a>
+        <a
+          id="sortPopularityButton"
+          className="btn"
+          href="#"
+          onClick={sortPopularityIron}
+        >
+          Sort By popularity
         </a>
       </Button>
       <Table>
