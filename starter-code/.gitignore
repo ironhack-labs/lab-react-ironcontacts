@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+#parcel
+.cache
+dist
+.vscode
+
 # testing
 /coverage
 
