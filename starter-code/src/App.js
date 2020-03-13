@@ -25,8 +25,8 @@ class App extends Component {
         const { contacts, sortByName, sortByPopularity } = this.state;
         let sortedContacts = {
             contacts: [...contacts],
-            sortByName: field === 'name' && sortByName === 'DESC' || sortByName === '' ? 'ASC' : 'DESC',
-            sortByPopularity: field === 'popularity' && sortByPopularity === 'DESC' || sortByPopularity === '' ? 'ASC' : 'DESC'
+            sortByName: field === 'name' && (sortByName === 'DESC' || sortByName === '') ? 'ASC' : 'DESC',
+            sortByPopularity: field === 'popularity' && (sortByPopularity === 'DESC' || sortByPopularity === '') ? 'ASC' : 'DESC'
         };
 
         sortedContacts.contacts.sort((a, b) => {
@@ -99,7 +99,7 @@ class App extends Component {
                         {
                             !contacts.length &&
                             <tr>
-                                <td colSpan="4">You have no contacts... 😱</td>
+                                <td colSpan="4">You have no contacts... <span role="img">😱</span></td>
                             </tr>
                         }
                     </tbody>
