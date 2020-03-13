@@ -38,6 +38,12 @@ class Contacts extends Component {
       contacts: orderPopularity
     });
   }
+  deleteContactClick(id) {
+    this.setState({
+      ...this.state,
+      contacts: [...this.state.contacts.filter(item => item.id !== id)]
+    });
+  }
 
   render() {
     return (
@@ -56,7 +62,7 @@ class Contacts extends Component {
         />
         <table className="alignContent">
           <tbody>
-            {this.state.contacts.map((cont, i) => (
+            {this.state.contacts.map((cont, i, index) => (
               <tr key={i} className="alignItems">
                 <td>
                   <img
@@ -71,13 +77,15 @@ class Contacts extends Component {
                 <td>
                   <p>{cont.popularity.toFixed(2)}</p>
                 </td>
+                <td>
+                  <button onClick={() => this.deleteContactClick(cont.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div>
-          <button onClick={this.randomClick.bind(this)}>Click</button>
-        </div>
       </div>
     );
   }
