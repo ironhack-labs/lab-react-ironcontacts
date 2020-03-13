@@ -5,7 +5,7 @@ import './App.css';
 
 //add stars prop to each contact (just to make stars)
 const contacts = data.map(user => {
-  const pop = user.popularity
+  const pop = Math.round(user.popularity)
   let stars = 0
   pop > 15 ? stars = 5 
   : (pop <= 15 && pop > 9)? stars = 4 
