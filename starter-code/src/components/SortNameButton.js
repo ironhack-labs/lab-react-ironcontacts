@@ -1,4 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+
+const ButtonSort = styled.button`
+  background-size: cover;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  transition: 0.3s all;
+  outline: none;
+  &:hover {
+    background-color: grey;
+    transform: scale(1.1);
+    color: white;
+    outline: none;
+  }
+`;
 
 class SortNameButton extends React.Component {
   constructor(props) {
@@ -12,7 +28,9 @@ class SortNameButton extends React.Component {
         <>
           <p className="nameSize">{this.props.name}</p>
         </>
-        <button onClick={this.props.sortNameClick}>Sort Contacts </button>{" "}
+        <ButtonSort onClick={this.props.sortNameClick}>
+          Sort Contacts{" "}
+        </ButtonSort>{" "}
       </div>
     );
   }

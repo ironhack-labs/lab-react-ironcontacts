@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {
@@ -30,46 +31,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.tHead {
-  display: flex;
-  justify-content: space-around;
-  font-size: 2em;
-}
-
-.tHead p {
-  width: 100px;
-}
-
-.NamePosition {
-  margin-left: 50px;
-  margin-right: 40px;
-}
-
-.image {
-  width: 60px;
-  height: 80px;
-  margin: 0;
-}
-
-.nameSize {
-  font-size: 1.5em;
-  width: 150px;
-}
-
-.alignContent {
-  display: grid;
-}
-
-.alignItems {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex: auto;
-}
-
-.alignPhoto {
-  width: 100px;
-  justify-content: end;
 }
