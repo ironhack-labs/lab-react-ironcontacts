@@ -40,4 +40,5 @@ export const ButtonCelebrity = styled.button`
   font-size: 0.8rem;
   margin-left: 32%;
   margin-right: 30%;
+  margin-bottom: 1rem;
 `;

@@ -11,11 +11,28 @@ export const ContactsList = () => {
     UpdateList.push(AddButton);
     setContacts(UpdateList);
   };
+  const UseSortName = () => {
+    const sortedList = [...contacts].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setContacts(sortedList);
+  };
+
+  const UseSortPopularity = () => {
+    const sortedList = [...contacts].sort(
+      (a, b) => b.popularity - a.popularity
+    );
+    setContacts(sortedList);
+  };
   return (
     <div>
       <div>
         <ButtonCelebrity onClick={useButtonState}>
           Add Random Contact
+        </ButtonCelebrity>
+        <ButtonCelebrity onClick={UseSortName}>Sort by name</ButtonCelebrity>
+        <ButtonCelebrity onClick={UseSortPopularity}>
+          Sort by popularity
         </ButtonCelebrity>
         {/* change useState */}
       </div>
