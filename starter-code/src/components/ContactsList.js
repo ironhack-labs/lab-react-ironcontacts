@@ -3,7 +3,7 @@ import ContactItem from "./ContactItem";
 import Table from "react-bootstrap/Table";
 
 const ContactsList = ({ contacts, deleteContact }) => (
-  <Table className="col-md-5 mx-auto mt-4" striped bordered hover>
+  <Table className="col-md-4 mx-auto mt-4" striped bordered hover>
     <thead>
       <tr>
         <th>Picture</th>
@@ -13,11 +13,11 @@ const ContactsList = ({ contacts, deleteContact }) => (
       </tr>
     </thead>
     <tbody>
-      {contacts.map((contact, index) => (
+      {contacts.map(contact => (
         <ContactItem
-          key={index}
+          key={contact.id}
           contact={contact}
-          deleteContact={() => deleteContact(index)}
+          deleteContact={() => deleteContact(contact.id)}
         />
       ))}
     </tbody>

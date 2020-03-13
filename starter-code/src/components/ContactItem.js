@@ -22,10 +22,11 @@ const ContactItem = ({ contact, deleteContact }) => {
         />
       </td>
       <td className="align-middle">{contact.name}</td>
-      <td className="align-middle">{contact.popularity}</td>
+      <td className="align-middle">{contact.popularity.toFixed(2)}</td>
       <td className="align-middle">
         <Button className="btn btn-sm" onClick={deleteContact}>
-          Delete
+          <i className="fas fa-trash-alt mr-1"></i>
+          <span>Delete</span>
         </Button>
       </td>
     </Row>
