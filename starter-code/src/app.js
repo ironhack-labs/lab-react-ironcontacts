@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { FamousList } from "./components/FamousList";
 
-const Famous = () => {
+const Famous = () => (
   <div>
-    <p>HOLAAAAAAA</p>
-  </div>;
-};
+    <FamousList />
+  </div>
+);
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
-  ReactDOM.render(<Famous />, root);
+  ReactDOM.render(<Famous></Famous>, root);
 });
