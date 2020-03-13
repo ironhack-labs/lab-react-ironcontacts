@@ -1,4 +1,6 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+<img src="https://avatars1.githubusercontent.com/u/45364181?s=460&v=4" alt="Carballo" width="200" height="200"> ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+
+# [MAD-PT DE] Joan Carballo - Octubre 2019
 
 # LAB | React IronContacts
 
@@ -43,7 +45,7 @@ Display that array of 5 contacts in a `<table>` and display the `picture`, `name
 To import `contacts.json` in `App.js`, you can simply use:
 
 ```js
-import contacts from './contacts.json';
+import contacts from "./contacts.json";
 ```
 
 At the end of this iteration, your application should look like this:
