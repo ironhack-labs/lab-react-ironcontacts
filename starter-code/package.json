@@ -6,7 +6,8 @@
     "parcel": "^1.12.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "parcel index.html"
