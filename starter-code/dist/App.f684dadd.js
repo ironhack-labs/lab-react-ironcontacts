@@ -31688,40 +31688,6 @@ var Item = function Item(_ref) {
 
 var _default = Item;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/RamdomButton.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  display: block;\n  color: #000000;\n  background: #61dafb;\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  outline: none;\n  border: 0px;\n  cursor: pointer;\n  &:hover {\n    transition: all 0.5s;\n    color: #61dafb;\n    background: #282c34;\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Btn = _styledComponents.default.button(_templateObject());
-
-var RamdomButton = function RamdomButton() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(Btn, null, "Add ramdom contact"));
-};
-
-var _default = RamdomButton;
-exports.default = _default;
 },{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/contacts.json":[function(require,module,exports) {
 module.exports = [{
   "name": "Idris Elba",
@@ -32727,17 +32693,45 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _ListItem = _interopRequireDefault(require("./ListItem"));
 
-var _RamdomButton = _interopRequireDefault(require("./RamdomButton"));
-
 var _contacts = _interopRequireDefault(require("../../src/contacts.json"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  display: block;\n  color: #000000;\n  background: #61dafb;\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  outline: none;\n  border: 0px;\n  cursor: pointer;\n  &:hover {\n    transition: all 0.5s;\n    color: #61dafb;\n    background: #282c34;\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: space-between;\n  align-items: color-interpolation-filters;\n"]);
@@ -32753,22 +32747,39 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var ContactTable = _styledComponents.default.table(_templateObject());
 
+var Btn = _styledComponents.default.button(_templateObject2());
+
 var List = function List() {
+  var originList = _contacts.default.slice(0, 5);
+
+  var _useState = (0, _react.useState)(originList),
+      _useState2 = _slicedToArray(_useState, 2),
+      list = _useState2[0],
+      setList = _useState2[1];
+
+  var getRamdomContact = function getRamdomContact(e) {
+    var newContact = _contacts.default[Math.floor(Math.random() * _contacts.default.length)];
+
+    setList([].concat(_toConsumableArray(list), [newContact]));
+  };
+
   return _react.default.createElement("div", {
     className: "App-wrapper"
-  }, _react.default.createElement("h1", null, "Iron contacts"), _react.default.createElement(_RamdomButton.default, null), _react.default.createElement(ContactTable, null, _react.default.createElement(_ListItem.default, null, _react.default.createElement("td", null, _react.default.createElement("h2", null, "Picture")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Name")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Popularity"))), _contacts.default.slice(0, 5).map(function (contact, i) {
+  }, _react.default.createElement("h1", null, "Iron contacts"), _react.default.createElement(Btn, {
+    onClick: getRamdomContact
+  }, "Add Random Contact"), _react.default.createElement(ContactTable, null, _react.default.createElement("thead", null, _react.default.createElement(_ListItem.default, null, _react.default.createElement("td", null, _react.default.createElement("h2", null, "Picture")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Name")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Popularity")))), _react.default.createElement("tbody", null, list.map(function (contact, i) {
     return _react.default.createElement(_ListItem.default, {
       key: i
     }, _react.default.createElement("td", null, _react.default.createElement("img", {
       src: contact.pictureUrl,
       alt: contact.name
     })), _react.default.createElement("td", null, contact.name), _react.default.createElement("td", null, contact.popularity.toFixed(2)));
-  })));
+  }))));
 };
 
 var _default = List;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","./ListItem":"src/components/ListItem.js","./RamdomButton":"src/components/RamdomButton.js","../../src/contacts.json":"src/contacts.json"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","./ListItem":"src/components/ListItem.js","../../src/contacts.json":"src/contacts.json"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -32820,7 +32831,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49463" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
