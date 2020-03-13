@@ -1,28 +1,96 @@
-.app {
-    max-width: 550px;
-    margin: auto;
+* {
+    box-sizing: border-box;
 }
 
-.app__head {
-    margin-bottom: 20px;
-}
-
-.app__table {
-    width: 100%;
-    text-align: center;
-}
-
-.app__table thead th {
-    padding: 10px;
+body {
     background: #f5f5f5;
 }
 
-.app__table td {
+.app {
+    max-width: 750px;
+    margin: auto;
+}
+
+.app__header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.app__header h1 {
+    margin: 0;
+}
+
+.app__header button {
+    background: #4695FC;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    transition: all .35s;
+    outline: none;
+}
+.app__header button:hover {
+    background: #2579e7;
+}
+
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/*
+//   Table
+-------------------------------------------- */
+.app__table {
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #DEE2E6;
+}
+.app__table thead th {
     padding: 10px;
+    background: #fff;
+}
+
+.app__table td {
+    background: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.app__table tr:nth-child(odd) td {
+    background: #F6F7F9;
+}
+
+.app__table tr:hover td {
+    background: #d6e5ff!important;
+}
+
+/*
+//   BUTTONS
+-------------------------------------------- */
+.btn {
+    user-select: none;
 }
 
 .app__add-btn {
     padding: 4px 6px;
     font-size: 14px;
     width: 33.33%;
+}
+
+.app__remove-btn {
+    background: #5f6d80;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    padding: 2px 12px 4px;
+    transition: all .35s;
+    outline: none;
+}
+
+.app__remove-btn:hover {
+    background: #3f4855;
 }
