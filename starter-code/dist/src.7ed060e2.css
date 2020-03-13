@@ -64,8 +64,7 @@ td {
   padding: 2vh 0;
 }
 
-/* ROW */
-.picture {
+.Table > .img {
   width: 20%;
 }
 

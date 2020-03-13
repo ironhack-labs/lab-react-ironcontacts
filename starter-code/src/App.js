@@ -5,9 +5,9 @@ import { Table } from "./components/Table";
 
 import "./App.css";
 
-export const App = () => {
+export const App = () => (
   <div>
     <Header />
     <Table />
-  </div>;
-};
+  </div>
+);

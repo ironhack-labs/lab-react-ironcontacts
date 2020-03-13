@@ -4,7 +4,7 @@ export const Contact = ({ pic, name, popu, index, deleteFunction }) => {
   return (
     <tr>
       <td>
-        <img src="{pic}" alt="{name}" />
+        <img width="30%" src={pic} alt={name} />
       </td>
       <td>{name}</td>
       <td>{popu.toFixed(2)}</td>

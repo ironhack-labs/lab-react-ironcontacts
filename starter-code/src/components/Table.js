@@ -15,9 +15,9 @@ export const Table = () => {
     do {
       randomContact =
         contactsData[Math.floor(Math.random() * contactsData.length)];
-    } while (list.includes(contact));
+    } while (list.includes(randomContact));
 
-    newList.push(contact);
+    newList.push(randomContact);
     setList(newList);
   };
 
@@ -36,7 +36,7 @@ export const Table = () => {
   const handleDelete = index => {
     const newList = [...list];
     newList.splice(index, 1);
-    setState(newList);
+    setList(newList);
   };
 
   return (
@@ -59,17 +59,17 @@ export const Table = () => {
           <th>Popularity</th>
           <th>Select</th>
         </tr>
-        <tr>
-          {list.map((e, i) => (
-            <Contact
-              pic={e.pictureUrl}
-              name={e.name}
-              popu={e.popularity}
-              deleteFunction={handleDelete}
-              index={i}
-            />
-          ))}
-        </tr>
+
+        {list.map((e, i) => (
+          <Contact
+            pic={e.pictureUrl}
+            name={e.name}
+            popu={e.popularity}
+            deleteFunction={handleDelete}
+            index={i}
+            key={i}
+          />
+        ))}
       </table>
     </div>
   );

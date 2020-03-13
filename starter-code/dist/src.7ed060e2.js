@@ -29356,8 +29356,9 @@ var Contact = function Contact(_ref) {
       index = _ref.index,
       deleteFunction = _ref.deleteFunction;
   return _react.default.createElement("tr", null, _react.default.createElement("td", null, _react.default.createElement("img", {
-    src: "{pic}",
-    alt: "{name}"
+    width: "30%",
+    src: pic,
+    alt: name
   })), _react.default.createElement("td", null, name), _react.default.createElement("td", null, popu.toFixed(2)), _react.default.createElement("td", null, _react.default.createElement("button", {
     className: "btn-delete",
     onClick: function onClick() {
@@ -29418,9 +29419,9 @@ var Table = function Table() {
 
     do {
       randomContact = _contacts.default[Math.floor(Math.random() * _contacts.default.length)];
-    } while (list.includes(contact));
+    } while (list.includes(randomContact));
 
-    newList.push(contact);
+    newList.push(randomContact);
     setList(newList);
   };
 
@@ -29444,7 +29445,7 @@ var Table = function Table() {
     var newList = _toConsumableArray(list);
 
     newList.splice(index, 1);
-    setState(newList);
+    setList(newList);
   };
 
   return _react.default.createElement("div", {
@@ -29466,15 +29467,16 @@ var Table = function Table() {
     onClick: function onClick() {
       return sortByPopularity();
     }
-  }, "Sort by popularity")), _react.default.createElement("table", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity"), _react.default.createElement("th", null, "Select")), _react.default.createElement("tr", null, list.map(function (e, i) {
+  }, "Sort by popularity")), _react.default.createElement("table", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Picture"), _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Popularity"), _react.default.createElement("th", null, "Select")), list.map(function (e, i) {
     return _react.default.createElement(_Contact.Contact, {
       pic: e.pictureUrl,
       name: e.name,
       popu: e.popularity,
       deleteFunction: handleDelete,
-      index: i
+      index: i,
+      key: i
     });
-  }))));
+  })));
 };
 
 exports.Table = Table;
@@ -29569,7 +29571,7 @@ require("./App.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  _react.default.createElement("div", null, _react.default.createElement(_Header.Header, null), _react.default.createElement(_Table.Table, null));
+  return _react.default.createElement("div", null, _react.default.createElement(_Header.Header, null), _react.default.createElement(_Table.Table, null));
 };
 
 exports.App = App;
@@ -29615,7 +29617,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37587" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35279" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
