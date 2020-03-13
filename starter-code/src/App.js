@@ -8,11 +8,18 @@ import { Button } from "react-bootstrap";
 import _ from "lodash";
 
 const App = () => {
-  const [contacts, setContacts] = useState(contactsJSON.splice(0, 5));
+  const [contacts, setContacts] = useState(contactsJSON.slice(0, 5));
 
   const addRandomContact = () => {
-    const randomContact = contactsJSON[_.random(contactsJSON.length)];
-    setContacts([...contacts, randomContact]);
+    if (contacts.length >= contactsJSON.length)
+      console.log("All contacts added");
+    else {
+      let randomContact;
+      do {
+        randomContact = contactsJSON[_.random(contactsJSON.length - 1)];
+      } while (contacts.includes(randomContact));
+      setContacts([...contacts, randomContact]);
+    }
   };
 
   const sortByName = () => {
@@ -29,10 +36,8 @@ const App = () => {
     setContacts([...contactsOrdered]);
   };
 
-  const deleteContact = index => {
-    contacts.splice(index, 1);
-    setContacts([...contacts]);
-  };
+  const deleteContact = id =>
+    setContacts([...contacts.filter(contact => contact.id !== id)]);
 
   return (
     <div className="App">
@@ -53,7 +58,7 @@ const App = () => {
 
       <ContactsList
         contacts={contacts}
-        deleteContact={index => deleteContact(index)}
+        deleteContact={id => deleteContact(id)}
       />
     </div>
   );
