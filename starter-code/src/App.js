@@ -17,11 +17,13 @@ const contacts = data.map(user => {
   return {...user, stars}
 })
 
+
 class App extends Component {
   
   state = {
     allContacts: contacts,
     contacts: contacts.splice(0,5),
+    scrollH: document.getElementById('contacts')
   }
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-
   addNewContact = () =>{
@@ -33,7 +35,17 @@ class App extends Component {
     this.setState({
       contacts: [...contacts, randomUser ]
     })
+
+    //scroll bottom
+    this.scrollH(false)
   }
+//=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+scrollH(condition){
+  setTimeout(()=>{
+  const elem = document.getElementById('contacts')
+  elem.scrollIntoView(condition)
+  },50)
+}
 //=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 sortByName = ()=>{
   const {contacts} = this.state

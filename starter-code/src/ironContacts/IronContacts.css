@@ -1,3 +1,12 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    z-index: 1000;
+    margin: 0 10px;
+}
 img {
     width: 150px;
 }
@@ -15,6 +24,9 @@ img {
     background-color: #111;
     color: #fff;
     margin: 0 5px;
+}
+.iterations button:focus {
+    outline: 0;
 }
 .click-btn {
     padding: 10px 20px;
@@ -40,7 +52,7 @@ display: flex;
 justify-content: space-evenly;
 background-color: #111;
 color: #fff;
-margin: 5px;
+margin: 80px 5px 0;
 
 }
 .each-user {
@@ -63,4 +75,7 @@ button.delete-btn {
 button.delete-btn:hover {
     background-color: red;
     color: #fff;
+}
+#contacts {
+    scroll-behavior: smooth;
 }

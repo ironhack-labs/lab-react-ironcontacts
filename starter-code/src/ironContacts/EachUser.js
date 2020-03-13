@@ -2,7 +2,7 @@ import React from 'react'
 import Rating from '../rating/Rate'
 
 const EachUser = ({name, pictureUrl, popularity, id, stars, deleteUser}) => {
-    console.log("Output for: EachUser -> stars", stars)
+    // console.log("Output for: EachUser -> stars", stars)
     return (
         <div className='each-user'>
             <img src={pictureUrl} alt={name}/>
