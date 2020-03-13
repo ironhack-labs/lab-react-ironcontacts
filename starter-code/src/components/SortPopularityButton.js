@@ -1,5 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 
+const ButtonPop = styled.button`
+  background-size: cover;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  transition: 0.3s all;
+  outline: none;
+  &:hover {
+    background-color: grey;
+    transform: scale(1.1);
+    color: white;
+    outline: none;
+  }
+`;
 class SortPopularityButton extends React.Component {
   constructor(props) {
     super(props);
@@ -12,9 +27,9 @@ class SortPopularityButton extends React.Component {
         <>
           <p className="nameSize">{this.props.name}</p>
         </>
-        <button onClick={this.props.sortPopularityClick}>
+        <ButtonPop onClick={this.props.sortPopularityClick}>
           Sort By Popularity{" "}
-        </button>{" "}
+        </ButtonPop>{" "}
       </div>
     );
   }
