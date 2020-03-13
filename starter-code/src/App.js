@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Table from "./components/Table";
-import styled from "styled-components";
 
 function App() {
   return (
