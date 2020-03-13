@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { FamousList } from "./components/FamousList";
-
+import { FamousList, Button } from "./components/FamousList";
+// import { Button } from "./components/RandomFamous";
+console.log(FamousList);
 const Famous = () => (
   <div>
     <FamousList />
