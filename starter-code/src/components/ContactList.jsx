@@ -1,10 +1,5 @@
 import React from "react";
 import { ContactItem } from "./ContactItem";
-import styled from "styled-components";
-
-const List = styled.div`
-  display: table;
-`;
 
 export const ContactList = ({ list, deleteContact }) => {
   return (
