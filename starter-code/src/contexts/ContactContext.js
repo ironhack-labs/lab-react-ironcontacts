@@ -10,7 +10,12 @@ const ContactContextProvider = (props) => {
   const addRandom = () => {  
     const min = Math.ceil(contacts.length);
     const max = Math.floor(contactsJson.length);
-    setContacts([...contacts, contactsJson[Math.floor(Math.random() * (max - min + 1)) + min]]);
+    let newContact = {};
+    do {
+      newContact = contactsJson[Math.floor(Math.random() * (max - min + 1)) + min];
+    } while(contacts.includes(newContact));
+
+    setContacts([...contacts, newContact]);
   }
 
   const sortByName = () => {
@@ -22,7 +27,7 @@ const ContactContextProvider = (props) => {
 
   const sortByPopularity = () => {
     let newContacts = contacts.sort((a, b) => {
-      return a.popularity - b.popularity;
+      return b.popularity - a.popularity;
     });
     setContacts([...newContacts]);
   }
