@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react"; // importamos React y useState si queremos utilizarlo.
 import { ListItem } from "./ListItem";
 import contacts from "./contacts.json"; // importamos el JSON donde están los datos
 import styled from "styled-components"; // Hago esto para poder meter aquí estilos en constantes.
@@ -38,11 +38,61 @@ const Table = styled.table`
   }
 `;
 
+const Button = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px 20px 0px;
+  .btn {
+    background-color: lightgrey;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #000;
+    display: block;
+    max-width: 30%;
+    padding: 15px 10px;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+      background-color: grey;
+      transition: all ease 100ms;
+    }
+  }
+`;
+
 export const Ironcontacts = () => {
-  // Devuelvo una tabla pero con solo 5 contactos (para eso es el Slice)
-  // ListItem lo importo de otro archivo por que son todos iguales, así los creo con el Map
+  // esta es la lista inicial que dibujará la primera vez y que me sirve para poder hacer un useState
+  const initLista = contacts.slice(0, 5);
+
+  // Aquí uso useState para poner la lista por primera vez (primero solo 5 y luego los que sean porque la voy a ir updateando con setLista).
+  const [lista, setLista] = useState(initLista);
+
+  // Busco un número random
+  const random = (max, min) => {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  // Añado un contacto random a la lista con setLista (desestructuro y añado newIron)
+  const addRandomIron = e => {
+    e.preventDefault();
+    const newIron = contacts[random(contacts.length, 0)];
+    setLista([...lista, newIron]);
+  };
+
+  // ListItem lo importo de otro archivo por que son todos iguales
   return (
     <Contain className="contain">
+      <Button>
+        <a
+          id="addBtn"
+          className="btn"
+          href="#"
+          title="Add Random"
+          onClick={addRandomIron}
+        >
+          Add Random Contact
+        </a>
+      </Button>
       <Table>
         <tbody>
           <tr>
@@ -50,7 +100,7 @@ export const Ironcontacts = () => {
             <th>Name</th>
             <th>Popularity</th>
           </tr>
-          {contacts.slice(0, 5).map((item, i) => (
+          {lista.map((item, i) => (
             <ListItem key={i}>
               <td>
                 <img src={item.pictureUrl} title={item.name} />
