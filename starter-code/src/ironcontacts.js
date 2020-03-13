@@ -52,6 +52,10 @@ const Button = styled.div`
     max-width: 30%;
     padding: 15px 10px;
     text-decoration: none;
+    &.deleteItem {
+      max-width: 100%;
+      font-size: 30px;
+    }
     &:hover {
       color: #fff;
       background-color: grey;
@@ -120,6 +124,15 @@ export const Ironcontacts = () => {
     setLista(newIronSortPopularity);
   };
 
+  // Función para borrar de la Iteracion 4
+  const deleteIronContact = (item, i) => {
+    const deleteThis = item.id;
+    const newIronList = lista.filter(item => {
+      return item.id != deleteThis;
+    });
+    setLista(newIronList);
+  };
+
   // ListItem lo importo de otro archivo por que son todos iguales
   return (
     <Contain className="contain">
@@ -159,6 +172,17 @@ export const Ironcontacts = () => {
               </td>
               <td className="name">{item.name}</td>
               <td className="popularity">{item.popularity.toFixed(1)}</td>
+              <Button style={{ margin: 0 }}>
+                <a
+                  id={`deleteItem-${i}`}
+                  className="btn deleteItem"
+                  href="#"
+                  title="delete"
+                  onClick={() => deleteIronContact(item, i)}
+                >
+                  🗑
+                </a>
+              </Button>
             </ListItem>
           ))}
         </tbody>
