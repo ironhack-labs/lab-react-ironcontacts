@@ -42,3 +42,8 @@ export const ButtonCelebrity = styled.button`
   margin-right: 30%;
   margin-bottom: 1rem;
 `;
+
+export const DeleteCelebrity = styled.button`
+  background-color: red;
+  color: #fff;
+`;
