@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
-import './App.css';
 import contacts from './contacts.json';
+import './App.css';
 
 
 class App extends Component {
@@ -23,14 +22,25 @@ class App extends Component {
     }
 
     handleSortBy = (field) => {
-        const { contacts } = this.state;
-        let sortedContacts = [...contacts];
+        const { contacts, sortByName, sortByPopularity } = this.state;
+        let sortedContacts = {
+            contacts: [...contacts],
+            sortByName: field === 'name' && sortByName === 'DESC' || sortByName === '' ? 'ASC' : 'DESC',
+            sortByPopularity: field === 'popularity' && sortByPopularity === 'DESC' || sortByPopularity === '' ? 'ASC' : 'DESC'
+        };
 
-        sortedContacts.sort((a, b) => {
-            return field === 'name' ? a[field].localeCompare(b[field]) : b[field] - a[field];
+        sortedContacts.contacts.sort((a, b) => {
+            if (field === 'name') {
+                return sortedContacts.sortByName === 'DESC' ?
+                    a[field].localeCompare(b[field]) :
+                    b[field].localeCompare(a[field]);
+            }
+            return sortedContacts.sortByPopularity === 'DESC' ?
+                b[field] - a[field] :
+                a[field] - b[field];
         })
 
-        this.setState({ contacts: sortedContacts });
+        this.setState(sortedContacts);
     }
 
     handleDeleteContact = (id) => {
@@ -43,21 +53,27 @@ class App extends Component {
     }
 
     render() {
-        const { contacts } = this.state;
+        const { contacts, sortByName, sortByPopularity } = this.state;
         return (
             <div className="app">
-                <div className="app__head">
+                <header className="app__header">
                     <h1>IronContacts</h1>
-                    <button className="app__add-btn" onClick={this.handleAddContact}>Add random contact</button>
-                    <button className="app__add-btn" onClick={() => this.handleSortBy('name')}>Sort by name</button>
-                    <button className="app__add-btn" onClick={() => this.handleSortBy('popularity')}>Sort by popularity</button>
-                </div>
-                <table className="app__table">
+                    <button className="btn app__add-btn clickable" onClick={() => this.handleAddContact()}>Add random contact</button>
+                </header>
+                <table className="app__table" cellSpacing="0" cellPadding="0">
                     <thead>
                         <tr>
-                            <th>Picture</th>
-                            <th>Name</th>
-                            <th>Popularity</th>
+                            <th>&nbsp;</th>
+                            <th>
+                                <span className="clickable" onClick={() => this.handleSortBy('name')}>Name
+                                    <span>{sortByName === 'DESC' ? <span> &#8615;</span> : <span> &#8613;</span>}</span>
+                                </span>
+                            </th>
+                            <th>
+                                <span className="clickable" onClick={() => this.handleSortBy('popularity')}>Popularity
+                                    <span>{sortByPopularity === 'DESC' ? <span> &#8615;</span> : <span> &#8613;</span>}</span>
+                                </span>
+                            </th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -66,12 +82,16 @@ class App extends Component {
                             contacts.map((contact, i) => (
                                 <tr key={i}>
                                     <td>
-                                        <img src={contact.pictureUrl} width="60" alt={contact.name} />
+                                        <img src={contact.pictureUrl} width="50" alt={contact.name} />
                                     </td>
                                     <td>{contact.name}</td>
                                     <td>{contact.popularity.toFixed(2)}</td>
                                     <td>
-                                        <button onClick={() => this.handleDeleteContact(contact.id)}>Delete</button>
+                                        <button
+                                            className="btn app__remove-btn clickable"
+                                            onClick={() => this.handleDeleteContact(contact.id)}>
+                                            Delete
+                                        </button>
                                     </td>
                                 </tr>
                             ))
