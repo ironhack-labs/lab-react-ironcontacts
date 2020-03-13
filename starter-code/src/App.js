@@ -2,10 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import ContactList from './components/ContactList';
-import RandomButton from './components/RandomButton';
-import SortNameButton from './components/SortNameButton';
-import SortPopButton from './components/SortPopButton';
+import Buttons from './components/Buttons';
 import ContactContextProvider from './contexts/ContactContext';
+import Container from 'react-bootstrap/Container';
+
+
 
 const App = () => (
   <div className="App">
@@ -14,10 +15,10 @@ const App = () => (
     </header>
     <div>
       <ContactContextProvider>
-        <RandomButton/>
-        <SortNameButton/>
-        <SortPopButton/>
-        <ContactList/>
+        <Container className="mt-4">
+          <Buttons/>
+          <ContactList/>
+        </Container>
       </ContactContextProvider>
     </div>
   </div>
