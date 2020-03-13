@@ -1,5 +1,6 @@
 import React from 'react'
 import EachUser from './EachUser'
+
 import './IronContacts.css'
 
 const IronContacts = ({contacts, addNewContact, sortByName, sortByPopularity, deleteUser}) => {
