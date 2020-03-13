@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import ReactDOM from "react-dom";
+import { ContactsList } from "./components/ContactList";
+import { Title } from "./components/CelebrityTitle";
 
 const App = () => (
   <div>
-    
+    <Title />
+    <ContactsList />
   </div>
 );
 
