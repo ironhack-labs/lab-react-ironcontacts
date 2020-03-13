@@ -8,6 +8,10 @@ export const ContactsList = () => {
   const useButtonState = () => {
     const AddButton = Contacts[Math.floor(Math.random() * Contacts.length)];
     const UpdateList = [...Contacts]; /*copy*/
+    contacts.includes(AddButton)
+      ? useButtonState()
+      : updatedList.push(AddButton);
+
     UpdateList.push(AddButton);
     setContacts(UpdateList);
   };
@@ -24,6 +28,16 @@ export const ContactsList = () => {
     );
     setContacts(sortedList);
   };
+
+  const removeCelebrity = id => {
+    const newList = [...contacts].filter(contact => contact.id !== id);
+    setContacts(newList);
+  };
+  // const removeCelebrity = id => {
+  //   const newList = [...contacts];
+  //   newList.splice(id, 1);
+  //   setContacts(newList);
+  // };
   return (
     <div>
       <div>
@@ -40,6 +54,7 @@ export const ContactsList = () => {
         <p>Picture</p>
         <p>Name</p>
         <p>Popularity</p>
+        <p>Action</p>
       </CelebrityTable>
       {contacts.map((contact, i) => {
         return (
@@ -48,6 +63,8 @@ export const ContactsList = () => {
             name={contact.name}
             popularity={contact.popularity}
             picture={contact.pictureUrl}
+            id={contact.id}
+            removeC={removeCelebrity}
           />
         );
       })}

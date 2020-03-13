@@ -1,14 +1,19 @@
 import React from "react";
-import { CelebrityItems, CelebrityImage } from "../styles/CelebrityItems";
+import {
+  CelebrityItems,
+  CelebrityImage,
+  DeleteCelebrity
+} from "../styles/CelebrityItems";
 
-export const Celebrity = props => {
+export const Celebrity = ({ picture, name, popularity, id, removeC }) => {
   return (
     <CelebrityItems>
       <CelebrityImage>
-        <img src={props.picture} />
+        <img src={picture} />
       </CelebrityImage>
-      <p>{props.name}</p>
-      <p>{props.popularity}</p>
+      <p>{name}</p>
+      <p>{popularity.toFixed(2)}</p>
+      <DeleteCelebrity onclick={() => removeC(id)}>delete</DeleteCelebrity>
     </CelebrityItems>
   );
 };
