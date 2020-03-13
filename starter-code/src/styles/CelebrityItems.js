@@ -33,3 +33,11 @@ export const CelebrityTitle = styled.h1`
   text-align: center;
   font-size: 2.8rem;
 `;
+
+export const ButtonCelebrity = styled.button`
+  padding: 1em;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 32%;
+  margin-right: 30%;
+`;
