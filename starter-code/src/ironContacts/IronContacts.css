@@ -1,0 +1,66 @@
+img {
+    width: 150px;
+}
+.contacts {
+    margin: 5px;
+    text-align: center;
+}
+.iterations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.iterations button {
+    background-color: #111;
+    color: #fff;
+    margin: 0 5px;
+}
+.click-btn {
+    padding: 10px 20px;
+    background-color: #666;
+    color: #fff;
+    cursor: pointer;
+    border: 3px solid;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.click-btn:focus,
+button.delete-btn:focus {
+    outline: 0;
+    border-color: green;
+}
+.click-btn:hover {
+    background-color: #333;
+    color: green;
+}
+.header  {
+display: flex;
+justify-content: space-evenly;
+background-color: #111;
+color: #fff;
+margin: 5px;
+
+}
+.each-user {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #111;
+    color: #fff;
+    margin: 5px;
+}
+button.delete-btn {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+}
+button.delete-btn:hover {
+    background-color: red;
+    color: #000;
+}
