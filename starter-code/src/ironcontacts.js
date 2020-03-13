@@ -79,8 +79,6 @@ export const Ironcontacts = () => {
     setLista([...lista, newContact]);
   };
 
-  let newContact = selectRandom(contacts);
-
   return (
       <Wrapper>
         <Title>Ironcontacts</Title>
