@@ -64,6 +64,14 @@ export const FamousList = () => {
     setLista(sortPopuList);
   };
 
+  // Remove
+
+  const removeChar = index => {
+    const newLista = [...lista];
+    newLista.splice(index, 1);
+    setLista(newLista);
+  };
+
   return (
     <div className="table">
       <div className="buttons">
@@ -98,6 +106,7 @@ export const FamousList = () => {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -110,6 +119,15 @@ export const FamousList = () => {
                 </td>
                 <td>{person.name}</td>
                 <td>{person.popularity}</td>
+                <td>
+                  <button
+                    className="btn-remove"
+                    onClick={() => removeChar(i)}
+                    type="button"
+                  >
+                    {"Delete"}
+                  </button>
+                </td>
               </tr>
             );
           })}
