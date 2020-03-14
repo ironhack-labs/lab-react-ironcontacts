@@ -77,9 +77,18 @@ export const Ironcontacts = () => {
     e.preventDefault();
     let newContact = selectRandom(contacts);
     setLista([...lista, newContact]);
+    
   };
 
-  let newContact = selectRandom(contacts);
+  const sortbyName = () => {
+    const orderbyName = lista.sort((a, b) => a.name.localeCompare(b.name));
+    setLista([...orderbyName]);
+  }
+
+  const sortbyPopularity = () => {
+    const orderbyPolularity = lista.sort((a,b)=> b.popularity - a.popularity);
+    setLista([...orderbyPolularity]);
+  }
 
   return (
       <Wrapper>
@@ -93,6 +102,24 @@ export const Ironcontacts = () => {
           onClick={addRandomIron}
         >
           Add Random Contact
+        </a>
+        <a
+          id="sortbyName"
+          className="btn"
+          href="#"
+          title="sort by Name"
+          onClick={sortbyName}
+        >
+          sort by Name
+        </a>
+        <a
+          id="sortbyPopularity"
+          className="btn"
+          href="#"
+          title="sort by Popularity"
+          onClick={sortbyPopularity}
+        >
+          sort by Popularity
         </a></Button>
         <tbody>
           <tr>
