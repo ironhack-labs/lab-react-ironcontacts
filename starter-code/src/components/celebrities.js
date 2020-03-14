@@ -12,9 +12,19 @@ class Celebrities extends Component {
       contacts: contacts5
     }
 
+    clickHandler = () => {
+        this.setState({
+            contacts: contacts5.push(contacts[Math.round(Math.random() * 100)])
+        })
+        console.log("ENTRA")
+    }
+
     render() {
-        return(this.state.contacts.map(contact => {
-            return(<table>
+        return(
+            this.state.contacts.map(contact => {
+            return(
+            <>
+            <table>
                  <tr>
                     <td>
                         <img height="100" width="auto" src={contact.pictureUrl} />
@@ -22,7 +32,10 @@ class Celebrities extends Component {
                     <td>{contact.name}</td>
                     <td>{contact.popularity}</td>
                 </tr>
-            </table>)
+            </table>
+            
+            </>
+            )
         }))
     }
 }
