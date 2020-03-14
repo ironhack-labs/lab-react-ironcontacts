@@ -13,6 +13,7 @@ class App extends Component {
     return (
       <>
       <Header></Header>
+     
       <Celebrities></Celebrities>
       </>
     )
