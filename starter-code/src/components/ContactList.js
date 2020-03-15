@@ -9,6 +9,7 @@ const ContactTable = styled.table`
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: color-interpolation-filters;
+  margin-top: 30px;
 `;
 
 const Btn = styled.a`
@@ -72,6 +73,20 @@ export const List = () => {
   //     }
   //   };
 
+  const removeContact = (contact, i) => {
+    console.log(contact);
+    const confirmation = confirm(
+      `You are going to remove this contact: ${contact.name}`
+    );
+    if (confirmation == true) {
+      const upDatedList = [...list].filter(c => c !== contact);
+      console.log(upDatedList);
+      setList(upDatedList);
+    } else {
+      return;
+    }
+  };
+
   return (
     <div className="App-wrapper">
       <h1>Iron contacts</h1>
@@ -92,6 +107,7 @@ export const List = () => {
             <td>
               <h2>Popularity</h2>
             </td>
+            <td></td>
           </Header>
         </thead>
         <tbody>
@@ -101,7 +117,10 @@ export const List = () => {
                 <img src={contact.pictureUrl} alt={contact.name}></img>
               </td>
               <td>{contact.name}</td>
-              <td>{contact.popularity.toFixed(2)}</td>
+              <td>⭐ {contact.popularity.toFixed(2)}</td>
+              <td>
+                <Btn onClick={() => removeContact(contact, i)}>Remove</Btn>
+              </td>
             </Contact>
           ))}
         </tbody>
