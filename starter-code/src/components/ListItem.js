@@ -7,9 +7,16 @@ const ContactItem = styled.tr`
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  border-bottom: solid 1px #f2f2f2;
-  &:last-child {
-    border: 0px;
+  margin-bottom: 15px;
+  border-top: solid 1px #f2f2f2;
+  border-left: solid 1px #f2f2f2;
+  border-right: solid 1px #f2f2f2;
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
+
+  td {
+    width: 20%;
+    text-align: center;
   }
   img {
     height: 100px;
