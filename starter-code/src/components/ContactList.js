@@ -11,8 +11,8 @@ const ContactTable = styled.table`
   align-items: color-interpolation-filters;
 `;
 
-const Btn = styled.button`
-  display: block;
+const Btn = styled.a`
+  display: inline-block;
   color: #000000;
   background: #61dafb;
   border-radius: 5px;
@@ -20,6 +20,7 @@ const Btn = styled.button`
   font-size: 16px;
   outline: none;
   border: 0px;
+  margin-right: 15px;
   cursor: pointer;
   &:hover {
     transition: all 0.5s;
@@ -28,19 +29,34 @@ const Btn = styled.button`
   }
 `;
 
-const List = () => {
-  const originList = contacts.slice(0, 5);
-  const [list, setList] = useState(originList);
+export const List = () => {
+  const [list, setList] = useState(contacts.slice(0, 5));
 
-  const getRamdomContact = e => {
+  const addRamdomContact = e => {
+    e.preventDefault();
     const newContact = contacts[Math.floor(Math.random() * contacts.length)];
-    setList([...list, newContact]);
+    list.includes(newContact)
+      ? addRamdomContact()
+      : setList([...list, newContact]);
+  };
+  const sortByName = e => {
+    e.preventDefault();
+    const sortedList = [...list].sort((a, b) => a.name.localeCompare(b.name));
+    setList(sortedList);
+  };
+
+  const sortByPopularity = e => {
+    e.preventDefault();
+    const sortedList = [...list].sort((a, b) => a.popularity - b.popularity);
+    setList(sortedList);
   };
 
   return (
     <div className="App-wrapper">
       <h1>Iron contacts</h1>
-      <Btn onClick={getRamdomContact}>Add Random Contact</Btn>
+      <Btn onClick={addRamdomContact}>Add Random Contact</Btn>
+      <Btn onClick={sortByName}>Order By Name</Btn>
+      <Btn onClick={sortByPopularity}>Order By Popularity</Btn>
       <ContactTable>
         <thead>
           <Header>
@@ -70,5 +86,3 @@ const List = () => {
     </div>
   );
 };
-
-export default List;

@@ -32691,7 +32691,7 @@ module.exports = [{
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.List = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -32724,7 +32724,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  display: block;\n  color: #000000;\n  background: #61dafb;\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  outline: none;\n  border: 0px;\n  cursor: pointer;\n  &:hover {\n    transition: all 0.5s;\n    color: #61dafb;\n    background: #282c34;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n  color: #000000;\n  background: #61dafb;\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  outline: none;\n  border: 0px;\n  margin-right: 15px;\n  cursor: pointer;\n  &:hover {\n    transition: all 0.5s;\n    color: #61dafb;\n    background: #282c34;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -32747,27 +32747,51 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var ContactTable = _styledComponents.default.table(_templateObject());
 
-var Btn = _styledComponents.default.button(_templateObject2());
+var Btn = _styledComponents.default.a(_templateObject2());
 
 var List = function List() {
-  var originList = _contacts.default.slice(0, 5);
-
-  var _useState = (0, _react.useState)(originList),
+  var _useState = (0, _react.useState)(_contacts.default.slice(0, 5)),
       _useState2 = _slicedToArray(_useState, 2),
       list = _useState2[0],
       setList = _useState2[1];
 
-  var getRamdomContact = function getRamdomContact(e) {
+  var addRamdomContact = function addRamdomContact(e) {
+    e.preventDefault();
+
     var newContact = _contacts.default[Math.floor(Math.random() * _contacts.default.length)];
 
-    setList([].concat(_toConsumableArray(list), [newContact]));
+    list.includes(newContact) ? addRamdomContact() : setList([].concat(_toConsumableArray(list), [newContact]));
+  };
+
+  var sortByName = function sortByName(e) {
+    e.preventDefault();
+
+    var sortedList = _toConsumableArray(list).sort(function (a, b) {
+      return a.name.localeCompare(b.name);
+    });
+
+    setList(sortedList);
+  };
+
+  var sortByPopularity = function sortByPopularity(e) {
+    e.preventDefault();
+
+    var sortedList = _toConsumableArray(list).sort(function (a, b) {
+      return a.popularity - b.popularity;
+    });
+
+    setList(sortedList);
   };
 
   return _react.default.createElement("div", {
     className: "App-wrapper"
   }, _react.default.createElement("h1", null, "Iron contacts"), _react.default.createElement(Btn, {
-    onClick: getRamdomContact
-  }, "Add Random Contact"), _react.default.createElement(ContactTable, null, _react.default.createElement("thead", null, _react.default.createElement(_ListItem.default, null, _react.default.createElement("td", null, _react.default.createElement("h2", null, "Picture")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Name")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Popularity")))), _react.default.createElement("tbody", null, list.map(function (contact, i) {
+    onClick: addRamdomContact
+  }, "Add Random Contact"), _react.default.createElement(Btn, {
+    onClick: sortByName
+  }, "Order By Name"), _react.default.createElement(Btn, {
+    onClick: sortByPopularity
+  }, "Order By Popularity"), _react.default.createElement(ContactTable, null, _react.default.createElement("thead", null, _react.default.createElement(_ListItem.default, null, _react.default.createElement("td", null, _react.default.createElement("h2", null, "Picture")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Name")), _react.default.createElement("td", null, _react.default.createElement("h2", null, "Popularity")))), _react.default.createElement("tbody", null, list.map(function (contact, i) {
     return _react.default.createElement(_ListItem.default, {
       key: i
     }, _react.default.createElement("td", null, _react.default.createElement("img", {
@@ -32777,8 +32801,7 @@ var List = function List() {
   }))));
 };
 
-var _default = List;
-exports.default = _default;
+exports.List = List;
 },{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","./ListItem":"src/components/ListItem.js","../../src/contacts.json":"src/contacts.json"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
@@ -32790,12 +32813,12 @@ require("./App.css");
 
 var _Navbar = _interopRequireDefault(require("./components/Navbar"));
 
-var _ContactList = _interopRequireDefault(require("./components/ContactList"));
+var _ContactList = require("./components/ContactList");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Navbar.default, null), _react.default.createElement(_ContactList.default, null));
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Navbar.default, null), _react.default.createElement(_ContactList.List, null));
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32831,7 +32854,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49463" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52367" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
