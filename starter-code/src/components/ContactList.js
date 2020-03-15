@@ -74,13 +74,11 @@ export const List = () => {
   //   };
 
   const removeContact = (contact, i) => {
-    console.log(contact);
     const confirmation = confirm(
       `You are going to remove this contact: ${contact.name}`
     );
     if (confirmation == true) {
       const upDatedList = [...list].filter(c => c !== contact);
-      console.log(upDatedList);
       setList(upDatedList);
     } else {
       return;
