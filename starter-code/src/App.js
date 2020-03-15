@@ -4,15 +4,25 @@ import actors from "./contacts.json";
 import "./App.css";
 import Contacts from "./components/Contacts/Contacts";
 
-const copyActors = [...actors];
+const constActors = [...actors];
 
 class App extends Component {
   state = {
-    actors: [...copyActors].slice(0, 5)
+    constActors,
+    actors: [...constActors].slice(0, 5)
   };
 
   addRandomContact = (e) => {
-    console.log(e);
+    const { actors, constActors } = this.state;
+    const currentActorsIds = [...actors].map(actor => actor.id);
+    const restActors = [...constActors].filter(actor => !currentActorsIds.includes(actor.id));
+    let randomActor = restActors[Math.floor(Math.random() * restActors.length)];
+    console.log(randomActor);
+    const copyActors = [...actors];
+    copyActors.push(randomActor);
+    this.setState({
+      actors: copyActors
+    })
   }
 
   render() {
