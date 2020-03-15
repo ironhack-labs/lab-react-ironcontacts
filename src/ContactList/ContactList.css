@@ -1,0 +1,10 @@
+div > p {
+    margin: 30px;
+}
+
+.list-titles {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
