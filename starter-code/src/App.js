@@ -18,10 +18,25 @@ class App extends Component {
     const restActors = [...constActors].filter(actor => !currentActorsIds.includes(actor.id));
     let randomActor = restActors[Math.floor(Math.random() * restActors.length)];
     console.log(randomActor);
-    const copyActors = [...actors];
-    copyActors.push(randomActor);
+    const copyActors = [...actors, randomActor];
     this.setState({
       actors: copyActors
+    })
+  }
+
+  sortByName = (e) => {
+    const { actors } = this.state;
+    const sortedActors = [...actors].sort((a,b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
+    this.setState({
+      actors: sortedActors
+    })
+  }
+
+  sortByPopularity = (e) => {
+    const { actors } = this.state;
+    const sortedActors = [...actors].sort((a,b) => a.popularity > b.popularity ? 1 : a.popularity < b.popularity ? -1 : 0);
+    this.setState({
+      actors: sortedActors
     })
   }
 
@@ -29,7 +44,7 @@ class App extends Component {
     const { actors } = this.state;
     return (
       <div className="App">
-        <Contacts actors={actors} addRandomContact={this.addRandomContact}/>
+        <Contacts actors={actors} addRandomContact={this.addRandomContact} sortByName={this.sortByName} sortByPopularity={this.sortByPopularity}/>
       </div>
     );
   }

@@ -1,11 +1,13 @@
 import React from "react";
 import './Contacts.css';
 
-const Contacts = ({ actors, addRandomContact }) => {
+const Contacts = ({ actors, addRandomContact, sortByName, sortByPopularity }) => {
   return (
     <div className="">
         <h1>IronContacts</h1>
           <button onClick={addRandomContact}>Add Random Contact</button>
+          <button onClick={sortByName}>Sort By Name</button>
+          <button onClick={sortByPopularity}>Sort By Popularity</button>
       <ul>
           <span>Picture</span>
           <span>Name</span>
