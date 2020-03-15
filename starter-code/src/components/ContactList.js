@@ -35,29 +35,73 @@ export const List = () => {
 
   //   const [sorted, setSorted] = useState({ sorted: "ascendet" });
 
+  //   const showSpinner = () => {
+  //     const body = document.getElementsByTagName("body"),
+  //     const spinner = document.getElementById("spinner"),
+  //       show = function() {
+  //         spinner.style.display = "block";
+  //         body.style.overflow = "hidden";
+  //         setTimeout(hide, 400);
+  //       },
+  //       hide = function() {
+  //         spinner.style.display = "none";
+  //         body.style.overflow = "visible";
+  //       };
+  //     show();
+  //   };
+
+  const showSpinner = msg => {
+    const body = document.getElementsByTagName("BODY")[0];
+    const spinner = document.getElementById("spinner");
+    const text = document.getElementById("spinner-message");
+    console.log(msg);
+    console.log(text);
+    spinner.style.display = "block";
+    text.innerHTML = msg;
+    body.style.overflow = "hidden";
+    setTimeout(hideSpinner, 1000);
+  };
+
+  const hideSpinner = () => {
+    const body = document.getElementsByTagName("BODY")[0];
+    const spinner = document.getElementById("spinner");
+    spinner.style.display = "none";
+    body.style.overflow = "visible";
+  };
+
   const addRamdomContact = e => {
     e.preventDefault();
     const newContact = contacts[Math.floor(Math.random() * contacts.length)];
     list.includes(newContact)
       ? addRamdomContact()
       : setList([...list, newContact]);
+    const message = `Adding contact: ${newContact.name}`;
+    showSpinner(message);
   };
+
   const sortByName = e => {
     e.preventDefault();
     const sortedList = [...list].sort((a, b) => a.name.localeCompare(b.name));
     setList(sortedList);
+    showSpinner();
+    const message = `Sorting Alphabetically`;
+    showSpinner(message);
   };
 
   const sortByPopularityAsc = e => {
     e.preventDefault();
     const sortedList = [...list].sort((a, b) => a.popularity - b.popularity);
     setList(sortedList);
+    const message = `Sorting by: less popular`;
+    showSpinner(message);
   };
 
   const sortByPopularityDes = e => {
     e.preventDefault();
     const sortedList = [...list].sort((a, b) => b.popularity - a.popularity);
     setList(sortedList);
+    const message = `Sorting by: most popular`;
+    showSpinner(message);
   };
 
   //   const sortByPopularity = () => {
@@ -89,7 +133,7 @@ export const List = () => {
     <div className="App-wrapper">
       <h1>Iron contacts</h1>
       <Btn onClick={addRamdomContact}>Add Random Contact</Btn>
-      <Btn onClick={sortByName}>Order By Name</Btn>
+      <Btn onClick={sortByName}>Sort By Name</Btn>
       {/* <Btn onClick={sortByPopularity}>Sort By Popularity</Btn> */}
       <Btn onClick={sortByPopularityAsc}>Sort By Popularity ▲</Btn>
       <Btn onClick={sortByPopularityDes}>Sort By Popularity ▼</Btn>

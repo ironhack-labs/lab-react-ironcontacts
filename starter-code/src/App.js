@@ -6,6 +6,12 @@ import { List } from "./components/ContactList";
 
 const App = () => (
   <>
+    <div id="spinner" className="Spinner-container">
+      <div className="Spinner-content">
+        <p id="spinner-message" className="Spinner-message"></p>
+        <div className="Spinner"></div>
+      </div>
+    </div>
     <Navbar />
     <List />
   </>

@@ -8,12 +8,9 @@ const ContactItem = styled.tr`
   align-items: center;
   padding: 15px;
   margin-bottom: 15px;
-  border-top: solid 1px #f2f2f2;
-  border-left: solid 1px #f2f2f2;
-  border-right: solid 1px #f2f2f2;
+  border-top: 1px 1px 0 1px solid 1px #f2f2f2;
   -webkit-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
-
   td {
     width: 20%;
     text-align: center;
