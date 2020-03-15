@@ -11,7 +11,7 @@ const EachUser = ({name, pictureUrl, popularity, id, stars, deleteUser}) => {
                 <h4>{Math.round(popularity)}</h4>
                 <h4> <Rating rate={stars}/> </h4>
             </div>
-            <button onClick={deleteUser} className='delete-btn' id={id}>Remove</button>
+            <button onClick={()=> deleteUser({id})} className='delete-btn' id={id}>Remove</button>
         </div>
     )
 }

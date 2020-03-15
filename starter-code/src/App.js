@@ -34,10 +34,10 @@ class App extends Component {
 
     this.setState({
       contacts: [...contacts, randomUser ]
-    })
+      //scroll bottom
+    },()=>  this.scrollH(false))
+    
 
-    //scroll bottom
-    this.scrollH(false)
   }
 //=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 scrollH(condition){
@@ -48,23 +48,38 @@ scrollH(condition){
 }
 //=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 sortByName = ()=>{
-  const {contacts} = this.state
-  const sortedContacts = [...contacts].sort((a,b)=> a.name > b.name ? 1: a.name < b.name ? -1 : 0)
-  this.setState({ contacts: sortedContacts})
+  // //1.
+  // const {contacts} = this.state
+  // const sortedContacts = [...contacts].sort((a,b)=> a.name > b.name ? 1: a.name < b.name ? -1 : 0)
+  // this.setState({ contacts: sortedContacts})
+  // //2.
+  this.setState(prevState => ({
+    contacts: prevState.contacts.sort((a,b)=> a.name > b.name ? 1: a.name < b.name ? -1 : 0)
+  }))
 }
 //=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 sortByPopularity = ()=>{
-  const {contacts} = this.state
-  const sortedContacts = [...contacts].sort((a,b)=> a.popularity < b.popularity ? 1: a.popularity > b.popularity ? -1 : 0)
-  this.setState({ contacts: sortedContacts})
+  // //1.
+  // const {contacts} = this.state
+  // const sortedContacts = [...contacts].sort((a,b)=> a.popularity < b.popularity ? 1: a.popularity > b.popularity ? -1 : 0)
+  // this.setState({ contacts: sortedContacts})
+  // //2.
+  this.setState(prevState => ({
+    contacts: prevState.contacts.sort((a,b)=> a.popularity < b.popularity ? 1: a.popularity > b.popularity ? -1 : 0)
+  }))
 }
 //=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-deleteUser = (e) =>{
-  const {id} = e.target
-  const {contacts} = this.state
-  const filteredContacts = [...contacts].filter(user => user.id !== id)
-
-  this.setState({ contacts: filteredContacts})
+deleteUser = (actor) =>{
+  console.log("Output for: App -> deleteUser -> actor", actor)
+  // //1.
+  // const {id} = e.target
+  // const {contacts} = this.state
+  // const filteredContacts = [...contacts].filter(user => user.id !== id)
+  // this.setState({ contacts: filteredContacts})
+  // //2.
+  this.setState(prevState => ({
+    contacts: prevState.contacts.filter(user => user.id !== actor.id)
+  }))
 
 }
 //=-=-=-=-=--==-=-=-==-=-=-=-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -76,6 +91,9 @@ deleteUser = (e) =>{
         addNewContact={this.addNewContact.bind(this)}
         sortByName={this.sortByName.bind(this)}
         sortByPopularity={this.sortByPopularity.bind(this)}
+        //1. deleteUser={this.deleteUser.bind(this)}
+        //2. deleteUser={userId => this.deleteUser(userId) }
+        //3. Way -->
         deleteUser={this.deleteUser.bind(this)}
         />
       </div>
