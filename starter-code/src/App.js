@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ReactDOM from "react-dom";
+import { Contacts } from "./contacts";
 
-const App = () => <div></div>;
+const App = () => (
+  <div>
+    <Contacts />
+  </div>
+);
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
