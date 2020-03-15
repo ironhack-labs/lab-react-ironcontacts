@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import ReactDOM from "react-dom";
-import { Contacts } from "./contacts";
+import { Contacts } from "./components/Contacts";
 
 const App = () => (
   <div>

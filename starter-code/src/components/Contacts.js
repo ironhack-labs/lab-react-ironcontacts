@@ -3,7 +3,15 @@ import contacts from "/src/contacts.json";
 
 const initList = contacts.slice(0, 5);
 
-export const contactsList = () => {
+export const Contacts = () => {
   const [contacts, setContacts] = useState(initList);
-  <div>hi </div>;
+
+  return (
+    <div>
+      <p>Picture</p>
+      <p>Name</p>
+      <p>Popularity</p>
+      <p>Action</p>
+    </div>
+  );
 };

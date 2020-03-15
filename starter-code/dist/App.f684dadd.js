@@ -29380,7 +29380,33 @@ module.exports = [{
   "popularity": 6.914606,
   "id": "58624810-eebd-447a-8320-40bee9ab4a05"
 }];
-},{}],"src/App.js":[function(require,module,exports) {
+},{}],"src/components/Contacts.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Contacts = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _contacts = _interopRequireDefault(require("/src/contacts.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+const initList = _contacts.default.slice(0, 5);
+
+const Contacts = () => {
+  const [contacts, setContacts] = (0, _react.useState)(initList);
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Picture"), _react.default.createElement("p", null, "Name"), _react.default.createElement("p", null, "Popularity"), _react.default.createElement("p", null, "Action"));
+};
+
+exports.Contacts = Contacts;
+},{"react":"node_modules/react/index.js","/src/contacts.json":"src/contacts.json"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29394,7 +29420,7 @@ require("./App.css");
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _contacts = require("./contacts");
+var _Contacts = require("./components/Contacts");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29402,7 +29428,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const App = () => _react.default.createElement("div", null, _react.default.createElement(_contacts.Contacts, null));
+const App = () => _react.default.createElement("div", null, _react.default.createElement(_Contacts.Contacts, null));
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -29411,7 +29437,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./App.css":"src/App.css","react-dom":"node_modules/react-dom/index.js","./contacts":"src/contacts.json"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./App.css":"src/App.css","react-dom":"node_modules/react-dom/index.js","./components/Contacts":"src/components/Contacts.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29439,7 +29465,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46675" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45607" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
