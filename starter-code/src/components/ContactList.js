@@ -32,6 +32,8 @@ const Btn = styled.a`
 export const List = () => {
   const [list, setList] = useState(contacts.slice(0, 5));
 
+  //   const [sorted, setSorted] = useState({ sorted: "ascendet" });
+
   const addRamdomContact = e => {
     e.preventDefault();
     const newContact = contacts[Math.floor(Math.random() * contacts.length)];
@@ -45,18 +47,39 @@ export const List = () => {
     setList(sortedList);
   };
 
-  const sortByPopularity = e => {
+  const sortByPopularityAsc = e => {
     e.preventDefault();
     const sortedList = [...list].sort((a, b) => a.popularity - b.popularity);
     setList(sortedList);
   };
+
+  const sortByPopularityDes = e => {
+    e.preventDefault();
+    const sortedList = [...list].sort((a, b) => b.popularity - a.popularity);
+    setList(sortedList);
+  };
+
+  //   const sortByPopularity = () => {
+  //     const currentSortOrder = [...sorted];
+  //     if (sorted === { sorted: "ascendet" }) {
+  //       sortByPopularityAsc();
+  //       currentSortOrder = { sorted: "ascendet" };
+  //       setSort(currentSortOrder);
+  //     } else {
+  //       currentSortOrder = { sorted: "descendent" };
+  //       sortByPopularityDes();
+  //       setSort(currentSortOrder);
+  //     }
+  //   };
 
   return (
     <div className="App-wrapper">
       <h1>Iron contacts</h1>
       <Btn onClick={addRamdomContact}>Add Random Contact</Btn>
       <Btn onClick={sortByName}>Order By Name</Btn>
-      <Btn onClick={sortByPopularity}>Order By Popularity</Btn>
+      {/* <Btn onClick={sortByPopularity}>Sort By Popularity</Btn> */}
+      <Btn onClick={sortByPopularityAsc}>Sort By Popularity ▲</Btn>
+      <Btn onClick={sortByPopularityDes}>Sort By Popularity ▼</Btn>
       <ContactTable>
         <thead>
           <Header>
