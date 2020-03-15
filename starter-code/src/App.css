@@ -1,8 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
+  z-index: 2;
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -22,7 +29,75 @@
   font-size: large;
 }
 
+.App-wrapper {
+  max-width: 60%;
+  margin: 50px auto;
+}
+
+.Spinner-container {
+  top: 0;
+  left: 0;
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 70, 128, 0.7);
+  position: absolute;
+  z-index: 10;
+}
+.Spinner-content {
+  background: #61dafb;
+  z-index: 20;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  margin-left: -175px;
+  top: 40%;
+  width: 350px;
+}
+
+.Spinner-message {
+  color: #282c34;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 20;
+  position: relative;
+  padding: 40px;
+}
+
+.Spinner {
+  z-index: 20;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
