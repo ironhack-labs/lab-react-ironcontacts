@@ -40,11 +40,19 @@ class App extends Component {
     })
   }
 
+  deleteContact = (e) => {
+    const { actors } = this.state;
+    const filteredActors = [...actors].filter(actor => actor.id !== e.target.id);
+    this.setState({
+      actors: filteredActors
+    })
+  }
+
   render() {
     const { actors } = this.state;
     return (
       <div className="App">
-        <Contacts actors={actors} addRandomContact={this.addRandomContact} sortByName={this.sortByName} sortByPopularity={this.sortByPopularity}/>
+        <Contacts actors={actors} addRandomContact={this.addRandomContact} sortByName={this.sortByName} sortByPopularity={this.sortByPopularity} deleteContact={this.deleteContact}/>
       </div>
     );
   }
