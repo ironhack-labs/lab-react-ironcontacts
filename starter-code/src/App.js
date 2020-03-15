@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+// eslint-disable-next-line
+import actors from "./contacts.json";
+import "./App.css";
+import Contacts from "./components/Contacts/Contacts";
+
+const copyActors = [...actors];
 
 class App extends Component {
+  state = {
+    actors: [...copyActors].slice(0, 5)
+  };
+
+  addRandomContact = (e) => {
+    console.log(e);
+  }
+
   render() {
+    const { actors } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Contacts actors={actors} addRandomContact={this.addRandomContact}/>
       </div>
     );
   }

@@ -1,0 +1,40 @@
+.contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts li img {
+    width: 150px;
+    height: 150px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+ul {
+    list-style: none;
+}
+
+span {
+    width: 200px;
+    padding: 0 60px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+li {
+    width: 150px;
+    padding: 0 40px;
+    font-size: 28px;
+}
+
+button {
+    background-color: blue;
+    padding: 20px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-transform: capitalize;
+}
