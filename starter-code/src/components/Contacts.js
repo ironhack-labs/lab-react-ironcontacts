@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import contacts from "/src/contacts.json";
+import Contacts from "/src/contacts.json";
 import styled from "styled-components";
-
-const initList = contacts.slice(0, 5);
 
 const Tablestyle = styled.div`
   display: flex;
@@ -16,7 +14,20 @@ const Tablestyle = styled.div`
   }
 `;
 
-const Contact = ({ picture, name, popularity }) => {
+const Buttonrandom = styled.button`
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+`;
+
+const Celebrity = ({ picture, name, popularity }) => {
   return (
     <tr>
       <th>
@@ -29,38 +40,53 @@ const Contact = ({ picture, name, popularity }) => {
   );
 };
 
-export const Contacts = () => {
-  const [contacts, setContacts] = useState(initList);
+export const Celebrities = () => {
+  const [contacts, setContacts] = useState(Contacts.slice(0, 5));
+
+  const randomButton = () => {
+    const random = Contacts[Math.floor(Math.random() * Contacts.length)];
+
+    const ReloadList = [...Contacts];
+    contacts.includes(random) ? randomButton() : ReloadList.push(random);
+
+    ReloadList.push(random);
+    setContacts(ReloadList);
+  };
 
   return (
-    <Tablestyle>
-      <table>
-        <tbody>
-          <tr>
-            <th>
-              <h3>Picture</h3>
-            </th>
-            <th>
-              <h3>Name</h3>
-            </th>
-            <th>
-              <h3>Popularity</h3>
-            </th>
-            <th>
-              <h3>Action</h3>
-            </th>
-          </tr>
+    <div>
+      <div>
+        <Buttonrandom onClick={randomButton}>Add Random Contact</Buttonrandom>
+      </div>
 
-          {contacts.map((e, i) => (
-            <Contact
-              picture={e.pictureUrl}
-              name={e.name}
-              popularity={e.popularity}
-              key={i}
-            />
-          ))}
-        </tbody>
-      </table>
-    </Tablestyle>
+      <Tablestyle>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                <h3>Picture</h3>
+              </th>
+              <th>
+                <h3>Name</h3>
+              </th>
+              <th>
+                <h3>Popularity</h3>
+              </th>
+              <th>
+                <h3>Action</h3>
+              </th>
+            </tr>
+            {contacts.map((e, i) => (
+              <Celebrity
+                picture={e.pictureUrl}
+                name={e.name}
+                popularity={e.popularity}
+                key={i}
+              />
+            ))}
+          </tbody>
+        </table>
+      </Tablestyle>
+    </div>
   );
 };

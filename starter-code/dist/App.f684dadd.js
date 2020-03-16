@@ -32624,7 +32624,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Contacts = void 0;
+exports.Celebrities = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -32638,8 +32638,6 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const initList = _contacts.default.slice(0, 5);
-
 const Tablestyle = _styledComponents.default.div`
   display: flex;
   justify-content: center;
@@ -32651,8 +32649,20 @@ const Tablestyle = _styledComponents.default.div`
     width: 5vw;
   }
 `;
+const Buttonrandom = _styledComponents.default.button`
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+`;
 
-const Contact = ({
+const Celebrity = ({
   picture,
   name,
   popularity
@@ -32663,17 +32673,29 @@ const Contact = ({
   })), _react.default.createElement("th", null, name), _react.default.createElement("th", null, popularity.toFixed(2)), _react.default.createElement("th", null));
 };
 
-const Contacts = () => {
-  const [contacts, setContacts] = (0, _react.useState)(initList);
-  return _react.default.createElement(Tablestyle, null, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("h3", null, "Picture")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Name")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Popularity")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Action"))), contacts.map((e, i) => _react.default.createElement(Contact, {
+const Celebrities = () => {
+  const [contacts, setContacts] = (0, _react.useState)(_contacts.default.slice(0, 5));
+
+  const randomButton = () => {
+    const random = _contacts.default[Math.floor(Math.random() * _contacts.default.length)];
+
+    const ReloadList = [..._contacts.default];
+    contacts.includes(random) ? randomButton() : ReloadList.push(random);
+    ReloadList.push(random);
+    setContacts(ReloadList);
+  };
+
+  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(Buttonrandom, {
+    onClick: randomButton
+  }, "Add Random Contact")), _react.default.createElement(Tablestyle, null, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("h3", null, "Picture")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Name")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Popularity")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Action"))), contacts.map((e, i) => _react.default.createElement(Celebrity, {
     picture: e.pictureUrl,
     name: e.name,
     popularity: e.popularity,
     key: i
-  })))));
+  }))))));
 };
 
-exports.Contacts = Contacts;
+exports.Celebrities = Celebrities;
 },{"react":"node_modules/react/index.js","/src/contacts.json":"src/contacts.json","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/Title.js":[function(require,module,exports) {
 "use strict";
 
@@ -32715,7 +32737,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const App = () => _react.default.createElement("div", null, _react.default.createElement(_Title.Title, null), _react.default.createElement(_Contacts.Contacts, null));
+const App = () => _react.default.createElement("div", null, _react.default.createElement(_Title.Title, null), _react.default.createElement(_Contacts.Celebrities, null));
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -32752,7 +32774,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34181" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33473" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
