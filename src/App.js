@@ -22,11 +22,35 @@ class App extends Component {
     });
   };
 
+  sortByName = () => {
+    const contactsSortedByName = [...this.state.contacts];
+    contactsSortedByName.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    this.setState({
+      contacts: contactsSortedByName
+    });
+  }
+
+  sortByPopularity = () => {
+    const contactsSortedByPopularity = [...this.state.contacts];
+    contactsSortedByPopularity.sort((a, b) => (a.popularity > b.popularity) ? 1 : -1);
+    this.setState({
+      contacts: contactsSortedByPopularity
+    });
+  }
+
+  deleteContact = contactToBeDeleted => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(el => el.id !== contactToBeDeleted.id)
+    }));
+  };
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={() => this.addRandomActor()}>Add a random contact</button>
+        <button onClick={() => this.sortByName()}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
         <div className="list-titles">
             <table>
               <thead>
@@ -37,13 +61,15 @@ class App extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.contacts.map((oneActor, index) => {
+                {this.state.contacts.map((oneActor) => {
+                  const {name, popularity, pictureUrl, id} = oneActor;
                   return (
-                <tr key={index}>
-                  <td><img src={oneActor.pictureUrl} alt="actors" /></td>
-                  <td><p>{oneActor.name}</p></td>
-                  <td><p>{oneActor.popularity}</p></td>
-                </tr>
+                    <tr key={id}>
+                      <td><img src={pictureUrl} alt="actors" /></td>
+                      <td><p>{name}</p></td>
+                      <td><p>{popularity.toFixed(2)}</p></td>
+                      <td><button onClick={() => this.deleteContact(oneActor)}>Delete</button></td>
+                    </tr>
                 )})}
               </tbody>
             </table>
