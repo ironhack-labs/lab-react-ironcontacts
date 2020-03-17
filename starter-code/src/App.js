@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // eslint-disable-next-line
 import actors from "./contacts.json";
 import "./App.css";
-import Contacts from "./components/Contacts/Contacts";
+import Contacts from "./components/contacts";
 
 const constActors = [...actors];
 
