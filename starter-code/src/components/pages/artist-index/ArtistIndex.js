@@ -14,18 +14,27 @@ class ArtistIndex extends Component {
   }
 
   handleClick = () => {
-
     let arrayToGetRandom = this.arrayWithout5.removing;
     let randomArtist = arrayToGetRandom[Math.floor(Math.random() * arrayToGetRandom.length)];
     let index = arrayToGetRandom.indexOf(randomArtist)
-    let newArray = arrayToGetRandom.splice(index, 1)
+    arrayToGetRandom.splice(index, 1)
 
-    this.arrayWithout5.removing = arrayToGetRandom
+    this.arrayWithout5.removing = arrayToGetRandom //Array with random artist removed
     //Añade randomArtist a Array inicial
     this.initalState.push(randomArtist)  //El estado inical se ve modifacdo por lo que 
     //console.log("This is add", add)
     this.setState({ final: this.setState })
     //console.log("3. this is last finalstate", this.setState)
+  }
+
+  sortByNameA = () => {
+    this.finalState.final.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    this.setState({ final: this.setState })
+  }
+
+  sortByPopularity = () => {
+    this.finalState.final.sort((a, b) => (a.popularity < b.popularity) ? 1 : -1)
+    this.setState({ final: this.setState })
   }
 
   render() {
@@ -37,6 +46,12 @@ class ArtistIndex extends Component {
       <Container>
         {<Button onClick={this.handleClick} variant="secondary" size="sm" active>
           Add Random Artist
+         </Button>}
+        {<Button onClick={this.sortByNameA} variant="secondary" size="sm" active>
+          Sort by ABC
+         </Button>}
+        {<Button onClick={this.sortByPopularity} variant="secondary" size="sm" active>
+          Sort by popularity
          </Button>}
 
         <Table >
