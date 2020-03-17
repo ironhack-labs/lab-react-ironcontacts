@@ -27,7 +27,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Celebrity = ({ picture, name, popularity }) => {
+const Celebrity = ({ picture, name, popularity, index, deleteFunction }) => {
   return (
     <tr>
       <th>
@@ -35,7 +35,7 @@ const Celebrity = ({ picture, name, popularity }) => {
       </th>
       <th>{name}</th>
       <th>{popularity.toFixed(2)}</th>
-      <th></th>
+      <button onClick={() => deleteFunction(index)}>Delete</button>
     </tr>
   );
 };
@@ -75,7 +75,7 @@ export const Celebrities = () => {
   const Delete = index => {
     const newList = [...contactsList];
     newList.splice(index, 1);
-    setList(newList);
+    setContacts(newList);
   };
 
   return (
@@ -109,6 +109,7 @@ export const Celebrities = () => {
                 name={e.name}
                 popularity={e.popularity}
                 key={i}
+                deleteFunction={Delete}
               />
             ))}
           </tbody>

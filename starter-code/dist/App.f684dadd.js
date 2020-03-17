@@ -32665,12 +32665,16 @@ const Button = _styledComponents.default.button`
 const Celebrity = ({
   picture,
   name,
-  popularity
+  popularity,
+  index,
+  deleteFunction
 }) => {
   return _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("img", {
     src: picture,
     alt: name
-  })), _react.default.createElement("th", null, name), _react.default.createElement("th", null, popularity.toFixed(2)), _react.default.createElement("th", null));
+  })), _react.default.createElement("th", null, name), _react.default.createElement("th", null, popularity.toFixed(2)), _react.default.createElement("button", {
+    onClick: () => deleteFunction(index)
+  }, "Delete"));
 };
 
 const Celebrities = () => {
@@ -32703,7 +32707,7 @@ const Celebrities = () => {
   const Delete = index => {
     const newList = [...contactsList];
     newList.splice(index, 1);
-    setList(newList);
+    setContacts(newList);
   };
 
   return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(Button, {
@@ -32716,7 +32720,8 @@ const Celebrities = () => {
     picture: e.pictureUrl,
     name: e.name,
     popularity: e.popularity,
-    key: i
+    key: i,
+    deleteFunction: Delete
   }))))));
 };
 
