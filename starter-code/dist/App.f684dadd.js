@@ -32649,7 +32649,7 @@ const Tablestyle = _styledComponents.default.div`
     width: 5vw;
   }
 `;
-const Buttonrandom = _styledComponents.default.button`
+const Button = _styledComponents.default.button`
   background-color: #4caf50;
   border: none;
   color: white;
@@ -32690,9 +32690,29 @@ const Celebrities = () => {
     setContacts(copyContacts);
   };
 
-  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(Buttonrandom, {
+  const Sortername = () => {
+    const sortedList = [...contactsList].sort((a, b) => a.name.localeCompare(b.name));
+    setContacts(sortedList);
+  };
+
+  const Sorterpopularity = () => {
+    const newList = [...contactsList.sort((a, b) => b.popularity - a.popularity)];
+    setContacts(newList);
+  };
+
+  const Delete = index => {
+    const newList = [...contactsList];
+    newList.splice(index, 1);
+    setList(newList);
+  };
+
+  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(Button, {
     onClick: addRandom
-  }, "Add Random Contact")), _react.default.createElement(Tablestyle, null, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("h3", null, "Picture")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Name")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Popularity")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Action"))), contactsList.map((e, i) => _react.default.createElement(Celebrity, {
+  }, "Add Random Contact"), _react.default.createElement(Button, {
+    onClick: Sortername
+  }, "Sort by name"), _react.default.createElement(Button, {
+    onClick: Sorterpopularity
+  }, "Sort by popularity")), _react.default.createElement(Tablestyle, null, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("h3", null, "Picture")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Name")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Popularity")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Action"))), contactsList.map((e, i) => _react.default.createElement(Celebrity, {
     picture: e.pictureUrl,
     name: e.name,
     popularity: e.popularity,

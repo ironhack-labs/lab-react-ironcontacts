@@ -14,7 +14,7 @@ const Tablestyle = styled.div`
   }
 `;
 
-const Buttonrandom = styled.button`
+const Button = styled.button`
   background-color: #4caf50;
   border: none;
   color: white;
@@ -57,10 +57,33 @@ export const Celebrities = () => {
     setContacts(copyContacts);
   };
 
+  const Sortername = () => {
+    const sortedList = [...contactsList].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setContacts(sortedList);
+  };
+
+  const Sorterpopularity = () => {
+    const newList = [
+      ...contactsList.sort((a, b) => b.popularity - a.popularity)
+    ];
+
+    setContacts(newList);
+  };
+
+  const Delete = index => {
+    const newList = [...contactsList];
+    newList.splice(index, 1);
+    setList(newList);
+  };
+
   return (
     <div>
       <div>
-        <Buttonrandom onClick={addRandom}>Add Random Contact</Buttonrandom>
+        <Button onClick={addRandom}>Add Random Contact</Button>
+        <Button onClick={Sortername}>Sort by name</Button>
+        <Button onClick={Sorterpopularity}>Sort by popularity</Button>
       </div>
 
       <Tablestyle>
