@@ -32674,20 +32674,25 @@ const Celebrity = ({
 };
 
 const Celebrities = () => {
-  const [contacts, setContacts] = (0, _react.useState)(_contacts.default.slice(0, 5));
+  const [contactsList, setContacts] = (0, _react.useState)(_contacts.default.slice(0, 5));
 
-  const randomButton = () => {
-    const random = _contacts.default[Math.floor(Math.random() * _contacts.default.length)];
+  const randomButton = () => _contacts.default[Math.floor(Math.random() * _contacts.default.length)];
 
-    const ReloadList = [..._contacts.default];
-    contacts.includes(random) ? randomButton() : ReloadList.push(random);
-    ReloadList.push(random);
-    setContacts(ReloadList);
+  const addRandom = () => {
+    const copyContacts = [...contactsList];
+    const newContacts = randomButton();
+
+    while (contactsList.includes(newContacts)) {
+      newContacts = randomButton();
+    }
+
+    copyContacts.push(newContacts);
+    setContacts(copyContacts);
   };
 
   return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement(Buttonrandom, {
-    onClick: randomButton
-  }, "Add Random Contact")), _react.default.createElement(Tablestyle, null, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("h3", null, "Picture")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Name")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Popularity")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Action"))), contacts.map((e, i) => _react.default.createElement(Celebrity, {
+    onClick: addRandom
+  }, "Add Random Contact")), _react.default.createElement(Tablestyle, null, _react.default.createElement("table", null, _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, _react.default.createElement("h3", null, "Picture")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Name")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Popularity")), _react.default.createElement("th", null, _react.default.createElement("h3", null, "Action"))), contactsList.map((e, i) => _react.default.createElement(Celebrity, {
     picture: e.pictureUrl,
     name: e.name,
     popularity: e.popularity,
@@ -32774,7 +32779,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33473" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41455" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

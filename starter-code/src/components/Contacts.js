@@ -41,22 +41,26 @@ const Celebrity = ({ picture, name, popularity }) => {
 };
 
 export const Celebrities = () => {
-  const [contacts, setContacts] = useState(Contacts.slice(0, 5));
+  const [contactsList, setContacts] = useState(Contacts.slice(0, 5));
 
-  const randomButton = () => {
-    const random = Contacts[Math.floor(Math.random() * Contacts.length)];
+  const randomButton = () =>
+    Contacts[Math.floor(Math.random() * Contacts.length)];
 
-    const ReloadList = [...Contacts];
-    contacts.includes(random) ? randomButton() : ReloadList.push(random);
+  const addRandom = () => {
+    const copyContacts = [...contactsList];
+    const newContacts = randomButton();
 
-    ReloadList.push(random);
-    setContacts(ReloadList);
+    while (contactsList.includes(newContacts)) {
+      newContacts = randomButton();
+    }
+    copyContacts.push(newContacts);
+    setContacts(copyContacts);
   };
 
   return (
     <div>
       <div>
-        <Buttonrandom onClick={randomButton}>Add Random Contact</Buttonrandom>
+        <Buttonrandom onClick={addRandom}>Add Random Contact</Buttonrandom>
       </div>
 
       <Tablestyle>
@@ -76,7 +80,7 @@ export const Celebrities = () => {
                 <h3>Action</h3>
               </th>
             </tr>
-            {contacts.map((e, i) => (
+            {contactsList.map((e, i) => (
               <Celebrity
                 picture={e.pictureUrl}
                 name={e.name}
