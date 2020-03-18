@@ -19,15 +19,15 @@ class ArtistIndex extends Component {
     let index = arrayToGetRandom.indexOf(randomArtist)
     arrayToGetRandom.splice(index, 1)
 
-    this.arrayWithout5.removing = arrayToGetRandom //Array with random artist removed
+    //Array with random artist removed  
+    this.arrayWithout5.removing = arrayToGetRandom
     //Añade randomArtist a Array inicial
-    this.initalState.push(randomArtist)  //El estado inical se ve modifacdo por lo que 
-    //console.log("This is add", add)
+    this.initalState.push(randomArtist)
     this.setState({ final: this.setState })
-    //console.log("3. this is last finalstate", this.setState)
+
   }
 
-  sortByNameA = () => {
+  sortByName = () => {
     this.finalState.final.sort((a, b) => (a.name > b.name) ? 1 : -1)
     this.setState({ final: this.setState })
   }
@@ -35,6 +35,15 @@ class ArtistIndex extends Component {
   sortByPopularity = () => {
     this.finalState.final.sort((a, b) => (a.popularity < b.popularity) ? 1 : -1)
     this.setState({ final: this.setState })
+  }
+
+  delete = (id) => {
+    let notDeleted = this.finalState.final.filter(remove => remove.id !== id)
+
+    //Reemplazamos array finalState con el nuevo para actualizar el estado
+    this.finalState.final.length = 0
+    this.finalState.final.push.apply(this.finalState.final, notDeleted)
+    this.setState({ final: notDeleted })
   }
 
   render() {
@@ -47,13 +56,12 @@ class ArtistIndex extends Component {
         {<Button onClick={this.handleClick} variant="secondary" size="sm" active>
           Add Random Artist
          </Button>}
-        {<Button onClick={this.sortByNameA} variant="secondary" size="sm" active>
+        {<Button onClick={this.sortByName} variant="secondary" size="sm" active>
           Sort by ABC
          </Button>}
         {<Button onClick={this.sortByPopularity} variant="secondary" size="sm" active>
           Sort by popularity
          </Button>}
-
         <Table >
           <tbody>
             <tr>
@@ -67,7 +75,7 @@ class ArtistIndex extends Component {
                 <td> <img width="70" height="100" src={artist.pictureUrl} alt={artist.name} /> </td>
                 <td> <p>{artist.name}</p> </td>
                 <td> <p>{artist.popularity}</p> </td>
-                <td> <p>{artist.id}</p> </td>
+                <td> <button onClick={() => this.delete(artist.id)}>Delete</button> </td>
               </tr>
             )}
 
