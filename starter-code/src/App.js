@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import contacts from "./contacts.json";
+let initialContacts = contacts.slice(0, 5);
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <table className="Table">
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+          {initialContacts.map(function(celebrity) {
+            return (
+              <tr key={celebrity.id}>
+                <td>
+                  <img src={celebrity.pictureUrl} alt="" />
+                </td>
+                <td>{celebrity.name}</td>
+                <td>{celebrity.popularity}</td>
+              </tr>
+            );
+          })}
+        </table>
       </div>
     );
   }
