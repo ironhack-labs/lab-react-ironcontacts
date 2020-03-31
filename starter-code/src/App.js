@@ -32,9 +32,13 @@ class App extends Component {
       sortByName = (e) => {
         const { actors } = this.state;
         const sortedActors = [...actors].sort((a,b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
-        this.setState({
-          actors: sortedActors
-        })
+        this.setState({actors: sortedActors})
+      }
+
+      deleteContact = (e) => {
+        const { actors } = this.state;
+        const filteredActors = [...actors].filter(actor => actor.id !== e.target.id);
+        this.setState({actors: filteredActors})
       }
     
     
@@ -43,7 +47,7 @@ class App extends Component {
         return (
       <div>
         <Header addRandomContact={this.addRandomContact} sortByPopularity={this.sortbyPopularity} sortByName={this.sortByName} />
-        <Contacts actors={actors}  />
+        <Contacts actors={actors} deleteContact={this.deleteContact} />
       </div>
       );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import './Contacts.css';
 
-const Contacts = ({ actors }) => {
+const Contacts = ({ actors, deleteContact }) => {
   return (
     <div className="">
         {actors.map(actor => {
@@ -10,6 +10,7 @@ const Contacts = ({ actors }) => {
                 <img src={actor.pictureUrl} alt={actor.name} />
                 {actor.name}
                 {actor.popularity.toFixed(2)}
+                <button id={actor.id} onClick={deleteContact}>Delete</button>
             </div>
           )
         })}
