@@ -1,0 +1,14 @@
+/* .card {
+  display:flex;
+  align-items:center;
+  margin-left: 33%;
+}
+
+.card img, h2 {
+  padding: 1%;
+}
+*/
+.card img {
+  width: 7%;
+}
+
