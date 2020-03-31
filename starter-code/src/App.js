@@ -28,12 +28,21 @@ class App extends Component {
         const sortActors = [...actors].sort((a,b) => a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0);
         this.setState({actors: sortActors})
       }
+
+      sortByName = (e) => {
+        const { actors } = this.state;
+        const sortedActors = [...actors].sort((a,b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
+        this.setState({
+          actors: sortedActors
+        })
+      }
+    
     
     render() {
       const { actors } = this.state;
         return (
       <div>
-        <Header addRandomContact={this.addRandomContact} sortByPopularity={this.sortbyPopularity} />
+        <Header addRandomContact={this.addRandomContact} sortByPopularity={this.sortbyPopularity} sortByName={this.sortByName} />
         <Contacts actors={actors}  />
       </div>
       );
