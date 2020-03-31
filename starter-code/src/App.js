@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
+import ContactRow from "./ContactRow/ContactRow";
 
 class App extends Component {
   state = {
@@ -37,7 +38,7 @@ class App extends Component {
       contactsInTable: sortedContactsInTable
     });
   };
-
+    
   sortByName = () => {
     let sortedContactsInTable = this.state.contactsInTable.sort(function(a, b) {
       if (a.name > b.name) {
@@ -51,6 +52,13 @@ class App extends Component {
       contactsInTable: sortedContactsInTable
     });
   };
+  
+  deleteCelebrity = celebrityToDelete => {
+    const celebritiesCopy = [...this.state.contactsInTable];
+    const filtered = celebritiesCopy.filter(celebrity => celebrity.id !== celebrityToDelete.id)
+    this.setState({
+      contactsInTable: filtered
+  })}
 
   render() {
     return (
@@ -65,18 +73,13 @@ class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.contactsInTable.map(function(celebrity) {
+            {this.state.contactsInTable.map((celebrity) => {
               return (
-                <tr key={celebrity.id}>
-                  <td>
-                    <img src={celebrity.pictureUrl} alt="" />
-                  </td>
-                  <td>{celebrity.name}</td>
-                  <td>{celebrity.popularity}</td>
-                </tr>
+              <ContactRow key={celebrity.id} celebrityProp={celebrity} deleteCelebrity={()=>this.deleteCelebrity(celebrity)} />
               );
             })}
           </tbody>
@@ -87,3 +90,6 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+*/
