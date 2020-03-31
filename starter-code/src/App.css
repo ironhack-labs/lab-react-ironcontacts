@@ -33,4 +33,5 @@
 
 body{
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./styling/billy-huynh-W8KTS-mhFUE-unsplash.jpg);
+background-attachment: fixed;
 }

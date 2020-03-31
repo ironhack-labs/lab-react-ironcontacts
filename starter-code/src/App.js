@@ -5,8 +5,6 @@ import './styling/Buttons.css';
 import contacts from "./contacts.json"
 import ContactsTable from "./components/ContactsTable"
 
-
-
 class App extends React.Component {
   constructor() {
     super()
@@ -35,7 +33,7 @@ class App extends React.Component {
       }
       if (nameA > nameB) {
         return 1;
-      } // names must be equal
+      }
       return 0;
     });
     this.setState({
@@ -52,6 +50,14 @@ class App extends React.Component {
     })
   }
 
+  deleteContact = (index) => {
+    let newList = [...this.state.contacts]
+    newList.splice(index, 1)
+    this.setState({
+      contacts: newList
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -65,7 +71,9 @@ class App extends React.Component {
           <button className="sortByPopularityButton" onClick={this.sortContactsByPopularity}>
             Sort by popularity</button>
         </div>
-        <ContactsTable contacts={this.state.contacts} />
+        <ContactsTable
+          contacts={this.state.contacts}
+          deleteContact={this.deleteContact} />
       </div>
     )
   }
