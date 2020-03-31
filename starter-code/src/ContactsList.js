@@ -4,7 +4,7 @@ import Card from './Card'
 
 export default class ContactsList extends Component {
     state = {
-        contacts:[contacts[0], contacts[1], contacts[2], contacts[3], contacts[4]],
+        contacts: contacts.slice(0,5) //[contacts[0], contacts[1], contacts[2], contacts[3], contacts[4]]
     }
 
     addRandom = ()=>{
