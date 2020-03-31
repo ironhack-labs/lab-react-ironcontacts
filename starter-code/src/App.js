@@ -22,12 +22,18 @@ class App extends Component {
         const copyActors = [...actors, randomActor];
         this.setState({actors: copyActors})
       }
+
+      sortbyPopularity = e => {
+        const { actors } = this.state;
+        const sortActors = [...actors].sort((a,b) => a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0);
+        this.setState({actors: sortActors})
+      }
     
     render() {
       const { actors } = this.state;
         return (
       <div>
-        <Header addRandomContact={this.addRandomContact} />
+        <Header addRandomContact={this.addRandomContact} sortByPopularity={this.sortbyPopularity} />
         <Contacts actors={actors}  />
       </div>
       );
