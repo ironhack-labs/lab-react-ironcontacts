@@ -4,7 +4,7 @@ import "./App.css";
 import contacts from "./contacts.json";
 
 class App extends Component {
-  status = {
+  state = {
     contactsInTable: contacts.slice(0, 5),
     contactOutsideOfTheTable: contacts.slice(5),
   };
@@ -12,16 +12,17 @@ class App extends Component {
 
   AddRandomContact=()=>{
     let updatedContactsInTable =[];
-    let remainingContacts = this.status.contactOutsideOfTheTable
-    let randomContact = Math.floor(Math.random(remainingContacts.length))
-    updatedContactsInTable = this.status.contactsInTable
+    let remainingContacts = this.state.contactOutsideOfTheTable
+    let randomContact = Math.floor(Math.random()*this.state.contactOutsideOfTheTable.length)
+    console.log(randomContact)
+    updatedContactsInTable = this.state.contactsInTable
     updatedContactsInTable.push(remainingContacts[randomContact])
     remainingContacts.splice(randomContact, 1)
     this.setState({
       contactsInTable: updatedContactsInTable,
       contactOutsideOfTheTable:remainingContacts,
     });
-    console.log(this.status.contactsInTable)
+    console.log(this.state.contactsInTable)
 
 
   }
@@ -42,7 +43,7 @@ class App extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.status.contactsInTable.map(function(celebrity) {
+          {this.state.contactsInTable.map(function(celebrity) {
             return (
               <tr key={celebrity.id}>
                 <td>
