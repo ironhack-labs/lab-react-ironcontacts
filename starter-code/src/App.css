@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .App-logo {
@@ -14,6 +15,8 @@
   color: white;
 }
 
+
+
 .App-title {
   font-size: 1.5em;
 }
@@ -25,15 +28,68 @@
 
 
 .table {
-  
+  width: 70%;
   text-align: center;
   margin: 0 auto;
+  border: 3px solid darkslategrey
 
+}
+
+.titles-row{
+  height: 3rem;
+  background-color: lightsalmon;
+  margin: 0;
+  padding: 0;
+  color: navy
+}
+
+
+.contact-row {
+  background-color: rgb(248, 201, 186)
+}
+
+.button-delete {
+  font-size: 16px;
+    background-color: rgb(219, 76, 76);
+    padding: 15px 30px;
+    color: white;
+    border-radius: 10px;
+    border:1px solid white;
+    margin: 10px 30px;
 }
 
 .button-add {
-  
+    font-size: 16px;
+    background-color: rgb(0,200,100);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    border:1px solid wheat;
+    margin: 10px 30px;
 }
+
+
+.button-sort-name {
+    font-size: 16px;
+    background-color: rgb(100,100,240);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 30px;
+
+}
+
+.button-sort-popularity {
+    font-size: 16px;
+    background-color: rgb(150,100,100);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 30px;
+}
+
+
+
 
 
 @keyframes App-logo-spin {

@@ -30,7 +30,7 @@ class App extends Component {
 
   sortByPopularity = () => {
     let copyFiveCont = [...this.state.fiveCont]
-    copyFiveCont.sort((a,b) => (a.popularity > b.popularity) ? 1 : -1)
+    copyFiveCont.sort((a,b) => (a.popularity < b.popularity) ? 1 : -1)
     this.setState({ fiveCont: copyFiveCont })
   }
 
@@ -52,7 +52,7 @@ class App extends Component {
         <table className="table">
           <thead>
 
-          <tr>
+          <tr className="titles-row">
             <th><b>Picture</b></th>
             <th><b>Name</b></th>
             <th><b>Popularity</b></th>
@@ -64,11 +64,11 @@ class App extends Component {
 
             {this.state.fiveCont.map((elements,index) => {
               return (  
-              <tr key={index}>
-                <td ><img  src={elements.pictureUrl} style={{width: "90px", heigh: "135px"}} alt="IronContact"/></td>
-                <td >{elements.name}</td>
-                <td >{elements.popularity.toFixed(2)}</td>
-                <td ><button onClick={() => this.deleteContact(index)}>Delete</button></td>
+              <tr className="contact-row" key={index}>
+                <td ><img  src={elements.pictureUrl} style={{width: "90px", heigh: "135px", border: "3px solid white", margin: "15px 0"}} alt="IronContact"/></td>
+                <td style={{fontSize: "30px"}}>{elements.name}</td>
+                <td style={{fontSize: "20px"}}>{elements.popularity.toFixed(2)}</td>
+                <td ><button className="button-delete" onClick={() => this.deleteContact(index)}>Delete</button></td>
               </tr>
               )
             })}
