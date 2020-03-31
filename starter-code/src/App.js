@@ -37,7 +37,7 @@ class App extends Component {
     })
   }
   sortPopu = () =>{
-    const newContacts = this.state.contact.sort((a, b) => a.popularity - b.popularity)
+    const newContacts = this.state.contact.sort((a, b) => b.popularity - a.popularity)
     this.setState({
       contact: newContacts
     })
