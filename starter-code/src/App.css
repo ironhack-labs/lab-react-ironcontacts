@@ -31,7 +31,8 @@
   width: 70%;
   text-align: center;
   margin: 0 auto;
-  border: 3px solid darkslategrey
+  border: 3px solid rgb(93, 155, 155);
+  border-radius: 5px;
 
 }
 
@@ -40,7 +41,7 @@
   background-color: lightsalmon;
   margin: 0;
   padding: 0;
-  color: navy
+  color: navy;
 }
 
 
