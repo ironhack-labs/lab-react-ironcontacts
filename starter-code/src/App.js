@@ -1,18 +1,84 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import Contact from "./components/contact.js";
 
 class App extends Component {
+  state = {
+    ironContacts: contacts,
+    showedContacts: contacts.slice(0,5)
+  }
+
+  pushRandom = ()=>{
+    let tempList = [...this.state.showedContacts];
+    tempList.push(this.state.ironContacts[Math.ceil(Math.random()*this.state.ironContacts.length)])
+    this.setState({showedContacts: tempList })
+  }
+
+  sortContacts = ()=>{
+    let tempList = [...this.state.showedContacts];
+    tempList.sort();
+    this.setState({showedContacts: tempList })
+  }
+
+  dynamicSort= (property)=> {
+      var sortOrder = 1;
+
+      if(property[0] === "-") {
+          sortOrder = -1;
+          property = property.substr(1);
+      }
+
+      return function (a,b) {
+          if(sortOrder == -1){
+              return b[property].localeCompare(a[property]);
+          }else{
+              return a[property].localeCompare(b[property]);
+          }        
+      }
+  }
+
+  sortContactsByName = ()=> {
+    let showedArray = [...this.state.showedContacts]
+    showedArray.sort(this.dynamicSort("name"));
+
+    console.log(showedArray);
+    this.setState({showedContacts:showedArray})
+
+  }
+
+  sortContactsByPopularity = ()=> {
+    let showedArray = [...this.state.showedContacts]
+    // showedArray.sort(this.dynamicSort("popularity"));
+    showedArray.sort((contactA, contactB)=> contactB.popularity - contactA.popularity);
+
+    console.log(showedArray);
+    this.setState({showedContacts:showedArray})
+
+  }
+
   render() {
+    debugger
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <h1 className="App-title">IronContacts</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div class="buttonSelectors">
+        <button onClick={this.pushRandom}>Add Random contact</button>
+        <button onClick={this.sortContactsByName}>Sort by Name</button>
+        <button onClick={this.sortContactsByPopularity}>Sort by popularity</button>
+        </div>
+        <div className="col">
+          {this.state.showedContacts.map((contact)=> (
+                <Contact 
+                    name = {contact.name} 
+                    popularity={contact.popularity}
+                    pictureUrl={contact.pictureUrl} />
+            ))}
+        </div>
+        
       </div>
     );
   }
