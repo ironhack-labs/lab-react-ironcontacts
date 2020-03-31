@@ -27,8 +27,8 @@ class App extends Component {
       const { actors } = this.state;
         return (
       <div>
-        <Header />
-        <Contacts actors={actors} addRandomContact={this.addRandomContact} />
+        <Header addRandomContact={this.addRandomContact} />
+        <Contacts actors={actors}  />
       </div>
       );
 }

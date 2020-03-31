@@ -1,11 +1,11 @@
 import React from 'react';
-import Display from './Contacts'
 
-const Header = () => {
+const Header = ({addRandomContact}) => {
     return(
     <>
     <h1>Iron Contacts</h1>
-    <button className="addButton" onClick={Display.addRandomContact}>Add random Contact</button>
+    <button onClick={addRandomContact}>Add Random Contact
+    </button>
     <table>
       <tr>
         <td><b>Picture</b></td>
