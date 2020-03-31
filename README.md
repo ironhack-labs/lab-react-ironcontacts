@@ -40,7 +40,7 @@ Inside `src` folder, we can find `contacts.json`, a JSON file with the producer'
 
 Display that array of 5 contacts in a `<table>` and display the `picture`, `name`, and `popularity` of each contact.
 
-To import `contacts.json` in `App.js`, you can simply use:
+To import `contacts.json` in `App.jsx`, you can simply use:
 
 ```js
 import contacts from './contacts.json';
