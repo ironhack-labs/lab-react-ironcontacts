@@ -1,10 +1,10 @@
+.App {
+  margin: 5% 25%;
+}
+
 .App-description{
   display:flex;
   flex-direction:row;
-  justify-content:center;
-  width:50%
+  justify-content:space-between;
 }
 
-.App-description h2{
-  padding: 3%;
-}

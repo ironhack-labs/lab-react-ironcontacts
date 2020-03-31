@@ -1,14 +1,8 @@
-/* .card {
-  display:flex;
-  align-items:center;
-  margin-left: 33%;
+table .card {
+  display: flex;
+  justify-content: space-between;
 }
 
-.card img, h2 {
-  padding: 1%;
-}
-*/
 .card img {
-  width: 7%;
+  width: 10vw;
 }
-

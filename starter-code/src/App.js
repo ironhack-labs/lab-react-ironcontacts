@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Text from './Text';
-// import Nav from './Nav';
-// import Button from './Button';
 import Card from './components/Card';
 import contacts from './contacts.json';
 
@@ -10,7 +7,6 @@ class App extends Component {
   state = {
     ironContacts: contacts,
     showedContacts: contacts.slice(0, 5),
-    // random: contacts[Math.floor(Math.random() * contacts.length)]
   };
 
   randomContact = () => {
@@ -23,6 +19,34 @@ class App extends Component {
     this.setState({ showedContacts: contactsCopy });
   };
 
+  sortContactName = () => {
+    let sortCopy = this.state.showedContacts.sort(function(a, b){
+      let x = a.name.toLowerCase();
+      let y = b.name.toLowerCase();
+      if (x < y) {return -1}
+      if (x > y) {return 1}
+      return 0;
+    })
+    this.setState({
+      contacts: sortCopy
+    })
+  }
+
+  sortPopularity = () => {
+    let sortPopularityCopy = this.state.showedContacts.sort(function (a, b) {
+      let x = a.popularity;
+      let y = b.popularity;
+      if (x < y) { return -1 }
+      if (x > y) { return 1 }
+      return 0;
+    })
+    this.setState({
+      contacts: sortPopularityCopy
+    })
+  }
+
+
+
   render() {
     return (
       <div className="App">
@@ -30,6 +54,8 @@ class App extends Component {
           <h1>IronContacts</h1>
         </div>
         <button onClick={this.randomContact}>Add Random Contact!</button>
+        <button onClick={this.sortContactName}>Sort by Name</button>
+        <button onClick={this.sortPopularity}>Sort by Popularity</button>
         <div className="App-description">
           <h2>Picture</h2>
           <h2>Name</h2>
