@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #d6bcc6;;
 }
 
 .App-logo {
@@ -11,11 +12,14 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3.5em;
+  color: white;
+  font-weight: bolder;
+  font-style: italic;
+  font-family: monospace;
 }
 
 .App-intro {
@@ -25,4 +29,8 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+body{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./styling/billy-huynh-W8KTS-mhFUE-unsplash.jpg);
 }

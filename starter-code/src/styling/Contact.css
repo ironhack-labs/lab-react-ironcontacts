@@ -1,7 +1,10 @@
-#contact-list{
-  margin-left: 25vW;
+.table-header{
+  font-family: monospace;
+  font-size: x-large;
+  color: white;
 }
 
 .foto {
-  width: 8vh;
+  width: 15vh;
+  padding: 5px;
 }

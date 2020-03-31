@@ -8,6 +8,7 @@ class Contact extends React.Component {
         <th><img src={this.props.pictureUrl} className="foto" alt="Foto"/></th>
         <th>{this.props.name}</th>
         <th>{this.props.popularity.toFixed(2)}</th>
+        <th><button>Delete</button></th>
       </tr>
     );
   }
