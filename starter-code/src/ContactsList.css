@@ -1,0 +1,35 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btns button {
+    background: none;
+    border:none;
+    background-color: rgb(11, 52, 94);
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+    width: 30%;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    padding:5px;
+    margin: 10px;
+    background-color: rgb(106, 164, 190);
+    border-radius: 5px;
+    border:1px solid rgb(18, 85, 151);
+}
+
+.celeb-image {
+    height: 160px;
+    border-radius: 5px;
+    border: 1px solid rgb(18, 85, 151);
+}
