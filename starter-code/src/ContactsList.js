@@ -9,32 +9,25 @@ export default class ContactsList extends Component {
 
     addRandom = ()=>{
         let i = Math.floor(Math.random()*contacts.length)
-        this.state.contacts.push(contacts[i])
         this.setState({
-            contacts: this.state.contacts
+            contacts: [...this.state.contacts, contacts[i]]
         })
     }
 
+
     sortName = ()=>{
-        let newlist = this.state.contacts.sort(function(a, b){
-        var x = a.name.toLowerCase();
-        var y = b.name.toLowerCase();
-        if (x < y) {return -1;}
-        if (x > y) {return 1;}
-        return 0;
-        });
-        console.log(newlist)
         this.setState({
-            contacts: newlist
+            contacts: this.state.contacts.sort((a,b)=>{
+                if (a.name.toLowerCase() < b.name.toLowerCase()) return -1
+                if (b.name.toLowerCase() < a.name.toLowerCase()) return 1
+                return 0
+            })
         })
     }
 
     sortPopularity = ()=>{
-        let newlist = this.state.contacts.sort((a,b)=>{
-            return b.popularity - a.popularity
-        })
         this.setState({
-            contacts:newlist
+            contacts: this.state.contacts.sort((a,b)=> {return b.popularity - a.popularity})
         })
     }
 
