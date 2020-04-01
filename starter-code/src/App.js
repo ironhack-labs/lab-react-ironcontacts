@@ -4,12 +4,16 @@ import contacts from "./contacts.json";
 import Table from "./components/Table";
 
 class App extends Component {
-  state = {
-    contactList: contacts,
-    displayedContacts: contacts.slice(0, 5)
-  };
+  constructor() {
+    super();
+    let contactList = [...contacts];
+    let shownList = contactList.slice(0, 5);
+    this.state = {
+      displayedContacts: shownList
+    }
+  }
   addRandom = () => {
-    let randomContact = (this.state.contactList[Math.floor(Math.random() * this.state.contactList.length)])
+    let randomContact = (contacts[Math.floor(Math.random() * contacts.length)])
     let contactCopy = [...this.state.displayedContacts]
     contactCopy.push(randomContact)
     this.setState({ displayedContacts: contactCopy })
@@ -34,6 +38,11 @@ class App extends Component {
     })
     this.setState({ displayedContacts: sortedPopularity })
   }
+  deleteContact = (index) => {
+    let contactCopy = [...this.state.displayedContacts];
+    contactCopy.splice(index, 1);
+    this.setState({ displayedContacts: contactCopy })
+  }
   render() {
     return (
       <div className="App">
@@ -46,6 +55,7 @@ class App extends Component {
           </div>
           <Table
             contacts={this.state.displayedContacts}
+            deleteContact={this.deleteContact}
           />
         </div>
       </div>
