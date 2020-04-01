@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
 }
 
 .App-logo {
@@ -20,6 +26,16 @@
 
 .App-intro {
   font-size: large;
+}
+
+
+.image{
+    height:100px;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
