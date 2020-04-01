@@ -7,6 +7,7 @@ function Contact (props) {
             <img src={props.pictureUrl} alt=""/>
             <h3>{props.name}</h3>
             <h3>{props.popularity}</h3>
+            <button onClick={()=>{props.deleteThisContact(props.index)}}>delete</button>
         </div>
     )
 }

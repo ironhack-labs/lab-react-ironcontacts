@@ -5,6 +5,11 @@ import contacts from './contacts.json';
 import Contact from "./components/contact.js";
 
 class App extends Component {
+  constructor () {
+    super();
+    this.deleteContact = this.deleteContact.bind(this);
+    
+  } 
   state = {
     ironContacts: contacts,
     showedContacts: contacts.slice(0,5)
@@ -42,7 +47,6 @@ class App extends Component {
   sortContactsByName = ()=> {
     let showedArray = [...this.state.showedContacts]
     showedArray.sort(this.dynamicSort("name"));
-
     console.log(showedArray);
     this.setState({showedContacts:showedArray})
 
@@ -50,12 +54,17 @@ class App extends Component {
 
   sortContactsByPopularity = ()=> {
     let showedArray = [...this.state.showedContacts]
-    // showedArray.sort(this.dynamicSort("popularity"));
     showedArray.sort((contactA, contactB)=> contactB.popularity - contactA.popularity);
 
     console.log(showedArray);
     this.setState({showedContacts:showedArray})
 
+  }
+
+  deleteContact (index) {
+    let showedArray = [...this.state.showedContacts]
+    showedArray.splice(index,1);
+    this.setState({showedContacts:showedArray})
   }
 
   render() {
@@ -71,11 +80,14 @@ class App extends Component {
         <button onClick={this.sortContactsByPopularity}>Sort by popularity</button>
         </div>
         <div className="col">
-          {this.state.showedContacts.map((contact)=> (
+          {this.state.showedContacts.map((contact, index)=> (
                 <Contact 
+                    index={index}
                     name = {contact.name} 
                     popularity={contact.popularity}
-                    pictureUrl={contact.pictureUrl} />
+                    pictureUrl={contact.pictureUrl} 
+                    deleteThisContact = {this.deleteContact}
+                    />
             ))}
         </div>
         
