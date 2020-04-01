@@ -9,42 +9,28 @@ class Contacts extends Component {
   state = {
     contacts: contacts.slice(0, 5),
     random: contacts[Math.floor(Math.random() * contacts.length)],
-    // sorted: contacts[contacts.length.name]
   };
   randomContact = () => {
     let randomCopy = [...this.state.contacts];
     randomCopy.push(contacts[Math.floor(Math.random() * contacts.length)]);
     this.setState({ contacts: randomCopy });
   };
-// sortByName(){
-//     let sortedName = [this.state.contacts.name.length];
-//     sortedName.sort();
-//     let newSorted = sortedName.toString();
-//     this.setState({contacts: newSorted})
-// };
 
-sortByName(){
-    let sortedName = this.state.contacts.sort((a, b) =>{
-        return (
-            contacts.name.toString(a - b)
-        )
-    })
-this.setState({contacts: sortedName})
+sortByName = () => {
+    let sortedArr = [...this.state.contacts]
+    let newSortedArr = sortedArr.sort(function(a,b) {
+        var x = a.name; 
+        var y = b.name;
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0))
+    });
+    this.setState({contacts: newSortedArr})
 }
-
-//   sortByName = (a, b) => {
-//     let sortedName = this.state.contacts.sort((contacts) =>{
-//     return (
-//         contacts.name
-//     )})
-//     this.setState({contacts: sortedName});
-//   };
 
   render() {
     return (
       <table>
         <button onClick={this.randomContact}>Add random contact</button>
-        <button onClick={this.SortByName}>Sort by name</button>
+        <button onClick={this.sortByName}>Sort by name</button>
         <thead>
           <tr>
             <th>Picture</th>
@@ -55,7 +41,7 @@ this.setState({contacts: sortedName})
         <tbody>
           {this.state.contacts.map((contacts, index) => (
             <Card
-              key={contacts.name}
+              key={index}
               pictureUrl={contacts.pictureUrl}
               name={contacts.name}
               popularity={contacts.popularity}

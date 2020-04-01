@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Card(props) {
+function Card(contact) {
     return (
             <tr>
-                <td><img src={props.pictureUrl} alt=""/></td>
-                <td>{props.name}</td>
-                <td>{props.popularity}</td>
+                <td><img src={contact.pictureUrl} alt={contact.name}/></td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity}</td>
             </tr>
     );
 }

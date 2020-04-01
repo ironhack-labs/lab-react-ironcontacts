@@ -4,9 +4,6 @@ import Header from './components/Header.jsx';
 // import Headlines from './components/Headlines.jsx';
 import Contacts from './components/Contacts.jsx';
 
-
-
-
 class App extends Component {
   render() {
     return (
