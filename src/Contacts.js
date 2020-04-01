@@ -33,7 +33,7 @@ class Contacts extends Component {
   };
 
   sortByName = () => {
-    let sortedArray = this.state.contacts.sort(function(a, b) {
+    let sortedNameArray = this.state.contacts.sort(function(a, b) {
       if (a.name < b.name) {
         return -1;
       }
@@ -43,10 +43,20 @@ class Contacts extends Component {
       return 0;
     });
     this.setState({
-      contacts: sortedArray,
+      contacts: sortedNameArray,
       random: contacts[Math.ceil(Math.random() * contacts.length)]
     });
   };
+
+  sortByPopularity = () => {
+    let sortedPopArray = this.state.contacts.sort(function (a, b) {
+      return b.popularity - a.popularity;
+    })
+    this.setState({
+      contacts: sortedPopArray,
+      random: contacts[Math.ceil(Math.random() * contacts.length)]
+    })
+  }
 
   render() {
     return (
@@ -55,12 +65,12 @@ class Contacts extends Component {
         <button onClick={this.sortByName}>
           Sort alphabetically
         </button>
-        {/* <button onClick={console.log(this.newContactsArray)}>Sort by popularity</button> */}
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>
 
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
             <TableHead>
-              <TableRow>
+              <TableRow >
                 <TableCell align="center">Picture</TableCell>
                 <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Popularity</TableCell>
@@ -76,21 +86,6 @@ class Contacts extends Component {
                   <TableCell align="center">{contact.popularity}</TableCell>
                 </TableRow>
               ))}
-            </TableBody>
-            <TableBody>
-              <TableRow key={this.state.random.id}>
-                <TableCell align="center">
-                  <img
-                    className="image"
-                    src={this.state.random.pictureUrl}
-                    alt=""
-                  />
-                </TableCell>
-                <TableCell align="center">{this.state.random.name}</TableCell>
-                <TableCell align="center">
-                  {this.state.random.popularity}
-                </TableCell>
-              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
