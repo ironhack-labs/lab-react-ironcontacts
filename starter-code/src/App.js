@@ -12,7 +12,7 @@ class App extends Component {
   addRandomContact = () => {
     let randomContact = Math.floor(Math.random() * contacts.length);
     let addContact = this.state.Celebrities;
-    if(this.state.Celebrities.indexOf(randomContact) === -1){
+    if(contacts.indexOf(randomContact) === -1){
       addContact.push(contacts[randomContact]);
     }
 
