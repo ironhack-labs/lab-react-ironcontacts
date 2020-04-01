@@ -12,7 +12,9 @@ class App extends Component {
   addRandomContact = () => {
     let randomContact = Math.floor(Math.random() * contacts.length);
     let addContact = this.state.Celebrities;
-    addContact.push(contacts[randomContact]);
+    if(this.state.Celebrities.indexOf(randomContact) === -1){
+      addContact.push(contacts[randomContact]);
+    }
 
     this.setState({
       Celebrities: addContact
@@ -24,8 +26,8 @@ class App extends Component {
   }
 
   sortContactbyName = () => {
-    let sorted= this.state.Celebrities
-    sorted.sort(function (a, b) {
+    let sorted = this.state.Celebrities
+    sorted.sort((a, b) => {
       if (b.name > a.name) {
         return -1;
       }
@@ -35,29 +37,29 @@ class App extends Component {
       return 0;
     });
     this.setState({
-      Celebrities : sorted
+      Celebrities: sorted
     })
   }
-  
+
   sortContactbByPopularity = () => {
-    let sortedByPop= this.state.Celebrities
-    sortedByPop.sort((a,b)=>b.popularity-a.popularity);
+    let sortedByPop = this.state.Celebrities
+    sortedByPop.sort((a, b) => b.popularity - a.popularity);
 
     this.setState({
-      Celebrities : sortedByPop
+      Celebrities: sortedByPop
     })
   }
 
 
-  deleteContact = (celebId) => {
-    console.log(celebId)
-    const celebritiesCopy = [...this.state.Celebrities];
-    const filtered = celebritiesCopy.filter(celeb => celeb.id !== celebId); 
+  deleteContact = (index) => {
+    console.log(index)
+    let delCeleb= [...this.state.Celebrities]
+    delCeleb.splice(index,1)
 
-   
-      this.setState({
-          Celebrities: filtered
-      })
+
+    this.setState({
+      Celebrities: delCeleb
+    })
 
   }
 
@@ -66,7 +68,7 @@ class App extends Component {
 
       <div>
         <h1>Iron contacts</h1>
-        {this.state.Celebrities.map(contacts => {
+        {this.state.Celebrities.map((contacts, index)=> {
           return (
             <div key={contacts.id}>
 
@@ -81,7 +83,7 @@ class App extends Component {
                   <td><h3>{contacts.name}</h3></td>
                   <td><h3>{contacts.popularity}</h3></td>
                 </tr>
-                <button onClick={this.deleteContact}>Delete</button>
+                <button key={contacts.id} onClick={()=> this.deleteContact(index)}>Delete</button>
               </table>
             </div>
           );
