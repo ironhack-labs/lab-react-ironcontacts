@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.jsx';
-// import Headlines from './components/Headlines.jsx';
 import Contacts from './components/Contacts.jsx';
 
 class App extends Component {
@@ -11,9 +10,7 @@ class App extends Component {
           <header className="App-header">
                 <Header />
           </header>
-
             <div className="App-intro">
-                   {/* <Headlines />  */}
                   <Contacts />            
             </div>
       </div>
