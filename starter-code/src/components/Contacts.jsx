@@ -15,7 +15,6 @@ class Contacts extends Component {
     randomCopy.push(contacts[Math.floor(Math.random() * contacts.length)]);
     this.setState({ contacts: randomCopy });
   };
-
 sortByName = () => {
     let sortedArr = [...this.state.contacts]
     let newSortedArr = sortedArr.sort(function(a,b) {
@@ -25,12 +24,22 @@ sortByName = () => {
     });
     this.setState({contacts: newSortedArr})
 }
+sortByPopularity = () => {
+    let sortedArr = [...this.state.contacts]
+    let newSortedArr = sortedArr.sort(function (a, b) {
+        var x = a.popularity;
+        var y = b.popularity;
+        return ((x < y) ? 1 : ((x > y) ? -1 : 0))
+    });
+    this.setState({ contacts: newSortedArr })
+}
 
   render() {
     return (
       <table>
         <button onClick={this.randomContact}>Add random contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>
         <thead>
           <tr>
             <th>Picture</th>
