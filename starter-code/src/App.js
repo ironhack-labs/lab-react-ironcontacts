@@ -4,23 +4,35 @@ import Card from './components/Card';
 import contacts from './contacts.json';
 
 class App extends Component {
+constructor(){ 
+  super();
+    this.removeCelebrity = this.removeCelebrity.bind(this);
+}
+
   state = {
     ironContacts: contacts,
-    showedContacts: contacts.slice(0, 5),
+    contactsShown: contacts.slice(0, 5),
+    index: 0
   };
 
+  removeCelebrity(celebrityIndex){
+    let celebrityCopy = [...this.state.contactsShown];
+    celebrityCopy.splice(celebrityIndex, 1)
+    this.setState({contactsShown: celebrityCopy})
+  }
+
   randomContact = () => {
-    let contactsCopy = [...this.state.showedContacts];
+    let contactsCopy = [...this.state.contactsShown];
     contactsCopy.push(
       this.state.ironContacts[
         Math.floor(Math.random() * this.state.ironContacts.length)
       ]
     );
-    this.setState({ showedContacts: contactsCopy });
+    this.setState({ contactsShown: contactsCopy });
   };
 
   sortContactName = () => {
-    let sortCopy = this.state.showedContacts.sort(function(a, b){
+    let sortCopy = this.state.contactsShown.sort(function(a, b){
       let x = a.name.toLowerCase();
       let y = b.name.toLowerCase();
       if (x < y) {return -1}
@@ -33,7 +45,7 @@ class App extends Component {
   }
 
   sortPopularity = () => {
-    let sortPopularityCopy = this.state.showedContacts.sort(function (a, b) {
+    let sortPopularityCopy = this.state.contactsShown.sort(function (a, b) {
       let x = a.popularity;
       let y = b.popularity;
       if (x < y) { return -1 }
@@ -62,11 +74,13 @@ class App extends Component {
           <h2>Popularity</h2>
         </div>
         <div className="App-cards">
-          {this.state.showedContacts.map(card => (
+          {this.state.contactsShown.map((celebrity, index) => (
             <Card
-              name={card.name}
-              pictureUrl={card.pictureUrl}
-              popularity={card.popularity}
+              celebrityIndex={index}
+              deleteCelebrity={this.removeCelebrity}
+              name={celebrity.name}
+              pictureUrl={celebrity.pictureUrl}
+              popularity={celebrity.popularity}
             />
           ))}
         </div>

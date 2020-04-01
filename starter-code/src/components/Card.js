@@ -1,17 +1,27 @@
 import React from 'react';
-import "./Card.css"
+import './Card.css';
 
-const Card = (props) => {
+const Card = props => {
   return (
     <table className="card">
-      <tr>    
-        <th><img src={props.pictureUrl} alt="" /></th>
+      <tr>
+        <th>
+          <img src={props.pictureUrl} alt="" />
+        </th>
         <th>{props.name}</th>
         <th>{props.popularity}</th>
-        <th>{props.id}</th>
+        <th>
+          <button
+            onClick={() => {
+              props.deleteCelebrity(props.celebrityIndex);
+            }}
+          >
+            Delete celebrity
+          </button>
+        </th>
       </tr>
     </table>
   );
-}
+};
 
 export default Card;
