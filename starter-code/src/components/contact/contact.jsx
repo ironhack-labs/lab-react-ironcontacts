@@ -4,7 +4,7 @@ import './contact.scss';
 export const Contact = (props) => {
 
 	const clickHandler = () => {
-		props.deleteContact(props.contact.id);
+		props.deleteContact(props.contact);
 	};
 
 	return (

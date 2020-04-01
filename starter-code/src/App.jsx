@@ -24,9 +24,8 @@ const App = () => {
 		setContacts([...contacts.sort((a, b) => b.popularity - a.popularity)]);
 	};
 
-	const deleteContact = (id) => {
-		const contact = contacts.find((e) => e.id === id);
-		setContacts(contacts.filter((e) => e.id !== id));
+	const deleteContact = (contact) => {
+		setContacts(contacts.filter((e) => e.id !== contact.id));
 		setAllContacts([...allContacts, contact]);
 	};
 
