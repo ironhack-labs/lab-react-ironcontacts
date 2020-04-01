@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import Contacts from "./Contacts";
+import ContactsList from "./ContactsList";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <h2>IronContacts</h2>
-        <Contacts />
+          <ContactsList />
       </div>
     );
   }
