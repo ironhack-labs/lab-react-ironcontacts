@@ -39,7 +39,7 @@ class App extends Component {
     this.setState({ displayedContacts: sortedPopularity });
   };
 
-  deleteContact = index => {
+  deleteContact = (index) => {
     let contactCopy = [...this.state.displayedContacts];
     contactCopy.splice(index, 1);
     this.setState({ displayedContacts: contactCopy });
@@ -48,16 +48,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="contacts">
+        <div className="app-contacts">
           <h1>IronContacts</h1>
-          <div className="contacts-btns">
-            <button className="contact-btn" onClick={this.addRandomContact}>
+          <div className="app-contacts-btns">
+            <button className="app-contact-btn" onClick={this.addRandomContact}>
               Add random contact
             </button>
-            <button className="contact-btn" onClick={this.sortByName}>
+            <button className="app-contact-btn" onClick={this.sortByName}>
               Sort by name
             </button>
-            <button className="contact-btn" onClick={this.sortByPopularity}>
+            <button className="app-contact-btn" onClick={this.sortByPopularity}>
               Sort by popularity
             </button>
           </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Card.css';
 
 class Card extends Component {
   render() {
@@ -6,7 +7,7 @@ class Card extends Component {
       <tr>
         <td>
           <img
-            className="celebrity-img"
+            className="card-img"
             src={this.props.pictureUrl}
             alt={this.props.name}
           ></img>
@@ -14,7 +15,9 @@ class Card extends Component {
         <td>{this.props.name}</td>
         <td>{this.props.rating}</td>
         <td>
-          <button onClick={this.props.clickDelete}>Delete</button>
+          <button class="card-btn" onClick={this.props.clickDelete}>
+            Delete
+          </button>
         </td>
       </tr>
     );

@@ -1,0 +1,12 @@
+.card-img {
+  height: 20%;
+  padding: 5%;
+}
+
+.card-btn {
+  color: #ffffff;
+  cursor: pointer;
+  background-color: blue;
+  height: 30px;
+  margin-right: 5%;
+}
