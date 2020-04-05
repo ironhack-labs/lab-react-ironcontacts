@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import contacts from './contacts.json';
+import React from 'react';
 
 function Celebs(props) {
     return (
@@ -7,6 +6,7 @@ function Celebs(props) {
         <td><img src={props.pictureUrl} alt ={props.name}/></td>
         <td>{props.name}</td>
         <td>{props.popularity}</td>
+        <td><button onClick={()=> props.deleteThis(props.index)}>Del</button></td>
       </tr>
     )
   }
