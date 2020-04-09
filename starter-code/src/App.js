@@ -41,6 +41,19 @@ class App extends Component {
     })
   }
 
+  handleClickRemoveProfile (index) {
+    let newArray = [...this.state.fiveContacts];
+      newArray.splice(index, 1);
+      this.setState({fiveContacts: newArray });
+    }
+
+  //   handleClickRemoveProfile(index) {
+  //     this.setState({fiveContacts: this.state.fiveContacts.filter(function(profile) { 
+  //         return profile !== index.target.value 
+  //     })});
+  // }
+
+
   render() {
     return (
       <div className="App">
@@ -49,7 +62,6 @@ class App extends Component {
           <button className="buttons" onClick={ this.handleClickSortByName }>Sort by name</button>
           <button className="buttons" onClick= { this.handleClickSortByDecreasingPopularity }>Sort by decreasing popularity</button>
           <button className="buttons" onClick= { this.handleClickSortByincreasingPopularity }>Sort by increasing popularity</button>
-
         </div>
         
         <table className="table-box">
@@ -59,8 +71,8 @@ class App extends Component {
             <th>Popularity</th>
             <th>Action</th>
           </tr>
-            {this.state.fiveContacts.map(profile => (
-              <ContactTable image={ profile.pictureUrl } name={ profile.name } popularity={ profile.popularity } />
+            {this.state.fiveContacts.map((profile, index) => (
+              <ContactTable image={ profile.pictureUrl } name={ profile.name } popularity={ profile.popularity } buttonFunction={ () => this.handleClickRemoveProfile(index) } />
             ))}
         </table>
       </div>

@@ -63,6 +63,7 @@ td {
   justify-content: space-around;
   margin: 2rem;
   padding: 1rem;
+  width: 65rem;
   border: 1px solid rgba(72, 160, 255, 0.726);
   border-radius: 0.5rem;
   background-color: rgba(170, 211, 255, 0.726);
