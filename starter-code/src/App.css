@@ -6,21 +6,37 @@ body {
 
 .App {
   display: flex;
-  justify-content: center;
-}
-
-.table-box {
-  margin-top: 3rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 /****************
 ***** TABLE *****
 ****************/
 
+.table-box {
+  border-collapse: collapse;
+  margin: 1rem 0 4rem 0;
+  width: 65rem;
+  border-radius: 0.5rem;
+  
+}
+
 .header-table {
   font-size: 1.9rem;
   font-weight: bold;
-  text-decoration: underline black;
+  height: 5rem;
+}
+
+tr {
+  border-bottom: 2px solid black;
+  border-radius: 0.5rem;
+  
+}
+
+td {
+  border: 2px solid black;
+  background-color: rgba(234, 244, 255, 0.726);
 }
 
 /********************
@@ -33,5 +49,39 @@ body {
 }
 
 .profile-image {
+  margin-top: 0.4rem;
   width: 10rem;
+  border-radius: 8rem;
+}
+
+/******************
+*** BUTTONS BOX ***
+******************/
+
+.buttons-box {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem;
+  padding: 1rem;
+  border: 1px solid rgba(72, 160, 255, 0.726);
+  border-radius: 0.5rem;
+  background-color: rgba(170, 211, 255, 0.726);
+}
+
+.buttons {
+  padding: 0.4rem;
+  font-size: 1rem;
+  margin: 1rem;
+  color: white;
+  border-radius: 0.4rem;
+  background-color: rgba(54, 106, 204, 0.849);
+}
+
+.buttons:active {
+  box-shadow: 1px 1px 8px 1px rgb(65, 84, 170);
+  transform: translateY(2px);
+}
+
+.buttons:focus {
+	outline: 0;
 }
