@@ -23,13 +23,33 @@ class App extends Component {
     });
   }
 
+  handleClickSortByName = () => {
+    this.setState({
+      fiveContacts: this.state.fiveContacts.sort((a, b) => a.name.localeCompare(b.name)),
+    })
+  }
+
+  handleClickSortByDecreasingPopularity = () => {
+    this.setState({
+      fiveContacts: this.state.fiveContacts.sort((a, b) => b.popularity - a.popularity),
+    })
+  }
+
+  handleClickSortByincreasingPopularity = () => {
+    this.setState({
+      fiveContacts: this.state.fiveContacts.sort((a, b) => a.popularity - b.popularity),
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <div className="buttons-box">
           <button className="buttons" onClick={ this.handleClickRandomProfile }>Add random profile</button>
-          <button className="buttons" onClick>Sort by name</button>
-          <button className="buttons" onClick>Sort by popularity</button>
+          <button className="buttons" onClick={ this.handleClickSortByName }>Sort by name</button>
+          <button className="buttons" onClick= { this.handleClickSortByDecreasingPopularity }>Sort by decreasing popularity</button>
+          <button className="buttons" onClick= { this.handleClickSortByincreasingPopularity }>Sort by increasing popularity</button>
+
         </div>
         
         <table className="table-box">
@@ -37,6 +57,7 @@ class App extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
             {this.state.fiveContacts.map(profile => (
               <ContactTable image={ profile.pictureUrl } name={ profile.name } popularity={ profile.popularity } />
