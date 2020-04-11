@@ -25,6 +25,16 @@ body {
   padding: 5px 10px;
 }
 
+.small-button:hover {
+  color: white;
+  background-color: lightgray;
+}
+
+.small-button:active {
+  color: white;
+  background-color: darkgray;
+}
+
 .contacts-table {
   border-spacing: collapse;
   padding: 20px;
