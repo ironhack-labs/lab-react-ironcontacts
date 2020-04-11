@@ -26,3 +26,23 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.inLine {
+  display: flex;
+}
+
+.ml-29{
+  margin-left: 29%;
+}
+
+.with20 {
+  width: 20%;
+}
+
+.mt-30{
+  margin-top: 30px;
+}
+
+.bg-grey{
+  background-color: lightgrey;
+}
