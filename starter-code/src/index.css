@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+table{
+  width: 40%;
+  margin: auto;
+  margin-top: 30px;
+  border: 1px solid;
+  align-items: center;
+}
+th{
+  border: 1px solid;
+}
+.img {
+  height: 75px;
+}
+button{
+  background-color: green;
+  margin: 20px
+}
+.danger{
+  background-color: red;
+  margin: 20px
+}
