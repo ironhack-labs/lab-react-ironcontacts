@@ -1,12 +1,13 @@
 import React from 'react';
+import SmallButton from './SmallButton';
 import '../App.css';
 
 const ContactsTable = props => {
-  const { contacts } = props;
+  const { contacts, deleteContact } = props;
   return (
     <table className='contacts-table'>
       <TableHead />
-      <TableBody contacts={contacts} />
+      <TableBody contacts={contacts} deleteContact={deleteContact} />
     </table>
   )
 }
@@ -14,7 +15,7 @@ const ContactsTable = props => {
 const TableHead = () => {
   return (
     <thead>
-      <tr>
+      <tr className='table-head-row'>
         <th>Picture</th>
         <th>Name</th>
         <th>Popularity</th>
@@ -24,7 +25,7 @@ const TableHead = () => {
 }
 
 const TableBody = (props) => {
-  const { contacts } = props;
+  const { contacts, deleteContact } = props;
   console.log('contacts', contacts);
   return (
     <tbody>
@@ -34,6 +35,7 @@ const TableBody = (props) => {
             <td><img className='portrait' src={contact.pictureUrl} alt='portrait' /></td>
             <td>{contact.name}</td>
             <td>{Math.round(100 * contact.popularity) / 100}</td>
+            <td><SmallButton action={deleteContact} value={contact.index}>Delete</SmallButton></td>
           </tr>
         )
       })}

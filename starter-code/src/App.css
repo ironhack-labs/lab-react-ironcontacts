@@ -18,21 +18,25 @@ body {
 }
 
 .small-button {
-  margin-left: 20px;
   font-size: 20px;
   border-radius: 3%;
   border: 1px solid lightgray;
   padding: 5px 10px;
 }
 
-.small-button:hover {
-  color: white;
-  background-color: lightgray;
+.small-button:first-child {
+  margin-left: 20px;
+}
+
+.small-button:hover,
+.small-button:focus {
+  box-shadow: 0 0 5px darkslateblue;
 }
 
 .small-button:active {
   color: white;
-  background-color: darkgray;
+  background-color: darkslateblue;
+  box-shadow: 0 0 5px darkslateblue;
 }
 
 .contacts-table {
@@ -44,6 +48,10 @@ body {
 .contacts-table td {
   width: 160px;
   text-align: left;
+}
+
+.table-head-row {
+  height: 50px;
 }
 
 .portrait {
