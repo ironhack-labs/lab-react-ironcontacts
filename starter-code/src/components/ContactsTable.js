@@ -26,7 +26,6 @@ const TableHead = () => {
 
 const TableBody = (props) => {
   const { contacts, deleteContact } = props;
-  console.log('contacts', contacts);
   return (
     <tbody>
       {contacts.map((contact, index) => {

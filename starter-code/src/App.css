@@ -1,12 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 header,
 body,
 main {
   margin: 30px 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 body {
@@ -46,7 +48,8 @@ body {
 
 .contacts-table th,
 .contacts-table td {
-  width: 160px;
+  width: 150px;
+  padding: 10px 10px 10px 0;
   text-align: left;
 }
 
