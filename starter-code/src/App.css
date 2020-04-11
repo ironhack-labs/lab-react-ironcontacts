@@ -4,11 +4,24 @@
   align-items: center;
 }
 
+.homepage-title {
+  text-align: center;
+}
+
 .homepage-table {
-  margin: 3rem 0;
+  margin: 2rem 0;
   width: 30%;
+}
+
+.homepage-table > tbody > tr > td {
+  border: 1px solid grey;
+  text-align: center;
 }
 
 .table-img {
   width: 4rem;
+}
+
+.add-random-btn {
+  cursor: pointer;
 }
