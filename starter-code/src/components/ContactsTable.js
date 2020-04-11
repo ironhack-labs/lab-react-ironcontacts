@@ -4,7 +4,7 @@ import '../App.css';
 const ContactsTable = props => {
   const { contacts } = props;
   return (
-    <table class='contacts-table'>
+    <table className='contacts-table'>
       <TableHead />
       <TableBody contacts={contacts} />
     </table>

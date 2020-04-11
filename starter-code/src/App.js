@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import contacts from './contacts.json';
 import ContactsTable from './components/ContactsTable';
+import SmallButton from './components/SmallButton';
 import './App.css';
 
 const NUM_CONTACTS_TO_IMPORT = 5;
@@ -23,6 +24,7 @@ class App extends Component {
         <header>
           <h1 className='title'>IronContacts</h1>
         </header>
+        <SmallButton>Add Random Contact</SmallButton>
         <ContactsTable contacts={this.state.ironContacts} />
       </div>
     );

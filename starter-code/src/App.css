@@ -4,13 +4,25 @@
 }
 
 header,
+body,
+main {
+  margin: 30px 20px;
+}
+
 body {
-  padding: 20px;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .title {
   font-size: 1.5em;
+}
+
+.small-button {
+  margin-left: 20px;
+  font-size: 20px;
+  border-radius: 3%;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
 }
 
 .contacts-table {
@@ -20,7 +32,7 @@ body {
 
 .contacts-table th,
 .contacts-table td {
-  width: 150px;
+  width: 160px;
   text-align: left;
 }
 
