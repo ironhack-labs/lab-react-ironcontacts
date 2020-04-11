@@ -1,18 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import contacts from "./contacts.json";
+import "./App.css";
 
 class App extends Component {
+  state = {
+    Celebrities: contacts.slice(0,5)
+  }
+
+  getRandomContact = () => {
+    let randomContact = Math.floor(Math.random() * contacts.length);
+    let addContact = this.state.Celebrities;
+    if (contacts.indexOf(randomContact) === -1) {
+      addContact.push(contacts[randomContact]);
+    }
+
+    this.setState({
+      Celebrities: addContact
+    })
+    return addContact
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className='IronContacts'>
+          <h1 className="App-title">IronContacts</h1>
+          <button onClick={this.getRandomContact}>Add Random Contact</button>
+        <table width='400px'>
+          <tr>
+            <th><h2>Picture</h2></th>
+            <th><h2>Name</h2></th>
+            <th><h2>Popularity</h2></th>
+          </tr>       
+        {this.state.Celebrities.map((contacts, index) => {
+          return (
+              <tr key={contacts.id}>
+                  <td><img height='90px' src={contacts.pictureUrl} alt='' /></td>
+                  <td><h3 className='CelebrityName'>{contacts.name}</h3></td>
+                  <td><h3>{contacts.popularity}</h3></td>
+                </tr>  
+          );
+        })}
+        </table>
       </div>
     );
   }
