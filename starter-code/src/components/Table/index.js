@@ -9,15 +9,16 @@ class Table extends Component {
     }
    
     render(){
-        const { name, img, pop } = this.props;
+        const { index, name, img, pop, deleteOne } = this.props;
+        console.log("key", index);
         return (
-            <div className="ml inLine mt-30">
+            <div id={index} className="ml inLine mt-30">
                 <div className="with20"> 
                     <img alt={name} src={img} height={158} width={125}/> 
                 </div>
                 <div className="with20"> {name} </div>
                 <div className="with20"> {this.redondearDecimales({pop})} </div>
-                <button className="mt-30 btnRemove"> Delete </button>
+                <button onClick={() => deleteOne(index)} className="mt-30 btnRemove"> Delete </button>
             </div>
         )
     }

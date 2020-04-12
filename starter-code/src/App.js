@@ -32,10 +32,6 @@ class App extends Component {
     })
   }
 
-  hola = () => {
-    console.log("hola");
-  }
-
   sortArrayByName = () => {
     return this.state.Showcontacts.sort(function (a,b) {
       const bandA = a.name.toUpperCase();
@@ -63,6 +59,13 @@ class App extends Component {
     })
   }
 
+  deleteOne = (id) => {
+    let ShowcontactsNew = this.state.Showcontacts.filter((c, index) => index !== id);
+    this.setState({
+      Showcontacts: ShowcontactsNew 
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -83,7 +86,7 @@ class App extends Component {
         </div>
 
         {this.state.Showcontacts.map((item,index) => {
-           return <Table key={index}  name={item.name} img={item.pictureUrl} pop={item.popularity} />  
+           return <Table index={index}  name={item.name} img={item.pictureUrl} pop={item.popularity} deleteOne={this.deleteOne}/>  
           })
         }
       </div>
