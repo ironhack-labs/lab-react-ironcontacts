@@ -3,15 +3,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: #0471A6;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-  display: flex;
-  justify-content: center;
+
+img {
+  border-radius: 10px;
 }
 
 .App-title {
@@ -22,6 +19,16 @@
   font-size: large;
 }
 .CelebrityName {
-  width: 50%;
   margin: 0 auto;
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 15px;
+  border: 0px;
+  background-color: #0471A6;
+  color: #fff;
+  font-weight: 600;
+
 }
