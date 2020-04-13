@@ -10,6 +10,7 @@ class Contact extends Component {
               <td><img className='Contact-img' src={this.props.pictureUrl} alt='contact'/></td>
               <td className='Contact-td'>{this.props.name}</td>
               <td className='Contact-td'>{popularityRounded}</td>
+              <td><button onClick={this.props.clickToDelete}>Delete</button></td>
             </tr>
         );
     }

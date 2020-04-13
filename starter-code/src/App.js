@@ -6,27 +6,29 @@ import Contact from './components/Contact';
 class App extends Component {
   state = {
     contacts: contacts.slice(0, 5),
-    ORIGINAL_NUMBER_OF_CONTACTS: contacts.length
+    restOfContacts: contacts.slice(5, contacts.length)
   }
 
   handleClickNewRandomContact = () => {
-    const restOfContacts = contacts.slice(5, contacts.length);
     let newRandomContact = undefined;
+    let indexNewRestOfContactsToDelete = undefined;
+    let newRestOfContacts = [...this.state.restOfContacts];
     let exist = (newRandomContactId) => {
-      restOfContacts.find(contact => contact.id === newRandomContactId)
+      this.state.contacts.find(contact => contact.id === newRandomContactId)
     };
 
-    if (this.state.contacts.length !== this.state.ORIGINAL_NUMBER_OF_CONTACTS) {
+    if (this.state.restOfContacts.length !== 0) {
       // New contacts can still be added.
       do {
-        newRandomContact = restOfContacts[Math.floor(Math.random() * (restOfContacts.length))];
+        newRandomContact = this.state.restOfContacts[Math.floor(Math.random() * (this.state.restOfContacts.length))];
+        indexNewRestOfContactsToDelete = this.state.restOfContacts.indexOf(newRandomContact);
+        newRestOfContacts.splice(indexNewRestOfContactsToDelete, 1);
       } while (exist(newRandomContact.id));
       
       this.setState({
-        contacts: [...this.state.contacts, newRandomContact]
+        contacts: [...this.state.contacts, newRandomContact],
+        restOfContacts: newRestOfContacts
       });
-
-      contacts.splice(contacts.indexOf(newRandomContact), 1);
     } else {
       alert('There are no contacts to add');
     }
@@ -61,24 +63,38 @@ class App extends Component {
     });
   };
 
+  handleClickDeleteContact = (contactId) => {
+    const contactsCopy = [...this.state.contacts];
+    const contactIndex = contactsCopy.findIndex(contact => contact.id === contactId);
+    const restOfContactsCopy = [...this.state.restOfContacts, contactsCopy[contactIndex]];
+
+    contactsCopy.splice(contactIndex, 1);
+
+    this.setState({
+      contacts: contactsCopy,
+      restOfContacts: restOfContactsCopy
+    });
+  };
+
   render() {
     return (
       <div>
         <h1 className='App-h1'>IronContacts</h1>
-        <button className='App-button' onClick={this.handleClickNewRandomContact}>Add Random Contact</button>
-        <button className='App-button' onClick={this.handleClickSortByName}>Sort by name</button>
-        <button className='App-button' onClick={this.handleClickSortByPopularity}>Sort by popularity</button>
+        <button onClick={this.handleClickNewRandomContact}>Add Random Contact</button>
+        <button onClick={this.handleClickSortByName}>Sort by name</button>
+        <button onClick={this.handleClickSortByPopularity}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
               <th className='App-th'>Picture</th>
               <th className='App-th'>Name</th>
               <th className='App-th'>Popularity</th>
+              <th className='App-th'>Action</th>
             </tr>
           </thead>
           <tbody>
             {this.state.contacts.map(contact => (
-              <Contact key={contact.id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/>
+              <Contact key={contact.id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity} clickToDelete={() => this.handleClickDeleteContact(contact.id)}/>
             ))}
           </tbody>
         </table>
