@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import contacts from './contacts.json';
+import ListElement from './components/ListElement';
 import './App.css';
 
 class App extends Component {
 
   state = {
     movieStars: contacts.slice(0, 5),
-    loaded: true,
   }
 
   addRandomToArray = () => {
     this.setState({
       movieStars: this.state.movieStars.concat(contacts[Math.floor(Math.random() * contacts.length)]),
-      // loaded: !this.state.loaded,
     });
   }
 
@@ -30,31 +29,9 @@ class App extends Component {
               <th>Name</th>
               <th>Popularity</th>
             </tr>
-            <tr>
-              <td><img className="table-img" src={movieStars[0].pictureUrl} alt=""/></td>
-              <td>{movieStars[0].name}</td>
-              <td>{movieStars[0].popularity}</td>
-            </tr>
-            <tr>
-              <td><img className="table-img" src={movieStars[1].pictureUrl} alt=""/></td>
-              <td>{movieStars[1].name}</td>
-              <td>{movieStars[1].popularity}</td>
-            </tr>
-            <tr>
-              <td><img className="table-img" src={movieStars[2].pictureUrl} alt=""/></td>
-              <td>{movieStars[2].name}</td>
-              <td>{movieStars[2].popularity}</td>
-            </tr>
-            <tr>
-              <td><img className="table-img" src={movieStars[3].pictureUrl} alt=""/></td>
-              <td>{movieStars[3].name}</td>
-              <td>{movieStars[3].popularity}</td>
-            </tr>
-            <tr>
-              <td><img className="table-img" src={movieStars[4].pictureUrl} alt=""/></td>
-              <td>{movieStars[4].name}</td>
-              <td>{movieStars[4].popularity}</td>
-            </tr>
+            {movieStars.map(item => (
+             <ListElement key={item.id} img={item.pictureUrl} name={item.name} popularity={item.popularity}/>
+            ))}
           </tbody>
         </table>
       </div>
