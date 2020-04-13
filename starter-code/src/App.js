@@ -15,13 +15,29 @@ class App extends Component {
     });
   }
 
+  sortByName = () => {
+    this.setState({
+      movieStars: this.state.movieStars.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
+    });
+  }
+
+  sortByPopularity = () => {
+    this.setState({
+      movieStars: this.state.movieStars.sort((a,b) => (a.popularity > b.popularity) ? -1 : ((b.popularity > a.popularity) ? 1 : 0)),
+    });
+  }
+
   render() {
     const { movieStars } = this.state;
     return (
       <div className="App">
       {console.log(movieStars)}
       <h1 className="homepage-title">IronContacts</h1>
-      <button onClick={this.addRandomToArray} className='add-random-btn'>Add Random Contact</button>
+      <div>
+        <button onClick={this.addRandomToArray} className='add-random-btn'>Add Random Contact</button>
+        <button onClick={this.sortByName} className='add-random-btn'>Sort by Name</button>
+        <button onClick={this.sortByPopularity} className='add-random-btn'>Sort by Popularity</button>
+      </div>
         <table className="homepage-table">
           <tbody>
             <tr>
