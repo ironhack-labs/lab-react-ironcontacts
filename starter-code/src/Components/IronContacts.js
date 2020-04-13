@@ -6,22 +6,29 @@ class IronContact extends Component {
    
     state = {
       fiveContacts : contacts.slice(0, 5),
-    }
+    };
     addRandomContact = () => {
       this.setState({
         fiveContacts: this.state.fiveContacts.concat(contacts[Math.floor(Math.random() * contacts.length)])
       });
-    }
+    };
     sortByName = () => {
       this.setState({
         fiveContacts: this.state.fiveContacts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
       });
-    }
+    };
     sortByPopularity = () => {
       this.setState({
         fiveContacts : this.state.fiveContacts.sort((a,b) => (a.popularity > b.popularity)? -1 : ((b.popularity > a.popularity)? 1 : 0))
       })
-    }
+    };
+  
+    delete = (id) => {
+      this.state.fiveContacts.splice(id,1);
+      this.setState({
+        fiveContacts: [...this.state.fiveContacts],
+      });
+    };
   render() {
       //const fiveContacts = contacts.slice(0, 5)
         const { fiveContacts } = this.state;
@@ -39,11 +46,12 @@ class IronContact extends Component {
                   <th className="hb">Picture</th>
                   <th className="hb">Name</th>
                   <th className="hb">Popularity</th>
+                  <th className="hb">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {fiveContacts.map(eachContact =>(
-                <Contact key={eachContact.id} pictureUrl={eachContact.pictureUrl} name={eachContact.name} popularity={eachContact.popularity} />             
+                <Contact key={eachContact.id} pictureUrl={eachContact.pictureUrl} name={eachContact.name} popularity={eachContact.popularity} delete={() => this.delete(eachContact.id)} />             
                 ))}
               </tbody>
            </table>

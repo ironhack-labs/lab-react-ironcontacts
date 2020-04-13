@@ -9,7 +9,9 @@ class Contact extends Component {
             <tr className="each-contact">
               <td><img className="contact-img" src={this.props.pictureUrl} alt=""/></td>
               <td>{this.props.name}</td>
-              <td>{this.props.popularity}</td>
+              <td>{Math.round(this.props.popularity * 100) / 100}</td>
+              <td> <button onClick={this.props.delete}>Delete</button></td>
+
             </tr>
         );
     }
