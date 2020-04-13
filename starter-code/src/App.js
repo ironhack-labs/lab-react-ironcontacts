@@ -27,6 +27,15 @@ class App extends Component {
     });
   }
 
+  deleteContact = (id) => {
+    const moviesCopy = [...this.state.movieStars];
+    const movieIndex = moviesCopy.findIndex(item => item.id === id);
+    moviesCopy.splice(movieIndex, 1);
+    this.setState({
+      movieStars: moviesCopy,
+    });
+  }
+
   render() {
     const { movieStars } = this.state;
     return (
@@ -44,9 +53,10 @@ class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
             {movieStars.map(item => (
-             <ListElement key={item.id} img={item.pictureUrl} name={item.name} popularity={item.popularity}/>
+             <ListElement key={item.id} img={item.pictureUrl} name={item.name} popularity={item.popularity} deleted={() => this.deleteContact(item.id)}/>
             ))}
           </tbody>
         </table>
