@@ -3,3 +3,27 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.box{
+  display: flex;
+  justify-content: center;
+}
+.contacts-box{
+  display: block;
+  
+
+}
+.contacts-box h1{
+  text-align: center;
+  font-size: 3rem;
+}
+.hb{
+  padding-bottom: 1rem;
+}
+.contact-img{
+  height: 10rem;
+
+}
+.each-contact{
+  text-align: center;
+  padding: 1rem;
+}
