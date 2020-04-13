@@ -79,11 +79,14 @@ class App extends Component {
   render() {
     return (
       <div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <h1 className='App-h1'>IronContacts</h1>
-        <button onClick={this.handleClickNewRandomContact}>Add Random Contact</button>
-        <button onClick={this.handleClickSortByName}>Sort by name</button>
-        <button onClick={this.handleClickSortByPopularity}>Sort by popularity</button>
-        <table>
+        <div className='App-buttons-container'>
+          <button className='App-button' onClick={this.handleClickNewRandomContact}>Add Random Contact</button>
+          <button className='App-button' onClick={this.handleClickSortByName}>Sort by name</button>
+          <button className='App-button' onClick={this.handleClickSortByPopularity}>Sort by popularity</button>
+        </div>
+        <table cellspacing="0">
           <thead>
             <tr>
               <th className='App-th'>Picture</th>

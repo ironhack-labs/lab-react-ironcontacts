@@ -7,10 +7,10 @@ class Contact extends Component {
 
         return (
             <tr>
-              <td><img className='Contact-img' src={this.props.pictureUrl} alt='contact'/></td>
+              <td className='Contact-td'><img className='Contact-img' src={this.props.pictureUrl} alt='contact'/></td>
               <td className='Contact-td'>{this.props.name}</td>
               <td className='Contact-td'>{popularityRounded}</td>
-              <td><button onClick={this.props.clickToDelete}>Delete</button></td>
+              <td className='Contact-td'><button className='Contact-delete-button' onClick={this.props.clickToDelete}><i class="fa fa-trash"></i></button></td>
             </tr>
         );
     }

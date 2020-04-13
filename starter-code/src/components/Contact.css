@@ -4,4 +4,16 @@
 
 .Contact-td {
     font-size: 1.7rem;
-  }
+    margin: 0;
+    border: none;
+    padding: 20px;
+}
+
+tr:nth-child(even) {background: #FFFFFF}
+tr:nth-child(odd) {background: #F7F7F7}
+
+.Contact-delete-button {
+    font-size: 2rem;
+    border: none;
+    background-color: transparent;
+}
