@@ -32,11 +32,42 @@ class App extends Component {
     }
   };
 
+  compareContactsByName = (contact1, contact2) => {
+    const contactName1 = contact1.name.toUpperCase();
+    const contactName2 = contact2.name.toUpperCase();
+
+    if (contactName1 < contactName2) {
+      return -1;
+    } else if (contactName1 > contactName2) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };  
+
+  handleClickSortByName = () => {
+    this.setState({
+      contacts: [...this.state.contacts.sort(this.compareContactsByName)]
+    });
+  };
+
+  compareContactsByPopularity = (contact1, contact2) => {
+    return contact2.popularity - contact1.popularity;
+  };
+
+  handleClickSortByPopularity = () => {
+    this.setState({
+      contacts: [...this.state.contacts.sort(this.compareContactsByPopularity)]
+    });
+  };
+
   render() {
     return (
       <div>
         <h1 className='App-h1'>IronContacts</h1>
         <button className='App-button' onClick={this.handleClickNewRandomContact}>Add Random Contact</button>
+        <button className='App-button' onClick={this.handleClickSortByName}>Sort by name</button>
+        <button className='App-button' onClick={this.handleClickSortByPopularity}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
