@@ -15,9 +15,16 @@ class App extends Component {
     }
   }
 
+  addRandomContact = () => {
+    this.setState({
+      displayContacts:this.state.displayContacts.concat(contacts[Math.floor(Math.random() * contacts.length)])
+    });
+  }
+
   render() {
     return (
       <div className="App">
+      <button onClick = {this.addRandomContact}> Add Random Contact </button>
       {this.state.displayContacts.map((contacts, index) => {
         return (
           <table className="contacts-table" key={index}>
