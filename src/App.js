@@ -30,6 +30,13 @@ class App extends Component {
     });
   }
 
+  removeContact = (id) => () => {
+    const contactsCopy = this.state.contacts.filter(( contact ) => contact.id !== id);
+    this.setState({
+      contacts: contactsCopy
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -58,6 +65,7 @@ class App extends Component {
                   <td><img src={contact.pictureUrl} alt={contact.name}/></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
+                  <td><button onClick={this.removeContact(contact.id)}>Delete</button></td>
                 </tr>)
             })
             }
