@@ -19,6 +19,17 @@ class App extends Component {
     });
   }
 
+  sortContacts = (property) => () => {
+    const contactsCopy = [...this.state.contacts]
+    property === "popularity" ?
+      contactsCopy.sort((a,b) => (a[property] > b[property]) ? -1 : ((b[property] > a[property]) ? 1 : 0))
+    : 
+      contactsCopy.sort((a,b) => (a[property] > b[property]) ? 1 : ((b[property] > a[property]) ? -1 : 0));
+    this.setState({
+      contacts: contactsCopy
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,7 +40,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.addRandomContact}>Add random contact</button>
+        <button onClick={this.sortContacts("name")}>Sort by name</button>
+        <button onClick={this.sortContacts("popularity")}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
