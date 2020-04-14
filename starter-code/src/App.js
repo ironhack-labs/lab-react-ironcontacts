@@ -37,6 +37,12 @@ class App extends Component {
     })
   }
 
+  deleteContact = (index) => {
+    var deleteContact = [this.setState.displayContacts]
+    deleteContact.splice(index, 1)
+    this.setState({displayContacts:deleteContact})
+  }
+
   render() {
     return (
       <div className="App">
@@ -60,9 +66,12 @@ class App extends Component {
              <th><h1>Popularity</h1></th>
              <td>{contacts.popularity}</td>
             </tr>
+
+            <tr>
+            <button onClick = {this.deleteContact}> Delete Contact </button>
+            </tr>
           </table>
         );
-
       })}
       </div>
     )
