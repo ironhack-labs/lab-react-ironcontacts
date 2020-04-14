@@ -28,10 +28,38 @@ class App extends Component {
 
   }
 
+  // Sort by name 
+
+  sortByName = () => {
+    this.setState({
+      showContacts: this.state.showContacts.sort(function(a, b){
+        var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+        if (nameA < nameB) return -1 
+        if (nameA > nameB) return 1
+        return 0
+      })
+    })
+  }
+
+  // Sort by popularity 
+
+  sortByPopularity = () => {
+    this.setState({
+      showContacts: this.state.showContacts.sort(function(a, b){
+          return b.popularity-a.popularity
+        })
+    })
+  }
+
+  
+
   render() {
     return (
       <div className="App">
+      <h1>Iron Contacts</h1>
       <button onClick = {this.addRandomContact}>Add random contact</button>
+      <button onClick = {this.sortByName}>Sort by Name</button>
+      <button onClick = {this.sortByPopularity}>Sort by Popularity</button>
         {this.state.showContacts.map((contact, index) => {
           return (
             <ul className='contacts-container' key={index}>
