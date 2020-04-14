@@ -10,31 +10,30 @@ class App extends Component {
     }
   }
 
-// Random element 
+  // Random element 
   getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-}
+  }
 
-// Add Contact
+  // Add Contact
   addRandomContact = () => {
     this.setState({
       showContacts: [
         ...this.state.showContacts,
-        contacts[this.getRandomIntInclusive(0, contacts.length -1)]
+        contacts[this.getRandomIntInclusive(0, contacts.length - 1)]
       ]
     })
-
   }
 
   // Sort by name 
 
   sortByName = () => {
     this.setState({
-      showContacts: this.state.showContacts.sort(function(a, b){
-        var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
-        if (nameA < nameB) return -1 
+      showContacts: this.state.showContacts.sort(function (a, b) {
+        var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
+        if (nameA < nameB) return -1
         if (nameA > nameB) return 1
         return 0
       })
@@ -45,21 +44,32 @@ class App extends Component {
 
   sortByPopularity = () => {
     this.setState({
-      showContacts: this.state.showContacts.sort(function(a, b){
-          return b.popularity-a.popularity
-        })
+      showContacts: this.state.showContacts.sort(function (a, b) {
+        return b.popularity - a.popularity
+      })
     })
   }
 
-  
+  // Delete Contact 
+
+  deleteContact = (id) => {
+    let deleteContact = [...this.state.showContacts]
+    deleteContact.splice(id,1)
+
+    this.setState({
+      showContacts: deleteContact
+    })
+  }
+
+ 
 
   render() {
     return (
       <div className="App">
-      <h1>Iron Contacts</h1>
-      <button onClick = {this.addRandomContact}>Add random contact</button>
-      <button onClick = {this.sortByName}>Sort by Name</button>
-      <button onClick = {this.sortByPopularity}>Sort by Popularity</button>
+        <h1>Iron Contacts</h1>
+        <button onClick={this.addRandomContact}>Add random contact</button>
+        <button onClick={this.sortByName}>Sort by Name</button>
+        <button onClick={this.sortByPopularity}>Sort by Popularity</button>
         {this.state.showContacts.map((contact, index) => {
           return (
             <ul className='contacts-container' key={index}>
@@ -74,6 +84,9 @@ class App extends Component {
               <div className='contact-info-container'>
                 <h2>Popularity</h2>
                 <li>{contact.popularity}</li>
+              </div>
+              <div>
+                <li><button onClick={this.deleteContact}>Delete</button></li>
               </div>
             </ul>);
         })}
