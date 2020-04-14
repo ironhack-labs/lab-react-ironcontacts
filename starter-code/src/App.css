@@ -26,3 +26,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table, th, td {
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: left;
+  border-spacing: 5px;
+
+}
+
+.contacts-table{
+  display: flex;
+  flex-direction: row;
+}
+
+.contacts-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-info > td> img {
+width: 100px;
+}
