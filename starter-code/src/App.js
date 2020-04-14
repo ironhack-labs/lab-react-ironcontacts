@@ -21,10 +21,28 @@ class App extends Component {
     });
   }
 
+  sortByName = () => {
+    this.setState({
+      displayContacts: this.state.displayContacts.sort(function(a,b) { var name1 = a.name, name2 = b.name
+        if(name1 < name2) return -1
+        if(name1 > name2) return 1
+        return 0
+      })
+    })
+  }
+
+  sortByPopularity = () => {
+    this.setState({
+      displayContacts: this.state.displayContacts.sort(function(a,b) { return b.popularity - a.popularity })
+    })
+  }
+
   render() {
     return (
       <div className="App">
       <button onClick = {this.addRandomContact}> Add Random Contact </button>
+      <button onClick = {this.sortByName}> Sort By Name </button>
+      <button onClick = {this.sortByPopularity}> Sort By Popularity </button>
       {this.state.displayContacts.map((contacts, index) => {
         return (
           <table className="contacts-table" key={index}>
