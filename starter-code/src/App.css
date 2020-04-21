@@ -14,6 +14,18 @@
   color: white;
 }
 
+#table {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+
+table, th, td {
+  border: 1px solid black;
+}
+
 .App-title {
   font-size: 1.5em;
 }
