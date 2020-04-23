@@ -30,7 +30,7 @@ class App extends Component {
           <td>{eachContact.name}</td>
           <td>{parseFloat(eachContact.popularity).toFixed(2)}</td>
           <td>
-            <button onClick={this.removeButton}>Remove Contact</button>
+            <button onClick={() =>this.removeButton(index)}>Remove Contact</button>
           </td>
         </tr>
       );
