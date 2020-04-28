@@ -7,19 +7,19 @@ import contacts from './contacts.json';
 class App extends Component {
 
   state = {
-    contacts: []
+    items: []
   }
+  componentDidMount(){
+    
+    this.setState({items:contacts.slice(0,5)})
+  }
+
+  
  
-  updateContacts = () => {
-    for(let i=0; i<5; i++) {
-      this.setState(
-        this.state.contacts.push(contacts[i])
-      )
-    }
-  }  
+   
 
   render() {
-    this.updateContacts();
+    
     return (
       // <div className="App">
       //    {this.state.contacts.map( (contact, index) =>  
@@ -30,8 +30,7 @@ class App extends Component {
       //    }
       //    </div>
         <div className="App">
-            <ContactComponent contacts = {this.state.contacts}/> )
-            }
+            <ContactComponent contacts = {this.state.items}/> 
         </div>
 
     );
