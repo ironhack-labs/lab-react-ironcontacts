@@ -1,0 +1,11 @@
+.contact-image {
+    height: 200px;
+    width: 150px;
+};
+
+.contact-table  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
