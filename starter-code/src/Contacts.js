@@ -1,24 +1,15 @@
-import React from 'react';
+import React from "react";
 
-function Contacts(props) {
+export default function Contacts(props) {
   return (
-    <div>
-        <tr key={props.key}>
-            <td>
-            <img src={props.pictureUrl} alt="" width="150" />
-            </td>
-            <td>{props.name}</td>
-            <td>{props.popularity}</td>
-            <td><button onClick= {props.clickToDelete} > Delete </button></td>
-        </tr> 
-    </div>
-  )
+ 
+      <tr key={props.id}>
+        <td><img src={props.pictureUrl} alt="" width="100"/></td>
+        <td>{props.name}</td>
+        <td>{props.popularity}</td>
+        <td>{props.popularity}</td>
+        <td><button onClick={props.deleteButton}>Delete</button></td>
+      </tr>
+
+  );
 }
-
-export default Contacts;
-
-
-
-
-
-
