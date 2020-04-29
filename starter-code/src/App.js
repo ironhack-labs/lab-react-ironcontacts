@@ -21,6 +21,7 @@ class App extends Component {
     const randNum = Math.floor(Math.random() * contacts.length)
     const contactsArrCopy = [...this.state.contactsArr]
     contactsArrCopy.push(contacts[randNum])
+    contacts.splice(randNum, 1)
 
     this.setState({
       contactsArr: contactsArrCopy,
