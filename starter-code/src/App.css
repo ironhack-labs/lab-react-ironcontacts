@@ -1,25 +1,37 @@
+.img {
+  width: 4rem;
+}
+
+.table {
+  width: 50%;
+  text-align: left;
+
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 4rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.div-btn {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.btn {
+  padding: 0.8rem 2rem;
+  background-color: rgb(192, 192, 192);
+  border-radius: 1rem;
+  border-style: none;
+  margin: 0.4rem;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+h4 {
+  font-size: 1.8rem;
 }
 
 @keyframes App-logo-spin {
