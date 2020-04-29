@@ -7,10 +7,8 @@ const TableBody = ({ contactsArr }) => (
       <TableRow
         key={idx}
         idx={idx}
-        picture={contact.pictureUrl}
-        name={contact.name}
-        popularity={contact.popularity}
         deleteContact={() => this.deleteContact(idx)}
+        {...contact}
       />
     ))}
   </tbody>
