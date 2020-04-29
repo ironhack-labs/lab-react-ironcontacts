@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './App.css'
 import contacts from './contacts.json'
-import TableRow from './components/TableRow'
+import Header from './components/Header'
+import Table from './components/Table'
 
 class App extends Component {
   constructor() {
@@ -58,33 +59,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>IronContacts</h1>
-        <div>
-          <button onClick={this.addRandom}>Add random contact</button>
-          <button onClick={this.sortByName}>Sort by name</button>
-          <button onClick={this.sortByPopularity}>Sort by popularity</button>
-        </div>
-        <table className="table-container">
-          <thead>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.contactsArr.map((contact, idx) => (
-              <TableRow
-                key={idx}
-                idx={idx}
-                picture={contact.pictureUrl}
-                name={contact.name}
-                popularity={contact.popularity}
-                deleteContact={() => this.deleteContact(idx)}
-              />
-            ))}
-          </tbody>
-        </table>
+        <Header
+          addRandom={this.addRandom}
+          sortByName={this.sortByName}
+          sortByPopularity={this.sortByPopularity}
+        />
+        <Table contactsArr={this.state.contactsArr} />
       </div>
     )
   }
