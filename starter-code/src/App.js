@@ -15,6 +15,7 @@ class App extends Component {
     this.addRandom = this.addRandom.bind(this)
     this.sortByName = this.sortByName.bind(this)
     this.sortByPopularity = this.sortByPopularity.bind(this)
+    this.deleteContact = this.deleteContact.bind(this)
   }
 
   addRandom() {
@@ -65,7 +66,7 @@ class App extends Component {
           sortByName={this.sortByName}
           sortByPopularity={this.sortByPopularity}
         />
-        <Table contactsArr={this.state.contactsArr} />
+        <Table contactsArr={this.state.contactsArr} deleteContact={this.deleteContact}/>
       </div>
     )
   }
