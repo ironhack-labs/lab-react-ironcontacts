@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      fiveContacts: [contacts[0], contacts[1], contacts[2], contacts[3], contacts[4]]
+      fiveContacts: contacts.slice(0, 5)
     }
     this.addRandomContact = this.addRandomContact.bind(this);
     this.sortByName = this.sortByName.bind(this);
