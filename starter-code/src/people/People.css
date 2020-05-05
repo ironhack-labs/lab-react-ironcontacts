@@ -1,0 +1,15 @@
+.each-row {
+    text-align: center;
+    margin: 5px;
+    border: solid white 30px;
+}
+
+.each-row td {
+    padding: 10px;
+    border: dotted #e08283 1px;
+    border-radius: 5px;
+}
+
+.each-row img {
+    max-height: 100px;
+}

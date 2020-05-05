@@ -22,7 +22,51 @@
   font-size: large;
 }
 
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container h1 {
+  color: #9d5b5d;
+  text-transform: uppercase;
+}
+
+.my-btn {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  margin: 0 8px;
+  padding: 8px 16px;
+  background-color: #ffc9cb;
+  border-radius: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #9d5b5d;
+  border: #9d5b5d solid 2px
+}
+
+thead th {
+  padding: 10px;
+  border: dotted #e08283 1px;
+  border-radius: 5px;
+  color: #9d5b5d;
+}
+
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
