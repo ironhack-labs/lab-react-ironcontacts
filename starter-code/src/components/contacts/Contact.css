@@ -1,0 +1,8 @@
+img {
+    width: 40%;
+}
+
+.row.contact-info:hover {
+    color: burlywood;
+    font-weight: 700;
+}

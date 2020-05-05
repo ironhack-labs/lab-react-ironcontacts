@@ -1,0 +1,16 @@
+.actions-nav { 
+    margin: 50px 0px;
+}
+
+.action-button { 
+    margin: 0px 10px;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+.error-message {
+    color: burlywood;
+    font-weight: 700;
+}
