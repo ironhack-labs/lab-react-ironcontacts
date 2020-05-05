@@ -1,28 +1,52 @@
-.App {
-  text-align: center;
+.container{
+  margin: 50px 300px 50px 300px;
+  background: #c5d0d4;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+header{
+display:flex;
+justify-content: space-between;
+margin-bottom: 20px;
+background-color: #95adbe;
+padding: 5px 20px 5px 20px;
+color: #ffffff;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+  color:#95adbe;
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 20px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.buttons{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
+.button1{
+  flex-grow: 1;
+  margin-right: 5px;
+  background-color: #b0d2c5;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 20px;
+} 
 
-.App-intro {
-  font-size: large;
+.button2{
+  flex-grow: 1;
+  margin-right: 5px;
+    background-color:#85a6be;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 20px;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.button3{
+  flex-grow: 1;
+    background-color: #574f7d;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 20px;
 }

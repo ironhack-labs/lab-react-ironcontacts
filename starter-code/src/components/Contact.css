@@ -1,0 +1,25 @@
+.contactList{
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    align-items: center;
+}
+img{
+    width: 70px;
+    height: 90px;
+}
+h3{
+    color: #95adbe;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+}
+.button4{
+  margin-right: 5px;
+  background-color: #574f7d;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 20px;
+} 
