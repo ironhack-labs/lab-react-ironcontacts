@@ -1,0 +1,58 @@
+.contact-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 5.5em;
+    font-weight: 100;
+    color:#2E364F;
+}
+
+.contact-table header{
+    text-align: center;
+    width: 80%;   
+}
+
+.contact-table header>button{
+    text-align: center;
+    width: 25%;
+    margin: 0 10px;
+
+    background-color: #2D5D7C;
+    border:none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: #F3F0E2;
+    font-size: 1.1em;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
+.contact-table header>button:hover{
+    background-color: #EF5939;
+    box-shadow:none;
+}
+
+.table-header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #EF5939;
+    margin-top: 50px;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.5);
+}
+
+h2{
+    width:30%;
+    margin:0;
+    font-size:2.5em;
+    font-weight: 500;
+    color: #2E364F;
+    padding:15px 0;
+}
+
+.small{
+    width:10%;
+}

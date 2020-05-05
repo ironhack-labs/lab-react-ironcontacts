@@ -1,0 +1,53 @@
+.contact-card {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+    background-color: #2D5D7C;
+   
+}
+.contact-card:nth-child(2n) {
+    background-color: #2E364F;
+}
+
+.contact-card:hover{
+    border: none 5px #EF5939;
+    border-style: none solid;
+}
+
+.contact-card img{
+    height: 150px;
+    padding: 10px 0px;
+}
+
+.contact-card img:hover{
+    height: 200px;
+    padding: 10px 0px;
+}
+
+.contact-card p{
+    font-size: 1.5em;
+    color:#F3F0E2;
+    width:30%;
+}
+
+.contact-card button{
+    background-color: #2E364F;
+    border:none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: #F3F0E2;
+    font-size: 1.1em;
+    box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
+.contact-card:nth-child(2n) button{
+    background-color: #2D5D7C;
+    border:none;
+}
+
+.contact-card button:hover{
+    background-color: #EF5939;
+    box-shadow:none;
+}
