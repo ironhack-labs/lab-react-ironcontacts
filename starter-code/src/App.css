@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -22,7 +24,24 @@
   font-size: large;
 }
 
+table {
+  width: 100%;
+}
+
+button {
+  margin: 50px;
+}
+
+.contact__img {
+  width: 100px;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
