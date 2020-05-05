@@ -1,6 +1,6 @@
 import React from "react";
 
-function singleContact({ key, pictureUrl, name, popularity, handleDelete }) {
+function singleContact({ index, pictureUrl, name, popularity, handleDelete }) {
   return (
     <tr>
       <td className='contacts__data'>
@@ -9,7 +9,7 @@ function singleContact({ key, pictureUrl, name, popularity, handleDelete }) {
       <td>{name}</td>
       <td>{popularity.toFixed(2)}</td>
       <td>
-        <button className='delete-button' onClick={() => handleDelete(key)}>
+        <button className='delete-button' onClick={() => handleDelete(index)}>
           Delete contact
         </button>
       </td>

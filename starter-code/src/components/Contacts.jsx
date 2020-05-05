@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import contactsDb from "../contacts.json";
-// import SingleContact from "./singleContact";
+import SingleContact from "./singleContact";
 
 export default class Contacts extends Component {
   state = {
@@ -51,6 +51,8 @@ export default class Contacts extends Component {
     this.setState({ contacts: contactsCopy });
   };
 
+  sparklesOff = () => {};
+
   render() {
     return (
       <div className='contacts'>
@@ -58,7 +60,7 @@ export default class Contacts extends Component {
           <span role='img' aria-label='sparkles emoji'>
             ✨
           </span>
-          A list of very fancy people
+          A list of fancy people
           <span role='img' aria-label='sparkles emoji'>
             ✨
           </span>
@@ -75,6 +77,7 @@ export default class Contacts extends Component {
         >
           Sort by popularity
         </button>
+
         <table className='contacts__table'>
           <thead>
             <tr>
@@ -86,21 +89,11 @@ export default class Contacts extends Component {
           </thead>
           <tbody>
             {this.sortContacts().map((contact, index) => (
-              <tr key={index}>
-                <td className='contacts__data'>
-                  <img src={contact.pictureUrl} alt='Star face' />
-                </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity.toFixed(2)}</td>
-                <td>
-                  <button
-                    className='delete-button'
-                    onClick={() => this.handleDelete(index)}
-                  >
-                    Delete contact
-                  </button>
-                </td>
-              </tr>
+              <SingleContact
+                index={index}
+                {...contact}
+                handleDelete={this.handleDelete}
+              />
             ))}
           </tbody>
         </table>
@@ -108,11 +101,3 @@ export default class Contacts extends Component {
     );
   }
 }
-
-// I tried working with a separate component but eventually didn't manage to get the Delete button to work when files were separated. I leave the bit of code here.
-
-/* <SingleContact
-                key={index}
-                {...contact}
-                handleDelete={this.handleDelete}
-              /> */
