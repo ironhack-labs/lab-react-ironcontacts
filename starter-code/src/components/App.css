@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+  margin-top: 0px;
+  padding: 20px;
+  background-color: white;
+}
+
+.contacts {
+  font-size: 3em;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  color: rgb(70, 70, 70);
+}
+
+table {
+    width: 22%;
+    display: inline-block;
+    width:30%;
+    padding: 50px;
+    border: 0.15em solid tomato;
+    border-radius:2em;
+    margin: 60px 0;
+    background-color: rgb(247, 247, 238);
+    box-shadow: 5px 5px 15px -4px rgba(56, 56, 56, 0.993);
+    color: rgb(70, 70, 70);
+}
+
+thead {
+  color: black; 
+}
+
+table img {
+    width: 70%
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.button1 {
+    background-color:#f1bb4e;
+    font-size: 1.1em;
+    color: white;
+    border: 0.15em solid #FFFFFF;
+    transition: 0.3s;
+    border-radius:2em;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    box-shadow: 1px 2px 9px -4px rgba(0, 0, 0, 0.342);
+}
+
+.button2 {
+    background-color:#4e9af1;
+    font-size: 1.1em;
+    color: white;
+    border: 0.15em solid #FFFFFF;
+    transition: 0.3s;
+    border-radius:2em;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    box-shadow: 1px 2px 9px -4px rgba(0, 0, 0, 0.342);
+}
+
+.button1:hover {
+  background-color:#FFFFFF;;
+    color: #f1bb4e;
+    border: 0.15em solid #f1bb4e;
+}
+
+.button2:hover {
+  background-color:#FFFFFF;;
+    color: #4e9af1;
+    border: 0.15em solid #4e9af1;
+}

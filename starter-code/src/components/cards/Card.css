@@ -1,0 +1,16 @@
+ 
+.delete{
+    background-color: tomato;
+    color: white;
+    border: 0.15em solid #FFFFFF;
+    transition: 0.3s;
+    border-radius:2em;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    box-shadow: 1px 2px 9px -4px rgba(0, 0, 0, 0.342);
+}
+
+.delete:hover {
+    background-color:#FFFFFF;;
+    color: tomato;
+    border: 0.15em solid tomato;
+}
