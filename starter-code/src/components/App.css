@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+  font-weight: 100;
+  background-color: lightyellow;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 100;
+}
+
+thead td {
+  border: 1px solid black;
+}
+
+tbody td {
+  border: 1px solid black;
+  width: 200px;
+
+}
+
+table {
+  margin: auto;
+  background-color: lightgrey;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: lightseagreen;
+}
