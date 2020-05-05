@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -25,4 +25,32 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+td img {
+  height:100px;
+  width: 60px;
+}
+
+.titleAndButton{
+  margin-left: 30px;
+}
+
+table{
+  margin-top: 50px;
+  margin-left: 100px;
+  height: 60vh;
+  width:40vw;
+}
+
+.name {
+  text-align: center;
+}
+
+.left{
+  text-align: left;
+}
+
+button{
+  border-radius:0px;
 }
