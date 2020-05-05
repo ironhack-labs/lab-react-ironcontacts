@@ -42,8 +42,18 @@ class App extends Component {
 
   sortContactsByPopularity = () => {
     let stateContacts = [...this.state.contacts]
-    stateContacts.sort((a, b) => a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0)
+    stateContacts.sort((a, b) =>
+      a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0
+    )
     this.setState({ contacts: stateContacts })
+  }
+
+  removeContact = (idx) => {
+    let stateContacts = [...this.state.contacts]
+    console.log(`BEFORE: ${stateContacts.length}`)
+    stateContacts.splice(idx, 1)
+    console.log(`AFTER: ${stateContacts.length}`)
+    this.setState({contacts: stateContacts})
   }
 
   render() {
@@ -60,27 +70,33 @@ class App extends Component {
         </div>
 
         <table>
-          <tr>
-            <th>
-              <p>Image</p>
-            </th>
-            <th>
-              <p>Name</p>
-            </th>
-            <th>
-              <p>Popularity</p>
-            </th>
-          </tr>
-          {this.state.contacts.map((elm, idx) => (
-            <p key={idx}>
+          <thead>
+            <tr>
+              <th>
+                <p>Image</p>
+              </th>
+              <th>
+                <p>Name</p>
+              </th>
+              <th>
+                <p>Popularity</p>
+              </th>
+              <th>
+                <p>Action</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.contacts.map((elm, idx) => (
               <TableRow
                 key={idx}
                 name={elm.name}
                 pictureUrl={elm.pictureUrl}
                 popularity={elm.popularity}
+                removeElm={() => this.removeContact(idx)}
               />
-            </p>
-          ))}
+            ))}
+          </tbody>
         </table>
       </main>
     )
