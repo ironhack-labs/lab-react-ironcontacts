@@ -7,7 +7,7 @@ const ContactRow = (props) => {
 				<img src={props.picture} alt="deadlink" className="picture" />
 			</td>
 			<td>{props.name}</td>
-			<td>{props.popularity}</td>
+			<td>{props.popularity.toFixed(2)}</td>
 			<td>
 				<button onClick={props.delete}>Delete</button>
 			</td>
