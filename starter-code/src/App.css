@@ -10,3 +10,32 @@ h1, h2, h3 {
 table img {
   max-width: 150px;
 }
+
+button {
+  border: 0px;
+  background: #FF8266;
+  padding: 4px 16px;
+  border-radius: 4px;
+  margin: 0px 16px;
+}
+
+button:hover, button:active {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+table {
+  margin: 48px auto 0px auto;
+  padding: 16px;
+  background: #FFC1B3;
+  text-align: center;
+}
+
+td {
+  padding: 8px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
