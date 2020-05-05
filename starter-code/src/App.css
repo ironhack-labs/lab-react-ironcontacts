@@ -1,28 +1,75 @@
 .App {
   text-align: center;
+  /* max-width: 600px; */
+  display: flex;
+  background-image: url("https://source.unsplash.com/jVNWCFwdjZU");
+  background-size: cover;
+  background-position: center right;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.Contacts {
+  margin: 100px auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.buttons {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
 }
 
-.App-title {
-  font-size: 1.5em;
+button {
+  border: unset;
+  background: unset;
+  font-family: unset;
 }
 
-.App-intro {
-  font-size: large;
+.buttons button {
+  flex: 1;
+  background: lightgrey;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: 200;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.buttons button:nth-child(2) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Contacts button:focus {
+  outline: none;
+}
+
+.buttons button:hover {
+  background: paleturquoise;
+}
+
+img {
+  width: 100px;
+}
+
+td,
+th {
+  /* border: 1px solid black; */
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 3px;
+  transition: all 0.1s;
+}
+
+tr:hover td,
+tr:hover th {
+  background: white;
+}
+
+td:last-child:hover {
+  background: coral;
+}
+
+td button {
+  width: 100%;
+  height: 100%;
 }
