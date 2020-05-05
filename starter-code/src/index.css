@@ -2,4 +2,41 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacts__table th {
+  padding: 40px;
+  font-size: 30px;
+}
+
+.contacts__table td {
+  padding: 40px;
+  border: 1px solid white;
+}
+
+.contacts__data img {
+  max-height: 10vh;
+}
+
+.contacts__button {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.delete-button {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px;
 }
