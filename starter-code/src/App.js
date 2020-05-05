@@ -11,7 +11,7 @@ class App extends Component {
     }
   }
 
-  addRandomContact = (idx) => {
+  addRandomContact = () => {
     let stateContacts = [...this.state.contacts]
     const randomNumber = Math.floor(Math.random() * contacts.length)
     const newContact = [...contacts][randomNumber]
@@ -23,16 +23,33 @@ class App extends Component {
       }
     })
 
-    if (isRepeated === false) {stateContacts.push(newContact)}
+    if (isRepeated === false) {
+      stateContacts.push(newContact)
+    }
 
+    this.setState({ contacts: stateContacts })
+  }
+
+  sortContactsByName = () => {
+    let stateContacts = [...this.state.contacts]
+    stateContacts.sort((a, b) => {
+      const textA = a.name.toUpperCase()
+      const textB = b.name.toUpperCase()
+      return textA < textB ? -1 : textA > textB ? 1 : 0
+    })
     this.setState({contacts: stateContacts})
-
   }
 
   render() {
     return (
       <main>
-        <button onClick={this.addRandomContact}>Add new random contact</button>
+        <div className="button-container">
+          <button onClick={this.sortContactsByName}>Sort by name</button>
+          <button onClick={this.addRandomContact}>
+            Add new random contact
+          </button>
+        </div>
+
         <table>
           <tr>
             <th>
