@@ -37,13 +37,22 @@ class App extends Component {
       const textB = b.name.toUpperCase()
       return textA < textB ? -1 : textA > textB ? 1 : 0
     })
-    this.setState({contacts: stateContacts})
+    this.setState({ contacts: stateContacts })
+  }
+
+  sortContactsByPopularity = () => {
+    let stateContacts = [...this.state.contacts]
+    stateContacts.sort((a, b) => a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0)
+    this.setState({ contacts: stateContacts })
   }
 
   render() {
     return (
       <main>
         <div className="button-container">
+          <button onClick={this.sortContactsByPopularity}>
+            Sort by popularity
+          </button>
           <button onClick={this.sortContactsByName}>Sort by name</button>
           <button onClick={this.addRandomContact}>
             Add new random contact
