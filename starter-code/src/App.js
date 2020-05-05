@@ -11,8 +11,22 @@ class App extends Component {
     }
   }
 
-  addRandomContact() {
-    alert('lol')
+  addRandomContact = (idx) => {
+    let stateContacts = [...this.state.contacts]
+    const randomNumber = Math.floor(Math.random() * contacts.length)
+    const newContact = [...contacts][randomNumber]
+    let isRepeated = false
+
+    stateContacts.forEach((elm) => {
+      if (elm.id === newContact.id) {
+        isRepeated = true
+      }
+    })
+
+    if (isRepeated === false) {stateContacts.push(newContact)}
+
+    this.setState({contacts: stateContacts})
+
   }
 
   render() {
