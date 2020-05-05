@@ -1,0 +1,37 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+main{
+  margin:32px;
+}
+main button{
+  background-color: #fad390;
+  padding: 8px 16px;
+  border-radius: 3px;
+  border: none;
+  margin: 0 8px; 
+  cursor: pointer;
+  transition: .2s all;
+}
+main button:hover{
+  transform: scale(1.05);
+  background-color: #f6b93b;
+}
+main div{
+  display: flex;
+  justify-content:center;
+}
+table{
+  margin: 40px;
+  width: 500px;
+  border-collapse: collapse;
+}
+h1{
+  text-align:center;
+}
+th{
+  border: 1px solid #fa983a;
+  box-sizing: border-box;
+  padding: 8px;
+}
