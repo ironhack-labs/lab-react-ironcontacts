@@ -26,3 +26,31 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+.cta-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th,td{
+  padding: 5px 25px;
+}
+
+button{
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 25px;
+  font-weight: bold;
+}
