@@ -1,0 +1,20 @@
+.contact-img {
+    width: 200px;
+    border-radius: 60px;
+}
+
+.name {
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.popularity {
+    font-size: 1.8em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.all-contacts {
+    padding: 20px;
+}
