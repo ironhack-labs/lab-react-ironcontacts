@@ -1,0 +1,32 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+main{
+  margin:32px;
+}
+main button{
+  background-color: #3926ec;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin: 0 10px; 
+color:white;
+}
+
+main div{
+  display: flex;
+  justify-content:center;
+}
+table{
+  margin: 40px;
+  width: 500px;
+  border-collapse: collapse;
+}
+h1{
+  text-align:center;
+}
+th{
+  border: 2px solid #004f63;
+  box-sizing: border-box;
+  padding: 8px;
+}
