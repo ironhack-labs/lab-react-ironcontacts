@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.btnDiv {
+  width: 70%;
+  margin: 0px 220px;
+}
