@@ -9,15 +9,28 @@ class App extends Component {
     this.state = {
       contacts: contacts.slice(0, 5)
     };
-  };
+    this.addRandom = this.addRandom.bind(this);
+  }
+
+ addRandom() {
+    const random =
+      contacts[Math.floor(Math.random() * contacts.length) + 4];
+    const contactsNew = this.state.contacts.push(random);
+
+    this.setState({
+      contactsNew
+    });
+  }
+
+
 
 
   render() {
     const contacts = this.state.contacts;
-    
     return (
       <div className="App">
           <h1 className="App-title">Iron Contacts</h1>
+          <button onClick={this.addRandom}>Add Random Contact</button>
           <div>
           {contacts.map((contact, index) => {
           return (
@@ -36,7 +49,7 @@ class App extends Component {
                 </th>
 
                 <th>
-                  <h2 className="popularity">{contact.popularity}</h2>
+                  <h2 className="popularity">{Math.round(contact.popularity * 100) /100}</h2>
                 </th>
               </tr>
             </table>
