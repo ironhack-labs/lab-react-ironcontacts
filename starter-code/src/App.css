@@ -1,6 +1,10 @@
 
 .App {		 
-   text-align: center;
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+ 	background: #f0f0f0;
+  padding: 0 5%;
 }	
 
 .h1 {
@@ -11,4 +15,39 @@
 img {
   width: 100px;
   border-radius: 5px;
+}
+
+.button {
+    background: white;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+table{
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    border: 2px solid black;
+}
+
+th {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+
+}
+
+td{
+    padding: 20px 0px;
+}
+
+.titles{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: start
 }

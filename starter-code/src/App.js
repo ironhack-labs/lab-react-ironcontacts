@@ -12,6 +12,7 @@ class App extends Component {
     this.addRandom = this.addRandom.bind(this);
     this.sortByName = this.sortByName.bind(this);
     this.sortByPopularity = this.sortByPopularity.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
   }
 
  addRandom() {
@@ -34,6 +35,13 @@ class App extends Component {
     this.setState({})
   }
 
+   deleteContact(idx) {
+    const deleteContact = [...this.state.contacts.splice(idx, 1)];
+    this.setState({
+      deleteContact
+    });
+  }
+
 
 
   render() {
@@ -41,9 +49,15 @@ class App extends Component {
     return (
       <div className="App">
           <h1 className="App-title">Iron Contacts</h1>
-          <button onClick={this.addRandom}>Add Random Contact</button>
-          <button onClick={this.sortByName}>Sort By Name</button>
-          <button onClick={this.sortByPopularity}>Sort By Popularity</button>
+          <button className="button" onClick={this.addRandom}>Add Random Contact</button>
+          <button className="button" onClick={this.sortByName}>Sort By Name</button>
+          <button className="button" onClick={this.sortByPopularity}>Sort By Popularity</button>
+         <div className="titles">
+          <div><h2>Picture</h2></div> 
+          <div><h2>Name</h2></div>
+          <div><h2>Popularity</h2></div>
+          <div><h2>Action</h2></div>
+          </div>
           <div>
           {contacts.map((contact, index) => {
           return (
@@ -56,7 +70,6 @@ class App extends Component {
                     alt="pic"
                   />
                 </th>
-
                 <th>
                   <h1 className="Name">{contact.name}</h1>
                 </th>
@@ -64,6 +77,7 @@ class App extends Component {
                 <th>
                   <h2 className="popularity">{Math.round(contact.popularity * 100) /100}</h2>
                 </th>
+                  <button className="button" onClick={() => this.deleteContact(index)}>Delete</button>
               </tr>
             </table>
           );
