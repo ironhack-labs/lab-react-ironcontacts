@@ -51,8 +51,6 @@ export default class Contacts extends Component {
     this.setState({ contacts: contactsCopy });
   };
 
-  sparklesOff = () => {};
-
   render() {
     return (
       <div className='contacts'>
