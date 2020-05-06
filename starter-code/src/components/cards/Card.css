@@ -1,0 +1,9 @@
+img{
+    width: 100px;
+}
+
+table tr td{
+    padding: auto;
+    width: 25%;
+    border: 1px solid black;
+}
