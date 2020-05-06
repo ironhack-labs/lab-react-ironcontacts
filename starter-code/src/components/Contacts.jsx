@@ -88,6 +88,7 @@ export default class Contacts extends Component {
           <tbody>
             {this.sortContacts().map((contact, index) => (
               <SingleContact
+                key={index}
                 index={index}
                 {...contact}
                 handleDelete={this.handleDelete}
