@@ -26,3 +26,36 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.tableMain{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tableHead tr {
+  display: flex;
+  width: 20vw;
+}
+
+.tableHead th {
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tableBody tr {
+  display: flex;
+  width: 20vw;
+}
+
+.tableBody td {
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tableBody img {
+  height: 10vh;
+  width: 4vw;
+}
