@@ -1,18 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+//import logo from "./logo.svg";
+import contacts from "./contacts.json";
+import "./App.css";
+
+const contactList = contacts.splice(0, 5);
 
 class App extends Component {
+  
+  state = {
+    contact: contactList,
+  };
+
   render() {
+    const contactItems = this.state.contact.map((contact) => (
+      <tr>
+        <td><img src={contact.pictureUrl} alt=""/></td>
+        <td key={contact.id}>{contact.name}</td>
+        <td key={contact.id}>{contact.popularity}</td>
+      </tr>
+    ));
+
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="contactList">
+        <h1>IronContacts</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contactItems}
+          </tbody>
+        </table>
       </div>
     );
   }
