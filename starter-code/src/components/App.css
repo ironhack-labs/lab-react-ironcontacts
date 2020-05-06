@@ -1,0 +1,82 @@
+
+.container h1{
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-color: bisque;
+}
+
+.buttons-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.buttons-div button{
+    margin: 0 20px;
+    border-radius: 5px;
+    background-color: rgb(46, 69, 134);
+    color: seashell;
+
+    width: 50%;
+    height: 70px;
+
+    text-align: center;
+    font-size: .8em;
+
+    transition-duration: 0.4s;
+}
+
+.buttons-div button:hover{
+    border: 2px solid blue;
+    background-color: seashell;
+
+    font-weight: 800;
+    color: blue;
+}
+
+table{
+    width: 1300px;
+    background-color: rgb(13, 13, 146);
+
+    text-align: center;
+    border-collapse: collapse;
+    border: 2px solid blanchedalmond;
+}
+
+
+
+th {
+    border: 2px solid blanchedalmond;
+    background-color: rgb(73, 100, 223);
+    color: white;
+
+}
+
+td{
+    padding: 20px 0px;
+}
+
+tr:hover {background-color: blue;}
+
+.contact button {
+    border-radius: 5px;
+    background-color: red;
+    color: seashell;
+
+    width: 70%;
+    height: 70px;
+
+    text-align: center;
+    font-size: .8em;
+
+    transition-duration: 0.4s;
+}
+
+.contact button:hover {
+    border: 2px solid red;
+    background-color: seashell;
+
+    font-weight: 800;
+    color: rgb(255, 0, 0);
+}
