@@ -14,7 +14,7 @@ class App extends Component {
     const addArtist = () => {
       console.log("Markus");
       let randomNub = Math.floor(Math.random() * 199);
-      let arrcopy = [...contacts.slice(randomNub, randomNub + 1)];
+      let arrcopy = [...contacts.slice(randomNub + 6, randomNub + 7)];
       console.log(arrcopy);
       this.setState({ fiveartist: this.state.fiveartist.concat(arrcopy) });
     };
@@ -31,24 +31,55 @@ class App extends Component {
     const sortPopulary = () => {
       this.setState({
         fiveartist: this.state.fiveartist.sort(function (a, b) {
-          return a.popularity - b.popularity;
+          return b.popularity - a.popularity;
         }),
       });
     };
+
+    const deleteOneContact = (id) => {
+      console.log("hello");
+      this.setState({
+        fiveartist: this.state.fiveartist.filter((elem) => {
+          if (elem.id === id) return false;
+          else return true;
+        }),
+      });
+    };
+
     return (
       <div className="App">
         <button onClick={addArtist}>Add Random Artist</button>
         <button onClick={sortByName}>Sort by name</button>
         <button onClick={sortPopulary}>Sort Popularity</button>
         <table>
-          <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-          {this.state.fiveartist.map((artist) => (
-            <Artist key={artist.id} artist={artist}></Artist>
-          ))}
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.fiveartist.map((artist) => (
+              <tr>
+                <td>
+                  <img src={artist.pictureUrl} style={{ width: "100px" }} />
+                </td>
+                <td>{artist.name}</td>
+                <td>{artist.popularity}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      deleteOneContact(artist.id);
+                    }}
+                  >
+                    delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     );
