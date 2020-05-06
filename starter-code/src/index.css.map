@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,GAAG,CAAC;EACF,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACb",
+    "sources": [
+        "index.scss",
+        "components/Row/_Row.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}
