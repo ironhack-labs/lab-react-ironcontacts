@@ -1,4 +1,16 @@
 .IdCard img {
-  width: auto;
+  width: 150px;
   height: 200px;
+}
+
+.IdCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  color: red;
+}
+
+div{
+  width: 500px;
 }
