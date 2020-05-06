@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Button = ({addRandom})=> <button onClick={addRandom}>Add a random contact!</button>
+const Button = ({ fcn, value }) => <button onClick={fcn}>{value}</button>
 
 export default Button
