@@ -31,11 +31,19 @@ class App extends Component {
     });
   };
 
+  deleteContact = (id) => {
+    const contacts = [...this.state.contacts];
+    const filteredList = contacts.filter((contact) => contact.id !== id);
+    this.setState({
+      contacts: filteredList,
+    });
+  };
+
   sortByPopularity = () => {
     console.log(this.state.sortedByPopularity);
     this.setState({
       sortedByName: false,
-      sortedByPopularity: !this.state.sortedByPopularity,
+      sortedByPopularity: true,
     });
   };
 
@@ -44,7 +52,7 @@ class App extends Component {
     if (this.state.sortedByName) {
       displayContacts.sort((a, b) => (a.name > b.name ? 1 : -1));
     } else if (this.state.sortedByPopularity) {
-      displayContacts.sort((a, b) => a.popularity - b.popularity);
+      displayContacts.sort((a, b) => b.popularity - a.popularity);
     }
     return (
       <>
@@ -69,7 +77,7 @@ class App extends Component {
             Sort by popularity
           </button>
         </div>
-        <Page contacts={displayContacts} />
+        <Page contacts={displayContacts} deleteContact={this.deleteContact} />
       </>
     );
   }

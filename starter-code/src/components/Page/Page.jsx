@@ -8,6 +8,7 @@ export default function Page(props) {
         <img src={contact.pictureUrl} alt="" height="100" />
         <p>{contact.name}</p>
         <p>{contact.popularity.toFixed(2)}</p>
+        <button onClick={() => props.deleteContact(contact.id)}>Delete</button>
       </li>
     );
   });
