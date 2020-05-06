@@ -5,6 +5,7 @@ import contacts from "./contacts.json";
 import "bootstrap/dist/css/bootstrap.css";
 import { Table } from "reactstrap";
 import { Button } from "reactstrap";
+import Contact from "./Components/Contact.js";
 const shortid = require("shortid");
 
 class App extends Component {
@@ -77,21 +78,11 @@ class App extends Component {
             </thead>
             <tbody>
               {this.state.table.map((x) => (
-                <tr key={shortid.generate()}>
-                  <td>
-                    <img src={x.pictureUrl} alt="" style={{ width: "200px" }} />
-                  </td>
-                  <td>{x.name}</td>
-                  <td>{x.popularity}</td>
-                  <td>
-                    <Button
-                      color="danger"
-                      onClick={() => this.handleDelete(x.id)}
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
+                <Contact
+                  key={shortid.generate()}
+                  handleDelete={() => this.handleDelete(x.id)}
+                  {...x}
+                />
               ))}
             </tbody>
           </Table>
