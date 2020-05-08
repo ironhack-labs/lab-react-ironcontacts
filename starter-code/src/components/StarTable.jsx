@@ -5,8 +5,8 @@ import "../App.css";
 
 export class StarTable extends Component {
   render() {
-    const Star5 = [...Contacts].slice(0, 5);
-    const Starlist = Star5.map((S) => (
+    const StarsFromContacts = [...Contacts].slice(0, 5);
+    const StarlistInit = StarsFromContacts.map((S) => (
       <tr key={S.id}>
         <td>
           <img src={S.pictureUrl} alt="" />
@@ -16,7 +16,7 @@ export class StarTable extends Component {
       </tr>
     ));
 
-    console.log(Star5);
+    console.log(StarsFromContacts);
 
     return (
       <div>
@@ -28,7 +28,7 @@ export class StarTable extends Component {
               <td>Popularity</td>
             </tr>
           </thead>
-          <tbody>{Starlist}</tbody>
+          <tbody>{StarlistInit}</tbody>
         </table>
       </div>
     );
