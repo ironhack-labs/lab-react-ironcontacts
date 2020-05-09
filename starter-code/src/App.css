@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -25,4 +25,36 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.main-table{
+  padding-top: 60px;
+  display:flex;
+  justify-content: center;
+}
+.main{
+  padding-top: 60px;
+}
+.main button{
+  margin:20px;
+}
+table {
+  border-collapse: collapse;
+}
+
+table, td {
+  border-bottom: 1px solid black;
+}
+td{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+.pics{
+  height:200px;
+  min-width: 150px;
+}
+.name{
+  width:200px;
+}
+.pop{
+  width:150px;
 }
