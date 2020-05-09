@@ -1,0 +1,16 @@
+*{
+    padding: 0px;
+}
+.profilePic {
+    height: 100px;
+}
+
+.name {
+    font-size: 30px;
+    word-wrap: break-word;
+    text-align: left;
+
+}
+.columns{
+    width: 33%;
+}
