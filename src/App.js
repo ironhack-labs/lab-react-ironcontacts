@@ -23,7 +23,7 @@ class App extends Component {
         <div className="table--row" key={`actor-${index + 1}`}>
           <img src={actor.pictureUrl} alt={`${actor.name}-img`} />
           <h4>{actor.name}</h4>
-          <h4>{actor.popularity}</h4>
+          <h4>{actor.popularity.toFixed(2)}</h4>
           <button
             id={index}
             className="btn--delete"
@@ -99,10 +99,12 @@ class App extends Component {
             </button>
           </div>
           <div className="content--table">
-            <h3>Picture</h3>
-            <h3>Name</h3>
-            <h3>Popularity</h3>
-            <h3>Action</h3>
+            <div className="table--header">
+              <h3>Picture</h3>
+              <h3>Name</h3>
+              <h3>Popularity</h3>
+              <h3>Action</h3>
+            </div>
             {this.populateTable()}
           </div>
         </section>
