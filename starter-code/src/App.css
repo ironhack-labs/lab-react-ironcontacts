@@ -1,3 +1,11 @@
+.starTable {
+  border: 1px solid rgb(221, 221, 221);
+  margin:100px auto;
+  width: 400px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 1px 0px 14px rgb(163, 163, 163);
+}
+
 .App {
   text-align: center;
 }
@@ -33,12 +41,55 @@
 }
 
 .panel {
+  position: relative;
   /* border: 1px dotted blue; */
+  margin: 20px;
+  margin-top: 50px;
+  height: 50px;
   text-align: center;
 }
 
+.panel button {
+  position: absolute;
+  border-style: none;
+  background-color: rgb(255, 211, 17);
+  color: white;
+  font-weight: bold;
+  border: none;
+  display: inline-block;
+  box-shadow: 1px 1px 9px rgb(206, 171, 16);
+}
+
+.btnRight, .btnLeft {
+  height: 30px;
+  width : 160px;
+}
+
+.btnRight {
+  left: 0;
+  border-radius: 20px;
+}
+
+.btnCenter {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  right: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  font-size: 50px;
+}
+
+.btnLeft {
+  right: 0px;
+  border-radius: 20px;
+}
+
 table {
-  border: 1px solid grey;
+  
   margin: auto;
   border-collapse: collapse;
 }
@@ -57,16 +108,23 @@ td img {
   border-radius: 40px;
 }
 
+
+
 tbody tr:nth-child(odd) {
-  background-color: rgb(217, 230, 252);
+  background-color: rgb(233, 214, 255);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(224, 203, 252);
 }
 
 table button {
-  border-style : none;
+  border: 1px solid rgba(250,17,17,1);
+  /* border-style : none; */
   width: 80px;
-  height: 20px;
-  border-radius: 10px;
-  background: linear-gradient( rgba(250,17,17,1) 33%, rgb(221, 0, 0) 95%);
+  height: 30px;
+  border-radius: 20px;
+  background-color: rgba(250,17,17,1);
   color: white;
-  box-shadow: 1px 0px 14px rgb(255, 137, 137);
+  box-shadow: 1px 3px 14px rgb(255, 137, 137);
 }

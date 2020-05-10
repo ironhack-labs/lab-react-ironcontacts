@@ -82,11 +82,11 @@ class App extends Component {
     console.log(this.state.starsFromContacts);
 
     return (
-      <div>
+      <div className="starTable">
         <div className="panel">
-          <button onClick={this.randomAdd}>Add random contact</button>{" "}
-          <button onClick={this.sortByName}>Sort by name</button>{" "}
-          <button onClick={this.sortByPop}>Sort by popularity</button>{" "}
+          <button onClick={this.sortByName} className="btnRight">Sort by name</button>{" "}
+          <button onClick={this.randomAdd} className="btnCenter">?</button>{" "}
+          <button onClick={this.sortByPop} className="btnLeft">Sort by popularity</button>{" "}
         </div>
         <table className="tableau">
           <thead>
