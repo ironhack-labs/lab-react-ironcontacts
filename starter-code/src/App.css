@@ -1,9 +1,15 @@
 .starTable {
   border: 1px solid rgb(221, 221, 221);
+  background-color: rgb(243, 243, 243);
   margin:100px auto;
   width: 400px;
   border-radius: 20px 20px 0 0;
-  box-shadow: 1px 0px 14px rgb(163, 163, 163);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+  0 2px 4px rgba(0,0,0,0.07), 
+  0 4px 8px rgba(0,0,0,0.07), 
+  0 8px 16px rgba(0,0,0,0.07),
+  0 16px 32px rgba(0,0,0,0.07), 
+  0 32px 64px rgba(0,0,0,0.07);
 }
 
 .App {
@@ -57,12 +63,13 @@
   font-weight: bold;
   border: none;
   display: inline-block;
-  box-shadow: 1px 1px 9px rgb(206, 171, 16);
+  
 }
 
 .btnRight, .btnLeft {
   height: 30px;
   width : 160px;
+  box-shadow: 1px 7px 11px rgb(204, 202, 202), -7px -5px 6px white;
 }
 
 .btnRight {
@@ -81,6 +88,7 @@
   height: 80px;
   border-radius: 40px;
   font-size: 50px;
+  box-shadow: 1px 1px 12px rgb(212, 177, 17);
 }
 
 .btnLeft {
@@ -106,6 +114,7 @@ td img {
   height: 80px;
   object-fit: cover;
   border-radius: 40px;
+  box-shadow: inset 1px 7px 5px rgb(63, 63, 63),
 }
 
 
@@ -126,5 +135,5 @@ table button {
   border-radius: 20px;
   background-color: rgba(250,17,17,1);
   color: white;
-  box-shadow: 1px 3px 14px rgb(255, 137, 137);
+  box-shadow: 1px 4px 14px rgb(255, 137, 137);
 }
