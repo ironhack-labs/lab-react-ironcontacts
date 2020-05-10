@@ -23,22 +23,50 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.panel {
+  /* border: 1px dotted blue; */
+  text-align: center;
 }
 
 table {
-  border: 1px dotted red;
-  width: 600px;
+  border: 1px solid grey;
   margin: auto;
+  border-collapse: collapse;
 }
 
 td {
-  border:1px dotted green;
-  width: 300px;
+  width: 100px;
   height: 100px;
+  text-align: center;
+  margin: 0px;
 }
 
 td img {
-  width: 60px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(217, 230, 252);
+}
+
+table button {
+  border-style : none;
+  width: 80px;
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient( rgba(250,17,17,1) 33%, rgb(221, 0, 0) 95%);
+  color: white;
+  box-shadow: 1px 0px 14px rgb(255, 137, 137);
 }
