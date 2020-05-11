@@ -49,6 +49,7 @@ class App extends React.Component {
           <td><img src={element.pictureUrl} /></td>
           <td><p>{element.name}</p></td>
           <td><p>{element.popularity}</p></td>
+          <td><button onClick={() => this.delete(element.name)}>Delete</button></td>
         </tr>
       );
     });
@@ -101,6 +102,13 @@ class App extends React.Component {
     });
   }
 
+  delete(name) {
+    const newContacts = this.state.contacts.filter(e => e.name !== name);
+
+    this.setState({
+      contacts: newContacts
+    });
+  }
 }
 
 
