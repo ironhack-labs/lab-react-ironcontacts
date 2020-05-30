@@ -16,12 +16,15 @@ class App extends React.Component {
     /* let copyContacts = [...this.state.arrContacts]
     console.log(copyContacts) */
 
-    // TODO: set fallback for double keys
     let randomContact = _.sample(contacts)
 
+    if (!_.find(this.state.arrContacts, {id: randomContact.id})) {
     this.setState({
       arrContacts: this.state.arrContacts.concat(randomContact)
     })
+    } else {
+      this.randomContactHandler()
+    }
   }
 
   // TODO: orderBy depending on lastName / firstName
@@ -53,7 +56,7 @@ class App extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="container">
       <h1>Iron Contacts</h1>
       <button className="btn btn-success" onClick={this.randomContactHandler}>Add random contact</button> 
       <button className="btn btn-warning" onClick={this.sortNameHandler}>Sort by name</button>
