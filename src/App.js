@@ -49,6 +49,22 @@ class App extends Component {
       firstVisibleContacts: sortResult
     })
   }
+  sortByPopularity = () => {
+        const contactsCopy = this.state.firstVisibleContacts;
+        const compare = (a, b) => {
+          if (a.popularity < b.popularity) {
+            return -1;
+          }
+          if (a.popularity > b.popularity) {
+            return 1;
+          }
+          return 0;
+        };
+        const sortResult = contactsCopy.sort(compare);
+        this.setState({
+          firstVisibleContacts: sortResult,
+        });
+  }
   render() {
     return (
       <div>
@@ -56,7 +72,7 @@ class App extends Component {
           <h1>IronContacts</h1>
           <button onClick={this.randomHandler}>Add Random Contact</button>
           <button onClick={this.sortByName}>Sort by name</button>
-          <button onClick={this.randomHandler}>Sort by popularity</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
           {this.state.firstVisibleContacts.map((item) => {
             return (
               <Contacts
