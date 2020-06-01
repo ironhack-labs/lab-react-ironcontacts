@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.table {
+    width: 30rem;
+}
+
