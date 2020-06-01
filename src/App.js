@@ -10,20 +10,27 @@ class App extends Component {
   };
 
   addContactHandler = () => {
-    let randomIndex = Math.floor(Math.random() * (contactsFromJSON.length - 1));
+    let contactsFromJSONcopy = contactsFromJSON;
+    
+    for (let i = 0; i < contactsFromJSON.length; i++) {
+      if (this.state.contacts.includes(contactsFromJSON[i])) {
+        contactsFromJSONcopy.splice(i,1);
+      }
+    }
+
+    let randomIndex = Math.floor(
+      Math.random() * (contactsFromJSONcopy.length - 1)
+    );
+
+    let randomContact = contactsFromJSONcopy[randomIndex];
+
     const stateCopy = this.state.contacts;
 
-    if (this.state.contacts.includes(contactsFromJSON[randomIndex])) {
-      console.log(
-        'contact already exist in the table. click button to random again (should avoid this to happen)'
-      );
-    } else {
-      stateCopy.push(contactsFromJSON[randomIndex]);
+    stateCopy.push(randomContact);
 
-      this.setState({
-        contacts: stateCopy,
-      });
-    }
+    this.setState({
+      contacts: stateCopy,
+    });
   };
 
   deleteContactHandler = (id) => {
@@ -43,7 +50,7 @@ class App extends Component {
 
     const stateCopy = this.state.contacts;
 
-    stateCopy.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    stateCopy.sort((a, b) => (a.name > b.name ? 1 : -1));
 
     this.setState({
       contacts: stateCopy,
@@ -53,13 +60,12 @@ class App extends Component {
   sortByPopularityHandler = () => {
     console.log('sorting by popularity');
     const stateCopy = this.state.contacts;
-    
-    stateCopy.sort((a, b) => (a.popularity > b.popularity) ? 1 : -1)
+
+    stateCopy.sort((a, b) => (a.popularity > b.popularity ? 1 : -1));
 
     this.setState({
       contacts: stateCopy,
     });
-
   };
 
   render() {
@@ -72,15 +78,11 @@ class App extends Component {
             Add Random Contact
           </button>
 
-          <button onClick={() => this.sortByNameHandler()}>
-            Sort by name
-          </button>
-          
+          <button onClick={() => this.sortByNameHandler()}>Sort by name</button>
+
           <button onClick={() => this.sortByPopularityHandler()}>
             Sort by popularity
           </button>
-
-
 
           <table>
             <thead>
