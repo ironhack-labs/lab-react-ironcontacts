@@ -41,6 +41,13 @@ contacts:newArr
     })
   }
 
+
+  deleteContact = (id) => {
+    this.setState({
+      contacts: this.state.contacts.filter((contact) => contact.id !== id) // include all contacts except the one with `id`
+    })
+  }
+
   render() {
 // let FirstFiveContacts = contacts.slice(0,6)
 
@@ -62,8 +69,9 @@ contacts:newArr
     <th>Picture</th>
     <th>Name</th>
     <th>Popularity</th>
+    <th>Action</th>
   </tr>
- {this.state.contacts.map (contact => <Contact pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}></Contact>)}
+ {this.state.contacts.map (contact => <Contact key={contact.id} contactId={contact.id}  pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity} deleteContact={this.deleteContact}></Contact>)}
 </table>
     </div>
   )
