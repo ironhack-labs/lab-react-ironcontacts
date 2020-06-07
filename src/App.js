@@ -15,7 +15,6 @@ addRandomContactHandler = () => {
   const initialContacts = this.state.firstVisibleContacts;
   const randomIndex = contactsFromJSON[Math.floor(Math.random() * contactsFromJSON.length)];
   initialContacts.push(randomIndex);
-  console.log(randomIndex)
   this.setState({
     firstVisibleContacts: initialContacts,
   })
@@ -34,43 +33,48 @@ deleteContactHandler = (id) => {
   })
 };
 
-sortByNameHandler = () => {
-  const initialContacts = [...this.state.firstVisibleContacts]
-    .sort((a, b) => a.name > b.name ? 1 : -1)
-  this.setState({
-    firstVisibleContacts: initialContacts
-  })
-}
+// sortByNameHandler = (field) => {
+//   const initialContacts = [...this.state.firstVisibleContacts]
+//     .sort((a, b) => a.name > b.name ? 1 : -1)
+//   this.setState({
+//     firstVisibleContacts: initialContacts
+//   })
+// }
 
-sortByPopularityHandler = () => {
-  const initialContacts = [...this.state.firstVisibleContacts]
-    .sort((a, b) => a.popularity > b.popularity ? -1 : 1)
+// sortByPopularityHandler = () => {
+//   const initialContacts = [...this.state.firstVisibleContacts]
+//     .sort((a, b) => a.popularity > b.popularity ? -1 : 1)
+//   this.setState({
+//     firstVisibleContacts: initialContacts
+//   })
+// }
+
+//Dryer code by Professor
+sortContacts(field) {
+  // Create a different compareFunction based on "field" value
+  let compareFunction;
+  if (field === 'name') {
+    compareFunction = (a,b) => (a.name > b.name ? 1 : -1);
+  }
+  else if (field === 'popularity') {
+    compareFunction = (a,b) => (b.popularity - a.popularity);
+  }
+  
+  // Method 2
+  // this.state.contacts.slice() create a copy of the array (this.state.allContacts)
   this.setState({
-    firstVisibleContacts: initialContacts
-  })
+    firstVisibleContacts: this.state.firstVisibleContacts.slice().sort(compareFunction)
+  });
 }
 
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
         <div className="main-container">
+        <h1>IronContacts <span role="img"> ❤️ </span></h1>
             <button onClick={() => this.addRandomContactHandler()}>Add Random Contact</button>
-            <button onClick={() => this.sortByNameHandler()}>Sort by Name</button>
-            <button onClick={() => this.sortByPopularityHandler()}>Sort by Popularity</button>
+            <button onClick={() => this.sortContacts("name")}>Sort by Name</button>
+            <button onClick={() => this.sortContacts("popularity")}>Sort by Popularity</button>
           <div className="card-container">
             <ul>
                 {this.state.firstVisibleContacts.map(contact => {
@@ -79,7 +83,7 @@ sortByPopularityHandler = () => {
                     key={contact.id} 
                     pictureUrl = {contact.pictureUrl}
                     name = {contact.name}
-                    popularity = {contact.popularity}
+                    popularity = {contact.popularity.toFixed(2)}
                     clickToDelete={() => this.deleteContactHandler(contact.id)}
                     />
                   )
