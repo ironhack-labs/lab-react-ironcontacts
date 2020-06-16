@@ -14,24 +14,14 @@ class App extends React.Component {
   }
 
   addRandomContact = () => {
-    let newArr = contacts.filter((contact) => {
-      let bool = false;
-      for (let i = 0; i < this.state.data.length; i++) {
-        if (contact.id == this.state.data[i].id) {
-          bool = true;
-        }
-      }
-      if (!bool) {
-        return contact
-      }
-    })
+    
     let index = this.getRandomIndex();
-    console.log(index)
+    // console.log(index)
     while (this.state.cIndex.includes(index)) {
         index = this.getRandomIndex();
     }
     let newContact = contacts[index];
-    console.log(newContact)
+    // console.log(newContact)
     this.setState({
       data: [...this.state.data, newContact],
       cIndex: [...this.state.cIndex, index]
