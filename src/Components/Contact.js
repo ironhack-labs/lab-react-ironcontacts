@@ -9,6 +9,7 @@ function Contact (props) {
                         <td><img src={props.picture} alt=""></img></td>
                         <td>{props.name}</td>
                         <td>{props.popularity}</td>
+                        <button onClick={() => {props.delete(props.name)}}>Delete</button>
                     </tr>
                     </table>
             </div>
