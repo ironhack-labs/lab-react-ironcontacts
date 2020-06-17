@@ -1,10 +1,6 @@
 import React from 'react'
 
 function Table(props) {
-    let myStyle = {
-        height: '150px',
-        width: '100px'
-    }
 
     return (<div>
         <table>
