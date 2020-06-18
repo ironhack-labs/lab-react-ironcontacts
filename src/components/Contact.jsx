@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class Contact extends Component {
-    render() {
+    render(props) {
         return (
             <div className="contact">
-                <img src={this.props.pictureUrl} alt=""/> 
-                <p>{this.props.name}</p>
-                <p>{this.props.popularity}</p>
+                <tr>
+                    <td><img src={this.props.pictureUrl} alt=""/></td>
+                    <td><h2>{this.props.name}</h2></td>
+                    <td><p>{this.props.popularity}</p></td>
+                </tr>
             </div>
         )
     }
