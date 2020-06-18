@@ -4,8 +4,11 @@ import contacts from '../data/contacts';
 import Contact from './Contact';
 
 export default class Contacts extends Component {
-    state = {
-        contacts: contacts.slice(0, 5)
+    constructor(props) {
+        super(props)
+        this.state = {
+            contacts: contacts.slice(0, 5)
+        }
     }
 
     addRandom = () => {
