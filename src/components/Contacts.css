@@ -1,3 +1,11 @@
 .contacts img {
-    width: 200px;
+    width: 175px;
+    margin: 20px;
+    border-bottom: 5px solid #d8ab4e;
+    border-radius: 1px;
+}
+
+.name-contact {
+    font-weight: 500;
+    text-decoration: underline 2px #d8ab4e;
 }

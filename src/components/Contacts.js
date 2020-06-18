@@ -7,7 +7,7 @@ class Contacts extends Component {
         return (
             <tr className="contacts">
                 <td><img src={this.props.picture} alt=""/></td>
-                <td>{this.props.name}</td>
+                <td className="name-contact">{this.props.name}</td>
                 <td>{this.props.popularity}</td>
             </tr>
         )

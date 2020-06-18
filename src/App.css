@@ -42,11 +42,43 @@
 
 .App table {
   width: 500px;
-  margin: 0px auto;
+  margin: auto;
+  text-align: center;
 }
 
 .addButton {
-  padding: 10px;
+  padding: 15px;
   font-size: 1rem;
-  margin-bottom: 20px;
+  margin: 0 20px 40px;
+  background-color: #be9f61;
+  color: white;
+  border: 0px solid #d8ab4e;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.addButton:hover {
+  text-decoration: underline #d8ab4e;
+  font-weight: 500;
+}
+
+.header h1 {
+  color: #d8ab4e;
+  font-size: 4rem;;
+  font-family: 'Playfair Display', serif;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header img {
+  width: 100px;
+  margin: 20px;
+}
+
+.App th {
+  border-bottom: 2px solid #d8ab4e;
+}
+

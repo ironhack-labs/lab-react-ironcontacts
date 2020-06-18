@@ -55,7 +55,11 @@ class App extends React.Component {
   render(){
     return(
       <div className="App">
-        <h1>IronContacts</h1>
+        <div className="header">
+          <img src="./vintage.png" alt=""/>
+          <h1>IRONCONTACTS</h1>
+          <img src="./vintage-flipped.png" alt=""/>
+        </div>
         <div className="buttons">
         <button onClick={this.addHandler} className="addButton">Add Random Contact</button>
         <button onClick={this.nameHandler} className="addButton">Sort by name</button>
