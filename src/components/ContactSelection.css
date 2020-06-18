@@ -1,3 +1,15 @@
 .selection table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selection td {
     border: 1px solid #000000;
+    min-width: 150px;
+    text-align: center;
+    justify-content: center;
+}
+
+.selection img {
+    max-width: 150px;
 }
