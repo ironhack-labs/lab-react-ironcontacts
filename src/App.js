@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg';
 import contacts from './contacts.json';
 import IronContacts from './components/IronContacts.jsx';
 import './App.css';
@@ -54,12 +53,14 @@ this.setState({
   render() {
     return (
       <div className="App">
-
-        <button onClick={this.addOneRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
-
         <h1>IronContacts</h1>
+
+        <div className="buttons">
+          <button onClick={this.addOneRandomContact}>Add Random Contact</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        </div>
+
         <table>
           <thead>
             <tr>
