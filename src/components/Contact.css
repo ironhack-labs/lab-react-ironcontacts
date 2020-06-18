@@ -1,0 +1,14 @@
+.contact img{
+    width: 50%;
+}
+
+.contact tr{
+    display: table-row;
+    border: 1px solid;
+}
+
+.contact td{
+    width: 5%;
+    border: 1px solid;
+    display: table-cell;
+}

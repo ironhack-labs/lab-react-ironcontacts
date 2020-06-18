@@ -1,0 +1,15 @@
+.contactList{
+    text-align: center;
+    width: 50%;
+    border: 1px solid black;
+    margin: 1em auto;
+}
+
+.contactList tr th{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.buttons{
+    margin: 1em auto;
+}
