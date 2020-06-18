@@ -1,38 +1,51 @@
-.App {
+.App{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+.App table{
+  width: 50%;
+}.App table thead tr th{
   text-align: center;
+  font-size: 2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: black;
+  background-color: white;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App table tbody tr td{
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App table tbody tr{
+  background-color: white;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App table tbody tr td img{
+  height: 15%;
+  border-radius: 15%;
+}
+.App .container{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.App .container .button-box{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-self: center;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .container .button-box button{
+  text-align: center;
+  margin: 2rem 0 2rem 3rem;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  width: 8rem;
+  height: 8rem;
+  background-color: lightblue;
+  color: cornsilk;
+  border: none;
+  border-radius: 100px;
 }
