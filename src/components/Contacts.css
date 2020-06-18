@@ -1,0 +1,11 @@
+.contacts table{
+    margin: 0 auto;
+}
+
+.contacts th{
+    font-size: 20px;
+}
+
+.contacts img{
+    width: 50px;
+}
