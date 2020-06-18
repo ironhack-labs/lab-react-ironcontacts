@@ -9,7 +9,7 @@ class App extends React.Component {
     newContacts: contacts.slice(0,5)
   }
 
-  clickHandler = (e) => {
+  addHandler = (e) => {
     let randomElement = contacts[Math.floor(Math.random() * contacts.length)];
     let addedContacts = [...this.state.newContacts];
     addedContacts.push(randomElement);
@@ -18,11 +18,49 @@ class App extends React.Component {
     })
   }
 
+  nameHandler = (e) => {
+    function compare(a,b){
+      let contactA = a.name.toUpperCase();
+      let contactB = b.name.toUpperCase();
+      if (contactA > contactB) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+    let sortContacts = [...this.state.newContacts];
+    sortContacts.sort(compare);
+    this.setState({
+      newContacts: sortContacts
+    })
+  }
+
+  popularityHandler = (e) => {
+    function compare(a,b){
+      let contactA = a.popularity;
+      let contactB = b.popularity;
+      if (contactA < contactB) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+    let sortContacts = [...this.state.newContacts];
+    sortContacts.sort(compare);
+    this.setState({
+      newContacts: sortContacts
+    })
+  }
+
   render(){
     return(
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={this.clickHandler} className="addButton">Add Random Contact</button>
+        <div className="buttons">
+        <button onClick={this.addHandler} className="addButton">Add Random Contact</button>
+        <button onClick={this.nameHandler} className="addButton">Sort by name</button>
+        <button onClick={this.popularityHandler} className="addButton">Sort by popularity</button>
+        </div>
         <table>
           <tr>
             <th>Picture</th>
