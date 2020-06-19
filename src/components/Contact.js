@@ -13,6 +13,7 @@ class Contact extends Component {
                 <td><img src={this.props.pictureUrl} alt=""/></td>
                 <td><h2>{this.props.name}</h2></td>
                 <td><p>{this.props.popularity}</p></td>
+                <td><button onClick={()=> {this.props.deleteContactHandler(this.props.index)}}>Delete</button></td>
             </tr>
         );
     }

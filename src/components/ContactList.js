@@ -6,6 +6,7 @@ import Contact from './Contact';
 class ContactList extends Component {
   constructor(props) {
     super(props);
+    this.deleteContactHandler = this.deleteContactHandler.bind(this);
   }
 
   state = {
@@ -49,6 +50,14 @@ class ContactList extends Component {
     });
   };
 
+  deleteContactHandler(index) {
+    var contactListCopy = [...this.state.contacts];
+    contactListCopy.splice(index,1);
+    this.setState({
+        contacts:contactListCopy
+    })
+  }
+
   render() {
     return (
       <div>
@@ -69,9 +78,11 @@ class ContactList extends Component {
           {this.state.contacts.map((contact, index) => (
             <Contact
               key={contact.key}
+              index={index.toString()}
               name={contact.name}
               pictureUrl={contact.pictureUrl}
               popularity={contact.popularity}
+              deleteContactHandler = {this.deleteContactHandler}
             />
           ))}
         </table>
