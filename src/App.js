@@ -4,8 +4,21 @@ import IronContacts from './components/IronContacts.jsx';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.removeContact = this.removeContact.bind(this);
+  }
+
   state = {
     contacts: contacts.slice(0, 5),
+  }
+
+  removeContact(indexN){
+    let updatedlist = [...this.state.contacts];
+    updatedlist.splice(indexN, 1);
+    this.setState({ 
+        contacts: updatedlist 
+    });
   }
 
   getRandomContact = () =>{
@@ -14,7 +27,7 @@ class App extends Component {
   }
 
   addOneRandomContact = () =>{
-    let updatedList = [...this.state.contacts, contacts[this.getRandomContact()]];
+    let updatedList = [contacts[this.getRandomContact()], ...this.state.contacts];
     this.setState({
       contacts: updatedList
     });
@@ -42,12 +55,11 @@ class App extends Component {
       } else{
         return 1;
       }
-    }
-  );
+    });
 
-this.setState({
-  contacts: updatedList
-});
+    this.setState({
+        contacts: updatedList
+    });
   }
 
   render() {
@@ -67,12 +79,19 @@ this.setState({
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {
               this.state.contacts.map((contact, index) => {
-                return  <IronContacts key={`${index}-${contact.name}`} name={contact.name} pictureUrl={contact.pictureUrl} popularity={contact.popularity}/>
+                return  <IronContacts 
+                            key={`${index}-${contact.name}`} 
+                            name={contact.name} 
+                            pictureUrl={contact.pictureUrl} 
+                            popularity={contact.popularity}
+                            remove={this.removeContact}
+                        />
               })
             }
           </tbody>
