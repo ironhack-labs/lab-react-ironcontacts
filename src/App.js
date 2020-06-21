@@ -4,6 +4,10 @@ import contacts from './contacts.json';
 import Contacts from './components/Contacts';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.deleteHandler = this.deleteHandler.bind(this);
+  }
 
   state = {
     newContacts: contacts.slice(0,5)
@@ -12,7 +16,7 @@ class App extends React.Component {
   addHandler = (e) => {
     let randomElement = contacts[Math.floor(Math.random() * contacts.length)];
     let addedContacts = [...this.state.newContacts];
-    addedContacts.push(randomElement);
+    addedContacts.unshift(randomElement);
     this.setState({
       newContacts: addedContacts
     })
@@ -52,6 +56,13 @@ class App extends React.Component {
     })
   }
 
+  deleteHandler(indexN) {
+    var newListContacts = [...this.state.newContacts];
+    newListContacts.splice(indexN, 1);
+
+    this.setState({newContacts: newListContacts});
+  }
+
   render(){
     return(
       <div className="App">
@@ -70,10 +81,11 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Delete</th>
           </tr>
           {
             this.state.newContacts.map((contact)=>
-            <Contacts picture={contact.pictureUrl} name={contact.name} popularity={contact.popularity.toFixed(2)}/>
+            <Contacts picture={contact.pictureUrl} name={contact.name} popularity={contact.popularity.toFixed(2)} deleteContact={this.deleteHandler}/>
             )
           }
         </table>

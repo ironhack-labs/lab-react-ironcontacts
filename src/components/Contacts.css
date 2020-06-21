@@ -9,3 +9,18 @@
     font-weight: 500;
     text-decoration: underline 2px #d8ab4e;
 }
+
+.deleteButton {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #be9f61;
+    color: white;
+    border: 0px solid #d8ab4e;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .deleteButton:hover {
+    text-decoration: underline #d8ab4e;
+    font-weight: 500;
+  }
