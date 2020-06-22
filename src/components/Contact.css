@@ -1,0 +1,6 @@
+.selection td {
+    min-width: 150px;
+    text-align: center;
+    justify-content: center;
+    word-wrap:break-word;
+}
