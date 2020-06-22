@@ -5,15 +5,15 @@ import Contact from './Contact';
 
 export default class Contacts extends Component {
     constructor(props) {
-        super(props)
+        super(props) 
         this.state = {
             contacts: contacts.slice(0, 5)
         }
     }
 
     addRandom = () => {
-        let randomize = Math.floor(Math.random() * this.state.contacts.length);
-        let randomContact = this.state.contacts[randomize];
+        let randomize = Math.floor(Math.random() * contacts.length);
+        let randomContact = contacts[randomize];
         let newSelection = [...this.state.contacts];
         newSelection.push(randomContact);
     
