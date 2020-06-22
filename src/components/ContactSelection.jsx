@@ -41,20 +41,18 @@ export default class Contacts extends Component {
     sortPopularity = () => {
         let sortedByPopularity = [...this.state.contacts].sort(function (a, b) {
             if (a.popularity > b.popularity) {
-                return 1;
+                return -1;
             }
             if (b.popularity > a.popularity) {
-                return -1;
+                return 1;
             }
             return 0;
         });
         
         this.setState({
-          newSelection: sortedByPopularity
+          contacts: sortedByPopularity
         });
     }
-
-    
     
     render() {
         return (
