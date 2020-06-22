@@ -34,7 +34,7 @@ export default class Contacts extends Component {
         });
         
         this.setState({
-          newSelection: sortedByName
+          contacts: sortedByName
         });
     }
 
