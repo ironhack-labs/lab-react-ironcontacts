@@ -67,6 +67,14 @@ class App extends Component {
       displayedList: displayedListCopy
     })
   }
+
+  deleteContactHandler = (contactIndex) => {
+    const displayedListCopy = [...this.state.displayedList];
+    displayedListCopy.splice(contactIndex, 1);
+    this.setState({
+      displayedList: displayedListCopy
+    })
+  }
     
   render() {
       return (
@@ -78,7 +86,8 @@ class App extends Component {
               <button onClick = {this.sortByPopularityBtn}>Sort by popularity</button>
             </div>
             <Contacts 
-              contacts = {this.state.displayedList}/>
+              contacts = {this.state.displayedList}
+              deleteContact = {this.deleteContactHandler}/>
           </div>
       );
   }

@@ -4,6 +4,8 @@ import Card from './Card';
 import './Contacts.css';
 
 class Contacts extends Component {
+
+
     render() {
         return (
             <div className="contacts">
@@ -22,6 +24,7 @@ class Contacts extends Component {
                                 pictureUrl = {contact.pictureUrl}
                                 name = {contact.name}
                                 popularity = {contact.popularity.toFixed(2)}
+                                clickToDelete={() => this.props.deleteContact(index)}
                             />
                         })}
                     </tbody>
