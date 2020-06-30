@@ -7,6 +7,12 @@
   pointer-events: none;
 }
 
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -36,3 +42,23 @@
     transform: rotate(360deg);
   }
 }
+.randomContactButton{
+
+  margin-bottom: 20px;
+
+}
+
+h1{
+  font-weight: bold;
+}
+
+.tableStyle {
+  text-align: center;
+  font-size: 15px;
+}
+
+#tName{
+  font-weight: bold;
+  font-size: 30px;
+}
+
