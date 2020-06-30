@@ -1,23 +1,7 @@
-#nameC{
-    margin: 15px;
-}
-#delete{
-    margin: 15px;
-}
+
 
 button{
     padding: 10px;
     font-size: 20px;
     background-color: wheat;
-}
-h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#headings{
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
 }

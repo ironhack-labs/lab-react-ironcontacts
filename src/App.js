@@ -18,18 +18,37 @@ class App extends Component {
     }
     showContacts = () => {
         let contactList = this.state.showingContacts.map((contact, i) =>{
-            let li = <li key={i}><img height="150" width="130" src={contact.pictureUrl}/> <strong id='nameC'>{contact.name}</strong> <strong id='rage'>{contact.popularity}</strong> <button id='delete' onClick={() => this.delete(i)}>Delete</button></li>
-          return   li
-        })
+            
+       return(
+           <tr key={i}>
+          <td>
+            <img
+              style={{ width: '50px' }}
+              src={contact.pictureUrl}
+              alt={contact.name}
+            />
+          </td>
+          <td>{contact.name}</td>
+          <td>{contact.popularity}</td>
+          <td>
+            <button onClick={() => this.delete(i)}>Delete</button>
+          </td>
+        </tr>
+      );
+ })
         return contactList;
     }
+
     randomCeleb = () =>{
         let arr = [...this.state.showingContacts]
-        let celeb = this.state.restOfContacts[Math.floor(Math.random() * this.state.restOfContacts.length)];
-        
+        let ind = Math.floor(Math.random() * this.state.showingContacts.length)
+        let rArr =  [...this.state.restOfContacts]
+        let celeb = rArr[ind];
         arr.push(celeb);
+        rArr.splice(ind, 1);
         this.setState({
-      showingContacts: arr
+      showingContacts: arr,
+      restOfContacts: rArr
     })
 
     }
@@ -58,12 +77,17 @@ class App extends Component {
             <button onClick={this.sortByPop}>Sort by popularity</button>
             <button onClick={this.sortByName}>Sort by name</button>
             <h1>Iron Contacts</h1>
-            <div id='headings'>
-            <h2 >Image</h2>
-              <h2>Name</h2>   
-              <h2>Popularity</h2>
-              </div>
-            {this.showContacts()}
+            <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>{this.showContacts()}</tbody>
+        </table>
             </div>
         );
     }
