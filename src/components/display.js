@@ -11,7 +11,7 @@ class Display extends Component {
   };
 
   extractData = () => {
-    let contactList = this.state.FirstFiveContacts.map((eachContact) => {
+    let contactList = this.state.FirstFiveContacts.map((eachContact,i) => {
       return (
         <tr key={eachContact.name}>
           <td>
@@ -23,7 +23,7 @@ class Display extends Component {
           </td>
           <td>{eachContact.name}</td>
           <td>{eachContact.popularity.toFixed(2)}</td>
-          <td><button>Delete</button></td>
+          <td><button onClick ={()=>this.deleteContact(i)}>Delete</button></td>
         </tr>
         
       );
@@ -58,7 +58,7 @@ class Display extends Component {
         }
         return 0
     })
-    
+
     this.setState({
         FirstFiveContacts:FirstFiveContactsCopy
     })
@@ -67,8 +67,32 @@ class Display extends Component {
 
   sortByPopularity = () =>
   {
+    let FirstFiveContactsCopy = [...this.state.FirstFiveContacts]
+    FirstFiveContactsCopy.sort((a,b) =>
+    {
+        if(a.popularity > b.popularity){
+            return 1
+        }
+        else if(a.popularity < b.popularity)
+        {
+            return -1
+        }
+        return 0
+    })
+    
+    this.setState({
+        FirstFiveContacts:FirstFiveContactsCopy
+    })
 
   };
+
+  deleteContact = (index) =>{
+      let FirstFiveContactsCopy = [...this.state.FirstFiveContacts]
+      FirstFiveContactsCopy.splice(index,1)
+      this.setState({
+        FirstFiveContacts:FirstFiveContactsCopy
+      })
+  }
 
   render() {
     return (
