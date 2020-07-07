@@ -1,4 +1,4 @@
-//import './App.css'
+import './App.css'
 import contacts from '../contacts.json'
 import React from 'react';
 import Contact from './Contact'
