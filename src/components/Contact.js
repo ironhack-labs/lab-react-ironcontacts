@@ -1,4 +1,5 @@
 import React from 'react';
+import ButtonDelete from './ButtonDelete';
 
 const Contact = (props) => {
   return (
@@ -8,6 +9,9 @@ const Contact = (props) => {
       </td>
       <td>{props.name}</td>
       <td>{props.popularity}</td>
+      <td>
+        <ButtonDelete delete={props.delete} />
+      </td>
     </tr>
   );
 };

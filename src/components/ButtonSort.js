@@ -1,7 +1,11 @@
 import React from 'react';
 
 const ButtonSort = (props) => {
-  return <button onClick={props.sort}>{props.cta}</button>;
+  return (
+    <button className="btn" onClick={props.sort}>
+      {props.cta}
+    </button>
+  );
 };
 
 export default ButtonSort;
