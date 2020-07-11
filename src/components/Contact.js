@@ -7,6 +7,16 @@ class Contact extends Component {
     this.state = { contactList: contacts.slice(0, 5) };
   }
 
+  addContact = () => {
+    const contactsCopy = [...this.state.contactList];
+    const randomContact =
+      contacts[Math.floor(Math.random() * (contacts.length - 1 - 4)) + 4];
+    contactsCopy.push(randomContact);
+    this.setState({
+      contactList: contactsCopy,
+    });
+  };
+
   render() {
     const contactsList = this.state.contactList.map((person) => (
       <tr key={person.id}>
@@ -25,6 +35,7 @@ class Contact extends Component {
     return (
       <div className="contact-list">
         <h1>IronContacts</h1>
+        <button onClick={this.addContact}>Add Random Contact</button>
         <table>
           <tr>
             <th>Picture</th>
