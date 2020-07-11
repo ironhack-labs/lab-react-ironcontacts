@@ -17,11 +17,11 @@ export default function ContactList(props) {
 
     return (
         <table>
-            {/* <thead>
-                <th>Image</th>
+            <thead>
+                <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
-            </thead> */}
+            </thead>
             <tbody>
                 {lista}
             </tbody>

@@ -11,27 +11,14 @@ function App() {
 
   const addRandomItem = () => {
     const contactListToUpdate = [...contactList]
-
     const randomItem =
       contactList[Math.floor(Math.random() * contactList.length)];
-
     contactListToUpdate.push(randomItem);
-
     setContacts(contactListToUpdate)
   }
 
-  // const sortBy = (field) => {
-  //   const contactListToSort = [...contactList].sort(
-  //     (elem, elem2) => elem[field].localeCompare(elem2[field])
-  //   );
-
-  //   setContacts(contactListToSort)
-  // }
-
   const sortByName = () => {
-
     const list = [...contactList]
-
     const contactListToSort = list.sort(
       (elem, elem2) => elem.name.localeCompare(elem2.name)
     );
@@ -39,22 +26,16 @@ function App() {
   }
 
   const sortByPopularity = () => {
-
     const list = [...contactList]
-
     const contactListToSort = list.sort(
       (elem, elem2) => elem.popularity - elem2.popularity
     );
     setContacts(contactListToSort)
-    
   }
   const onDelete = (id) => {
     const copy = [...contactList];
-
     const index = copy.findIndex(elem => elem.id === id);
-
     copy.splice(index, 1)
-
     setContacts(copy);
   }
 
