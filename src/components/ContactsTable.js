@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Contacts from '../contacts.json';
 import Contact from './Contact';
 import ButtonContactGenerator from './ButtonContactGenerator';
+import ButtonSort from './ButtonSort';
 
 const ContactsTable = () => {
   const slicedContacts = Contacts.slice(0, 5);
@@ -24,9 +25,39 @@ const ContactsTable = () => {
     const newContact = generateRandomContact(Contacts);
     setContacts((prevContacts) => [...prevContacts, newContact]);
   };
+
+  const sortByName = (arr) => {
+    const contactsList = [...arr];
+    let sortedContacts = contactsList.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    return sortedContacts;
+  };
+
+  const handleSortedNames = () => {
+    const namesSortedList = sortByName(contacts);
+    setContacts(namesSortedList);
+  };
+
+  const sortByPopularity = (arr) => {
+    const contactsList = [...arr];
+    let sortedContacts = contactsList.sort(
+      (a, b) => b.popularity - a.popularity
+    );
+    return sortedContacts;
+  };
+
+  const handleSortedPopularity = () => {
+    const popularitySortedList = sortByPopularity(contacts);
+    setContacts(popularitySortedList);
+  };
+
   return (
     <div>
       <h1>IronContacts</h1>
+      <ButtonContactGenerator generateContact={handleContacts} />
+      <ButtonSort sort={handleSortedNames} cta="Sort by name" />
+      <ButtonSort sort={handleSortedPopularity} cta="Sort by popularity" />
       <table>
         <thead>
           <tr>
@@ -37,7 +68,6 @@ const ContactsTable = () => {
         </thead>
         <tbody>{contactsList}</tbody>
       </table>
-      <ButtonContactGenerator generateContact={handleContacts} />
     </div>
   );
 };

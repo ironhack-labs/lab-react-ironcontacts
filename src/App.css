@@ -41,3 +41,7 @@
   height: 100px;
   width: auto;
 }
+
+table {
+  margin: 0 auto;
+}
