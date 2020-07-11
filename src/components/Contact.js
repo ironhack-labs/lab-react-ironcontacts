@@ -17,6 +17,23 @@ class Contact extends Component {
     });
   };
 
+  sortContactsByName = () => {
+    const contactsCopy = [...this.state.contactList];
+    contactsCopy.sort((a, b) => a.name.localeCompare(b.name));
+    console.log(contactsCopy);
+    this.setState({
+      contactList: contactsCopy,
+    });
+  };
+
+  sortContactsByPopularity = () => {
+    const contactsCopy = [...this.state.contactList];
+    contactsCopy.sort((a, b) => a.popularity - b.popularity);
+    this.setState({
+      contactList: contactsCopy,
+    });
+  };
+
   render() {
     const contactsList = this.state.contactList.map((person) => (
       <tr key={person.id}>
@@ -36,13 +53,19 @@ class Contact extends Component {
       <div className="contact-list">
         <h1>IronContacts</h1>
         <button onClick={this.addContact}>Add Random Contact</button>
+        <button onClick={this.sortContactsByName}>Sort by name</button>
+        <button onClick={this.sortContactsByPopularity}>
+          Sort by Popularity
+        </button>
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-          {contactsList}
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>{contactsList}</tbody>
         </table>
       </div>
     );
