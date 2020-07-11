@@ -40,8 +40,35 @@
 .contact-picture {
   height: 100px;
   width: auto;
+  border-radius: 10px;
+}
+
+.actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 table {
   margin: 0 auto;
+}
+
+.btn {
+  padding: 6px 15px;
+  border-radius: 9px;
+}
+
+.btn-blue {
+  background-color: #1d7cee;
+  border: none;
+  color: #ffffff;
+}
+
+.btn-red {
+  background-color: #ffffff;
+  border: 1px solid #f35a63;
+  color: #f35a63;
 }

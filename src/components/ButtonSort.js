@@ -2,7 +2,7 @@ import React from 'react';
 
 const ButtonSort = (props) => {
   return (
-    <button className="btn" onClick={props.sort}>
+    <button className="btn btn-blue" onClick={props.sort}>
       {props.cta}
     </button>
   );

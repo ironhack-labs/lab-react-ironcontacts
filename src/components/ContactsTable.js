@@ -64,9 +64,11 @@ const ContactsTable = () => {
   return (
     <div>
       <h1>IronContacts</h1>
-      <ButtonContactGenerator generateContact={handleContacts} />
-      <ButtonSort sort={handleSortedNames} cta="Sort by name" />
-      <ButtonSort sort={handleSortedPopularity} cta="Sort by popularity" />
+      <div className="actions-bar">
+        <ButtonContactGenerator generateContact={handleContacts} />
+        <ButtonSort sort={handleSortedNames} cta="Sort by name" />
+        <ButtonSort sort={handleSortedPopularity} cta="Sort by popularity" />
+      </div>
       <table>
         <thead>
           <tr>
