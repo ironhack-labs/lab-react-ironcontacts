@@ -34,6 +34,15 @@ class Contact extends Component {
     });
   };
 
+  deleteContact = (id) => {
+    const contactsCopy = [...this.state.contactList];
+    const contactIndex = contactsCopy.findIndex((person) => person.id === id);
+    contactsCopy.splice(contactIndex, 1);
+    this.setState({
+      contactList: contactsCopy,
+    });
+  };
+
   render() {
     const contactsList = this.state.contactList.map((person) => (
       <tr key={person.id}>
@@ -45,6 +54,9 @@ class Contact extends Component {
         </td>
         <td>
           <p>{person.popularity.toFixed(2)}</p>
+        </td>
+        <td>
+          <button onClick={() => this.deleteContact(person.id)}>Delete</button>
         </td>
       </tr>
     ));
@@ -63,6 +75,7 @@ class Contact extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>{contactsList}</tbody>
