@@ -20,7 +20,6 @@ class Contact extends Component {
   sortContactsByName = () => {
     const contactsCopy = [...this.state.contactList];
     contactsCopy.sort((a, b) => a.name.localeCompare(b.name));
-    console.log(contactsCopy);
     this.setState({
       contactList: contactsCopy,
     });

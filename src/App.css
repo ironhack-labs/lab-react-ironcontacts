@@ -1,14 +1,61 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .table-img {
   height: 100px;
+  margin: 0 30px;
+  border: 1px solid white;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+th {
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+table {
+  margin-top: 20px;
+  background-color: #282c34;
+  color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+td,
+p {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 54px;
+  text-decoration: underline;
+}
+
+.contact-list > button {
+  border: none;
+  border-radius: 10px;
+  background-color: cadetblue;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1.1em;
+}
+
+td > button {
+  border: none;
+  border-radius: 40px;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
