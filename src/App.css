@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.tableDiv {
+  display: flex;
+  justify-content: center;
+}
+.tablePic {
+  width: 100px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
