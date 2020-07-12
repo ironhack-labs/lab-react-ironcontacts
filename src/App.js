@@ -29,8 +29,7 @@ class App extends Component {
   }
 
   sortedContacts() {
-    const newArray = [...this.state.firstContacts];
-    const sortedContacts = newArray.sort((a, b) => {
+    const sortedContacts = [...this.state.firstContacts].sort((a, b) => {
       if (a.name < b.name) { return -1; }
       if (a.name > b.name) { return 1 ;}
       return 0;
@@ -41,10 +40,9 @@ class App extends Component {
   }
 
   sortedByPopularity() {
-    const newArray = [...this.state.firstContacts];
-    const sortedContacts = newArray.sort((a, b) => {
-      if (a.popularity > b.popularity) { return -1 ;}
-      if (a.popularity < b.popularity) { return 1 ;}
+    const sortedContacts = [...this.state.firstContacts].sort((a, b) => {
+      if (a.popularity > b.popularity) { return -1 };
+      if (a.popularity < b.popularity) { return 1 };
       return 0;
     });
     this.setState({
@@ -63,7 +61,7 @@ class App extends Component {
   render() {
     const arrayContacts = this.state.firstContacts.map((contact, idx) => (
       <tr>
-        <td><img src={contact.pictureUrl} alt="photo" /></td>
+        <td><img src={contact.pictureUrl} alt="ContactPhoto" /></td>
         <td>{contact.name}</td>
         <td>{parseFloat(contact.popularity).toFixed(2)}</td>
         <td><button key = {idx} onClick={() => this.deleteContact(idx)}> Delete </button></td>

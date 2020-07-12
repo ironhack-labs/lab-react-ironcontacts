@@ -14,10 +14,10 @@ code {
 
 .container-fluid {
   
-  
+  width: 400px;
   background-color: #fafafa;
-  margin: 15rem;
-  padding: 2.7rem;
+  margin: 16rem;
+  padding: 5.5rem;
   border: 2px solid #ccc;
   text-align: center;
   justify-content: center;
