@@ -9,7 +9,7 @@ const Table = (props) => {
     const initialState = {contactList: initialContacts}
     const [state, setState] = useState(initialState);
     const createContacts = () => {
-        return state.contactList.map(contact => <TableRow key={contact.id} {...contact} />)
+        return state.contactList.map(contact => <TableRow key={contact.id} {...contact} deleteBtn={() => deleteContact(contact.id)} />)
     }
     //Event handler button 'Add Random Contact'
     const addRandomContact = () => {
@@ -35,6 +35,13 @@ const Table = (props) => {
         contacts.sort((a,b) => (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0))
         setState((state) => ({...state, contactList: contacts}))
     }
+    //Event handler button 'Delete'
+    const deleteContact = (id) => {
+        const contacts = [...state.contactList]
+        const contactIndex = contacts.findIndex(item => item.id === id)
+        contacts.splice(contactIndex, 1)
+        setState((state) => ({...state, contactList: contacts}))
+    }
     //Render return
     return (
         <div>
@@ -47,6 +54,7 @@ const Table = (props) => {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>        
