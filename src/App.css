@@ -36,6 +36,26 @@
   width: 100px;
 }
 
+.buttonsDiv {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.butn {
+  border: none;
+  border-radius: 5px;
+  background-color: yellowgreen;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.deleteBtn {
+  background-color: violet;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
