@@ -15,7 +15,12 @@ const Table = (props) => {
     const addRandomContact = () => {
         const actualList = [...state.contactList]
         const randomContact = contacts[Math.floor(Math.random()*contacts.length)]
-        actualList.push(randomContact)
+        if (actualList.findIndex(item => item.id === randomContact.id) === -1) {
+            actualList.push(randomContact)
+        } else {
+            console.log('Contact already on the list')
+            return
+        } 
         setState((state) => ({...state, contactList: actualList}))
     }
     //Event handler button 'Sort by name'
