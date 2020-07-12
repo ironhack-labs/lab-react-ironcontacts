@@ -3,8 +3,6 @@ import contacts from '../contacts.json';
 
 const copyContacts = JSON.parse(JSON.stringify(contacts))
 const newContacts = copyContacts.slice(0,5)
-console.log(newContacts)
-
 
 class Table extends Component {
     constructor(props) {
@@ -14,13 +12,24 @@ class Table extends Component {
         }
     }
 
+    deleteContact(id) {
+        const contactIndex = newContacts.findIndex(item => item.id === id)
+        newContacts.splice(contactIndex, 1)
+        this.setState({
+            contacts: newContacts
+        })
+    }
+
     contactList() {
         return this.state.contacts.map(contact => {
             return (
                 <tr key={contact.id}>
-                    <th><img style={{width:"100px"}} src={contact.pictureUrl}/></th>
+                    <th><img className="contact-img" src={contact.pictureUrl} alt="Contact" /></th>
                     <th>{contact.name}</th>
                     <th>{contact.popularity}</th>
+                    <th>
+                        <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
+                    </th>
                 </tr>
             )
         })
@@ -54,23 +63,26 @@ class Table extends Component {
 
     render() {
         return (
-            <div>
+            <div className="main">
                 <button onClick={() => this.addRandom(copyContacts)}>
-                    ADD
+                    Add random contact
                 </button>
                 <button onClick={() => this.sortByName(copyContacts)}>
-                    SORT BY NAME
+                    Sort by name
                 </button>
                 <button onClick={() => this.sortByPopularity(copyContacts)}>
-                    SORT BY POPULARITY
+                    Sort by popularity
                 </button>
-                <table>
-                    <tr>
-                        <th>Picture</th>
-                        <th>Name</th>
-                        <th>Popularity</th>
-                    </tr>
-                    {this.contactList()}
+                <table className="table">
+                    <tbody>
+                        <tr className="first-row">
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Popularity</th>
+                            <th>Action</th>
+                        </tr>
+                        {this.contactList()}
+                    </tbody>
                 </table>
             </div>
         )
