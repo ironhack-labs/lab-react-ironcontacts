@@ -8,7 +8,9 @@ class ContactsList extends Component {
     constructor() {
         super()
         this.state = {
-            contactsList: contacts.splice(0, 5)
+            contactsList: contacts.splice(0, 5),
+            sortName: false,
+            sortPopularity: false
         }
     }
 
@@ -20,6 +22,20 @@ class ContactsList extends Component {
         let contactsCopy = [...this.state.contactsList] //copy from spliced arr
         contactsCopy.push(randomContact) //adds random pick from original array into spliced arr
         this.setState({ contactsList: contactsCopy })
+    }
+
+
+    sortByName = () => {
+        let contactsCopy = [...this.state.contactsList]
+        let orderedName = contactsCopy.sort((a, b) => this.state.sortName ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name))
+        this.setState({ contactsList: orderedName, sortName: !this.state.sortName })
+    }
+
+
+    sortByPopularity = () => {
+        let contactsCopy = [...this.state.contactsList]
+        let orderedPopularity = contactsCopy.sort((a, b) => this.state.sortPopularity ? a.popularity - b.popularity : b.popularity - a.popularity)
+        this.setState({ contactsList: orderedPopularity, sortPopularity: !this.state.sortPopularity })
     }
 
 
@@ -37,9 +53,22 @@ class ContactsList extends Component {
         return (
             <>
                 <button onClick={this.addRandom}>Add random contact</button>
-                {this.state.contactsList.map(elm => <ContactsCard key={elm.id} name={elm.name} pictureUrl={elm.pictureUrl} popularity={elm.popularity} removeContact={this.deleteContact} />)}
-
+                <button onClick={this.sortByName}>Sort by name</button>
+                <button onClick={this.sortByPopularity}>Sort by popularity</button>
+                <table className="contact-table">
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Popularity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.contactsList.map(elm => <ContactsCard key={elm.id} name={elm.name} pictureUrl={elm.pictureUrl} popularity={elm.popularity} removeContact={this.deleteContact} />)}
+                    </tbody>
+                </table>
             </>
+
         )
     }
 }
