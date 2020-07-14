@@ -4,9 +4,9 @@ const StaticContacts = ({ name, pictureUrl, popularity, id, removeContact }) => 
     return (
         < tr key={id} >
             <td> <img style={{ width: '50px' }} src={pictureUrl} alt={name} /></td>
-            <td>{name}</td>
-            <td>{popularity}</td>
-            <td><button onClick={removeContact}>Delete</button></td>
+            <td className="is-vcentered">{name}</td>
+            <td className="is-vcentered">{popularity}</td>
+            <td className="is-vcentered"><button className="button is-danger is-outlined" onClick={removeContact}>Delete</button></td>
         </tr >
     )
 }

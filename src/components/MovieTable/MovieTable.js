@@ -3,6 +3,7 @@ import StaticContacts from './../static-contacts/StaticContacts'
 import contacts from './../../contacts.json';
 import { contactsList as contactsFromFakeApi } from './../contacts-five/contacts-five'
 
+import 'bulma/css/bulma.css';
 
 class MovieTable extends Component {
     constructor() {
@@ -22,19 +23,19 @@ class MovieTable extends Component {
 
     sortByName = () => {
         const listCopy = [...this.state.contacts]
-        const newOrder = listCopy.sort(function (a, b) {
+        listCopy.sort(function (a, b) {
             return a.name.localeCompare(b.name);
         });
-        this.setState({ contacts: newOrder })
+        this.setState({ contacts: listCopy })
     }
 
     sortByPopularity = () => {
         const listCopy = [...this.state.contacts]
-        const newOrder = listCopy.sort(function (a, b) {
+        listCopy.sort(function (a, b) {
             return b.popularity - (a.popularity);
         });
 
-        this.setState({ contacts: newOrder })
+        this.setState({ contacts: listCopy })
     }
 
     deleteContact = id => {
@@ -46,16 +47,24 @@ class MovieTable extends Component {
     render() {
         return (
             <>
-                <h1>IronContacts</h1>
-                <button onClick={this.getRandomActor}>Randomeeo, randomeea</button>
-                <button onClick={this.sortByName}>Sort by name</button>
-                <button onClick={this.sortByPopularity}>Sort by popularity</button>
-                <table>
+                <h1 className="title is-1">IronContacts</h1>
+                <div className="level">
+                    <div className="level-left">
+                        <button className="item-level button is-primary " onClick={this.getRandomActor}>Add one random contact</button>
+                    </div>
+                    <div className="level-right buttons has-addons">
+
+                        <button className="item-level button" onClick={this.sortByName}>Sort by name</button>
+                        <button className="item-level button" onClick={this.sortByPopularity}>Sort by popularity</button>
+                    </div>
+                </div>
+                <table className="table is-hoverable is-fullwidth">
                     <thead>
                         <tr>
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
