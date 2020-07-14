@@ -1,0 +1,15 @@
+*{
+text-align: center;
+}
+
+h1{
+    font-size: 3em;
+}
+
+img {
+    height:100px;
+}
+
+table  td{
+padding: 10px;
+}
