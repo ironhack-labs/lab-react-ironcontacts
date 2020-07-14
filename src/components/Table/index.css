@@ -1,0 +1,50 @@
+img{
+ width: 80px;
+}
+
+th, td{
+    text-align: center;
+    
+}
+
+h1{
+   font-family: 'Bangers', cursive; 
+   color: #563D7C;
+   font-size: 5rem;
+   text-align: center;
+   margin-top: 20px;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 1px solid #e4a6cb;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #563D7C;
+    border-color: #563D7C;
+}
+section{
+    margin: 50px 100px;
+}
+
+.btn-outline-danger {
+    color: #563D7C;
+    border-color: #563D7C;
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
+.btn-outline-danger:hover {
+    color: #563D7C;
+    background-color: #e4a6cb;
+    border-color: #e4a6cb;
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled).active, .btn-outline-danger:not(:disabled):not(.disabled):active, .show>.btn-outline-danger.dropdown-toggle {
+    color: #563D7C;
+    background-color: #e4a6cb;
+    border-color: #e4a6cb;
+}
