@@ -1,0 +1,14 @@
+.cont {
+  text-align: center;
+}
+
+.img {
+    width: 100px;
+    object-fit: cover;
+}
+
+tr td {
+  text-align: center;
+  border: 1px solid;
+  padding: 10px;
+}
