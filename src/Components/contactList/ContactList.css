@@ -1,0 +1,31 @@
+.contact-list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
+}
+.contact-list-container img {
+    width: 100px;
+}
+table {
+    font-family: sans-serif;
+    width:60%;
+    text-align: center;
+    border: 1px solid #aaa;
+
+}
+h1 {
+    font-size: 2.2em;
+    font-weight: 200;
+}
+th {
+    border-bottom: 1px solid #aaa;
+    padding: 20px 0;
+    font-size: 1.5em;
+    font-weight: 200;
+
+}
+td {
+    padding: 20px 0;
+}
