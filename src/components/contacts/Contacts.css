@@ -1,0 +1,8 @@
+.Contact-Card {
+    border: 1px solid;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    width: calc(33.33% - 22px);
+    padding-bottom: 10px;
+}
