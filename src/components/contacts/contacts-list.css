@@ -1,0 +1,41 @@
+h2{
+    font-size: 3em;
+    text-align: center;
+}
+
+.topButtons{
+    display: inline-flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;    
+    margin-bottom: 50px;
+    margin-left: 350px;
+
+}
+
+table {
+     margin: 0 auto;
+     
+}
+
+thead{
+    font-size: 2em;
+    padding-left: 20px;
+
+}
+
+
+img{
+    max-width: 150px;
+}
+
+.rigthButton{
+    background-color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+
+}
+.contentText{
+    font-size: 1.5em;
+}
