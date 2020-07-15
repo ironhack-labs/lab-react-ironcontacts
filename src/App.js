@@ -16,11 +16,22 @@ class App extends Component {
       contacts: state.contacts.concat(newRandomContact),
     }));
   };
+
+  sortContactNames = () => {
+    const sortedNames = [...this.state.contacts]
+    sortedNames.sort((a, b) => a.name.localeCompare(b.name));
+    this.setState((state, props) => ({
+      contacts: sortedNames
+     }))
+    };
+
+  
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.addContact}>Add </button>
+        <button onClick={this.sortContactNames}>Sort by names</button>
         <ContactsList contacts={this.state.contacts} />
       </div>
     );
