@@ -35,23 +35,8 @@ function App() {
     setContacts(contacts.filter((contact) => contact.id !== id))
   }
 
-  function compareName(a, b) {
-    // Use toUpperCase() to ignore character casing
-    const nameA = a.name.toUpperCase();
-    const nameB = b.name.toUpperCase();
-
-    let comparison = 0;
-    if (nameA > nameB) {
-      comparison = 1;
-    } else if (nameA < nameB) {
-      comparison = -1;
-    }
-    return comparison;
-  }
-
   const sortByName = () => {
-    console.log(contacts.sort(compareName))
-    const sortedContacts = contacts.sort(compareName).map(contact => contact)
+    const sortedContacts = contacts.sort((a, b) => a.name.localeCompare(b.name)).map(contact => contact)
     setContacts(sortedContacts)
   }
 
