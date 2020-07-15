@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
 
@@ -30,9 +29,16 @@ class App extends Component {
 
   sortPopularity = () => {
     let sortPopular = [...this.state.contacts]
-    sortPopular.sort((a, b) => a - b)
+    sortPopular.sort((a, b) => b.popularity - a.popularity)
     this.setState((state, props) => ({
       contacts: sortPopular
+    }))
+  }
+
+  deleteContact = (id) => {
+    let deletePerson = [...this.state.contacts].filter((person) => person.id !== id)
+    this.setState((state, props) => ({
+      contacts: deletePerson
     }))
   }
 
@@ -60,6 +66,7 @@ class App extends Component {
                 <th><img src={e.pictureUrl} alt='Face' /></th>
                 <th>{e.name}</th>
                 <th>{e.popularity}</th>
+                <th><button onClick={() => this.deleteContact(e.id)}>Delete</button></th>
               </tr>
             )}
           </tbody>
