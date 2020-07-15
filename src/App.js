@@ -25,6 +25,15 @@ class App extends Component {
      }))
     };
 
+    sortContactPopularity = () => {
+      const sortedPopularity = [...this.state.contacts]
+      sortedPopularity.sort((a, b) => a.popularity - b.popularity);
+      this.setState((state, props) => ({
+        contacts: sortedPopularity
+       }))
+      };
+  
+
   
   render() {
     return (
@@ -32,6 +41,7 @@ class App extends Component {
         <h1>IronContacts</h1>
         <button onClick={this.addContact}>Add </button>
         <button onClick={this.sortContactNames}>Sort by names</button>
+        <button onClick={this.sortContactPopularity}>Sort by popularity</button>
         <ContactsList contacts={this.state.contacts} />
       </div>
     );
