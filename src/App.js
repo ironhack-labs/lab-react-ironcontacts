@@ -31,8 +31,16 @@ function App() {
   }
 
   const deleteContact = (id) => {
-    console.log()
     setContacts(contacts.filter((contact) => contact.id !== id))
+  }
+
+  const sortByName = () => {
+    const sortedContacts = contacts.sort((contactA, contactB) => contactA.name.toUpperCase() - contactB.name.toUpperCase()).map(contact => contact)
+    setContacts(sortedContacts)
+  }
+  const sortByPopularity = () => {
+    const sortedContacts = contacts.sort((contactA, contactB) => contactB.popularity - contactA.popularity).map(contact => contact)
+    setContacts(sortedContacts)
   }
 
 
@@ -40,6 +48,8 @@ function App() {
     <div className="App">
       <h1>Ironhack Contacts</h1>
       <Button text='Add Random Contact' handlerClickEvent={addRandomContact} />
+      <Button text='Sort By Name' handlerClickEvent={sortByName} />
+      <Button text='Sort By Popularity' handlerClickEvent={sortByPopularity} />
       <Contacts contacts={showContacts} handleClick={deleteContact} />
     </div>
   );
