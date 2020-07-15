@@ -7,13 +7,14 @@ import contactsData from './contacts.json'
 import './App.css';
 
 function App() {
+  //set state
   const [contacts, setContacts] = useState([])
   const [showContacts, setShowContacts] = useState([])
 
+  //
   useEffect(() => {
     const [one, two, tree, four, five] = contactsData
     setContacts([one, two, tree, four, five])
-    setShowContacts([one, two, tree, four, five])
   }, [])
 
   useEffect(() => {
@@ -37,18 +38,25 @@ function App() {
 
   const sortByName = () => {
     const sortedContacts = contacts.sort((a, b) => a.name.localeCompare(b.name)).map(contact => contact)
-    setContacts(sortedContacts)
+    setShowContacts(sortedContacts)
   }
 
   const sortByPopularity = () => {
     const sortedContacts = contacts.sort((contactA, contactB) => contactB.popularity - contactA.popularity).map(contact => contact)
-    setContacts(sortedContacts)
+    setShowContacts(sortedContacts)
+  }
+
+  const findContactByName = (event) => {
+    const result = contacts.filter(contact => contact.name.toLowerCase().includes(event.target.value.toLowerCase()))
+    if (result) {
+      return setShowContacts(result)
+    }
   }
 
   return (
     <div className="App">
       <h1>Ironhack Contacts</h1>
-      <FilterBar>
+      <FilterBar handleOnChange={findContactByName}>
         <Button text='Add Random Contact' handlerClickEvent={addRandomContact} />
         <Button text='Sort By Name' handlerClickEvent={sortByName} />
         <Button text='Sort By Popularity' handlerClickEvent={sortByPopularity} />

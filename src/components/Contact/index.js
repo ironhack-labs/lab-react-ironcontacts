@@ -11,7 +11,7 @@ export default function index({ contact, handleClick }) {
             </td>
             <td className='table-name'>{name}</td>
             <td className='table-popularity'>
-                {popularity.toFixed(2)}
+                {popularity?.toFixed(2)}
                 <span className='button-delete'>
                     <Button text="Delete" handlerClickEvent={() => handleClick(id)} />
                 </span>
