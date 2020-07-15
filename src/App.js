@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Contacts from './components/Contacts'
 import Button from './components/Button'
+import FilterBar from './components/FilterBar'
 
 import contactsData from './contacts.json'
 import './App.css';
@@ -34,22 +35,39 @@ function App() {
     setContacts(contacts.filter((contact) => contact.id !== id))
   }
 
+  function compareName(a, b) {
+    // Use toUpperCase() to ignore character casing
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+      comparison = 1;
+    } else if (nameA < nameB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
   const sortByName = () => {
-    const sortedContacts = contacts.sort((contactA, contactB) => contactA.name.toUpperCase() - contactB.name.toUpperCase()).map(contact => contact)
+    console.log(contacts.sort(compareName))
+    const sortedContacts = contacts.sort(compareName).map(contact => contact)
     setContacts(sortedContacts)
   }
+
   const sortByPopularity = () => {
     const sortedContacts = contacts.sort((contactA, contactB) => contactB.popularity - contactA.popularity).map(contact => contact)
     setContacts(sortedContacts)
   }
 
-
   return (
     <div className="App">
       <h1>Ironhack Contacts</h1>
-      <Button text='Add Random Contact' handlerClickEvent={addRandomContact} />
-      <Button text='Sort By Name' handlerClickEvent={sortByName} />
-      <Button text='Sort By Popularity' handlerClickEvent={sortByPopularity} />
+      <FilterBar>
+        <Button text='Add Random Contact' handlerClickEvent={addRandomContact} />
+        <Button text='Sort By Name' handlerClickEvent={sortByName} />
+        <Button text='Sort By Popularity' handlerClickEvent={sortByPopularity} />
+      </FilterBar>
       <Contacts contacts={showContacts} handleClick={deleteContact} />
     </div>
   );
