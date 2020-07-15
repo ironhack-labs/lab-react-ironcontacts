@@ -2,7 +2,7 @@ import React from 'react'
 import Contact from '../Contact'
 import './style.css'
 
-export default function index({ contacts }) {
+export default function index({ contacts, handleClick }) {
     return (
         <table className="contacts-table">
             <thead>
@@ -14,7 +14,7 @@ export default function index({ contacts }) {
             </thead>
             <tbody>
                 {contacts && contacts.map((contact, index) =>
-                    <Contact key={contact.id} contact={contact} />
+                    <Contact key={contact.id} contact={contact} handleClick={handleClick} />
                 )}
             </tbody>
         </table>

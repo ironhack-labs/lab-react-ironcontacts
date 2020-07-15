@@ -30,12 +30,17 @@ function App() {
     addRandomContact()
   }
 
+  const deleteContact = (id) => {
+    console.log()
+    setContacts(contacts.filter((contact) => contact.id !== id))
+  }
+
 
   return (
     <div className="App">
       <h1>Ironhack Contacts</h1>
       <Button text='Add Random Contact' handlerClickEvent={addRandomContact} />
-      <Contacts contacts={showContacts} />
+      <Contacts contacts={showContacts} handleClick={deleteContact} />
     </div>
   );
 }

@@ -6,9 +6,12 @@
 .table-name{
 
 }
-.table-popularity{
-
+.table-popularity :nth-child(n){
+    margin:10px;
 }
 td{
     min-width:300px;
+}
+.button-delete{
+    padding: 10px;
 }
