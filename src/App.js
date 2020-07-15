@@ -12,26 +12,57 @@ class App extends Component {
     }
   }
 
+  addContact = () => {
+    let addContact = [...this.state.contacts]
+    addContact.push(contacts[Math.floor(Math.random() * (contacts.length))])
+    this.setState((state, props) => ({
+      contacts: addContact
+    }))
+  }
+
+  sortName = () => {
+    let sortName = [...this.state.contacts]
+    sortName.sort(((a, b) => a.name.localeCompare(b.name)))
+    this.setState((state, props) => ({
+      contacts: sortName
+    }))
+  }
+
+  sortPopularity = () => {
+    let sortPopular = [...this.state.contacts]
+    sortPopular.sort((a, b) => a - b)
+    this.setState((state, props) => ({
+      contacts: sortPopular
+    }))
+  }
 
   render() {
     return (
       <div className="App">
+
         <h1>Iron Contacts</h1>
+        <button onClick={this.addContact}>Add Random Contact</button>
+        <button onClick={this.sortName}>Sort by Name</button>
+        <button onClick={this.sortPopularity}>Sort by Popularity</button>
+
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-
-          {this.state.contacts.map(e => 
+          <thead>
             <tr>
-              <th><img src={e.pictureUrl} alt='Face' /></th>
-              <th>{e.name}</th>
-              <th>{e.popularity}</th>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
             </tr>
-          )}
+          </thead>
 
+          <tbody>
+            {this.state.contacts.map(e =>
+              <tr key={e.id}>
+                <th><img src={e.pictureUrl} alt='Face' /></th>
+                <th>{e.name}</th>
+                <th>{e.popularity}</th>
+              </tr>
+            )}
+          </tbody>
         </table>
       </div>
     );
