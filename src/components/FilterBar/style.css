@@ -1,3 +1,10 @@
 .filter-bar :nth-child(n){
     margin:10px;
 }
+
+.find-input{
+    border:1px solid #325BE3;
+    font-size:1.1rem;
+    border-radius: 10px;
+    padding: 4px 15px;
+}

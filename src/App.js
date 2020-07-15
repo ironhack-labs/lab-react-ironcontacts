@@ -47,6 +47,7 @@ function App() {
   }
 
   const findContactByName = (event) => {
+    event.preventDefault()
     const result = contacts.filter(contact => contact.name.toLowerCase().includes(event.target.value.toLowerCase()))
     if (result) {
       return setShowContacts(result)
