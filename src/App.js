@@ -1,8 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
+// import React from 'react';
+import React, { Component } from 'react';
+// import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
-import Contacts from 
+import Contacts from './Components/Contacts.js';
 
 
 // function App() {
@@ -26,9 +27,7 @@ import Contacts from
 //   );
 // }
 
-class App extends Component {
-
-  state = {
+const firstContacts =
     
     [
       {
@@ -62,7 +61,31 @@ class App extends Component {
         "id": "0067ae32-97b6-4431-898e-eb1c10150abb"
       }
     ]
+
+    class App extends Component {
+
+    /*   state = {
+
+         Contacts: firstContacts
+
+   } */
+  render(){
+    return(
+      <div>
+      <Contacts contacts={firstContacts}></Contacts>
+      </div>
+    )
   }}
+ /*  class name extends Component{
+    state={
+      contactas:1
+    }
+    render(){
+      return(<div>
+
+      </div>)
+    }
+  } */
 
 
 export default App;

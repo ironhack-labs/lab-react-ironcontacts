@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Contacts = (props) => {
-
+console.log(props)
     return (
         
-        <Table className="striped bordered hover">
+        <table>
         <thead>
           <tr>
             <th>#</th>
@@ -14,14 +14,17 @@ const Contacts = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+        {props.contacts.map(elem=>{
+            return  <tr>
             <td>1</td>
-            <td>{props.pictureURL}</td>
-            <td>{props.name}</td>
-            <td>{props.popularity}</td>
+            <td>{elem.pictureURL}</td>
+            <td>{elem.name}</td>
+            <td>{elem.popularity}</td>
           </tr>
+        })}
+         
         </tbody>
-      </Table>
+      </table>
     )
 }
 
