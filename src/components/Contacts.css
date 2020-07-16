@@ -1,0 +1,43 @@
+img{
+    width: 100px;
+  }
+  
+  table{
+      font-family: sans-serif;
+      text-align: center;
+      max-width: 50%;
+  }
+  
+  h1{
+      font-size: 4em;
+  }
+  
+  th{
+      padding: 30px 0;
+      font-size: 2em;
+      font-weight: 200;
+  }
+  
+  button{
+      padding: 10px 20px;
+      color: rgb(201, 188, 188);
+  
+  }
+  
+  .container{
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 80px;
+  }
+  
+  td {
+      
+      font-size: 1em;
+      
+  }
+  
+  button{
+      margin: 20px 20px 50px;
+      padding: 20px 20px;
+      
+  }
