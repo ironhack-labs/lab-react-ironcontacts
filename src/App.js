@@ -22,12 +22,33 @@ export class App extends Component {
       contacts: [random, ...state.contacts]
     }));
   };
+
+  sortByName = () => {
+    const sorted = [...this.state.contacts];
+    sorted.sort((a, b) => a.name.localeCompare(b.name));
+
+    this.setState({
+      contacts: sorted
+    });
+  };
+
+  sortByPopularity = () => {
+    const sorted = this.state.contacts.slice();
+    sorted.sort((a, b) => b.popularity - a.popularity);
+
+    this.setState({
+      contacts: sorted
+    });
+  };
   
+
   render() {
     return (
       <>
       <h1>IronContacts</h1>
         <button onClick= {this.addContact}>Add Random Contact</button>
+        <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>
         <ContactList 
           contacts={this.state.contacts}
         />
