@@ -10,6 +10,7 @@ const ContactList = (props) => {
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Popularity</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,11 @@ const ContactList = (props) => {
                             <td><img src={contact.pictureUrl} height='100px' alt={contact.name}/></td>
                             <td>{contact.name}</td>
                             <td>{contact.popularity.toFixed(2)}</td>
+                            <td>
+                                <button onClick={() => {props.deleteContact(contact.id)}}>
+                                    Detele
+                                </button>
+                            </td>
                         </tr>
                     )
                 })}

@@ -40,6 +40,12 @@ export class App extends Component {
       contacts: sorted
     });
   };
+
+  deleteContact = id =>{
+    this.setState((state) => ({
+      contacts: state.contacts.filter(contact => contact.id !== id)
+    }))
+  }
   
 
   render() {
@@ -51,6 +57,7 @@ export class App extends Component {
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
         <ContactList 
           contacts={this.state.contacts}
+          deleteContact={this.deleteContact}
         />
       </>
     )
