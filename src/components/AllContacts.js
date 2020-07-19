@@ -15,29 +15,29 @@ class AllContacts extends Component {
     }
 
     addRandomContact = () => {
-        const newArray = [...this.state.contacts]
+        const newList = [...this.state.contacts]
         const indexArray = Math.floor(Math.random()*contactsList.length)
-        newArray.push(contactsList.splice(indexArray,1)[0])
-        this.setState({contacts: newArray})
+        newList.push(contactsList.splice(indexArray,1)[0])
+        this.setState({contacts: newList})
     }
 
     nameSort = () => {
-        const newArray = [...this.state.contacts]
-        newArray.sort((a,b) => a.name.localeCompare(b.name))
-        this.setState({contacts: newArray})
+        const newList = [...this.state.contacts]
+        newList.sort((a,b) => a.name.localeCompare(b.name))
+        this.setState({contacts: newList})
     }
 
     popularity = () => {
-        const newArray = [...this.state.contacts]
-        newArray.sort((a,b) => b.popularity-a.popularity)
-        this.setState({contacts: newArray})
+        const newList = [...this.state.contacts]
+        newList.sort((a,b) => b.popularity-a.popularity)
+        this.setState({contacts: newList})
     }
 
     deleteHandler = id => {
-        const newArray = [...this.state.contacts]
-        const contactsIndex = newArray.findIndex(item => item.id === id)
-        newArray.splice(contactsIndex, 1) 
-        this.setState({contacts: newArray})
+        const newList = [...this.state.contacts]
+        const contactsIndex = newList.findIndex(item => item.id === id)
+        newList.splice(contactsIndex, 1) 
+        this.setState({contacts: newList})
     }
 
     render() {
