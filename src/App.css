@@ -6,7 +6,20 @@
   height: 40vmin;
   pointer-events: none;
 }
+.contact-img {
+  width: 150px;
+}
+.buttons{
+  width: 40px;
+  display: flex;
+  height: 60px;
 
+}
+
+.container{
+  display: table-row;
+  width: 400px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
