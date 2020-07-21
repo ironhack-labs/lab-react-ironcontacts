@@ -1,5 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
+import contacts from './contacts.json';
+import IronContacts from './components/IronContacts';
+
+
 import './App.css';
 
 function App() {
@@ -8,7 +12,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <h1>IronContacts</h1>
+      <IronContacts />
         </p>
         <a
           className="App-link"
