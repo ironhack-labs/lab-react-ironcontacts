@@ -1,26 +1,81 @@
-legend {
-    margin: auto;
-    text-align: center;
-    font-size: 2em;
+h1 {
+    background: black;
+    color: gold;
+    padding: 2vh;
+    margin: 0;
+}
+
+.buttons {
+    background: black;
+    padding: 1vh;
+    margin-bottom: 1vh;
+}
+
+.container {
+    height: 60vh;
+    overflow: scroll;
 }
 
 .img_table {
-    width: 3vw;
-    margin: 1px;
+    width: 6vw;
+    margin: .5px;
+    border: black inset 2px;
+    border-radius: 20px;
+}
+
+.table_head {
+    color: black;
+    padding-bottom: 3vh;
+    font-size: .8rem;
+    position: relative;
+    background: gray;
 }
 
 .tr_table {
 border: black 1px solid;
-height: 5vh;
+height: 7vh;
 box-sizing: border-box;
+
 }
 
 .name_table {
-    width: 5vw;
+    width: 7vw;
     word-wrap: normal;
     text-align: justify;
+    padding-left: 2vw;
 }
 
 .center {
     margin: auto;
+}
+
+.table_body {
+    height: 50vh;
+    overflow: scroll;
+
+}
+
+/* BUTTONS */
+
+.btn_delete {
+    box-sizing: border-box;
+    color: thistle;
+    border: thick 1px dotted;
+    background: transparent;
+    width: 1.3rem;
+    border-radius: 30px;
+    font-size: .6em;
+    text-align: center;
+    padding: 2px;
+
+}
+
+.btn_table {
+    background: transparent;
+    color: thistle;
+    text-decoration: double;
+    margin-bottom: 2vh;
+    border: none;
+    font-weight: bold;
+
 }

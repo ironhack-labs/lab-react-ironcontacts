@@ -18,7 +18,7 @@ export class Table extends Component {
         </td>
         <td className="name_table">{contact.name}</td>
         <td>{Math.round(contact.popularity * 100) / 100}</td>
-        <td> <button onClick={(event) => this.delete(i)}> Delete </button> </td>
+        <td> <button  className="btn_delete" onClick={(event) => this.delete(i)}> x </button> </td>
       </tr>
     ));
   };
@@ -59,21 +59,24 @@ delete = (index) => {
 
     return (
       <div>
-        <h2>Iron Contacts</h2>
-        <button className="btn_addRandom" onClick={this.addRandom}>Add Random Contact</button>
-        <button className="btn_sortName" onClick={this.sortByName}>Sort by name</button>
-        <button className="btn_sortPopularity" onClick={this.sortByPopularity}>Sort by Popularity</button>
-        <table className="center">
+        <h1>Iron Contacts</h1>
+        <div className="buttons">
+        <button className="btn_table" onClick={this.addRandom}>Add Random Contact</button>
+        <button className="btn_table" onClick={this.sortByName}>Sort by name</button>
+        <button className="btn_table" onClick={this.sortByPopularity}>Sort by Popularity</button>
+        </div>
+        <table className="center container">
           <thead>
-            <tr>
+            <tr className="table_head">
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity </th>
             </tr>
           </thead>
-          <tbody>{this.tableDisplay()}</tbody>
+          
+          <tbody className="table_body" >{this.tableDisplay()}</tbody>
         </table>
-      </div>
+        </div>
     );
   }
 }
