@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.contact-img{
+  width: 100px;
+  height: 150px;
+}
+
+.tableau {
+  font-size: 18px;
+}
+
+.tableau-div {
+  margin-left: 30vh;
+}
+.btn-div {
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
