@@ -30,3 +30,14 @@
   padding: 0px 20px;
   margin: 20px 10px 20px 0px;
 }
+
+.App .btn.delete {
+  color: red;
+  height: 25px;
+  padding: 0px 5px;
+}
+
+.btn:hover {
+  background-color: rgb(59, 59, 59);
+  color: white;
+}

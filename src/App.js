@@ -9,18 +9,26 @@ class App extends Component {
 
   addRandomContact = () => {
     let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
-    // console.log(' RANDOM CONTACT = ', randomContact);
-    this.setState({
-      contactsList: [...this.state.contactsList, randomContact],
-    });
+
+    if (
+      this.state.contactsList.some(
+        (contact) => contact.name === randomContact.name
+      )
+    )
+      this.addRandomContact();
+    /* id the contact already exists => the function restarts */ else
+      this.setState({
+        contactsList: [...this.state.contactsList, randomContact],
+      });
   };
 
   sortByName = () => {
-    
     this.setState(
       {
-        contactsList: [...this.state.contactsList].sort((a, b) => a.name.localeCompare(b.name)),
-      },
+        contactsList: [...this.state.contactsList].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        ),
+      }
       // console.log('sort by name !')
     );
   };
@@ -31,25 +39,43 @@ class App extends Component {
         contactsList: [...this.state.contactsList].sort((a, b) => {
           return a.popularity - b.popularity;
         }),
-      },
+      }
       // console.log('sort by popularity !')
     );
   };
 
+  deleteContact = (index) => {
+    this.setState(
+      {
+        contactsList: this.state.contactsList.filter(
+          (contact, i) => i !== index
+        ),
+      }
+      // console.log('contact deleted !')
+    );
+  };
+
+  deletePairs = () => {
+    this.setState({
+      contactsList: [...this.state.contactsList].filter((contact) => contact),
+    });
+  };
+
   render() {
+    console.log(contacts);
     return (
       <div className="App">
         <h1>IronContacts</h1>
         {/* ITERATION 2 */}
-        <button onClick={this.addRandomContact} className="btn random-contact">
+        <button onClick={this.addRandomContact} className="btn">
           Add random contact
         </button>
         {/* ITERATION 3 - SORT BY NAME BTN */}
-        <button onClick={this.sortByName} className="btn sort-name">
+        <button onClick={this.sortByName} className="btn">
           Sort by name
         </button>
         {/* ITERATION 3 - SORT BY POPULARITY BTN */}
-        <button onClick={this.sortByPopularity} className="btn random-contact">
+        <button onClick={this.sortByPopularity} className="btn">
           Sort by popularity
         </button>
         {/* ITERATION 1 */}
@@ -71,6 +97,18 @@ class App extends Component {
                 </td>
                 <td>{celeb.name}</td>
                 <td>{celeb.popularity.toFixed(2)}</td>
+                <td>
+                  {' '}
+                  {/* ITERATION 4 - DELETE BTN */}
+                  <button
+                    onClick={(event) => {
+                      this.deleteContact(i);
+                    }}
+                    className="btn delete"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
