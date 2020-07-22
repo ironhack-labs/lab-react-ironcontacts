@@ -1,38 +1,71 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+table {
+  width: 800px;
   text-align: center;
+  padding: auto;
+  border-collapse: separate;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-weight: bold;
+  font-size: 70px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 35px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+td {
+  font-size: 25px;
+
+  margin: 5px 0;
+  height: 100px;
+}
+
+.celeb {
+  height: 200px;
+}
+
+.btn {
+  width: 200px;
+  height: 50px;
+  background: #363334;
+  position: relative;
+  
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 20%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-container {
+  margin-top: 30px;
+  width: 800px;
+  display: flex;
+  justify-content: space-evenly;
 }
