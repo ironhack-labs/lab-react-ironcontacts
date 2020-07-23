@@ -1,5 +1,5 @@
 import React from 'react';
-import Contacts from './components/Contacts';
+import Contacts from './Contacts';
 import './App.css';
 
 
