@@ -1,7 +1,9 @@
 import React from 'react'
 
+
+
 const Contact = (props) => {
-    const {pictureUrl, name, popularity } = props.contact
+    const {pictureUrl, name, popularity, id } = props.contact
     return (
         <tr>
             <td>
@@ -9,6 +11,7 @@ const Contact = (props) => {
             </td>
             <td className='table-name'>{name}</td>
             <td className='table-popularity'>{popularity.toFixed(2)}</td>
+            <td><button onClick={() => props.clickToDelete(id)}>Delete</button></td>
         </tr>
     )
 }
