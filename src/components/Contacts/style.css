@@ -1,0 +1,25 @@
+.contacts-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contacts-table :nth-child(n) {
+    margin: 10px auto;
+
+}
+
+.contacts-table th {
+    color: white;
+    background-color: rgb(89, 94, 254);
+    font-size: 1.2rem;
+    min-width: 250px;
+}
+.contacts-table tr {
+    background-color: rgba(159, 237, 240, 0.377);
+}
+.contacts-table td{
+    border: 1.5px solid rgb(105, 143, 199);
+}

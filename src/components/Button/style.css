@@ -1,0 +1,17 @@
+.primary {
+    background: #325be3;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin: 0 0.6rem;
+}
+.primary:hover {
+   -webkit-transform: scale(1.1);
+   -ms-transform: scale(1.1);
+   transform: scale(1.1);
+   background-color: #fff;
+   border: 2px solid rgb(0, 153, 255);
+   color: rgb(0, 153, 255);
+}
