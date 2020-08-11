@@ -1,10 +1,23 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image-style {
+  width: 70px;
+  height: 100px;
+}
+
+.nav-buttons {
+  /* border: 2px solid blue; */
+  padding: 2%;
+}
+
+.button-style {
+  padding: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
