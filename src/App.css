@@ -68,3 +68,42 @@ tr {
   border-radius: 6px;
   box-shadow: 3px 3px 8px -4px rgba(0,0,0,0.75);
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .btn {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.5rem;
+    border: none;
+    border-radius: 3px;
+  
+  }
+  
+  .main-btns {
+    padding: 1rem 2rem;
+  }
+  
+  .celeb-img {
+    border-radius: 4px;
+    box-shadow: 3px 3px 10px -4px rgba(0,0,0,0.75);
+  }
+  
+  table {
+    padding-top: 1rem;
+  }
+  
+  th {
+    font-size: 1rem;
+  }
+  
+  td {
+    font-size: 0.8rem;
+  }
+  
+  tr {
+    margin: 0.1rem 2rem;
+  }
+}
