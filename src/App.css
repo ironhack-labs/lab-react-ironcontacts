@@ -1,3 +1,16 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+}
+
+
 .App {
   text-align: center;
 }
@@ -7,11 +20,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,11 +36,61 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+
+th {
+  font-size: 2rem;
+  background-color: #e7e7e3;
+  text-align: left;
+  padding: 2rem;
+}
+
+td {
+  font-size: 1.8rem;
+  text-align: left;
+  padding: 1rem;
+}
+
+tr:nth-of-type(even) {
+  background-color: rgba(82, 82, 99, 0.158);
+}
+
+
+.img-td {
+  width: 20%;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+}
+
+button {
+  border: 1px solid rgb(235, 133, 8);
+  background-color: bisque;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: orangered;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: rgb(255, 81, 0);
+  color: #e7e7e3;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 2rem;
 }
