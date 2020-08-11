@@ -43,6 +43,7 @@ class App extends Component {
 
   //START ITERACION 4
   deleteContact = (id) => {
+    //Garde moi les contact qui ne correspondent pas à cet ID
     const deleteContact = this.state.contactsList5.filter(
       (contact) => contact.id !== id
     );
@@ -71,8 +72,11 @@ class App extends Component {
           {this.state.contactsList5.map((contact, index) => {
             return (
               <ContactRow
+                //Ceci va nous rendre tous les contacts(photo, nom, popularité)
                 contact={contact}
-                clickToDelete={() => this.deleteContact(contact.id)}
+                //On ajoute ça pour pouvoir supprimer en cliquant sur le bouton.
+                //Je passe cet fonction qui est "déjà prête à l'emploi" et on le passe en référence à notre composant ContactRow où on va l'éxécuter au moment du clic
+                clickToDelete={this.deleteContact}
               />
             );
           })}

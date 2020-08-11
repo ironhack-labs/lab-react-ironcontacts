@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Contact = (props) => {
-  const { pictureUrl, name, popularity } = props.contact;
+  //Toutes les valeurs qu'on va chopper depuis les contacts
+  const { pictureUrl, name, popularity, id } = props.contact;
   return (
     <tr>
       <td>
@@ -15,7 +16,8 @@ const Contact = (props) => {
       <td className="table-name">{name}</td>
       <td className="table-popularity">{popularity.toFixed(2)}</td>
       <td>
-        <button onClick={props.clickToDelete}>Delete</button>
+        {/* On assigne à ce bouton la fonction clickToDelete avec l'id du contact en question */}
+        <button onClick={() => props.clickToDelete(id)}>Delete</button>
       </td>
     </tr>
   );
