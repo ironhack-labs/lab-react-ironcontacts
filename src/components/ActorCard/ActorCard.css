@@ -1,0 +1,24 @@
+.actors-container{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 33%;
+}
+
+.headers{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.actor-container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+table{
+  margin: 0 33%;
+}
+.actor-picture{
+  width: 100px;
+}
