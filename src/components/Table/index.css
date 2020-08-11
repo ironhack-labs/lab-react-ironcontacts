@@ -1,0 +1,65 @@
+div {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+img{
+    width: 100px;
+    border: goldenrod solid 1px;
+    border-radius: 5px;
+}
+   
+th, td{
+    text-align: center;    
+}
+
+
+table td, table th {
+    padding: .75rem;
+    vertical-align: middle;
+
+}
+
+button {
+    width: 170px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    color: goldenrod;
+    border-color: goldenrod;
+    background-color: darkred;
+    border-radius: 5px;
+}
+
+button:hover {
+    width: 170px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    color: darkred;
+    border-color: darkred;
+    background-color: goldenrod;
+    border-radius: 5px;
+}
+
+.btnDelete {
+    width: 100px;
+    color: darkred;
+    border-color: darkred;
+    background-color: goldenrod;
+    border-radius: 5px;
+}
+
+.btnDelete:hover {
+    width: 100px;
+    color: goldenrod;
+    border-color: goldenrod;
+    border-radius: 5px;
+    background-color: darkred;
+}
