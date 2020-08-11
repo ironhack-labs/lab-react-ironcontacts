@@ -41,6 +41,17 @@ class App extends Component {
   };
   //END ITERACION 3
 
+  //START ITERACION 4
+  deleteContact = (id) => {
+    const deleteContact = this.state.contactsList5.filter(
+      (contact) => contact.id !== id
+    );
+    this.setState({
+      contactsList5: deleteContact,
+    });
+  };
+  //END ITERACION 4
+
   render() {
     return (
       <div>
@@ -55,10 +66,16 @@ class App extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
-          {this.state.contactsList5.map((contact) => (
-            <ContactRow contact={contact} />
-          ))}
+          {this.state.contactsList5.map((contact, index) => {
+            return (
+              <ContactRow
+                contact={contact}
+                clickToDelete={() => this.deleteContact(contact.id)}
+              />
+            );
+          })}
         </table>
       </div>
     );
