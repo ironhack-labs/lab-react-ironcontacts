@@ -13,13 +13,16 @@ class App extends Component {
 
   //START ITERACION 2
   addRandom = () => {
-    //la variable newContact nous permettra de sortir un contact au hasard de l'array contacts grâce au Math.floor
-    const newContact = contacts[Math.floor(Math.random() * contacts.length)];
+    //la variable randomContact nous permettra de sortir un contact au hasard de l'array contacts grâce au Math.floor
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
 
-    //Ensuite on redéfini l'état contactsList5 en lui ajoutant le nouveau contact
-    this.setState({
-      contactsList5: [...this.state.contactsList5, newContact],
-    });
+    //-1 veut dire qu'il n'existe pas donc on peut l'ajouter
+    if (this.state.contactsList5.indexOf(randomContact) === -1) {
+      //Ensuite on redéfini l'état contactsList5 en lui ajoutant le nouveau contact
+      this.setState({
+        contactsList5: [...this.state.contactsList5, randomContact],
+      });
+    }
   };
   //END ITERACION 2
 
@@ -42,6 +45,7 @@ class App extends Component {
   //END ITERACION 3
 
   //START ITERACION 4
+  //l'id passé entre parenthèse provient de Contact.js
   deleteContact = (id) => {
     //Garde moi les contact qui ne correspondent pas à cet ID
     const deleteContact = this.state.contactsList5.filter(
