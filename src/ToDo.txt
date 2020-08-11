@@ -1,0 +1,58 @@
+i0 
+npm install / npm start
+
+-----
+
+i1
+1.create component ContactList and import contacts.json
+2.in ContactList.js
+    create class, constructor super and this.state of list (remember has rnder&return)
+    inside this.state bring contacts.json and slice(0,5) (cause we only need 5)
+    3.in return<div> 
+        do th.st.contacts.map(somethingX) and return the info
+        create component(BlockCelebInfo) to bring the "form" (remember to import)
+        add <BlockCelebInfo ...> and pass the keys info "name={somthingX.name}"...
+    4.in BlockCelebInfo.js 
+        add props and {props. xxx} of name, pictureUrl and popularity
+        remember to exported at the end of the page
+    5.in App.js
+        inlclude <ContactList /> in <div>s and remember to import
+
+-----
+
+i2
+1.create and array with the rest of the 5 first picks in this.state,contacts
+2.create method addRandomContact() and random on the array we just did
+    splice() out that found object from allContactsleft (so we can't pick it again)
+    push the object to the contacs list(remember add [0] cause splice thows an arr)
+    create a variable and the new push arr
+    reset: this.setState with contacts= to the new variable from above
+3.add button to render() return(
+    pass onClinck={this.method}---->{this.addRandomContac}
+
+-----
+
+i3
+1.set sortByName & sortByPopularity like in i2.3
+2.create sortByPopularity() method
+    sort() remember {return a.popularity - b.popularity}
+    refresh this.setState with sorted()Contacts
+3.create sortByName() method
+    sort() remember {its a bit trickier so look for sort aplphabetacly in google}
+    refresh this.setState with sorted()Contacts
+
+-----
+
+i4
+create method deleteContact(passing id number)
+filter() list with id to take that item out of showinglist
+refresh this.setState with filter()Contacts
+in return <BlockCelebInfo...,(in the return part) add the fields "delete={this.deleteContact}"
+in BlockCelebInfo.js 
+    set button for every contact and remember to add onClick comand
+
+-----
+
+iextra
+to make it a bit more component like... 
+we build the component ButtonPiece and exchange them for the old ones 
