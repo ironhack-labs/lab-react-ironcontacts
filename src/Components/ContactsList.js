@@ -3,7 +3,7 @@ import { DetailContact } from './DetailContact';
 import contacts from '../contacts.json';
 
 class ContactsList extends Component {
-  state = { fiveContacts: contacts.slice(0, 5) };
+  state = { renderContacts: contacts.slice(0, 5) };
 
   handleRandom = () => {
     let random;
@@ -11,19 +11,53 @@ class ContactsList extends Component {
     while (inList) {
       random = contacts[Math.floor(Math.random() * contacts.length)];
       inList = false;
-      for (let i = 0; i < this.state.fiveContacts.length; i++) {
-        if (this.state.fiveContacts[i].name === random.name) {
+      for (let i = 0; i < this.state.renderContacts.length; i++) {
+        if (this.state.renderContacts[i].name === random.name) {
           inList = true;
         }
       }
     }
     this.setState({
-      fiveContacts: [random, ...this.state.fiveContacts],
+      renderContacts: [random, ...this.state.renderContacts],
+    });
+  };
+
+  handleSortByName = () => {
+    let sortedNames = this.state.renderContacts.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedNames);
+
+    this.setState({
+      renderContacts: sortedNames,
+    });
+  };
+
+  handleSortByPopularity = () => {
+    let sortedNames = this.state.renderContacts.sort((a, b) => {
+      if (a.popularity < b.popularity) {
+        return -1;
+      }
+      if (a.popularity > b.popularity) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedNames);
+
+    this.setState({
+      renderContacts: sortedNames,
     });
   };
 
   renderContactList = () => {
-    return this.state.fiveContacts.map((contact, i) => {
+    return this.state.renderContacts.map((contact, i) => {
       return (
         <DetailContact
           key={i}
@@ -38,8 +72,23 @@ class ContactsList extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleRandom}>add a random contact</button>
-        {this.renderContactList()}
+        <div>
+          <button onClick={this.handleRandom}>add a random contact</button>
+        </div>
+        <div>
+          <button onClick={this.handleSortByName}>sort by name</button>
+        </div>
+        <div>
+          <button onClick={this.handleSortByPopularity}>
+            sort by popularity
+          </button>
+        </div>
+        <div>
+          <p>Picture</p>
+          <p>Name</p>
+          <p>Popularity</p>
+        </div>
+        <div>{this.renderContactList()}</div>
       </div>
     );
   }
