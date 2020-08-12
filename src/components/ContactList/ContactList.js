@@ -45,14 +45,11 @@ class ContactList extends Component{
     handleDelete = (id) => {
         
         const deleteContact = this.state.contacts.filter(contact => contact.id === id);
-        console.log('deleteContact: ', deleteContact)
         const oldRestContacts = this.state.restContacts;
-        console.log('oldRestContacts: ', this.state.restContacts)
         const newOldRestContacts = [
             deleteContact,
             ...oldRestContacts
         ]
-        console.log('newOldRestContacts: ', newOldRestContacts)
         this.setState({restContacts: newOldRestContacts})
 
         const noDeleteContacts = this.state.contacts.filter(contact => contact.id !== id);
@@ -60,8 +57,6 @@ class ContactList extends Component{
     }
 
     render () {
-        console.log('visibleContacts: ', this.state.contacts.length)
-        console.log('restContacts: ', this.state.restContacts.length)
         return (
             <section>
                 <button type="button" onClick={(e) => this.getRandomActor(e)}>Add Random Contact</button>
