@@ -16,8 +16,10 @@ class Contacts extends React.Component {
     handleRandom = (wholeArr) => {
         let randomContact = wholeArr[Math.floor(Math.random() * wholeArr.length)];
         let contactsClone = [...this.state.contactsArr]
-        contactsClone.push(randomContact)
-
+        if (!this.state.contactsArr.includes(randomContact)) {
+            contactsClone.push(randomContact)
+        }
+        
         this.setState({
             contactsArr: contactsClone
         })
