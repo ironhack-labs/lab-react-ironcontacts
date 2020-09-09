@@ -9,7 +9,7 @@ class Contact extends React.Component {
     }
 
     addRandomContactHandler = () => {
-       const contactsCopy = [...this.state.contactsLimit];
+       const contactsCopy = this.state.contactsLimit;
        const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
        if(!contactsCopy.includes(randomContact)){
            contactsCopy.push(randomContact);
@@ -19,20 +19,20 @@ class Contact extends React.Component {
     }
 
     sortByNameHandler = () => {
-        const contactsCopy = [...this.state.contactsLimit];
+        const contactsCopy = this.state.contactsLimit;
         contactsCopy.sort((a, b) => a.name.localeCompare(b.name));
         this.setState( {contactsLimit: contactsCopy});
 
     }
 
     sortByPopularityHandler = () => {
-        const contactsCopy = [...this.state.contactsLimit];
+        const contactsCopy = this.state.contactsLimit;
         contactsCopy.sort((a,b) => b.popularity - a.popularity)
         this.setState( {contactsLimit: contactsCopy})
     }
 
     deleteContactHandler = id => {
-        const contactsCopy = [...this.state.contactsLimit];
+        const contactsCopy = this.state.contactsLimit;
         const contactIndex = contactsCopy.findIndex(item => item.id === id);
         contactsCopy.splice(contactIndex, 1);
         this.setState({contactsLimit: contactsCopy})
