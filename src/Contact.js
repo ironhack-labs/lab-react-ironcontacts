@@ -1,5 +1,6 @@
 import React from 'react';
 import contacts from './contacts.json';
+import ContactList from './ContactList';
 
 
 class Contact extends React.Component {
@@ -30,6 +31,15 @@ class Contact extends React.Component {
         this.setState( {contactsLimit: contactsCopy})
     }
 
+    deleteContactHandler = (id) => {
+        const contactsCopy = [...this.state.contactsLimit];
+        const deleted = contactsCopy.findIndex(actor => actor.id !== id);
+        this.setState( {contactsLimit: deleted});
+   
+    }
+
+
+
     render(){
         return (
             <div>
@@ -40,18 +50,19 @@ class Contact extends React.Component {
                 <button onClick={this.sortByPopularityHandler}>SortByPopularity</button>
             </div>
             <table>
-            <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-            </tr>
-            {this.state.contactsLimit.map(item => (
+                <thead>
                     <tr>
-                    <td> <img src={item.pictureUrl} alt="profile" height="100px"/></td> 
-                    <td>{item.name}</td> 
-                    <td>{item.popularity}</td>
-                </tr>
-            ))}
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Popularity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.contactsLimit.map(actor => {
+                        return <ContactList key={actor.id} {...actor} clickToDelete={() => this.deleteContactHandler(actor.id)} /> 
+                        
+                    })}
+                </tbody>
             </table>
         </div>
 
