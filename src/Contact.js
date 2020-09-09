@@ -17,12 +17,27 @@ class Contact extends React.Component {
        this.setState( {contactsLimit: contactsCopy} )
     }
 
+    sortByNameHandler = () => {
+        const contactsCopy = [...this.state.contactsLimit];
+        contactsCopy.sort((a, b) => a.name.localeCompare(b.name));
+        this.setState( {contactsLimit: contactsCopy});
+
+    }
+
+    sortByPopularityHandler = () => {
+        const contactsCopy = [...this.state.contactsLimit];
+        contactsCopy.sort((a,b) => b.popularity - a.popularity)
+        this.setState( {contactsLimit: contactsCopy})
+    }
+
     render(){
         return (
             <div>
             <h1>Ironhack Contacts</h1>
             <div className="buttons">
-                <button onClick={this.addRandomContactHandler}>AddRandom</button>
+                <button onClick={this.addRandomContactHandler}>AddRandomContact</button>
+                <button onClick={this.sortByNameHandler}>SortByName</button>
+                <button onClick={this.sortByPopularityHandler}>SortByPopularity</button>
             </div>
             <table>
             <tr>
