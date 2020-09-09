@@ -31,10 +31,12 @@ class Contact extends React.Component {
         this.setState( {contactsLimit: contactsCopy})
     }
 
-    deleteContactHandler = (id) => {
+    deleteContactHandler = id => {
         const contactsCopy = [...this.state.contactsLimit];
-        const deleted = contactsCopy.findIndex(actor => actor.id !== id);
-        this.setState( {contactsLimit: deleted});
+        const contactIndex = contactsCopy.findIndex(item => item.id === id);
+        contactsCopy.splice(contactIndex, 1);
+        this.setState({contactsLimit: contactsCopy})
+        
    
     }
 
@@ -58,8 +60,8 @@ class Contact extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.contactsLimit.map(actor => {
-                        return <ContactList key={actor.id} {...actor} clickToDelete={() => this.deleteContactHandler(actor.id)} /> 
+                    {this.state.contactsLimit.map(item => {
+                        return <ContactList key={item.id} {...item} clickToDelete={() => this.deleteContactHandler(item.id)} /> 
                         
                     })}
                 </tbody>
