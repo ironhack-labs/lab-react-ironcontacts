@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Contact from "./components/Contact"
+import styled from "styled-components";
+
+const Main= styled.div`
+  button{
+    border:none;
+    background-color:tomato;
+    color:white;
+    width:220px;
+    heigth:20px;
+    padding:20px 15px;
+    border-radius:10px;
+    font-size:18px;
+    margin:10px;
+  }
+`
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>IronContacts</h1>
+      <Main>
+       <Contact />
+      </Main>
     </div>
   );
 }
