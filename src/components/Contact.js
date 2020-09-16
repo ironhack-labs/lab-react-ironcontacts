@@ -20,47 +20,51 @@ const CardStyle = styled.div`
 
 const Contact = ()=>{ 
   let contactsArr = [...contacts].slice(0,5);
+  
+  const [array, setContacts] = useState(contactsArr);
 
   //to add RandomContact
-  const [randoms, setRandoms] = useState(contactsArr);
   function addNewOne(){
     let index = Math.floor(Math.random()*52)
     const randomOne = contacts[index]
     {index>4 && 
-      setRandoms([...randoms, randomOne])
+      setContacts([...array, randomOne])
     }
   }
 
   //to sort array by name
-  let sortedArray=[];
-  const [array, setSortArray] = useState(contactsArr);
-  function sortByName(){
-    sortedArray = [...array].sort(function(a,b){
-      return a.name.localeCompare(b.name);
-    })
-    setSortArray(sortedArray)
+  const [ar, setSort] = useState([]);
+  function sortByName(ar){
+   ar.sort((a,b)=>{
+     return a.name.localeCompare(b.name);
+   })
+   setSort([...ar])
   }
 
   //to sort by populality
-  function sortByPopularity(){
-    return [...randoms].sort(function(a,b){
-      return a.popularity - b.popularity;
-    })
+  const [arr, setSortbyPopulality] = useState([]);
+  function sortByPopulality(arr){
+   arr.sort((a,b)=>{
+     return b.popularity - a.popularity ;
+   })
+   setSortbyPopulality([...arr])
   }
 
   //to delete on
-  function deleteOne (id){
-    id.remove();
+  function deleteContact(index){
+    let arr = array;
+    arr.splice(index,1);
+    setContacts([...arr])
   }
 
 
   return(
     <div>
         <button onClick={addNewOne}>Add Random Contact</button>
-        <button onClick={sortByName}>Sort by Name</button>
-        <button onClick={sortByPopularity}>Sort by Populality</button>
+        <button onClick={()=>{sortByName(array)}}>Sort by Name</button>
+        <button onClick={()=>{sortByPopulality(array)}}>Sort by Popularity</button>
         <CardStyle className="boxes">
-          {randoms.map((ele, index, arr) => {
+          {array.map((ele, index, arr) => {
               return (
                 <div key = {index}>
                   <img src={ele.pictureUrl}></img>
@@ -68,7 +72,7 @@ const Contact = ()=>{
                   <h2>{ele.name}</h2>
                   <p>{ele.popularity}</p>
                   <p>{ele.id}</p>
-                  <button onClick={deleteOne}>Delete</button>
+                  <button onClick={()=>{deleteContact(index)}}>Delete</button>
                 </div>
                 </div>
               )
