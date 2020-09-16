@@ -1,25 +1,62 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import styled from "styled-components"
+import ActorCard from './components/ActorCard';
+import TableHead from './components/TableHead'
+
+
+const MainApp = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+padding: 50px 100px;
+
+`
 
 function App() {
+
+   const [getStars,setStars] = useState(contacts.slice(0, 5))
+
+   function addRandomContact(){
+    let randomIndex;
+    while (!randomIndex || getStars.includes(contacts[randomIndex])) {
+        randomIndex = Math.floor(Math.random() * (contacts.length - 1))
+      }
+      setStars([...getStars, contacts[randomIndex]])
+   }
+
+  function sortByName(){
+    setStars([...getStars].sort((a,b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+  }
+
+  function sortByPopularity(){
+      setStars([...getStars].sort((a,b) => a.popularity > b.popularity ? -1 : a.popularity < b.popularity ? 1 : 0))
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainApp className="App">
+            <h1>IronContacts</h1>
+            <div>
+                <button onClick={addRandomContact}>Add Random Contact</button>
+                <button onClick={sortByName}>Sort By Name</button>
+                <button onClick={sortByPopularity}>Sort By Popularity</button>
+            </div>
+            <table>
+                <thead>
+                    <TableHead/>
+                </thead>
+                <tbody>  
+                    {getStars.map((el,i) => (
+                        <ActorCard key={i}{...el}/>
+                    ))}
+                </tbody>
+            </table>
+        
+    </MainApp>
   );
 }
 
