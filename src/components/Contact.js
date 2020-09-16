@@ -32,10 +32,13 @@ const Contact = ()=>{
   }
 
   //to sort array by name
+  let sortedArray=[];
+  const [array, setSortArray] = useState(contactsArr);
   function sortByName(){
-    return [...randoms].sort(function(a,b){
+    sortedArray = [...array].sort(function(a,b){
       return a.name.localeCompare(b.name);
     })
+    setSortArray(sortedArray)
   }
 
   //to sort by populality
@@ -55,7 +58,7 @@ const Contact = ()=>{
     <div>
         <button onClick={addNewOne}>Add Random Contact</button>
         <button onClick={sortByName}>Sort by Name</button>
-        <button onClick={sortByPopularity}>Sort by Name</button>
+        <button onClick={sortByPopularity}>Sort by Populality</button>
         <CardStyle className="boxes">
           {randoms.map((ele, index, arr) => {
               return (
