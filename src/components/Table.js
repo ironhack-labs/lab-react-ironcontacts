@@ -1,9 +1,10 @@
 import contacts from '../contacts.json';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Table() {
   const initialArr = [];
-
+  //reference added
+  const jsCards = useRef();
   //Add single contact function
   function addContact(i) {
     return (
@@ -64,15 +65,17 @@ function Table() {
         b.props.children[2].props.children - a.props.children[2].props.children
       );
     });
-    console.log(sortedArr);
     setCards(sortedArr);
   };
+  //useEffect
+  useEffect(() => {
+    jsCards.current = cards;
+  }, [cards]);
   //Delete contact
   const deleteContact = function (index) {
-    let newArr = [...cards];
-    newArr.filter((card) => card.key != index);
-    // newArr.splice(index, 1);
-    setCards(newArr);
+    setCards(
+      [...jsCards.current].filter((card) => Number(card.key) !== Number(index))
+    );
   };
 
   return (
