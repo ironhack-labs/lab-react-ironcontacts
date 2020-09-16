@@ -22,6 +22,10 @@ function Contact(){
         setContacsStars([...contacsStars].sort((a, b) => b.popularity - a.popularity))
     }
 
+    function deleteContact(id){
+        setContacsStars(contacsStars.filter(contact => contact.id != id))
+    }
+
     return(
         <div>
             <button onClick={addRandomContac}>Add Random Contact</button>
@@ -33,16 +37,16 @@ function Contact(){
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
-                        <th>Delete</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {contacsStars.map(e => (
                         <tr key={e.id}>
-                            <th><img src={e.pictureUrl}></img></th>
-                            <th>{e.name}</th>
-                            <th>{e.popularity}</th>
-                            <th><button onClick={sortByPopularity}>Sort by popularity</button></th>
+                            <td><img src={e.pictureUrl} style={{width: 160}}></img></td>
+                            <td>{e.name}</td>
+                            <td>{e.popularity}</td>
+                            <td><button onClick={() => deleteContact(e.id)}>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
