@@ -1,24 +1,28 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import contacts from './contacts.json';
+import ContactInfo from './Component/Contact';
+/**
+ *
+ */
 function App() {
+  console.log(' My Contacts: ', contacts.slice(0, 5));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1> Iron Contacts </h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contacts.slice(0, 5).map((contact) => ContactInfo(contact))}
+        </tbody>
+      </table>
     </div>
   );
 }
