@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
+import CelebritiesList from './Components/CelebritiesList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    celebrities: contacts.slice(0, 5),
+  };
+
+  addRandom = () => {
+    //alternative
+    const celebritiesCopy = this.state.celebrities.slice();
+    celebritiesCopy.push(contacts[Math.floor(Math.random() * contacts.length)]);
+    this.setState({
+      celebrities: celebritiesCopy,
+    });
+  };
+
+  sortName = () => {};
+
+  sortPopularity = () => {};
+
+  render() {
+    return (
+      <div className="App">
+        <h1>IronContacts</h1>
+        <button onClick={this.addRandom}>Add Random Contact</button>
+        <button onClick={this.sortName}>Sort by name</button>
+        <button onClick={this.sortPopularity}>Sort by popularity</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <CelebritiesList celebrities={this.state.celebrities} />
+        </table>
+      </div>
+    );
+  }
 }
 
 export default App;

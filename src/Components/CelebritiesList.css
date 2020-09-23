@@ -1,0 +1,8 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+img {
+  width: 120px;
+  height: 180px;
+}
