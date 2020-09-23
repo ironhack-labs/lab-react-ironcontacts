@@ -27,11 +27,7 @@ class Contact extends React.Component {
   sortByName = () => {
     const copyContacts = [...this.state.firstContacts];
     // sort contacts in alphabetical order
-    copyContacts.sort((a, b) => {
-      if(a.name < b.name) { return -1; }
-      if(a.name > b.name) { return 1; }
-      return 0;
-    })
+    copyContacts.sort((a, b) => (a.name < b.name) ? -1 : 1); 
     this.setState({firstContacts: copyContacts})
   }
 
@@ -40,7 +36,7 @@ class Contact extends React.Component {
   sortByPopularity = () => {
     const copyContacts = [...this.state.firstContacts];
     // sort contacts by popularity (highest first)
-    copyContacts.sort((a, b) => b.popularity -a.popularity)
+    copyContacts.sort((a, b) => b.popularity - a.popularity);
     this.setState({firstContacts: copyContacts})
   }
 
@@ -68,18 +64,21 @@ class Contact extends React.Component {
 
             <tr>
               <td className='buttonTD'><button onClick={this.addRandomContact}>Add Random Contact</button></td>
-              <td className='buttonTD'><button onClick={this.sortByName}>Sort <br />A-Z</button></td>
-              <td className='buttonTD'><button onClick={this.sortByPopularity}>Sort <br />High-Low</button></td>
+              <td className='buttonTD'><button onClick={this.sortByName}>Sort A-Z</button></td>
+              <td className='buttonTD'><button onClick={this.sortByPopularity}>Sort High-Low</button></td>
               <td className='empty'></td>
             </tr>
             
             {this.state.firstContacts.map(contact => {
               const { name, pictureUrl, popularity, id } = contact;
-              const image = <img className='profile__img' src={pictureUrl} alt='profileImg' />
 
               return (
                 <tr key={id}>
-                  <td>{image}</td>
+                  <td>
+                    <div className='circular--portrait'>
+                      <img src={pictureUrl} alt='profileImg' />
+                    </div>
+                  </td>
                   <td>{name}</td>
                   <td>{popularity.toFixed(2)}</td>
                   <td><button className='deleteBtn' onClick={() => this.deleteContact(id)}>Delete</button></td>

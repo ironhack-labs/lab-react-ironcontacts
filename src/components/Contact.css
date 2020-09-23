@@ -25,12 +25,12 @@
 
 .buttonTD {
   padding: 10px;
-  background-color: #c2e3ff;
+  background-color: #dbedff;
   transition: background-color .2s ease-in-out;
 }
 
 .empty {
-  background-color: #c2e3ff;
+  background-color: #dbedff;
 }
 
 button {
@@ -39,14 +39,13 @@ button {
   font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 700;
   line-height: 1.2;
-  text-transform: uppercase;
   cursor: pointer;
   transition: background-color .2s ease-in-out;
 }
 
 .buttonTD:hover, 
 button:hover {
-  background-color: #daeeff;
+  background-color: #f0f7ff;
 }
 
 button:focus {outline:0;}
@@ -56,7 +55,7 @@ button:focus {outline:0;}
 }
 
 .deleteBtn:hover {
-  background-color: #daeeff;
+  background-color: #f0bcbc;
 }
 
 table {
@@ -88,10 +87,10 @@ td:last-child {
 }
 
 th, td {
-  padding: 10px;
+  padding: 14px;
   margin: 0;
   text-align: center;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #ccc;
 }
 
 th {
@@ -100,15 +99,25 @@ th {
   font-size: clamp(1rem, 2.5vw, 2rem);
   background-color: #26282e;
   color: white;
+  text-transform: uppercase;
 }
 
 td {
   font-size: clamp(1rem, 2.5vw, 2rem);
 }
 
-.profile__img {
-  width: 200px;
+.circular--portrait {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.circular--portrait img {
+  width: 100%;
   height: auto;
   object-fit: cover;
-  margin: 0 auto;
+  margin-top: -20px;
 }
