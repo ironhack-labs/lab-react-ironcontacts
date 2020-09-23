@@ -26,7 +26,6 @@ export default function ContactList(props) {
     })
     return (
         <div>
-        <h1>These are your contacts</h1>
            {contacts} 
         </div>
     )
