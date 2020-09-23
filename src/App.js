@@ -45,6 +45,14 @@ console.log(contacts.slice(0, 4))
       })
     }
 
+    deleteHandler = (index) => {
+      const newContacts = this.state.contact;
+      newContacts.splice(index,1)
+      this.setState({
+        contact: newContacts
+      });
+      ;
+    }
 
     render() {
       return (
@@ -55,7 +63,7 @@ console.log(contacts.slice(0, 4))
         <button onClick={this.sortContactsbyName}>Sort by Name</button>
         <button onClick={this.sortContactsbyPopularity}>Sort by Popularity</button>
         
-        <ContactList contact={this.state.contact}/>
+        <ContactList deleteHandler={this.deleteHandler} contact={this.state.contact}/>
         
     
         </div>

@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function ContactList(props) {
-    console.log(props.contact)
-    const contacts = props.contact.map(person => {
+    const contacts = props.contact.map((person, index) => {
         return(
             <table key={person.id}>
                 <tbody>
@@ -15,9 +14,7 @@ export default function ContactList(props) {
                    <td><img src={person.pictureUrl} alt="" width="50"/></td>
                     <td>{person.name}</td>
                     <td>{person.popularity}</td>
-
-
-                    
+                    <td><button onClick={() => {props.deleteHandler(index)}}>delete</button></td>
                 </tr>
                 </tbody>
             </table>
