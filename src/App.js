@@ -17,6 +17,35 @@ class App extends Component {
   };
 
   /**
+   *  function  that sorts the display by popularity
+   */
+  sortByPopularity = () => {
+    const sortPopularity = this.state.contacts.sort((a, b) => {
+      return a.popularity - b.popularity;
+    });
+
+    this.setState({ contacts: sortPopularity });
+  };
+
+  /**
+   *  function  that sorts the display by name
+   */
+  sortByName = () => {
+    const sortName = this.state.contacts.sort((a, b) => {
+      var x = a.name.toLowerCase();
+      var y = b.name.toLowerCase();
+      if (x < y) {
+        return -1;
+      }
+      if (x > y) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({ contacts: sortName });
+  };
+
+  /**
    *  function to add a new contact
    */
   addContacts = () => {
@@ -42,18 +71,20 @@ class App extends Component {
     }
     return randNum;
   };
+
   /**
    *  render() function
    */
   render() {
     console.log(' My Contacts: ', this.state.contacts);
-    // console.log(contacts.length); // 53
     return (
       <div>
         <h1 className="App"> Iron Contacts </h1>
         <br />
         <div className="btns App ">
           <button onClick={this.addContacts}> Add Random Contact </button>
+          <button onClick={this.sortByName}> Sort by Name </button>
+          <button onClick={this.sortByPopularity}> Sort by Popularity </button>
         </div>
         <br />
         <div className="App ">
