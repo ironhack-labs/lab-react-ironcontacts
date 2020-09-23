@@ -1,0 +1,92 @@
+* {
+  text-align: center;
+}
+
+body {
+    background-color: #40464f;
+}
+
+h1 {
+    color: lightgrey;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.headings h3 {
+  display: block;
+  color: lightgrey;
+}
+
+.headings {
+  width: 800px;
+  margin: 20px auto -10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-info {
+  width: 800px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid lightgrey; 
+  background-color: white;
+  box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.25);
+  border-radius: 25px;
+}
+
+#img-box {
+    width: 200px;
+}
+
+#img-box img {
+    object-fit: cover;
+    border-radius: 50px;
+    box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.25);
+}
+
+#contact-pic {
+  width: 100px;
+}
+
+#contact-name {
+  display: block;
+  margin: auto;
+  width: 200px;
+}
+
+#contact-pop {
+  display: block;
+  margin: auto;
+  width: 200px;
+}
+
+#button-box {
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    width: 200px;
+    height: 30px;
+    margin: auto;
+    border-radius: 20px;
+    border-style: hidden;
+    box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.25);
+    outline:none;
+}
+
+button:hover{
+    background-color: lightgrey;
+    color: grey;
+    cursor: pointer;
+}
