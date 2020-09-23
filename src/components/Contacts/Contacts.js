@@ -40,6 +40,46 @@ class Contacts extends React.Component {
     });
   };
 
+  //Add random celebrity to state.
+  sortName = () => {
+    console.log(`Sort Name button clicked`);
+
+    console.log(`This State: `, this.state.contacts);
+
+    const sortNames = this.state.contacts;
+    console.log(`Sorted Names: `, sortNames);
+
+    const sortedNames = sortNames.sort((a, b) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    );
+
+    console.log(`Sorted Names: `, sortedNames);
+
+    this.setState({
+      contacts: sortedNames,
+    });
+  };
+
+  //Add random celebrity to state.
+  sortPopularity = () => {
+    console.log(`Sort Popularity button clicked`);
+
+    console.log(`This State: `, this.state.contacts);
+
+    const sortPopularity = this.state.contacts;
+    console.log(`Sorted Names: `, sortPopularity);
+
+    const sortedPopularity = sortPopularity.sort((a, b) =>
+      a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
+    );
+
+    console.log(`Sorted Popularity: `, sortedPopularity);
+
+    this.setState({
+      contacts: sortedPopularity,
+    });
+  };
+
   render() {
     console.log(`STATE: `, this.state.contacts);
 
@@ -48,6 +88,8 @@ class Contacts extends React.Component {
         <h1>IronContacts</h1>
         <button onClick={this.top5}>Top 5</button>
         <button onClick={this.addRandom}>Add Random Contact</button>
+        <button onClick={this.sortName}>Sort by Name</button>
+        <button onClick={this.sortPopularity}>Sort by Popularity</button>
 
         <table>
           <thead>
