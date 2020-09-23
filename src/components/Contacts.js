@@ -14,23 +14,24 @@ class Contacts extends React.Component {
   //iteration 2
   addRandomContact = () => {
 
-    const randomContact = contacts[Math.floor(Math.random() * contacts.length)]
-    const newRandomContact = [...this.state.contacts]
+    const newContacts = [...this.state.contacts]
+    const randomContacts = contacts[Math.floor(Math.random() * contacts.length)]
+    newContacts.push(randomContacts);
 
-    newRandomContact.push(randomContact);
+    if(!newContacts.includes(randomContacts)){
+        newContacts.push(randomContacts);
+    }
 
-    this.setState({ contacts: newRandomContact })
+    this.setState({ contacts: newContacts })
   }
   //iteration 3.1
   sortByName = () => {
 
     const orderedByName = [...this.state.contacts].sort( (a, b) =>
       (a.name > b.name)? 1 : (b.name > a.name) ? -1 : 0
-      
     )
 
     this.setState({ contacts: orderedByName })
-
   }
   
   
@@ -39,7 +40,6 @@ class Contacts extends React.Component {
 
     const orderedByPopularity = [...this.state.contacts].sort( (a, b) =>
       (a.popularity < b.popularity) ? 1 : (b.popularity < a.popularity) ? -1 : 0
-      
     )
 
     this.setState({ contacts: orderedByPopularity })
