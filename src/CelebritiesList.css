@@ -1,0 +1,30 @@
+.table {
+    margin:auto;
+}
+
+h1 {
+    font-size: 70px;;
+text-align: center;
+margin-bottom: 40px;;
+}
+
+td {
+
+    font-size: 20px;
+    text-align: center;
+
+}
+
+th {
+ font-weight: bold;   
+ font-size: 30px;
+}
+
+.btn-container{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: baseline;
+	align-content: center; 
+}
