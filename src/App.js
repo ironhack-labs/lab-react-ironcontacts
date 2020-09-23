@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
+import contacts from './contacts.json';
 
-function App() {
+
+class App extends React.Component {
+  
+  
+  state = {
+    contact: contacts.slice(0, 5)
+}
+
+celebs = () => {
+  return this.state.contact.map((cont, index) => {
+    return <tr>
+    <td><img src={cont.pictureUrl} alt="" /></td>
+    <td>{cont.name}</td>
+    <td>{cont.popularity}</td>
+    </tr>
+  })
+}
+
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Popularity</th>
+      </tr>
+      </thead>
+    <tbody>
+    {this.celebs()}
+    </tbody>
+  </table>
+</div>
+  )
+}
 }
 
 export default App;
