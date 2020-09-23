@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.appContainer {
+  width: 100vw;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.appContainer tr {
+  margin: 10px;
+}
+
+.appContainer td {
+  height: 10vh;
+  width: 3vw;
+  padding: 5px
+}
+
+
+
+.appContainer img {
+  height: 100%;
+  width: 100%;
+}
