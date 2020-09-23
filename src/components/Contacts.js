@@ -4,16 +4,26 @@ import contacts from '../contacts.json';
 
 export default class Contacts extends React.Component {
   state = {
-    // to show 5 contacts only
-    fiveContacts: contacts.slice(0, 5),
+    showedContacts: contacts.slice(0, 5),
+  };
+
+  addRandomContact = () => {
+    let showedContacts = this.state.showedContacts;
+    let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    this.setState({
+      showedContacts: [...showedContacts, randomContact],
+    });
   };
 
   render() {
-    let fiveContacts = this.state.fiveContacts;
+    let showedContacts = this.state.showedContacts;
 
     return (
       <div className="container">
         <h1 className="header"> Iron Contacts</h1>
+        <div className="buttons">
+          <button onClick={this.addRandomContact}>AddRandom</button>
+        </div>
         <table>
           <tbody>
             <tr>
@@ -21,7 +31,7 @@ export default class Contacts extends React.Component {
               <th>Name</th>
               <th>Popularity</th>
             </tr>
-            {fiveContacts.map((contact) => {
+            {showedContacts.map((contact) => {
               const { name, pictureUrl, popularity, id } = contact;
               const image = (
                 <img
