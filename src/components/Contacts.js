@@ -2,12 +2,11 @@ import React from "react";
 import contacts from './contacts.json';
 import './Contacts.css'
 
-const celebs = contacts.slice(0,5);
-console.log('list of celebreties: ', celebs)
+const originalcontacts = contacts.slice(0,5);
 
 class ContactList extends React.Component{
     state = {
-        contactList: celebs
+        contactList: originalcontacts
     };
 
     addRandomContact = () => {
@@ -19,40 +18,64 @@ class ContactList extends React.Component{
         this.setState((prevState) => ({
          contactList: newList,
         }));
-      };
+    };
+
+    sortByName = () => {
+        const copyContacts = [...this.state.originalContacts];
+     
+        copyContacts.sort((a, b) => (a.name < b.name) ? -1 : 1); 
+        this.setState({originalContacts: copyContacts})
+    }
+    
+    
+    sortByPopularity = () => {
+        const copyContacts = [...this.state.originalContacts];
+        
+        copyContacts.sort((a, b) => b.popularity - a.popularity);
+        this.setState({originalContacts: copyContacts})
+    }
+
+    deleteContact = id => {
+        const copyContacts = [...this.state.originalContacts];
+        const filteredContacts = copyContacts.filter(contact => contact.id !== id)
+        this.setState({originalContacts: filteredContacts})
+    }
     
 
-render() {
-    return (
-        <div>
-        <h1 className="title">IronContacts</h1>
-        <button className="random-button" onClick={this.addRandomContact}>
-             Add Random Contact
-           </button>
-        <div className="table">
-        <table>
-            <tr className="table-header">
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-            </tr>
-        { celebs.map(((celeb, index) => {
-            return (
-                <tr className="content">
-                    <th><img className="celeb-img" src={celeb.pictureUrl} alt="celeb-img"/> </th>
-                    <th>{celeb.name}</th>
-                    <th>{celeb.popularity.toFixed(2)}</th>
+    render() {
+        return (
+            <div>
+            <h1 className="title">IronContacts</h1>
+            <button className="random-button" onClick={this.addRandomContact}>Add Random Contact</button>
+            <button className="sort-button" onClick={this.sortByName}>Sort by name</button>
+            <button className="sort-button" onClick={this.sortByPopularity}>Sort by popularity</button>
+            
+            <div className="table">
+            <table key="table">
+                <tbody key="tbody">
+                <tr className="table-header" key="table-header">
+                    <th key="Pic">Picture</th>
+                    <th key="Titlename">Name</th>
+                    <th key="Titlepop">Popularity</th>
                 </tr>
-            )
-        }))
-        }
+                {contacts.map(((contacts, id) => {
+                    return (
+                        <tr className="content" key={id}>
+                            <th key="img"><img className="celeb-img" src={contacts.pictureUrl} alt="celeb-img"/> </th>
+                            <th key="name">{contacts.name}</th>
+                            <th key="pop">{contacts.popularity}</th>
+                            <th><button className="delete-button" onClick={this.deleteContact}>Delete contact</button></th>
+                        </tr>
+                    );
+                }))
+            }
+                </tbody>
+            </table>
+            </div>
+            </div>
+        )
+    }
 
-        </table>
-        </div>
-        </div>
-    )
 }
 
-
-}
 export default ContactList;
