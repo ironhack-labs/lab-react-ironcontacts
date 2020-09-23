@@ -13,24 +13,28 @@ class Contacts extends React.Component {
         <h1>IronContacts</h1>
 
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
           {contacts.slice(0, 5).map((contact) => {
             return (
-              <tr key={contact.id}>
-                <td>
-                  <img
-                    className="mugshot"
-                    src={contact.pictureUrl}
-                    alt="mugshot"
-                  />
-                </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity.toFixed(2)}</td>
-              </tr>
+              <tbody key={contact.id}>
+                <tr key={contact.id}>
+                  <td>
+                    <img
+                      className="mugshot"
+                      src={contact.pictureUrl}
+                      alt="mugshot"
+                    />
+                  </td>
+                  <td>{contact.name}</td>
+                  <td>{contact.popularity.toFixed(2)}</td>
+                </tr>
+              </tbody>
             );
           })}
         </table>
