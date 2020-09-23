@@ -17,17 +17,31 @@ class App extends React.Component {
     });
   };
 
-  sortName = () => {};
+  sortedName = () => {
+    const sortedList = this.state.celebrities.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+    this.setState({
+      celebrities: sortedList,
+    });
+  };
 
-  sortPopularity = () => {};
+  sortedPopularity = () => {
+    const sortedPopularity = this.state.celebrities.sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+    this.setState({
+      celebrities: sortedPopularity,
+    });
+  };
 
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.addRandom}>Add Random Contact</button>
-        <button onClick={this.sortName}>Sort by name</button>
-        <button onClick={this.sortPopularity}>Sort by popularity</button>
+        <button onClick={this.sortedName}>Sort by name</button>
+        <button onClick={this.sortedPopularity}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
