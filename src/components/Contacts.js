@@ -16,8 +16,6 @@ class Contacts extends React.Component {
 
     const newContacts = [...this.state.contacts]
     const randomContacts = contacts[Math.floor(Math.random() * contacts.length)]
-    newContacts.push(randomContacts);
-
     if(!newContacts.includes(randomContacts)){
         newContacts.push(randomContacts);
     }
@@ -60,18 +58,20 @@ class Contacts extends React.Component {
       <>
         <section>
           <h2>IronContacts</h2>
-          <button className='topButtons' onClick={this.addRandomContact}>Add Random Contact</button>
-          <button className='topButtons' onClick={this.sortByName} >Sort by name</button>
-          <button className='topButtons' onClick={this.sortByPopularity}>Sort by popularity</button>
-          </section>
-          <section >
+          <div className="buttonGroup"></div>
+            <button className='topButtons' onClick={this.addRandomContact}>Add Random Contact</button>
+            <button className='topButtons' onClick={this.sortByName} >Sort by name</button>
+            <button className='topButtons' onClick={this.sortByPopularity}>Sort by popularity</button>
+        </section>
+        <section >
           <table>
             <thead>
-              <tr>
-                <th >Picture</th>
-                <th >Name</th>
-                <th >Popularity</th>
-              </tr>
+                  <tr>
+                    <th id="heading">Picture</th>
+                    <th d="heading">Name</th>
+                    <th d="heading">Popularity</th>
+                    <th d="heading">Action</th>
+                  </tr>
             </thead>
             <tbody>
               {this.state.contacts.map((el, index) => (
@@ -79,9 +79,9 @@ class Contacts extends React.Component {
                   <th>
                     <img src={el.pictureUrl} alt="Contact" />
                   </th>
-                  <th className= 'contentText'>  {el.name}</th>
-                  <th className= 'contentText'>{el.popularity.toFixed(2)}</th>
-                  <th><button className = 'rigthButton' onClick={this.deleteContacts}>Delete</button></th>
+                    <th className= 'contentText'>  {el.name}</th>
+                    <th className= 'contentText'>{el.popularity.toFixed(2)}</th>
+                    <th><button className = 'rigthButton' onClick={this.deleteContacts}>Delete</button></th>
                 </tr>
               ))}
             </tbody>
