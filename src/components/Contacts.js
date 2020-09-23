@@ -10,8 +10,25 @@ export default class Contacts extends React.Component {
   addRandomContact = () => {
     let showedContacts = this.state.showedContacts;
     let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+
     this.setState({
       showedContacts: [...showedContacts, randomContact],
+    });
+  };
+
+  sortByName = () => {
+    this.setState({
+      showedContacts: this.state.showedContacts.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      ),
+    });
+  };
+
+  sortByPopularity = () => {
+    this.setState({
+      showedContacts: this.state.showedContacts.sort(
+        (a, b) => b.popularity - a.popularity
+      ),
     });
   };
 
@@ -23,6 +40,8 @@ export default class Contacts extends React.Component {
         <h1 className="header"> Iron Contacts</h1>
         <div className="buttons">
           <button onClick={this.addRandomContact}>AddRandom</button>
+          <button onClick={this.sortByName}>SortByName</button>
+          <button onClick={this.sortByPopularity}>sortByPopularity</button>
         </div>
         <table>
           <tbody>
