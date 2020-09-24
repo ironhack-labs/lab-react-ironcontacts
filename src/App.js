@@ -1,8 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo, { ReactComponent } from './logo.svg';
 import './App.css';
 
+import IronContacts from './IronContacts';
+
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +22,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <IronContacts />
     </div>
   );
 }
