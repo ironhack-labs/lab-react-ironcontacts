@@ -32,6 +32,14 @@ export default class Contacts extends React.Component {
     });
   };
 
+  deleteContact = (id) => {
+    this.setState({
+      showedContacts: this.state.showedContacts.filter(
+        (contact) => contact.id != id
+      ),
+    });
+  };
+
   render() {
     let showedContacts = this.state.showedContacts;
 
@@ -65,6 +73,12 @@ export default class Contacts extends React.Component {
                   <td>{image}</td>
                   <td>{name}</td>
                   <td>{popularity.toFixed(2)}</td>
+                  <td>
+                    {' '}
+                    <button onClick={() => this.deleteContact(id)}>
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
