@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ContactsList from './ContactsList'
+
 
 function App() {
   return (
@@ -19,8 +21,11 @@ function App() {
           Learn React
         </a>
       </header>
+    <div>
+    <ContactsList />
+
+
     </div>
   );
 }
-
 export default App;
