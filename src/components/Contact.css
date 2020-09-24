@@ -1,0 +1,114 @@
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    overflow: auto;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 19px 31px 21px rgba(143,161,176,1);
+    -moz-box-shadow: 0px 19px 31px 21px rgba(143,161,176,1);
+    box-shadow: 0px 19px 31px 21px rgba(143,161,176,1);
+  }
+  
+  .table__header {
+    padding: 20px 0;
+    background: #fff;
+    color: #26282e;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .buttonTD {
+    padding: 10px;
+    background-color: #c2e3ff;
+    transition: background-color .2s ease-in-out;
+  }
+  
+  .empty {
+    background-color: #c2e3ff;
+  }
+  
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+  }
+  
+  .buttonTD:hover, 
+  button:hover {
+    background-color: #daeeff;
+  }
+  
+  button:focus {outline:0;}
+  
+  .deleteBtn {
+    padding: 5px 10px;
+  }
+  
+  .deleteBtn:hover {
+    background-color: #daeeff;
+  }
+  
+  table {
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  tr:first-child td {
+    border-top: 0;
+  }
+  
+  th:first-child {
+    border-left: 0;
+  }
+  
+  td:first-child {
+    border-left: 0;
+  }
+  
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  
+  th:last-child {
+    border-right: 0;
+  }
+  td:last-child {
+    border-right: 0;
+  }
+  
+  th, td {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+  }
+  
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    background-color: #26282e;
+    color: white;
+  }
+  
+  td {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+  }
+  
+  .profile__img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+  } 
