@@ -1,3 +1,12 @@
+.master-header{
+    margin-top: 1px;
+    height: 400px;
+    width: 100%;
+}
+
+
+
+
 .table{
     display: flex;
     flex-direction: row;
@@ -5,22 +14,105 @@
 }
 
 .title{
-    font-size: 4.5em;
+    font-size: 12vw;
+    text-align: center;
+    text-transform: uppercase;
+    background: url(bg-02.jpg);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: text-background 40s linear infinite;
 }
 
+.buttons{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button{
+    background-color: goldenrod;
+    color: white;
+    width: 16vw;
+    height: 3vw;
+    font-size: 1.2vw;
+    font-style: italic;
+    border-radius: 1vw; 
+}
+
+
 .table-header{
-    font-size: 2.5em;
+    width: 72vw;
+    font-size: 1.5em;
+    margin: 20px auto -10px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
 
 }
 
 .content{
     font-size: 1.5em;
     text-align: center;
+    width: 80vw;
+    margin-left: 7vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1vw;
+    border: 1px solid goldenrod;
+    border-radius: 1vw;
+    background-color: #f5edd3;
+}
+
+
+
+.contact-picture{
+    max-width: 8vw;
+    margin-left: 0.1vw;
 
 }
 
-.celeb-img{
-    max-width: 20%;
-
+.contact-name{
+    display: block;
+    text-align: left;
+    margin-left: 5vw;
+    margin-top: 4.5vw;
+    width: 12vw;
 }
+
+.contact-popularity{
+    display: block;
+    text-align: left;
+    margin-left: 0.1px;
+    margin-top: 4.5vw;
+    width: 12vw;
+}
+
+
+.delete-button {
+   
+    color: white;
+    margin-left: 0.1vw;
+    margin-top: 4.5vw;
+    outline:none;
+    background-color: goldenrod;
+    color: white;
+    width: 8vw;
+    height: 2vw;
+    font-size: 1.2vw;
+    border-radius: 0.5vw; 
+}
+
+.contact-info {
+     display: flex;
+     justify-content: space-around;
+     margin-top: 3vw ;
+}
+
+@keyframes text-background
+{
+    from {background-position: 0 0}
+
+    to {background-position: 100% 100%}
+} 
