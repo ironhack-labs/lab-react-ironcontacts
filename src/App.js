@@ -1,18 +1,25 @@
 import React from 'react';
 import contacts from './contacts.json';
-
+import ContactList from "./ContactList";
+import SearchField from "./SearchField";
 import './App.css';
 
 
 class App extends React.Component {
 
   state = {
-    contacts: contacts.slice(0,4)
+    contacts: contacts.slice(0,4),
+    query: ""
   }
 
   addRandom = () => {
-    const randomNumber = Math.floor(Math.random() * contacts.length);
-    const randomContact = contacts[randomNumber];
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    if (this.state.contacts.find(contact => contact.id === randomContact.id)) {
+            if (this.state.contacts.length < contacts.length) {
+        this.addRandom();
+      }
+      return;
+    }
     this.setState({
       contacts: [...this.state.contacts, randomContact]
     })
@@ -43,37 +50,30 @@ class App extends React.Component {
  
   }
 
+  setQuery = queryInput => {
+    this.setState({
+      query: queryInput
+    })
+  }
+
   render() {
-    const firstContacts = this.state.contacts.map(contact => {
-      return (
-          <tr key={contact.id}>
-              <td><img style={{ width:"100px"}}src={contact.pictureUrl} alt=""/></td>
-              <td>{contact.name}</td>
-              <td>{contact.popularity}</td>
-              <td><button onClick={()=>this.delete(contact.id)}>Delete</button></td>
-          </tr>
-      )
-  });
+
     return (
       <div className='App'>
-        <h1>IronContacts</h1>
-        <div>
-        <button onClick={this.addRandom}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
-        </div>
-<table>
-<tr>
-    <th>Picture</th>
-    <th>Name</th> 
-    <th>Popularity</th>
-    <th>Action</th>
-  </tr>
-      {firstContacts}
-
-      
-</table>
-
+                      <h1>IronContacts</h1>
+              <div>
+              <button onClick={this.addRandom}>Add Random Contact</button>
+              <button onClick={this.sortByName}>Sort by name</button>
+              <button onClick={this.sortByPopularity}>Sort by popularity</button>
+              <SearchField 
+              setQuery={this.setQuery}
+              query={this.state.query}
+              />
+              </div>
+        <ContactList 
+        contacts={this.state.contacts}
+        delete={this.delete}
+        query={this.state.query}/>
       </div>
     )
   }
