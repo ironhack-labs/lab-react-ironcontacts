@@ -3,19 +3,12 @@ import contacts from './contacts.json';
 
 class ContactList extends Component {
   // State
-  // state = {
-  //   contacts: contacts.slice(0, 5).map((eachContact, idx) => ({
-  //     ...eachContact,
-  //     index: idx,
-  //   })),
-  // };
-
   state = {
     contacts: contacts.slice(0, 5),
   };
 
   /**
-   *  function  that sorts the display by popularity
+   *  Sorts the display by popularity
    */
   sortByPopularity = () => {
     const sortPopularity = this.state.contacts.sort((a, b) => {
@@ -25,25 +18,23 @@ class ContactList extends Component {
   };
 
   /**
-   *  function  that sorts the display by name
+   *  Sorts the display by name
    */
   sortByName = () => {
     const sortName = this.state.contacts.sort((a, b) => {
       var x = a.name.toLowerCase();
       var y = b.name.toLowerCase();
-      if (x < y) {
-        return -1;
-      }
-      if (x > y) {
-        return 1;
-      }
-      return 0;
+      return a.name.toLowerCase() < b.name.toLowerCase()
+        ? -1
+        : a.name.toLowerCase() > b.name.toLowerCase()
+        ? 1
+        : 0;
     });
     this.setState({ contacts: sortName });
   };
 
   /**
-   *  function to add a new contact
+   *  Add a new contact
    */
   addContacts = () => {
     const randIdx = this.getRandomContactIdx();
@@ -55,7 +46,7 @@ class ContactList extends Component {
   };
 
   /**
-   *  function that generates a random number not in the displayed contacts
+   *  Generates a random number not in the displayed contacts
    */
   getRandomContactIdx = () => {
     let randNum = -1;
@@ -70,7 +61,7 @@ class ContactList extends Component {
   };
 
   /**
-   *
+   * Deletes the contact
    */
   deleteContact = (idx) => {
     console.log(' delete', idx);
@@ -134,12 +125,6 @@ class ContactList extends Component {
       </div>
     );
   }
-
-  // render() {
-  //   return (
-
-  //   );
-  // }
 }
 
 export default ContactList;
