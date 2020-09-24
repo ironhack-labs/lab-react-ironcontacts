@@ -1,0 +1,18 @@
+.tableContact{
+    font-size: 35px;
+}
+
+th{
+    font-size: 50px;    
+}
+
+.buttons{
+    text-align: left;
+    height: 50px;
+}
+
+button{
+    width: 300px;
+    height: 40px;
+    font-size: x-large;
+}
