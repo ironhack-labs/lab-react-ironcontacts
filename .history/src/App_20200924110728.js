@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import contacts from './contacts.json';
 import ContactsList from './ContactsList';
 import SearchField from './SearchField';
@@ -8,12 +9,6 @@ export default class App extends React.Component {
   state = {
     contacts: contacts.slice(0, 4),
     query: '',
-  };
-
-  setQuery = (queryInput) => {
-    this.setState({
-      query: queryInput,
-    });
   };
 
   addRandomContact = () => {
@@ -59,26 +54,30 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>IronContacts 🍿</h1>
         <div>
-          <button className="btn" onClick={this.addRandomContact}>
-            Add Random
-          </button>
-          <button className="btn" onClick={this.sortNameContact}>
-            Sort by Name
-          </button>
-          <button className="btn" onClick={this.sortPopularityContact}>
-            Sort by Popularity
-          </button>
+          <div>
+            <h1>Iron Contacts</h1>
+
+            <div>
+              <button className="btn" onClick={this.addRandomContact}>
+                Add Random
+              </button>
+              <button className="btn" onClick={this.sortNameContact}>
+                Sort by Name
+              </button>
+              <button className="btn" onClick={this.sortPopularityContact}>
+                Sort by Popularity
+              </button>
+
+              <SearchField setQuery={this.setQuery} query={this.state.query} />
+            </div>
+
+            <ContactsList
+              contacts={this.state.contacts}
+              deleteContact={this.deleteContact}
+            />
+          </div>
         </div>
-        <br></br>
-        <SearchField setQuery={this.setQuery} query={this.state.query} />
-        <br></br>
-        <ContactsList
-          query={this.state.query}
-          contacts={this.state.contacts}
-          deleteContact={this.deleteContact}
-        />
       </div>
     );
   }

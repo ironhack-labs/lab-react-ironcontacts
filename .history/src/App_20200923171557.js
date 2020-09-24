@@ -1,19 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './App.css';
 import contacts from './contacts.json';
 import ContactsList from './ContactsList';
-import SearchField from './SearchField';
-import './App.css';
 
 export default class App extends React.Component {
   state = {
     contacts: contacts.slice(0, 4),
-    query: '',
-  };
-
-  setQuery = (queryInput) => {
-    this.setState({
-      query: queryInput,
-    });
   };
 
   addRandomContact = () => {
@@ -58,27 +50,27 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>IronContacts 🍿</h1>
-        <div>
-          <button className="btn" onClick={this.addRandomContact}>
-            Add Random
-          </button>
-          <button className="btn" onClick={this.sortNameContact}>
-            Sort by Name
-          </button>
-          <button className="btn" onClick={this.sortPopularityContact}>
-            Sort by Popularity
-          </button>
+      <div>
+        <div className="App">
+          <div>
+            <h1>Iron Contacts</h1>
+
+            <div>
+              <button className="btn" onClick={this.addRandomContact}>
+                Add Random
+              </button>
+
+              <button className="btn" onClick={this.sortNameContact}>
+                Sort by Name
+              </button>
+
+              <button className="btn" onClick={this.sortPopularityContact}>
+                Sort by Popularity
+              </button>
+            </div>
+            <ContactsList contacts={this.state.contacts} />
+          </div>
         </div>
-        <br></br>
-        <SearchField setQuery={this.setQuery} query={this.state.query} />
-        <br></br>
-        <ContactsList
-          query={this.state.query}
-          contacts={this.state.contacts}
-          deleteContact={this.deleteContact}
-        />
       </div>
     );
   }

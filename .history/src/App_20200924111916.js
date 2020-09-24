@@ -59,7 +59,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>IronContacts 🍿</h1>
+        <h1>Iron Contacts</h1>
         <div>
           <button className="btn" onClick={this.addRandomContact}>
             Add Random
@@ -75,7 +75,6 @@ export default class App extends React.Component {
         <SearchField setQuery={this.setQuery} query={this.state.query} />
         <br></br>
         <ContactsList
-          query={this.state.query}
           contacts={this.state.contacts}
           deleteContact={this.deleteContact}
         />

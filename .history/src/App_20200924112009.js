@@ -75,7 +75,6 @@ export default class App extends React.Component {
         <SearchField setQuery={this.setQuery} query={this.state.query} />
         <br></br>
         <ContactsList
-          query={this.state.query}
           contacts={this.state.contacts}
           deleteContact={this.deleteContact}
         />

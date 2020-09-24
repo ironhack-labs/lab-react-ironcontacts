@@ -10,12 +10,6 @@ export default class App extends React.Component {
     query: '',
   };
 
-  setQuery = (queryInput) => {
-    this.setState({
-      query: queryInput,
-    });
-  };
-
   addRandomContact = () => {
     const randomNum = Math.floor(Math.random() * (contacts.length - 1));
     const randomCon = contacts[randomNum];
@@ -59,23 +53,21 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>IronContacts 🍿</h1>
-        <div>
-          <button className="btn" onClick={this.addRandomContact}>
-            Add Random
-          </button>
-          <button className="btn" onClick={this.sortNameContact}>
-            Sort by Name
-          </button>
-          <button className="btn" onClick={this.sortPopularityContact}>
-            Sort by Popularity
-          </button>
-        </div>
-        <br></br>
+        <h1>Iron Contacts</h1>
+
+        <button className="btn" onClick={this.addRandomContact}>
+          Add Random
+        </button>
+        <button className="btn" onClick={this.sortNameContact}>
+          Sort by Name
+        </button>
+        <button className="btn" onClick={this.sortPopularityContact}>
+          Sort by Popularity
+        </button>
+
         <SearchField setQuery={this.setQuery} query={this.state.query} />
-        <br></br>
+
         <ContactsList
-          query={this.state.query}
           contacts={this.state.contacts}
           deleteContact={this.deleteContact}
         />
