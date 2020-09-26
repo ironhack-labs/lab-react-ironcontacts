@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import contacts from './contacts.json'
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
