@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import contacts from './contacts.json';
 import './App.css';
 
 function App() {
+  const fiveContacts = [...contacts].slice(0, 5)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>IronContacts</h1>
+      {
+        fiveContacts.map((contact) => {
+          return <div key={contact.id}> <img width="50" src={contact.pictureUrl} /> {contact.name} | {contact.popularity.toFixed(2)}</div>
+        })
+      }
     </div>
   );
 }
