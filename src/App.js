@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import contacts from './contacts.json';
-import ContactList from './ContactList';
-import SearchField from './SearchField';
-// import './App.css';
+import './App.css';
+import ContactList from './ContactList'
+import contacts from './contacts.json'
 
 class App extends Component {
+
   state = {
-    contacts: contacts.slice(0, 5),
-    query: ''
+    contacts: contacts.slice(0, 5)
   };
-
-  setQuery = queryInput => {
-    this.setState({
-      query: queryInput
-    });
-  }
-
 
   addContact = () => {
     const random = contacts[Math.floor(Math.random() * contacts.length)];
@@ -42,34 +34,35 @@ class App extends Component {
   };
 
   sortByPopularity = () => {
-    const sorted = this.state.contacts.slice();
-    sorted.sort((a, b) => b.popularity - a.popularity);
+    const popular = [...this.state.contacts];
+    popular.sort((a, b) => b.popularity - a.popularity);
 
     this.setState({
-      contacts: sorted
+      contacts: popular
     });
-  }
+  };
+
+  deleteContact = (index) => {
+    const deleted = [...this.state.contacts]
+    deleted.splice(index, 1);
+
+    this.setState({
+      contacts: deleted
+    });
+  };
 
 
   render() {
     return (
-      <div className="App" >
-        <h1>IronContacts</h1>
-
+      <div>
+        <h1>Ironcontacts</h1>
         <button onClick={this.addContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by sort by popularity</button>
-
-        <SearchField
-          setQuery={this.setQuery}
-          query={this.state.query}
-        />
-
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>
         <ContactList
           contacts={this.state.contacts}
-          query={this.state.query}
+          deleteContact={this.deleteContact}
         />
-
 
       </div>
     );
