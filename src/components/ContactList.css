@@ -1,0 +1,23 @@
+.smallPicture {
+    height: 100px;
+}
+
+.buttonGroup {
+    display: flex;
+}
+
+button {
+    padding: 10px;
+    margin-right: 5px;
+    border: 0px;
+    background-color: rgb(190, 183, 183);
+    border-radius: 3px;
+}
+
+.deleteButton {
+    background-color: rgb(240, 94, 94);
+}
+
+button:hover {
+    opacity: .6;
+}
