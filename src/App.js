@@ -1,30 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import contacts from './contacts.json';
 
+const contactsToDisplay = contacts.slice(0, 5);
 
-function App() {
+export default class App extends Component {
+
+  state = {contactsToDisplay};
+  addRandomContact = () => {
+    const newContact = contacts[Math.round(Math.random() * contacts.length)];
+    this.setState({
+      contactsToDisplay: [...this.state.contactsToDisplay, newContact]
+    });    
+  }
+  
+  render() {
   return (
-    
     <div className="App">
     <h1>Iron Contacts</h1>
-    <div class="divTable">
-
-    <div class="divTableRow tableHeader">
-      <div class="divTableCell">Picture</div>      
-      <div class="divTableCell">Name</div>
-      <div class="divTableCell">Popularity</div>
+    <button onClick={() => this.addRandomContact()}>
+    Add random contact
+    </button>    
+    
+    <div className="divTable">
+    <div className="divTableRow tableHeader">
+      <div className="divTableCell">Picture</div>      
+      <div className="divTableCell">Name</div>
+      <div className="divTableCell">Popularity</div>
       </div>
-
-    {contacts.slice(0,5).map(contact => {
+    {this.state.contactsToDisplay.map((contact, index) => {
       return (
-      <div class="divTableRow">
-      <div class="divTableCell"><img src={contact.pictureUrl} style={{width:'100px'}}/></div>      
-      <div class="divTableCell">{contact.name}</div>
-      <div class="divTableCell">{contact.popularity}</div>
+      <div className="divTableRow" key={index}>
+      <div className="divTableCell"><img src={contact.pictureUrl} style={{width:'100px'}} alt=''/></div>      
+      <div className="divTableCell">{contact.name}</div>
+      <div className="divTableCell">{contact.popularity.toFixed(2)}</div>
       </div>
-
       )}
     )}
     </div>
@@ -32,4 +42,5 @@ function App() {
   );
 }
 
-export default App;
+}
+
