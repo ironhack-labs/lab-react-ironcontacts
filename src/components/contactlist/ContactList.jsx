@@ -33,6 +33,12 @@ class ContactList extends React.Component {
     });
   };
 
+  onDelete = (id) => {
+    this.setState({
+      firstContacts: this.state.firstContacts.filter((c) => c.id !== id),
+    });
+  };
+
   render() {
     return (
       <div className="FoodList">
@@ -54,7 +60,11 @@ class ContactList extends React.Component {
         <div className="columns">
           <div className="column">
             {this.state.firstContacts.map((contact, key) => (
-              <ContactBox key={key} contact={contact} />
+              <ContactBox
+                key={key}
+                contact={contact}
+                onDelete={this.onDelete}
+              />
             ))}
           </div>
         </div>

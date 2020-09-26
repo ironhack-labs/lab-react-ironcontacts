@@ -3,6 +3,12 @@ import React from 'react';
 class ContactBox extends React.Component {
   state = {};
 
+  handleClick = () => {
+    //this.props.food.quantity = this.state.quantity;
+    console.log(this.props.contact.id);
+    this.props.onDelete(this.props.contact.id);
+  };
+
   render() {
     return (
       <div className="box">
@@ -21,6 +27,9 @@ class ContactBox extends React.Component {
             </div>
           </div>
         </article>
+        <button className="button is-danger" onClick={this.handleClick}>
+          x
+        </button>
       </div>
     );
   }
