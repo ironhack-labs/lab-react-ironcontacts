@@ -18,10 +18,38 @@ export default class Contacts extends Component {
         return contacts[Math.floor(Math.random() * contacts.length)]
     }
 
+    sortByName = () => {
+        const currentContactsCopy = [...this.state.currentContacts]
+        currentContactsCopy.sort((a, b) => a.name > b.name ? 1 : -1)
+        this.setState({
+            currentContacts: currentContactsCopy
+        })
+    }
+
+    sortByPopularity = () => {
+        const currentContactsCopy = [...this.state.currentContacts]
+        currentContactsCopy.sort((a, b) => b.popularity - a.popularity)
+        this.setState({
+            currentContacts: currentContactsCopy
+        })
+    }
+
+    delete = () => {
+
+    }
+
     render() {
         return (
             <div>
                 <h1>IronContacts</h1>
+
+                <button onClick={() => { this.addContact(this.getRandomContact()) }}>Add new random contact</button>
+
+                <button onClick={() => { this.sortByName() }}>Sort by name</button>
+
+                <button onClick={() => { this.sortByPopularity() }}>Sort by popularity</button>
+
+                <br /><br />
                 {
                     this.state.currentContacts.map((contact) => {
                         return (
@@ -29,11 +57,12 @@ export default class Contacts extends Component {
                                 <img width="50" src={contact.pictureUrl} />
                                 {contact.name} |
                                 {contact.popularity.toFixed(2)} |
+                                <button onClick={() => { this.delete() }}>Sort by popularity</button>
                             </div>
                         )
                     })
                 }
-                <button onClick={() => { this.addContact(this.getRandomContact()) }}>Add new random contact</button>
+
             </div>
         )
     }
