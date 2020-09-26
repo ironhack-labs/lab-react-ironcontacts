@@ -19,15 +19,27 @@ class ContactBox extends React.Component {
           <div className="media-content">
             <div className="content">
               <p>
-                <strong>{this.props.contact.name}</strong> <br />
-                <small>Popularity {this.props.contact.popularity}</small>
+                <strong>Name</strong>
+                <br />
+                <span>{this.props.contact.name}</span>
               </p>
             </div>
           </div>
+          <div className="media-content">
+            <div className="content">
+              <p>
+                <strong>Popularity</strong>
+                <br />
+                <span>{this.props.contact.popularity}</span>
+              </p>
+            </div>
+          </div>
+          <div className="media-right">
+            <button className="button is-danger" onClick={this.handleClick}>
+              x
+            </button>
+          </div>
         </article>
-        <button className="button is-danger" onClick={this.handleClick}>
-          x
-        </button>
       </div>
     );
   }
