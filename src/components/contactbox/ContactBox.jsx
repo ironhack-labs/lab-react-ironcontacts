@@ -4,8 +4,6 @@ class ContactBox extends React.Component {
   state = {};
 
   handleClick = () => {
-    //this.props.food.quantity = this.state.quantity;
-    console.log(this.props.contact.id);
     this.props.onDelete(this.props.contact.id);
   };
 
