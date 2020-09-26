@@ -17,13 +17,43 @@ class App extends React.Component {
     });
   }
 
+  sortContact = () => {
+    const sortedNameList = this.state.firstContacts.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1
+      } else if (a.name > b.name) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+    this.setState({
+      firstContacts: [...sortedNameList]
+    })
+  }
+
+  sortPopularity = () => {
+    const sortedPopularityList = this.state.firstContacts.sort(function (a, b) {
+      if (a.popularity < b.popularity) {
+        return 1
+      } else if (a.popularity > b.popularity) {
+        return -1
+      } else {
+        return 0
+      }
+    })
+    this.setState({
+      firstContacts: [...sortedPopularityList]
+    })
+  }
+
   render () {
     return (
       <div className="App">
         <h1 style={{textAlign: 'center'}}>IronContacts</h1>
-        <div className="add-contact">
           <button className="add-contact" onClick={this.addRandomContact}>Add random contact</button>
-        </div>
+          <button className="sort-contact" onClick={this.sortContact}>Sort by name</button>
+          <button className="sort-contact" onClick={this.sortPopularity}>Sort by popularity</button>
           {this.state.firstContacts.map((contact, idx) => {
               return(
                 <Contacts 
