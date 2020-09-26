@@ -1,0 +1,20 @@
+.table {
+    margin: 50px auto;
+}
+.table * {
+    padding: 10px 30px;
+}
+
+.table th, .table .btn-delete {
+    background-color:coral;
+    color: white;
+    border-radius: 10px;
+}
+.table .btn-delete {
+    border: 0;
+    cursor: pointer;
+}
+
+.img-user {
+    width: 50px;
+  }
