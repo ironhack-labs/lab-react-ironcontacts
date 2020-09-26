@@ -41,6 +41,14 @@ export default class App extends Component {
       return {contactsToDisplay: prevState.contactsToDisplay, sortNameAsc: !prevState.sortNameAsc}
     });   
   }  
+
+  deleteContact = delindex => {
+    console.log('delete ',delindex);
+    this.setState(prevState => {
+      //prevState.contactsToDisplay.splice(index, 1);
+      return {contactsToDisplay: prevState.contactsToDisplay.splice(delindex, 1)}
+    })
+  }
   
   render() {
   return (
@@ -64,6 +72,7 @@ export default class App extends Component {
       <div className="divTableCell">Picture</div>      
       <div className="divTableCell">Name</div>
       <div className="divTableCell">Popularity</div>
+      <div className="divTableCell">Action</div>
       </div>
     {this.state.contactsToDisplay.map((contact, index) => {
       return (
@@ -71,6 +80,7 @@ export default class App extends Component {
       <div className="divTableCell"><img src={contact.pictureUrl} style={{width:'100px'}} alt=''/></div>      
       <div className="divTableCell">{contact.name}</div>
       <div className="divTableCell">{contact.popularity.toFixed(2)}</div>
+      <div className="divTableCell"><button onClick={() => this.deleteContact(index)}>Delete</button></div>
       </div>
       )}
     )}
