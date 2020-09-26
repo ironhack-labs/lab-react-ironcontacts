@@ -2,7 +2,7 @@ import React from 'react';
 import './Contact.css'
 
 function Contact(props) {
-    console.log(props.popularity)
+    
     return(
         <div>
             <table className="contact-table">
