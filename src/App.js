@@ -6,88 +6,97 @@ const contactsToDisplay = contacts.slice(0, 5);
 
 export default class App extends Component {
 
-  state = {contactsToDisplay, sortNameAsc: true, sortPopAsc: true};
+  state = { contactsToDisplay, sortNameAsc: true, sortPopAsc: true };
   addRandomContact = () => {
     const newContact = contacts[Math.round(Math.random() * contacts.length)];
     this.setState({
       contactsToDisplay: [...this.state.contactsToDisplay, newContact]
-    });    
+    });
   }
 
   sortByPopularity = () => {
-    this.setState ((prevState) => {
+    this.setState((prevState) => {
       if (prevState.sortPopAsc) {
-      prevState.contactsToDisplay.sort((a, b) => {
+        prevState.contactsToDisplay.sort((a, b) => {
           return (a.popularity > b.popularity) ? -1 : (b.popularity > a.popularity) ? 1 : 0
-          })}else{
-          prevState.contactsToDisplay.sort((a, b) => {
-            return (a.popularity < b.popularity) ? -1 : (b.popularity < a.popularity) ? 1 : 0    
-              })
+        })
+      } else {
+        prevState.contactsToDisplay.sort((a, b) => {
+          return (a.popularity < b.popularity) ? -1 : (b.popularity < a.popularity) ? 1 : 0
+        })
       }
-      return {contactsToDisplay: prevState.contactsToDisplay, sortPopAsc: !prevState.sortPopAsc}
-    });  
+      return { contactsToDisplay: prevState.contactsToDisplay, sortPopAsc: !prevState.sortPopAsc }
+    });
   }
 
   sortByName = () => {
-    this.setState ((prevState) => {
+    this.setState((prevState) => {
       if (prevState.sortNameAsc) {
-      prevState.contactsToDisplay.sort((a, b) => {
-          return (a.name.toUpperCase() > b.name.toUpperCase()) ? -1 : (b.name.toUpperCase() > a.name.toUpperCase()) ? 1 : 0
-        })}else{
         prevState.contactsToDisplay.sort((a, b) => {
-            return (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : (b.name.toUpperCase() > a.name.toUpperCase()) ? -1 : 0      
-            })
+          return (a.name.toUpperCase() > b.name.toUpperCase()) ? -1 : (b.name.toUpperCase() > a.name.toUpperCase()) ? 1 : 0
+        })
+      } else {
+        prevState.contactsToDisplay.sort((a, b) => {
+          return (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : (b.name.toUpperCase() > a.name.toUpperCase()) ? -1 : 0
+        })
       }
-      return {contactsToDisplay: prevState.contactsToDisplay, sortNameAsc: !prevState.sortNameAsc}
-    });   
-  }  
+      return { contactsToDisplay: prevState.contactsToDisplay, sortNameAsc: !prevState.sortNameAsc }
+    });
+  }
 
-  deleteContact = delindex => {
-    console.log('delete ',delindex);
+  // deleteContact = index => {
+  //   console.log('delete ',index);
+  //   this.setState(prevState => {
+  //     return {contactsToDisplay: prevState.contactsToDisplay.filter((_, i) => i !== index)}
+  //   })
+  // }
+  deleteContact = index => {
+    console.log('delete ', index);
+
     this.setState(prevState => {
-      //prevState.contactsToDisplay.splice(index, 1);
-      return {contactsToDisplay: prevState.contactsToDisplay.splice(delindex, 1)}
+      // prevState.contactsToDisplay.splice(index, 1);
+      return { contactsToDisplay: prevState.contactsToDisplay.slice(0, index).concat(prevState.contactsToDisplay.slice(index + 1)) }
     })
   }
-  
   render() {
-  return (
-    <div className="App">
-    <h1>Iron Contacts</h1>
+    return (
+      <div className="App">
+        <h1>Iron Contacts</h1>
 
-    <div className='buttons'>
-      <button onClick={() => this.addRandomContact()}>
-      Add random contact
+        <div className='buttons'>
+          <button onClick={() => this.addRandomContact()}>
+            Add random contact
       </button>
-      <button onClick={() => this.sortByName()}>
-    Sort by name
-      </button>   
-      <button onClick={() => this.sortByPopularity()}>
-      Sort by popularity
-      </button>  
-    </div>             
-    
-    <div className="divTable">
-    <div className="divTableRow tableHeader">
-      <div className="divTableCell">Picture</div>      
-      <div className="divTableCell">Name</div>
-      <div className="divTableCell">Popularity</div>
-      <div className="divTableCell">Action</div>
+          <button onClick={() => this.sortByName()}>
+            Sort by name
+      </button>
+          <button onClick={() => this.sortByPopularity()}>
+            Sort by popularity
+      </button>
+        </div>
+
+        <div className="divTable">
+          <div className="divTableRow tableHeader">
+            <div className="divTableCell">Picture</div>
+            <div className="divTableCell">Name</div>
+            <div className="divTableCell">Popularity</div>
+            <div className="divTableCell">Action</div>
+          </div>
+          {this.state.contactsToDisplay.map((contact, index) => {
+            return (
+              <div className="divTableRow" key={index}>
+                <div className="divTableCell"><img src={contact.pictureUrl} style={{ width: '100px' }} alt='' /></div>
+                <div className="divTableCell">{contact.name}</div>
+                <div className="divTableCell">{contact.popularity.toFixed(2)}</div>
+                <div className="divTableCell"><button onClick={() => this.deleteContact(index)}>Delete</button></div>
+              </div>
+            )
+          }
+          )}
+        </div>
       </div>
-    {this.state.contactsToDisplay.map((contact, index) => {
-      return (
-      <div className="divTableRow" key={index}>
-      <div className="divTableCell"><img src={contact.pictureUrl} style={{width:'100px'}} alt=''/></div>      
-      <div className="divTableCell">{contact.name}</div>
-      <div className="divTableCell">{contact.popularity.toFixed(2)}</div>
-      <div className="divTableCell"><button onClick={() => this.deleteContact(index)}>Delete</button></div>
-      </div>
-      )}
-    )}
-    </div>
-    </div>
-  );
-}
+    );
+  }
 
 }
 
