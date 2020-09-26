@@ -13,12 +13,41 @@ class ContactList extends React.Component {
     });
   };
 
+  shortByName = () => {
+    const contactList = this.props.contacts;
+    contactList.sort(function (a, b) {
+      return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+    });
+    this.setState({
+      firstContacts: [...contactList],
+    });
+  };
+
+  shortByPopularity = () => {
+    const contactList = this.props.contacts.sort();
+    contactList.sort(function (a, b) {
+      return b.popularity - a.popularity;
+    });
+    this.setState({
+      firstContacts: [...contactList],
+    });
+  };
+
   render() {
     return (
       <div className="FoodList">
         <div class="buttons">
           <button className="button is-primary" onClick={this.addRandomContact}>
             Add contact
+          </button>
+          <button className="button is-info" onClick={this.shortByName}>
+            Sort by name
+          </button>
+          <button
+            className="button is-warning"
+            onClick={this.shortByPopularity}
+          >
+            Sort by popularity
           </button>
         </div>
 
