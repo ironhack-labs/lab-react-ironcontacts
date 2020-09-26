@@ -34,8 +34,12 @@ export default class Contacts extends Component {
         })
     }
 
-    delete = () => {
-
+    delete = index => {
+        const currentContactsCopy = [...this.state.currentContacts]
+        currentContactsCopy.splice(index,1)
+        this.setState({
+            currentContacts: currentContactsCopy
+        })
     }
 
     render() {
@@ -51,13 +55,13 @@ export default class Contacts extends Component {
 
                 <br /><br />
                 {
-                    this.state.currentContacts.map((contact) => {
+                    this.state.currentContacts.map((contact, index) => {
                         return (
                             <div key={contact.id}>
                                 <img width="50" src={contact.pictureUrl} />
                                 {contact.name} |
-                                {contact.popularity.toFixed(2)} |
-                                <button onClick={() => { this.delete() }}>Sort by popularity</button>
+                                {contact.popularity.toFixed(2)}
+                                <button onClick={() => { this.delete(index) }}>Delete</button>
                             </div>
                         )
                     })
