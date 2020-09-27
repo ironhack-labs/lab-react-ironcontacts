@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@400;700&display=swap');
+
+/*
+font-family: 'Playfair Display', serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+$text: #333;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  margin: 3rem auto;
+}
+
+h1 {
+  font-size: 8rem;
+  text-align: center;
+  border-bottom: solid 0.1rem tomato;
+  padding-bottom: 3rem;
+
+  svg {
+    width: 5rem;
+    margin-right: 2rem;
+    color: tomato;
+  }
+
+  &:after {
+    content: 'contact';
+    font-weight: bold;
+    color: tomato;
+    position: absolute;
+    top: 7.9rem;
+    left: 44.2rem;
+    font-size: 1.6rem;
+    background: white;
+  }
+}
+
+svg {
+  width: 2rem;
+}
+
+.info {
+  margin: 2rem 0;
+  padding-bottom: 2rem;
+
+  .picture {
+    display: flex;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 7rem;
+      height: 7rem;
+      top: -5px;
+      left: -5px;
+      border: solid 0.1rem tomato;
+      border-radius: 4rem;
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  svg {
+    color: tomato;
+  }
+}
+
+.btn-row {
+  border-bottom: solid 0.1rem #ddd;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 0.8rem 3.2rem;
+    border: solid 0.1rem tomato;
+    background: tomato;
+    color: white;
+    transition: all 200ms ease;
+
+    &:hover {
+      background: white;
+      border-color: tomato;
+      color: tomato;
+    }
+  }
+}
+
+.btns-info {
+  border-bottom: solid 0.1rem tomato;
+  padding-bottom: 3rem;
+
+  button {
+    svg {
+      color: tomato;
+    }
+  }
+}
+
+.pop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-right: 1rem;
+    width: 1.6rem;
+    color:tomato;
+  }
+  strong {
+    font-size: 2.4rem;
+    margin-right: 1rem;
+  }
+}
