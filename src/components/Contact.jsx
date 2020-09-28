@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 const Contact = (props) => (
   <tr>
@@ -8,12 +9,12 @@ const Contact = (props) => (
     <td>{props.contact.name}</td>
     <td>{props.contact.popularity}</td>
     <td>
-      <button
+      <Button
         className="btn btn-danger"
         onClick={() => props.deleteContact(props.contact)}
       >
         Delete
-      </button>
+      </Button>
     </td>
   </tr>
 );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 import Contact from './Contact';
 
 class ListContacts extends React.Component {
@@ -47,24 +48,24 @@ class ListContacts extends React.Component {
   render() {
     return (
       <div>
-        <button
+        <Button
           className="btn btn-primary mb-2 mr-2"
           onClick={this.handleAddRandom}
         >
           Add Random Contact
-        </button>
-        <button
+        </Button>
+        <Button
           className="btn btn-secondary mb-2 mr-2"
           onClick={() => this.handleSortBy('name')}
         >
           Sort by name
-        </button>
-        <button
+        </Button>
+        <Button
           className="btn btn-secondary mb-2"
           onClick={() => this.handleSortBy('popularity')}
         >
           Sort by popularity
-        </button>
+        </Button>
         <table className="table table-hover">
           <thead className="thead-dark">
             <tr>
