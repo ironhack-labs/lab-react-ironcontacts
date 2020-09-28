@@ -26,12 +26,35 @@ class ListContacts extends React.Component {
       alert('There are no more contacts to add');
     }
   };
-
+  handleSortBy = (orderType) => {
+    this.setState((oldState) => {
+      return {
+        visibleContacts: oldState.visibleContacts.sort((a, b) =>
+          a[orderType] > b[orderType] ? 1 : -1
+        ),
+      };
+    });
+  };
   render() {
     return (
       <div>
-        <button className="btn btn-primary mb-2" onClick={this.handleAddRandom}>
+        <button
+          className="btn btn-primary mb-2 mr-2"
+          onClick={this.handleAddRandom}
+        >
           Add Random Contact
+        </button>
+        <button
+          className="btn btn-secondary mb-2 mr-2"
+          onClick={() => this.handleSortBy('name')}
+        >
+          Sort by name
+        </button>
+        <button
+          className="btn btn-secondary mb-2"
+          onClick={() => this.handleSortBy('popularity')}
+        >
+          Sort by popularity
         </button>
         <table className="table table-hover">
           <thead className="thead-dark">
