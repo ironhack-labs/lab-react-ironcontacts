@@ -24,12 +24,20 @@ class ContactList extends Component {
     });
   };
 
+  sortByPopularity = event => {
+    const sortedContacts = this.state.contactsToDisplay.sort((a, b) => b.popularity - a.popularity)
+    this.setState({
+      contactsToDisplay: sortedContacts
+    });
+  };
+
   render() {
     return (
       <div className="content-wrapper">
         <h1>Iron Contacts</h1>
         <main className="ContactList">
           <button onClick={this.loadRandContact}>Add Random Contact</button>
+          <button onClick={this.sortByPopularity}>Sort by Popularity</button>
           <div className="ContactList__titles">
             <h2>Picture</h2>
             <h2>Name</h2>
