@@ -2,35 +2,34 @@ import React, { Component } from 'react';
 import contactsDB from './contacts.json';
 import './App.css';
 
-console.log(contactsDB.length)
-
+console.log(contactsDB.length);
 const shuffle = (array) => {
-  var m = array.length, t, i;
-
+  let m = array.length, t, i;
   while (m) {
     i = Math.floor(Math.random() * m--);
     t = array[m];
     array[m] = array[i];
     array[i] = t;
   }
-
   return array;
 }
 
-const shuffledcontacts = shuffle(contactsDB);
+const shuffledContacts = shuffle(contactsDB);
+const startingContacts = shuffledContacts.splice(0, 5);
+// console.log(shuffledContacts.length);
 
 class App extends Component {
 
   state = {
-    contacts: shuffledcontacts.splice(0, 5),
+    contacts: startingContacts,
     sortAlpha: true,
     sortPop: true
   }
 
   addRandomContact = () => {
-    if (shuffledcontacts.length) {
-      const copiedContacts = [...this.state.contacts].concat(shuffledcontacts.pop());
-      console.log(shuffledcontacts.length);
+    if (shuffledContacts.length) {
+      const copiedContacts = [...this.state.contacts].concat(shuffledContacts.shift());
+      console.log(shuffledContacts.length);
       this.setState({
         contacts: copiedContacts
       });      
@@ -65,12 +64,12 @@ class App extends Component {
 
   deleteContact = (index) => {
     const copiedContacts = [...this.state.contacts];
-    copiedContacts.splice(index, 1);
+    shuffledContacts.push(copiedContacts.splice(index, 1));
     this.setState({
       contacts: copiedContacts
-    })
-  }
-  
+    });
+    console.log('delete', shuffledContacts.length)
+  }  
   
   render() {
     const tableContacts = this.state.contacts.map((contact, index) => {
