@@ -1,0 +1,11 @@
+.ContactCard {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.ContactCard img {
+    height: 6rem;
+    width: 4rem;
+}
