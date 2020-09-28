@@ -7,6 +7,14 @@ const Contact = (props) => (
     </td>
     <td>{props.contact.name}</td>
     <td>{props.contact.popularity}</td>
+    <td>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.deleteContact(props.contact)}
+      >
+        Delete
+      </button>
+    </td>
   </tr>
 );
 

@@ -35,6 +35,15 @@ class ListContacts extends React.Component {
       };
     });
   };
+  deleteContact = (toDelete) => {
+    this.setState((oldState) => {
+      return {
+        visibleContacts: oldState.visibleContacts.filter(
+          (contact) => contact !== toDelete
+        ),
+      };
+    });
+  };
   render() {
     return (
       <div>
@@ -62,11 +71,16 @@ class ListContacts extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {this.state.visibleContacts.map((contact, index) => (
-              <Contact key={contact.id + index} contact={contact} />
+              <Contact
+                key={contact.id + index}
+                contact={contact}
+                deleteContact={this.deleteContact}
+              />
             ))}
           </tbody>
         </table>
