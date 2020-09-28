@@ -5,7 +5,7 @@ import Contact from './Contact';
 class ListContacts extends React.Component {
   state = {
     visibleContacts: this.props.contacts.slice(0, 5),
-    hiddeContacts: this.props.contacts.slice(5, this.props.contacts.length),
+    storedContacts: this.props.contacts.slice(5, this.props.contacts.length),
   };
 
   randElement = (arr) => {
@@ -13,19 +13,17 @@ class ListContacts extends React.Component {
   };
 
   handleAddRandom = () => {
-    if (this.state.hiddeContacts.length > 0) {
-      const newContact = this.randElement(this.state.hiddeContacts);
-      this.setState((oldState) => {
-        return {
-          visibleContacts: [newContact, ...oldState.visibleContacts],
-          hiddeContacts: oldState.hiddeContacts.filter(
-            (hideContact) => hideContact !== newContact
-          ),
-        };
-      });
-    } else {
-      alert('There are no more contacts to add');
-    }
+    this.state.storedContacts.length > 0
+      ? this.setState((oldState) => {
+          const newContact = this.randElement(this.state.storedContacts);
+          return {
+            visibleContacts: [newContact, ...oldState.visibleContacts],
+            storedContacts: oldState.storedContacts.filter(
+              (hideContact) => hideContact !== newContact
+            ),
+          };
+        })
+      : alert('There are no more contacts to add');
   };
   handleSortBy = (orderType) => {
     this.setState((oldState) => {
