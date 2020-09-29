@@ -1,0 +1,18 @@
+
+.card{
+    margin-left: 40%;
+}
+.card img{
+    text-align: center;
+    width:50px;
+
+}
+.card table  {
+    text-align: left;
+    padding-right: 30px;
+}
+.card table tr td{
+    border: 1px solid black;
+    text-align: left;
+    padding-right: 30px;
+}
