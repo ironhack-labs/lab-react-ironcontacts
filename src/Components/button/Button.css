@@ -1,0 +1,14 @@
+.btn.inactive {
+    filter: alpha(opacity=10);
+}
+
+.btn {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    border: 1px solid;
+    border-radius: 0;
+    background: rgb(100, 98, 98);
+    margin: 10px 15px 50px;
+    color: white;
+    
+}
