@@ -1,0 +1,31 @@
+table {
+  margin: 0 auto;
+}
+
+.big th {
+  font-size: 1.8em;
+  padding: 1em;
+}
+.box td {
+  font-size: 1.8em;
+  padding: 1em;
+}
+.box img {
+  width: 30%;
+  height: 200px;
+  object-fit: cover;
+  margin-left: 5em;
+  margin-right: -7em;
+}
+.headerBtn{
+font-size: 1.2em;
+}
+
+.centerBtn {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+button {
+  padding: 0.5em;
+}
