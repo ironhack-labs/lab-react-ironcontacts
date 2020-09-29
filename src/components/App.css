@@ -1,0 +1,93 @@
+img{
+  width:100%;
+}
+
+table tr {
+    background-color: #eee;
+}
+
+table{
+  width:100%
+}
+table td:nth-child(1) {
+    width: 15%;
+    height: 150px;
+}
+
+table td:nth-child(2) {
+    width:30%;
+    text-align: center;
+    font-size: 4vw;
+}
+table td:nth-child(3) {
+    width:30%;
+    text-align: center;
+    font-size: 4vw;
+}
+table button{
+  display:block;
+  background-color: red;
+  color:white;
+  padding:15px 25px;
+  border: none;
+  border-radius: 25%;
+  margin: 0 auto;
+}
+
+h1{
+  text-align: center;
+  font-size: 5vw;
+}
+
+th{
+  font-size: 3vw;
+  padding:10px;
+}
+
+/*Botones*/
+
+.btn{
+display:inline-block;
+border-radius: 10px;
+padding:10px 20px;
+margin: 15px 5px;
+}
+
+.add-button{
+  background-color: rgb(109, 235, 109);
+  color:white;
+  border: none;
+ }
+
+.sort-name-button{
+  background-color: rgb(137, 137, 235);
+  color:white;
+  border: none;
+ }
+
+.sort-popularity-button{
+  background-color: rgb(238, 186, 91);
+  color:white;
+  border: none;
+ }
+
+ .buttons{
+   display:flex;
+   justify-content: center;
+   margin:25px auto;
+ }
+
+/*Móvil Responsive*/
+
+@media only screen and (max-width: 600px) {
+  table button{
+  display:block;
+  background-color: red;
+  color:white;
+  padding:10px 20px;
+  border: none;
+  border-radius: 25%;
+  margin: 0 auto;
+}
+  
+  }
