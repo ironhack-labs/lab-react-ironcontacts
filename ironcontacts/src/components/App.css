@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+}
+
+.App ul {
+  padding-inline-start: 0px;
+}
+
+.App img {
+  width: 30%;
+  object-fit: cover;
+}
+
+.App table {
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  font-size: 0.8vw;
+}
+
+.App td {
+  width: 15%;
+
+}
+.App th {
+
+  border: 1px solid grey;
+}
+
+.App td {
+  border-bottom: 0.5px solid grey;
+}
+
+
