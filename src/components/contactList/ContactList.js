@@ -18,10 +18,11 @@ class ContactList extends Component {
         
         const availableContacts = contacts.filter(elm => !(this.state.contacts.includes(elm)))
         const randomIndex = Math.floor(Math.random() * availableContacts.length)
-        const newList = this.state.contacts.push(availableContacts[randomIndex])
+        this.state.contacts.push(availableContacts[randomIndex])
+        
 
         this.setState({
-            contacts: newList
+            contacts: this.state.contacts
         })
 
     }
