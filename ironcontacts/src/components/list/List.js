@@ -37,7 +37,7 @@ class List extends Component  {
 
     delete = (contactId) => {
         this.setState({
-            contacts: this.state.contacts.filter(elm => elm.id != contactId)
+            contacts: this.state.contacts.filter(elm => elm.id !== contactId)
         })
     }
     
