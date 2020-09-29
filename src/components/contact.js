@@ -5,18 +5,10 @@ const Contact = props => {
 
     return (
         <tr>
-            <td>
-                <img src={props.contact.pictureUrl} alt={props.contact.name} />
-            </td>
+            <td><img src={props.contact.pictureUrl} alt={props.contact.name} /></td>
             <td>{props.contact.name}</td>
             <td>{props.contact.popularity}</td>
-            <td>
-                <Button
-                    onClick={() => props.deleteContact(props.contact)}
-                >
-                    Delete
-        </Button>
-            </td>
+            <td><Button onClick={() => props.deleteContact(props.contact)}>Delet</Button></td>
         </tr>
     )
 }
