@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
+button {
+    background-color: rgb(167, 210, 240);
+    border-radius: 0.25em;
+    border: 0;
+}
+
+table, tr, th {
+    border: 1px solid rgb(167, 210, 240);;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button {
+    font-size: 1.3em;
+    margin: 0% 0.2% 2%;
+}
+
+.contact-card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    font-size: 1.5em;
+}
+
+.contact-card img {
+    width: 100px;
+    object-fit: cover;
+}
+
+.contact-card th {
+    width: 30%;
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.title th {
+    font-weight: 900;
+}
+
+.btn-delete {
+    background-color: rgb(250, 61, 61);
+    height: 25px;
+}
