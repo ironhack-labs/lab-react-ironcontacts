@@ -1,0 +1,36 @@
+img {
+    width: 100px;
+}
+
+button {
+    margin: 30px auto;
+    background: linear-gradient(to bottom, #FBECDA 5%, #F7D9B6 100%);
+    padding: 10px;
+    border: 2px solid #F9E4C8;
+    box-shadow: 3px 3px 0px 0px #F2C792;
+}
+
+button:hover {
+	background: linear-gradient(to bottom, #F7D9B6 5%, #FBECDA 100%);
+	background-color:#F7D9B6;
+}
+button:active {
+	position:relative;
+    top:1px;
+}
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+    font-size: 1.2em;
+}
+
+td {
+    padding: 20px 30px;
+    text-align: center;
+    border: 1px solid;
+}
+th {
+    border: 1px solid;
+    padding: 10px;
+    background-color: #F6DAB7;
+}
