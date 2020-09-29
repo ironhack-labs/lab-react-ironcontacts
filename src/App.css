@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
-}
+.actors-list{
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+
+  padding: 30px 40px
+}
+
+table{
+
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+}
+
+thead{
+
+  background-color: rgb(51, 42, 42);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+tr:nth-child(2n) {
+  background-color: teal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+th, td{
+
+  border: solid 1px  rgb(51, 42, 42);
+  padding: 20px;
+  text-align: center;
+}
+
+img{
+
+  height: 150px;
+}
+
+button{
+
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+  background-color: rgb(32, 32, 32);
+  color: white;
+  font-weight: 900;
+
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+button:active{
+
+  background-color: rgb(255, 131, 15);
+  color: black
+}
+
+.header-buttons button{
+
+  margin: 0 10px;
+  margin-bottom: 20px;
+}
+
+.delete-button{
+
+  background-color: rgb(255, 155, 6)
 }
