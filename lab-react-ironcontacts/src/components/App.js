@@ -1,9 +1,20 @@
 import React from 'react';
 import './App.css';
 
+// Custom Components
+import ContactsTable from "./Contacs-table/Contacts-table";
+
 function App() {
   return (
-    <p>Prueba!!</p>
+    <>
+      
+      <h1>IronContacts</h1>
+      
+      <ContactsTable />
+          
+    </>
+
+
   );
 }
 

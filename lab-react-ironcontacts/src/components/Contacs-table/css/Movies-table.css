@@ -1,0 +1,16 @@
+table {
+    width: 500px;
+}
+
+table th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+table th {
+    font-size: 1.3em;
+}
+
+table img {
+    width: 75px;
+}
