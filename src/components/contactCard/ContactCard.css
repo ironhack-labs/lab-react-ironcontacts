@@ -1,0 +1,9 @@
+.contactPhoto {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.contact {
+    line-height: 20px;
+}

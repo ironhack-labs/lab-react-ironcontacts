@@ -1,0 +1,28 @@
+section {
+    padding: 60px;
+    font-size: 1.3em;
+}
+
+table {
+    padding-top: 30px;
+}
+
+td {
+    padding: 30px 45px;
+     border: 1px solid;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+button {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.btn {
+    font-size: 1em;
+    padding: 10px;
+    margin: 25px;
+}
