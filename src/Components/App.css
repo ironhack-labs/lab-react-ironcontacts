@@ -1,0 +1,54 @@
+body{
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(183, 222, 237, 1);
+  width: 100%;
+  object-fit: cover;
+  
+}
+
+h1{
+  text-align: center;
+  font-weight: 900;
+  font-size: 3em;
+}
+
+button{
+  background-color: black;
+  color: snow;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 18px;
+  padding: 10px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+table, td, th{
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: snow;
+}
+
+#delete{
+  background-color: red;
+  color: snow;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+th{
+  font-size: 1.5em;
+  font-weight: 700;
+}
+td{
+  text-align: center;
+  font-weight: 700;
+}
