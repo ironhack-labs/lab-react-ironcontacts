@@ -1,0 +1,56 @@
+h1{
+    font-weight: 700;
+    text-align: left;
+    margin-top:50px;
+}
+
+img{
+    height:120px;
+    object-fit: cover;
+}
+
+tbody{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+tr{
+    font-size: 1.2rem; 
+}
+
+.btns-head{
+    display: flex;
+    margin: 50px 0px;
+    justify-content: space-between;
+    width: 54%;
+
+}
+
+.contact-style td{
+
+    padding: 10px;
+}
+
+.round-btn{
+
+    border-radius: 20px;
+    font-weight: 900;
+}
+.round{
+    border-radius: 20px;
+
+}
+
+.my-table-style{
+
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.my-table-style th{
+
+    width:150px;
+    padding:10px;
+
+}
+
