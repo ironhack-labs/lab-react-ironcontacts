@@ -1,0 +1,27 @@
+
+.btn-div {
+    text-align: center;
+    margin: auto;
+   
+}
+.btn {
+    background-color: black;
+    color: white;
+    padding: 10px ;
+    margin-right: 10px;
+    border: 1px solid grey;
+}
+.contacts-table {
+    margin: auto;
+    padding-top: 20px;
+    width: 60%;
+}
+.contacts-table img{
+    height: 100px;
+}
+
+.deleteBtn {
+    background-color: salmon;    
+    padding: 5px 8px;
+    border-radius: 5px;
+}
