@@ -71,12 +71,8 @@ class ContactList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.listedContacts.map((contact, index) => (
-              <Contact
-                key={contact.id + index}
-                contact={contact}
-                deleteContact={this.deleteContact}
-              />
+            {this.state.listedContacts.map((contact) => (
+              <Contact key={contact.id} contact={contact} deleteContact={this.deleteContact}/>
             ))}
           </tbody>
         </table>
