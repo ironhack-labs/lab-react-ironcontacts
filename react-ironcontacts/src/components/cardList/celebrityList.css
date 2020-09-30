@@ -1,0 +1,18 @@
+table {
+    margin: 22px 18%;
+    font-size: 20px;
+}
+
+th {
+    margin: 10px;
+    width: 30%;
+}
+
+
+.table-props {
+    margin-top: 10px;
+}
+
+.buttons {
+    text-align: center;
+}

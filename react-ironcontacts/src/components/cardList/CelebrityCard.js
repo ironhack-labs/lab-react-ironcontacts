@@ -1,17 +1,15 @@
 import React from 'react'
 import './celebrityCard.css'
 
-
 const CelebrityCard = ({ name, pictureUrl, popularity, deleteCard }) => {
 
     return (
-        <article className="article-cards">
-            <h5>{name}</h5>
-            <img className="img-celebrity" src={pictureUrl}></img>
-            <p>{popularity}</p>
-            <button onClick={deleteCard}> (Delete card) </button>
-        </article>
+        <tr className="article-cards">
+            <td class="img-class"><img className="img-celebrity" src={pictureUrl} alt={name} ></img></td>
+            <td class="prop-class">{name}</td>
+            <td class="prop-class">{popularity}</td>
+            <button type="button" class="btn btn-danger" onClick={deleteCard}> (Delete card) </button>
+        </tr>
     )
 }
-
 export default CelebrityCard

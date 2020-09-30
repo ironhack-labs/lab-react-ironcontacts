@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import contacts from './contacts.json'
 import CelebrityCard from './CelebrityCard'
-
+import './celebrityList.css'
 
 class CelebrityList extends Component {
     constructor() {
@@ -14,6 +14,7 @@ class CelebrityList extends Component {
     addRandomCard = () => {
         if (this.state.contacts.length === contacts.length) return
 
+        console.log(contacts.filter(el => !this.state.contacts.includes(el)))
         // Filtra las cartas que no estan incluidas en contacts
         const chooseCards = contacts.filter(el => !this.state.contacts.includes(el))
 
@@ -51,25 +52,27 @@ class CelebrityList extends Component {
 
         return (
             <React.Fragment>
-                <div>
-                    <button onClick={this.addRandomCard}> (Add random contact) </button>
-                    <button onClick={this.sortByName}> (Sort contacts by first letter) </button>
-                    <button onClick={this.sortByPopularity}> (Sort contacts by popularity) </button>
+                <div class="buttons">
+                    <button onClick={this.addRandomCard} className="btn btn-dark" > (Add random contact) </button>
+                    <button onClick={this.sortByName} className="btn btn-dark" > (Sort contacts by first letter) </button>
+                    <button onClick={this.sortByPopularity} className="btn btn-dark" > (Sort contacts by popularity) </button>
+
 
                 </div>
-                <table>
+                <table className="table-card">
                     <thead>
-                        <tr>
-                            <th>Picture</th>
-                            <th>Name</th>
-                            <th>Popularity</th>
-                            <th>Action</th>
-                        </tr>
+
                     </thead>
                 </table>
-                <tbody>
+                <div class="container">
+                    <tr className="table-props">
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Popularity</th>
+                        <th>Action</th>
+                    </tr>
                     {this.state.contacts.map(el => <CelebrityCard key={el.id} name={el.name} pictureUrl={el.pictureUrl} popularity={el.popularity} deleteCard={() => { this.deleteActor(el.id) }} />)}
-                </tbody>
+                </div>
             </React.Fragment>
         )
     }
