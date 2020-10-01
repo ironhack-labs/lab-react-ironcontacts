@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContactCard from './ContactCard';
 import contacts from '../contacts.json';
+import '../stylesheets/ContactList.css';
 
 class ContactList extends Component {
   state = {
@@ -55,13 +56,16 @@ class ContactList extends Component {
       <div className="content-wrapper">
         <h1>Iron Contacts</h1>
         <main className="ContactList">
-          <button onClick={this.loadRandContact}>Add Random Contact</button>
-          <button onClick={this.sortByPopularity}>Sort by Popularity</button>
-          <button onClick={this.sortByName}>Sort by Name</button>
+          <div className="ContactList__buttons">
+            <button className="ContactList__button" onClick={this.loadRandContact}>Add Random Contact</button>
+            <button className="ContactList__button" onClick={this.sortByName}>Sort by Name</button>
+            <button className="ContactList__button" onClick={this.sortByPopularity}>Sort by Popularity</button>
+          </div>
           <div className="ContactList__titles">
             <h2>Picture</h2>
             <h2>Name</h2>
             <h2>Popularity</h2>
+            <h2>Actions</h2>
           </div>
 
           {this.state.contactsToDisplay.map((contact) => (

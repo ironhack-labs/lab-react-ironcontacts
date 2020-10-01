@@ -1,11 +1,30 @@
 .ContactCard {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
-    text-align: center;
     margin: 1rem 0;
+    border: 1px solid lightgoldenrodyellow;
 }
 
 .ContactCard img {
     height: 6rem;
     width: 4rem;
+}
+
+.ContactCard__button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ContactCard__button {
+    height: fit-content;
+    max-width: 95px;
+    position: relative;
+    right: 0;
+    padding: 7px;
+    margin: 5px
+}
+
+.ContactCard > p {
+    padding-left: 13px;
 }
