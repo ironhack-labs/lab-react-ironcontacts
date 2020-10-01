@@ -25,7 +25,7 @@ class ContactList extends Component {
   };
 
   sortByPopularity = event => {
-    const sortedContacts = this.state.contactsToDisplay.sort((a, b) => b.popularity - a.popularity)
+    const sortedContacts = this.state.contactsToDisplay.sort((a, b) => b.popularity - a.popularity);
     this.setState({
       contactsToDisplay: sortedContacts
     });
@@ -38,6 +38,15 @@ class ContactList extends Component {
 
     this.setState({
       contactsToDisplay: sortedContacts
+    });
+  };
+
+  deleteContact = event => {
+    const contactId = event.target.value;
+    const newContacts = this.state.contactsToDisplay.filter(contact => contact.id !== contactId);
+
+    this.setState({
+      contactsToDisplay: newContacts
     });
   };
 
@@ -56,7 +65,7 @@ class ContactList extends Component {
           </div>
 
           {this.state.contactsToDisplay.map((contact) => (
-            <ContactCard contact={contact} key={contact.id} />
+            <ContactCard contact={contact} deleteHandler={this.deleteContact} key={contact.id}/>
           ))}
         </main>
       </div>
