@@ -4,4 +4,21 @@
 
 .contact-table {
     margin: auto !important;
+    margin-bottom: 10px !important;
+    padding: 10px 5px;
+    text-align: center;
+    border: 1px solid seagreen;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.delete-btn {
+    background-color: rgb(244, 162, 153);
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgb(45, 48, 47);
+}
+
+.delete-btn:hover {
+    background-color: rgb(232, 103, 89);
 }

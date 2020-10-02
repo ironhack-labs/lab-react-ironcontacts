@@ -47,6 +47,15 @@ class App extends React.Component {
     })
   }
 
+  deleteContact = (id) => {
+
+    const deleteTheContact = this.state.firstContacts.filter(contact => contact.id !== id)
+
+    this.setState({
+      firstContacts: deleteTheContact
+    })
+  }
+
   render () {
     return (
       <div className="App">
@@ -60,6 +69,7 @@ class App extends React.Component {
                   name={contact.name} 
                   popularity={contact.popularity.toFixed(2)} 
                   picture={contact.pictureUrl} 
+                  deleteContact={this.deleteContact}
                 />
               )
             })

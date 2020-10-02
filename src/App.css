@@ -1,3 +1,23 @@
 .add-contact {
-    margin: 10px 0px 20px 35rem
+    margin: 10px 5px 20px 34rem;
+    background-color: rgb(202, 255, 237);
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgb(76, 79, 78);
+}
+
+.add-contact:hover {
+    background-color: rgb(83, 159, 133);
+}
+
+.sort-contact {
+    margin-right: 5px;
+    background-color: rgb(202, 255, 237);
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgb(76, 79, 78);
+}
+
+.sort-contact:hover {
+    background-color: rgb(83, 159, 133);
 }
