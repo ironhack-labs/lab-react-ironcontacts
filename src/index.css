@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App img {
+  width: 100px;
+}
+
+table,
+td,
+tr {
+  border: 2px solid black;
+}
+
+thead {
+  background-color: teal;
+  color: white;
+}
+
+.App #delete {
+  background-color: red;
+  color: black;
+}
+
+.App button {
+  background-color: fuchsia;
+  color: yellow;
+  font-weight: bolder;
+  margin: 1%;
+  padding: 1%;
+}
