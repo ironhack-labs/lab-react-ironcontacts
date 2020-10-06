@@ -30,7 +30,7 @@ class App extends Component {
 
   sortPop = () => {
     let sortPop = [...this.state.AllContact];
-    sortPop.sort((a, b) => a.popularity - b.popularity);
+    sortPop.sort((a, b) => b.popularity - a.popularity);
     this.setState({
       AllContact: sortPop,
     });
@@ -46,16 +46,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div style={{backgroundImage: "url(/background.jpg)", backgroundSize: "cover"}} className="App">
+        <header style={{display:"flex", flexDirection:"column", justifyContent:"center", alignContent:"center", height: "100vh"}} className="App-header">
           <h1>IronContacts</h1>
+          <div>
           <button onClick={this.addNewStar}>Add Random Contact</button>
           <button onClick={this.sortName}>Add sort by Name</button>
           <button onClick={this.sortPop}>Add sort by Popularity</button>
 
-          <table>
+          </div>
+
+          <table style={{width : "80vw" }}>
             <thead>
-              <tr>
+              <tr style={{background: "black", color : "white"}}>
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
@@ -89,19 +92,5 @@ class App extends Component {
   }
 }
 
-function Contacts(props) {
-  return (
-    <tr>
-      <td>
-        <img style={{ height: '20%' }} src={props.pictureUrl} alt="" />
-      </td>
-      <td>{props.name}</td>
-      <td>{props.popularity.toFixed(2)}</td>
-      <td>
-        <button onClick={this.deleteContact}>Delete</button>
-      </td>
-    </tr>
-  );
-}
 
 export default App;
