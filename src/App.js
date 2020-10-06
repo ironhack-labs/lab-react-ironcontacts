@@ -46,14 +46,36 @@ class App extends Component {
 
 
   sortByNumber = () => {
-    console.log("pooooo")
     const copySortNumber = [...this.state.contacts]
     
     this.setState({
       contacts: copySortNumber.sort(function (a, b) {
-        return a.popularity - b.popularity;
+        return b.popularity - a.popularity;
       }),
     })
+  }
+
+  deleteContact = (i) => {
+    console.log("poozef,klafnzeapooo")
+    
+    //--------------- methode 2 ---------------
+    const copyDelete = [...this.state.contacts];
+    copyDelete.splice(i,1);
+
+    this.setState({
+      contacts: copyDelete,
+    })
+
+
+    //--------------- methode 1 ---------------
+    // this.setState({
+    //   contacts: this.state.contacts.filter((a,index) => {
+    //     return index !== i;
+    //   })
+    // })
+
+
+
   }
 
 
@@ -66,11 +88,13 @@ class App extends Component {
           <button onClick={()=>this.addRandomContact()}>Add random contact</button>
           <table>
               <tbody>
-                  {this.state.contacts.map(cont => (
+                  {this.state.contacts.map((cont, i) => (
                       <tr>
+                        key={i}
                         <td><img src={cont.pictureUrl} alt="" width="10%"/></td>
                         <td>{cont.name}</td>
                         <td>{cont.popularity}</td>
+                        <td><button onClick={(event)=>this.deleteContact(i)}>delete</button></td>
                       </tr>
                     ))
                   }
