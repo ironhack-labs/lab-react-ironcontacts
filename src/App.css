@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+#contact-table {
+  margin: auto;
+  border: 1px solid purple;
+}
+#contact-table th{
+  border: 1px solid blue;
+}
+#contact-table td{
+  border: 1px solid green;
+  height: 180px;
+  text-align: center;
+  width: 240px;
+}
+
+
+.celeb-pic {
+  height: 180px;
+}
