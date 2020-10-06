@@ -41,7 +41,6 @@ class App extends React.Component {
   };
 
   deleteContact = (id) => {
-    console.log(id)
     const deleteOneContact = this.state.firstContact.filter(contact => contact.id !== id,
     );
 
@@ -56,9 +55,10 @@ class App extends React.Component {
         <button className="add-contact" onClick={this.addRandomContact}>Add random Contact</button>
         <button className="sort-contact" onClick={this.sortByName}>Sort by Name</button>
         <button className="sort-contact" onClick={this.sortByPopularity}>Sort by popularity</button>
-        {this.state.firstContact.map((contact) => {
+        {this.state.firstContact.map((contact, idx) => {
           return (
             <Contacts
+              id = {contact.id}
               name={contact.name}
               popularity={contact.popularity.toFixed(2)}
               picture={contact.pictureUrl}
