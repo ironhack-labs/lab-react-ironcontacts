@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./App.css"
 import contacts from './contacts.json'
 
 export default class App extends Component {
@@ -44,9 +45,10 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
+        <h1>IronContacts</h1>
         <div className="Buttons">
-          <button onClick={this.handleRandom}>Random</button>
+          <button onClick={this.handleRandom}>Add random contact</button>
           <button onClick={this.handleSortByName}>Sort by name</button>
           <button onClick={this.handleSortByPopularity}>Sort by popularity</button>
         </div>
@@ -56,6 +58,7 @@ export default class App extends Component {
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Popularity</th>
+                    <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,7 +69,7 @@ export default class App extends Component {
                       <td><img src={contact.pictureUrl} width="50px" alt={`pic of ${contact.name}`}/></td>
                       <td>{contact.name}</td>
                       <td>{contact.popularity.toFixed(2)}</td>
-                      <td><button onClick={this.handleRemove} id={contact.id}>Remove</button></td>
+                      <td><button className="removeBtn" onClick={this.handleRemove} id={contact.id}><span role="img">🗑️</span></button></td>
                     </tr>
                   )
                 })

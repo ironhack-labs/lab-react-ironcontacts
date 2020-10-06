@@ -1,5 +1,67 @@
-body, body * {
+body {
   padding: 0;
   margin: 0;
+}
+
+body, body * {
   box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  border: none;
+  margin-bottom: 50px;
+  border-collapse: collapse;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+th {
+  background-color: rgb(190, 241, 224);
+  color: #333;
+  height: 50px;
+}
+
+td {
+  border-left: none;
+  border-right: none;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #eee;
+}
+
+img {
+  margin: auto;
+}
+
+.Buttons {
+  margin: 50px 0;
+  display: flex;
+  width: 500px;
+  justify-content: space-around;
+}
+
+button {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.removeBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.removeBtn:hover span {
+  font-size: large;
 }
