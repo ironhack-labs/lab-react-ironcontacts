@@ -1,0 +1,21 @@
+.contactImg {
+    width: 90px;
+}
+
+.contact-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.7rem;
+  }
+  
+  .title {
+    font-weight: 800;
+    font-size: 3rem;
+  }
+  
+  .category-titles {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
