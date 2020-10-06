@@ -55,7 +55,7 @@ class App extends React.Component {
         <button className="add-contact" onClick={this.addRandomContact}>Add random Contact</button>
         <button className="sort-contact" onClick={this.sortByName}>Sort by Name</button>
         <button className="sort-contact" onClick={this.sortByPopularity}>Sort by popularity</button>
-        {this.state.firstContact.map((contact, idx) => {
+        {this.state.firstContact.map((contact) => {
           return (
             <Contacts
               id = {contact.id}
