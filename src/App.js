@@ -9,7 +9,6 @@ class App extends Component {
   // contactData = contactData.filter((cont1, i) => cont1[i] < cont1[6])
   
   state = {
-    // contacts: contactData.filter((cont, i) => cont[i] < cont[4]),
     contacts: contactData.slice(0,5)
   };
 
@@ -25,10 +24,45 @@ class App extends Component {
   }
 
 
+  sortContact = () => {
+    const copySortContact = [...this.state.contacts]
+    
+    this.setState({
+      contacts: copySortContact.sort(function(a, b) {
+        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        // names must be equal
+        return 0;
+      }),
+    })
+  }
+
+
+  sortByNumber = () => {
+    console.log("pooooo")
+    const copySortNumber = [...this.state.contacts]
+    
+    this.setState({
+      contacts: copySortNumber.sort(function (a, b) {
+        return a.popularity - b.popularity;
+      }),
+    })
+  }
+
+
   render(){
     return (
       <div>
           <h1>IronContacts</h1>
+          <button onClick={()=>this.sortContact()}>Sort contacts by name</button>
+          <button onClick={()=>this.sortByNumber()}>Sort contacts by number</button>
           <button onClick={()=>this.addRandomContact()}>Add random contact</button>
           <table>
               <tbody>
