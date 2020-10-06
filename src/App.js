@@ -14,18 +14,34 @@ class App extends Component {
   };
 
 
+  addRandomContact = () => {
+    console.log("yo")
+    let randomNumber = Math.floor(Math.random()*(contactData.length))
+    const copy = [...this.state.contacts, contactData[randomNumber]]
+    // const copy = [...this.state.contacts].push(contactData[4]) // ===> Ne fonctionne pas, pourquoi ?
+    this.setState({
+      contacts: copy,
+    })
+  }
+
+
   render(){
     return (
       <div>
-        {this.state.contacts.map(cont => (
-          <tr>
-            <td><img src={cont.pictureUrl} alt="" width="10%"/></td>
-            <td>{cont.name}</td>
-            <td>{cont.popularity}</td>
-          </tr>
-        ))
-
-        }
+          <h1>IronContacts</h1>
+          <button onClick={()=>this.addRandomContact()}>Add random contact</button>
+          <table>
+              <tbody>
+                  {this.state.contacts.map(cont => (
+                      <tr>
+                        <td><img src={cont.pictureUrl} alt="" width="10%"/></td>
+                        <td>{cont.name}</td>
+                        <td>{cont.popularity}</td>
+                      </tr>
+                    ))
+                  }
+              </tbody>
+          </table>
       </div>
     );
 
