@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contactData from "./contacts.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  
+  // contactData = contactData.filter((cont1, i) => cont1[i] < cont1[6])
+  
+  state = {
+    // contacts: contactData.filter((cont, i) => cont[i] < cont[4]),
+    contacts: contactData.slice(0,5)
+  };
+
+
+  render(){
+    return (
+      <div>
+        {this.state.contacts.map(cont => (
+          <tr>
+            <td><img src={cont.pictureUrl} alt="" width="10%"/></td>
+            <td>{cont.name}</td>
+            <td>{cont.popularity}</td>
+          </tr>
+        ))
+
+        }
+      </div>
+    );
+
+  }
+
+  
 }
 
 export default App;
