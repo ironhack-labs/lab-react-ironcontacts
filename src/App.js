@@ -12,21 +12,57 @@ class App extends React.Component {
   addRandomContact = () => {
     const selectRandomContact =
       contactsAll[Math.floor(Math.random() * contactsAll.length)];
+
     this.setState({
       firstContact: [...this.state.firstContact, selectRandomContact],
     });
   };
 
+  sortByName = () => {
+    //locale compare permet de comparer entre une valeur et une autre et redonner un chiffre - ou + en fonction de l'ordre alpha
+    const sortedNameList = this.state.firstContact.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+
+    this.setState({
+      firstContact: [...sortedNameList],
+    });
+  };
+
+  sortByPopularity = () => {
+    //Sort si un chiffe est positif ou negatif donc si on soustrait...
+    const sortedPopularity = this.state.firstContact.sort(
+      (a, b) => b.popularity - a.popularity
+    );
+
+    this.setState({
+      firstContact: [...sortedPopularity],
+    });
+  };
+
+  deleteContact = (id) => {
+    console.log(id)
+    const deleteOneContact = this.state.firstContact.filter(contact => contact.id !== id,
+    );
+
+    this.setState({
+      firstContact: deleteOneContact,
+    });
+  };
+
   render() {
     return (
-      <div>
-        <button onClick={this.addRandomContact}>Add random Contact</button>
+      <div className= "App">
+        <button className="add-contact" onClick={this.addRandomContact}>Add random Contact</button>
+        <button className="sort-contact" onClick={this.sortByName}>Sort by Name</button>
+        <button className="sort-contact" onClick={this.sortByPopularity}>Sort by popularity</button>
         {this.state.firstContact.map((contact) => {
           return (
             <Contacts
               name={contact.name}
               popularity={contact.popularity.toFixed(2)}
               picture={contact.pictureUrl}
+              deleteContact={this.deleteContact}
             />
           );
         })}

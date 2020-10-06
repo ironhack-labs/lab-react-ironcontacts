@@ -2,37 +2,80 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contacts-img {
+  width: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.contact-table {
+  margin: auto !important;
+  margin-bottom: 10px !important;
+  padding: 10px 5px;
+  text-align: center;
+  border: 1px solid rgb(60, 85, 196);
+  border-radius: 10px;
+  width: 500px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.delete-btn {
+  background-color: rgb(241, 80, 62);
   color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid rgb(45, 48, 47);
 }
 
-.App-link {
-  color: #61dafb;
-}
+  .add-contact {
+    margin: 10px 5px 20px 34rem;
+    background-color: rgb(60, 85, 196);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgb(76, 79, 78);
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .sort-contact {
+    margin-right: 5px;
+    background-color: rgb(60, 85, 196);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgb(76, 79, 78);
   }
-  to {
-    transform: rotate(360deg);
+
+
+
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
   }
-}
+
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
