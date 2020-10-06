@@ -66,7 +66,7 @@ class App extends Component {
           </thead>
           <tbody>
             {this.state.contacts.map((contact, i) => (
-              <tr>
+              <tr key={i}>
                 <td>
                   <img className="pictureUrl" src={contact.pictureUrl} alt="" />
                 </td>
