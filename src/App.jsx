@@ -6,10 +6,21 @@ export default class App extends Component {
     contactList: contacts.slice(0, 5)
   }
 
+  handleRandom = () => {
+    const newRandom = contacts[Math.floor(Math.random() * (contacts.length - 5)) + 5];
+    this.setState(prevState => {
+     return  {
+        contactList: [...prevState.contactList, newRandom]
+      }
+    })
+  }
 
   render() {
     return (
       <div>
+        <div className="Buttons">
+          <button onClick={this.handleRandom}>Random</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -30,10 +41,6 @@ export default class App extends Component {
                   )
                 })
               }
-                <tr>
-                    <td>The table body</td>
-                    <td>with two columns</td>
-                </tr>
             </tbody>
         </table>
       </div>
