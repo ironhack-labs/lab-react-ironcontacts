@@ -22,12 +22,21 @@ class App extends React.Component {
     )
   }
 
+  randomContact = () => {
+    let i = Math.floor(Math.random() * contacts.length);
+    this.setState({
+      fiveContacts: [...this.state.fiveContacts, contacts[i]]
+    })
+  }
+  
+
 
   render() {
 
     return (
       <div className="App">
       <h1>Iron Contacts</h1>
+        <button id="btn-random" onClick={this.randomContact}>Add random Contact</button>
         <table id="contact-table">
         <thead>
           <tr>

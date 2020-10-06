@@ -50,7 +50,10 @@
   width: 240px;
 }
 
-
 .celeb-pic {
   height: 180px;
+}
+
+#btn-random {
+  padding: 10px;
 }
