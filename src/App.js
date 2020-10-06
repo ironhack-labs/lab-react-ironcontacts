@@ -37,6 +37,15 @@ class App extends Component {
     });
   };
 
+  deleteContact = (i) => {
+    console.log('deleted');
+    this.setState({
+      newContacts: this.state.newContacts.filter((contact, index) => {
+        return index !== i;
+      }),
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -58,16 +67,26 @@ class App extends Component {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.state.newContacts.map((contact) => (
+              {this.state.newContacts.map((contact, index) => (
                 <tr key={contact.id}>
                   <td>
                     <img src={contact.pictureUrl} alt="pics" />
                   </td>
                   <td>{contact.name} </td>
                   <td>{contact.popularity.toFixed(2)} </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        this.deleteContact(index);
+                      }}
+                    >
+                      delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
