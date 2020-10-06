@@ -37,6 +37,18 @@ class Contacts extends React.Component {
     });
   };
 
+  removeContact = (i) => {
+    console.log(i);
+    let copy = [...this.state.displayedContacts];
+    this.setState({
+      displayedContacts: this.state.displayedContacts.filter(
+        (contact, index) => {
+          return index !== i;
+        }
+      ),
+    });
+  };
+
   render() {
     return (
       <table className="table">
@@ -61,6 +73,7 @@ class Contacts extends React.Component {
             <td className="td-title">Picture</td>
             <td className="td-title">Name</td>
             <td className="td-title">Popularity</td>
+            <td className="td-title">Action</td>
           </tr>
           {this.state.displayedContacts.map((contact, i) => (
             <tr key={i}>
@@ -69,6 +82,11 @@ class Contacts extends React.Component {
               </td>
               <td className="td-content">{contact.name}</td>
               <td className="td-content">{contact.popularity.toFixed(2)}</td>
+              <td className="td-content">
+                <button onClick={(event) => this.removeContact(i)}>
+                  delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
