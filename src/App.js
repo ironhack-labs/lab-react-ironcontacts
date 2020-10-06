@@ -17,7 +17,24 @@ addNewStar = () => {
   this.setState({ 
     AllContact: displayContact
   })
-  console.log(this.state.AllContact);
+}
+
+sortName = () => {
+  let sortName = [...this.state.AllContact];
+  sortName.sort((a, b) =>
+    a.name.localeCompare(b.name))
+      this.setState({ 
+    AllContact: sortName
+  })
+}
+
+sortPop = () => {
+  let sortPop = [...this.state.AllContact];
+  sortPop.sort((a, b) =>
+  a.popularity - b.popularity)
+      this.setState({ 
+    AllContact: sortPop
+  })
 }
 
 
@@ -27,6 +44,9 @@ addNewStar = () => {
         <header className="App-header">
         <h1>IronContacts</h1>
           <button onClick={this.addNewStar}>Add Random Contact</button>
+          <button onClick={this.sortName}>Add sort by Name</button>
+          <button onClick={this.sortPop}>Add sort by Popularity</button>
+
             <table>
               <thead>
                 <tr>
