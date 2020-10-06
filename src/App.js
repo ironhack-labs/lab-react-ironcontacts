@@ -10,14 +10,15 @@ class App extends React.Component {
     fiveContacts : contacts.slice(0,5)
   }
 
-  ContactsArray = ({picture, name, popularity, key}) => {
+  ContactsArray = (props) => {
     return (
-      <tr key={key}>
+      <tr key={props.key}>
         <td>
-          <img class="celeb-pic" src={picture} alt={name} />
+          <img class="celeb-pic" src={props.pictureUrl} alt={props.name} />
         </td>
-        <td>{name}</td>
-        <td>{popularity}</td>
+        <td>{props.name}</td>
+        <td>{props.popularity}</td>
+        <td><button onClick={props.clickToDelete} class="btn delete">Delete</button></td>
       </tr>
     )
   }
@@ -41,6 +42,13 @@ class App extends React.Component {
     })
   }
 
+  deleteItem = (index) => {
+    
+    this.setState({
+      fiveContacts: this.state.fiveContacts.splice((index, 1))
+    })
+  }
+
 
   render() {
 
@@ -56,12 +64,13 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Delete</th>
           </tr>
         </thead>
           <tbody>
             {this.state.fiveContacts.map((contact,i) => 
               
-                <this.ContactsArray key={i} picture={contact.pictureUrl} name ={contact.name} popularity={contact.popularity.toFixed(2)} />
+               {return <this.ContactsArray key={i} {...contact} clickToDelete={() => this.deleteItem(i)} />}
               
             )}
           </tbody>

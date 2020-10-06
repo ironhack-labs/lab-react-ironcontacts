@@ -36,6 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #contact-table {
   margin: auto;
   border: 1px solid purple;
@@ -50,6 +55,7 @@
   width: 240px;
 }
 
+
 .celeb-pic {
   height: 180px;
 }
@@ -57,4 +63,11 @@
 .btn {
   padding: 10px;
   margin: 5px;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+}
+
+.delete {
+  background-color: red;
 }
