@@ -5,9 +5,17 @@
   align-items: center;
   justify-content: center;
 }
+h1 {
+  color: rgb(79, 160, 163);
+  font-weight: bolder;
+}
+.FirstFive {
+  padding: 10px;
+  width: 90%;
+}
 
 .FirstFive tbody td img {
-  width: 100px;
+  width: 120px;
 }
 .button {
   display: flex;
@@ -17,4 +25,55 @@
 }
 .button button {
   margin: 10px;
+  color: white;
+  background-color: rgb(82, 152, 180);
+  height: 40px;
+  border-radius: 9px;
+  border: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.ContentTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  min-width: 400px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.ContentTable thead tr {
+  background-color: rgb(84, 174, 177);
+  color: white;
+  text-align: left;
+  font-weight: bolder;
+}
+.ContentTable th,
+.ContentTable td {
+  padding: 12px 15px;
+}
+
+.ContentTable tbody tr {
+  border-bottom: 1px solid lightgray;
+  color: rgb(84, 174, 177);
+}
+.ContentTable tbody tr {
+  background-color: #f3f3f3;
+}
+.ContentTable tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(84, 174, 177);
+}
+.ContentTable td img {
+  border-radius: 50%;
+}
+.ContentTable td:nth-child(2){
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.ContentTable td button{
+  border: none;
+  width: 80px;
+  background-color: rgb(124, 199, 204);
+  color: beige;
+  border-radius: 5px;
 }

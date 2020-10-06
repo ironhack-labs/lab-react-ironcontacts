@@ -61,7 +61,7 @@ class App extends Component {
         </div>
 
         <div className="FirstFive">
-          <table>
+          <table className="ContentTable">
             <thead>
               <tr>
                 <th>Picture</th>
