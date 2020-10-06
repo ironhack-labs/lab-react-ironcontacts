@@ -18,7 +18,7 @@ export default class App extends Component {
   handleSortByName = () => {
     this.setState(prevState => {
       return {
-        constactList: prevState.contactList.sort((a, b) => (a.name > b.name) ? 1 : -1)
+        contactList: prevState.contactList.sort((a, b) => (a.name > b.name) ? 1 : -1)
       }
     })
   }
@@ -26,8 +26,20 @@ export default class App extends Component {
   handleSortByPopularity = () => {
     this.setState(prevState => {
       return {
-        constactList: prevState.contactList.sort((a, b) => b.popularity - a.popularity)
+        contactList: prevState.contactList.sort((a, b) => b.popularity - a.popularity)
       }
+    })
+  }
+
+  handleRemove = e => {
+    const id = e.target.id
+    this.setState(prevState => {
+      const tempArr = [...prevState.contactList]
+      const indexToRemove = tempArr.findIndex(contact => contact.id === id)
+      tempArr.splice(indexToRemove, 1)
+      return({
+        contactList: tempArr
+      })
     })
   }
   render() {
@@ -54,6 +66,7 @@ export default class App extends Component {
                       <td><img src={contact.pictureUrl} width="50px" alt={`pic of ${contact.name}`}/></td>
                       <td>{contact.name}</td>
                       <td>{contact.popularity.toFixed(2)}</td>
+                      <td><button onClick={this.handleRemove} id={contact.id}>Remove</button></td>
                     </tr>
                   )
                 })
