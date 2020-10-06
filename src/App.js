@@ -28,7 +28,18 @@ class App extends React.Component {
       fiveContacts: [...this.state.fiveContacts, contacts[i]]
     })
   }
+
+  sortNames = () => {
+    this.setState({
+      fiveContacts: this.state.fiveContacts.sort((a,b) => {return a.name.localeCompare(b.name)})
+    })
+  }
   
+  sortPopular = () => {
+    this.setState({
+      fiveContacts: this.state.fiveContacts.sort((a,b) => {return a.popularity > b.popularity ? -1 : 1})
+    })
+  }
 
 
   render() {
@@ -36,7 +47,9 @@ class App extends React.Component {
     return (
       <div className="App">
       <h1>Iron Contacts</h1>
-        <button id="btn-random" onClick={this.randomContact}>Add random Contact</button>
+        <button class="btn" onClick={this.randomContact}>Add random Contact</button>
+        <button class="btn" onClick={this.sortNames}>Sort By Name</button>
+        <button class="btn" onClick={this.sortPopular}>Sort By Popularity</button>
         <table id="contact-table">
         <thead>
           <tr>

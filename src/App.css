@@ -54,6 +54,7 @@
   height: 180px;
 }
 
-#btn-random {
+.btn {
   padding: 10px;
+  margin: 5px;
 }
