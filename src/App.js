@@ -10,11 +10,30 @@ class Contacts extends React.Component {
 
   randomContact = () => {
     let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
-    console.log(randomContact);
     let copy = [...this.state.displayedContacts];
     copy.push(randomContact);
     this.setState({
       displayedContacts: copy,
+    });
+  };
+
+  sortContactbyName = () => {
+    let copy = [...this.state.displayedContacts];
+    let sortedByName = copy.sort((a, b) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    );
+    this.setState({
+      displayedContacts: sortedByName,
+    });
+  };
+
+  sortContactbyPopularity = () => {
+    let copy = [...this.state.displayedContacts];
+    let sortedByPopularity = copy.sort(
+      (a, b) => parseFloat(b.popularity) - parseFloat(a.popularity)
+    );
+    this.setState({
+      displayedContacts: sortedByPopularity,
     });
   };
 
@@ -30,6 +49,10 @@ class Contacts extends React.Component {
           <tr>
             <th className="th-title" colSpan="3">
               <button onClick={this.randomContact}>add a random contact</button>
+              <button onClick={this.sortContactbyName}>sort by name</button>
+              <button onClick={this.sortContactbyPopularity}>
+                sort by popularity
+              </button>
             </th>
           </tr>
         </thead>
