@@ -20,11 +20,31 @@ class App extends Component {
     });
   };
 
+  sortName = () => {
+    let sortArr = [...this.state.contacts];
+    sortArr.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+    this.setState({
+      contacts: sortArr,
+    });
+  };
+
+  sortPop = () => {
+    let sortArr = [...this.state.contacts];
+    sortArr.sort((a,b) => a.popularity - b.popularity);
+    this.setState({
+      contacts: sortArr,
+    });
+  };
+
   render() {
     return (
       <div>
         <h1>IronContacts</h1>
         <button onClick={this.add}>Add Random Contact</button>
+        <button onClick={this.sortName}>Sort by name</button>
+        <button onClick={this.sortPop}>Sort by popularity</button>
         <table className="Contacts">
           <thead>
             <tr>
