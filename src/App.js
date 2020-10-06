@@ -39,7 +39,6 @@ class Contacts extends React.Component {
 
   removeContact = (i) => {
     console.log(i);
-    let copy = [...this.state.displayedContacts];
     this.setState({
       displayedContacts: this.state.displayedContacts.filter(
         (contact, index) => {
