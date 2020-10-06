@@ -17,11 +17,40 @@ class App extends Component {
     console.log(randomContact);
   };
 
+  sortByName = () => {
+    this.setState({
+      newContacts: this.state.newContacts.sort((c1, c2) => {
+        return c1.name.localeCompare(c2.name);
+      }),
+    });
+  };
+
+  sortByPopularity = () => {
+    this.setState({
+      newContacts: this.state.newContacts.sort((c1, c2) => {
+        if (c1.popularity < c2.popularity) {
+          return 1;
+        } else if (c1.popularity > c2.popularity) {
+          return -1;
+        }
+      }),
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Iron Contacts</h1>
-        <button onClick={() => this.addNewContact()}>Add random contact</button>
+        <div className="button">
+          <button onClick={() => this.addNewContact()}>
+            Add random contact
+          </button>
+          <button onClick={() => this.sortByName()}>Sort by Name</button>
+          <button onClick={() => this.sortByPopularity()}>
+            Sort by Popularity
+          </button>
+        </div>
+
         <div className="FirstFive">
           <table>
             <thead>

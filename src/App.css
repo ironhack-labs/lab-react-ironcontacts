@@ -9,3 +9,12 @@
 .FirstFive tbody td img {
   width: 100px;
 }
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%%;
+}
+.button button {
+  margin: 10px;
+}
