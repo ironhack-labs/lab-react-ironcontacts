@@ -62,6 +62,10 @@ button {
   border: none;
 }
 
+.removeBtn span {
+  transition: 0.2s;
+}
+
 .removeBtn:hover span {
   font-size: large;
 }

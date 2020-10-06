@@ -69,7 +69,7 @@ export default class App extends Component {
                       <td><img src={contact.pictureUrl} width="50px" alt={`pic of ${contact.name}`}/></td>
                       <td>{contact.name}</td>
                       <td>{contact.popularity.toFixed(2)}</td>
-                      <td><button className="removeBtn" onClick={this.handleRemove} id={contact.id}><span role="img">🗑️</span></button></td>
+                      <td><button className="removeBtn" onClick={this.handleRemove} id={contact.id}><span role="img" aria-label="trash-bin">🗑️</span></button></td>
                     </tr>
                   )
                 })
