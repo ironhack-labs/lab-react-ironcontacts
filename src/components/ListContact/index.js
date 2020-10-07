@@ -1,5 +1,4 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
 import "./list-contact.css";
 
 /*
@@ -35,7 +34,7 @@ class ListContact extends React.Component {
     findRandomPick = (random) => {
         console.log(random);
         const ind = this.state.list.find((ind, index, arr) => {
-            if(index === random ) {
+            if (index === random) {
                 this.state.list.splice(index, 1);
                 return ind;
             }
@@ -54,9 +53,7 @@ class ListContact extends React.Component {
         const newShortList = [...this.state.shortList];
         newShortList.push(randomPick);
 
-        this.setState({
-            shortList: newShortList
-        });
+        this.setState({shortList: newShortList});
     }
 
     sortByName = (e) => {
@@ -65,15 +62,13 @@ class ListContact extends React.Component {
 
         const newShortList = [...this.state.shortList];
         console.log(newShortList);
-        newShortList.sort((a,b) => {
+        newShortList.sort((a, b) => {
             return a["name"].localeCompare(b["name"]);
         })
 
         console.log(newShortList);
 
-        this.setState({
-            shortList: newShortList,
-        })
+        this.setState({shortList: newShortList})
 
     }
 
@@ -83,18 +78,32 @@ class ListContact extends React.Component {
 
         const newShortList = [...this.state.shortList];
 
-        newShortList.sort((a,b) => {
-            return b["popularity"]-a["popularity"];
+        newShortList.sort((a, b) => {
+            return b["popularity"] - a["popularity"];
         })
 
         console.log(newShortList);
 
-        this.setState({
-            shortList: newShortList,
-        })
+        this.setState({shortList: newShortList})
+    }
 
-        
-        
+    deleteContact = (e, num) => {
+        console.log('deleteContact');
+        e.preventDefault();
+
+        console.log(num);
+        const newShortList = [...this.state.shortList];
+        console.log(newShortList);
+
+        const filtredList = newShortList.filter((contact, index) => {
+            if (index !== num) {
+                return contact;
+            };
+        });
+        console.log(filtredList);
+
+        this.setState({shortList: filtredList});
+
     }
 
     render() {
@@ -113,37 +122,51 @@ class ListContact extends React.Component {
                         Sort by popularity
                     </button>
                 </div>
-                
+
                 <table>
                     <thead>
                         <tr>
                             <th>Picture</th>
                             <th>Name</th>
-                            <th>Popularity</th> 
+                            <th>Popularity</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {this.state.shortList.map((individu, index) => (
-                            <tr 
-                                key={index}
-                                className = "individu"
-                            >
-                                <td> 
-                                    <img 
-                                        src={individu.pictureUrl}
-                                        alt = {individu.name}
-                                        className="individu-img"  
-                                    />
+                    <tbody> {
+                        this.state.shortList.map((individu, index) => (
+                            <tr key={index}
+                                className="individu">
+                                <td>
+                                    <img src={
+                                            individu.pictureUrl
+                                        }
+                                        alt={
+                                            individu.name
+                                        }
+                                        className="individu-img"/>
                                 </td>
-                                <td className = "individu-name">{individu.name}</td>
-                                <td className = "individu-popularity">
-                                    {individu.popularity}
+                                <td className="individu-name">
+                                    {
+                                    individu.name
+                                } </td>
+                                <td className="individu-popularity">
+                                    {
+                                    individu.popularity
+                                } </td>
+                                <td>
+                                    <button onClick={
+                                        (e) => {
+                                            this.deleteContact(e, index)
+                                        }
+                                    }>
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
-                        ))}
-                    </tbody>
+                        ))
+                    } </tbody>
                 </table>
-            </div> 
+            </div>
         );
     };
 };

@@ -1,0 +1,142 @@
+.list-contact .individu-img {
+    width: 100%;
+    height: auto;
+}
+
+.list-contact .table th,
+.table td {
+    padding: 5px 15px;
+    text-align: left;
+}
+
+.list-contact .table {
+    margin-top: 40px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.list-contact .table thead {
+    background-color: #ccc;
+}
+
+.list-contact .table .individu-img {
+    height: 50px;
+    width: 100%;
+}
+
+.list-contact .table td {
+    border-bottom: 1px solid #333;
+}
+
+.list-contact .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.list-contact .table tr:hover {
+    background-color: #ddd;
+}
+
+.nav {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.navbar {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-text {
+    font-size: 16px;
+    color: white;
+}
+
+.navbar .btn.btn-nav {
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0;
+    transition: all 0.3s ease-in;
+}
+
+.navbar .btn.btn-nav:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in;
+}
+
+.navbar .btn-toggle:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in;
+}
+
+.navbar .btn-toggle:focus,
+.navbar .btn.btn-nav:focus {
+    outline: none;
+}
+
+.navbar .btn-toggle {
+    background-color: transparent;
+    color: white;
+    border-radius: 0;
+}
+
+
+
+.grid.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+
+    list-style: none;
+
+}
+
+.grid.list .visu {
+    max-height: 27vh;
+    max-width: 25vw;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.45);
+    overflow: hidden;
+}
+
+.list-contact .individu-img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.grid.list .item {
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 200px;
+    border-radius: 5px;
+    background: linear-gradient(-190deg, rgba(255, 160, 122, 1), rgb(158 29 29));
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.grid.list .item .action-btn {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.grid.list .item .action-btn .btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px  rgba(0,0,0,0.5);
+    font-size: 12px;
+}
+
+.grid.list .item .action-btn .btn:hover {
+    cursor: pointer;
+}
+

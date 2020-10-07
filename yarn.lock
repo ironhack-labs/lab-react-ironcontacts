@@ -2415,6 +2415,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-icons@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.0.0.tgz#90ed08c9503cef95184972420fbea7b09780bd83"
+  integrity sha512-PaQm3VtSqbUnWuyqGmFJG5iF9UMieDuk8raPOmKOtKeyWyiVshgLoKa+9EWGolGU/nvyBLEBWhZoQqhu9ccNBg==
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -8437,6 +8442,13 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-bootstrap-icons@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-icons/-/react-bootstrap-icons-1.0.0.tgz#f756a971b7868267e34226d170bc492a4e743de6"
+  integrity sha512-HPSodUCASHJJmSrUo8/E9ReWLQBCYayGCufV+aYR96yXQNHfrUCXOrPOvbcrouutKJfGMs01JOHrLto9zFS0Kw==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
@@ -8481,6 +8493,13 @@ react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
+
+react-icons@^3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.11.0.tgz#2ca2903dfab8268ca18ebd8cc2e879921ec3b254"
+  integrity sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==
+  dependencies:
+    camelcase "^5.0.0"
 
 react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"
