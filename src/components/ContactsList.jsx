@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import Contact from './Contact';
 
-class ListContacts extends React.Component {
+class ContactsList extends React.Component {
   state = {
     visibleContacts: this.props.contacts.slice(0, 5),
     storedContacts: this.props.contacts.slice(5, this.props.contacts.length),
@@ -19,7 +19,7 @@ class ListContacts extends React.Component {
           return {
             visibleContacts: [newContact, ...oldState.visibleContacts],
             storedContacts: oldState.storedContacts.filter(
-              (hideContact) => hideContact !== newContact
+              (hideContact) => hideContact?.id !== newContact?.id
             ),
           };
         })
@@ -38,7 +38,7 @@ class ListContacts extends React.Component {
     this.setState((oldState) => {
       return {
         visibleContacts: oldState.visibleContacts.filter(
-          (contact) => contact !== toDelete
+          (contact) => contact?.id !== toDelete?.id
         ),
       };
     });
@@ -88,4 +88,4 @@ class ListContacts extends React.Component {
   }
 }
 
-export default ListContacts;
+export default ContactsList;
