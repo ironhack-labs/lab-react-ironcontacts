@@ -40,6 +40,12 @@ class ContactsList extends React.Component {
         visibleContacts: oldState.visibleContacts.filter(
           (contact) => contact?.id !== toDelete?.id
         ),
+        storedContacts: [
+          toDelete,
+          ...oldState.storedContacts.filter(
+            (contact) => contact?.id !== toDelete?.id
+          ),
+        ],
       };
     });
   };
