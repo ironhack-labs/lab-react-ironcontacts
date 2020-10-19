@@ -1,0 +1,8 @@
+.contact-picture {
+  width: 70px;
+  height: auto;
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
