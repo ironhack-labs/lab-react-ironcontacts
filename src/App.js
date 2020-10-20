@@ -1,42 +1,73 @@
-import React from 'react';
+//import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
 
-function App() {
-  const firstFiveContacts = contacts.slice(0, 5);
-  console.log(firstFiveContacts);
+export default class App extends Component {
+  state = {
+    contacts: contacts,
+    randomContact: []
+  };
 
-  return (
-    <div className="App">
-      <div>
-        <h3>IronContacts</h3>
-        <table>
-          <td>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </td>
-          {firstFiveContacts.map((contact) => 
-         // return
-          <tr>
-          <td><img src={contact.pictureUrl} alt=""/></td>
-            <td>{contact.name}</td>
-            
-            <td>{contact.popularity}</td>
-          </tr>
-          )}
+  addContact = (min, max) => {
+    const randomNum = Math.floor(Math.random() * max) + min  
+    const randomContact = this.state.contacts[randomNum];
+    
+     this.setState({
+        ...this.state,
+        randomContact: [
+          ...this.state.randomContact,
+          randomContact
+        ]
+     }) 
+  }
+  
+  render() {
 
-        </table>
+    const firstFiveContacts = this.state.contacts.slice(0, 5);
+    /* this.setState({
+      ...this.state,
+      fiveContacts: firstFiveContacts
+    }) */
+    console.log(this.state)
+    const max = this.state.contacts.length - 1
+    const min = 5
+    console.log(max); 
+    return (
+      <div className="App">
+        <div>
+          <h3>IronContacts</h3>
+          <button onClick={() => this.addContact(min, max)}>Add Random Contact</button>
+          <table>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {firstFiveContacts.map((contact) => (
+                // return
+                <tr key={contact.id}>
+                  <td>
+                    <img src={contact.pictureUrl} alt="" />
+                  </td>
+                  <td>{contact.name}</td>
+
+                  <td>{contact.popularity}</td>
+                </tr>
+              ))}
+              {this.state.randomContact.map(item => (
+                item.name
+              )
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default App;
-
-{
-  /* <div>
-          
-           </div> */
-}
