@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function DeleteButton( {onHandler}  ) {
     return (
-        <div>
+        <div >
              <button onClick={onHandler}>Delete</button>
         </div>
     )

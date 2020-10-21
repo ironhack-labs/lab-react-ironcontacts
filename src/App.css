@@ -5,3 +5,9 @@
 .App img {
   width: 50px;
 }
+
+
+.App table {
+  margin: 50px auto;
+  width: 50vw;
+}
