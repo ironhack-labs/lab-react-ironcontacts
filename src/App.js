@@ -60,7 +60,14 @@ export default class App extends Component {
                 </tr>
               ))}
               {this.state.randomContact.map(item => (
-                item.name
+                <tr key={item.id}>
+                  <td>
+                    <img src={item.pictureUrl} alt="" />
+                  </td>
+                  <td>{item.name}</td>
+
+                  <td>{item.popularity}</td>
+                </tr>
               )
               )}
             </tbody>
