@@ -1,54 +1,55 @@
 import React, { Component } from 'react'
-import contacts from './contacts.json'
+import contactsFromJson from './contacts.json'
 
 export default class App extends Component {
   state = {
-    contacts: contacts,
-    newContacts: contacts.slice(0,5),
+    contacts: contactsFromJson.slice(0,5)
   }
 
-  addRandomContact = (min,max) => {
-    const randomNumber = Math.floor(Math.random() *(max - min + 1) + min)
-    const randomContact =  this.state.contacts[randomNumber]
-    // console.log(randomContact)
-    this.setState({newContacts: this.state.newContacts.concat(randomContact)})
+  addRandomContact = () => {
+    const randomNumber = Math.floor(Math.random() * ((contactsFromJson.length - 1) - this.state.contacts.length +1)+ this.state.contacts.length)
+    const randomContact = contactsFromJson[randomNumber]
+
+    this.state.contacts.forEach(contact => {
+      if(!this.state.contacts.includes(randomContact)) {
+        this.setState({
+          contacts: [...this.state.contacts, randomContact] // ...spread operator is copying the array 
+        })
+      } else {
+        console.log('Contact is already present')
+      }
+    })
   }
 
   sortByName = () => {
-    const nameSorted = this.state.newContacts.sort((a,b) => {
-      if (a.name < b.name) {
-        return -1
-      } if(a.name > b.name) {
-        return 1
-      }
-      return 0
-      }
-    )
-    // console.log(nameSorted)
-    this.setState({newContacts: nameSorted})
+    const contactsSortedByName = this.state.contacts.sort((a,b) =>a.name.localeCompare(b.name))
+    this.setState({
+      contacts: contactsSortedByName
+    })
   }
 
   sortByPopularity = () => {
-    const popularitySorted = this.state.newContacts.sort((a,b) => b.popularity - a.popularity)
-    // console.log(popularitySorted)
-    this.setState({newContacts: popularitySorted})
+    const contactsSortedByPopularity = this.state.contacts.sort((a,b) => b.popularity - a.popularity)
+    this.setState({
+      contacts: contactsSortedByPopularity
+    })
   }
 
   deleteContact = (contactId) => {
-    const contactsExclDeletedContact = this.state.newContacts.filter(contact => contact.id !== contactId)
-    // console.log(contactsExclDeletedContact)
-    this.setState({newContacts: contactsExclDeletedContact})
+    const filteredContacts = this.state.contacts.filter(contact => {
+      return contact.id !== contactId
+    })
+    this.setState({
+      contacts: filteredContacts
+    })
   }
 
   render() {
-    const min = this.state.newContacts.length
-    const max = this.state.contacts.length-1
-    // console.log(min)
-    // console.log(max)
+
     return (
       <div>
         <h1>IronContacts</h1>
-        <button onClick={() => this.addRandomContact(min, max)}>Add Random Contact</button>
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort By Name</button>
         <button onClick={this.sortByPopularity}>Sort By Popularity</button>
         <table>
@@ -60,7 +61,7 @@ export default class App extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.newContacts.map((contact) => {
+            {this.state.contacts.map((contact) => {
               return (
                 <tr key={contact.id}>
                   <td><img src={contact.pictureUrl} alt=""></img></td>
