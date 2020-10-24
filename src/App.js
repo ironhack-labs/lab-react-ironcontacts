@@ -17,7 +17,7 @@ class App extends React.Component {
 
   // select random contact from contacts array
   newContact = () => {
-    return contacts[Math.floor(Math.random()*contacts.length)]
+    return contacts[Math.floor(Math.random()*contacts.length -1) + this.state.contacts.length]
   }
 
   // check if random contact is unique and if so add to set state
@@ -82,8 +82,9 @@ class App extends React.Component {
             <th>Action</th>
           </tr>
         </thead>
-
-        {this.state.contacts.map(contact => 
+ {}
+        {this.state.contacts.map(contact => {
+          return(
             <tbody>
               <tr key={contact.id}>
                 <td > <img src={contact.pictureUrl} alt={contact.name}/> </td>
@@ -93,6 +94,11 @@ class App extends React.Component {
                 <td> <DeleteButton onHandler={()=> this.deleteContact(contact.id)}/> </td>
               </tr>
             </tbody>
+
+          )
+        }
+        
+
           )}
       </table>
     </div>
