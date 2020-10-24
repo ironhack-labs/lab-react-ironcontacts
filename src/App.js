@@ -35,6 +35,25 @@ export default class App extends Component {
     });
   };
 
+  sortByPopularity = () => {
+    const sortPopularity = this.state.contactsOnPage.sort((a, b) => {
+      return b.popularity - a.popularity
+    })
+    this.setState({
+      contactsOnPage: sortPopularity
+    })
+  }
+
+  deleteContact = (contactId) => {
+    console.log(contactId)
+    const filterRemovedContact = this.state.contactsOnPage.filter(item => {
+      return contactId !== item.id
+    })
+    this.setState({
+      contactsOnPage: filterRemovedContact
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -46,7 +65,7 @@ export default class App extends Component {
           <button onClick={() => this.nameSort()}>
             Sort by name
           </button>
-          <button>Sort by popularity</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
           <table>
             <thead>
               <tr>
@@ -64,6 +83,7 @@ export default class App extends Component {
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
+                  <td><button onClick={() => this.deleteContact(contact.id)}>Remove this contact</button></td>
                 </tr>
               ))}
             </tbody>
