@@ -19,6 +19,7 @@ class App extends Component {
     
     let randomCelebrity = contacts[Math.floor(Math.random() * contacts.length)]
     newCelebrities.push(randomCelebrity)
+  
 
     this.setState({
         celebrities: newCelebrities
@@ -28,9 +29,9 @@ class App extends Component {
 
 
   handleSort = () => {  
-    let cloneCelebrities =  JSON.parse(JSON.stringify(this.state.celebrities))
+    let sortedCelebrities =  JSON.parse(JSON.stringify(this.state.celebrities))
 
-          cloneCelebrities.sort((a,b) => {
+          sortedCelebrities.sort((a,b) => {
             if(a.name > b.name) {
                 return 1;
             }
@@ -43,7 +44,7 @@ class App extends Component {
         })
 
     this.setState({
-        celebrities: cloneCelebrities
+        celebrities: sortedCelebrities
     })
     
   }
