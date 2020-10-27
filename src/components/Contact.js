@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import contactsData from '../contacts.json';
-
+import uuid from 'react-uuid'
 export default function Contact() {
   const [contacts, setContacts] = useState(contactsData.slice(0, 5));
 
@@ -73,7 +73,7 @@ export default function Contact() {
           </thead>
           <tbody>
             {contacts.map((elem,index) => (
-              <tr key={index}>
+              <tr key={uuid()}>
                 <td>
                   <img style={{ width: '100px' }} src={elem.pictureUrl}></img>
                 </td>
