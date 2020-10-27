@@ -1,3 +1,7 @@
+body {
+  background-image: url("./Styling.png");
+}
+
 .App {
   text-align: center;
 }
