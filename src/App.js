@@ -1,77 +1,73 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
+console.log('Total contacts:', contacts.length);
 
-class App extends React.Component  {
+class App extends React.Component {
 
   state = {
-    contacts: contacts.slice(0,4),
+    contactsShown: contacts.slice(0, 5),
+    contactsHidden: contacts.slice(5, contacts.length),
+    addButton: 'Add Random Contact',
   };
 
   getRandomContact = () => {
-
-    const randomNum = Math.floor(Math.random()*contacts.length) + 5;
-
-    // const contactJsx = <tr key={`${contacts[randomNum].id}`}>
-    //                       <td><img src={contacts[randomNum].pictureUrl} alt={contacts[randomNum].name} /></td>
-    //                       <td>{contacts[randomNum].name}</td>
-    //                       <td>{contacts[randomNum].popularity.toFixed(2)}</td>
-    //                     </tr>
-    //firstFive.push(contactJsx);
-    this.state.contacts.push(contacts[randomNum]);
-
-    this.setState({contacts: this.state.contacts});
+    if (this.state.contactsHidden.length > 0) {
+      const randomNum = Math.floor(Math.random() * this.state.contactsHidden.length);
+      this.state.contactsShown.push(this.state.contactsHidden[randomNum]);
+      this.state.contactsHidden.splice(randomNum, 1);
+      this.setState({ contactsShown: this.state.contactsShown });
+    } else {
+      this.setState({ addButton: 'No more available contacts' });
+    };
   };
 
   displayContacts = () => {
-    //console.log(this.state.users)
-    const contactJsx = this.state.contacts.map(contact => {
+    const contactJsx = this.state.contactsShown.map(contact => {
       return (
         <tr key={`${contact.id}`}>
           <td><img src={contact.pictureUrl} alt={contact.name} /></td>
           <td>{contact.name}</td>
           <td>{contact.popularity.toFixed(2)}</td>
+          <td><button className="delete-button" onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
         </tr>
       );
     });
     return contactJsx;
-}
-  // let firstFive = [];
-  // for (let i=0; i <= 4 ; i++){
-  //   const contactJsx = <tr key={`${contacts[i].id}`}>
-  //                         <td><img src={contacts[i].pictureUrl} alt={contacts[i].name} /></td>
-  //                         <td>{contacts[i].name}</td>
-  //                         <td>{contacts[i].popularity.toFixed(2)}</td>
-  //                       </tr>
-  //   firstFive.push(contactJsx);
-  // };
+  };
 
-  //console.log(firstFive);
   sortByName = () => {
-    this.state.contacts.sort((user1, user2) => user1.name.localeCompare(user2.name))
-    this.setState({contacts: this.state.contacts});
+    this.state.contactsShown.sort((user1, user2) => user1.name.localeCompare(user2.name))
+    this.setState({ contactsShown: this.state.contactsShown });
   };
 
-  //console.log(firstFive);
   sortByPop = () => {
-    this.state.contacts.sort((user1, user2) => user2.popularity - user1.popularity)
-    this.setState({contacts: this.state.contacts});
+    this.state.contactsShown.sort((user1, user2) => user2.popularity - user1.popularity)
+    this.setState({ contactsShown: this.state.contactsShown });
   };
 
-  render (){
+  deleteContact = id => {
+    const idxToRemove = this.state.contactsShown.findIndex(contact => contact.id === id);
+    this.state.contactsHidden.push(this.state.contactsShown[idxToRemove]);
+    this.state.contactsShown.splice(idxToRemove, 1);
+    this.setState({ contactsShown: this.state.contactsShown });
+  };
+
+  render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={this.getRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPop}>Sort by popularity</button>
+        <h2><strong>Shown contacts: </strong>{this.state.contactsShown.length} | <strong>Hidden contacts: </strong>{this.state.contactsHidden.length}</h2>
+        <button className="add-button" onClick={this.getRandomContact}>{this.state.addButton}</button>
+        <button className="sortn-button" onClick={this.sortByName}>Sort by name</button>
+        <button className="sortp-button" onClick={this.sortByPop}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
