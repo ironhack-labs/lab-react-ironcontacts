@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bulma/css/bulma.css'
 import contacts from './contacts.json';
 
 class App extends React.Component {
@@ -14,13 +15,13 @@ class App extends React.Component {
     if (this.state.displaySorted === 0) {
       const contactsToDisplay = this.state.displayedContacts.map(idx => {
         return (
-          <tr key={this.state.contacts[idx].id}>
-            <td>
+          <tr key={this.state.contacts[idx].id} className="tr">
+            <td className="td">
               <img src={this.state.contacts[idx].pictureUrl} alt="contact"/>
             </td>
-            <td>{this.state.contacts[idx].name}</td>
-            <td>{this.state.contacts[idx].popularity.toFixed(2)}</td>
-            <td><button onClick={() => this.deleteContact(this.state.contacts[idx].id)}>Delete</button></td>
+            <td className="td align-text">{this.state.contacts[idx].name}</td>
+            <td className="td align-text">{this.state.contacts[idx].popularity.toFixed(2)}</td>
+            <td className="td"><button className="button is-danger" onClick={() => this.deleteContact(this.state.contacts[idx].id)}>Delete</button></td>
           </tr>
         );
       });
@@ -30,13 +31,13 @@ class App extends React.Component {
     .sort((a, b) => a.name.localeCompare(b.name))
     .map(contact => {
       return (
-        <tr key={contact.id}>
-          <td>
+        <tr key={contact.id} className="tr">
+          <td className="td">
             <img src={contact.pictureUrl} alt="contact"/>
           </td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity.toFixed(2)}</td>
-          <td><button onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
+          <td className="td align-text">{contact.name}</td>
+          <td className="td align-text">{contact.popularity.toFixed(2)}</td>
+          <td className="td"><button className="button is-danger" onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
         </tr>
       )
     });
@@ -47,13 +48,13 @@ class App extends React.Component {
       .reverse()
       .map(contact => {
         return (
-          <tr key={contact.id}>
-          <td>
+          <tr key={contact.id} className="tr">
+          <td className="td">
             <img src={contact.pictureUrl} alt="contact"/>
           </td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity.toFixed(2)}</td>
-          <td><button onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
+          <td className="td align-text">{contact.name}</td>
+          <td className="td align-text">{contact.popularity.toFixed(2)}</td>
+          <td className="td"><button className="button is-danger" onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
         </tr>
         )
       });
@@ -92,20 +93,20 @@ class App extends React.Component {
       <div className="app">
       <h1>IronContacts</h1>
       <div className="buttons-container">
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortContactsName}>Sort By Name</button>
-        <button onClick={this.sortContactsPopulatiry}>Sort By Popularity</button>
+        <button className="button" onClick={this.addRandomContact}>Add Random Contact</button>
+        <button className="button" onClick={this.sortContactsName}>Sort By Name</button>
+        <button className="button" onClick={this.sortContactsPopulatiry}>Sort By Popularity</button>
       </div>
       <table className="table">
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action</th>
+        <thead className="thead">
+          <tr className="tr">
+            <th className="th">Picture</th>
+            <th className="th">Name</th>
+            <th className="th">Popularity</th>
+            <th className="th">Action</th>
           </tr>
         </thead>
-        <tbody>{this.displayContacts()}</tbody>
+        <tbody className="tbody">{this.displayContacts()}</tbody>
       </table>
       </div>
     );
