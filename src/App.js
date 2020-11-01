@@ -10,7 +10,7 @@ class App extends React.Component {
     displaySorted: 0,
   };
 
-  displayContacts() {
+  displayContacts = () => {
     if (this.state.displaySorted === 0) {
       const contactsToDisplay = this.state.displayedContacts.map(idx => {
         return (
@@ -20,6 +20,7 @@ class App extends React.Component {
             </td>
             <td>{this.state.contacts[idx].name}</td>
             <td>{this.state.contacts[idx].popularity.toFixed(2)}</td>
+            <td><button onClick={() => this.deleteContact(this.state.contacts[idx].id)}>Delete</button></td>
           </tr>
         );
       });
@@ -35,6 +36,7 @@ class App extends React.Component {
           </td>
           <td>{contact.name}</td>
           <td>{contact.popularity.toFixed(2)}</td>
+          <td><button onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
         </tr>
       )
     });
@@ -51,6 +53,7 @@ class App extends React.Component {
           </td>
           <td>{contact.name}</td>
           <td>{contact.popularity.toFixed(2)}</td>
+          <td><button onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
         </tr>
         )
       });
@@ -76,7 +79,12 @@ class App extends React.Component {
 
   sortContactsPopulatiry = () => {
     this.state.displaySorted !== 2 ? this.setState({displaySorted: 2}) : this.setState({displaySorted: 0});
-    console.log(this.state.displaySorted)
+  }
+
+  deleteContact = (id) => {
+    const currentDisplayedIndexes = JSON.parse(JSON.stringify(this.state.displayedContacts)).map(idx => this.state.contacts[idx].id);
+    currentDisplayedIndexes.splice(currentDisplayedIndexes.indexOf(id), 1);
+    this.setState({displayedContacts: currentDisplayedIndexes.map(curr => this.state.contacts.map(c => c.id).indexOf(curr))});
   }
 
   render() {
@@ -92,6 +100,7 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>{this.displayContacts()}</tbody>
