@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +42,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.table thead {
+  align-self: center;
+}
+
+.table thead th {
+  padding: 0 30px;
+}
+
+.table img {
+  width: 100px;
+}
+
+.table td {
+  padding: 5px 20px;
+}
+
+.buttons-container button {
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.buttons-container {
+  margin: 5px 0 15px 0;
 }

@@ -91,9 +91,11 @@ class App extends React.Component {
     return (
       <div className="app">
       <h1>IronContacts</h1>
-      <button onClick={this.addRandomContact}>Add Random Contact</button>
-      <button onClick={this.sortContactsName}>Sort By Name</button>
-      <button onClick={this.sortContactsPopulatiry}>Sort By Popularity</button>
+      <div className="buttons-container">
+        <button onClick={this.addRandomContact}>Add Random Contact</button>
+        <button onClick={this.sortContactsName}>Sort By Name</button>
+        <button onClick={this.sortContactsPopulatiry}>Sort By Popularity</button>
+      </div>
       <table className="table">
         <thead>
           <tr>
