@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
 import contacts from './contacts.json';
-import ActorsCard from './components/ActorsCard';
 import './App.css';
 
 
-// function compareValues(name, order='asc'){
-//   return function innerSort(a, b){
-//     if (!a.hasOwnProperty(name) || !b.hasOwnProperty(name)){
-//       return 0;
-//     }
-//   }
-// }
+
 class App extends Component {
   state= {
     contacts: contacts.slice(0, 5)
@@ -26,14 +19,34 @@ class App extends Component {
       contacts: newContacts
     })
   }; 
+
   sortActorName = () => {
-    const actName = contacts.sort();
-    
-    this.setState()
+    const actName = [...this.state.contacts];
+    actName.sort(function(a,b){
+     if (a.name<b.name) {return -1}
+     if (a.name>b.name) {return 1}
+     return 0; 
+    })
+    this.setState({
+      contacts: actName
+    })
   }
 
   sortActorPop = () => {
-    this.setState()
+    const actPop = [...this.state.contacts];
+    actPop.sort(function(a,b){
+      if (a.popularity>b.popularity) {return -1}
+      if (b.popularity<b.popularity) {return 1}
+      return 0;
+    })
+    this.setState({
+      contacts: actPop
+    })
+  }
+
+  delete(id){
+    let filtered = this.state.contacts.filter(contact=> contact.id !== id)
+    this.setState({contacts:[...filtered]})
   }
 
   render (){
@@ -45,23 +58,23 @@ class App extends Component {
       <button onClick={()=> this.sortActorPop()}>Sort by Popularity</button>
 
       <table>
-        <thead>
+        
           <tr>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
-        </thead>
-        <tbody>
-          {this.state.contacts.map(oneActor => {
-            return (
-              <ActorsCard
-                key={oneActor.id}
-                {...oneActor}
-              />    
-            )
-          })} 
-        </tbody>
+          {this.state.contacts.map(oneActor => 
+            
+              <tr key={oneActor.id}>
+                <td><img className="image" src={oneActor.pictureUrl} alt=""/></td>
+                <td>{oneActor.name}</td>
+                <td>{oneActor.popularity}</td>
+                <td><button onClick={()=> this.delete(oneActor.id)}>Delete</button></td>
+            </tr>   
+          )} 
+        
       </table>        
     </div>
   )
