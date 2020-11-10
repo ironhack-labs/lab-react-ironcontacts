@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+.App img{
+  height: 200px;
+}
+
+.flex{
+  display: flex;
+}
