@@ -1,38 +1,78 @@
 .App {
+  margin: 0;
+  padding: 0;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #282c34;
-  min-height: 100vh;
+}
+
+.app_hero_container h1 {
+  margin: 0 !important;
+  padding-top: 2rem;
+  color: white;
+  font-size: 3rem;
+}
+
+.app_hero_container h2 {
+  padding-top: 1rem;
+  color: white;
+  font-size: 2rem;
+}
+
+hr {
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.btn_container {
+  margin-bottom: 5rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.btn_container button {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 15rem;
+  height: 2rem;
+  background-color: #6f7277;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.contacts_container {
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cards {
+  border: 1px solid red;
+}
+
+.delete-button {
+  border: 1px solid white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 10rem;
+  height: 2rem;
+  background-color: #7a2634;
+  color: white;
+}
+
+.add-button {
+  border: 1px solid white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 15rem;
+  height: 2rem;
+  background-color: #6f7277;
+  color: white;
+  margin: 2rem 0;
 }
