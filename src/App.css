@@ -38,5 +38,17 @@
 }
 
 .btn.btn-primary {
+  margin-left: 10px;
+}
+
+.btn.btn-primary, .btn.btn-danger {
   font-size: 11px;
+}
+
+.btn.btn-danger {
+  font-size: 1rem;
+}
+
+p {
+  font-size:1.5rem;
 }
