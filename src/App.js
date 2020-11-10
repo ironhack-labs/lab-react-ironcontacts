@@ -58,9 +58,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <button onClick={this.clickHandler}>Add Random Contact</button>
-      <button onClick={this.sortByName}>Sort me!</button>
-      <button onClick={this.sortByPopularity}>Sort me!</button>
+      <div className="caja">
+      <button className="but" onClick={this.clickHandler}><p>Add Random Contact</p></button>
+      <button className="but"  onClick={this.sortByName}><p>Sort me!</p></button>
+      <button className="but"  onClick={this.sortByPopularity}><p>Sort me!</p></button>
+      </div>
         <h1>IRON CONTACTS</h1>
         {this.state.contacts.map((element, index) => {
           return (

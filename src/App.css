@@ -40,3 +40,40 @@
 .image{
   width: 30%;
 }
+.btndelete{
+  width: 10vh;
+  height: 5vh;
+  background-color: rgb(193, 47, 45);
+  color: #fff;
+  border-radius: 10px;
+}
+
+
+.popu > p{
+  text-align: center;
+  font-size: 2em;
+  
+}
+.name > p{
+  margin-bottom: -2%;
+  font-size: 3em;
+}
+
+.caja{
+  display: flex;
+  justify-content: space-around;
+}
+.but{
+  margin: 3%;
+  width: 20vh;
+  height: 10vh;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+
+}
+.but, p{
+  font-size: 1rem;
+  text-align: center;
+}

@@ -10,17 +10,17 @@ function ActorCard(props) {
             <td>
               <img className="image" src={props.img}/>
             </td>
-            <td>
+            <td className="name">
               <p>{props.name}</p>
-            </td>
-            <td>
+              <td className="popu">
               <p>{props.popularity}</p>
+            </td> 
             </td>
-            <td>
-            <button onClick={props.delete}>Delet me</button>
-            </td>
+            
           </tr>
+         
         </tbody>
+        <button className="btndelete" onClick={props.delete}>Delet me</button>
       </table>
     </div>
   );
