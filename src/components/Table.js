@@ -12,7 +12,17 @@ export default function Table(){
   let [nameSort, setNameSort] = useState(false)
   let [popSort, setPopSort] = useState(false)
 
-  
+  const deleteContact = id => setContacts(
+    contactList.filter(el => el.id !== id)
+  )
+
+  /*PREGUNTA: 
+  Debe haber otra manera de hacer esto sin tener que usar el 
+  spread operator cada vaz, verdad? Me parece muy ineficiente 
+  hacerlo cada vez. Me gustaria tener algo mas limpio como el 
+  deleteContact de arriba
+  */
+
   const addContact = () => {
     let addArray = [...contactList]
     let random = Math.floor(Math.random()*(contacts.length-num)+num)
@@ -42,9 +52,12 @@ export default function Table(){
     setContacts(contactList=sortPopArray)
   }
   
-  const deleteContact = id => setContacts(
-    contactList.filter(el => el.id !== id)
-  )
+  /*
+  PREGUNTA:
+  En los primeros dos onClicks de abajo, intente usar algo similar 
+  al onClick handleDelete de abajo, pero no me estaba funcionando. 
+  Que es la diferencia entre los dos formatos?
+  */
 
   return (
     <div>
