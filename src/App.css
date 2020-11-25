@@ -1,10 +1,29 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80vw;
+}
+
+table img {
+  height: 100px;
+}
+
+tr, td, th {
+  border: 2px solid black;
+  margin: 0;
+  padding: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
