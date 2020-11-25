@@ -19,8 +19,8 @@ import React, { useState } from 'react'
             contactos.push(newContact)
             //contactos.push(<Contact key={newContact.id} name={newContact.name} pictureUrl={newContact.name} popularity={newContact.popularity}/>);
             console.log(newContact)
-            console.log(contactos)//Sí hace push pero no hace render del nuevo elemento
-            setContactos(contactos)
+            console.log(contactos)
+            setContactos([...contactos], contactos[random])
   
         }}>Add a RandomContact</button>
 
@@ -29,7 +29,7 @@ import React, { useState } from 'react'
                 return (a.name).toString().localeCompare(b.name)
             })
             console.log(contactos)
-            setContactos(contactos)//No hace render de los contactos ya ordenados por nombre
+            setContactos([...contactos])
   
         }}>Sort By Name</button>
 
@@ -38,7 +38,10 @@ import React, { useState } from 'react'
                 return b.popularity - a.popularity
             })
             console.log(contactos)
-            setContactos(contactos)//No hace render de los contactos ya ordenados por popularidad
+            setContactos([...contactos])
+
+        //setContactos([...data], rest[randomIndex])
+        //rest.splice(randomIndex,1)
   
         }}>Sort By popularity</button>
 
