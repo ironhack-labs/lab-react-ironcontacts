@@ -38,6 +38,18 @@ class App extends React.Component {
     })
   };
 
+  delete(contactId) {
+    const updatedList = this.state.shortList
+    const contactIndex = updatedList.findIndex((item) => item.id === contactId)
+    updatedList.splice(contactIndex, 1)
+    console.log(updatedList)
+
+    this.setState({
+      shortList: updatedList
+    })
+    
+  };
+
   render() {
         return(
         <div className="App">
@@ -50,6 +62,7 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
 
           {this.state.shortList.map((item) => {
@@ -58,6 +71,7 @@ class App extends React.Component {
               <td><img src={item.pictureUrl} alt="" height="150" /></td>
               <td>{item.name}</td>
               <td>{Math.round(item.popularity * 100) / 100}</td>
+              <td><button onClick={() => this.delete(item.id)}>Delete</button></td>
             </tr>
           )
           })}
