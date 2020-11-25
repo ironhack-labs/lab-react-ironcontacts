@@ -20,9 +20,9 @@ function ShowContacts() {
   };
 
   const sortNameHandler = () => {
-    const contactCopy = [...contacts];
+    let contactCopy = [...contacts];
 
-    contactCopy.sort(function (a, b) {
+    contactCopy = contactCopy.sort(function (a, b) {
       if (a.name < b.name) {
         return -1;
       }
@@ -36,11 +36,17 @@ function ShowContacts() {
   };
 
   const sortPopularityHandler = () => {
-    const contactCopy = [...contacts];
+    let contactCopy = [...contacts];
 
-    contactCopy.sort(function (a, b) {
+    contactCopy = contactCopy.sort(function (a, b) {
       return b.popularity - a.popularity;
     });
+    setContacts(contactCopy);
+  };
+
+  const deleteHandler = (index) => {
+    const contactCopy = [...contacts];
+    contactCopy.splice(index, 1);
     setContacts(contactCopy);
   };
 
@@ -54,14 +60,18 @@ function ShowContacts() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Action</th>
         </tr>
-        {contacts.map((item) => (
-          <tr key={item.id}>
+        {contacts.map((item, index) => (
+          <tr key={index}>
             <td>
               <img src={item.pictureUrl} alt={item.name} />
             </td>
             <td>{item.name}</td>
             <td>{item.popularity.toFixed(2)}</td>
+            <td>
+              <button onClick={deleteHandler}>Delete</button>
+            </td>
           </tr>
         ))}
       </table>
