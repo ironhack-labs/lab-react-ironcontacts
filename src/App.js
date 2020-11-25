@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Contacts from './contacts.json';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+        </thead>
+        {Contacts.map((contact) => (
+          <tr>
+            <td>
+              <img src={contact.pictureUrl} alt=""></img>
+            </td>
+            <td>
+              <p>{contact.name}</p>
+            </td>
+            <td>
+              <p>{contact.popularity.toFixed(2)}</p>
+            </td>
+          </tr>
+        ))}
+        ;
+      </table>
     </div>
   );
 }
