@@ -7,13 +7,28 @@ function ContactList() {
 
   function addRandomContact() {
     const random = Math.floor(Math.random() * contactsJSON.length+1);
-    contacts.push(contactsJSON[random])
-    setContacts(contacts)
-    console.log(contacts)
+    const newContact = [...contacts]
+    newContact.push(contactsJSON[random])
+    setContacts(newContact)
   }
+
+  function sortByName() {
+    const sortArr = [...contacts].sort((a,b) => (a.name > b.name) ? 1 : -1)
+    setContacts(sortArr)
+  }
+
+  function sortByPopularity() {
+    const sortArr = [...contacts].sort((a,b) => (a.popularity > b.popularity) ? -1 : 1)
+    setContacts(sortArr)
+  }
+
+  const deleteContact = id => setContacts(
+    contacts.filter(el => el.id !== id))
 
   return(<div>
   <button onClick={addRandomContact}>Add Random Contact</button>
+  <button onClick={sortByName}>Sort by Name</button>
+  <button onClick={sortByPopularity}>Sort by Popularity</button>
   <table>
     <tr>
       <th>Picture</th>
@@ -23,6 +38,7 @@ function ContactList() {
     {contacts.map(contact => <Contact
       key={contact.id}
       {...contact}
+      handleDelete={() => deleteContact(contact.id)}
     />)}
   </table>
   </div>)

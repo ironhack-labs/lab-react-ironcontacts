@@ -4,7 +4,7 @@ export default function Card({
   name,
   pictureUrl,
   popularity,
-  id
+  handleDelete
 }) {
   return (<tr>
     <td>
@@ -14,7 +14,10 @@ export default function Card({
       <p>{name}</p>
     </td>
     <td>
-      <p>{popularity}</p>
+      <p>{popularity.toFixed(2)}</p>
+    </td>
+    <td>
+      <button onClick={handleDelete}>✖</button>
     </td>
   </tr>)
 }
