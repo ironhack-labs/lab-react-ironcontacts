@@ -4,8 +4,12 @@
   text-align: center;
 }
 
+td {
+  width: 5em;
+}
+
 .App img {
-  width: 15%;
+  width: 100%;
   height: auto;
 }
 
