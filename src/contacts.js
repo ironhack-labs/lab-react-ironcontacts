@@ -8,8 +8,7 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 margin-left:35%;
-width:400px;
-border:solid;
+width:500px;
 .row{
     display:flex;
     flex-direction:column;
@@ -35,21 +34,44 @@ function ContactList(){
       arr.push(contacts[randomContactPosition])
       setContacts(Contacts=arr)
   }
+  const sortByName=()=>{
+    let arr = [...Contacts]
+    arr.sort((a,b) => {
+      return a.name.toString().localeCompare(b.name)
+    })
+    setContacts(Contacts=arr)
+  }
+  const sortByPopularity=()=>{
+      let arr=[...Contacts]
+      arr.sort(function(a,b){
+          return b.popularity-a.popularity
+      })
+      setContacts(Contacts=arr)
+  }
+
+  const deleteContact=id=>setContacts(
+      Contacts.filter(el=>el.id!==id)
+  )
 
   return (
     <ListStyle>
     <h1>IronContacts</h1>
-    <button onClick={()=>addRandomContact(console.log(Contacts))}>Add Random Contact</button>
-    <button onClick={()=>addRandomContact(console.log(Contacts))}>Sort by name</button>
+    <header>
+    <button onClick={addRandomContact}>Add Random Contact</button>
+    <button onClick={sortByName}>Sort by name</button>
+    <button onClick={sortByPopularity}>Sort by Popularity</button>
+    </header>
     <div className="row">
       <header><h2>Picture</h2>
       <h2>Name</h2>
-      <h2>Popularity</h2></header>
+      <h2>Popularity</h2>
+      <h2>Action</h2></header>
     </div>
     <div className="row">
     {Contacts.map(contact=>    <Artist
     key={contact.id}
     {...contact}
+    Delete={()=>deleteContact(contact.id)}
     /> )}
     </div>
 

@@ -17,10 +17,16 @@ export default function Artist({
     name,
     pictureUrl,
     popularity,
-}){
+    Delete
+})
+
+
+
+{
     return <ArtistStyles>
         <img src={pictureUrl} alt="artistPic"/>
         <h3> {name} </h3>
         <h3> {popularity.toFixed(2)}</h3>
+        <button onClick={Delete}>Delete</button>
     </ArtistStyles>
 }
