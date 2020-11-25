@@ -7,7 +7,7 @@ import Table from './components/Table';
 function App() {
   return (
     <div className="App">
-      <p>Hola</p>
+      <p>Hola, no pude resolverlo pero no quería dejar el espacio en blanco</p>
     </div>
   );
 }
