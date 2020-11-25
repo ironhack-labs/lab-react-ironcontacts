@@ -1,10 +1,45 @@
 .App {
   text-align: center;
+  margin: auto;
+  margin-top: 5em;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 50%;
+  background-color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  text-decoration: underline;
+}
+
+.app-img {
+  width: 6vmin;
+  height: 9vmin;
+  object-fit: cover;
+}
+
+.table {
+  margin: auto;
+  width: 60%;
+  padding-top: 10px;
+}
+
+.table-row {
+  border: 1px solid black;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.app-btns {
+  padding: 10px;
+  margin: 5px;
+  background-color: #014776;
+  border: none;
+  border-radius: 3px;
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
