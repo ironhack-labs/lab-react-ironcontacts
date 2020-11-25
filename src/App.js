@@ -20,12 +20,31 @@ class App extends React.Component {
 
   };
   
+  sortByName() {
+    const sortedList = this.state.shortList
+    .sort((a, b) => a.name.localeCompare(b.name))
+    
+    this.setState({
+      shortList: sortedList
+    })
+  };
+
+  sortByPopularity() {
+    const newSortedList = this.state.shortList
+    .sort((a, b) => a.popularity - b.popularity)
+    
+    this.setState({
+      shortList: newSortedList
+    })
+  };
 
   render() {
         return(
         <div className="App">
           <h1>IronContacts</h1>
           <button onClick={() => this.addRandom()}>Add Random</button>
+          <button onClick={() => this.sortByName()}>Sort by name</button>
+          <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
           <table>
             <tr>
             <th>Picture</th>
@@ -33,12 +52,12 @@ class App extends React.Component {
             <th>Popularity</th>
           </tr>
 
-          {this.state.shortList.map((contact) => {
+          {this.state.shortList.map((item) => {
             return (
-            <tr key={contact.id} {...contact}>
-              <td><img src={contact.pictureUrl} alt="" height="150" /></td>
-              <td>{contact.name}</td>
-              <td>{Math.round(contact.popularity)}</td>
+            <tr key={item.id} {...item}>
+              <td><img src={item.pictureUrl} alt="" height="150" /></td>
+              <td>{item.name}</td>
+              <td>{Math.round(item.popularity * 100) / 100}</td>
             </tr>
           )
           })}
