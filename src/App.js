@@ -7,25 +7,7 @@ import Table from './components/Table';
 function App() {
   return (
     <div className="App">
-      <div>
-        <table class="egt">
-          <tr>
-            <td>Celda 1</td>
-
-            <td>Celda 2</td>
-
-            <td>Celda 3</td>
-          </tr>
-
-          <tr>
-            <td>Celda 4</td>
-
-            <td>Celda 5</td>
-
-            <td>Celda 6</td>
-          </tr>
-        </table>
-      </div>
+      <Table></Table>
     </div>
   );
 }
