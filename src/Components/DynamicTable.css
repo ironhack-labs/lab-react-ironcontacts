@@ -1,0 +1,48 @@
+body {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+}
+
+.picture{
+    width: 75px;
+}
+
+table, th, td {
+    border: 1px solid rgb(141, 60, 87);
+    width: 1000px;
+    height: 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 3px rgb(141, 60, 87);
+    font-size: 24px;
+  }
+
+h1{
+      text-align: center;
+      font-size: 65px;
+      color: white;
+      text-shadow: 3px 3px 3px rgb(141, 60, 87);
+  }
+
+.style{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.style button{
+    width: 200px;
+    height: 50px;
+    border-style: none;
+    color: Black;
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%);
+    font-size: 18px;
+    text-shadow: 3px 3px 3px rgb(141, 60, 87);
+}
+
+.tableStyle{
+    margin-left: auto;
+    margin-right: auto;
+}
+
