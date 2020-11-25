@@ -51,10 +51,12 @@ function ShowContacts() {
   };
 
   return (
-    <div>
-      <button onClick={randomContactHandler}>Add Random Contact</button>
-      <button onClick={sortNameHandler}>Sort by Name</button>
-      <button onClick={sortPopularityHandler}>Sort by Popularity</button>
+    <div className="contacts">
+      <div className="buttonWrapper">
+        <button onClick={randomContactHandler}>Add Random Contact</button>
+        <button onClick={sortNameHandler}>Sort by Name</button>
+        <button onClick={sortPopularityHandler}>Sort by Popularity</button>
+      </div>
       <table>
         <tr>
           <th>Picture</th>
