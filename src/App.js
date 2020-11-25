@@ -57,25 +57,27 @@ class App extends React.Component {
           <button onClick={() => this.addRandom()}>Add Random</button>
           <button onClick={() => this.sortByName()}>Sort by name</button>
           <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
-          <table>
-            <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action</th>
-          </tr>
-
-          {this.state.shortList.map((item) => {
-            return (
-            <tr key={item.id} {...item}>
-              <td><img src={item.pictureUrl} alt="" height="150" /></td>
-              <td>{item.name}</td>
-              <td>{Math.round(item.popularity * 100) / 100}</td>
-              <td><button onClick={() => this.delete(item.id)}>Delete</button></td>
+          <div className="table-wrapper">
+            <table>
+              <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
             </tr>
-          )
-          })}
-          </table>
+
+            {this.state.shortList.map((item) => {
+              return (
+              <tr key={item.id} {...item}>
+                <td><img src={item.pictureUrl} alt="" height="150" /></td>
+                <td>{item.name}</td>
+                <td>{Math.round(item.popularity * 100) / 100}</td>
+                <td><button onClick={() => this.delete(item.id)} className="delete-btn">Delete</button></td>
+              </tr>
+            )
+            })}
+            </table>
+          </div>
           
         </div>
         )
