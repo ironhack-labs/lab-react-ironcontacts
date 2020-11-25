@@ -19,9 +19,36 @@ function ShowContacts() {
     setContacts(contactCopy);
   };
 
+  const sortNameHandler = () => {
+    const contactCopy = [...contacts];
+
+    contactCopy.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+
+    setContacts(contactCopy);
+  };
+
+  const sortPopularityHandler = () => {
+    const contactCopy = [...contacts];
+
+    contactCopy.sort(function (a, b) {
+      return b.popularity - a.popularity;
+    });
+    setContacts(contactCopy);
+  };
+
   return (
     <div>
       <button onClick={randomContactHandler}>Add Random Contact</button>
+      <button onClick={sortNameHandler}>Sort by Name</button>
+      <button onClick={sortPopularityHandler}>Sort by Popularity</button>
       <table>
         <tr>
           <th>Picture</th>
@@ -34,7 +61,7 @@ function ShowContacts() {
               <img src={item.pictureUrl} alt={item.name} />
             </td>
             <td>{item.name}</td>
-            <td>{item.popularity}</td>
+            <td>{item.popularity.toFixed(2)}</td>
           </tr>
         ))}
       </table>
