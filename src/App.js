@@ -2,19 +2,23 @@ import React, { useState } from 'react';
 import './App.css';
 import Contacts from './contacts';
 
-const firstFive = Contacts.slice(0, 5);
+const firstFiveContacts = Contacts.slice(0, 5);
+const restContacts = Contacts.slice(5);
 
 function ShowContacts() {
-  const [contacts, setContacts] = useState(firstFive);
+  const [contacts, setContacts] = useState(firstFiveContacts);
 
   const addRandomContactHandler = () => {
     let contactCopy = [...contacts];
 
     const getRandomContact = () =>
-      Contacts[Math.floor(Math.random() * Contacts.length - 4) + 4];
+      restContacts[Math.floor(Math.random() * restContacts.length)];
 
     contactCopy.push(getRandomContact());
-    Contacts.splice(Contacts.indexOf(contactCopy[contactCopy.length - 1]), 1);
+    restContacts.splice(
+      restContacts.indexOf(contactCopy[contactCopy.length - 1]),
+      1
+    );
 
     setContacts(contactCopy);
   };
@@ -47,8 +51,8 @@ function ShowContacts() {
   const deleteHandler = (contactId) => {
     const contactCopy = [...contacts];
     const contactIndex = contactCopy.findIndex((item) => item.id === contactId);
+    restContacts.push(contactCopy[contactIndex]);
     contactCopy.splice(contactIndex, 1);
-    Contacts.push(contactCopy[contactIndex]);
     setContacts(contactCopy);
   };
 
