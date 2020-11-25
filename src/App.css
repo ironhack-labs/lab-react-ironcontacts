@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+table {
+  margin-top: 25px;
+}
+
 td {
   width: 5em;
 }
