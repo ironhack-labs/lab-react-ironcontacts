@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import './App.css';
 import Contacts from './contacts';
 
-function ShowContacts() {
-  const [contacts, setContacts] = useState(Contacts.splice(0, 5));
+const firstFive = Contacts.slice(0, 5);
 
-  const randomContactHandler = () => {
-    const contactCopy = [...contacts];
+function ShowContacts() {
+  const [contacts, setContacts] = useState(firstFive);
+
+  const addRandomContactHandler = () => {
+    let contactCopy = [...contacts];
+
     const getRandomContact = () =>
-      Contacts[
-        Math.floor(
-          Math.random() * (Contacts.length - (contactCopy.length - 1)) +
-            (contactCopy.length - 1)
-        )
-      ];
+      Contacts[Math.floor(Math.random() * Contacts.length - 4) + 4];
+
     contactCopy.push(getRandomContact());
+    Contacts.splice(Contacts.indexOf(contactCopy[contactCopy.length - 1]), 1);
 
     setContacts(contactCopy);
   };
@@ -48,13 +48,14 @@ function ShowContacts() {
     const contactCopy = [...contacts];
     const contactIndex = contactCopy.findIndex((item) => item.id === contactId);
     contactCopy.splice(contactIndex, 1);
+    Contacts.push(contactCopy[contactIndex]);
     setContacts(contactCopy);
   };
 
   return (
     <div className="contacts">
       <div className="buttonWrapper">
-        <button onClick={randomContactHandler}>Add Random Contact</button>
+        <button onClick={addRandomContactHandler}>Add Random Contact</button>
         <button onClick={sortNameHandler}>Sort by Name</button>
         <button onClick={sortPopularityHandler}>Sort by Popularity</button>
       </div>

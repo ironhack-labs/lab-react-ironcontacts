@@ -3,6 +3,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .contacts {
   border: solid black 1px;
   width: 50%;
