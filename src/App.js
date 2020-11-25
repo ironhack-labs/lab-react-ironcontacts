@@ -5,6 +5,10 @@ import './App.css';
 import dataSource from './contacts.json';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
+import { Card } from 'antd';
+
+import { Image } from 'antd';
+
 import { Table } from 'antd';
 const columns = [
   {
@@ -16,6 +20,7 @@ const columns = [
     title: 'pictureUrl',
     dataIndex: 'pictureUrl',
     width: 150,
+    render: () => <img src={`image_URL_here`} />,
   },
   {
     title: 'popularity',
