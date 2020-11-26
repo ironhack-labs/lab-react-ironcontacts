@@ -48,7 +48,7 @@ function App() {
       setContact(sortedPop); 
   }
 
-  const deleteMovie = (contactId) => {
+  const deleteContact = (contactId) => {
     const contactsCopy = [...contact];
     const contactIndex = contactsCopy.findIndex((contact) => contact.id === contactId);
     contactsCopy.splice(contactIndex, 1)
@@ -65,19 +65,24 @@ function App() {
         <button onClick={() => sortByPop()} className="app-btns">Sort by Popularity</button>
       </div>
       <table className="table table-row">
-      <tr>
-        <th>Picture</th>
-        <th>Name</th>
-        <th>Popularity</th>
-        <th>Action</th>
-      </tr>
-      {contact.map((contactItem) => 
+      <thead>
         <tr>
-        <td> <img src={contactItem.pictureUrl} className="app-img"/></td>
-        <td>{contactItem.name}</td>
-        <td>{contactItem.popularity.toFixed(2)}</td>
-        <td><button onClick={() => deleteMovie()} className="app-btns">Delete</button></td>
-      </tr>)}
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {contact.map((contactItem) => 
+          <tr key={contactItem.id}>
+          <td> <img src={contactItem.pictureUrl} className="app-img"/></td>
+          <td>{contactItem.name}</td>
+          <td>{contactItem.popularity.toFixed(2)}</td>
+          <td><button onClick={() => deleteContact(contactItem.id)} className="app-btns">Delete</button></td>
+        </tr>)}
+      </tbody>
+    
     </table>
       
   </div>
