@@ -51,12 +51,12 @@ class DynamicTable extends Component{
 
     render() {
         return (
-        <div class='style'>
+        <div className='style'>
         <h1 id='title'>IronContacts</h1>
         <button onClick ={() => this.addRandom()}>Add Random Contacts</button>
         <button onClick={()=>this.sortByName()}>Sort By Name</button>
         <button onClick={()=>this.sortByPopularity()}>Sort By Popularity</button>
-        <table class = "tableStyle" id='ID'>
+        <table className = "tableStyle" id='ID'>
             <thead>
                 <tr>
                     <th>Picture</th>
