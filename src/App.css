@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  color: white;
 }
 
 .App-logo {
@@ -12,6 +14,39 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+.title{
+  font-size: 3rem;
+  padding: 30px;
+  margin: 30px;
+}
+
+.contact-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  margin: 20px;
+}
+.contact-div table{
+  padding: 10px;
+}
+.contact-div th{
+  padding: 10px;
+  border: 1px solid white;
+}
+.contact-div td{
+  padding: 10px;
+  border: 1px solid white;
+}
+.contact-div img{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 300px;
+}
+
 
 .App-header {
   background-color: #282c34;
