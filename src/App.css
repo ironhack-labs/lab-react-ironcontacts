@@ -46,6 +46,15 @@
     object-fit: cover;
     border-radius: 300px;
 }
+.random-btn{
+  width: 350px;
+  padding: 10px;
+  background-color: white;
+  color: #282c34;
+  font-size: 1.5rem;
+  border: 3px solid #282c34;
+  border-radius: 20px;
+}
 
 
 .App-header {
