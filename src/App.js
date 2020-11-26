@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import './App.css';
 import contacts from './contacts.json'
 
+const fiveContacts = contacts.slice(0, 5);
 const App = () => {
   //Iteration 1 | Display 5 Contacts
-  const fiveContacts = contacts.slice(0, 5);
   const [contactsState, setcontactsState] = useState(fiveContacts);
 
   //Iteration 2 | Add New Random Contacts
