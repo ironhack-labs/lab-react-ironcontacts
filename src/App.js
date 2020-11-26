@@ -63,21 +63,26 @@ const App = () => {
 
       <div className="tableofContacts">
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action</th>
-          </tr>
-          {contactsState.map(item => (
 
+          <thead>
             <tr>
-              <td> <img src={item.pictureUrl} className="pictures" alt="img" /> </td>
-              <td> {item.name} </td>
-              <td> {item.popularity.toFixed(2)} </td>
-              <td> <button onClick={() => removeContacts(contacts.id)}> Delete</button></td>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
             </tr>
-          ))}
+          </thead>
+
+          <tbody>
+            {contactsState.map(item => (
+              <tr>
+                <td> <img src={item.pictureUrl} className="pictures" alt="img" /> </td>
+                <td> {item.name} </td>
+                <td> {item.popularity.toFixed(2)} </td>
+                <td> <button onClick={() => removeContacts(contacts.id)}> Delete</button></td>
+              </tr>
+            ))}
+          </tbody>
         </table>
 
       </div>
