@@ -1,0 +1,21 @@
+.tableRow th{
+  width: 150px;
+}
+
+.tableRow button{
+  width: 160px;
+  background-color:#0099ff;
+  border: 1px solid #0099ff;
+  padding: 5px 10px;
+  color: white;
+}
+
+.tableRow button:hover {
+  color: #0099ff;
+  background-color: white;
+}
+
+.title th{
+  padding: 10px 0px;
+  border-bottom: 1px solid black;
+}
