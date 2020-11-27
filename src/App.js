@@ -11,12 +11,12 @@ function App() {
   const [contacts, setContacts] = useState(contactsArray);
 
   const addRandomContact = () => {
-    let copyContacts = [...contacts]
+    let copyContacts = [...contacts];
     let randomContact = '';
     
     do {
-      randomContact = importedContacts[Math.floor(Math.random() * importedContacts.length)]
-    } while (contacts.some(actor => actor.id === randomContact.id))
+      randomContact = importedContacts[Math.floor(Math.random() * importedContacts.length)];
+    } while (contacts.some(actor => actor.id === randomContact.id));
 
     const newContacts = copyContacts.push(randomContact)
 
@@ -24,23 +24,23 @@ function App() {
   };
 
   const sortByPopularity = () => {
-    let copyContacts = [...contacts]
-    let sorted = copyContacts.sort((a,b) => b.popularity - a.popularity)
-    setContacts(copyContacts, sorted)
+    let copyContacts = [...contacts];
+    let sorted = copyContacts.sort((a,b) => b.popularity - a.popularity);
+    setContacts(sorted)
   };
 
   const sortByName = () => {
-    let copyContacts = [...contacts]
-    let sorted = copyContacts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
-    setContacts(copyContacts, sorted)
+    let copyContacts = [...contacts];
+    let sorted = copyContacts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    setContacts(sorted);
   };
 
   
   const deleteContact = (elementId) => {
-    let copyContacts = [...contacts]
-    let elementToDelete = copyContacts.findIndex((item) => item.id === elementId)
-    let deleted = copyContacts.splice(elementToDelete, 1)
-    setContacts(copyContacts, deleted)
+    let copyContacts = [...contacts];
+    let elementToDelete = copyContacts.findIndex((item) => item.id === elementId);
+    let deleted = copyContacts.splice(elementToDelete, 1);
+    setContacts(copyContacts, deleted);
   }
   
 
