@@ -10,6 +10,11 @@ const App = () => {
     setContactState(contacts.splice(0, 5));
   }, []);
 
+  const randomContactHandler = () => {
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    setContactState([...contactsNew, randomContact]);
+  };
+
   return (
     <div className="App">
       <table>
@@ -19,6 +24,7 @@ const App = () => {
             <th className="contactsTable-data">Name</th>
             <th className="contactsTable-data">Popularity</th>
           </tr>
+          <button onClick={randomContactHandler}>Add random contact</button>
         </thead>
         {contactsNew.map((contact) => {
           return (
