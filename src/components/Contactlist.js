@@ -51,37 +51,35 @@ function ContactList(props) {
      }
 
     return (
-        
-             <table>
-               
-                 <button onClick={()=>randomContact() } className="App">Add Random Contact</button>
-                 <button onClick={()=>sortByName()} className="App">Sort By Name</button>
-                 <button onClick={()=>sortByPopularity()} className="App">Sort By Popularity</button>     
-              
+        <div>
+        <button onClick={()=>randomContact() } className="App">Add Random Contact</button>
+        <button onClick={()=>sortByName()} className="App">Sort By Name</button>
+        <button onClick={()=>sortByPopularity()} className="App">Sort By Popularity</button>   
+             <table>         
+                <thead>              
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Popularity</th>
+                    <th>Action</th>
+                </tr>
+                </thead>   
+                <tbody>
+                 {contacts.map((item)=>(
                 
-            <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-                <th>Action</th>
-            </tr>
+                <tr key={item.id}>
+                    <td>
+                        <img src={item.pictureUrl} alt={item.name} style={{width:'50px' , height:'50px'}}/>
+                    </td>
+                    <td>{item.name}</td>
+                    <td>{item.popularity.toFixed(2)}</td>
+                    <td><button onClick={()=>deleteContact(item.id)}>Delete</button></td>
+                </tr>                         
             
-            {contacts.map((item)=>(
-                
-              <tr key={item.id}>
-                <td>
-                    <img src={item.pictureUrl} alt={item.name} style={{width:'50px' , height:'50px'}}/>
-                </td>
-                <td>{item.name}</td>
-                <td>{item.popularity.toFixed(2)}</td>
-                <td><button onClick={()=>deleteContact(item.id)}>Delete</button></td>
-            </tr>    
-              
-            
-
             ))}
+            </tbody>
      </table> 
-     
+     </div>
     ) 
 }
 
