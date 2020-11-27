@@ -27,6 +27,11 @@ const App = () => {
     setContactState([...contactsNew]);
   };
 
+  const deleteContactHandler = (index) => {
+    contactsNew.splice(index, 1);
+    setContactState([...contactsNew]);
+  };
+
   return (
     <div className="App">
       <h2>IronContacts</h2>
@@ -41,7 +46,7 @@ const App = () => {
             <th className="contactsTable-data">Popularity</th>
           </tr>
         </thead>
-        {contactsNew.map((contact) => {
+        {contactsNew.map((contact, index) => {
           return (
             <tbody key={contact.id}>
               <tr className="contactsTable">
@@ -50,6 +55,9 @@ const App = () => {
                 </td>
                 <td className="contactsTable-data">{contact.name}</td>
                 <td className="contactsTable-data">{contact.popularity}</td>
+                <td>
+                  <button onClick={deleteContactHandler}>Delete Contact</button>
+                </td>
               </tr>
             </tbody>
           );
