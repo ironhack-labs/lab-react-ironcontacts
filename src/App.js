@@ -1,55 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import contacts from './contacts.json';
 
-function App() {
+const App = () => {
   const [contactState, setContactState] = useState([]);
   const contactsNew = [...contactState];
-  const contactsFive = contacts.slice(0, 5);
 
-  const randomContactHandler = () => {
-    let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
-    contactsNew.push(randomContact);
-    setContactState(contactsNew);
-  };
+  useEffect(() => {
+    setContactState(contacts.splice(0, 5));
+  }, []);
 
   return (
     <div className="App">
       <table>
-        <th>
-          <tr>IronContacts</tr>
-          <button onClick={randomContactHandler}>Add Random Contact</button>
+        <thead>
           <tr>
-            <td className="contactsTable-data">Picture</td>
-            <td className="contactsTable-data">Name</td>
-            <td className="contactsTable-data">Popularity</td>
+            <th className="contactsTable-data">Picture</th>
+            <th className="contactsTable-data">Name</th>
+            <th className="contactsTable-data">Popularity</th>
           </tr>
-          {contactsFive.map((contact) => {
-            return (
-              <div className="contactsTable">
+        </thead>
+        {contactsNew.map((contact) => {
+          return (
+            <tbody key={contact.id}>
+              <tr className="contactsTable">
                 <td className="contactsTable-Img">
                   <img src={contact.pictureUrl} alt={contact.name}></img>
                 </td>
                 <td className="contactsTable-data">{contact.name}</td>
                 <td className="contactsTable-data">{contact.popularity}</td>
-              </div>
-            );
-          })}
-          {contactState.map((contact) => {
-            return (
-              <div className="contactsTable">
-                <td className="contactsTable-Img">
-                  <img src={contact.pictureUrl} alt={contact.name}></img>
-                </td>
-                <td className="contactsTable-data">{contact.name}</td>
-                <td className="contactsTable-data">{contact.popularity}</td>
-              </div>
-            );
-          })}
-        </th>
+              </tr>
+            </tbody>
+          );
+        })}
       </table>
     </div>
   );
-}
+};
 
 export default App;
