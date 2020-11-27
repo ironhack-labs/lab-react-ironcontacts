@@ -15,8 +15,24 @@ const App = () => {
     setContactState([...contactsNew, randomContact]);
   };
 
+  const nameSortHandler = () => {
+    contactsNew.sort((a, b) =>
+      a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+    );
+    setContactState([...contactsNew]);
+  };
+
+  const popularitySortHandler = () => {
+    contactsNew.sort((a, b) => b.popularity - a.popularity);
+    setContactState([...contactsNew]);
+  };
+
   return (
     <div className="App">
+      <h2>IronContacts</h2>
+      <button onClick={randomContactHandler}>Add random contact</button>
+      <button onClick={nameSortHandler}>Sort by name</button>
+      <button onClick={popularitySortHandler}>Sort by popularity</button>
       <table>
         <thead>
           <tr>
@@ -24,7 +40,6 @@ const App = () => {
             <th className="contactsTable-data">Name</th>
             <th className="contactsTable-data">Popularity</th>
           </tr>
-          <button onClick={randomContactHandler}>Add random contact</button>
         </thead>
         {contactsNew.map((contact) => {
           return (
