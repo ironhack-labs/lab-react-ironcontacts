@@ -1,12 +1,28 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
 import Contacts from './contacts.json';
 import Card from './components/Card';
 
-function App() {
-  const listOfContacts = Contacts.slice(0, 5);
+class App extends React.Component {
+  state = {
+    listOfContacts: Contacts.slice(0, 5),
+  };
 
-  function createCard(contact) {
+  addRandomContact() {
+    const copyOfContactList = [...this.state.listOfContacts];
+
+    const addRandomContact =
+      Contacts[Math.floor(Math.random() * Contacts.length)];
+
+    copyOfContactList.push(addRandomContact);
+
+    this.setState({
+      listOfContacts: copyOfContactList,
+    });
+  }
+
+  createCard(contact) {
     return (
       <Card
         pictureUrl={contact.pictureUrl}
@@ -16,16 +32,15 @@ function App() {
     );
   }
 
-  function addRandom() {
-    const getRandom = Contacts[Math.floor(Math.random() * Contacts.length)];
-    listOfContacts.push(getRandom);
-  }
-
-  return (
-    <div className="App">
-      <div>
-        <h1>IronContacts</h1>
-        <button onClick={addRandom}>Add Random Contact</button>
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <h1>IronContacts</h1>
+        </div>
+        <div>
+          <button onClick={() => this.addRandomContact()}>Add Random</button>
+        </div>
         <table>
           <thead>
             <tr>
@@ -34,11 +49,11 @@ function App() {
               <th>Popularity</th>
             </tr>
           </thead>
-          {listOfContacts.map(createCard)}
+          {this.state.listOfContacts.map(this.createCard)}
         </table>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
