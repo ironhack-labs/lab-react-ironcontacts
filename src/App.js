@@ -2,7 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Contacts from './contacts.json';
-import Card from './components/Card';
 
 class App extends React.Component {
   state = {
@@ -21,18 +20,6 @@ class App extends React.Component {
       listOfContacts: copyOfContactList,
     });
   }
-
-  /*   createCard(contact, index) {
-    return (
-      <Card
-        pictureUrl={contact.pictureUrl}
-        name={contact.name}
-        popularity={contact.popularity}
-        id={contact.id}
-        delete={() => this.deleteContact(index)}
-      />
-    );
-  } */
 
   sortByName() {
     const sortByNameList = this.state.listOfContacts.sort((a, b) =>
