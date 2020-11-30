@@ -32,6 +32,26 @@ class App extends React.Component {
     );
   }
 
+  sortByName() {
+    const sortByNameList = this.state.listOfContacts.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+
+    this.setState({
+      listOfContacts: sortByNameList,
+    });
+  }
+
+  sortByPopularity() {
+    const sortByPopularityList = this.state.listOfContacts.sort(
+      (a, b) => a.popularity - b.popularity
+    );
+
+    this.setState({
+      listOfContacts: sortByPopularityList,
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,17 +60,23 @@ class App extends React.Component {
         </div>
         <div>
           <button onClick={() => this.addRandomContact()}>Add Random</button>
+          <button onClick={() => this.sortByName()}>Sort by name</button>
+          <button onClick={() => this.sortByPopularity()}>
+            Sort by popularity
+          </button>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-            </tr>
-          </thead>
-          {this.state.listOfContacts.map(this.createCard)}
-        </table>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+              </tr>
+            </thead>
+            {this.state.listOfContacts.map(this.createCard)}
+          </table>
+        </div>
       </div>
     );
   }
