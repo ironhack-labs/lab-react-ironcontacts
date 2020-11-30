@@ -22,15 +22,17 @@ class App extends React.Component {
     });
   }
 
-  createCard(contact) {
+  /*   createCard(contact, index) {
     return (
       <Card
         pictureUrl={contact.pictureUrl}
         name={contact.name}
         popularity={contact.popularity}
+        id={contact.id}
+        delete={() => this.deleteContact(index)}
       />
     );
-  }
+  } */
 
   sortByName() {
     const sortByNameList = this.state.listOfContacts.sort((a, b) =>
@@ -49,6 +51,17 @@ class App extends React.Component {
 
     this.setState({
       listOfContacts: sortByPopularityList,
+    });
+  }
+
+  deleteContact(id) {
+    const copyOfContactList = [...this.state.listOfContacts];
+
+    const index = copyOfContactList.findIndex((contact) => contact.id === id);
+    copyOfContactList.splice(index, 1);
+
+    this.setState({
+      listOfContacts: copyOfContactList,
     });
   }
 
@@ -72,9 +85,28 @@ class App extends React.Component {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>
-            {this.state.listOfContacts.map(this.createCard)}
+            {this.state.listOfContacts &&
+              this.state.listOfContacts.map((contactItem) => (
+                <tr key={contactItem.id}>
+                  <td>
+                    <img src={contactItem.pictureUrl} alt=""></img>
+                  </td>
+                  <td>
+                    <p>{contactItem.name}</p>
+                  </td>
+                  <td>
+                    <p>{contactItem.popularity.toFixed(2)}</p>
+                  </td>
+                  <td>
+                    <button onClick={() => this.deleteContact(contactItem.id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </table>
         </div>
       </div>

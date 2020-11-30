@@ -11,6 +11,9 @@ function Card(props) {
         <td>
             <p>{props.popularity.toFixed(2)}</p>
         </td>
+        <td>
+            <button onClick={props.delete()}>Delete</button>
+        </td>
     </tr>
     )
 };
