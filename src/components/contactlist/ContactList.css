@@ -1,0 +1,29 @@
+.list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+table{
+    width: 60%;
+    text-align: center;
+    border: 1px solid white;
+}
+th{
+    border-bottom: 1px solid black;
+    padding: 20px;
+
+}
+td{
+    padding: 20px 0
+}
+.contact-container img{
+    width: 100px;
+    height: 100px;
+}
+h1{
+    display: flex;
+    justify-content:center;
+    margin-top:50px;
+}
