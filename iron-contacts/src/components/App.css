@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+  padding:100px;
+  align-items: center;
+}
+
+.App h1 {
+  font-size: 3em;
+  font-weight: 800;
+}
+
+.titles {
+  font-size: 2em;
+  
+}
+.App button {
+  padding: 20px;
+}
