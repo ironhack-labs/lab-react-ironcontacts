@@ -1,0 +1,20 @@
+.table-contacts{
+    margin: auto;
+}
+
+.table-head{
+    text-decoration: underline;
+
+}
+
+.table-body{
+    margin-top: 30px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.buttons-option{
+    margin: 0 0 20px 480px;
+
+}
