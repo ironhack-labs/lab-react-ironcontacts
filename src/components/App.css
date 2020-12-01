@@ -1,0 +1,52 @@
+*{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.title{
+  text-align: center
+}
+
+.contacts-table{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center
+}
+
+.contacts-table img{
+  width: 50px;
+  border-radius: 5px;
+  margin: 5px
+}
+
+.buttons{
+  text-align: center;
+  margin: 10px 0 20px 
+}
+
+button{
+  background-color: white;
+  color: #007A91;
+  border-style: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #007A91;
+
+  transition: all 0.5s;
+}
+
+button:hover{
+  color:white;
+  background-color: #007A91;
+}
+
+.delete-btn{
+  color: #A10000;
+  border-color: #A10000;
+  padding: 5px 10px;
+}
+
+.delete-btn:hover{
+  background-color: #A10000;
+  color: white
+}
