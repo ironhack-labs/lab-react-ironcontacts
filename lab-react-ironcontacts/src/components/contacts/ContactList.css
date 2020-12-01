@@ -1,0 +1,36 @@
+section.ironContacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn button {
+    margin-right: 10px;
+    background-color: #be95bb;
+    border: 1px solid #881482;
+    color: #881482;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    border-radius: 10px;
+}
+
+.btn {
+    margin: 30px 0;
+}
+
+th {
+    color: #be95bb;
+    border-bottom: 1px solid #881482;
+    text-transform: uppercase;
+    padding: 10px;
+    font-family: sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+table.card {
+    border-collapse: collapse;
+}
