@@ -96,7 +96,7 @@ class App extends React.Component {
           <tbody>
             {this.state.contacts.map((contact) => {
               return (
-                <tr key={contact.id}>
+                <tr key={contact.id} className="contactInfo">
                   <td>
                     <img
                       src={contact.pictureUrl}
