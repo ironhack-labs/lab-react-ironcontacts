@@ -1,0 +1,21 @@
+img {
+    width: 100%;
+    object-fit: contain;
+}
+
+td{
+    width: 100px;
+}
+
+tr {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+button{
+
+    font-weight: bold;
+
+}
