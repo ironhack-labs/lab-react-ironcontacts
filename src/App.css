@@ -1,5 +1,10 @@
+body {
+  font-family: 'Arial', 'Courier New', Courier, monospace;
+}
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -7,6 +12,21 @@
   pointer-events: none;
 }
 
+.buttonsDiv {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.topButton {
+  color: white;
+  background-color: blue;
+}
+
+.deleteButton {
+  color: white;
+  background-color: red;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +55,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ///// MY CSS // */
+
+.img {
+  width: 100px;
+  heigth: 100px;
+}
+
+table,
+th,
+tr,
+td {
+  padding: 5px;
 }
