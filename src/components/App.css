@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+    background-image: url("../image/background.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+table {
+    margin: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+img {
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px grey;
+}
+
+tr {
+    text-align: center;
+}
+
+.tableTitle {
+    font-size: 50px;
+}
+
+.btnRandom,
+.btnSortByName,
+.btnSortByPopularity,
+.btnDelete {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 2px grey;
+}
+
+.btnDelete {
+    padding: 10px;
+    background-color: #e63946;
+}
+
+.btnRandom,
+.btnSortByName,
+.btnSortByPopularity {
+    padding: 5px;
+}
+
+.btnRandom {
+    background-color: #edc4b3;
+}
+
+.btnSortByName {
+    background-color: #deab90;
+}
+
+.btnSortByPopularity {
+    background-color: #cd9777;
+}
