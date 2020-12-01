@@ -1,78 +1,75 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import contacts from './contacts.json';
-
+import Contacts from './contacts.json';
 
 class App extends React.Component {
-  state = {
-    contacts: contacts.slice(0, 5),
-  };
-
-
-  sliceArr = (_contacts) => {
-    return _contacts.slice(0, 5);
-  };
-
-  roundedPopularity = (_number) => {
-   return Math.round(_number * 100) / 100;
+  constructor() {
+    super();
+    this.state = {contacts: Contacts.slice(0, 5)};
   }
 
-
   newRandomContacts = (_contacts) => {
-    _contacts.sort(() => {
-      return 0.5 - Math.random();
-    });
-    this.setState({ contacts: this.sliceArr(contacts) });
+    const newRandom= _contacts.sort(() =>0.5 - Math.random());
+   
+    this.setState({contacts: Contacts.slice(0,5)});
   };
+
+  sortByName = (_names) => {
+    const sortByNames=_names.sort((a, b) =>a.name.localeCompare(b.name));
+    this.setState({ contacts: sortByNames });
+  };
+
+  sortByPopularity = (_popularity) => {
+    const sortByPopularities=_popularity.sort((a, b) =>b.popularity - a.popularity);
+    this.setState({ contacts: sortByPopularities });
+  };
+
+  deleteContact= (_name) => {
+    const contactsCopy = this.state.contacts.filter((contact) => {
+      return contact.name !== _name;
+    });
+    this.setState({ contacts: contactsCopy });
+  }
+
 
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={() => this.newRandomContacts(contacts)}>
+        <button onClick={() => this.newRandomContacts(Contacts)}>
           Add Random Contact
         </button>
-        <tr>
-          <td>Picture</td>
-          <td>Name</td>
-          <td>Popularity</td>
-        </tr>
-        <tr>
-          <td>
-            <img src={contacts[0].pictureUrl} alt={contacts[0].name} />
-          </td>
-          <td>{contacts[0].name}</td>
-          <td>{this.roundedPopularity(contacts[0].popularity)}</td>
-        </tr>
-        <tr>
-          <td>
-            <img src={contacts[1].pictureUrl} alt={contacts[0].name} />
-          </td>
-          <td>{contacts[1].name}</td>
-          <td>{this.roundedPopularity(contacts[1].popularity)}</td>
-        </tr>
-        <tr>
-          <td>
-            <img src={contacts[2].pictureUrl} alt={contacts[0].name} />
-          </td>
-          <td>{contacts[2].name}</td>
-          <td>{this.roundedPopularity(contacts[2].popularity)}</td>
-        </tr>
-        <tr>
-          <td>
-            <img src={contacts[3].pictureUrl} alt={contacts[0].name} />
-          </td>
-          <td>{contacts[3].name}</td>
-          <td>{this.roundedPopularity(contacts[3].popularity)}</td>
-        </tr>
-        <tr>
-          <td>
-            <img src={contacts[4].pictureUrl} alt={contacts[0].name} />
-          </td>
-          <td>{contacts[4].name}</td>
-          <td>{this.roundedPopularity(contacts[4].popularity)}</td>
-        </tr>
+        <button onClick={() => this.sortByName(Contacts)}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity(Contacts)}>
+          Sort by popularity
+        </button>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.contacts.map((contact) => {
+              return(
+                <tr key={contact.id}>
+                  <td>
+                    <img src={contact.pictureUrl} alt={contact.name}></img>
+                  </td>
+                  <td>{contact.name}</td>
+                  <td>{contact.popularity.toFixed(2)}</td>
+                  <td>
+                    <button onClick={() => { this.deleteContact(contact.id) }}>Delete</button>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
