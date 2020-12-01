@@ -15,8 +15,11 @@ class App extends React.Component {
     const newContact = contacts[randomIndex]
     
     const copyOfContactsList = [...this.state.contactsList]
-    copyOfContactsList.unshift(newContact)
-
+    
+    if (!copyOfContactsList.includes(newContact)){
+      copyOfContactsList.unshift(newContact)
+    } else {return this.addRandomContact()}
+    
     this.setState({contactsList: copyOfContactsList})
    
   }
@@ -60,10 +63,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header>
         <h2>IronContacts</h2>
+        </header>
+        <nav>
         <button onClick={this.addRandomContact}>Add Random Contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
         <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        </nav>
         <table>
           <thead>
           <tr>
