@@ -1,8 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 100;
+}
+.App {
+  background-color: rgba(153, 152, 152, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App table {
+ width: 50%;
+}
+
+.table-title {
+  width: 100%;
+  text-align: center;
+}
+
+.contacts-table-img {
+  text-align: center;
+  padding: 2%;
+}
+
 .contacts-table-img img {
   max-width: 100px;
 }
 
 .contacts-table-info {
   width: 100px;
-  text-align: left;
+  text-align: center;
+}
+
+.td-button {
+  width: 100px;
+}
+
+button {
+  margin: 15px;
+  padding: 5%;
+  border: none;
+  background-color: rgba(9, 99, 245, 0.8);
+  border-radius: 7.5%;
+  color: white;
 }

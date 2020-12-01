@@ -35,11 +35,16 @@ const App = () => {
 
   return (
     <div className="App">
-      
-      <h2>IronContacts</h2>
 
       <table>
         
+        <thead className="table-title">
+          <tr>
+            <th>
+              <h2>IronContacts</h2>
+            </th>
+          </tr>
+        </thead>
         <thead>
           <tr>
             <th className="button"><button onClick={addRandomContact}>Add random contact</button></th>
@@ -47,9 +52,9 @@ const App = () => {
             <th className="button"><button onClick={sortByPopularity}>Sort by popularity</button></th>
           </tr>
           <tr>
-            <th className="contacts-table-info">Picture</th>
-            <th className="contacts-table-info">Name</th>
-            <th className="contacts-table-info">Popularity</th>
+            <th className="contacts-table-info"><h4>Picture</h4></th>
+            <th className="contacts-table-info"><h4>Name</h4></th>
+            <th className="contacts-table-info"><h4>Popularity</h4></th>
           </tr>
         </thead>
 
@@ -62,7 +67,7 @@ const App = () => {
                 </td>
                 <td className="contacts-table-info">{contact.name}</td>
                 <td className="contacts-table-info">{contact.popularity}</td>
-                <td>
+                <td className="td-button">
                   <button onClick={() => deleteContact (idx)}>Delete Contact</button>
                 </td>
               </tr>
