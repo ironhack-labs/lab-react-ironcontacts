@@ -1,5 +1,49 @@
+
+/*GENERAL*/
+button {
+  width: 25%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: whitesmoke;
+  color: black;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+button:hover{
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+  margin: 1rem auto;
+}
+table tr th{
+  width: 10%;
+}
+table tr td{
+  width: 10%;
+}
+table tr td button{
+  width: 7rem;
+}
+
+/*APP*/
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10%;
   text-align: center;
+}
+.App img{
+  height: 6rem;
+  border: 1px solid black;
+  margin: 0 auto;
 }
 
 .App-logo {
