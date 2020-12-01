@@ -5,15 +5,16 @@ import contacts from './contacts.json';
 class App extends React.Component {
   state = {
     contacts: contacts.slice(0, 5),
-    remainingContacts: contacts.slice(6)
   }
 
   handleRandomButton = () => {
+    const filteredContacts = contacts.filter(contact => !this.state.contacts.includes(contact))
 
-    let randomContact = this.state.remainingContacts
-    const newContact = randomContact[Math.floor(Math.random() * randomContact.length)]
-  
-    this.setState({contacts: [... this.state.contacts, newContact]})
+    const randomNum = Math.floor(Math.random() * (filteredContacts.length - 1));
+    
+    const randomContact = filteredContacts[randomNum]
+
+    this.setState({contacts: [...this.state.contacts, randomContact]})
   }
 
   handleNameButton = () => {
@@ -32,7 +33,15 @@ class App extends React.Component {
 
     this.setState({contacts: sortedByPopularity})
   }
-  
+
+  handleDelete = (position) => {
+    const newContacts = [...this.state.contacts]
+
+    newContacts.splice(position, 1)
+
+    this.setState({contacts: newContacts})
+  }
+
 
   render () {
     return (
@@ -48,21 +57,25 @@ class App extends React.Component {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Action</th>
         </tr>
         </thead>
 
         <tbody>
         {this.state.contacts.map((contact, contNum) => {
           return (
-                  <tr>
+                  <tr key={contNum}>
                     <td>
-                      <img className="pic-contacts" key={contNum} src={contact.pictureUrl} alt='Picture Contact'/>
+                      <img className="pic-contacts" src={contact.pictureUrl} alt='Face of the Contact'/>
                     </td>
-                    <td key={contNum}>
+                    <td>
                       {contact.name}
                     </td>
-                    <td key={contNum}>
+                    <td>
                       {contact.popularity}
+                    </td>
+                    <td>
+                      <button onClick={() => this.handleDelete(contNum)}>Delete</button>
                     </td>
                   </tr>
                 )
