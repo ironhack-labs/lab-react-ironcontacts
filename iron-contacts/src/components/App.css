@@ -1,3 +1,18 @@
+/* Tipografía */
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.heading {
+  font-weight: 700;
+}
+
+.subheading {
+  font-weight: 300;
+}
+
+/*  */
+
 .App {
   text-align: center;
 }

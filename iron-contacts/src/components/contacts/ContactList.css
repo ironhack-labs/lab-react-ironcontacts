@@ -1,0 +1,37 @@
+.list-table {
+    margin: 50px;
+    text-align: center;
+}
+
+hr {
+    width: 40%;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 100;
+    color: #C36588;
+}
+
+.table {
+    padding-top: 20px;
+    margin: auto;
+}
+
+.table th {
+    color: #C36588;
+    padding-bottom: 20px;
+    font-weight: 300;
+}
+
+.btn {
+    margin: 10px;
+    background-color: white;
+    color: #C36588;
+    border: none; 
+}
+
+.btn:hover {
+    color: #3d0319;
+}
+
