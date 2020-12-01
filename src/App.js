@@ -62,7 +62,7 @@ class App extends React.Component {
 
   sortByPopularity = () => {
     const sortedContacts = this.state.contacts.sort((contact1, contact2) => {
-      return contact1.popularity - contact2.popularity;
+      return contact2.popularity - contact1.popularity;
     });
     this.setState({ contacts: sortedContacts });
   };
