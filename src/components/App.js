@@ -63,7 +63,7 @@ class Contacts extends Component {
                 <td><img src={elm.pictureUrl} alt={elm.name} /></td>
                 <td>{elm.name}</td>
                 <td>{elm.popularity.toFixed(2)}</td>
-                <td><button onClick={this.removeContact(elm.id)} className="delete-btn">Delete</button></td>
+                <td><button onClick={() => this.removeContact(elm.id)} className="delete-btn">Delete</button></td>
               </tr>)}
           </tbody>
         </table>
