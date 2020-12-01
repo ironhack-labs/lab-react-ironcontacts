@@ -1,0 +1,56 @@
+*{
+    font-family: 'Nerko One', cursive;    
+    color: white
+}
+.document{
+    background: #c2e59c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+h1{
+    font-size: 72px;
+    text-align: center;
+    margin: 0 20px;
+}
+
+button{
+background: #76b852;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #8DC26F, #76b852);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #8DC26F, #76b852); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.buttons button{
+    margin: 5px;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.table{
+    justify-content: center;
+    border-collapse: collapse;
+    border: 1px solid;
+    padding: 10px 20px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+.titles{
+    font-size: 24px;
+}
+
+th, td {
+   width: 25%;
+   text-align: center;
+   vertical-align: center;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+   
+
+}
