@@ -1,0 +1,15 @@
+.contacts-list {
+  background-color: rgba(167, 155, 155, 0.1);
+  border-radius: 10px;
+  margin: 50px;
+  padding: 2em;
+}
+
+ .contacts-list h1 {
+  font-size: 3em;
+}
+
+.contacts-list hr {
+  width: 70%;
+}
+

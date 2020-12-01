@@ -1,0 +1,15 @@
+.custom-btn {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(89, 187, 187);
+  color: aliceblue;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 1s;
+}
+
+.custom-btn:hover {
+  transform: scale(1.112);
+}
