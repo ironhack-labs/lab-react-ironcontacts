@@ -5,55 +5,50 @@ import contacts from './contacts.json';
 
 class App extends React.Component {
   state = {
-    contacts: contacts.slice(0,5)
+    contacts: contacts.slice(0, 5),
   };
-handleRandom = () => {
-const randomIndex = Math.floor((contacts.length) * (Math.random()));
-const randomContact = contacts[randomIndex];
-this.setState ({contacts: [...this.state.contacts, randomContact]});
-return 
-}
+  handleRandom = () => {
+    const randomIndex = Math.floor(contacts.length * Math.random());
+    const randomContact = contacts[randomIndex];
+    this.setState({ contacts: [...this.state.contacts, randomContact] });
+    return;
+  };
 
-handleSortByPop = () => {
-  const sortedPop = this.state.contacts.sort(function(x, y){
-    return x-y;
-  })
-  this.setState ({contacts: [...sortedPop]})
+  handleSortByPop = () => {
+    const sortedPop = this.state.contacts.sort((x, y) => {
+      return x.popularity - y.popularity;
+    });
+    this.setState({ contacts: sortedPop });
+  };
 
-}
+  handleSortByName = () => {
+    const sortedName = this.state.contacts.sort((x, y) => {
+      return x.name - y.name;
+    });
 
-handleSortByName = () => {
-  const sortedName = [...this.state.contacts].sort();
-  console.log("sorted name array: ",sortedName);
-  this.setState ({contacts: [...sortedName]})
+    this.setState([...sortedName]);
 
-return 
-}
+    return;
+  };
 
-handleDeleteContact = (id) => {
-  const filteredContacts = this.state.contacts.filter((contactObj) => {
-    if (contactObj.id !== id) { 
-      return true;
-    }
-    else {  
-      return false;
-    }
-  })
+  handleDeleteContact = (id) => {
+    const filteredContacts = this.state.contacts.filter((contactObj) => {
+      if (contactObj.id !== id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
 
-  this.setState( { contacts: filteredContacts } )
-}
-
-
-
-
-
+    this.setState({ contacts: filteredContacts });
+  };
 
   render() {
     return (
       <div className="App">
-        <button onClick = {this.handleRandom}>Add Random Contact</button>
-        <button onClick = {this.handleSortByPop}>Sort By Popularity</button>
-        <button onClick = {this.handleSortByName}>Sort By Name</button>
+        <button onClick={this.handleRandom}>Add Random Contact</button>
+        <button onClick={this.handleSortByPop}>Sort By Popularity</button>
+        <button onClick={this.handleSortByName}>Sort By Name</button>
         <table>
           <tr>
             <th>Picture</th>
@@ -69,11 +64,16 @@ handleDeleteContact = (id) => {
                 </td>
                 <td>{contactObj.name}</td>
                 <td>{contactObj.popularity}</td>
-                <td><button onClick = {this.handleDeleteContact} id = {contactObj.id}>Delete</button></td>
+                <td>
+                  <button
+                    onClick={() => this.handleDeleteContact(contactObj.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
-         
         </table>
       </div>
     );
