@@ -11,10 +11,16 @@ class App extends React.Component {
   }
 
   randomContact = ()=>{
+
     const randomIndex = Math.floor(Math.random()*(contacts.length))
     const newContact = contacts[randomIndex]
+
     const copyOfContactsList = [...this.state.contactsList]
-    copyOfContactsList.unshift(newContact)
+
+      if (!copyOfContactsList.includes(newContact)){
+        copyOfContactsList.unshift(newContact)
+        } else {return this.addRandomContact()}
+
     this.setState({contactsList: copyOfContactsList})
 
   }
@@ -36,7 +42,7 @@ class App extends React.Component {
 
   sortByPopularity = () => {
     const copyOfContactsList = [...this.state.contactsList]
-    copyOfContactsList.sort((item1, item2)=>{
+    copyOfContactsList.sort((item1, item2) => {
       if (item1.popularity > item2.popularity) { return -1; }
       else if (item1.popularity < item2.popularity) { return 1; }
       else if (item1.popularity === item2.popularity) { return 0; } 
@@ -70,7 +76,7 @@ class App extends React.Component {
           {this.state.contactsList.map((contact)=>{
             return(
               <tr key={contact.id}>
-                <td> <img src={contact.pictureUrl}/> </td>
+                <td> <img src={contact.pictureUrl} alt={contact.name}/> </td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td><button onClick={()=>this.deleteContact(contact.id)}>Delete</button></td>
