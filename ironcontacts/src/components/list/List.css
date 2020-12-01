@@ -1,0 +1,35 @@
+section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+table {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.red {
+    border-radius: 40px;
+    background-color: red;
+}
+
+tr {
+    margin-bottom: 30px;
+}
+
+th {
+    padding: 50px;
+}
+
+td {
+    padding: 30px;
+}
+
+button {
+    border-radius: 40px;
+    background-color: bisque;
+    margin-left: 100px;
+}
