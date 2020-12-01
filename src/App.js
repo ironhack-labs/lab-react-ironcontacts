@@ -1,47 +1,53 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Contacts from './contacts.json';
+import contacts from './contacts.json';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {contacts: Contacts.slice(0, 5)};
-  }
+  state = { contacts: contacts.slice(0, 5) };
 
-  newRandomContacts = (_contacts) => {
-    const newRandom= _contacts.sort(() =>0.5 - Math.random());
-   
-    this.setState({contacts: Contacts.slice(0,5)});
+  newRandomContact = () => {
+    const randomIndex = Math.floor(Math.random() * contacts.length);
+    const newContact = contacts[randomIndex];
+
+    const copyOfContactsList = [...this.state.contacts];
+
+    if (!copyOfContactsList.includes(newContact)) {
+      copyOfContactsList.unshift(newContact);
+    } else {
+      return this.newRandomContact();
+    }
+
+    this.setState({ contacts: copyOfContactsList });
   };
 
   sortByName = (_names) => {
-    const sortByNames=_names.sort((a, b) =>a.name.localeCompare(b.name));
-    this.setState({ contacts: sortByNames });
+    const sortByname = [...this.state.contacts];
+    sortByname.sort((a, b) => a.name.localeCompare(b.name));
+    this.setState({ contacts: sortByname });
   };
 
   sortByPopularity = (_popularity) => {
-    const sortByPopularities=_popularity.sort((a, b) =>b.popularity - a.popularity);
-    this.setState({ contacts: sortByPopularities });
+    const sortByPopularity = [...this.state.contacts];
+    sortByPopularity.sort((a, b) => b.popularity - a.popularity);
+    this.setState({ contacts: sortByPopularity });
   };
 
-  deleteContact= (_name) => {
-    const contactsCopy = this.state.contacts.filter((contact) => {
-      return contact.name !== _name;
-    });
+  deleteContact = (index) => {
+    const contactsCopy = [...this.state.contacts];
+    contactsCopy.splice(index, 1);
     this.setState({ contacts: contactsCopy });
-  }
-
+  };
 
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={() => this.newRandomContacts(Contacts)}>
+        <button onClick={() => this.newRandomContact()}>
           Add Random Contact
         </button>
-        <button onClick={() => this.sortByName(Contacts)}>Sort by name</button>
-        <button onClick={() => this.sortByPopularity(Contacts)}>
+        <button onClick={() => this.sortByName()}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity()}>
           Sort by popularity
         </button>
         <table>
@@ -55,7 +61,7 @@ class App extends React.Component {
           </thead>
           <tbody>
             {this.state.contacts.map((contact) => {
-              return(
+              return (
                 <tr key={contact.id}>
                   <td>
                     <img src={contact.pictureUrl} alt={contact.name}></img>
@@ -63,10 +69,16 @@ class App extends React.Component {
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td>
-                    <button onClick={() => { this.deleteContact(contact.id) }}>Delete</button>
+                    <button
+                      onClick={() => {
+                        this.deleteContact(contact.id);
+                      }}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </table>
