@@ -49,16 +49,11 @@ class App extends React.Component {
 
   deleteContact = (contactId) => {
 
-    const newArr = []
+    const newContact = this.state.contactsList.filter((item)=>{
+      return item.id !== contactId
+      })
 
-    const copyOfContactsList = [...this.state.contactsList]
-    copyOfContactsList.forEach((item)=>{
-      if(item.id !== contactId){
-        return newArr.push(item)
-      }
-    })
-
-    this.setState({contactsList: newArr})
+    this.setState({contactsList: newContact})
 
   }
 
