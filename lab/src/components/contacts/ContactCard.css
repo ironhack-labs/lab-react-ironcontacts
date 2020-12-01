@@ -1,0 +1,16 @@
+.picture{
+    width: 80px;
+}
+td {
+    padding: 10px 21px;
+    text-align: center;
+}
+button.delete-btn {
+    margin-right: 10px;
+    background-color: #fff;
+    border: 1px solid #33c5fa;
+    color: #33c5fa;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 30px;
+}

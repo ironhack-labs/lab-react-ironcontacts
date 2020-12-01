@@ -1,0 +1,29 @@
+section.ironContacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn button {
+    margin-right: 10px;
+    background-color: #33c5fa;
+    border: 1px solid;
+    color: #fff;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 30px;
+}
+.btn {
+    margin: 30px 0;
+}
+table.contact-card {
+    border-collapse: collapse;
+}
+th {
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 500;
+    color: #1e2434;
+    border-bottom: 1px solid #33c5fa;
+}
