@@ -1,0 +1,15 @@
+th {
+    width: 150px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    background-color: lightblue;
+    border-bottom: 1px solid;
+}
+
+td {
+    width: 150px;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding: 10px 0 5px;
+}
