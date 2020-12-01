@@ -1,6 +1,17 @@
 .App {
-  text-align: center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.App img{
+  width: 50px
+}
+
+table{
+  width: 400px
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +47,5 @@
     transform: rotate(360deg);
   }
 }
+
+
