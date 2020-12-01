@@ -4,24 +4,28 @@ import ContactsTable from './contactsTable/ContactsTable'
 import Contacts from './../contacts.json'
 
 class App extends Component {
+
   constructor() {
+
     super()
 
     this.state = {
+
       contactList: Contacts.slice(0, 5)
+      
     }
 
   }
 
   addNewRandom = () => {
 
-    const randomContact = Math.floor(Math.random() * (5 - 53) + 53)
-
-    const newCeleb = Contacts[randomContact]
+    const newCeleb = Contacts[Math.floor(Math.random() * (this.state.contactList.length - Contacts.length) + Contacts.length)]
 
     const copyContacts = [...this.state.contactList]
 
-    if (!copyContacts.includes(newCeleb.id)) {
+    const repeated = copyContacts.find(elm => elm.id === newCeleb.id)
+
+    if (!repeated) {
 
       copyContacts.push(newCeleb)
 
