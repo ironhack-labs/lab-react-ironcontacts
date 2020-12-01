@@ -1,0 +1,25 @@
+.App {
+    border: 5px solid white;
+}
+
+h1 {
+    font-family: 'Luminari', fantasy;
+    font-size: 70px;
+    margin: 10px;
+    text-decoration: underline;
+}
+
+.space {
+    color: rgb(41, 41, 63);
+    margin: 0px 30px;
+}
+
+.btn {
+    margin: 20px;
+}
+
+.table {
+    color: white;
+    margin: 5px;
+    padding: 10px;
+}
