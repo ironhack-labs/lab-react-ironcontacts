@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Nerko+One&family=Syne+Mono&display=swap');
+
+
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Major Mono Display', monospace;
+}
+h3{
+  font-family: 'Nerko One', cursive;
+  margin: 20px;
+  font-size: 38px;
+}
+
+.section1{
+  display: flex;
+justify-content:space-around;
+  flex-direction:row;
+}
+
+.buttons{
+  display: flex;
+  justify-content:center;
+  flex-direction:row;
+}
+.add{
+  padding:0 80px;
+  font-size: 20px;
+  background-color: green;
+  color: purple;
+
+}
+.sortName{
+  padding:0 80px;
+  font-size: 20px;
+  background-color: blue;
+  color: white;
+
+}
+.sortpopu{
+  padding:0 80px;
+  font-size: 20px;
+  background-color:orange;
+  color:blue;
+
+}
+
+.section1 p {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
+ 
+  font-family: 'Syne Mono', monospace;
+}
+
+img{
+  border: 1px solid;
+  width: 100px;
+  object-fit: cover;
+  margin: 0 20px;
+}
