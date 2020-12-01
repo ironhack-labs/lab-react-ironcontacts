@@ -14,6 +14,7 @@ class ContactList extends Component {
     }
 
 
+    //Add Contact Random
     addRandomContact = () => {
         const randomContact = Math.floor(Math.random() * contactsList.length)
         this.state.contactsList.push(contactsList[randomContact])
@@ -26,6 +27,7 @@ class ContactList extends Component {
     }
 
 
+    //Sort by Name
     sortByName = () => {
         this.setState({
             contactsList: this.state.contactsList.sort(function(a, b){
@@ -36,6 +38,7 @@ class ContactList extends Component {
     }
 
 
+    //Sort by Popularity
     sortByPopularity = () => {
         this.setState({
             contactsList: this.state.contactsList.sort(function(a, b){
@@ -45,7 +48,8 @@ class ContactList extends Component {
 
     }
     
-
+    
+    //Delete Contact
     removeContact = contactIdToDelete => {
         this.setState({
             contactsList: this.state.contactsList.filter(elm => elm.id !== contactIdToDelete)
