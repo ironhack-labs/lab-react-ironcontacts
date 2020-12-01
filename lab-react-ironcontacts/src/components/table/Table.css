@@ -1,0 +1,27 @@
+table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+} 
+
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding:15px;
+
+}
+.buttons {
+    display:flex;
+    justify-content:center;
+    
+}
+
+.buttons button{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
