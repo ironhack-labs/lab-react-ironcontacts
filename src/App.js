@@ -12,10 +12,17 @@ function App() {
 
   const addRandomContact = () => {
     const copyOfContacts = [...contactState];
-    const randomContact =
-      contacts[Math.floor(Math.random() * (contacts.length - 4) + 4)];
-    copyOfContacts.push(randomContact);
-    setContactState(copyOfContacts);
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    let contactExists = false;
+    copyOfContacts.forEach((item) => {
+      if (item.name === randomContact.name) {
+        contactExists = true;
+      }
+    });
+    if (!contactExists) {
+      copyOfContacts.push(randomContact);
+      setContactState(copyOfContacts);
+    } else addRandomContact();
   };
 
   const sortByName = () => {
@@ -32,7 +39,7 @@ function App() {
 
   const deleteContact = (id) => {
     const copyOfContacts = [...contactState];
-    const index = copyOfContacts.findIndex((item) => item.id == id);
+    const index = copyOfContacts.findIndex((item) => item.id === id);
     copyOfContacts.splice(index, 1);
     setContactState(copyOfContacts);
   };
