@@ -1,0 +1,20 @@
+.actorsTable img{
+     width: 100px;
+}
+.actorsTable thead{
+     text-align: center;
+     font-size: 22px;
+}
+.actorsTable tbody{
+     text-align: center;
+
+}
+.actorsTable tbody td{
+font-size: 22px;
+}
+
+.deleteBtn{
+    padding: 15px;
+    background-color: #af0000;
+    border: none
+}

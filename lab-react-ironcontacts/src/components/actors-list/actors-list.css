@@ -1,0 +1,15 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.actionBtn {
+    margin: 0 15px 30px 0;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.table {
+    width: 700px;
+    margin: 0 auto;
+}
