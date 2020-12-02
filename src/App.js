@@ -15,23 +15,29 @@ export default class App extends Component {
     });
   };
 
-
-
   sortByName = () => {
     console.log('this is sort by nameII');
     this.setState({
-      contactList: this.state.contactList.sort((a, b) => a.name.localeCompare(b.name))
-    })
+      contactList: this.state.contactList.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      ),
+    });
   };
-
 
   sortByPopularity = () => {
     console.log('this is sort by pop');
     this.setState({
-      contactList: this.state.contactList.sort(function(a, b){return b.popularity-a.popularity})
-    })
+      contactList: this.state.contactList.sort(function (a, b) {
+        return b.popularity - a.popularity;
+      }),
+    });
   };
 
+  deleteContact = (idToDelete) => {
+    this.setState({
+      contactList: this.state.contactList.filter((x) => x.id !== idToDelete),
+    });
+  };
 
   render() {
     console.log(this.state.contactList);
@@ -60,7 +66,12 @@ export default class App extends Component {
                     <img src={contact.pictureUrl} height="120" alt="" />
                   </td>
                   <td>{contact.name}</td>
-                  <td>{contact.popularity}</td>
+                  <td>{contact.popularity.toFixed(2)}</td>
+                  <td>
+                    <button onClick={() => this.deleteContact(contact.id)}>
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
