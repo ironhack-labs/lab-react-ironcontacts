@@ -1,0 +1,24 @@
+.frame {
+    margin: 0 20%;
+}
+
+.button-row {
+    justify-content: space-around;
+}
+
+.list-head {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    background-color: #0c32a3;
+    color: #ffffff;
+}
+
+.head-button {
+    border: 1px solid #0c32a3;
+    font-weight: 600;
+    height: 40px;
+    width: 200px;
+    margin-bottom: 10px;
+    color: #0c32a3;
+}

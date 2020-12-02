@@ -1,0 +1,21 @@
+.row-card {
+    height: 40px;
+    border: 8px solid #0c32a3;
+    text-align: center;
+}
+
+
+.row-button {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #0c32a3;
+    background-color: #0c32a3;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+}
+
+img {
+    height: 20vh;
+    object-fit: cover;
+}
