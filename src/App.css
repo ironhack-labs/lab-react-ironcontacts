@@ -3,13 +3,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #916953;
 }
-
+td {
+  padding: 20px;
+}
 .App img {
   width: 100px;
+  background-size: cover;
+}
+table {
+  border-collapse: collapse;
+  margin: 20px;
+  width: 100%;
 }
 
 thead {
   font-size: 20px;
   font-weight: 700;
+  border-bottom: 2px solid #cf8e80;
+}
+
+button {
+  background-color: #cf8e80;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  color: white;
 }
