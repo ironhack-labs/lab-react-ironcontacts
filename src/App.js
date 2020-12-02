@@ -15,7 +15,9 @@ class App extends Component {
     const randomContact = this.state.contacts;
 
     let randomNumber = Math.floor(Math.random() * contacts.length)
-    randomContact.push(contacts[randomNumber])
+    if (randomContact.indexOf(contacts) === -1) {
+      randomContact.push(contacts[randomNumber])
+    }
 
     this.setState (
         {contacts:randomContact}
@@ -28,7 +30,7 @@ class App extends Component {
 
     sortByName.sort( (a,b) => {
       if (a.name < b.name) {return -1}
-      if (a.name < b.name) {return -1}
+      if (a.name > b.name) {return 1}
       return 0
     })
 
@@ -43,7 +45,7 @@ class App extends Component {
 
     sortByPopularity.sort( (a,b) => {
       if (a.popularity > b.popularity) {return -1}
-      if (a.popularity < b.popularity) {return -1}
+      if (a.popularity < b.popularity) {return 1}
       // return 0
     })
 
