@@ -39,7 +39,7 @@
 
 .headshot  img{
   /* border: 2px solid green; */
-  height: 20vh;
+  height: 10%;
 }
 
 table {
@@ -51,4 +51,17 @@ table {
   /* border: 2px solid green; */
   padding: 0px 20px;
   width: 600px;
+}
+
+.buttons, .buttonsSort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* border: 2px solid green; */
+}
+
+.buttonsSort {
+  /* padding: 0px 2px; */
+  width: 30%;
+  justify-content: space-around;
 }

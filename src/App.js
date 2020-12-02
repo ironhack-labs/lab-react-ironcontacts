@@ -11,15 +11,45 @@ class App extends Component {
 
   addRandomContact () {
     console.log(`tada`)
+    
     const randomContact = this.state.contacts;
 
     let randomNumber = Math.floor(Math.random() * contacts.length)
     randomContact.push(contacts[randomNumber])
-    
-    // randomContact: this.state.contacts + hi
+
     this.setState (
         {contacts:randomContact}
       );
+  }
+
+  sortByName () {
+    console.log(`name!`)
+    const sortByName = this.state.contacts;
+
+    sortByName.sort( (a,b) => {
+      if (a.name < b.name) {return -1}
+      if (a.name < b.name) {return -1}
+      return 0
+    })
+
+    this.setState (
+      {contacts:sortByName}
+    );
+  }
+
+  sortByPopularity () {
+    console.log(`popularity!`)
+    const sortByPopularity = this.state.contacts;
+
+    sortByPopularity.sort( (a,b) => {
+      if (a.popularity > b.popularity) {return -1}
+      if (a.popularity < b.popularity) {return -1}
+      // return 0
+    })
+
+    this.setState (
+      {contacts:sortByPopularity}
+    );
   }
   
   render() {
@@ -52,14 +82,22 @@ class App extends Component {
       <div class='App'>
 
         <h1>IronContacts</h1>
-        <p>
+        <p class="buttons">
           <button onClick = { () => this.addRandomContact() } >
             Add a Random Contact
           </button>
+          <div class="buttonsSort">
+            Sort By: 
+            <button onClick = { () => this.sortByName() } >
+              Name
+            </button>
+  
+            <button onClick = { () => this.sortByPopularity() } >
+              Popularity
+            </button>
+          </div>
 
-          {/* <button onClick = { () => 
-          this.randomContact() } > 
-          Add Random Contact</button> */}
+
         </p>
           <table>
 
