@@ -55,6 +55,23 @@ class App extends Component {
     }));
   };
 
+  //   removePeople(e) {
+  //     this.setState({people: this.state.people.filter(function(person) {
+  //         return person !== e.target.value
+  //     })});
+  // }
+  deleteContact = (id) => {
+    const removeContact = this.state.contacts.filter((contact) => {
+      return contact.id !== id;
+    });
+
+    console.log('delete');
+
+    this.setState((state, props) => ({
+      contacts: removeContact,
+    }));
+  };
+
   render() {
     console.log('contacs from render', this.state.contacts);
     return (
@@ -90,6 +107,12 @@ class App extends Component {
                   </td>
                   <td>
                     <p>{contact.popularity.toFixed(2)}</p>
+                  </td>
+                  <td>
+                    {' '}
+                    <button onClick={() => this.deleteContact(contact.id)}>
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
