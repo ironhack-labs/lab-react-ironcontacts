@@ -12,11 +12,29 @@ class App extends React.Component {
   };
 
   addRandomContact = () => {
-    let randomContact =
+    const randomContact =
       allContacts[Math.floor(Math.random() * allContacts.length)];
-    let newArray = [...this.state.displayedContacts, randomContact];
+    const newArray = [...this.state.displayedContacts, randomContact];
     this.setState({
       displayedContacts: newArray,
+    });
+  };
+
+  sortName = () => {
+    const sortedNames = this.state.displayedContacts.sort((a, b) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    );
+    this.setState({
+      displayedContacts: sortedNames,
+    });
+  };
+
+  sortPopularity = () => {
+    const sortedPop = this.state.displayedContacts.sort((a, b) =>
+      a.popularity > b.popularity ? -1 : b.popularity > a.popularity ? 1 : 0
+    );
+    this.setState({
+      displayedContacts: sortedPop,
     });
   };
 
@@ -27,6 +45,10 @@ class App extends React.Component {
         <div>
           <button onClick={() => this.addRandomContact()}>
             Add Random Contact
+          </button>
+          <button onClick={() => this.sortName()}>Sort by name</button>
+          <button onClick={() => this.sortPopularity()}>
+            Sort by popularity
           </button>
         </div>
 
@@ -42,7 +64,7 @@ class App extends React.Component {
               <td>
                 <img
                   src={contact.pictureUrl}
-                  alt="contact pic"
+                  alt="person picture"
                   style={{ height: '100px' }}
                 />
               </td>
