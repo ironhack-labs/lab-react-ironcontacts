@@ -6,13 +6,17 @@ import contactList from './contacts.json';
 class App extends Component {
   state = {
     contacts: contactList.slice(0, 5),
+    remainingContacts: contactList.slice(5),
   };
   addRandomContact = () => {
-    const randomNum = Math.floor(Math.random() * (contactList.length - 6) + 6);
-    let randomContact = contactList[randomNum];
-    let tempState = [...this.state.contacts, randomContact];
+    let tempRemainingContacts = [...this.state.remainingContacts];
+    const randomNum = Math.floor(Math.random() * tempRemainingContacts.length);
+    let randomContact = tempRemainingContacts[randomNum];
+    let tempContacts = [...this.state.contacts, randomContact];
+    tempRemainingContacts.splice(randomNum, 1);
     this.setState({
-      contacts: tempState,
+      contacts: tempContacts,
+      remainingContacts: tempRemainingContacts,
     });
   };
   sortByName = () => {
