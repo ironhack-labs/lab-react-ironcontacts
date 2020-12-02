@@ -1,0 +1,35 @@
+img{
+    width: 80px;
+}
+table{
+    margin: 0 auto;
+
+}
+.file {
+vertical-align: middle;
+
+border-spacing: 0px;
+    border-collapse: collapse;
+
+}
+.maintable{
+    border-style: solid;
+    padding:30px;
+
+}
+.title{
+text-align: center;
+}
+.buttons{
+    text-align: center;   
+    margin-bottom:30px;
+}
+
+button{
+     border-radius: 6px;
+    border-style: none;
+    background-color: rgba(255, 0, 0, 0.494);
+    color:white;
+    margin: 0 10px;
+    padding:10px
+}
