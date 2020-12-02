@@ -9,21 +9,21 @@ class Contacts extends Component {
   constructor () {
     super ()
     this.state = {
-      contacts: artists
+      contacts: artists.slice(0, 5)
     }
-    this.firstContacts = this.state.contacts.slice(0, 5)
   }
 
   addRandomContact = () => {
-    this.firstContacts.push(this.state.contacts[ Math.floor(Math.random() * ((this.state.contacts.length - 1) - 0)) ])
+    const randomIndex = Math.floor(Math.random() * ((artists.length - 1) - 0))
+    this.state.contacts.push(artists[ randomIndex ])
     this.setState({ contacts: this.state.contacts })
   }
 
-  sortByName = () => this.setState({ contacts: this.firstContacts.sort((a, b) => a.name.localeCompare(b.name)) })
+  sortByName = () => this.setState({ contacts: this.state.contacts.sort((a, b) => a.name.localeCompare(b.name)) })
 
-  sortByPopularity = () => this.setState({ contacts: this.firstContacts.sort((a, b) => b.popularity - a.popularity) })
+  sortByPopularity = () => this.setState({ contacts: this.state.contacts.sort((a, b) => b.popularity - a.popularity) })
  
-  removeContact = id => this.setState({ contacts: this.firstContacts.filter(elm => elm.id !== id) })
+  removeContact = id => this.setState({ contacts: this.state.contacts.filter(elm => elm.id !== id) })
 
   render() {
     return (
@@ -39,7 +39,8 @@ class Contacts extends Component {
           <Button event={this.sortByPopularity} text='Sort By Popularity' />
         </div>
 
-        <Table content={this.firstContacts.map(elm => <ContactRow key={elm.id} picture={elm.pictureUrl} name={elm.name} popularity={elm.popularity} deleteContact={() => this.removeContact(elm.id)} />)} />
+        <Table content={this.state.contacts.map(elm =>
+          <ContactRow key={elm.id} picture={elm.pictureUrl} name={elm.name} popularity={elm.popularity} deleteContact={() => this.removeContact(elm.id)} />)} />
 
       </section>
 

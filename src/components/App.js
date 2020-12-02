@@ -1,4 +1,3 @@
-import './App.css'
 import Contacts from './contacts/ContactsList'
 
 function App() {
@@ -6,7 +5,7 @@ function App() {
     <main>
       <Contacts />
     </main>
-  );
+  )
 }
 
 export default App
