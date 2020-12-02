@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json';
 
@@ -8,20 +7,26 @@ class App extends Component {
     contacts: contacts.slice(0, 5),
   };
 
-  // displayContacts = () => {
-  //   const showContacts = this.state.contacts.map((contact) => {
-  //     console.log('contact', contact);
-  //     console.log('id', contact.id);
+  addRandomContact = () => {
+    //var item = items[Math.floor(Math.random() * items.length)];
+    let random = contacts[Math.floor(Math.random() * contacts.length)];
+    console.log('random', random);
 
-  //     return <tr key={contact.id}></tr>;
-  //   });
-  // };
+    if (!contacts.includes(random)) {
+      contacts.push(random);
+    }
+
+    this.setState((state, props) => ({
+      contacts: state.contacts.concat(random),
+    }));
+  };
 
   render() {
     console.log(this.state.contacts);
     return (
       <>
         <h1>IronContacts</h1>
+        <button onClick={() => this.addRandomContact()}>Add contact</button>
 
         <div className="table-wrap">
           <table>
@@ -36,7 +41,11 @@ class App extends Component {
               {this.state.contacts.map((contact) => (
                 <tr key={contact.id}>
                   <td>
-                    <img src={contact.pictureUrl} width="80px"></img>
+                    <img
+                      src={contact.pictureUrl}
+                      width="80px"
+                      alt={contact.name}
+                    ></img>
                   </td>
                   <td>
                     <p>{contact.name}</p>
