@@ -44,13 +44,11 @@ class App extends React.Component {
   };
 
   deleteActor = (actorToDelete) => {
-    console.log(actorToDelete);
     let spreadActors = this.state.actorsToRender;
-    let actorsWeDontWantToDelete = spreadActors.filter((actor) => {
-      return actor.name !== actorToDelete;
-    });
-    console.log(spreadActors);
-    console.log(actorsWeDontWantToDelete);
+    let actorsWeDontWantToDelete = spreadActors.splice(
+      spreadActors.indexOf(actorToDelete),
+      1
+    );
     this.setState({
       actorsToRender: actorsWeDontWantToDelete,
     });
@@ -92,6 +90,7 @@ class App extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -110,6 +109,7 @@ class App extends React.Component {
                   <td key={actorsToRender.popularity}>{contact.popularity}</td>
                   <td>
                     <button
+                      className="delete"
                       onClick={() => {
                         return this.deleteActor(contact.name);
                       }}

@@ -19,14 +19,27 @@ body {
 tr {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border: 1px solid black;
+}
+
+td {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 25%;
 }
 
 button {
   border-style: none;
   background-color: lime;
+}
+
+.delete {
+  background-color: red;
 }
 
 .App-logo {
