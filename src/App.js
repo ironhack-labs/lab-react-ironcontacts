@@ -1,26 +1,94 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  
+  state = {
+    famousContact: []
+  }
+
+  displayContact = () => {
+    
+    const firstContacts = contacts.filter((contact)=>{
+      return contacts.indexOf(contact) < 5
+    })
+
+    const displayContacts = firstContacts.map((contact, index)=>{
+    return (
+      <tr key={index}>
+        <td><img src={contact.pictureUrl} alt={contact.name} /></td>
+        <td>{contact.name}</td>
+        <td>{contact.popularity.toFixed(2)}</td>
+        <td><button onClick={()=>this.deleteFamous(displayContacts.indexOf(contact))}>Delete</button></td>
+      </tr>
+      )
+    })
+    return displayContacts
+  }
+
+  getRandomContact = ()=>{
+    const randomContact = Math.floor(Math.random() * contacts.length + 1)
+    
+    this.setState({famousContact: [...this.state.famousContact, contacts[randomContact]]})
+    // console.log(this.state.famousContact)
+  }
+
+  sortByName = () => {
+    const sortedNameFamous = [...this.state.famousContact]
+    sortedNameFamous.sort((a, b)=>{
+      if(a.name < b.name) {
+        return -1;
+      }
+      if(a.name > b.name) {
+        return 1;
+      }
+        return 0;
+    });
+    this.setState({famousContact: sortedNameFamous})
+  }
+
+  sortByPopularity = () => {
+    const sortedPopularityFamous = [...this.state.famousContact]
+    sortedPopularityFamous.sort((a, b) => {
+      return a.value - b.value;
+    });
+    this.setState({famousContact: sortedPopularityFamous})
+  }
+
+  deleteFamous = (_famous) => {
+    const copyFamousList = [...this.state.famousContact]
+    copyFamousList.splice(_famous, 1)
+    this.setState({famousContact: copyFamousList})
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        
+        <h2>IronContacts</h2>
+        <button onClick={()=>{this.getRandomContact()}}>Add Random Contact</button>
+        <button onClick={()=>{this.sortByName()}}>Sort by name</button>
+        <button onClick={()=>{this.sortByPopularity()}}>Sort by popularity</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.displayContact()}
+          </tbody>
+        </table>
+  
+      </div>
+    )
+  }
+;
 }
 
 export default App;
