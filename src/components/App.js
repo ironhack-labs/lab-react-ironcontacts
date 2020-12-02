@@ -5,8 +5,8 @@ function App() {
   return (
     <>
       <h1 className="title">Celebrities</h1>
-      <Table/>
-      </>
+      <Table />
+    </>
   );
 }
 

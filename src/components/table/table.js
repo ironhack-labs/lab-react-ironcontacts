@@ -11,13 +11,13 @@ class Table extends Component {
             contact: contacts,
             count: 5
         }
-    }    
-    
+    }
+
     sort = () => {
 
-       this.setState({
-           filtercontact: this.state.contact.sort(function (a, b) {
-            return (a.name.localeCompare(b.name))
+        this.setState({
+            filtercontact: this.state.contact.sort(function (a, b) {
+                return (a.name.localeCompare(b.name))
             })
         })
     }
@@ -35,8 +35,8 @@ class Table extends Component {
             contact: newContacts
         })
     }
-  
-    
+
+
     delete = id => {
         let myContacts = this.state.contact
         let newContacts = []
@@ -46,7 +46,7 @@ class Table extends Component {
             count: this.state.count - 1
         })
     }
-    
+
     addCel = () => {
         let myContacts = this.state.contact.slice(0, this.state.count)
         const newUser = contacts[Math.floor(Math.random() * contacts.length)];
@@ -58,35 +58,35 @@ class Table extends Component {
             count: +this.state.count + 1
         })
         console.log(myContacts)
-     
+
 
 
     }
 
-        // myContacts.push(newUser)
+    // myContacts.push(newUser)
     render() {
         const filtercontact = this.state.contact
         console.log(filtercontact)
         return (
             <>
-            <div className="buttons">
-                <button onClick={this.addCel}>ADD A Celebrity</button>
-                <button onClick={this.sort}>Sort By Name </button>
+                <div className="buttons">
+                    <button onClick={this.addCel}>ADD A Celebrity</button>
+                    <button onClick={this.sort}>Sort By Name </button>
                     <button onClick={this.sortPop}>Sort By Popularity </button>
                 </div>
-            <table className="maintable">
-                <tbody className="file">
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
+                <table className="maintable">
+                    <tbody className="file">
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
                             <th>Popularity</th>
                             <th>Action</th>
-                    </tr>
-                </tbody>
-                    {filtercontact.map((elm, idx) => idx < this.state.count ? <tbody><tr><Celebrities key={elm.id} pictureUrl={elm.pictureUrl} name={elm.name} popularity={elm.popularity} /><th><button onClick={() => this.delete(elm.id)}> Delete</button></th> </tr></tbody> 
- : null)}
+                        </tr>
+                    </tbody>
+                    {filtercontact.map((elm, idx) => idx < this.state.count ? <tbody><tr><Celebrities key={elm.id} pictureUrl={elm.pictureUrl} name={elm.name} popularity={elm.popularity} /><th><button onClick={() => this.delete(elm.id)}> Delete</button></th> </tr></tbody>
+                        : null)}
 
-            </table></>)
+                </table></>)
     }
 
 }

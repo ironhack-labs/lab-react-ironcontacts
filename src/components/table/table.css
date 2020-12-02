@@ -6,10 +6,8 @@ table{
 
 }
 .file {
-vertical-align: middle;
-
-border-spacing: 0px;
-    border-collapse: collapse;
+    vertical-align: middle;
+    margin-bottom: 40px;
 
 }
 .maintable{
@@ -18,7 +16,7 @@ border-spacing: 0px;
 
 }
 .title{
-text-align: center;
+    text-align: center;
 }
 .buttons{
     text-align: center;   
@@ -26,7 +24,7 @@ text-align: center;
 }
 
 button{
-     border-radius: 6px;
+    border-radius: 6px;
     border-style: none;
     background-color: rgba(255, 0, 0, 0.494);
     color:white;
