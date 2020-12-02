@@ -1,0 +1,21 @@
+.images{
+width: 10%;
+}
+
+.contact-card {
+    display: flex;
+    padding: 20px;
+}
+
+.info2 {
+    padding-left: 20px;
+}
+
+.btn-delete {
+    margin-bottom: 80px;
+    margin-top: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: flex-start;
+
+}
