@@ -21,12 +21,50 @@ class App extends Component {
     }));
   };
 
+  sortByName = () => {
+    let sortedByName = this.state.contacts.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log('sorted by name', sortedByName);
+
+    this.setState((state, props) => ({
+      contacts: sortedByName,
+    }));
+  };
+
+  sortByPopularity = () => {
+    let sortedByPopularity = this.state.contacts.sort((a, b) => {
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      return 0;
+    });
+
+    this.setState((state, props) => ({
+      contacts: sortedByPopularity,
+    }));
+  };
+
   render() {
-    console.log(this.state.contacts);
+    console.log('contacs from render', this.state.contacts);
     return (
       <>
         <h1>IronContacts</h1>
         <button onClick={() => this.addRandomContact()}>Add contact</button>
+        <button onClick={() => this.sortByName()}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity()}>
+          Sort by popularity
+        </button>
 
         <div className="table-wrap">
           <table>
