@@ -24,6 +24,20 @@ class App extends Component {
       );
   }
 
+  removeContact (id) {
+    console.log(`they are no longer my friend`)
+    
+    const removeContact = this.state.contacts;
+    let thisContact = removeContact.findIndex( (item) => item.id === id);
+
+    removeContact.splice(thisContact,1);
+
+    this.setState (
+        {contacts:removeContact}
+      );
+  }
+
+
   sortByName () {
     console.log(`name!`)
     const sortByName = this.state.contacts;
@@ -72,7 +86,9 @@ class App extends Component {
              {contact.popularity}
             </td>
             <td>
-              <button>TBD</button>
+              <button onClick = { () => this.removeContact(contact.id) } >
+                Remove from list
+              </button>
             </td>
           </tr>
          
