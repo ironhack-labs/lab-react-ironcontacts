@@ -1,5 +1,10 @@
+#root {
+  display:flex;
+}
+
 .App {
   text-align: center;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -35,4 +40,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.threebuttons {
+  display: flex;
 }

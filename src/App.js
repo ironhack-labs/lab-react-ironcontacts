@@ -7,25 +7,43 @@ export default class App extends Component {
   state = {
     contactList: contacts.slice(0, 5),
   };
-  // state = {
-  //   counter: 0,
-  //   picture: this.props.imgs[0],
-  // };
-  // nextPicture = () => {
-  //   if (this.state.counter > 3) {
-  //     this.setState({
-  //       counter: this.state.counter - 4,
-  //     });
-  //   }
-  //   this.setState({
-  //     counter: this.state.counter + 1,
-  //     picture: this.props.imgs[this.state.counter],
-  //   });
-  // };
+  randomContact = () => {
+    this.setState({
+      contactList: this.state.contactList.concat(
+        contacts[Math.floor(Math.random() * contacts.length)]
+      ),
+    });
+  };
+
+
+
+  sortByName = () => {
+    console.log('this is sort by nameII');
+    this.setState({
+      contactList: this.state.contactList.sort((a, b) => a.name.localeCompare(b.name))
+    })
+  };
+
+
+  sortByPopularity = () => {
+    console.log('this is sort by pop');
+    this.setState({
+      contactList: this.state.contactList.sort(function(a, b){return b.popularity-a.popularity})
+    })
+  };
+
+
   render() {
     console.log(this.state.contactList);
     return (
       <div className="App">
+        <h1>IronContacts</h1>
+        <div className="threebuttons">
+          <button onClick={this.randomContact}>Add random contact</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        </div>
+
         <table>
           <thead>
             <tr>
