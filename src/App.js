@@ -38,6 +38,14 @@ class App extends React.Component {
     });
   };
 
+  deleteContact = (id) => {
+    const index = this.state.displayedContacts.findIndex((c) => c.id == id);
+    const removedContact = this.state.displayedContacts.splice(index, 1);
+    this.setState({
+      displayedContacts: this.state.displayedContacts,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -57,6 +65,7 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
 
           {this.state.displayedContacts.map((contact) => (
@@ -64,12 +73,17 @@ class App extends React.Component {
               <td>
                 <img
                   src={contact.pictureUrl}
-                  alt="person picture"
+                  alt="actor picture"
                   style={{ height: '100px' }}
                 />
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
+              <td>
+                <button onClick={() => this.deleteContact(contact.id)}>
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </table>
