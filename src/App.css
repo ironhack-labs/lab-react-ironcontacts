@@ -1,5 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.Actors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+}
+
+button {
+  border-style: none;
+  background-color: lime;
 }
 
 .App-logo {

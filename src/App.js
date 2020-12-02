@@ -45,13 +45,14 @@ class App extends React.Component {
 
   deleteActor = (actorToDelete) => {
     console.log(actorToDelete);
-    let actorsWeDontWantToDelete = actorsToRender.filter((actor) => {
+    let spreadActors = this.state.actorsToRender;
+    let actorsWeDontWantToDelete = spreadActors.filter((actor) => {
       return actor.name !== actorToDelete;
     });
-    console.log(actorsToRender);
+    console.log(spreadActors);
     console.log(actorsWeDontWantToDelete);
     this.setState({
-      actorsToRender: [],
+      actorsToRender: actorsWeDontWantToDelete,
     });
   };
 
