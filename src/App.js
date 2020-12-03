@@ -77,7 +77,7 @@ class App extends React.Component {
               </td>
               <td key={contact.name}>{contact.name}</td>
               <td key={contact.popularity}>{contact.popularity.toFixed(2)}</td>
-              <td key={i}>
+              <td key={index}>
                 <button onClick={() => this.removeUser(index)}>
                   User Delete
                 </button>
