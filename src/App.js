@@ -54,7 +54,7 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {stateContacts.map((user, i) => (
+            {this.state.stateContacts.map((user, i) => (
               <tr key={user.name}>
                 <td key={user.pictureUrl}>
                   <img style={{ width: `50px` }} src={user.pictureUrl}></img>
