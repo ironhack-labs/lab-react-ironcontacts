@@ -44,14 +44,20 @@ class App extends React.Component {
   };
 
   deleteActor = (actorToDelete) => {
+    console.log(actorToDelete);
     let spreadActors = this.state.actorsToRender;
-    let actorsWeDontWantToDelete = spreadActors.splice(
-      spreadActors.indexOf(actorToDelete),
-      1
-    );
-    this.setState({
-      actorsToRender: actorsWeDontWantToDelete,
+    let actorsWeDontWantToDelete = spreadActors.filter((actor) => {
+      return actor.name !== actorToDelete;
     });
+    console.log(actorsWeDontWantToDelete);
+    /*let idx
+    for (let i = 0; i < this.state.actorsToRender.length; i++) {
+      if (this.state.actorsToRender[i].name === actorToDelete) {
+        idx = i;
+      }
+    }
+    console.log(`You are trying to delete ${actorToDelete} at position ${idx}`);*/
+    this.setState({ actorsToRender: actorsWeDontWantToDelete });
   };
 
   render() {
@@ -94,7 +100,7 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {actorsToRender.map((contact, index) => {
+            {this.state.actorsToRender.map((contact, index) => {
               return (
                 <tr>
                   <td key={actorsToRender.id}>
