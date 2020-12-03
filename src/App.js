@@ -9,23 +9,14 @@ export default class App extends Component {
   }
 
   add = () => {
+    const stateContactsIds = this.state.contacts.map(displayedContact => displayedContact.id)
     const filtered = contacts.filter(contact=> {
-      for (let person of this.state.contacts) {
-        console.log('contact', contact, 'person', person)
-        return contact.id !== person.id
-      }
+      return !stateContactsIds.includes(contact.id);
     });
-    console.log('filtered', filtered)
     const randomIndex = Math.floor(Math.random() * filtered.length);
     const added = this.state.contacts.concat(filtered[randomIndex]);
     this.setState({ contacts: added });
   }
-
-  // add = () => {
-  //   const random = contacts[Math.floor(Math.random() * contacts.length)];
-  //   const added = this.state.contacts.concat(random);
-  //   this.setState({ contacts: added });
-  // }
 
   sortByName = () => {
     const sorted = this.state.contacts.sort((a, b) => {
@@ -84,48 +75,3 @@ export default class App extends Component {
     )
   }
 }
-
-
-// function App() {
-//   console.log(contacts)
-
-//   const display = contacts.map(contact => {
-//     return (
-//       <tr key={ contact.id }>
-//         <td><img src={ contact.pictureUrl } style={{ width: '50px'}} alt="picture"/></td>
-//         <td>{ contact.name }</td>
-//         <td>{ contact.popularity }</td>
-//       </tr>
-//     )
-//   })
-
-//   const clickHandler = () => {
-
-//     return ()
-//   }
-
-//   return (
-//     <>
-//       <div className="App">
-//         {/* <header className="App-header">
-//         </header> */}
-//         <h1>IronContacts</h1>
-//         <button onClick={ clickHandler }>Add Random Contact</button>
-//         <table>
-//           <thead>
-//             <tr>
-//               <td>Picture</td>
-//               <td>Name</td>
-//               <td>Popularity</td>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             { display.slice(0,5) }
-//           </tbody>
-//         </table>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;
