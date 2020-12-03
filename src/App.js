@@ -43,10 +43,12 @@ export default class App extends React.Component {
   };
 
   delete = (selected) => {
-    let removedArr = this.state.firstContacts.map((element) => element);
-    let removedContact = removedArr.splice(selected, 1);
+    // console.log(selected);
+    // let removedArr = this.state.firstContacts.map((element) => element);
+    // let removedContact = removedArr.splice(selected, 1);
+    this.state.firstContacts.splice(selected, 1);
     this.setState({
-      firstContacts: removedArr,
+      firstContacts: this.state.firstContacts,
     });
   };
 
@@ -66,24 +68,18 @@ export default class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.firstContacts.map((contact) => {
+            {this.state.firstContacts.map((contact, selected) => {
               return (
                 <tr key={contact.id}>
                   <td>
-                    {' '}
                     <img class="imgFirstIt" src={contact.pictureUrl} />
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
                   <td>
-                    {/* <button onClick={() => this.delete(selected)}>
+                    <button onClick={() => this.delete(selected)}>
                       Delete
-                    </button> */}
-                    {/* {this.state.firstContacts.map((el) => (
-                      <button onClick={() => this.delete(el)} key={el}>
-                        Delete
-                      </button> */}
-                    ))}
+                    </button>
                   </td>
                 </tr>
               );
