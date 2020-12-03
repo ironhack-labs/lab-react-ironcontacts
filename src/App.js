@@ -8,30 +8,34 @@ class App extends React.Component {
     famousContact: []
   }
 
-  displayContact = () => {
-    
+
+  populateContactList = () => {
     const firstContacts = contacts.filter((contact)=>{
       return contacts.indexOf(contact) < 5
     })
+    //NO HE CONSEGUIDO HACER UN "FIRST POPULATE" DEL ARRAY DE "famousContact" EN EL STATE, LO DEMAS CREO QUE FUNCIONA TRAS IR PROBANDOLO EN LA CONSOLA
+    this.setState({famousContact: firstContacts})
+  }
 
-    const displayContacts = firstContacts.map((contact, index)=>{
+
+  displayContact = () => {
+    const contactsList = this.state.famousContact.map((contact, index)=>{
     return (
       <tr key={index}>
         <td><img src={contact.pictureUrl} alt={contact.name} /></td>
         <td>{contact.name}</td>
         <td>{contact.popularity.toFixed(2)}</td>
-        <td><button onClick={()=>this.deleteFamous(displayContacts.indexOf(contact))}>Delete</button></td>
+        <td><button onClick={()=>this.deleteFamous(contactsList.indexOf(contact))}>Delete</button></td>
       </tr>
       )
     })
-    return displayContacts
+    return contactsList
   }
 
   getRandomContact = ()=>{
     const randomContact = Math.floor(Math.random() * contacts.length + 1)
     
     this.setState({famousContact: [...this.state.famousContact, contacts[randomContact]]})
-    // console.log(this.state.famousContact)
   }
 
   sortByName = () => {
@@ -81,6 +85,7 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
+            {this.populateContactList()}
             {this.displayContact()}
           </tbody>
         </table>
