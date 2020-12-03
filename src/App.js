@@ -12,14 +12,17 @@ class App extends React.Component {
   addRandom = () => {
     const randomNum = Math.floor(Math.random() * contacts.length - 1);
     console.log(randomNum);
-    let fivePlusOneRandom = actorsToRender.push(contacts[randomNum]);
+    let actorsToRenderPlusOneRandom = [
+      ...this.state.actorsToRender,
+      contacts[randomNum],
+    ];
     this.setState({
-      actorsToRender: fivePlusOneRandom,
+      actorsToRender: actorsToRenderPlusOneRandom,
     });
   };
 
   sortByName = () => {
-    let actorsSortedByName = actorsToRender.sort((a, b) => {
+    let actorsSortedByName = this.state.actorsToRender.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
       }
@@ -34,7 +37,7 @@ class App extends React.Component {
   };
 
   sortByPopularity = () => {
-    let actorsSortedByPopularity = actorsToRender.sort((a, b) => {
+    let actorsSortedByPopularity = this.state.actorsToRender.sort((a, b) => {
       return b.popularity - a.popularity;
     });
     console.log(actorsSortedByPopularity);
@@ -50,13 +53,6 @@ class App extends React.Component {
       return actor.name !== actorToDelete;
     });
     console.log(actorsWeDontWantToDelete);
-    /*let idx
-    for (let i = 0; i < this.state.actorsToRender.length; i++) {
-      if (this.state.actorsToRender[i].name === actorToDelete) {
-        idx = i;
-      }
-    }
-    console.log(`You are trying to delete ${actorToDelete} at position ${idx}`);*/
     this.setState({ actorsToRender: actorsWeDontWantToDelete });
   };
 
@@ -131,10 +127,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
-
-function Actors() {
-  return <div className="Actors"></div>;
 }
 
 export default App;
