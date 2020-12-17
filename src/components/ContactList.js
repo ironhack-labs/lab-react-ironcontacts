@@ -40,6 +40,11 @@ class ContactList extends React.Component {
         randomArray.sort((a, b) => b.popularity - a.popularity);
         this.setState({currentContacts: randomArray}); 
     }
+
+    deleteContact = (contactId) => {
+        const randomArray = this.state.currentContacts.filter((contact) => contact.id !== contactId);
+        this.setState({currentContacts: randomArray})
+    }
     
     render() {
         return (
@@ -59,9 +64,8 @@ class ContactList extends React.Component {
                 </thead>
                 <tbody>
                     {this.state.currentContacts.map(contact => 
-                        (<Card contact={contact} key={contact.id} />)
-                    )}
-                    
+                        (<Card contact={contact} key={contact.id} deleteContact={this.deleteContact}/>)
+                    )}    
                 </tbody>
             </table>
         </div>
