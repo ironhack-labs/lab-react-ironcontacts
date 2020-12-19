@@ -11,7 +11,13 @@ class App extends React.Component {
 
   clickHandler = () => {
 
-    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    const possibleContacts = contacts.filter(c => !this.state.contacts.includes(c));
+    
+    if (possibleContacts.length === 0) {
+      return;
+    }
+
+    const randomContact = possibleContacts[Math.floor(Math.random() * possibleContacts.length)];
     const newContacts = this.state.contacts.concat(randomContact);
 
     this.setState({
