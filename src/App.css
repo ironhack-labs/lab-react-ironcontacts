@@ -37,6 +37,56 @@
   }
 }
 
+
+
+/* styles added by me */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 img {
   width: 100px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.buttons-container button {
+  margin-bottom: 10px;
+  width: 175px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+th, td {
+  padding: 30px;
+}
+
+th, td {
+  border: 1px solid lightgrey;
+}
+
+#last-table-data {
+  border: none;
 }
