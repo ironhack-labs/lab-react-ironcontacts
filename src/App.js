@@ -35,18 +35,9 @@ class App extends React.Component {
     });
   };
 
-  deleteContact = () => {
-    this.setState((state) => {
-      const contactIndex = [...state.contacts].map((contact, index) => {
-        return index;
-      });
-      console.log(contactIndex);
-    });
-
-    // const deleteContact = [...state.contacts].shift(contactIndex);
-    // this.setState((state) => {
-    //   return { contacts: [...state.contacts] };
-    // });
+  deleteContact = (id) => {
+    const filteredArr = this.state.contacts.filter((item) => item.id !== id);
+    this.setState({ contacts: filteredArr });
   };
 
   render() {
@@ -76,7 +67,13 @@ class App extends React.Component {
                   <td>{celeb.name}</td>
                   <td>{celeb.popularity}</td>
                   <td>
-                    <button onClick={this.deleteContact()}>Delete</button>
+                    <button
+                      onClick={() => {
+                        this.deleteContact(celeb.id);
+                      }}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );
