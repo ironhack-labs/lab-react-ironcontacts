@@ -36,3 +36,75 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: rgb(185, 156, 112);
+  justify-content: center;
+  text-align: center;
+}
+
+h1:before,
+h1:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 8rem;
+  height: 1px;
+  background: rgb(185, 156, 112);
+}
+h1:before {
+  margin-right: 0.3rem;
+}
+h1:after {
+  margin-left: 0.3rem;
+}
+
+div .button {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.button button {
+  width: 15vw;
+}
+
+table .titlecol tr {
+  height: 10vh;
+  font-size: 1.2rem;
+  text-decoration: underline rgb(185, 156, 112);
+  text-underline-position: under;
+}
+
+tbody img {
+  width: 8vw;
+  margin: 10px 0;
+}
+
+tbody tr:hover {
+  background-color: rgb(185, 156, 112);
+  color: black;
+  border: rgb(185, 156, 112);
+}
+
+tbody tr:hover td {
+  border: rgb(185, 156, 112);
+}
+
+tbody tr:hover button {
+  background-color: black;
+  color: rgb(185, 156, 112);
+  border: black;
+}
+
+button {
+  background-color: rgb(185, 156, 112);
+  color: black;
+  padding: 5px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5%;
+}
