@@ -33,8 +33,12 @@ export default class App extends React.Component {
     })
   }
 
-  removeContact = () => {
-
+  removeContact = (index) => {
+    const copy = [...this.state.contacts];
+    copy.splice(index, 1);
+    this.setState({
+      contacts: copy,
+    });
   }
 
   render() {
@@ -78,7 +82,7 @@ export default class App extends React.Component {
              <td><img style={{width: '150px', height: '150px'}} src={contact.pictureUrl} alt=""/></td>
              <td>{contact.name}</td>
              <td>{contact.popularity.toFixed(2)}</td>
-             <button>Delete</button>
+             <button onClick={() => this.removeContact()}>Delete</button>
             </tr>  
           )
         }     
