@@ -56,8 +56,13 @@ class App extends React.Component {
         >
           Add Random Contact
         </button>
-        <button onClick={() => this.sortByName(contacts)}>Sort by name</button>
-        <button onClick={() => this.sortByPopularity(contacts)}>
+        <button onClick={() => this.sortByName(contacts)} key={contacts.id}>
+          Sort by name
+        </button>
+        <button
+          onClick={() => this.sortByPopularity(contacts)}
+          key={contacts.id}
+        >
           Sort by popularity
         </button>
         <table>
@@ -76,7 +81,10 @@ class App extends React.Component {
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td>
-                    <button onClick={(event) => this.removeContact(contact)}>
+                    <button
+                      onClick={() => this.removeContact(contact)}
+                      key={contacts.id}
+                    >
                       Delete
                     </button>
                   </td>
