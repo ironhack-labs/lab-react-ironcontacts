@@ -19,6 +19,24 @@ export default class App extends React.Component {
     //  })
   }
 
+  sortByName = () => {
+    let alphaName = [...this.state.contacts].sort((a, b) => a.name.localeCompare(b.name))
+    this.setState(() => {
+      return {contacts: alphaName}
+    })
+  }
+
+  sortByPopularity = () => {
+    let mostPopular = [...this.state.contacts].sort((a, b) => b.popularity - a.popularity)
+    this.setState(() => {
+      return {contacts: mostPopular}
+    })
+  }
+
+  removeContact = () => {
+
+  }
+
   render() {
     return (
     
@@ -38,8 +56,8 @@ export default class App extends React.Component {
       }
       </div>
           <button  onClick={() => this.addRandomContact()}>Add Random actor</button>
-          <button>Sort by popularity</button>
-          <button>Sort by name</button>
+          <button onClick={() => this.sortByPopularity()} >Sort by popularity</button>
+          <button onClick={() => this.sortByName()}>Sort by name</button>
 
 
         <table>
@@ -60,6 +78,7 @@ export default class App extends React.Component {
              <td><img style={{width: '150px', height: '150px'}} src={contact.pictureUrl} alt=""/></td>
              <td>{contact.name}</td>
              <td>{contact.popularity.toFixed(2)}</td>
+             <button>Delete</button>
             </tr>  
           )
         }     
