@@ -51,7 +51,7 @@ class App extends React.Component {
         <button onClick={this.sortPopularity}>Sort Popularity</button>
         {this.state.contacts.map((contact => {
           return (
-            <div key={`contacts ${contact.id}`}>
+            <div key={contact.id}>
               <td>
                 <img src={contact.pictureUrl} />
               </td>
