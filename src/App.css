@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.table {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add {
+  background: rgb(63, 184, 127);
+  color: white;
+}
+
+.sort {
+  background: rgb(102, 102, 219);
+  color: white;
+}
+
+.delete {
+  background: rgb(211, 97, 77);
+  color: white;
+}
+
+.image {
+  box-shadow: 1px 1px 2px grey;
+  border-radius: 5px;
+}
