@@ -1,0 +1,9 @@
+.contact-cart button{
+     padding: 0.3rem;
+     border: 2px solid #d54d7b;
+}
+.contact-cart img{
+        max-width: 4rem;
+        margin: auto auto;
+        padding-top: 0.5rem;
+}
