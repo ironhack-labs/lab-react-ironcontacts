@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.contacts {
+  margin: 0px auto;
+}
+
+img {
+  width: 70px;
+}
