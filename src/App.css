@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 20%;
+}
+
+.Contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upper-div {
+  justify-content: right;
+  align-items: flex-start;
+
+}
+
+table {
+  width: 50%;
+  margin-right: 10%;
+}
+
+tr>td>img {
+  margin-left: 40%;
+  height: auto;
+}
+
+button {
+  margin-bottom: 5%;
+}
