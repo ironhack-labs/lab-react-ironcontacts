@@ -14,24 +14,50 @@ class Table extends React.Component {
     this.setState({
       contacts: [...this.state.contacts, newContact],
     });
-
   }
+
+  sortByNameHandler = () => {
+    const sortedContacts = this.state.contacts.sort((a, b) => a.name.localeCompare(b.name));
+
+    this.setState({
+      contacts: sortedContacts
+    });
+  };
+
+  sortByPopularityHandler = () => {
+    this.setState({
+      contacts: this.state.contacts.sort( (a, b) => b.popularity - a.popularity)
+    });
+  };
+
+  deleteContactHandler = (contactId) => {
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+    });
+  };
 
   render = () => {
     return (
       <>
-        <AddRandomContactBtn clickToAdd={() => this.addRandomContactHandler()} />
+        <div className="utilButtons">
+          <AddRandomContactBtn clickToAdd={() => this.addRandomContactHandler()} />
+          <SortByNameBtn sortByName={() => this.sortByNameHandler()} />
+          <SortByPopularityBtn sortByPopularity={() => this.sortByPopularityHandler()} />
+        </div>
         <table>
           <thead>
             <tr>
               <td>
-                Picture
+                <h3>Picture</h3>
               </td>
               <td>
-                Name
+                <h3>Name</h3>
               </td>
               <td>
-                Popularity
+                <h3>Popularity</h3>
+              </td>
+              <td>
+                <h3>Action</h3>
               </td>
             </tr>
           </thead>
@@ -42,6 +68,7 @@ class Table extends React.Component {
                   <td><img src={contact.pictureUrl} alt={contact.name} /></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
+                  <td><DeleteBtn deleteContact={() => this.deleteContactHandler(contact.id)} /></td>
                 </tr>
             )})}
           </tbody>
@@ -54,6 +81,24 @@ class Table extends React.Component {
 function AddRandomContactBtn(props) {
   return (
     <button onClick={props.clickToAdd}>Add Random Concact</button>
+  )
+}
+
+function SortByNameBtn(props) {
+  return (
+    <button onClick={props.sortByName}>Sort by name</button>
+  )
+}
+
+function SortByPopularityBtn(props) {
+  return (
+    <button onClick={props.sortByPopularity}>Sort by popularity</button>
+  )
+}
+
+function DeleteBtn(props) {
+  return (
+    <button onClick={props.deleteContact}>Delete</button>
   )
 }
 
