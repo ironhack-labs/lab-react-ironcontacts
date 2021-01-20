@@ -1,5 +1,24 @@
 .App {
   text-align: center;
+
+}
+
+.App img{
+  width: 50px;
+}
+
+.Contacts {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Contacts td {
+	padding: 15px;
+}
+
+.Contacts th {
+	padding: 15px;
 }
 
 .App-logo {
