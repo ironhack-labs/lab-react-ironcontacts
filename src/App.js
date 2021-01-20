@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import contacts from './contacts.json';
+import Contact from './components/contact/Contact';
+import { AddRandomContactBtn, SortByPopularityBtn, SortByNameBtn } from './components/buttons/Buttons';
 
 class Table extends React.Component {
   state = {
@@ -64,42 +66,13 @@ class Table extends React.Component {
           <tbody>
             {this.state.contacts.map(contact => {
               return (
-                <tr key={contact.id}>
-                  <td><img src={contact.pictureUrl} alt={contact.name} /></td>
-                  <td>{contact.name}</td>
-                  <td>{contact.popularity}</td>
-                  <td><DeleteBtn deleteContact={() => this.deleteContactHandler(contact.id)} /></td>
-                </tr>
+                <Contact key={contact.id} deleteContact={() => this.deleteContactHandler(contact.id)} {...contact} />
             )})}
           </tbody>
         </table>
       </>
     )
   }
-}
-
-function AddRandomContactBtn(props) {
-  return (
-    <button onClick={props.clickToAdd}>Add Random Concact</button>
-  )
-}
-
-function SortByNameBtn(props) {
-  return (
-    <button onClick={props.sortByName}>Sort by name</button>
-  )
-}
-
-function SortByPopularityBtn(props) {
-  return (
-    <button onClick={props.sortByPopularity}>Sort by popularity</button>
-  )
-}
-
-function DeleteBtn(props) {
-  return (
-    <button onClick={props.deleteContact}>Delete</button>
-  )
 }
 
 class App extends React.Component {
