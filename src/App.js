@@ -9,14 +9,14 @@ class App extends React.Component {
  
   ButtonRandom = () => {
  
-      let clonedCeleb1 = [...this.state.celebrities]
+    let clonedCeleb1 = [...this.state.celebrities]
  
-      let randomCel = contacts[Math.floor(Math.random()*contacts.length)]
-      clonedCeleb1.push(randomCel)
+    let randomCel = contacts[Math.floor(Math.random()*contacts.length)]
+    clonedCeleb1.push(randomCel)
  
-      this.setState({
-        celebrities: clonedCeleb1
-      })
+    this.setState({
+      celebrities: clonedCeleb1
+    })
   }
  
   SortedByName = () => {
@@ -63,17 +63,13 @@ class App extends React.Component {
     })
   }
 
+
+
   render() {
-    return (
 
-
-    this.state.celebrities.map(elem => { 
+    const contactList = this.state.celebrities.map(elem => { 
       return(
           <React.Fragment>
-              <button onClick={this.ButtonRandom}>Add Random Celeb</button>
-              <button onClick={this.SortedByName}>Sort By Name</button> 
-              <button onClick={this.SortedByPopularity}>Sort By Popularity</button>  
-            
             <table>
                 <thead>
                   <tr>
@@ -97,8 +93,17 @@ class App extends React.Component {
               </tbody>
             </table>
           </React.Fragment> 
+          
       )
       })
+
+    return (
+      <div>
+        <button onClick={this.ButtonRandom}>Add Random Celeb</button>
+        <button onClick={this.SortedByName}>Sort By Name</button> 
+        <button onClick={this.SortedByPopularity}>Sort By Popularity</button>
+        {contactList}
+      </div>
     )     
   }
 }
