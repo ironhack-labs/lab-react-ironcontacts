@@ -51,6 +51,18 @@ class App extends React.Component {
     })
   }
 
+  DeleteButton = (celebId) => {
+
+    let clonedCeleb4 = [...this.state.celebrities]
+
+    let celebIndex = clonedCeleb4.findIndex( element => element.id === celebId);
+    clonedCeleb4.splice(celebIndex, 1);
+    
+    this.setState({
+      celebrities: clonedCeleb4
+    })
+  }
+
   render() {
     return (
 
@@ -58,9 +70,9 @@ class App extends React.Component {
     this.state.celebrities.map(elem => { 
       return(
           <React.Fragment>
-              <button onClick={this.ButtonRandom}>Click here</button>
-              <button onClick={this.SortedByName}>SortByName</button> 
-              <button onClick={this.SortedByPopularity}>SortByPopularity</button>  
+              <button onClick={this.ButtonRandom}>Add Random Celeb</button>
+              <button onClick={this.SortedByName}>Sort By Name</button> 
+              <button onClick={this.SortedByPopularity}>Sort By Popularity</button>  
             
             <table>
                 <thead>
@@ -68,6 +80,7 @@ class App extends React.Component {
                     <th>picture</th>
                     <th>name</th>
                     <th>popularity</th>
+                    <th>action</th>
                   </tr>
                 </thead>
               <tbody>
@@ -79,6 +92,7 @@ class App extends React.Component {
                   </td>
                   <td>{elem.name}</td>
                   <td>{elem.popularity}</td>
+                  <td><button onClick={this.DeleteButton}>Press to delete</button></td>
                 </tr>
               </tbody>
             </table>
