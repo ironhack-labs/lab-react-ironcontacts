@@ -21,11 +21,21 @@ class App extends React.Component {
   }
     
   sortByName = () => {
-    
+    const newContacts = [...this.state.contacts];
+    const sortedByName = newContacts.sort((a, b) => a.name.localeCompare(b.name));    
+
+    this.setState({
+      contacts: sortedByName
+    });
   }
 
   sortByPopularity = () => {
+    const newContacts = [...this.state.contacts];
+    const sortedByPopularity = newContacts.sort((a, b) => a.popularity - b.popularity)
 
+    this.setState({
+      contacts: sortedByPopularity
+    });
   }
 
   render() {
