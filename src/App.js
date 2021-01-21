@@ -47,6 +47,16 @@ class App extends React.Component {
     });
   }
 
+  deleteContact(contactId) {
+    const newContacts = [...this.state.fiveContacts];
+    const index = newContacts.findIndex(item => item.id == contactId);
+    newContacts.splice(index, 1);
+
+    this.setState({
+      fiveContacts: newContacts
+    });
+  }
+
   render() {
     const contactsList = this.state.fiveContacts.map(contact => {
       return (
@@ -55,6 +65,7 @@ class App extends React.Component {
             <td><img src={contact.pictureUrl} alt={contact.name}></img></td>
             <td>{contact.name}</td>
             <td>{contact.popularity.toFixed(2)}</td>
+            <td><button onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
           </tr>
         </React.Fragment>
       );
@@ -71,6 +82,7 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Action</th>
           </tr>
           {contactsList}
         </table>
