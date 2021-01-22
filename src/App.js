@@ -61,11 +61,26 @@ class App extends React.Component {
     this.setState({
       celebrities: clonedCeleb4
     })
+
   }
 
-
+ 
 
   render() {
+    const UpdatedList = (elem) => {
+      return (
+        <React.Fragment>
+              <td><button onClick={elem.clickToDelete}>Delete</button></td>
+      </React.Fragment> 
+  
+      ) 
+    }
+
+    const deleteFun = this.state.celebrities.map( elem => {
+      return (
+            <UpdatedList key={elem.id} clickToDelete={()=> this.DeleteButton(elem.id)} {...elem}/>
+            )
+          }); 
 
     const contactList = this.state.celebrities.map(elem => { 
       return(
@@ -88,7 +103,6 @@ class App extends React.Component {
                   </td>
                   <td>{elem.name}</td>
                   <td>{elem.popularity}</td>
-                  <td><button onClick={this.DeleteButton}>Press to delete</button></td>
                 </tr>
               </tbody>
             </table>
@@ -102,6 +116,7 @@ class App extends React.Component {
         <button onClick={this.ButtonRandom}>Add Random Celeb</button>
         <button onClick={this.SortedByName}>Sort By Name</button> 
         <button onClick={this.SortedByPopularity}>Sort By Popularity</button>
+        {deleteFun}
         {contactList}
       </div>
     )     
