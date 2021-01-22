@@ -39,4 +39,51 @@
 
 .TableImage > img {
   width: 80px;
+  border-radius: 15%
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.MainContainer {
+  margin: 50px;
+  background-color: rgb(13, 13, 51);
+  padding: 30px;
+  color: white;
+  border-radius: 5px;
+}
+
+.MainButtons > button {
+  margin-right: 30px;
+  padding: 10px;
+  background-color: #eca60fd8;
+  border: none;
+  border-radius: 5px;
+}
+
+.MainButtons {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+tbody{
+  margin: 30px;
+}
+
+table {
+  margin: 50px;
+}
+
+td,th {
+  width: 150px;
+}
+
+
+
+ /* .DeleteButton {
+  display: flex;
+  flex-direction: row-reverse;
+}  */

@@ -69,31 +69,37 @@ class App extends React.Component {
   render() {
     const UpdatedList = (elem) => {
       return (
-        <React.Fragment>
-              <td><button onClick={elem.clickToDelete}>Delete</button></td>
-      </React.Fragment> 
+        <div className = "DeleteButton">
+          <button onClick={elem.clickToDelete}>Delete</button>
+        </div> 
   
       ) 
     }
 
     const deleteFun = this.state.celebrities.map( elem => {
       return (
-            <UpdatedList key={elem.id} clickToDelete={()=> this.DeleteButton(elem.id)} {...elem}/>
+            <UpdatedList key={elem.id} 
+            clickToDelete={()=> this.DeleteButton(elem.id)} {...elem}/>
             )
           }); 
+
+  const table =      
+        <table>
+          <thead>
+            <tr>
+              <th>picture</th>
+              <th>name</th>
+              <th>popularity</th>
+              <th>action</th>
+              
+            </tr>
+          </thead>
+        </table>
 
     const contactList = this.state.celebrities.map(elem => { 
       return(
           <React.Fragment>
             <table>
-                <thead>
-                  <tr>
-                    <th>picture</th>
-                    <th>name</th>
-                    <th>popularity</th>
-                    <th>action</th>
-                  </tr>
-                </thead>
               <tbody>
                 <tr>
                   <td>
@@ -112,13 +118,19 @@ class App extends React.Component {
       })
 
     return (
-      <div>
-        <button onClick={this.ButtonRandom}>Add Random Celeb</button>
-        <button onClick={this.SortedByName}>Sort By Name</button> 
-        <button onClick={this.SortedByPopularity}>Sort By Popularity</button>
-        {deleteFun}
+      <React.Fragment>
+      <h1>IronContacts</h1>
+      <div className="MainContainer"> 
+        <div className="MainButtons">
+          <button onClick={this.ButtonRandom}>Add Random Celeb</button>
+          <button onClick={this.SortedByName}>Sort By Name</button> 
+          <button onClick={this.SortedByPopularity}>Sort By Popularity</button>
+        </div>
+        {table}
         {contactList}
+        <td>{deleteFun}</td>
       </div>
+      </React.Fragment>
     )     
   }
 }
