@@ -70,20 +70,23 @@ h1 {
 }
 
 tbody{
-  margin: 30px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
   margin: 50px;
+  display: flex;
+  align-items: center;
 }
 
 td,th {
-  width: 150px;
+  width: 250px;
 }
 
-
-
- /* .DeleteButton {
-  display: flex;
-  flex-direction: row-reverse;
-}  */
+td {
+  padding-left: 10%
+}
