@@ -56,7 +56,7 @@ class App extends React.Component {
 					<tr key={index}>
 						<td><img src={pictureUrl} alt={name}/></td>
 						<td>{name}</td>
-						<td>{popularity}</td>
+						<td>{popularity.toFixed(2)}</td>
 						<td>
 							<button onClick={() => this.deleteContact(index)}>Delete</button>
 						</td>
@@ -84,8 +84,6 @@ class App extends React.Component {
 					</tbody>
 				</table>
 			</div>
-
-
 		);
 	}
 }
