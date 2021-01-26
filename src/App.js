@@ -39,13 +39,23 @@ class App extends React.Component {
     this.setState({ fiveContacts: sortedPopularityList })
   }
 
+  deleteContact(id) {
+    const listAfterDelete = [...this.state.fiveContacts];
+    const index = listAfterDelete.findIndex(contact => contact.id === id)
+
+    listAfterDelete.splice(index, 1);
+
+    this.setState({ fiveContacts: listAfterDelete })
+  }
+
   render() {
     const contactsList = this.state.fiveContacts.map(contact => {
       return <React.Fragment>
         <tr>
-          <td><img src={contact.pictureUrl} alt="face of contact" /></td>
+          <td><img src={contact.pictureUrl} alt={contact.name} /></td>
           <td>{contact.name}</td>
           <td>{contact.popularity}</td>
+          <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
         </tr>
       </React.Fragment>
     })
@@ -53,9 +63,11 @@ class App extends React.Component {
     return (
       <div className="App" >
         <h1>IronContacts</h1>
-        <button onClick={() => this.addRandomContact()}>Add Random Contact</button>
-        <button onClick={() => this.sortNames()}>Sort by name</button>
-        <button onClick={() => this.sortPopularity()}>Sort by popularity</button>
+        <div>
+          <button onClick={() => this.addRandomContact()}>Add Random Contact</button>
+          <button onClick={() => this.sortNames()}>Sort by name</button>
+          <button onClick={() => this.sortPopularity()}>Sort by popularity</button>
+        </div>
         <table>
           <tr>
             <th>Picture</th>
