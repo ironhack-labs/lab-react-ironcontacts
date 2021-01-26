@@ -19,11 +19,31 @@ class App extends React.Component {
     this.setState({ fiveContacts: updatedContacts })
   }
 
+  sortNames() {
+    const sortedNamesList = [...this.state.fiveContacts].sort(function (a, b) {
+      if (a.name < b.name) { return -1; }
+      if (a.name > b.name) { return 1; }
+      return 0;
+    })
+
+    this.setState({ fiveContacts: sortedNamesList })
+  }
+
+  sortPopularity() {
+    const sortedPopularityList = [...this.state.fiveContacts].sort(function (a, b) {
+      if (a.popularity < b.popularity) { return 1; }
+      if (a.popularity > b.popularity) { return -1; }
+      return 0;
+    })
+
+    this.setState({ fiveContacts: sortedPopularityList })
+  }
+
   render() {
     const contactsList = this.state.fiveContacts.map(contact => {
       return <React.Fragment>
         <tr>
-          <td><img src={contact.pictureUrl} /></td>
+          <td><img src={contact.pictureUrl} alt="face of contact" /></td>
           <td>{contact.name}</td>
           <td>{contact.popularity}</td>
         </tr>
@@ -34,6 +54,8 @@ class App extends React.Component {
       <div className="App" >
         <h1>IronContacts</h1>
         <button onClick={() => this.addRandomContact()}>Add Random Contact</button>
+        <button onClick={() => this.sortNames()}>Sort by name</button>
+        <button onClick={() => this.sortPopularity()}>Sort by popularity</button>
         <table>
           <tr>
             <th>Picture</th>
