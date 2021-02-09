@@ -1,12 +1,11 @@
 import React from 'react';
+import Table from './components/Table/Table';
+import contacts from './contacts.json';
 import './App.css';
 
 class App extends React.Component {
   render() {
-    return (
-      <div className="App" >
-      </div>
-    );
+    return <Table data={contacts} />;
   }
 }
 
