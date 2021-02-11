@@ -15,7 +15,14 @@ class App extends React.Component {
     });
   };
 
-  
+  //delete formula:
+  deleteContact = (contact) => {
+    this.setState({
+
+      contacts: [...this.state.contacts.filter((contactos) => contactos.id !== contact.id)], 
+    
+    });
+  };
 
   render() {
     return (
@@ -47,8 +54,21 @@ class App extends React.Component {
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
+                  
+                  {/* Delete */}
+                  <td><button
+                      onClick={() => this.deleteContact(contact)}
+                      key={contacts.id}
+                    >
+                      Delete
+                    </button></td>
+
+
                 </tr>
+                
+
               );
+              
             })};
                 </tbody>  
       </div>
