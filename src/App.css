@@ -6,6 +6,30 @@
   height: 40vmin;
   pointer-events: none;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container img{
+  width: 20%;
+}
+.container-row{
+  display: flex;
+  flex-direction: row;
+}
+table{
+  width: 50%;}
+th{
+  text-align: left;
+
+}
+.center{
+  text-align: center;
+}
+td{
+  text-align: left;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
