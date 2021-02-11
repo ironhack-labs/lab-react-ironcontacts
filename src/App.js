@@ -4,11 +4,11 @@ import contacts from './contacts.json';
 
 class App extends React.Component {
   state= {
-    contact: [contacts]
+    contacts: [contacts]
   }
   
   render() {
-    
+    const fiveFirst = contacts.slice(0, 5)
     return (
       <div className="App">
         <h1>IronContacts</h1>
@@ -21,7 +21,7 @@ class App extends React.Component {
             <th><h1>Action</h1></th>
           </tr>
           <tbody>
-            {contacts.map((post, index) => {
+            {fiveFirst.map((post, index) => {
               return (
                 <tr>
                   <td>
