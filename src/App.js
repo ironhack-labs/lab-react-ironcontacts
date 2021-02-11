@@ -7,10 +7,29 @@ class App extends React.Component {
     contacts: contacts.slice(0, 5),
   };
 
+  //random formula:
+  addRandomContact = () => {
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    this.setState({
+      contacts: [...this.state.contacts, randomContact],
+    });
+  };
+
+  
+
   render() {
     return (
       <div className="App" >
       <h1>IronContacts</h1>
+
+      {/* Random-iteracion2 */}
+
+      <button
+          onClick={() => this.addRandomContact(contacts)}
+          key={contacts.id}
+        >
+          Add Random Contact
+        </button>
 
 <table className="table">
           <thead>
