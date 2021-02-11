@@ -9,10 +9,15 @@ class App extends React.Component {
   
   render() {
     const fiveFirst = contacts.slice(0, 5)
+    const randomItem = contacts[Math.floor(Math.random()*contacts.length)];
     return (
       <div className="App">
         <h1>IronContacts</h1>
-
+        <button onClick ={()=>{
+          this.setState(prevState => ({
+            contacts:{...prevState.contacts, randomItem}
+          }))
+        }}>Add Random Contact</button>
         <table>
           <tr>
             <th><h1>Picture</h1></th>
@@ -20,12 +25,13 @@ class App extends React.Component {
             <th><h1>Popularity</h1></th>
             <th><h1>Action</h1></th>
           </tr>
-          <tbody>
+           <tbody>
+         
             {fiveFirst.map((post, index) => {
               return (
-                <tr>
+                <tr key={post.id}>
                   <td>
-                    <img  key={post.pictureUrl} src={post.pictureUrl} width="70" height="100" />
+                    <img   src={post.pictureUrl} width="70" height="100" />
                   </td>
                   <td ><h1>{post.name}</h1></td> 
                   <td ><h1>{post.popularity.toFixed(2)}</h1></td>
