@@ -1,7 +1,20 @@
 
 .inline-table {
     display: inline-table;
-    border: solid;
-    border-color: black;
-    margin-top: 5%;
+    box-shadow: 2px 2px 8px 1px;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+
+.button-marging {
+    margin-right: 9px;
+}
+
+.button-div {
+    margin-bottom: 5%;
+}
+
+
+.table {
+    display: inline-grid;
 }
