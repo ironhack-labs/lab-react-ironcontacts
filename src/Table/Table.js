@@ -32,7 +32,7 @@ function Table(){
 
     //Delete
     const deleteActor = (id) => {
-        newOne.filter(actor => actor.id !== id)
+    return newOne.filter(actor => actor.id !== id)
     }
     //------------------HANDLES------------------------
 
@@ -55,8 +55,7 @@ function Table(){
 
     //Delete
     const handleDelete = (id) => {
-        deleteActor(id)
-        setContact([...newOne])
+        setContact(deleteActor(id))
     }
     return(
         <main>
@@ -84,7 +83,7 @@ function Table(){
                     </tr>
                 </thead>
                 <tbody>
-                    {newOne.map(contact => <Contact key={contact.id} {...contact} />)}
+                    {newOne.map(contact => <Contact key={contact.id} {...contact} handleDelete={() => handleDelete(contact.id)} />)}
                 </tbody>
             </table>
         </main>

@@ -2,8 +2,7 @@
 import React from "react";
 
 
-function Contact({name,popularity,pictureUrl,id}){
-    //console.log("data Contact", deleteFunction);
+function Contact({name,popularity,pictureUrl,id,handleDelete}){
     return(
             <tr key={id}>
                     <td>
@@ -16,7 +15,7 @@ function Contact({name,popularity,pictureUrl,id}){
                         <p>{popularity}</p>
                     </td>
                     <td>
-                        <button>Delete</button>
+                        <button onClick={handleDelete}>Delete</button>
                     </td>
             </tr>
     );
