@@ -1,5 +1,5 @@
 import './App.css';
-import AllContacts from './AllContacts';
+import AllContacts from './all-contacts/AllContacts';
 
 function App() {
   return (
