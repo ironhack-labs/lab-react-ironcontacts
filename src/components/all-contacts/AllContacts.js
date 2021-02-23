@@ -24,16 +24,45 @@ class AllContacts extends Component {
         })
     }
 
+    sortByName() {
+        const orderByName = this.state.firstContacts
+        orderByName.sort((a, b) => ( a.name < b.name ) ? -1 : ( a.name > b.name ? 1 : 0 ))
+
+        this.setState({
+            firstContacts: orderByName
+        })
+    }
+
+    sortByPopularity() {
+        const orderByPopularity = this.state.firstContacts
+        orderByPopularity.sort((a, b) => (a.popularity < b.popularity) ? 1 : (a.popularity > b.popularity ? -1 : 0))
+
+        this.setState({
+            firstContacts: orderByPopularity
+        })
+    }
+
     render() {
         const { firstContacts } = this.state
-
-        console.log( firstContacts )
 
         return(
             <>
                 <h1>IronContacts</h1>
-                {firstContacts.map( (elm) => <ContactTable  {...elm} key={elm.id}/>)}
+                <div>
+                <table className="contacts-table">
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Popularity</th>
+                        </tr>
+                    </thead>
+                    {firstContacts.map( (elm) => <ContactTable  {...elm} key={elm.id}/>)}
+                </table>
                 <button onClick={() => this.addRandom()}>Add random contact</button>
+                <button onClick={() => this.sortByName()}>Sort by Name</button>
+                <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
+                </div>
             </>
         )
     }
