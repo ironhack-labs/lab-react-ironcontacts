@@ -40,6 +40,14 @@ class App extends Component {
     })
   }
 
+  deleteContact = id => {
+    this.setState({
+      contactsList: this.state.contactsList.filter(
+        contact => contact.id !== id
+      ),
+    })
+  }
+
   render() {
     return (
       <>
@@ -50,6 +58,7 @@ class App extends Component {
         <ContactsTable
           className="contacts-table"
           contacts={this.state.contactsList}
+          removeFunction={this.deleteContact}
         />
       </>
     )
