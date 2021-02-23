@@ -14,7 +14,7 @@ class ContactList extends React.Component {
 
     updateContactList(contacts) {
         return contacts.map(contact => {
-            return (<Contact key={contact.id} {...contact} />);
+            return (<Contact key={contact.id} {...contact} clickToDelete={() => this.deleteContactHandler(contact.id)} />);
         });
     }
 
@@ -37,11 +37,23 @@ class ContactList extends React.Component {
         });
     }
 
-    sort(type) {
+    sortHandler(type) {
         const displayedContactsCopy = this.state.displayedContacts;
         if (type==="name") displayedContactsCopy.sort((a, b) => a.name.localeCompare(b.name));
         if (type==="popularity") displayedContactsCopy.sort((a, b) => b.popularity - a.popularity);
         this.setState({
+            displayedContacts: displayedContactsCopy
+        });
+    }
+
+    deleteContactHandler(id) {
+        const availableContactsCopy = [...this.state.availableContacts];
+        const displayedContactsCopy = this.state.displayedContacts;
+        const contactIndex = displayedContactsCopy.findIndex(contact => contact.id === id);
+        const deletedContact = displayedContactsCopy.splice(contactIndex, 1);
+        availableContactsCopy.push(deletedContact[0]);
+        this.setState({
+            availableContacts: availableContactsCopy,
             displayedContacts: displayedContactsCopy
         });
     }
@@ -51,15 +63,18 @@ class ContactList extends React.Component {
             <div className="contacts">
                 <h1>IronContacts</h1>
                 {this.state.isMessage && <p>No available contacts</p>}
-                <button onClick={() => this.addRandomContactHandler()}>Add Random Contact</button>
-                <button onClick={() => this.sort("name")}>Sort By Name</button>
-                <button onClick={() => this.sort("popularity")}>Sort By Popularity</button>
+                    <div className="button" style={{display: "flex"}}>
+                    <button onClick={() => this.addRandomContactHandler()}>Add Random Contact</button>
+                    <button onClick={() => this.sortHandler("name")}>Sort By Name</button>
+                    <button onClick={() => this.sortHandler("popularity")}>Sort By Popularity</button>
+                </div>
                 <table>
                 <thead>
                     <tr>
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Popularity</th>
+                    <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
