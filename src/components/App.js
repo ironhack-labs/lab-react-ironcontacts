@@ -8,16 +8,25 @@ import Button from "./Button"
 class App extends Component {
   state = {
     contactsList: contacts.slice(0, 5),
+    remainingContactsList: contacts.slice(5),
   }
 
   addRandomContact = () => {
-    const randomIndex = Math.floor(Math.random() * contacts.length)
-    const randomContact = contacts[randomIndex]
-    const newContactsList = [...this.state.contactsList]
-    newContactsList.push(randomContact)
-    this.setState({
-      contactsList: newContactsList,
-    })
+    if (this.state.remainingContactsList.length) {
+      const newContactsList = [...this.state.contactsList]
+      const newRemainingContactsList = [...this.state.remainingContactsList]
+
+      const randomIndex = Math.floor(
+        Math.random() * newRemainingContactsList.length
+      )
+      const randomContact = newRemainingContactsList.splice(randomIndex, 1)[0]
+      newContactsList.push(randomContact)
+
+      this.setState({
+        contactsList: newContactsList,
+        remainingContactsList: newRemainingContactsList,
+      })
+    }
   }
 
   sortByName = () => {
