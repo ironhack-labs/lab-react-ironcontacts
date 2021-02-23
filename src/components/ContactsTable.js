@@ -1,6 +1,6 @@
-import "./Table.css"
+import "./ContactsTable.css"
 
-const Table = ({ className, contacts }) => (
+const ContactsTable = ({ className, contacts }) => (
   <table className={className}>
     <thead>
       <tr>
@@ -23,4 +23,4 @@ const Table = ({ className, contacts }) => (
   </table>
 )
 
-export default Table
+export default ContactsTable
