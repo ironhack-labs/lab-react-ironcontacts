@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display:flex;
+  justify-content:center;
 }
 
 code {
@@ -13,6 +15,7 @@ code {
 }
 
 
-.App1 {
-  
+.topButton {
+  display:flex;
+  justify-content: space-around;
 }

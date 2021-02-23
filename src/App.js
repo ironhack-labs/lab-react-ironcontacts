@@ -17,6 +17,12 @@ class App extends React.Component {
     this.setState({firstFive: copyFive })
   }
 
+  sortPopularity(){
+    let copyFive = [...this.state.firstFive];
+    copyFive.sort((a,b) => b.popularity - a.popularity); //highest to lowest
+    this.setState({firstFive: copyFive});
+  }
+
   addRandom(randomC){
     let copyOfOthers = [...this.state.firstFive];
     copyOfOthers.unshift(randomC);
@@ -49,8 +55,11 @@ class App extends React.Component {
   render(){
     return (
       <div className="App1">
+        <div className="topButton">
         <button onClick={() => this.addRandom(this.state.otherContacts[Math.floor(Math.random() * this.state.otherContacts.length)])}>Add Random</button>
         <button onClick={() => this.sortName()}>Sort by Name</button>
+        <button onClick={() => this.sortPopularity()}>Sort by Popularity</button>
+        </div>
         <table>
           <thead>
             <tr>
