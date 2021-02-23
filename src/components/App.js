@@ -52,11 +52,19 @@ class App extends Component {
     return (
       <main>
         <h1>Iron Contacts</h1>
-        <Button onClick={this.addRandomContact}>Add random contact</Button>
-        <Button onClick={this.sortByName}>Sort by name</Button>
-        <Button onClick={this.sortByPopularity}>Sort by popularity</Button>
+        <div className="mt-5">
+          <Button className="button" onClick={this.addRandomContact}>
+            Add random contact
+          </Button>
+          <Button className="button" onClick={this.sortByName}>
+            Sort by name
+          </Button>
+          <Button className="button" onClick={this.sortByPopularity}>
+            Sort by popularity
+          </Button>
+        </div>
         <ContactsTable
-          className="contacts-table"
+          className="mt-5 contacts-table is-scrollable"
           contacts={this.state.contactsList}
           removeFunction={this.deleteContact}
         />

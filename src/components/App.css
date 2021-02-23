@@ -1,3 +1,15 @@
 h1 {
-  font-family: sans-serif;
+  font-size: 3em !important;
+  font-weight: 300 !important;
+}
+main {
+  text-align: center;
+}
+
+.contacts-table {
+  margin: 0 auto;
+}
+
+.contacts-table img {
+  height: 100px;
 }

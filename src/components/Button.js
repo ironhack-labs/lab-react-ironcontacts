@@ -1,5 +1,8 @@
-const Button = ({ children, onClick }) => (
-  <button onClick={onClick}>{children}</button>
+import "bulma/css/bulma.css"
+const Button = ({ children, onClick, className }) => (
+  <button className={className} onClick={onClick}>
+    {children}
+  </button>
 )
 
 export default Button

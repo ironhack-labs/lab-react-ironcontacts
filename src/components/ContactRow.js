@@ -1,14 +1,16 @@
 import Button from "./Button"
 
 const ContactRow = ({ id, pictureUrl, name, popularity, removeFunction }) => (
-  <tr key={id}>
+  <tr>
     <td>
       <img src={pictureUrl} alt={name}></img>
     </td>
     <td>{name}</td>
     <td>{popularity}</td>
     <td>
-      <Button onClick={() => removeFunction(id)}>Delete</Button>
+      <Button className="button" onClick={() => removeFunction(id)}>
+        Delete
+      </Button>
     </td>
   </tr>
 )
