@@ -8,20 +8,33 @@ class AllContacts extends Component {
     constructor() {
         super()
         this.state = {
-            fiveContacts: contacts.filter((contact, idx) => idx < 5)
+            allContacts: contacts,
+            firstContacts: contacts.filter((contact, idx) => idx < 5)
         }
     }
 
-    render() {
-        const { fiveContacts } = this.state
+    addRandom() {
+        const contact = this.state.allContacts[Math.floor(Math.random() * (this.state.allContacts.length -5 + 1)) + 5]
 
-        console.log( fiveContacts )
+        const firstContactsCopy = [...this.state.firstContacts]
+        firstContactsCopy.push(contact)
+
+        this.setState({
+            firstContacts: firstContactsCopy
+        })
+    }
+
+    render() {
+        const { firstContacts } = this.state
+
+        console.log( firstContacts )
 
         return(
-            <div className="contacts-table">
+            <>
                 <h1>IronContacts</h1>
-                {fiveContacts.map( (elm) => <ContactTable  {...elm} key={elm.id}/>)}
-            </div>
+                {firstContacts.map( (elm) => <ContactTable  {...elm} key={elm.id}/>)}
+                <button onClick={() => this.addRandom()}>Add random contact</button>
+            </>
         )
     }
 }
