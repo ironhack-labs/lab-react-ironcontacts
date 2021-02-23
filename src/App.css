@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display:flex;
+ flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +37,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.actorImg {
+  width: 50px;
+}
+
+.contact {
+  margin-bottom: 50px;
 }
