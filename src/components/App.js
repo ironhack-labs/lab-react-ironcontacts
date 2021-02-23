@@ -1,20 +1,20 @@
-import { Component } from "react"
+import { useState } from "react"
 import "./App.css"
 
 import contacts from "../contacts.json"
 import ContactsTable from "./ContactsTable"
 import Button from "./Button"
 
-class App extends Component {
-  state = {
-    contactsList: contacts.slice(0, 5),
-    remainingContactsList: contacts.slice(5),
-  }
+const App = () => {
+  const [contactsList, setContactsList] = useState(contacts.slice(0, 5))
+  const [remainingContactsList, setRemainingContactsList] = useState(
+    contacts.slice(5)
+  )
 
-  addRandomContact = () => {
-    if (this.state.remainingContactsList.length) {
-      const newContactsList = [...this.state.contactsList]
-      const newRemainingContactsList = [...this.state.remainingContactsList]
+  const addRandomContact = () => {
+    if (remainingContactsList.length) {
+      const newContactsList = [...contactsList]
+      const newRemainingContactsList = [...remainingContactsList]
 
       const randomIndex = Math.floor(
         Math.random() * newRemainingContactsList.length
@@ -22,64 +22,56 @@ class App extends Component {
       const randomContact = newRemainingContactsList.splice(randomIndex, 1)[0]
       newContactsList.push(randomContact)
 
-      this.setState({
-        contactsList: newContactsList,
-        remainingContactsList: newRemainingContactsList,
-      })
+      setContactsList(newContactsList)
+      setRemainingContactsList(newRemainingContactsList)
     }
   }
 
-  sortByName = () => {
-    const newContactsList = [...this.state.contactsList]
+  const sortByName = () => {
+    const newContactsList = [...contactsList]
     newContactsList.sort(function (a, b) {
       return a.name.localeCompare(b.name)
     })
-    this.setState({
-      contactsList: newContactsList,
-    })
+    setContactsList(newContactsList)
   }
 
-  sortByPopularity = () => {
-    const newContactsList = [...this.state.contactsList]
+  const sortByPopularity = () => {
+    const newContactsList = [...contactsList]
     newContactsList.sort(function (a, b) {
       return b.popularity - a.popularity
     })
-    this.setState({
-      contactsList: newContactsList,
-    })
+    setContactsList(newContactsList)
   }
 
-  deleteContact = id => {
-    this.setState({
-      contactsList: this.state.contactsList.filter(
-        contact => contact.id !== id
-      ),
-    })
+  const deleteContact = id => {
+    const deletedContact = contactsList.find(contact => contact.id === id)
+    const newRemainingContactsList = [...remainingContactsList, deletedContact]
+
+    setRemainingContactsList(newRemainingContactsList)
+    setContactsList(contactsList.filter(contact => contact.id !== id))
   }
 
-  render() {
-    return (
-      <main>
-        <h1>Iron Contacts</h1>
-        <div className="mt-5">
-          <Button className="button" onClick={this.addRandomContact}>
-            Add random contact
-          </Button>
-          <Button className="button" onClick={this.sortByName}>
-            Sort by name
-          </Button>
-          <Button className="button" onClick={this.sortByPopularity}>
-            Sort by popularity
-          </Button>
-        </div>
-        <ContactsTable
-          className="mt-5 contacts-table is-scrollable"
-          contacts={this.state.contactsList}
-          removeFunction={this.deleteContact}
-        />
-      </main>
-    )
-  }
+  return (
+    <main>
+      <h1>Iron Contacts</h1>
+      <div className="mt-5">
+        <Button className="button" onClick={addRandomContact}>
+          Add random contact
+        </Button>
+        <Button className="button" onClick={sortByName}>
+          Sort by name
+        </Button>
+        <Button className="button" onClick={sortByPopularity}>
+          Sort by popularity
+        </Button>
+      </div>
+      <ContactsTable
+        className="mt-5 contacts-table is-scrollable"
+        contacts={contactsList}
+        removeFunction={deleteContact}
+      />
+    </main>
+  )
 }
 
 export default App
