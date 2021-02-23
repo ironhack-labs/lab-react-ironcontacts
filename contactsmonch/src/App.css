@@ -1,0 +1,18 @@
+body {
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+
+.table-design {
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+   justify-content: center;
+ }
+
+
+
+.table-design img{
+  width: 80px;
+}
