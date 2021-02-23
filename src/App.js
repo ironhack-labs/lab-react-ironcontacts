@@ -43,10 +43,21 @@ class App extends React.Component {
 }
 SortPopularity = () => {
   this.setState({
-    celebs: [...this.state.actors].sort(compareP)
+    actors: [...this.state.actors].sort(compareP)
   })
 }
 
+
+deleteActor = (actorId) => {
+  const deletedActor = this.state.actors.filter((actor) => {
+    if(actor.id !== actorId) {
+      return true; 
+    } else if(actor.id === actorId) {
+      return false; 
+    }
+  })
+  this.setState ({actors: deletedActor});
+}
 
   render() {
     return (
@@ -56,7 +67,6 @@ SortPopularity = () => {
         <button onClick={this.SortName}> Sort by Name </button>
         <button onClick={this.SortPopularity}> Sort by Popularity </button>
        
-       
         {this.state.actors.map((contact) => {
           return (
             <table>
@@ -65,10 +75,11 @@ SortPopularity = () => {
               </th>
               <th className="contact">{contact.name}</th>
               <th>{contact.popularity}</th>
+              <button onClick={()=>{this.deleteActor(contact.id)} } > Delete </button>
+
             </table>
 
            
-           // <button onClick={() => }>Sort by Popularity</button>
 
  
           );
