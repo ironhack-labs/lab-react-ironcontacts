@@ -1,6 +1,6 @@
 import "./ContactsTable.css"
 
-import Button from "./Button"
+import ContactRow from "./ContactRow"
 
 const ContactsTable = ({ className, contacts, removeFunction }) => (
   <table className={className}>
@@ -14,16 +14,13 @@ const ContactsTable = ({ className, contacts, removeFunction }) => (
     </thead>
     <tbody>
       {contacts.map(contact => (
-        <tr key={contact.id}>
-          <td>
-            <img src={contact.pictureUrl} alt={contact.name}></img>
-          </td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity}</td>
-          <td>
-            <Button onClick={() => removeFunction(contact.id)}>Delete</Button>
-          </td>
-        </tr>
+        <ContactRow
+          id={contact.id}
+          pictureUrl={contact.pictureUrl}
+          name={contact.name}
+          popularity={contact.popularity}
+          removeFunction={removeFunction}
+        />
       ))}
     </tbody>
   </table>

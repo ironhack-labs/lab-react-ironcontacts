@@ -50,7 +50,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <main>
         <h1>Iron Contacts</h1>
         <Button onClick={this.addRandomContact}>Add random contact</Button>
         <Button onClick={this.sortByName}>Sort by name</Button>
@@ -60,7 +60,7 @@ class App extends Component {
           contacts={this.state.contactsList}
           removeFunction={this.deleteContact}
         />
-      </>
+      </main>
     )
   }
 }
