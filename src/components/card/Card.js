@@ -1,0 +1,1 @@
+          {/* <Card key={contact.id} picture={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/> */}
