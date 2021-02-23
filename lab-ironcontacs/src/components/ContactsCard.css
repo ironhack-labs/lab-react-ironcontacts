@@ -1,0 +1,19 @@
+img{
+    width: 70%;
+}
+table {
+    border: 1px solid rgb(65, 131, 38);
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+  }
+.table-title{
+    font-size: 30px;
+    color: rgb(84, 165, 47);
+    text-transform: uppercase;
+    
+}
+td{
+    padding: 10px;
+    font-size: 20px;
+}
