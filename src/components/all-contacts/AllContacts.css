@@ -5,8 +5,40 @@ h1 {
 .contacts-table {
     text-align: center;
     margin: auto;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-collapse: collapse;
+}
+
+.contacts-table thead tr {
+    background-color: #6a138d;
+    color: #ffffff;
+    text-align: left;
+    height: 50px;
+    padding: 0 10px;
+}
+
+.contacts-table th, td {
+    padding: 20px 35px;
+}
+
+.contacts-table tbody tr {
+    border-bottom: 1px solid #dddddd;
 }
 
 .contacts-table img {
-    width: 80px;
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.btn button {
+    margin: 0px 10px;
 }

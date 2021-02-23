@@ -42,6 +42,12 @@ class AllContacts extends Component {
         })
     }
 
+    deleteContact(contactID) {
+        this.setState({
+            firstContacts: this.state.firstContacts.filter(elm => elm.id !== contactID)
+        })
+    }
+
     render() {
         const { firstContacts } = this.state
 
@@ -49,19 +55,23 @@ class AllContacts extends Component {
             <>
                 <h1>IronContacts</h1>
                 <div>
+                    <div className="btn">
+                        <button onClick={() => this.addRandom()}>Add random contact</button>
+                        <button onClick={() => this.sortByName()}>Sort by Name</button>
+                        <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
+                    </div>
                 <table className="contacts-table">
                     <thead>
                         <tr>
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Popularity</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    {firstContacts.map( (elm) => <ContactTable  {...elm} key={elm.id}/>)}
+                    {firstContacts.map( (elm) => <ContactTable  {...elm} deleteContact={() => this.deleteContact(elm.id)} key={elm.id}/>)}
                 </table>
-                <button onClick={() => this.addRandom()}>Add random contact</button>
-                <button onClick={() => this.sortByName()}>Sort by Name</button>
-                <button onClick={() => this.sortByPopularity()}>Sort by Popularity</button>
+                
                 </div>
             </>
         )
