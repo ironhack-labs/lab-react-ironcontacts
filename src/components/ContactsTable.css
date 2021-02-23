@@ -1,0 +1,30 @@
+.buttons {
+  display: inline;
+}
+
+.buttons button {
+  width: 170px;
+  padding: 5px;
+  margin: 0 18px 20px;
+  font-size: 0.8em;
+  background-color: white;
+  border: none;
+}
+
+.buttons button:hover {
+  color: red;
+}
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+table {
+  border-right: none;
+  border-bottom: none;
+}
+
+th {
+  height: 40px;
+}
