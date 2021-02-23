@@ -1,0 +1,11 @@
+.contacts-table {
+    text-align: center;
+}
+
+.contacts-table table {
+    margin: auto;
+}
+
+.contacts-table img {
+    width: 80px;
+}
