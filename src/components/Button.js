@@ -1,6 +1,6 @@
 import "bulma/css/bulma.css"
-const Button = ({ children, onClick, className }) => (
-  <button className={className} onClick={onClick}>
+const Button = ({ children, onClick, className, disabled }) => (
+  <button disabled={disabled} className={className} onClick={onClick}>
     {children}
   </button>
 )

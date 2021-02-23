@@ -55,7 +55,11 @@ const App = () => {
     <main>
       <h1>Iron Contacts</h1>
       <div className="mt-5">
-        <Button className="button" onClick={addRandomContact}>
+        <Button
+          disabled={!remainingContactsList.length}
+          className="button"
+          onClick={addRandomContact}
+        >
           Add random contact
         </Button>
         <Button className="button" onClick={sortByName}>
