@@ -4,7 +4,15 @@ import ContactList from "./List";
 function App() {
   return (
     <>
-      <ContactList></ContactList>
+      <main>
+        
+        <header>
+          <h1>IronContacts</h1>
+        </header>
+        
+        <ContactList></ContactList>
+
+      </main>
     </>
   );
 }
