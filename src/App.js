@@ -12,7 +12,6 @@ export default class App extends Component {
     const uniqueContacts = contacts.filter(contact => {
       return !this.state.contactsArr.includes(contact)
     })
-    console.log(uniqueContacts)
     if(uniqueContacts.length > 0) {
       const randomContact = uniqueContacts[Math.floor(Math.random()*uniqueContacts.length)]
       this.setState({
@@ -33,6 +32,15 @@ export default class App extends Component {
     })
   }
 
+  delete = (id) => {
+    const actorsCopy = [...this.state.contactsArr];
+    const actorIndex = actorsCopy.findIndex(item => item.id === id);
+    actorsCopy.splice(actorIndex,1);
+    this.setState({
+      contactsArr: actorsCopy
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,6 +56,7 @@ export default class App extends Component {
           <td>Picture</td>
           <td>Name</td>
           <td>Popularity</td>
+          <td>Action</td>
         </tr>
       </thead>
       <tbody>
@@ -56,6 +65,7 @@ export default class App extends Component {
               <td><img id="picture" src={item.pictureUrl} alt="director"/></td>
               <td><p>{item.name}</p></td>
               <td><p>{item.popularity}</p></td>
+              <td><button className="addButton" onClick={this.delete.bind(this, item.id)}>Delete</button></td>
             </tr>
             ))}
       </tbody>
