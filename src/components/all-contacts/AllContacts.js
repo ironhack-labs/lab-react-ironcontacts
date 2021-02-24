@@ -69,7 +69,7 @@ class AllContacts extends Component {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    {firstContacts.map( (elm) => <ContactTable  {...elm} deleteContact={() => this.deleteContact(elm.id)} key={elm.id}/>)}
+                    {firstContacts.map( (elm, idx) => <ContactTable  {...elm} deleteContact={() => this.deleteContact(elm.id)} key={idx}/>)}
                 </table>
                 
                 </div>
