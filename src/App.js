@@ -15,13 +15,29 @@ export default class App extends Component {
     this.setState({
       contacts: [...this.state.contacts, newContact]
     });
-  }
+  };
+
+  sortByNameHandler = () => {
+    const sortedContacts = this.state.contacts.sort((a, b) => a.name.localeCompare(b.name));
+
+    this.setState({
+      contacts: sortedContacts
+    });
+  };
+
+  sortByPopularityHandler = () => {
+    this.setState({
+      contacts: this.state.contacts.sort((a, b) => b.popularity - a.popularity)
+    })
+  };
 
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={ this.addRandomContactHandler }>Add Random Contact</button>
+        <button onClick={ this.sortByNameHandler }>Sort by name</button>
+        <button onClick={ this.sortByPopularityHandler }>Sort by popularity</button>
         <table>
            <thead>
              <tr>
@@ -38,12 +54,12 @@ export default class App extends Component {
                   <td>{ contact.name }</td>
                   <td>{ (contact.popularity).toFixed(2) }</td>
                </tr>
-             )
+             );
            })}
            </tbody>
          </table>
         
       </div>
-    )
-  }
-}
+    );
+  };
+};
