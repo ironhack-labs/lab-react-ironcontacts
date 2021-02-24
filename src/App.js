@@ -31,6 +31,12 @@ export default class App extends Component {
     })
   };
 
+  deleteContactHandler = (contactId) => {
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+    })
+  }
+;
   render() {
     return (
       <div className="App">
@@ -53,6 +59,7 @@ export default class App extends Component {
                   <td><img src={ contact.pictureUrl } style={{ width: '50px'}} alt="pictures"/></td>
                   <td>{ contact.name }</td>
                   <td>{ (contact.popularity).toFixed(2) }</td>
+                  <td><button onClick={ () => this.deleteContactHandler(contact.id)}>Delete</button></td>
                </tr>
              );
            })}
