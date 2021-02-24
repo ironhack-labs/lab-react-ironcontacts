@@ -6,12 +6,22 @@ export default class App extends Component {
 
   state = {
     contacts: contacts.slice(0, 5)
+  };
+
+  addRandomContactHandler = () => {
+    const filteredContacts = contacts.filter( contact => !(this.state.contacts).includes(contact));
+    const newContact = filteredContacts[Math.floor(Math.random() * filteredContacts.length)];
+
+    this.setState({
+      contacts: [...this.state.contacts, newContact]
+    });
   }
 
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
+        <button onClick={ this.addRandomContactHandler }>Add Random Contact</button>
         <table>
            <thead>
              <tr>
