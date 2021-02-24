@@ -14,11 +14,11 @@ export default class ContactList extends Component {
     updateContactList(contacts) {
         return contacts.map(contact => {
             return (
-                <Contact key={contact.id} {...contact} clickToDelete={() => this.deleteContactHandler(contact.id)} />);
+                <Contact key={contact.id} {...contact} clickToDelete={() => this.deleteContact(contact.id)} />);
         });
     }
 
-    addRandomContactHandler() {
+    addRandomContact() {
         const availableCopy = [...this.state.availableContacts];
         const displayedCopy = this.state.displayedContacts;
         if (availableCopy.length === 0) {
@@ -37,16 +37,16 @@ export default class ContactList extends Component {
         });
     }
 
-    sortHandler(type) {
+    sortList(type) {
         const displayedCopy = this.state.displayedContacts;
-        if (type === "name") displayedCopy.sort((a, b) => a.name.localeCompare(b.name));
-        if (type === "popularity") displayedCopy.sort((a, b) => b.popularity - a.popularity);
+        if (type === "name") displayedCopy.sortList((a, b) => a.name.localeCompare(b.name));
+        if (type === "popularity") displayedCopy.sortList((a, b) => b.popularity - a.popularity);
         this.setState({
             displayedContacts: displayedCopy
         });
     }
 
-    deleteContactHandler(id) {
+    deleteContact(id) {
         const availableCopy = [...this.state.availableContacts];
         const displayedCopy = this.state.displayedContacts;
         const index = displayedCopy.findIndex(contact => contact.id === id);
@@ -69,13 +69,13 @@ export default class ContactList extends Component {
                             Details and informations about contacts.
                         </p>
                         <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-200">
-                            <button type="button" onClick={() => this.addRandomContactHandler()} className="py-2 px-4 m-1 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white max-w-xs transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                            <button type="button" onClick={() => this.addRandomContact()} className="py-2 px-4 m-1 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white max-w-xs transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 Add Random Contact
                         </button>
-                            <button type="button" onClick={() => this.sortHandler("name")} className="py-2 px-4 m-1 bg-yellow-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white max-w-xs transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                            <button type="button" onClick={() => this.sortList("name")} className="py-2 px-4 m-1 bg-yellow-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white max-w-xs transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 Sort By Name
                         </button>
-                            <button type="button" onClick={() => this.sortHandler("popularity")} className="py-2 px-4 m-1 bg-green-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white max-w-xs transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                            <button type="button" onClick={() => this.sortList("popularity")} className="py-2 px-4 m-1 bg-green-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white max-w-xs transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 Sort By Popularity
                         </button>
                         </p>
