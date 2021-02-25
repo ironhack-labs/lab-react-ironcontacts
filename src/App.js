@@ -14,22 +14,22 @@ export default class App extends Component {
     })
     if(uniqueContacts.length > 0) {
       const randomContact = uniqueContacts[Math.floor(Math.random()*uniqueContacts.length)]
-      this.setState({
-        contactsArr : [...this.state.contactsArr, randomContact]
-      })
+      this.setState(prevSate => ({
+        contactsArr : [...prevSate.contactsArr, randomContact]
+      }))
     }
   }
 
   filterNameContact = () => {
-    this.setState({
-      contactsArr : [...this.state.contactsArr].sort((a,b) =>(a.name > b.name)?1:((b.name>a.name)?-1:0))
-    })
+    this.setState(prevState => ({
+      contactsArr : [...prevState.contactsArr].sort((a,b) =>(a.name > b.name)?1:((b.name>a.name)?-1:0))
+    }))
   }
 
   filterPopContact = () => {
-    this.setState({
-      contactsArr : [...this.state.contactsArr].sort((a,b) =>(b.popularity > a.popularity)?1:((a.popularity>b.popularity)?-1:0))
-    })
+    this.setState(prevState => ({
+      contactsArr : [...prevState.contactsArr].sort((a,b) =>(b.popularity > a.popularity)?1:((a.popularity>b.popularity)?-1:0))
+    }))
   }
 
   delete = (id) => {
