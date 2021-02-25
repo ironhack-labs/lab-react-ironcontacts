@@ -39,8 +39,8 @@ export default class ContactList extends Component {
 
     sortList(type) {
         const displayedCopy = this.state.displayedContacts;
-        if (type === "name") displayedCopy.sortList((a, b) => a.name.localeCompare(b.name));
-        if (type === "popularity") displayedCopy.sortList((a, b) => b.popularity - a.popularity);
+        if (type === "name") displayedCopy.sort((a, b) => a.name.localeCompare(b.name));
+        if (type === "popularity") displayedCopy.sort((a, b) => b.popularity - a.popularity);
         this.setState({
             displayedContacts: displayedCopy
         });

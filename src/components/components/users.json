@@ -1,0 +1,655 @@
+[
+  {
+    "firstName": "Alec",
+    "lastName": "Budd",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Alexander",
+    "lastName": "Burdett",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Amelia",
+    "lastName": "Chorng Uan ",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "André",
+    "lastName": "Sebastian",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Andre",
+    "lastName": "Wittwer",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Anja",
+    "lastName": "Bottcher",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Anjali",
+    "lastName": "Patel",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Anna",
+    "lastName": "Dorsch",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Anna",
+    "lastName": "Schäffner",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Anne",
+    "lastName": "Truong",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Anthony",
+    "lastName": "Ioimo",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Antonio",
+    "lastName": "Ferreira",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Augusto",
+    "lastName": "Galuppo",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Axel",
+    "lastName": "Dahlin",
+    "campus": "Berlin",
+    "role": "student",
+    "linkedin": "https://www.linkedin.com/in/axel-dahlin-72a3b813b/"
+  },
+  {
+    "firstName": "Bénédicte",
+    "lastName": "Meignan",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Binu",
+    "lastName": "Nair",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Brandon",
+    "lastName": "Empey",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Carla",
+    "lastName": "Mendes",
+    "campus": "Lisbon",
+    "role": "student",
+    "linkedin": "https://www.linkedin.com/in/carlarsmendespt/"
+  },
+  {
+    "firstName": "Carlos",
+    "lastName": "Botto",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Carlos",
+    "lastName": "Cazallas Delfa",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Pinhas",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Diogo",
+    "lastName": "Bessa",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Doris",
+    "lastName": "Santos",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Eduardo",
+    "lastName": "San Martin",
+    "campus": "Paris",
+    "role": "teacher",
+    "linkedin": "https://www.linkedin.com/in/edsanmartin/"
+  },
+  {
+    "firstName": "Elodie",
+    "lastName": "Wanang",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Emina",
+    "lastName": "Sonnad",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Emmanuel",
+    "lastName": "Iyere",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Eullin",
+    "lastName": "Chang",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Federico",
+    "lastName": "Cassettai",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Felicitas",
+    "lastName": "Deutges",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Felix",
+    "lastName": "Grosser",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Felix",
+    "lastName": "Höhne",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "François",
+    "lastName": "Kieffer",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Franziska",
+    "lastName": "Bath",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Frederic",
+    "lastName": "Jacquette",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Frederic",
+    "lastName": "Magnin",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Giulia",
+    "lastName": "Gallorini",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Guilherme",
+    "lastName": "Carmona",
+    "campus": "Lisbon",
+    "role": "student",
+    "linkedin": "https://www.linkedin.com/in/guilherme-carmona/"
+  },
+  {
+    "firstName": "Hendrik",
+    "lastName": "Wermser",
+    "campus": "Berlin",
+    "role": "teacher",
+    "linkedin": "https://www.linkedin.com/in/hendrikwe/"
+  },
+  {
+    "firstName": "Hubert",
+    "lastName": "Saint Olive",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Hugo",
+    "lastName": "Lourenço",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Ingo",
+    "lastName": "Grossmann",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Jad",
+    "lastName": "Challita",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Jamie",
+    "lastName": "Egan",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Jennifer",
+    "lastName": "Roberts",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Joana",
+    "lastName": "Ribeiro",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Jody",
+    "lastName": "Richardson",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Johanna",
+    "lastName": "Skuhra",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Jorge",
+    "lastName": "Costa",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "José",
+    "lastName": "Carneiro",
+    "campus": "Lisbon",
+    "role": "teacher",
+    "linkedin": "https://www.linkedin.com/in/josemcarneiro/"
+  },
+  {
+    "firstName": "Jose",
+    "lastName": "Nogueira",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Julia",
+    "lastName": "Miller",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Katrin",
+    "lastName": "Abel",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Khalil",
+    "lastName": "Najjar",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Ksenia",
+    "lastName": "Danniker",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Laura",
+    "lastName": "Puyol Rigol",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Lesly",
+    "lastName": "Lim",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Liang",
+    "lastName": "Zhang",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Lindsay",
+    "lastName": "Wilson",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Liudmyla",
+    "lastName": "Iefremova",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Lukas",
+    "lastName": "Gisder-Dubé",
+    "campus": "Berlin",
+    "role": "teacher",
+    "linkedin": "https://www.linkedin.com/in/gisderdube/"
+  },
+  {
+    "firstName": "Malte",
+    "lastName": "Felmy",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Mande",
+    "lastName": "Gueye",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Mariana",
+    "lastName": "Vargas",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Martin",
+    "lastName": "Poth",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Marvin",
+    "lastName": "Artioli",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Mathieu ",
+    "lastName": "Revillion",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Matt",
+    "lastName": "Harrison",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Matthias",
+    "lastName": "Staudinger",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Maxence",
+    "lastName": "Bouret",
+    "campus": "Paris",
+    "role": "teacher",
+    "linkedin": "https://www.linkedin.com/in/bouretm/"
+  },
+  {
+    "firstName": "Mehdi",
+    "lastName": "Aitali",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Mejdi",
+    "lastName": "Arfaoui",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Lande Blau",
+    "campus": "Paris",
+    "role": "student",
+    "linkedin": "https://www.linkedin.com/in/miclande/"
+  },
+  {
+    "firstName": "Mickaël",
+    "lastName": "Bolnet",
+    "campus": "Paris",
+    "role": "teacher",
+    "linkedin": "https://www.linkedin.com/in/mickael-bolnet-71189659/"
+  },
+  {
+    "firstName": "Min",
+    "lastName": "Sheng",
+    "campus": "Berlin",
+    "role": "student",
+    "linkedin": "https://www.linkedin.com/in/min-sheng-ang/"
+  },
+  {
+    "firstName": "Moritz",
+    "lastName": "Opitz",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Na'aman",
+    "lastName": "Hirschfeld",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Nadir",
+    "lastName": "Berrara",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Natasha",
+    "lastName": "Silva",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Nele",
+    "lastName": "Lüpkes",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Nelson",
+    "lastName": "Aires",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Nicolas",
+    "lastName": "Barthez",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Octave",
+    "lastName": "Lapeyronie",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Ombline",
+    "lastName": "Gilliot",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Özgür",
+    "lastName": "Dil",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Patricia",
+    "lastName": "Rosalis",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Paul",
+    "lastName": "Frederick",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Pedro",
+    "lastName": "Arantes",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Pernille",
+    "lastName": "Kloster",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Petter",
+    "lastName": "Åstedt",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Reshma",
+    "lastName": "Patel",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Ruby",
+    "lastName": "Lai",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Sagy",
+    "lastName": "Mizrahi",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Salvatore",
+    "lastName": "Dziekan",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Samanta",
+    "lastName": "Boero",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Sebastien",
+    "lastName": "Morelle",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Seyawosh",
+    "lastName": "Rahimi",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Sinan",
+    "lastName": "Taylan",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Sofia",
+    "lastName": "Ornelas",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Sonia",
+    "lastName": "Meller",
+    "campus": "Lisbon",
+    "role": "student"
+  },
+  {
+    "firstName": "Stuart",
+    "lastName": "Gardner",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Svenja",
+    "lastName": "Weiler",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Thibaut",
+    "lastName": "Davoult",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Thomas",
+    "lastName": "Beguin",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Thomas",
+    "lastName": "Burton",
+    "campus": "Berlin",
+    "role": "student"
+  },
+  {
+    "firstName": "Valentin",
+    "lastName": "Perot",
+    "campus": "Paris",
+    "role": "student"
+  },
+  {
+    "firstName": "Vincent",
+    "lastName": "Moulines",
+    "campus": "Paris",
+    "role": "student"
+  }
+]
