@@ -12,14 +12,26 @@ import contacts from "./contacts.json";
 
 // export default App;
 
-
 const contact5 = contacts.filter((contact, i) => i < 5)
-
+const otherContacts = contacts.filter((contact, i) => i >= 5)
+console.log(otherContacts.length)
 class App extends React.Component {
   
 state = {
-    contact5
+    contact5,
+    otherContacts
   }
+
+pickRandom = () => {
+const copyFive = [...this.state.contact5]
+let randoOther = this.state.otherContacts[Math.floor(Math.random() * otherContacts.length)]
+
+copyFive.unshift(randoOther)
+this.setState({
+  contact5: copyFive
+})
+
+}
 
 render(){
 
