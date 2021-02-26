@@ -23,13 +23,35 @@ state = {
   }
 
 pickRandom = () => {
-const copyFive = [...this.state.contact5]
-let randoOther = this.state.otherContacts[Math.floor(Math.random() * otherContacts.length)]
+  const copyFive = [...this.state.contact5]
+  let randoOther = this.state.otherContacts[Math.floor(Math.random() * otherContacts.length)]
 
-copyFive.unshift(randoOther)
-this.setState({
-  contact5: copyFive
-})
+  copyFive.unshift(randoOther)
+  //copyFive.push(randoOther)
+  this.setState({
+    contact5: copyFive
+  })
+
+}
+sortByName = () => {
+  const copyFive = [...this.state.contact5]
+ let sortNames = copyFive.sort((a,b)=> a.name.localeCompare(b.name))
+
+  
+  this.setState({
+    contact5: sortNames
+  })
+
+}
+
+sortByPopularity = () => {
+  const copyFive = [...this.state.contact5]
+  let sortPop = copyFive.sort((a,b)=> b.popularity - a.popularity)
+
+  
+  this.setState({
+    contact5: sortPop
+  })
 
 }
 
@@ -50,8 +72,8 @@ const firstFive = contact5.map((c,i)=> {
   < >
     <div className='btns'>
       <button onClick={this.pickRandom}>Add Random Contact</button>
-      <button>Sort by Name</button>
-      <button>Sort by Popularity</button>
+      <button onClick={this.sortByName} >Sort by Name</button>
+      <button onClick={this.sortByPopularity} >Sort by Popularity</button>
     </div>
 
     <table > 
