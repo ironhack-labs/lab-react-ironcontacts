@@ -43,6 +43,7 @@ table, th, td {
   border-collapse: collapse;
   text-align: center;
   padding: 2vh;
+  
 }
 
 table, tr{
@@ -65,4 +66,10 @@ button{
   margin: 2vh;
   background-color: black;
   color: white;
+}
+
+.delBtn{
+  width: 10vw;
+  height: 5vw;
+  color: red
 }

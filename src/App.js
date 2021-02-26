@@ -14,7 +14,7 @@ import contacts from "./contacts.json";
 
 const contact5 = contacts.filter((contact, i) => i < 5)
 const otherContacts = contacts.filter((contact, i) => i >= 5)
-console.log(otherContacts.length)
+
 class App extends React.Component {
   
 state = {
@@ -55,6 +55,14 @@ sortByPopularity = () => {
 
 }
 
+deleteContact = (i) => {
+  const copyFive = [...this.state.contact5]
+  copyFive.splice(i, 1)
+  this.setState({
+    contact5: copyFive
+  })
+}
+
 render(){
 
 const {contact5} = this.state 
@@ -63,6 +71,7 @@ const firstFive = contact5.map((c,i)=> {
   <td ><img width='100vh' src={c.pictureUrl} alt=""/></td>
   <td ><h4>{c.name}</h4></td>
   <td >{c.popularity.toFixed(2)}</td>
+  <td ><button className='delBtn' onClick={()=>this.deleteContact(i)} >Delete</button></td>
  </tr> 
   
 })
@@ -83,6 +92,7 @@ const firstFive = contact5.map((c,i)=> {
           <th><h3>Picture</h3></th>
           <th ><h3>Name</h3></th>
           <th ><h3>Popularity</h3></th>
+          <th ><h3>Action</h3></th>
         </tr>
       </thead>
      <tbody>
