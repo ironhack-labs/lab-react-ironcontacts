@@ -1,36 +1,36 @@
 import React from 'react';
-import contacts from "./contacts.json";
+import contactsData from "./contacts.json";
 
 
 
 class App extends React.Component {
 
   state = {
-    contactsToShow: contacts.slice(0, 5),
+    contacts: contactsData.slice(0, 5),
   }
 
   getRandom() {
-    const rest = contacts.slice(5, contacts.length);
+    const rest = contactsData.slice(this.state.contacts.length, contactsData.length);
     const i =  Math.round(Math.random() * (rest.length - 1));
     const randomContact = rest[i];
     
-    this.setState({ contactsToShow: [...this.state.contactsToShow, randomContact]})
+    this.setState((state, props) => ({ contacts: [...state.contacts, randomContact]}));
   }
 
   sortContactsByName() {
-    const newArr = [...this.state.contactsToShow]
+    const newArr = [...this.state.contacts]
     newArr.sort((a, b) => a.name < b.name ? -1 : (a.name > b.name ? 1 : 0));
-    this.setState({ contactsToShow: newArr })
+    this.setState({ contacts: newArr })
   }
 
   sortContactsByPopularity() {
-    const newArr = [...this.state.contactsToShow];
+    const newArr = [...this.state.contacts];
     newArr.sort((a, b) => b.popularity - a.popularity);
-    this.setState({ contactsToShow: newArr });
+    this.setState({ contacts: newArr });
   }
 
   deleteContact(id) {
-    this.setState({ contactsToShow: this.state.contactsToShow.filter(contact => contact.id !== id)})
+    this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== id)})
   }
 
   render() {
@@ -50,7 +50,7 @@ class App extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.contactsToShow.map((contact, i) => (
+              {this.state.contacts.map((contact, i) => (
                 <tr key={i}>
                   <td className="w-25">
                     <img className="w-25" src={contact.pictureUrl} alt="" />
