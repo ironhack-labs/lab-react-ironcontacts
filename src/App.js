@@ -10,11 +10,13 @@ class App extends React.Component {
   }
 
   getRandom() {
-    const rest = contactsData.slice(this.state.contacts.length, contactsData.length);
-    const i =  Math.round(Math.random() * (rest.length - 1));
-    const randomContact = rest[i];
+    const { contacts } = this.state;
+    const contactsId = contacts.map(contact => contact.id);
+    const rest = contactsData.filter(contact => !contactsId.includes(contact.id))
+    const randomContact =  rest[Math.round(Math.random() * rest.length)];
     
-    this.setState((state, props) => ({ contacts: [...state.contacts, randomContact]}));
+    contacts.length === (contactsData.length - 1) ? this.setState({ contacts: contacts }) : this.setState((state, props) => ({ contacts: [...state.contacts, randomContact]}));
+  
   }
 
   sortContactsByName() {
@@ -30,7 +32,8 @@ class App extends React.Component {
   }
 
   deleteContact(id) {
-    this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== id)})
+    const { contacts } = this.state;
+    this.setState({ contacts: contacts.filter(contact => contact.id !== id)})
   }
 
   render() {
@@ -38,7 +41,7 @@ class App extends React.Component {
       <div className="App">
         <div className="container">
           <h1>IronContacts</h1>
-          <button className="btn btn-primary" onClick={() => this.getRandom(this.state.initial)}>Add a random Contact</button>
+          <button className="btn btn-primary" onClick={() => this.getRandom()}>Add a random Contact</button>
           <button className="btn btn-primary ms-2" onClick={() => this.sortContactsByName()}>Sort by Name</button>
           <button className="btn btn-primary ms-2" onClick={() => this.sortContactsByPopularity()}>Sort by Popularity</button>
           <table>
