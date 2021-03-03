@@ -13,10 +13,8 @@ class App extends React.Component {
     const rest = contacts.slice(5, contacts.length);
     const i =  Math.round(Math.random() * (rest.length - 1));
     const randomContact = rest[i];
-    const newArr = [...this.state.contactsToShow];
-    newArr.push(randomContact)
     
-    this.setState({ contactsToShow: newArr });
+    this.setState({ contactsToShow: [...this.state.contactsToShow, randomContact]})
   }
 
   sortContactsByName() {
