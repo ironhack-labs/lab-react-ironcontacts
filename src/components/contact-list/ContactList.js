@@ -39,6 +39,12 @@ class ContactList extends Component {
         }
     }
 
+    handleDelete = (id) => {
+        this.setState({
+            displayedContacts: this.state.displayedContacts.filter(c => c.id !== id)
+        })
+    }
+
 
 
     render() {
@@ -62,6 +68,7 @@ class ContactList extends Component {
                             <th scope="col">Name</th>
                             <th scope="col">Picture</th>
                             <th scope="col">Popularity</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,6 +77,7 @@ class ContactList extends Component {
                                 <td>{contact.name}</td>
                                 <td><img style={{ width: "70px" }} src={contact.pictureUrl} /></td>
                                 <td>{contact.popularity}</td>
+                                <td><button onClick={() => this.handleDelete(contact.id)}>Delete</button></td>
                             </tr>
                         ))}
                     </tbody>
