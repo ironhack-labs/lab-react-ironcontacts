@@ -6,12 +6,7 @@ import ContactList from './components/contact-list/ContactList';
 function App() {
 
   return (
-    <div className="App">
-      <h1>Iron Contacts</h1>
-      <div className="container">
-        <ContactList />
-      </div>
-    </div>
+    <ContactList />
   );
 }
 

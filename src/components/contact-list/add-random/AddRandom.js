@@ -7,12 +7,15 @@ class AddRandom extends React.Component {
     
     addRandomContact() {
         const randomContact = contacts[Math.floor(Math.random() * contacts.length) + 0];
-        
+        return randomContact;
+
     }
 
     render(){
         return (
-            <button className="btn btn-dark" onClick={() => this.addRandomContact() } >Add Random Contact</button>
+            <form onSubmit={this.addRandomContact} >
+                <button className="btn btn-dark" type="submit" >Add Random Contact</button>
+            </form>
         );
     }
 }
