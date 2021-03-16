@@ -9,16 +9,32 @@ export class Contacts extends PureComponent {
     fiveContacts: contacts.slice(0, 5),
   };
 
+  handleAddCeleb = () => {
+   
+    const contactCopy = [...contacts];
+
+    let random = Math.floor(Math.random()*contactCopy.length);
+    let celeb= contactCopy[random];
+
+    // console.log(celeb)
+
+    this.setState({fiveContacts: [celeb, ...this.state.fiveContacts]})
+  }
+
+
+
+
   render() {
     // console.log(contacts)
     return (
       <div>
+        <button onClick={this.handleAddCeleb}>Add</button>
         <table id="contacts">
-          <thead>
+          {/* <thead> */}
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
-          </thead>
+          {/* </thead> */}
           {this.state.fiveContacts.map((contact) => (
             <tbody key={contact.id}>
               <tr>
@@ -36,9 +52,12 @@ export class Contacts extends PureComponent {
   }
 }
 
+
+
 function App() {
   return (
     <div>
+      
       <Contacts />
     </div>
   );
