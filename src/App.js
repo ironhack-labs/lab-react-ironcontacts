@@ -6,7 +6,7 @@ import React, { PureComponent } from "react";
 
 export class Contacts extends PureComponent {
   state = {
-    fiveContacts: contacts.slice(0, 5),
+    displayedContacts: contacts.slice(0, 5),
   };
 
   handleAddCeleb = () => {
@@ -18,24 +18,44 @@ export class Contacts extends PureComponent {
 
     // console.log(celeb)
 
-    this.setState({fiveContacts: [celeb, ...this.state.fiveContacts]})
+    this.setState({displayedContacts: [celeb, ...this.state.displayedContacts]})
+  }
+
+  handleAlphOrder = () => {
+
+    const listCopy = [...this.state.displayedContacts]
+    
+    let alph = listCopy.sort((a, b) => a.name.localeCompare(b.name))
+    
+    this.setState({displayedContacts: [...alph]})
   }
 
 
+  handlePopOrder = () => {
+
+    const listCopy = [...this.state.displayedContacts]
+    
+    let pop = listCopy.sort((a, b) => b.popularity - a.popularity)
+    
+    this.setState({displayedContacts: [...pop]})
+  }
 
 
   render() {
     // console.log(contacts)
     return (
       <div>
-        <button onClick={this.handleAddCeleb}>Add</button>
+        <button onClick={this.handleAddCeleb}>Add a random contact</button>
+        <button onClick={this.handleAlphOrder}>Alphabetical order</button>
+        <button onClick={this.handlePopOrder}>Popularity order</button>
         <table id="contacts">
+
           {/* <thead> */}
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
           {/* </thead> */}
-          {this.state.fiveContacts.map((contact) => (
+          {this.state.displayedContacts.map((contact) => (
             <tbody key={contact.id}>
               <tr>
                 <td>
