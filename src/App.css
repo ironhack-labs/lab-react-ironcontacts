@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+#contacts {
+  border: 1px black solid;
+}
