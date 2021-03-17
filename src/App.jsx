@@ -13,7 +13,7 @@ class App extends Component {
 
   // Iteration 2
   handleAddRandomContact = () => {
-    const randomNumber = Math.floor(Math.random() * (this.contactsCopy.length - 0 +1)) + 0;
+    const randomNumber = Math.floor(Math.random() * Math.floor(this.contactsCopy.length));
     const randomContact = this.contactsCopy[randomNumber];
 
     this.extractedContacts.push(randomContact);

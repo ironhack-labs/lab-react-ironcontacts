@@ -1,5 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +42,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  width: 40%;
+}
+
+.table-content {
+  width: 50%;
+  border: 5px solid goldenrod;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 15px auto;
+}
+
+.contact-name {
+  max-width: 8%;
+}
+
+.contact-popularity {
+  max-width: 2%;
+}
+
+.image-container {
+  width: 20%;
+}
+
+.buttons {
+  height: 30px;
+  margin: 0 10px;
+  padding: 15px;
+  font-size: 16px;
+  line-height: calc(50% - 16px);
+  border-radius: 5px;
+  border: none;
+}
+
+.delete-btn:hover {
+  background: lightcoral;
+  border-radius: 5px;
+  border: none;
 }
