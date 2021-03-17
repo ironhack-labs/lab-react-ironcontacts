@@ -56,6 +56,13 @@ export class App extends Component {
     console.log("SORTED POPULARITY")
   }
 
+  handleDelete = (contactToRemove)=>{
+    const contactsCopy = [...this.state.contacts];
+    contactsCopy.splice(contactToRemove, 1)
+    this.setState({contacts:contactsCopy})
+  }
+
+
 
   render() {
     return (
@@ -80,6 +87,8 @@ export class App extends Component {
                     </td>
                     <td>{contact.name}</td>
                     <td>{contact.popularity}</td>
+                    <td><button onClick={() => this.handleDelete(contact.id)}>Delete</button></td> 
+                    {/* i dont understand why here on the deleteHandler we use a callback */}
                   </tr>)})}
                 </tbody>
               </table>
