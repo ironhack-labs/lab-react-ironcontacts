@@ -7,21 +7,6 @@ class App extends Component {
     contacts: contactsJSON.slice(0, 5),
   };
 
-  listContacts = this.state.contacts.map((contact) => {
-    return (
-      <tr key={contact.id}>
-        <td>{contact.name}</td>
-        <td>{contact.popularity.toFixed(2)}</td>
-        <td>
-          <img width="100" src={contact.pictureUrl} alt="profile" />
-        </td>
-        <td>
-          <button onClick={() => this.handleRemove(contact.id)}>🚮</button>
-        </td>
-      </tr>
-    );
-  });
-
   handleAddRandom = () => {
     const indexRandom = Math.floor(Math.random() * contactsJSON.length + 1);
     this.setState({
@@ -55,6 +40,21 @@ class App extends Component {
   };
 
   render() {
+    const listContacts = this.state.contacts.map((contact) => {
+      return (
+        <tr key={contact.id}>
+          <td>{contact.name}</td>
+          <td>{contact.popularity.toFixed(2)}</td>
+          <td>
+            <img width="100" src={contact.pictureUrl} alt="profile" />
+          </td>
+          <td>
+            <button onClick={() => this.handleDelete(contact.id)}>🚮</button>
+          </td>
+        </tr>
+      );
+    });
+
     return (
       <div>
         <div className="buttons">
@@ -74,7 +74,7 @@ class App extends Component {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody>{this.listContacts}</tbody>
+          <tbody>{listContacts}</tbody>
         </table>
       </div>
     );
