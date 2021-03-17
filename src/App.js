@@ -54,10 +54,8 @@ export class App extends Component {
   }
 
   handleDelete = (ContactId) => {
-    let del = this.state.contacts.map((contact, index) => contact.id == ContactId)    
-    let number = del.indexOf(true)
-    this.state.contacts.splice(number,1)
-    this.setState({contacts: this.state.contacts});
+    let ContactsWithoutRemoved = this.state.contacts.filter((contact) => contact.id !== ContactId)    
+    this.setState({contacts: ContactsWithoutRemoved});
   }
   
   
@@ -69,11 +67,14 @@ export class App extends Component {
 
 
     return (   
-        <div>
+        <div className="main__body">
+          
           <h1>IronContacts</h1>
-          <button onClick={this.handAddContact}>Add a new contact</button>
-          <button onClick={this.handleNameSort}>Sort by Name</button>
-          <button onClick={this.handlePopularitySort}>Sort by Popularity</button>
+        <div className="buttons">
+          <button className="button" onClick={this.handAddContact}>Add a new contact</button>
+          <button className="button" onClick={this.handleNameSort}>Sort by Name</button>
+          <button className="button" onClick={this.handlePopularitySort}>Sort by Popularity</button>
+        </div>
       <table>
           <tr>
             <th>Picture</th>
@@ -84,12 +85,13 @@ export class App extends Component {
             {this.state.contacts.map((contact, index) =>
               <tr key={contact.id}>
                 <td><img className="contact__image" src={contact.pictureUrl} alt="contact"/></td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity}</td>
-                <td><button onClick={() => {this.handleDelete(contact.id)}}>delete this contact</button></td>
+                <td><h3>{contact.name}</h3></td>
+                <td>{contact.popularity.toFixed(2)}</td>
+                <td><button className="button" onClick={() => {this.handleDelete(contact.id)}}>delete this contact</button></td>
               </tr>
             )}
       </table>
+      
     </div>
   );
       

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+background: red;
 }
 
 .App-logo {
@@ -41,4 +42,51 @@
   height: 100px;
 }
 
+.main__body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
+.contacts__box {
+  width: 50vw;
+  background: red;
+}
+
+.buttons {
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.button {
+  width: 10vw;
+  height: 50px;
+  background: grey;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: darkgrey
+}
+
+td {
+  text-align: center;
+  width: 15vw;
+}
+
+th {
+  height: 50px;
+  background: lightblue;
+
+}
+
+
+
+.main__body > tr {
+  border-bottom: 2px solid black;
+}
