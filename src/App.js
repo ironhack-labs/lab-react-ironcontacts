@@ -12,7 +12,7 @@ class Contacts extends Component {
 state = {
   fiveContacts: contacts.slice(0,5),
   sortType: 'a',
-  sortPop: 0
+  
   
 };
 
@@ -71,8 +71,7 @@ sortByPopularity = () => {
 
  
   this.state.fiveContacts.sort((a, b) => {
-    const isSorted = (this.state.sortType === 0) ? 1 : -1;
-    return isSorted * a.name.localeCompare(b.name)
+  return b.popularity - a.popularity 
   })
 
   this.setState({sortPop: this.state.sortPop})
