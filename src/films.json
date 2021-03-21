@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Fight club",
+        "released":1999,
+        "rate":8.8
+    },
+    {
+        "name":"The shawshank redemption",
+        "released":1994,
+        "rate":9.3
+    },
+    {
+        "name":"Joker",
+        "released":2019,
+        "rate":8.4
+    }
+]

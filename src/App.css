@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.imgStar {
+  width: 200px;
+  height: 200px;
+}
+
+.AppTable {
+  border: 1px solid black;
+}
