@@ -31,11 +31,14 @@ class App extends Component {
   };
 
   handleDelete = (idToDelete) => {
+    const contactsCopy = [...this.state.contacts];
+    const indexToDelete = contactsCopy.findIndex(
+      (contact) => contact.id === idToDelete
+    );
+    contactsCopy.splice(indexToDelete, 1);
+    console.log(`indexToDelete`, indexToDelete);
     this.setState({
-      contacts: [...this.state.contacts].splice(
-        this.state.contacts.id.indexOf(idToDelete),
-        1
-      ),
+      contacts: contactsCopy,
     });
   };
 
