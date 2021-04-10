@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1.5vmin);
   color: white;
 }
 
@@ -35,4 +35,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  text-shadow: 4px 4px #6f7175;
+}
+
+.Table {
+  width: 90%;
+  height: 90%;
+  margin: 5%
+}
+
+.contactPicture {
+  max-width: 150px;
+  max-height: 120px;
+  object-fit: scale-down;
+  object-position: center;
+  height: 120px;
+  width: 150px;
+}
+
+.darkBg {
+  background-color: #1c1c1d;
 }
