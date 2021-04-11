@@ -1,3 +1,18 @@
-.title {
+.card {
+    padding: 20px;
+}
+
+.btn {
+    padding: 5px;
+    margin: 15px 15px;
+}
+
+.img {
+    padding: 10px;
+}
+
+.name {
+    margin-top: 10px;
+    
     text-align: center;
 }

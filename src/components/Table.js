@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Contacts from '../contacts.json'
+import  '../components/Table.css'
 
 export default function Table() {
 
@@ -48,30 +49,37 @@ export default function Table() {
 
 
     return (
-        <div className="">
-            <h1 className="title"> IronContacts</h1>
-            <button onClick={() => addContact()}> Add Random Contact</button>
-            <button onClick={() => sortByName()}> Sort by Name</button>
-            <button onClick={() => sortByPopularity()}> Sort by Popularity</button>
-            <table className="table">
-                <tr>
-                    <th>Picture</th>
-                    <th>Name</th>
-                    <th>Popularity</th>
-                    <th>Action</th>
-                </tr>
-
-                {contacts.map((e, id) => {
-                    return (
-                        <tr key={id}>
-                            <td><img width="95px" src={e.pictureUrl} /></td>
-                            <td>{e.name}</td>
-                            <td>{(e.popularity).toFixed(2)}</td>
-                            <button onClick={() => remove(e.id) }>Delete</button>
+        <div className="container "> 
+                <h1 className="card "> IronContacts</h1>
+                <button className="btn btn-outline-primary " onClick={() => addContact()}> Add Random Contact</button>
+                <button className="btn btn-outline-secondary" onClick={() => sortByName()}> Sort by Name</button>
+                <button className="btn btn-outline-success" onClick={() => sortByPopularity()}> Sort by Popularity</button>
+                <div className="row">
+                <table className="table">
+                    <thead>
+                        <tr className="table-sucess">
+                            <th scope="col">Picture</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Popularity</th>
+                            <th scope="col">Action</th>
                         </tr>
-                    )
-                })}
-            </table>
+                    </thead>
+
+                    {contacts.map((e, id) => {
+                        return (
+                            <tbody>
+                                <th scope="row"></th>
+                                <tr key={id}>
+                                    <td><img className="img" width="95px" src={e.pictureUrl} /></td>
+                                    <td className="name"><strong>{e.name}</strong></td>
+                                    <td>{(e.popularity).toFixed(2)}</td>
+                                    <button className="btn btn-outline-danger" onClick={() => remove(e.id)}>Delete</button>
+                                </tr>
+                            </tbody>
+                        )
+                    })}
+                </table>
+            </div>
         </div>
     )
 
