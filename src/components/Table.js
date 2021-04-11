@@ -37,6 +37,14 @@ export default function Table() {
         ])
     }
 
+    const remove = (id) => {
+        const newList = contacts.filter((e) => {
+            return e.id !== id
+        })
+
+        setContact(newList)
+    }
+
 
 
     return (
@@ -50,6 +58,7 @@ export default function Table() {
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Popularity</th>
+                    <th>Action</th>
                 </tr>
 
                 {contacts.map((e, id) => {
@@ -58,6 +67,7 @@ export default function Table() {
                             <td><img width="95px" src={e.pictureUrl} /></td>
                             <td>{e.name}</td>
                             <td>{(e.popularity).toFixed(2)}</td>
+                            <button onClick={() => remove(e.id) }>Delete</button>
                         </tr>
                     )
                 })}
