@@ -44,6 +44,11 @@ displayContacts = () => {
     console.log(copyContact)
   }
 
+  sortByPopularity = () => {
+    const copyContact = [ ...this.state.ironcontacts ];
+    this.setState({ ironcontacts: copyContact.sort((contact1, contact2) => contact2.popularity - contact1.popularity)});
+  }
+
 render() {
   return(
     <div>
