@@ -1,0 +1,25 @@
+.img-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.celebrity-card img{
+    display:inline;
+    margin: 0 auto;
+    height: 150%;
+    width: auto;
+}
+
+.delete-btn {
+    border-radius: 40px;
+    border: none;
+    background-color: rgb(211, 126, 147);
+    color: rgb(128, 15, 43);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 30px;
+    padding: 20px 30px;
+}
