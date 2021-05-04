@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ContactItem({id, name, pictureUrl, popularity}) {
+function ContactItem({id, name, pictureUrl, popularity, removeItem}) {
 
     return (
         <div className="contact-item" >
@@ -9,6 +9,7 @@ function ContactItem({id, name, pictureUrl, popularity}) {
                 <td><img src={pictureUrl}></img></td>
                 <td>{name}</td>
                 <td>{popularity}</td>
+                <td><button onClick={removeItem}>Remove</button></td>
             </tr>
         </table>
         </div>
