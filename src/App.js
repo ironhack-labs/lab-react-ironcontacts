@@ -1,21 +1,36 @@
 import React from 'react';
 import './App.css';
-import Table from './components/Table';
-import ContactList from './components/contactList'
+import Contacts from './contacts.json'
 
-function App() {
-  console.log("hola");
-  return (
-    <div className="appDiv">
-      <ContactList />
+function App () {
+  
+const {pictureUrl, name, popularity} = Contacts
+
+return(
+    <div className="table">
+      <table>
+        <thead>
+          <tr>Iron Contacts</tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Picture</td>
+            <td>Name</td>
+            <td>Popularity</td>
+          </tr>
+          {Contacts.map((contacto) => {
+            return(
+              <tr>
+                <td>{contacto.pictureUrl}</td>
+                <td>{contacto.name}</td>
+                <td>{contacto.popularity}</td>
+              </tr>
+            )
+          }).slice(0, 5)}
+        </tbody>
+      </table>
     </div>
-  );
+  )
 }
 
 export default App;
-
- {/* {contacts.map((item) => {
-      <Table
-      name={item.name}
-       />
-    })} */}
