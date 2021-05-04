@@ -1,0 +1,9 @@
+.artist-card-img {
+height: 60px;
+}
+
+.artist-card {
+    display: flex;
+    margin-right: 20px;
+    list-style: none
+}
