@@ -1,0 +1,16 @@
+img{
+    width: 100%;
+}
+
+table{
+    width: 40%;
+    margin: 100px auto;
+}
+
+.data-table > td {
+    width: 30%;
+}
+
+.img-actor > img {
+    width: 30%;
+}
