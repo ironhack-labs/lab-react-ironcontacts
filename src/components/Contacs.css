@@ -1,0 +1,21 @@
+.title{
+    text-align: center;
+    padding-top: 100px;
+}
+.subTitle{
+    display: flex;
+    margin-left: 350px;
+}
+.subTitle h1{
+    margin-left: 75px;
+}
+.buttons{
+    text-align: center;
+}
+.buttons button{
+    margin-left: 40px;
+    padding: 20px 10px;
+    border-radius: 4px;
+    background-color: black;
+    color: wheat;
+}
