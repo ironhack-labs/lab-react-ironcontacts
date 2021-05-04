@@ -4,7 +4,8 @@ import ContactList from "../src/components/contactsList/ContactsList";
 
 function App() {
   return (
-    <div className="App">
+    <div>
+    <h1>IronContacts</h1>
     <ContactList />
     </div>
 
