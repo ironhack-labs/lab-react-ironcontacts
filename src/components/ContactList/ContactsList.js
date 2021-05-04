@@ -8,22 +8,23 @@ class ContactsList extends React.Component {
         contacts: contactsList.slice(0, 5)
     }
 
-    displayContacts = () => {
-        //const arrayCopy = [ ...this.state.contacts ];
-        //this.setState({contacts: arrayCopy.slice(0, 5)});
-        return 
-    }
-
     addContact = () => {
         let randomContact = contactsList[Math.floor(Math.random()*contactsList.length)];
-        console.log(randomContact)
 
         const arrayCopy = [ ...this.state.contacts];
         arrayCopy.push(randomContact);
 
-        console.log(arrayCopy)
-
         this.setState({contacts: arrayCopy})
+    }
+
+    sortContactsByName = () => {
+        const arrayCopy = [ ...this.state.contacts];
+        this.setState({contacts: arrayCopy.sort((contact1, contact2) => contact1.name.localeCompare(contact2.name))})
+    }
+
+    sortContactsByPopularity = () => {
+        const arrayCopy = [ ...this.state.contacts];
+        this.setState({contacts: arrayCopy.sort((contact1, contact2) => contact2.popularity - contact1.popularity)})
     }
 
 
@@ -32,7 +33,9 @@ class ContactsList extends React.Component {
         return (
             <div className="contacts-container">
             <h1>IronContacts</h1>
-            <button onClick={() => this.addContact()}>Add Contact</button>
+            <button onClick={() => this.addContact()}>Add Random Contact</button>
+            <button onClick={() => this.sortContactsByName()}>Sort by name</button>
+            <button onClick={() => this.sortContactsByPopularity()}>Sort by popularity</button>
                 <table>
                     <thead>
                         <th>Image</th>
