@@ -1,0 +1,16 @@
+
+.main {
+  margin: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
+.table {
+  margin: 30px auto;
+  padding: 20px;
+  width: 80%;
+}
+
+img {
+  width: 100px;
+}
