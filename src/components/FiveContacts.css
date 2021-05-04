@@ -1,0 +1,8 @@
+.titles,
+.buttons {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-between;
+}
