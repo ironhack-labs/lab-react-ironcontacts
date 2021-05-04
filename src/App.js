@@ -1,10 +1,29 @@
 import logo from './logo.svg';
 import "./App.css";
 import contacts from "./contacts.json";
+import React from 'react';
 
 function App() {
+  class addContact extends React.component{
+    constructor(props) {
+      super(props);
+      this.state = {
+        arrayCopy = contacts.slice(0, 5)
   
+      }
+    }
+      addContact(){
+        let randomContact = Math.floor(Math.random()*contacts.length)
+        this.setState({arrayCopy: arrayCopy.push(contacts[randomContact])})
+      }
+    render() {
+      return (
+        <div></div>
+      )
+    }
+  }
   const displayActors = () => {
+    
     return contacts.map((contact) => {
 
       return (
@@ -37,6 +56,7 @@ function App() {
     <div className="App">
       <h1>IronContacts</h1>
       {displayActors()}
+      <addContact />
     </div>
   );
 }
