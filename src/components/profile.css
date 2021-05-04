@@ -1,0 +1,16 @@
+article {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+article img {
+    width: 15%;
+}
+
+article button {
+        width: 75px;
+        height: 50px;
+}

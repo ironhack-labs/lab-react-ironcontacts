@@ -1,0 +1,13 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 65px;
+    font-weight: 600;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+        font-size: 30px;
+        font-weight: 900;
+}
