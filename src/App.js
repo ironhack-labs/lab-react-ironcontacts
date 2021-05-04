@@ -1,31 +1,15 @@
+import React from 'react'
 import logo from './logo.svg';
 import "./App.css";
+import "./ContactCard/ContactCard"
 import contacts from "./contacts.json";
-import React from 'react';
+import reactDom from 'react-dom';
 
-function App() {
-  class addContact extends React.component{
-    constructor(props) {
-      super(props);
-      this.state = {
-        arrayCopy = contacts.slice(0, 5)
-  
-      }
-    }
-      addContact(){
-        let randomContact = Math.floor(Math.random()*contacts.length)
-        this.setState({arrayCopy: arrayCopy.push(contacts[randomContact])})
-      }
-    render() {
-      return (
-        <div></div>
-      )
-    }
-  }
-  const displayActors = () => {
-    
-    return contacts.map((contact) => {
-
+class App extends from React.Component {
+  displayActors = () => {
+    const arrayCopy = contacts.slice(0, 5);
+    console.log(arrayCopy);
+    return arrayCopy.map((contact, index) => {
       return (
         <div className="main">
          
@@ -50,16 +34,19 @@ function App() {
           
         </div>
       );
-    })
+    })  
   }
+
+
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
       {displayActors()}
-      <addContact />
+      <button onClick={() => this.addContact}>Add Random Contact</button>
     </div>
   );
 }
 
-export default App;
 
+export default App
