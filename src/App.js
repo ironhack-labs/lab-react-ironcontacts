@@ -1,12 +1,14 @@
+import React from 'react'
 import logo from './logo.svg';
 import "./App.css";
 import contacts from "./contacts.json";
+import reactDom from 'react-dom';
 
 function App() {
-  
   const displayActors = () => {
-    return contacts.map((contact) => {
-
+    const arrayCopy = contacts.slice(0, 5);
+    console.log(arrayCopy);
+    return arrayCopy.map((contact, index) => {
       return (
         <div className="main">
          
@@ -31,15 +33,21 @@ function App() {
           
         </div>
       );
-    })
+    })  
   }
+
+  const addContact = () => {
+    const arrayCopy = contacts.slice(0, 5)
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
       {displayActors()}
+      <button onClick={() => this.addContact}>Add Random Contact</button>
     </div>
   );
 }
 
-export default App;
 
+export default App
