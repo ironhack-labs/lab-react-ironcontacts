@@ -1,8 +1,7 @@
 import React from 'react';
-import reactDom from 'react-dom';
 import './Contact.css';
 
-function Contact({ name, pictureUrl, popularity, id }) {
+function Contact({ name, pictureUrl, popularity, removeItem }) {
   return (
     <div className="contact-item">
       <table>
@@ -14,6 +13,7 @@ function Contact({ name, pictureUrl, popularity, id }) {
           <td>{popularity}</td>
         </tr>
       </table>
+      <button onClick={removeItem}>Remove contact</button>
     </div>
   );
 }

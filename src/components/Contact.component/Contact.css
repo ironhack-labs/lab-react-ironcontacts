@@ -1,0 +1,14 @@
+.contact-item{
+    width: 30%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+img{
+    width:100px;
+}
+.contact-item button{
+    width: 80px;
+    height: 40px;
+}

@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import contacts from './contacts.json';
-import ContactsList from './components/ContactsList';
+import logo from "./logo.svg";
+import "./App.css";
+import contacts from "./contacts.json";
+import ContactsList from "./components/ContactList.component/ContactsList";
 
 function App() {
   return (
     <div className="App">
-      <table>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-        </tr>
-        <tr>
-          <td>
-            <ContactsList />
-          </td>
-        </tr>
-      </table>
+      <div className="head-table">
+        <table >
+          <tr className="rows">
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Delete</th>
+          </tr>
+        </table>
+      </div>
+      <ContactsList />
     </div>
   );
 }
