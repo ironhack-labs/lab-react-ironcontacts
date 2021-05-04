@@ -7,6 +7,12 @@ class ContactList extends React.Component{
 
 state = { contacts: contactsList.splice(0, 5) }
 
+removeContact = (id) => {
+
+  this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== id) })
+}
+
+
 sortContactsByPopularity = () => {
   const arrayCopy = [ ...this.state.contacts ];
   this.setState({ contacts: arrayCopy.sort((contact1, contact2) => contact2.popularity - contact1.popularity )});
@@ -31,7 +37,7 @@ addContact = () => {
 displayContacts = () =>{
   return this.state.contacts.map((contact) =>{
     return(
-      <ContactItem {...contact} key={contact.id}/>
+      <ContactItem {...contact} removeItem={() => this.removeContact(contact.id)} key={contact.id} />
     )
   })
 }
