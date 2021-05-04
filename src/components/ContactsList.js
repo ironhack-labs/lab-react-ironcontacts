@@ -11,16 +11,25 @@ class ContactsList extends React.Component {
   displayContacts = () => {
     return this.state.contactList.map((contact) => {
       return (
-          <Contact {...contact} />
+          <Contact {...contact} key={contact.id}/>
       );
     });
   };
+
+  addContact = () => {
+      const arrayCopy = [...this.state.contactList];
+      arrayCopy.push(contacts[Math.floor(Math.random()*contacts.length)])
+
+      this.setState({contactList: arrayCopy})
+  }
 
   render() {
     return (
       <div>
         {this.displayContacts()}
+        <button onClick={() => this.addContact()}>Add random contact</button>
       </div>
+      
     );
   }
 }
