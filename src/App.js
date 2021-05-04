@@ -1,6 +1,6 @@
 
 import './App.css';
-import ContactsList from './components/contacts/ContactsList'
+import ContactsList from './components/ContactList/ContactsList'
 
 function App() {
   return (
