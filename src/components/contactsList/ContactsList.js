@@ -1,11 +1,14 @@
 import React from "react";
 import "./ContactsList.css";
-import contactsList from "../../contacts.json";
+import contactData from "../../contacts.json";
 import ContactItem from "../contactItem/ContactItem";
+
+const contactsList = [...contactData]
+const firstContacts = contactsList.splice(0, 5)
 
 class ContactList extends React.Component{
 
-state = { contacts: contactsList.splice(0, 5) }
+state = { contacts: firstContacts }
 
 removeContact = (id) => {
 
@@ -24,13 +27,16 @@ sortContactsByName = () => {
 }
 
 addContact = () => {
-  const arrayCopy = [...this.state.contacts];
-  let randomNum = Math.floor(Math.random()* (arrayCopy.length));
-  let randomContact = contactsList.splice(randomNum, 1);
+  if(contactsList.length > 0) {
+    let randomNum = Math.floor(Math.random() * contactsList.length);
+    let randomContact = contactsList.splice(randomNum, 1);
+    console.log(randomContact)
 
-  arrayCopy.push(randomContact[0]);
+    const arrayCopy = [...this.state.contacts];
+    arrayCopy.push(randomContact[0]);
 
-  this.setState({ contacts: arrayCopy });
+    this.setState({ contacts: arrayCopy });
+  }
 
 }
 
@@ -42,30 +48,29 @@ displayContacts = () =>{
   })
 }
 
-  render() {
-
-    return (
-      <div>
-      <button onClick={() => this.addContact()}>Add Contact</button>
-      <button onClick={() => this.sortContactsByPopularity()}>Order by popularity</button>
-      <button onClick={() => this.sortContactsByName()}>Order by name</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.displayContacts()}
-        </tbody>
+render() {
+  console.log(this.state.contacts)
+  console.log(contactsList.length)
+  return (
+    <div>
+    <button onClick={() => this.addContact()}>Add Contact</button>
+    <button onClick={() => this.sortContactsByPopularity()}>Order by popularity</button>
+    <button onClick={() => this.sortContactsByName()}>Order by name</button>
+    <table>
+    <thead>
+    <tr>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Popularity</th>
+    </tr>
+    </thead>
+    <tbody>
+      { this.displayContacts() }
+      </tbody>
       </table>
       </div>
     );
   }
 }
-
-
 
 export default ContactList;

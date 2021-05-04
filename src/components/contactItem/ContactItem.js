@@ -1,11 +1,11 @@
 import React from "react";
 
-function ContactItem({id, picture, name, popularity, removeItem}) {
+function ContactItem({id, pictureUrl, name, popularity, removeItem}) {
   return (
 
       <tr className="contact-item">
         <td>
-          <img src={picture} alt="picture"></img>{' '}
+          <img src={pictureUrl} alt="picture" width="100px"></img>{' '}
         </td>
         <td>{name}</td>
         <td>{popularity}</td>
@@ -16,11 +16,7 @@ function ContactItem({id, picture, name, popularity, removeItem}) {
 
   );
 
-
-
 }
-
-
 
 export default ContactItem;
 
