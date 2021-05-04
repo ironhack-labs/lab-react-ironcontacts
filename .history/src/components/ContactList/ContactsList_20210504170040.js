@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactItem from '../ContactItem/ContactItem';
 import contactsList from "../../contacts.json";
-import "./ContactList.css"
+import 
 
 class ContactsList extends React.Component {
     state = {
@@ -39,8 +39,7 @@ class ContactsList extends React.Component {
             <button onClick={() => this.addContact()}>Add Random Contact</button>
             <button onClick={() => this.sortContactsByName()}>Sort by name</button>
             <button onClick={() => this.sortContactsByPopularity()}>Sort by popularity</button>
-               <div class="table-div">
-               <table>
+                <table>
                     <thead>
                         <th>Image</th>
                         <th>Name</th>
@@ -56,8 +55,6 @@ class ContactsList extends React.Component {
                         }
                     </tbody>
                 </table>
-               </div>
-                
             </div>
         )
 

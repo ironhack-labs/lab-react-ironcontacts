@@ -1,5 +1,5 @@
 import React from 'react';
-
+import
 
 function ContactItem({id, name, pictureUrl, popularity, removeItem}) {
 

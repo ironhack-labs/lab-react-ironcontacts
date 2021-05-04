@@ -40,22 +40,7 @@ class ContactsList extends React.Component {
             <button onClick={() => this.sortContactsByName()}>Sort by name</button>
             <button onClick={() => this.sortContactsByPopularity()}>Sort by popularity</button>
                <div class="table-div">
-               <table>
-                    <thead>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Popularity</th>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.contacts.map((contact) => {
-                                return (
-                                    <ContactItem {...contact} removeItem={() => this.removeContact(contact.id)} key={contact.id}/>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
+
                </div>
                 
             </div>

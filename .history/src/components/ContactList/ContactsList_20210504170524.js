@@ -40,7 +40,9 @@ class ContactsList extends React.Component {
             <button onClick={() => this.sortContactsByName()}>Sort by name</button>
             <button onClick={() => this.sortContactsByPopularity()}>Sort by popularity</button>
                <div class="table-div">
-               <table>
+                   
+               </div>
+                <table>
                     <thead>
                         <th>Image</th>
                         <th>Name</th>
@@ -56,8 +58,6 @@ class ContactsList extends React.Component {
                         }
                     </tbody>
                 </table>
-               </div>
-                
             </div>
         )
 

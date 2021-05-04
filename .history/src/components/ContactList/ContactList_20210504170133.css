@@ -1,0 +1,8 @@
+.contact-item {
+    display: flex;
+    
+}
+
+.contact-item img {
+    width: 150px;
+}

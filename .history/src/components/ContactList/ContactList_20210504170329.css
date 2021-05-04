@@ -1,0 +1,8 @@
+.contacts-container {
+    display: flex;
+    
+}
+
+.contact-item img {
+    width: 150px;
+}

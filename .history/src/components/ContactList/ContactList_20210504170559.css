@@ -1,0 +1,11 @@
+.table-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.contact-item img {
+    width: 150px;
+}
