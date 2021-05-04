@@ -1,0 +1,38 @@
+h1{
+    font-size: 3em;
+}
+
+.list{
+display: flex;
+text-align: center;
+align-content: center;
+justify-content: space-around;
+margin-top: 10px ;
+align-items: center;
+}
+.list>*, .title>*{
+width:150px
+}
+.list>img{
+    width:70px;
+}
+.list>p{
+    font-size: 1.2em;
+}
+.title{
+    display: flex;
+    text-align: start;
+    justify-content: space-around;
+}
+
+button{
+    height: 30px;
+    padding: 0 10px;
+    margin: 10px;
+}
+
+.list button{
+    height: 50px;
+    background-color: rgb(143, 46, 46);
+    color: white;
+}
