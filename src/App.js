@@ -1,11 +1,12 @@
 import React from 'react'
 import logo from './logo.svg';
 import "./App.css";
+import "./ContactCard/ContactCard"
 import contacts from "./contacts.json";
 import reactDom from 'react-dom';
 
-function App() {
-  const displayActors = () => {
+class App extends from React.Component {
+  displayActors = () => {
     const arrayCopy = contacts.slice(0, 5);
     console.log(arrayCopy);
     return arrayCopy.map((contact, index) => {
@@ -36,9 +37,7 @@ function App() {
     })  
   }
 
-  const addContact = () => {
-    const arrayCopy = contacts.slice(0, 5)
-  }
+
 
   return (
     <div className="App">
