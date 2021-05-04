@@ -34,6 +34,9 @@ class App extends React.Component {
   }
 
   //Iteration 4. Remove contact
+  deleteContact(id){
+    this.setState({ contactsList: this.state.contactsList.filter(contact => contact.id !== id) });
+  }
 
 	render() {
 		return (
@@ -47,6 +50,7 @@ class App extends React.Component {
 							<th>Picture</th>
 							<th>Name</th>
 							<th>Popularity</th>
+              <th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -58,6 +62,7 @@ class App extends React.Component {
 									</td>
 									<td>{contact.name}</td>
 									<td>{contact.popularity}</td>
+                  <td><button onClick={() => this.deleteContact(contact.id)}>Delete</button></td>
 								</tr>
 							);
 						})}
