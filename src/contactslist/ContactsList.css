@@ -1,0 +1,11 @@
+table {
+    border-collapse: collapse;
+}
+
+table td {
+    border: 1px solid lightgrey;
+}
+
+img {
+    height: 200px;
+}
