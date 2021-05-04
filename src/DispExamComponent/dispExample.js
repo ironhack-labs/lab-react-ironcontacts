@@ -8,7 +8,8 @@ class DynamicActors extends Component {
         super()
         this.state = {
             displayedActors: [],
-            contacts
+            contacts,
+            sorted: "null"
         }
     }
 
@@ -28,20 +29,42 @@ class DynamicActors extends Component {
 
         const filterElm = this.state.displayedActors.some(elm => elm.id === randomItem.id)
 
-        console.log(randomItem);
+
 
         if (!filterElm) {
             this.state.displayedActors.push(randomItem)
 
             this.setState({
                 displayedActors: this.state.displayedActors
-
             })
 
         } else {
             this.addRandom()
         }
+    }
 
+    sortByName() {
+        this.state.displayedActors.sort((a, b) => a.name.localeCompare(b.name))
+
+        this.setState({
+            displayedActors: this.state.displayedActors,
+            sorted: "byName"
+        })
+    }
+
+    sortByPop() {
+        this.state.displayedActors.sort((a, b) => b.popularity - a.popularity)
+
+        this.setState({
+            displayedActors: this.state.displayedActors,
+            sorted: "byPopularity"
+        })
+    }
+
+    deleteActor(id) {
+        this.setState({
+            displayedActors: this.state.displayedActors.filter(elm => elm.id !== id)
+        })
     }
 
     render() {
@@ -51,12 +74,16 @@ class DynamicActors extends Component {
             <section>
                 <h3>IronContacts</h3>
                 <button onClick={() => this.addRandom()}>Add random actor</button>
+                <button onClick={() => this.sortByName()}>Sort by name</button>
+                <button onClick={() => this.sortByPop()}>Sort by popularity</button>
                 <table>
                     <thead>
                         <tr>
                             <th><strong>Picture</strong></th>
                             <th><strong>Name</strong></th>
                             <th><strong>Popularity</strong></th>
+                            <th><strong>Action</strong></th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -67,6 +94,7 @@ class DynamicActors extends Component {
                                         <td className="img-actor"><img src={elm.pictureUrl}></img></td>
                                         <td>{elm.name}</td>
                                         <td>{Math.round(elm.popularity * 100) / 100}</td>
+                                        <td><button onClick={() => this.deleteActor(elm.id)}>Delete</button></td>
                                     </tr>
                                 )
                             })
