@@ -15,28 +15,35 @@ class ContactList extends React.Component{
 
  addContact = () => {
   const copyContact = [ ...this.state.ironcontacts ];  
-  const randomContact = otherContacts[Math.floor(Math.random()*otherContacts.length)]  
-  const {name, pictureUrl,popularity} = randomContact;
+  const randomContact = otherContacts[Math.floor(Math.random()*otherContacts.length)]    
 
-  copyContact.push({      
-    name, pictureUrl, popularity
-    });
-
+  copyContact.push(randomContact);
+  
   this.setState({ ironcontacts: copyContact });
 }
 
 displayContacts = () => {
   return this.state.ironcontacts.map((contact) => {
-    return (               
-            <tr>
+    return (   
+      //TODO:            
+            <tr key={contact.id}>
               <td><img src={contact.pictureUrl}></img></td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
+              <td><button onClick={() => this.removeContact(contact.id)}  >Delete</button></td>
             </tr>       
       )
     }
     )
   }
+ 
+  removeContact = (id) => {
+    const copyContact = [ ...this.state.ironcontacts ]; 
+    console.log(id)
+    this.setState({ ironcontacts: copyContact.filter(contact => contact.id !== id) });
+    
+  }
+
   sortByName = () => {
     const copyContact = [ ...this.state.ironcontacts ];  
     
@@ -56,14 +63,19 @@ render() {
         <button onClick={() => this.sortByName()}>Sort by name</button>
         <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
       <table>
+      <thead>
           <tr>
             <th>Picture</th>
-            <th >Name</th>
-            <th >Popularity</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Action</th>            
           </tr>
+      </thead>
+      <tbody>
       {
-        this.displayContacts()        
+        this.displayContacts()       
       }
+      </tbody>
       </table>
     </div>
   )    
