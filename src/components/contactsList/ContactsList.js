@@ -8,10 +8,12 @@ class ContactList extends React.Component{
 state = { contacts: contactsList }
 
 displayContacts = () =>{
-  return this.state.contacts.map((contact) =>{
-    return(
-      <ContactItem {...contact} key={contact.id}/>
-    )
+  return this.state.contacts.map((contact, index) =>{
+    while (index < 5){
+      return(
+        <ContactItem {...contact} key={contact.id}/>
+      )
+    }
   })
 }
 
