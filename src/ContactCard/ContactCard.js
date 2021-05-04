@@ -1,16 +1,18 @@
 import React from 'react';
 
-function ContactCard() = {
-    constructor(props) {
-      super(props);
-      this.state = {
-        arrayCopy = contacts.slice(0, 5);
-      }
-    }
-    addContact() {
-      let randomContact = Math.floor(Math.random()*contacts.length);
+function ContactCard({name, pictureUrl, popularity}) {
+   
+  return (
+    <div>
+      <td>
+        <img src={pictureUrl}></img>
+      </td>
+      <td>{name}</td>
+      <td>{popularity}</td>
+    </div>
+  );
+      
 
-    }
   }
 
-  export default AddContact
+export default ContactCard;
