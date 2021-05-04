@@ -16,16 +16,12 @@ class ContactList extends React.Component{
  addContact = () => {
   const copyContact = [ ...this.state.ironcontacts ];  
   const randomContact = otherContacts[Math.floor(Math.random()*otherContacts.length)]  
-
-  console.log(randomContact)
-
-  // id: this.state.length, title: "Nueva película", year: "1988", runtime: "92", genres: ["Comedy", "Fantasy"], director: "Tim Burton", actors: "Alec Baldwin, Geena Davis, Annie McEnroe, Maurice Page", plot: "A couple of recently deceased ghosts contract the services of a \"bio-exorcist\" in order to remove the obnoxious new owners of their house.", posterUrl: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwODE3MDE0MV5BMl5BanBnXkFtZTgwNTk1MjI4MzE@._V1_SX300.jpg" 
   const {name, pictureUrl,popularity} = randomContact;
 
   copyContact.push({      
     name, pictureUrl, popularity
     });
- console.log(copyContact)
+
   this.setState({ ironcontacts: copyContact });
 }
 
@@ -41,11 +37,19 @@ displayContacts = () => {
     }
     )
   }
+  sortByName = () => {
+    const copyContact = [ ...this.state.ironcontacts ];  
+    
+    this.setState({ ironcontacts: copyContact.sort((contact1, contact2) => contact1.name > contact2.name ? 1 : -1) });
+    console.log(copyContact)
+  }
 
 render() {
   return(
     <div>
         <button onClick={() => this.addContact()}>Add contact</button>
+        <button onClick={() => this.sortByName()}>Sort by name</button>
+        <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
       <table>
           <tr>
             <th>Picture</th>
