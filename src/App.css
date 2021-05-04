@@ -13,15 +13,33 @@
   }
 }
 
+div > button {
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.each-square th,
+.each-square td {
+  width: 120px;
+  padding: 5px;
+}
+
+.App-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: calc(10px + 2vmin);
 }
 
 .App-link {
