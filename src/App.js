@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Celebrities from './Celebrities';
 import contacts from "./contacts.json";
 
 
@@ -35,10 +34,38 @@ class App extends React.Component {
     console.log(popOrder)
   }
 
+  deleteOne = (contactId) => {
+    this.setState({
+      contactInfo: this.state.contactInfo.filter(el => el.id !== contactId)
+    })
+  }
+
+  
+
   render() {
-    const contacts = this.state.contactInfo.map(contact => (<tr key={contact.id}>{contact.name}</tr>));
+    // const contacts = this.state.contactInfo.map(contact => (<tr key={contact.id}>{contact.name}</tr>));
     
+    const info = this.state.contactInfo.map(contact => {
+        
+      return (
+
+          <div >
+              <table>
+                  <tr key={contact.id}>
+                      <td><img src={contact.pictureUrl}></img></td>
+                      <td>{contact.name}</td>
+                      <td>{contact.popularity}</td>
+                      <td><button onClick={this.deleteOne}>Delete</button></td>
+                      
+                  </tr>
+                  
+              </table>
+          </div>
+      )
+  })
+
     return (
+
       <div>
           <button onClick={this.addRandom}>Add Random</button>
           <button onClick={this.sortByName}>Sort by Name</button>
@@ -50,7 +77,7 @@ class App extends React.Component {
             <th>Rating</th>
           </tr>
                     
-        <Celebrities contactInfo={this.state.contactInfo}/>
+        <tr>{info}</tr>
         </table>
       </div>
     )
