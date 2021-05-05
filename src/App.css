@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.contacts-table {
+  margin: 40px auto;
+}
+
+.img-container {
+  width: 50px; 
+}
+
+.img-container > img {
+  width: 100%;
 }
