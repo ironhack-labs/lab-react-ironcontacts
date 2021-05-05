@@ -13,6 +13,16 @@ class App extends React.Component {
       artists: [newItem, ...state.artists],
     }));
   };
+  clickSortName = () => {
+    this.setState((state, props) => ({
+      artists: [...state.artists].sort((a, b) => a.name.localeCompare(b.name)),
+    }));
+  };
+  clickSortPopularity = () => {
+    this.setState((state, props) => ({
+      artists: [...state.artists].sort((a, b) => b.popularity - a.popularity),
+    }));
+  };
   render() {
     const artistsTable = this.state.artists.map((item) => (
       <tr key={'tr' + item.id}>
@@ -28,6 +38,8 @@ class App extends React.Component {
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.clickAdd}>Add Random Contact</button>
+        <button onClick={this.clickSortName}>Sort by Name</button>
+        <button onClick={this.clickSortPopularity}>sort by popularity</button>
         <table>
           <thead>
             <tr>
