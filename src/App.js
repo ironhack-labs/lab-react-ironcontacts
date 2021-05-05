@@ -32,8 +32,10 @@ class App extends Component {
 
   removeContact = (id) => {
     const index = this.state.currentContacts.findIndex(contact => contact.id===id);
-      this.state.currentContacts.splice(index, 1);
-      this.setState( (state) => ({currentContacts: state.currentContacts})
+    const newState = [...this.state.currentContacts] 
+    newState.splice(index, 1);
+      this.setState( () => {
+        return ({currentContacts: newState})}
       )
   }
 
