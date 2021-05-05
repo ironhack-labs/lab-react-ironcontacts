@@ -1,0 +1,30 @@
+table.table {
+  width: 100%;
+  text-align: left;
+}
+
+.table img {
+  width: 47%;
+  border-radius: 14%;
+  vertical-align: middle;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 33px;
+  border: none;
+  font-weight: bold;
+}
+
+th {
+  padding: 2rem 0;
+}
+
+td.picture {
+  width: 20%;
+}
+
+tr {
+  height: 17vh;
+}
