@@ -31,13 +31,12 @@ class App extends Component {
   }))}
 
   removeContact = (id) => {
-    const index = this.state.currentContacts.findIndex(contact => contact.id===id);
-    const newState = [...this.state.currentContacts] 
-    newState.splice(index, 1);
-      this.setState( () => {
-        return ({currentContacts: newState})}
-      )
+      this.setState((state) => ({
+        contacts: state.contacts.filter(contact => { contact.id !== id })
+      }));
   }
+
+  
 
   render () {
     //console.log(this.state.currentContacts);
