@@ -37,6 +37,16 @@ class App extends React.Component {
 
   }
 
+  deleteContact = (event) => {
+    const deleteId = event.target.id
+    const fiveFirstContactsCopy = [...this.state.fiveFirstContacts]
+    /* fiveFirstContactsCopy.splice(event, 1) */
+    const newContacts = fiveFirstContactsCopy.filter((contact)=>{
+        return contact.id !== deleteId
+    })
+    this.setState({fiveFirstContacts: newContacts})
+  }
+
 
   render() {
     const contactList = this.state.fiveFirstContacts.map((contact, index) => (
@@ -44,6 +54,7 @@ class App extends React.Component {
         <td ><img src={contact.pictureUrl} alt={contact.name} className='contactImg'/></td>
         <td>{contact.name}</td>
         <td>{contact.popularity.toFixed(2)}</td>
+        <button onClick={this.deleteContact} id={contact.id}>Delete</button>
       </tr>
       ));  
 
@@ -62,6 +73,7 @@ class App extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
