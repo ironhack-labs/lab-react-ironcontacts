@@ -5,7 +5,6 @@ import React from "react";
 
 const data = contacts.slice(0, 5);
 
-
 class App extends React.Component {
   state = {
     contactsToDisplay: data,
@@ -20,44 +19,56 @@ class App extends React.Component {
   };
 
   sortAlphabetically = () => {
-    const sortedData = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
-      .sort((a, b) => a.name.localeCompare(b.name))
+    const dataCopy = JSON.parse(
+      JSON.stringify(this.state.contactsToDisplay)
+    ).sort((a, b) => a.name.localeCompare(b.name));
     this.setState((state) => ({
-      contactsToDisplay: [...sortedData],
+      contactsToDisplay: [...dataCopy],
     }));
   };
 
   sortPopularity = () => {
-    const sortedData = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
-    // console.log(sortedData)
-      .sort((a, b) => b.popularity-a.popularity)
+    const dataCopy = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
+      // console.log(sortedData)
+      .sort((a, b) => b.popularity - a.popularity);
     this.setState((state) => ({
-      contactsToDisplay: [...sortedData],
+      contactsToDisplay: [...dataCopy],
     }));
   };
 
-  deleteContact =(props) =>{
-console.log(props)
-    // const copy = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
-    // console.log(copy)
-    // var target = copy.indexOf(t)
-    // console.log(target)
-  }
+  deleteContact = (props) => {
+
+    const dataCopy = JSON.parse(JSON.stringify(this.state.contactsToDisplay));
+    for (let i = 0; i < dataCopy.length; i++) {
+      if (dataCopy[i].id === props) {
+        dataCopy.splice(i, 1);
+      }
+      this.setState((state) => ({
+        contactsToDisplay: [...dataCopy],
+      }));
+    }
+
+  };
 
   render() {
     const dataList = this.state.contactsToDisplay.map((contact) => (
       <div key={contact.id}>
-      <tr>
-        <td>
-          <img src={contact.pictureUrl} alt="pic" />
-        </td>
-        <td>{contact.name}</td>
-        <td>{contact.popularity}</td>
-      </tr>
-      <button onClick={this.deleteContact} targetcontact={contact.id}>DELETE</button>
+        <tr>
+          <td>
+            <img src={contact.pictureUrl} alt="pic" />
+          </td>
+          <td>{contact.name}</td>
+          <td>{contact.popularity}</td>
+        </tr>
+        <button
+          onClick={() => this.deleteContact(contact.id)}
+          targetcontact={contact.id}
+        >
+          DELETE
+        </button>
       </div>
     ));
-    
+
     return (
       <div className="App">
         <h1>Contacts</h1>
