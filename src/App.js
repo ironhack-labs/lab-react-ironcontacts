@@ -14,12 +14,34 @@ class App extends React.Component {
        <td> <img src={contact.pictureUrl} alt=""/> </td>
        <td>{contact.name}</td>
        <td>{contact.popularity.toFixed(2)}</td>
+       <button onClick={()=>{removeChar(index)}}>Remove</button>
      </tr>
     ))
     const addRandom=(()=>{
       let num = Math.floor(Math.random()*(contacts.length-6)+6)
       let copyOfState={...this.state}
       copyOfState.contactList.push(contacts[num])  
+      this.setState(copyOfState)
+    })
+
+    const removeChar=((id)=>{
+      let copyOfState={...this.state}
+      copyOfState.contactList.splice(id,1)  
+      this.setState(copyOfState)
+    })
+
+    const sortByName=(()=>{
+      let copyOfState={...this.state}
+      copyOfState.contactList.sort((a,b)=>{
+      return (a.name.localeCompare(b.name)) }
+      ) 
+      this.setState(copyOfState)
+    })
+    const sortByPop=(()=>{
+      let copyOfState={...this.state}
+      copyOfState.contactList.sort((a,b)=>{
+      return (b.popularity-a.popularity)}
+      ) 
       this.setState(copyOfState)
     })
      return (
@@ -40,6 +62,8 @@ class App extends React.Component {
           </table>
       </header>
       <button onClick={()=>{addRandom()}}>Add Random Actor</button>
+      <button onClick={()=>{sortByName()}}>Sort by Name</button>
+      <button onClick={()=>{sortByPop()}}>Sort by Popularity</button>
     </div>
   );
   }
