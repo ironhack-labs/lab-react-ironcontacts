@@ -8,7 +8,13 @@ class App extends React.Component {
     artists: contacts.slice(0, 5),
   };
   clickAdd = () => {
-    const newItem = contacts[Math.floor(Math.random() * contacts.length)];
+    const artistisNotSelected = contacts.filter(
+      ({ id: id1 }) => !this.state.artists.some(({ id: id2 }) => id2 === id1)
+    );
+    const newItem =
+      artistisNotSelected[
+        Math.floor(Math.random() * artistisNotSelected.length)
+      ];
     this.setState((state, props) => ({
       artists: [newItem, ...state.artists],
     }));
