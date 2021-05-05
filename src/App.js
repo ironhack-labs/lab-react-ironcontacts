@@ -4,57 +4,60 @@ import contacts from "./contacts.json";
 import React from "react";
 
 const data = contacts.slice(0, 5);
-const dataList = data.map((contact) => (
-  <tr key={contact.id}>
-    <td>
-      <img src={contact.pictureUrl} alt="pic" />
-    </td>
-    <td>{contact.name}</td>
-    <td>{contact.popularity}</td>
-  </tr>
-));
+
 
 class App extends React.Component {
   state = {
-    contactsToDisplay: dataList,
+    contactsToDisplay: data,
   };
 
   addContact = () => {
     var ranIndex = Math.floor(Math.random() * contacts.length);
     var contactToAdd = contacts[ranIndex];
-    var addedContactRow = (
-      <tr key={contactToAdd.id}>
-        <td>
-          <img src={contactToAdd.pictureUrl} alt="pic" />
-        </td>
-        <td>{contactToAdd.name}</td>
-        <td>{contactToAdd.popularity}</td>
-      </tr>
-    );
     this.setState((state) => ({
-      contactsToDisplay: [addedContactRow, ...state.contactsToDisplay],
+      contactsToDisplay: [contactToAdd, ...state.contactsToDisplay],
     }));
   };
 
   sortAlphabetically = () => {
     const sortedData = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
-console.log(sortedData)
-    //   .sort((a, b) => a.name.localeCompare(b.name))
-    //   .map((item) => (
-    //     <tr key={item.id}>
-    //       <td>
-    //         <img src={item.pictureUrl} alt="pic" />
-    //       </td>
-    //       <td>{item.name}</td>
-    //       <td>{item.popularity}</td>
-    //     </tr>
-    //   ));
-    // this.setState((state) => ({
-    //   contactsToDisplay: [...sortedData],
-    // }));
+      .sort((a, b) => a.name.localeCompare(b.name))
+    this.setState((state) => ({
+      contactsToDisplay: [...sortedData],
+    }));
   };
-  sortPopularity = () => {};
+
+  sortPopularity = () => {
+    const sortedData = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
+    // console.log(sortedData)
+      .sort((a, b) => b.popularity-a.popularity)
+    this.setState((state) => ({
+      contactsToDisplay: [...sortedData],
+    }));
+  };
+
+  deleteContact =(props) =>{
+console.log(props)
+    // const copy = JSON.parse(JSON.stringify(this.state.contactsToDisplay))
+    // console.log(copy)
+    // var target = copy.indexOf(t)
+    // console.log(target)
+  }
+
   render() {
+    const dataList = this.state.contactsToDisplay.map((contact) => (
+      <div key={contact.id}>
+      <tr>
+        <td>
+          <img src={contact.pictureUrl} alt="pic" />
+        </td>
+        <td>{contact.name}</td>
+        <td>{contact.popularity}</td>
+      </tr>
+      <button onClick={this.deleteContact} targetcontact={contact.id}>DELETE</button>
+      </div>
+    ));
+    
     return (
       <div className="App">
         <h1>Contacts</h1>
@@ -64,10 +67,11 @@ console.log(sortedData)
             <td>Name</td>
             <td>Popularity</td>
           </tr>
-          {this.state.contactsToDisplay}
+          {dataList}
         </table>
         <button onClick={this.addContact}>Add Random Contact</button>
         <button onClick={this.sortAlphabetically}>Sort by Name</button>
+        <button onClick={this.sortPopularity}>Sort by Popularity</button>
       </div>
     );
   }
