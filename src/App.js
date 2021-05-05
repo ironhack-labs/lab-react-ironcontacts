@@ -15,22 +15,23 @@ class App extends React.Component {
   };
   clickSortName = () => {
     this.setState((state, props) => ({
-      artists: [...state.artists].sort((a, b) => a.name.localeCompare(b.name)),
+      artists: state.artists.sort((a, b) => a.name.localeCompare(b.name)),
     }));
   };
   clickSortPopularity = () => {
     this.setState((state, props) => ({
-      artists: [...state.artists].sort((a, b) => b.popularity - a.popularity),
+      artists: state.artists.sort((a, b) => b.popularity - a.popularity),
     }));
   };
-  clickRemove = (e) => {
-    const selectedId = e.target.getAttribute('info');
-    this.setState((state, props) => ({
-      artists: state.artists.filter((artist) => artist.id !== selectedId),
-    }));
+  clickRemove = (idx) => {
+    const artistsCopy = [...this.state.artists];
+    artistsCopy.splice(idx, 1);
+    this.setState({
+      artists: artistsCopy,
+    });
   };
   render() {
-    const artistsTable = this.state.artists.map((item) => (
+    const artistsTable = this.state.artists.map((item, idx) => (
       <tr key={'tr' + item.id}>
         <td>
           <img src={item.pictureUrl} alt={item.name} />
@@ -38,9 +39,7 @@ class App extends React.Component {
         <td>{item.name}</td>
         <td>{item.popularity}</td>
         <td>
-          <button info={item.id} onClick={this.clickRemove}>
-            Delete
-          </button>
+          <button onClick={() => this.clickRemove(idx)}> Delete </button>
         </td>
       </tr>
     ));
