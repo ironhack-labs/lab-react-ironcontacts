@@ -23,6 +23,12 @@ class App extends React.Component {
       artists: [...state.artists].sort((a, b) => b.popularity - a.popularity),
     }));
   };
+  clickRemove = (e) => {
+    const selectedId = e.target.getAttribute('info');
+    this.setState((state, props) => ({
+      artists: state.artists.filter((artist) => artist.id !== selectedId),
+    }));
+  };
   render() {
     const artistsTable = this.state.artists.map((item) => (
       <tr key={'tr' + item.id}>
@@ -31,6 +37,11 @@ class App extends React.Component {
         </td>
         <td>{item.name}</td>
         <td>{item.popularity}</td>
+        <td>
+          <button info={item.id} onClick={this.clickRemove}>
+            Delete
+          </button>
+        </td>
       </tr>
     ));
 
@@ -46,6 +57,7 @@ class App extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity </th>
+              <th>Action </th>
             </tr>
           </thead>
           <tbody>{artistsTable}</tbody>
