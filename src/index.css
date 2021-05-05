@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+table {
+  font-size: larger;
+  font-weight: 700;
+}
+table th {
+  font-size: x-large;
+  font-weight: 900;
+}
+table tr td,
+table tr th {
+  margin: 1em;
+  padding: 1em;
+}
+table img {
+  max-height: 10em;
+}
