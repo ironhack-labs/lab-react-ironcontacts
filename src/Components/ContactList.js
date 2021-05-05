@@ -12,11 +12,36 @@ export default function ContactList() {
     setContact([...contacts, newRandomContact]);
   };
 
+  const sortByName = () => {
+    const sortContacs = contacts.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+
+    setContact([...sortContacs]);
+  };
+
+  const sortByPopularity = () => {
+    const sortContacs = contacts.sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+    setContact([...sortContacs]);
+  };
+
+  const remove = (id) => {
+    const newList = contacts.filter((e) => {
+      return e.id !== id;
+    });
+
+    setContact(newList);
+  };
+
   return (
     <div className="">
       <h1 className="title"> IronContacts</h1>
+      <button onClick={() => addContact()}> Add Random Contact</button>
+      <button onClick={() => sortByName()}> Sort by Name</button>
+      <button onClick={() => sortByPopularity()}> Sort by Popularity</button>
       <table className="table">
-        <button onClick={() => addContact()}> Add Random Contact</button>
         <tr>
           <th>Picture</th>
           <th>Name</th>
@@ -31,6 +56,9 @@ export default function ContactList() {
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
+              <td>
+                <button onClick={() => remove(contact.id)}>Delete</button>
+              </td>
             </tr>
           );
         })}
