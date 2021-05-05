@@ -1,26 +1,82 @@
-import logo from './logo.svg';
 import './App.css';
+import contacts from "./contacts.json";
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let arrayOfFive = contacts.slice(0,5);
+
+class App extends React.Component {
+
+state = {
+  Actors: arrayOfFive
 }
 
-export default App;
+  
 
+addRandom = (props) => {
+   const randomActor = contacts[Math.floor(Math.random() * contacts.length)] 
+  const ActorsCopy = [ ...this.state.Actors]
+      this.setState(() => {
+        return { Actors: [...ActorsCopy, randomActor]}
+      })
+        
+        //arrayOfFive.push(randomActor))
+}
+
+//delete = () => {
+
+//   this.setState((state) => {
+//     return {Actors:this.state.Actors }
+//   })
+
+// }
+
+//arrayOfFive.push(contacts[Math.floor(Math.random()*contacts.length)])
+//setState(Actors.state)
+
+  render() {
+
+    // let arrayOfFive = [];
+    //   for (let contact of this.state.Actors) {
+    //     if (arrayOfFive.length < 5) {
+    //       arrayOfFive.push(contact)
+    //   }
+    // }
+
+    const Actors = this.state.Actors.map(actor => {
+      //const popularity = actor.popularity.toFixed(2);
+      return (
+      <tr key={ actor.id }>
+        <td><img src= {actor.pictureUrl} id=""/></td>
+        <td> { actor.name } </td>
+        <td> { actor.popularity.toFixed(2) } </td>
+      </tr>
+    )}
+    )
+
+
+    return(
+      <div className="App">
+        <h1>IronContacts</h1>
+
+        <button onClick={this.addRandom}>Add Random Contact</button>
+
+        <table>
+       
+        <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Popularity</th>
+      </tr>
+
+          { Actors }
+       
+        </table>
+    </div>
+    )
+  }
+    
+}
+
+
+
+export default App;
