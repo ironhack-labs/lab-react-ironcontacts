@@ -11,8 +11,30 @@ class App extends React.Component {
     const random = contacts[Math.floor(Math.random() * contacts.length-5)+5]
     const fiveFirstContactsCopy = [...this.state.fiveFirstContacts]
     console.log(fiveFirstContactsCopy)
-   fiveFirstContactsCopy.push(random)
+    fiveFirstContactsCopy.push(random)
     this.setState({...this.state, fiveFirstContacts: fiveFirstContactsCopy})
+  }
+
+  sortedNameContacts = () => {
+    const fiveFirstContactsCopy = [...this.state.fiveFirstContacts]
+    const oderedName = fiveFirstContactsCopy.sort((a, b) => {
+      if(a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) return -1 
+      if(a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) return 1 
+      return 0
+    })
+    this.setState({...this.state, fiveFirstContacts: oderedName})
+    
+  }
+
+  sortedPopularityContacts = () =>{
+    const fiveFirstContactsCopy = [...this.state.fiveFirstContacts]
+    const oderedPopularity = fiveFirstContactsCopy.sort((a, b) => {
+      if(a.popularity < b.popularity) return -1 
+      if(a.popularity > b.popularity) return 1 
+      return 0
+    })
+    this.setState({...this.state, fiveFirstContacts: oderedPopularity})
+
   }
 
 
@@ -27,16 +49,24 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <div className='Contacts-table'>
         <h1>IronContacts</h1>
+        <div className='buttons'>
         <button onClick={this.randomContact}>Add Random Contact</button>
+        <button onClick={this.sortedNameContacts}>Sort by name</button>
+        <button onClick={this.sortedPopularityContacts}>Sort by popularity</button>
+        </div>
+        <div className='Contacts-table'>
           <table>
+          <thead>
             <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
             </tr>
+          </thead>
+          <tbody>
             {contactList}
+          </tbody>
           </table>
         </div>
       </div>
