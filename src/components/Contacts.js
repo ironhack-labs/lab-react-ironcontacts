@@ -9,20 +9,23 @@ class MainContacts extends Component {
         super()
         this.state = {
             mainContacts: contacts,
-            showedContacts: contacts.slice(0, 5)
+            showedContacts: contacts.slice(0, 5),
+            remainingContacts: contacts.slice(5, contacts.length)
             
         }
     }
 
     addRandom() {
 
-            const contactsLeft = this.state.mainContacts.filter( (elm, idx) =>  idx>4 ? elm : null)
+            const contactsLeft = [...this.state.remainingContacts]
             const random = Math.floor(Math.random() * contactsLeft.length-1)
             const copy = [...this.state.showedContacts]
             copy.push(contactsLeft[random])
+            contactsLeft.splice(random, 1)
             
             this.setState({
-            showedContacts: copy
+            showedContacts: copy,
+            remainingContacts: contactsLeft
         })    
     }
 
