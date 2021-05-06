@@ -29,15 +29,16 @@ class App extends React.Component {
       artists: state.artists.sort((a, b) => b.popularity - a.popularity),
     }));
   };
-  clickRemove = (idx) => {
-    const artistsCopy = [...this.state.artists];
-    artistsCopy.splice(idx, 1);
-    this.setState({
-      artists: artistsCopy,
-    });
+  clickRemove = (contactId) => {
+    this.setState((state, props) => ({
+      artists: state.artists.filter((contact) => {
+        return contact.id !== contactId;
+      }),
+    }));
   };
+
   render() {
-    const artistsTable = this.state.artists.map((item, idx) => (
+    const artistsTable = this.state.artists.map((item) => (
       <tr key={'tr' + item.id}>
         <td>
           <img src={item.pictureUrl} alt={item.name} />
@@ -45,7 +46,7 @@ class App extends React.Component {
         <td>{item.name}</td>
         <td>{item.popularity}</td>
         <td>
-          <button onClick={() => this.clickRemove(idx)}> Delete </button>
+          <button onClick={() => this.clickRemove(item.id)}> Delete </button>
         </td>
       </tr>
     ));
