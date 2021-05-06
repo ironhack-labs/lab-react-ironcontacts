@@ -10,9 +10,6 @@ class App extends React.Component {
   }
 
   addRandom = () => {
-    // const randomActor = contacts[Math.floor(Math.random() * (contacts.length+1))];
-    // const newContactsArr = this.state.contactInfo.slice();
-    // newContactsArr.push(randomActor);
     this.setState({
       contactInfo: this.state.contactInfo.concat(contacts[Math.floor(Math.random() * (contacts.length+1))])
     })
@@ -23,7 +20,6 @@ class App extends React.Component {
     this.setState({
       contactInfo: nameOrder.sort((a, b) => a.name.localeCompare(b.name))
     })
-    console.log(nameOrder)
   }
 
   sortByPopularity = () => {
@@ -31,7 +27,6 @@ class App extends React.Component {
     this.setState({
       contactInfo: popOrder.sort((a, b) => b.popularity - a.popularity)
     })
-    console.log(popOrder)
   }
 
   deleteOne = (contactId) => {
@@ -40,10 +35,7 @@ class App extends React.Component {
     })
   }
 
-  
-
   render() {
-    // const contacts = this.state.contactInfo.map(contact => (<tr key={contact.id}>{contact.name}</tr>));
     
     const info = this.state.contactInfo.map(contact => {
         
@@ -55,10 +47,8 @@ class App extends React.Component {
                       <td><img src={contact.pictureUrl}></img></td>
                       <td>{contact.name}</td>
                       <td>{contact.popularity}</td>
-                      <td><button onClick={() => this.removeOne(contact.id) }>Delete</button></td>
-                      
+                      <td><button onClick={() => this.deleteOne(contact.id) }>Delete</button></td>
                   </tr>
-                  
               </table>
           </div>
       )
@@ -75,17 +65,12 @@ class App extends React.Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Rating</th>
-          </tr>
-                    
-        <tr>{info}</tr>
+          </tr> 
+          <tr>{info}</tr>
         </table>
       </div>
     )
-
   }
-
-  
-
 }
 
 export default App;
