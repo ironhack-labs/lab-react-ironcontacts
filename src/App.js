@@ -55,7 +55,7 @@ class App extends React.Component {
                       <td><img src={contact.pictureUrl}></img></td>
                       <td>{contact.name}</td>
                       <td>{contact.popularity}</td>
-                      <td><button onClick={this.deleteOne}>Delete</button></td>
+                      <td><button onClick={() => this.removeOne(contact.id) }>Delete</button></td>
                       
                   </tr>
                   
