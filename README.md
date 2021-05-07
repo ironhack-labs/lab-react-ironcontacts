@@ -8,8 +8,6 @@ After Ironhack, you have decided to work in the movie industry, and you've found
 
 We are going to create a contact management app with React for this producer.
 
-<!-- You can find the starter code in the starter code folder of this GitHub repo. -->
-
 ## Setup
 
 - Fork this repo
