@@ -13,13 +13,20 @@ function App() {
     if (contacts.length === updatedContacts.length) {
       return;
     }
-    const randomNumber = () =>
-      Math.floor(Math.random() * (contacts.length + 1));
-    const randomContact = (num) =>
-      updatedContacts.includes(contacts[num])
-        ? randomContact(randomNumber())
-        : contacts[num];
-    const newArr = [...updatedContacts, randomContact(randomNumber())];
+    // const randomNumber = () =>
+    //   Math.floor(Math.random() * (contacts.length + 1));
+    const randomContact =
+      contacts[Math.floor(Math.random() * (contacts.length + 1))];
+    // ? randomContact(randomNumber())
+    // : contacts[num];
+
+    if (
+      updatedContacts.includes(randomContact) ||
+      randomContact === undefined
+    ) {
+      return;
+    }
+    const newArr = [...updatedContacts, randomContact];
     setUpdatedContacts(newArr);
   }
 
