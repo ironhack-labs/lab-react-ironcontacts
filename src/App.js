@@ -30,6 +30,13 @@ function App() {
     setUpdatedContacts(newArr);
   }
 
+  function deleteContact(event) {
+    const newArr = [...updatedContacts].filter(function (contact) {
+      return contact.id !== event.target.value;
+    });
+    setUpdatedContacts(newArr);
+  }
+
   return (
     <div className="App">
       <p>Ironcontacts</p>
@@ -41,10 +48,11 @@ function App() {
           <th>PICTURE</th>
           <th>NAME</th>
           <th>POPULARITY</th>
+          <th>ACTION</th>
         </tr>
 
         {updatedContacts.map((contact) => {
-          const { pictureUrl, name, popularity } = contact;
+          const { pictureUrl, name, popularity, id } = contact;
           return (
             <tr>
               <td>
@@ -52,6 +60,11 @@ function App() {
               </td>
               <td>{name}</td>
               <td>{popularity.toFixed(2)}</td>
+              <td>
+                <button onClick={deleteContact} value={id}>
+                  Delete
+                </button>
+              </td>
             </tr>
           );
         })}
