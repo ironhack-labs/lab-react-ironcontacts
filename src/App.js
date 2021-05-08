@@ -10,6 +10,9 @@ function App() {
   );
 
   function addNew() {
+    if (contacts.length === updatedContacts.length) {
+      return;
+    }
     const randomNumber = () =>
       Math.floor(Math.random() * (contacts.length + 1));
     const randomContact = (num) =>
