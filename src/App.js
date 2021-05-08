@@ -16,10 +16,15 @@ function App() {
     setUpdatedContacts(newArr);
   }
 
+  function alphabetSort() {}
+  function popSort() {}
+
   return (
     <div className="App">
       <p>Ironcontacts</p>
       <button onClick={addNew}>Add Random</button>
+      <button onClick={alphabetSort}>Sort by Alphabet</button>
+      <button onClick={popSort}>Sort by Popularity</button>
       <table>
         <tr>
           <th>PICTURE</th>
