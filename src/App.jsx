@@ -6,8 +6,18 @@ import "./App.css";
 let firstFive = contacts.slice(0, 5);
 
 function App() {
+  const [contactsArr, setContactsArr] = React.useState(firstFive);
+  function addRandomContact() {
+    const randomContact = contacts.slice(5)[
+      Math.floor(Math.random() * (contacts.length - 5))
+    ];
+    const newArr = firstFive.push(randomContact);
+    setContactsArr(newArr);
+  }
   return (
     <div className="App">
+      <h1>IronContacts</h1>
+      <button onClick={addRandomContact}>Add Random Contacts</button>
       <table>
         <tr>
           <th>Picture</th>
