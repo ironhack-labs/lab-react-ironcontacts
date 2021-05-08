@@ -1,6 +1,10 @@
 import "./App.css";
 import contacts from "./contacts.json";
 
+const firstFiveContacts = contacts.slice(0, 5);
+
+function addNew() {}
+
 function App() {
   return (
     <div className="App">
@@ -12,7 +16,7 @@ function App() {
           <th>POPULARITY</th>
         </tr>
 
-        {contacts.map((contact) => {
+        {firstFiveContacts.map((contact) => {
           const { pictureUrl, name, popularity } = contact;
           return (
             <tr>
