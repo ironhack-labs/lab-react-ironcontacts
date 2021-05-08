@@ -1,14 +1,24 @@
+import React from "react";
 import "./App.css";
 import contacts from "./contacts.json";
 
 const firstFiveContacts = contacts.slice(0, 5);
 
-function addNew() {}
-
 function App() {
+  const [updatedContacts, setUpdatedContacts] = React.useState(
+    firstFiveContacts
+  );
+  function addNew() {
+    const randomContact =
+      contacts[Math.floor(Math.random() * contacts.length + 1)];
+    const newArr = [...updatedContacts].push(randomContact);
+    setUpdatedContacts(newArr);
+  }
+
   return (
     <div className="App">
       <p>Ironcontacts</p>
+      <button onClick={addNew}>Add Random</button>
       <table>
         <tr>
           <th>PICTURE</th>
@@ -16,7 +26,7 @@ function App() {
           <th>POPULARITY</th>
         </tr>
 
-        {firstFiveContacts.map((contact) => {
+        {updatedContacts.map((contact) => {
           const { pictureUrl, name, popularity } = contact;
           return (
             <tr>
