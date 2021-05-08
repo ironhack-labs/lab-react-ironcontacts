@@ -10,9 +10,13 @@ function App() {
   );
 
   function addNew() {
-    const randomContact =
-      contacts[Math.floor(Math.random() * (contacts.length + 1))];
-    const newArr = [...updatedContacts, randomContact];
+    const randomNumber = () =>
+      Math.floor(Math.random() * (contacts.length + 1));
+    const randomContact = (num) =>
+      updatedContacts.includes(contacts[num])
+        ? randomContact(randomNumber())
+        : contacts[num];
+    const newArr = [...updatedContacts, randomContact(randomNumber())];
     setUpdatedContacts(newArr);
   }
 
