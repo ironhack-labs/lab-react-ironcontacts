@@ -16,8 +16,19 @@ function App() {
     setUpdatedContacts(newArr);
   }
 
-  function alphabetSort() {}
-  function popSort() {}
+  function alphabetSort() {
+    const newArr = [...updatedContacts].sort((a, b) => {
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+    setUpdatedContacts(newArr);
+  }
+
+  function popSort() {
+    const newArr = [...updatedContacts].sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+    setUpdatedContacts(newArr);
+  }
 
   return (
     <div className="App">
