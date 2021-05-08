@@ -8,10 +8,11 @@ function App() {
   const [updatedContacts, setUpdatedContacts] = React.useState(
     firstFiveContacts
   );
+
   function addNew() {
     const randomContact =
-      contacts[Math.floor(Math.random() * contacts.length + 1)];
-    const newArr = [...updatedContacts].push(randomContact);
+      contacts[Math.floor(Math.random() * (contacts.length + 1))];
+    const newArr = [...updatedContacts, randomContact];
     setUpdatedContacts(newArr);
   }
 
