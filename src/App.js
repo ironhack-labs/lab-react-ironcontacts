@@ -8,16 +8,13 @@ function App() {
   const [contactsUpdated, setcontactsUpdated] = React.useState(fiveContacts);
 
   function AddContact() {
-    const randomContact =
-      contacts[Math.floor(Math.random() * contacts.length + 1)];
-    if (contactsUpdated.includes(randomContact)) {
-      return;
-    }
-    if (contactsUpdated.length === 0) {
-      const newArr = [...contactsUpdated, randomContact];
-      setcontactsUpdated(newArr);
-    }
-    const newArr = [...contactsUpdated, randomContact];
+    const randomNumber = () => Math.floor(Math.random() * contacts.length);
+    const randomContact = (num) =>
+      contactsUpdated.includes(contacts[num])
+        ? randomContact(randomNumber())
+        : contacts[num];
+
+    const newArr = [...contactsUpdated, randomContact(randomNumber())];
     setcontactsUpdated(newArr);
   }
 
