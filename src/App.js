@@ -8,11 +8,22 @@ function App() {
   const [contactsArr, setContactsArr] = React.useState(contacts.slice(0, 5));
 
   function addRandomContact() {
+    const contactsNotDisplayed = contacts.filter(
+      (contact) => !contactsArr.map((el) => el.id).includes(contact.id)
+    );
+
+    if (contactsNotDisplayed.length === 0) {
+      return;
+    }
+    // console.log(contactsNotDisplayed);
+
     const randomContact = [
-      contacts.slice(6, contacts.length)[
-        Math.floor(Math.random() * contacts.length)
+      contactsNotDisplayed[
+        Math.floor(Math.random() * contactsNotDisplayed.length)
       ],
     ];
+
+    // console.log(randomContact);
     const newArr = contactsArr.concat(randomContact);
     // const newArr = [...contactsArr, randomContact] would also work! NP random contact should no longer be in an array then
     setContactsArr(newArr);
