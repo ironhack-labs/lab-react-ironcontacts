@@ -1,9 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
 import contacts from "./contacts.json";
 import "./App.css";
 
-let firstFive = contacts.slice(0, 5);
+const firstFive = contacts.slice(0, 5);
 
 function App() {
   const [contactsArr, setContactsArr] = React.useState(firstFive);
@@ -12,7 +11,10 @@ function App() {
     const randomContact = contacts.slice(5)[
       Math.floor(Math.random() * (contacts.length - 5))
     ];
-    const newArr = [...firstFive, randomContact];
+    // if (contactsArr.includes(randomContact)) {
+    //   addRandomContact();
+    // }
+    const newArr = [...contactsArr].push(randomContact);
     setContactsArr(newArr);
   }
 
@@ -34,23 +36,27 @@ function App() {
       <button onClick={addRandomContact}>Add random contact</button>
       <button onClick={sortByName}>Sort by name</button>
       <button onClick={sortByPopularity}>Sort by popularity</button>
-      <table>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-        </tr>
-        {contactsArr.map((person, index) => {
-          return (
-            <tr>
-              <td>
-                <img src={person.pictureUrl}></img>
-              </td>
-              <td>{person.name}</td>
-              <td>{person.popularity.toFixed(2)}</td>
-            </tr>
-          );
-        })}
+      <table className="contacts-container">
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {firstFive.map((person, index) => {
+            return (
+              <tr>
+                <td>
+                  <img src={person.pictureUrl}></img>
+                </td>
+                <td>{person.name}</td>
+                <td>{person.popularity.toFixed(2)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

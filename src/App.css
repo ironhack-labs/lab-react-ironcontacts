@@ -5,3 +5,13 @@
 img {
   max-height: 200px;
 }
+
+.contacts-container {
+  margin: auto;
+  padding: 25px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+}
