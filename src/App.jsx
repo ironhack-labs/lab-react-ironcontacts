@@ -14,7 +14,8 @@ function App() {
     // if (contactsArr.includes(randomContact)) {
     //   addRandomContact();
     // }
-    const newArr = [...contactsArr].push(randomContact);
+    const newArr = [...contactsArr, randomContact];
+    console.log(newArr);
     setContactsArr(newArr);
   }
 
@@ -45,7 +46,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {firstFive.map((person, index) => {
+          {contactsArr.map((person, index) => {
             return (
               <tr>
                 <td>
