@@ -5,11 +5,11 @@ export default function Contact(props) {
   return (
     <table>
       <tr>
-        <th>
+        <td>
           <img src={pictureUrl} />
-        </th>
-        <th>{name}</th>
-        <th>{Math.round(popularity * 100) / 100}</th>
+        </td>
+        <td>{name}</td>
+        <td>{Math.round(popularity * 100) / 100}</td>
       </tr>
     </table>
   );
