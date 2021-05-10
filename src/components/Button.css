@@ -1,0 +1,14 @@
+button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: navy;
+  color: white;
+  border-style: solid;
+  border-color: navy;
+}
+
+button:hover {
+  background-color: white;
+  color: navy;
+}

@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Button from "./components/Button";
+import Table from "./components/Table";
 
 import contacts from "./contacts.json";
 
@@ -11,12 +12,10 @@ function App() {
     const contactsNotDisplayed = contacts.filter(
       (contact) => !contactsArr.map((el) => el.id).includes(contact.id)
     );
-
     if (contactsNotDisplayed.length === 0) {
       return;
     }
     // console.log(contactsNotDisplayed);
-
     const randomContact = [
       contactsNotDisplayed[
         Math.floor(Math.random() * contactsNotDisplayed.length)
@@ -51,59 +50,14 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortName}>Sort by name</button>
-      <button onClick={sortPopularity}>Sort by popularity</button>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contactsArr.map((contact) => {
-            return (
-              <Contact
-                key={contact.id}
-                {...contact}
-                deleteContact={deleteContact}
-              />
-              // <tr key={contact.id}>
-              //   <td>{contact.name}</td>
-              //   <td>
-              //     <img src={contact.pictureUrl} width="100px" />
-              //   </td>
-              //   <td>{contact.popularity.toFixed(2)}</td>
-              //   <td>
-              //     <button onClick={() => deleteContact(contact.id)}>
-              //       Delete
-              //     </button>
-              //   </td>
-              // </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <Button onClick={addRandomContact}>Add Random Contact</Button>
+      <Table
+        deleteContact={deleteContact}
+        sortName={sortName}
+        sortPopularity={sortPopularity}
+        contactsArr={contactsArr}
+      />
     </div>
-  );
-}
-
-function Contact(props) {
-  const { name, pictureUrl, popularity, id, deleteContact } = props;
-  return (
-    <tr>
-      <td>{name}</td>
-      <td>
-        <img src={pictureUrl} width="100px" />
-      </td>
-      <td>{popularity.toFixed(2)}</td>
-      <td>
-        <button onClick={() => deleteContact(id)}>Delete</button>
-      </td>
-    </tr>
   );
 }
 
