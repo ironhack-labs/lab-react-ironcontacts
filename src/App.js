@@ -66,18 +66,23 @@ function App() {
         <tbody>
           {contactsArr.map((contact) => {
             return (
-              <tr key={contact.id}>
-                <td>{contact.name}</td>
-                <td>
-                  <img src={contact.pictureUrl} width="100px" />
-                </td>
-                <td>{contact.popularity.toFixed(2)}</td>
-                <td>
-                  <button onClick={() => deleteContact(contact.id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              <Contact
+                key={contact.id}
+                {...contact}
+                deleteContact={deleteContact}
+              />
+              // <tr key={contact.id}>
+              //   <td>{contact.name}</td>
+              //   <td>
+              //     <img src={contact.pictureUrl} width="100px" />
+              //   </td>
+              //   <td>{contact.popularity.toFixed(2)}</td>
+              //   <td>
+              //     <button onClick={() => deleteContact(contact.id)}>
+              //       Delete
+              //     </button>
+              //   </td>
+              // </tr>
             );
           })}
         </tbody>
@@ -86,21 +91,20 @@ function App() {
   );
 }
 
-// function Contact(props) {
-//   const { name, pictureUrl, popularity, id, deleteContact } = props;
-//   console.log(deleteContact);
-//   return (
-//     <tr>
-//       <td>{name}</td>
-//       <td>
-//         <img src={pictureUrl} width="100px" />
-//       </td>
-//       <td>{popularity.toFixed(2)}</td>
-//       <td>
-//         <button onClick={deleteContact(id)}>Delete</button>
-//       </td>
-//     </tr>
-//   );
-// }
+function Contact(props) {
+  const { name, pictureUrl, popularity, id, deleteContact } = props;
+  return (
+    <tr>
+      <td>{name}</td>
+      <td>
+        <img src={pictureUrl} width="100px" />
+      </td>
+      <td>{popularity.toFixed(2)}</td>
+      <td>
+        <button onClick={() => deleteContact(id)}>Delete</button>
+      </td>
+    </tr>
+  );
+}
 
 export default App;
