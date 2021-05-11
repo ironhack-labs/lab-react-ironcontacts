@@ -7,6 +7,10 @@ import contacts from "./contacts.json";
 
 function App() {
   const [contactsArr, setContactsArr] = React.useState(contacts.slice(0, 5));
+  const [sortNameDirection, setSortNameDirection] = React.useState("asc");
+  const [sortPopularityDirection, setSortPopularityDirection] = React.useState(
+    "asc"
+  );
 
   function addRandomContact() {
     const contactsNotDisplayed = contacts.filter(
@@ -29,17 +33,35 @@ function App() {
   }
 
   function sortName() {
-    const newArr = [...contactsArr].sort((a, b) => {
-      return a.name.localeCompare(b.name);
-    });
-    setContactsArr(newArr);
+    if (sortNameDirection === "asc") {
+      const newArr = [...contactsArr].sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+      setSortNameDirection("desc");
+      setContactsArr(newArr);
+    } else if (sortNameDirection === "desc") {
+      const newArr = [...contactsArr].sort((a, b) => {
+        return b.name.localeCompare(a.name);
+      });
+      setSortNameDirection("asc");
+      setContactsArr(newArr);
+    }
   }
 
   function sortPopularity() {
-    const newArr = [...contactsArr].sort((a, b) => {
-      return a.popularity - b.popularity;
-    });
-    setContactsArr(newArr);
+    if (sortPopularityDirection === "asc") {
+      const newArr = [...contactsArr].sort((a, b) => {
+        return a.popularity - b.popularity;
+      });
+      setSortPopularityDirection("desc");
+      setContactsArr(newArr);
+    } else if (sortPopularityDirection === "desc") {
+      const newArr = [...contactsArr].sort((a, b) => {
+        return b.popularity - a.popularity;
+      });
+      setSortPopularityDirection("asc");
+      setContactsArr(newArr);
+    }
   }
 
   function deleteContact(id) {
