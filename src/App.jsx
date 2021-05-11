@@ -46,22 +46,36 @@ function App() {
         </thead>
         <tbody>
           {contactsArr.map((person, index) => {
+            function deleteThisContact() {
+              deleteContact(index);
+            }
             return (
-              <tr key={`${person.id} - ${index}`}>
-                <td>
-                  <img src={person.pictureUrl}></img>
-                </td>
-                <td>{person.name}</td>
-                <td>{person.popularity.toFixed(2)}</td>
-                <td>
-                  <button onClick={() => deleteContact(index)}>Delete</button>
-                </td>
-              </tr>
+              <Contact
+                {...person}
+                index={index}
+                key={`${person.id} - ${index}`}
+                deleteContact={deleteContact}
+              />
             );
           })}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function Contact(props) {
+  return (
+    <tr>
+      <td>
+        <img src={props.pictureUrl} alt={props.name}></img>
+      </td>
+      <td>{props.name}</td>
+      <td>{props.popularity.toFixed(2)}</td>
+      <td>
+        <button onClick={() => props.deleteContact(props.index)}>Delete</button>
+      </td>
+    </tr>
   );
 }
 
