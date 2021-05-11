@@ -11,12 +11,12 @@ function App() {
     const randomContact = contacts.slice(5)[
       Math.floor(Math.random() * (contacts.length - 5))
     ];
-    // if (contactsArr.includes(randomContact)) {
-    //   addRandomContact();
-    // }
-    const newArr = [...contactsArr, randomContact];
-    console.log(newArr);
-    setContactsArr(newArr);
+    if (contactsArr.includes(randomContact)) {
+      return;
+    } else {
+      const newArr = [...contactsArr, randomContact];
+      setContactsArr(newArr);
+    }
   }
 
   function sortByName() {
@@ -36,7 +36,6 @@ function App() {
       (el) => el.id !== event.target.value
     );
     setContactsArr(newArr);
-    console.log(newArr);
   }
 
   return (
