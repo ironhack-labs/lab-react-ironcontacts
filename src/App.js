@@ -12,6 +12,7 @@ function App() {
     "asc"
   );
   const [arrayToSearchOn, setSearchOnArray] = React.useState(contactsArr);
+  const [backgroundColor, setBackgroundColor] = React.useState("white");
 
   function addRandomContact() {
     const contactsNotDisplayed = contacts.filter(
@@ -86,7 +87,10 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor }}>
+      <BackgroundChanger
+        setBackgroundColor={setBackgroundColor}
+      ></BackgroundChanger>
       <h1>IronContacts</h1>
       <Button onClick={addRandomContact}>Add Random Contact</Button>
       {/* Here with "onClick={addRandomContact}" we are adding a function DEFINITION (NOT CALLING IT!). But "onClick={addRandomContact()}" is envoking or calling the function */}
@@ -102,6 +106,35 @@ function App() {
         contactsArr={contactsArr}
       />
     </div>
+  );
+}
+
+function BackgroundChanger(props) {
+  const [backgroundInput, setBackgroundInput] = React.useState("");
+
+  function handleInputChange(event) {
+    setBackgroundInput(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    //this prevents a form from doing its default behaviour
+    // pass it to the form tag, it prevents the page from refreshing.
+    props.setBackgroundColor(backgroundInput);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <span>Which color do you want the background to be? </span>
+      <input
+        type="text"
+        placeholder="Write your color!"
+        value={backgroundInput}
+        // onChange={(event) => handleInputChange(event)}  SAME AS ABOVE
+        onChange={handleInputChange}
+      ></input>
+      <button>Change</button>
+    </form>
   );
 }
 
