@@ -5,9 +5,8 @@ import contacts from "./contacts.json";
 const firstFiveContacts = contacts.slice(0, 5);
 
 function App() {
-  const [updatedContacts, setUpdatedContacts] = React.useState(
-    firstFiveContacts
-  );
+  const [updatedContacts, setUpdatedContacts] =
+    React.useState(firstFiveContacts);
 
   function addNew() {
     if (contacts.length === updatedContacts.length) {
@@ -47,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>Ironcontacts</p>
+      <h1>Ironcontacts</h1>
       <button onClick={addNew}>Add Random</button>
       <button onClick={alphabetSort}>Sort by Alphabet</button>
       <button onClick={popSort}>Sort by Popularity</button>
@@ -62,7 +61,7 @@ function App() {
         {updatedContacts.map((contact) => {
           const { pictureUrl, name, popularity, id } = contact;
           return (
-            <tr>
+            <tr key={id}>
               <td>
                 <img src={pictureUrl} alt="image" style={{ height: "80px" }} />
               </td>
