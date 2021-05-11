@@ -34,6 +34,7 @@ function Table(props) {
                 {...contact}
                 deleteContact={deleteContact}
               />
+              /* Up most parent is the component itself. Which is why we need to add the key here */
               // <tr key={contact.id}>
               //   <td>{contact.name}</td>
               //   <td>
