@@ -31,6 +31,14 @@ function App() {
     setContactsArr(newArr);
   }
 
+  function deleteContact(event) {
+    const newArr = [...contactsArr].filter(
+      (el) => el.id !== event.target.value
+    );
+    setContactsArr(newArr);
+    console.log(newArr);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -54,6 +62,11 @@ function App() {
                 </td>
                 <td>{person.name}</td>
                 <td>{person.popularity.toFixed(2)}</td>
+                <td>
+                  <button onClick={deleteContact} value={person.id}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
