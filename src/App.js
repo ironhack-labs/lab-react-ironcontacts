@@ -72,7 +72,7 @@ function App() {
 
 function PresentCelebrity(props) {
   return (
-    <tr>
+    <tr key={props.id}>
       <td>
         <img
           src={props.pictureUrl}
