@@ -1,32 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import contacts from "./contacts.json";
+import "./App.css";
 
 function App() {
-  const newArr = contacts.slice(0, 5);
   const [contactsArr, setContactsArr] = React.useState(contacts.slice(0, 5));
-
-  function presentCelebrity(props) {
-    return (
-      <tr>
-        <td>
-          <img
-            src={props.pictureUrl}
-            alt={props.name}
-            style={{ height: "150px" }}
-          ></img>
-        </td>
-        <td>{props.name}</td>
-        <td>{props.popularity.toFixed(2)}</td>
-        <td>
-          <button onClick={() => props.deleteContact(props.index)}>
-            Delete
-          </button>
-        </td>
-      </tr>
-    );
-  }
 
   function addRandomContact() {
     const randomIndex = Math.floor(Math.random() * contacts.length);
@@ -59,17 +36,36 @@ function App() {
               deleteContact(index);
             }
             return (
-              <presentCelebrity
+              <PresentCelebrity
                 {...contact}
                 index={index}
                 key={`${contact.id} – ${index}`}
                 deleteContact={deleteContact}
-              ></presentCelebrity>
+              ></PresentCelebrity>
             );
           })}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function PresentCelebrity(props) {
+  return (
+    <tr>
+      <td>
+        <img
+          src={props.pictureUrl}
+          alt={props.name}
+          style={{ height: "150px" }}
+        ></img>
+      </td>
+      <td>{props.name}</td>
+      <td>{props.popularity.toFixed(2)}</td>
+      <td>
+        <button onClick={() => props.deleteContact(props.index)}>Delete</button>
+      </td>
+    </tr>
   );
 }
 
