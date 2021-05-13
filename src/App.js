@@ -16,11 +16,31 @@ function App() {
     setContactsArr(newArr);
   }
 
+  function sortByName() {
+    const sortedByName = [...contactsArr].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setContactsArr(sortedByName);
+  }
+
+  function sortByFame() {
+    const sortedByFame = [...contactsArr].sort(
+      (a, b) => b.popularity - a.popularity
+    );
+    setContactsArr(sortedByFame);
+  }
+
   return (
     <div className="App">
       <h1>Contacts</h1>
-      <button style={{ marginBottom: "50px" }} onClick={addRandomContact}>
+      <button style={{ margin: "30px 10px" }} onClick={addRandomContact}>
         Add Random Contact
+      </button>
+      <button style={{ margin: "30px 10px" }} onClick={sortByName}>
+        Sort by name
+      </button>
+      <button style={{ margin: "30px 10px" }} onClick={sortByFame}>
+        Sort by fame
       </button>
       <table>
         <thead>
