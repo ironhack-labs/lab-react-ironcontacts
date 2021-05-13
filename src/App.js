@@ -52,9 +52,6 @@ function App() {
         </thead>
         <tbody>
           {contactsArr.map((contact, index) => {
-            function deleteThisContact() {
-              deleteContact(index);
-            }
             return (
               <PresentCelebrity
                 {...contact}
