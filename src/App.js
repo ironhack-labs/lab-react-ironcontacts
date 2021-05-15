@@ -25,41 +25,41 @@ function App() {
     setContacts([...contacts, randomContact])
   }
 
-  const sortByName = () => { 
-    // eslint-disable-next-line array-callback-return
+  const sortByName = () => {
     contacts.sort((a,b) => a.name.localeCompare(b.name));
 
     setContacts([...contacts])
-    // console.log(sorted)
   }
 
   const sortByPopularity = () => {
     contacts.sort((a, b) => b.popularity - a.popularity)
 
-    console.log(contacts)
-
     setContacts([...contacts])
+  }
+
+  const deleteContact = id => {
+    const contactIndex = contacts.findIndex(contact => contact.id === id);
+
+    contacts.splice(contactIndex, 1)
+
+    setContacts([...contacts]);
   }
 
 
 
-  React.useEffect(() => {
-    console.log('on effect')
-    const lastContact = document.querySelector('.lastContact')
-    lastContact.scrollIntoView()
-  }, [contactsLength])
-
+  React.useEffect(() => document.querySelector('.lastContact').scrollIntoView(), [contactsLength])
+  
   return (
     <div className="App">
-    <h1>Iron contacts</h1>
+      <h1>Iron contacts</h1>
       <button onClick={sortByName}>Sort by name</button>
       <button onClick={sortByPopularity}>Sort by popularity</button>
       { 
         undisplayedContacts.length ? 
           <button onClick={ addRandomContact }>Add random contact</button> : null
       }
-      <ContactList>{contacts}</ContactList>
-    <button onClick={ () => window.scrollTo(0,0)}>Go to list start</button>
+      <ContactList delete={deleteContact}>{contacts}</ContactList>
+      <button onClick={ () => window.scrollTo(0,0)}>Go to list start</button>
     </div>
   );
 }
