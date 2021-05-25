@@ -18,9 +18,10 @@ export default class App extends Component {
   };
 
   handleShowMore = () => {
-  
-    const newContact = contacts.splice(5, 1);
-    const copyWithNewContact = [...this.state.contacts,...newContact];
+    const newContact = contacts[Math.floor(Math.random()*contacts.length)];
+
+    // const newContact = contacts.splice(5, 1);
+    const copyWithNewContact = [...this.state.contacts,newContact];
 
     this.setState({
       contacts: copyWithNewContact,
