@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+table {
+  margin-left: 50px;
+}
+
+.contact-image {
+  width: 110px;
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-nav {
+  margin: 15px;
+}
+
+.contacts-head > tr > th {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);;
+}
+
+.contacts-table {
+  border: solid #282c34;
+  border-collapse: collapse;
+}
+
+.contacts-body > tr > td {
+  border: solid #282c34;
+}
+
+.contact-image {
+  border-radius: 15px;
+  margin: 15px 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
