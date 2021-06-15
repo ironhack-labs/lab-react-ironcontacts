@@ -11,29 +11,53 @@ console.log(firstFiveItems);
 function App() {
   return (
     <div>
-      <p>{firstFiveItems.name}</p>
-      <img src={firstFiveItems.pictureUrl} alt="" />
-      <p>{firstFiveItems.name}</p>
-      <p>{firstFiveItems.popularity}</p>
+      <div>
+        <p> Name:{firstFiveItems[0].name}</p>
+        <img
+          style={{ height: "100px" }}
+          src={firstFiveItems[0].pictureUrl}
+          alt=""
+        />
+        <p>Popularity: {firstFiveItems[0].popularity}</p>
+      </div>
+      <div>
+        <p>{firstFiveItems[1].name}</p>
+        <img
+          style={{ height: "100px" }}
+          src={firstFiveItems[1].pictureUrl}
+          alt=""
+        />
+        <p>Popularity: {firstFiveItems[1].popularity}</p>
+      </div>
+      <div>
+        <p>{firstFiveItems[2].name}</p>
+        <img
+          style={{ height: "100px" }}
+          src={firstFiveItems[2].pictureUrl}
+          alt=""
+        />
+        <p>Popularity: {firstFiveItems[2].popularity}</p>
+      </div>
+      <div>
+        <p>{firstFiveItems[3].name}</p>
+        <img
+          style={{ height: "100px" }}
+          src={firstFiveItems[3].pictureUrl}
+          alt=""
+        />
+        <p>Popularity: {firstFiveItems[3].popularity}</p>
+      </div>
+      <div>
+        <p>{firstFiveItems[4].name}</p>
+        <img
+          style={{ height: "100px" }}
+          src={firstFiveItems[4].pictureUrl}
+          alt=""
+        />
+        <p>Popularity: {firstFiveItems[4].popularity}</p>
+      </div>
     </div>
   );
 }
 
 export default App;
-
-// {
-/* <div className="App">
-<header className="App-header">
-  <img src={logo} className="App-logo" alt="logo" />
-  <p>
-    Edit <code>src/App.js</code> and save to reload.
-  </p>
-  <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Learn React
-  </a> */
-// }
