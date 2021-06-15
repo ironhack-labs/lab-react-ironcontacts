@@ -1,6 +1,9 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
+import RandomContact from "./components/RandomContact";
+
+// i can also import directly from contacts without making spread operator
 
 const fullProducerArray = [...contacts]; //  spread operator to create a copy of the entire array
 console.log("Total Array", fullProducerArray);
@@ -11,6 +14,7 @@ console.log(firstFiveItems);
 function App() {
   return (
     <div>
+      <RandomContact></RandomContact>
       <div>
         <p> Name:{firstFiveItems[0].name}</p>
         <img
@@ -18,7 +22,7 @@ function App() {
           src={firstFiveItems[0].pictureUrl}
           alt=""
         />
-        <p>Popularity: {firstFiveItems[0].popularity}</p>
+        <p>Popularity: {firstFiveItems[0].popularity.toFixed(2)}</p>
       </div>
       <div>
         <p>{firstFiveItems[1].name}</p>
@@ -27,7 +31,7 @@ function App() {
           src={firstFiveItems[1].pictureUrl}
           alt=""
         />
-        <p>Popularity: {firstFiveItems[1].popularity}</p>
+        <p>Popularity: {firstFiveItems[1].popularity.toFixed(2)}</p>
       </div>
       <div>
         <p>{firstFiveItems[2].name}</p>
@@ -36,7 +40,7 @@ function App() {
           src={firstFiveItems[2].pictureUrl}
           alt=""
         />
-        <p>Popularity: {firstFiveItems[2].popularity}</p>
+        <p>Popularity: {firstFiveItems[2].popularity.toFixed(2)}</p>
       </div>
       <div>
         <p>{firstFiveItems[3].name}</p>
@@ -45,7 +49,7 @@ function App() {
           src={firstFiveItems[3].pictureUrl}
           alt=""
         />
-        <p>Popularity: {firstFiveItems[3].popularity}</p>
+        <p>Popularity: {firstFiveItems[3].popularity.toFixed(2)}</p>
       </div>
       <div>
         <p>{firstFiveItems[4].name}</p>
@@ -54,7 +58,7 @@ function App() {
           src={firstFiveItems[4].pictureUrl}
           alt=""
         />
-        <p>Popularity: {firstFiveItems[4].popularity}</p>
+        <p>Popularity: {firstFiveItems[4].popularity.toFixed(2)}</p>
       </div>
     </div>
   );
