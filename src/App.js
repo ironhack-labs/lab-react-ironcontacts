@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import contacts from "./contacts.json";
-import RandomContact from "./components/RandomContact";
+import Table from "./components/Table";
 
 // i can also import directly from contacts without making spread operator
 
@@ -14,7 +14,7 @@ console.log(firstFiveItems);
 function App() {
   return (
     <div>
-      <RandomContact></RandomContact>
+      <Table />
       <div>
         <p> Name:{firstFiveItems[0].name}</p>
         <img
