@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <Table />
-      <div>
+      {/* <div>
         <p> Name:{firstFiveItems[0].name}</p>
         <img
           style={{ height: "100px" }}
@@ -59,7 +59,7 @@ function App() {
           alt=""
         />
         <p>Popularity: {firstFiveItems[4].popularity.toFixed(2)}</p>
-      </div>
+      </div> */}
     </div>
   );
 }
