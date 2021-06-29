@@ -17,24 +17,27 @@ function App() {
               src={contact.pictureUrl}
               style={{ width: "6vw" }}
               alt="contact"
-            ></img>
+            />
           </td>
           <td>{contact.name}?</td>
           <td>{contact.popularity.toFixed(2)}</td>
-          <td><button >Delete</button></td>
+          <td>
+            <button onClick={() => deleteName(i)}>Delete</button>
+          </td>
         </tr>
       );
     });
   }
 
   function randomContact() {
-    let newRest = [...rest];
-    let newList = [...list];
-    let newContact = newRest[Math.floor(Math.random() * newRest.length)];
-    newList.push(newContact);
-    newRest.splice(newRest.indexOf(newContact), 1);
-    setList(newList);
-    setRest(newRest);
+    let copyOfRest = [...rest];
+    let copyOfList = [...list];
+    let randomContact =
+      copyOfRest[Math.floor(Math.random() * copyOfRest.length)];
+    copyOfList.push(randomContact);
+    copyOfRest.splice(copyOfRest.indexOf(randomContact), 1);
+    setList(copyOfList);
+    setRest(copyOfRest);
   }
 
   function sortPopular() {
@@ -47,14 +50,20 @@ function App() {
     let nameList = [...list];
     nameList.sort(function (a, b) {
       if (a.name < b.name) {
-          return -1;
+        return -1;
       }
       if (b.name < a.name) {
-          return 1;
+        return 1;
       }
       return 0;
-  });
-    setList(nameList)
+    });
+    setList(nameList);
+  }
+
+  function deleteName(i) {
+    let copyOfList = [...list];
+    copyOfList.splice(i, 1);
+    setList(copyOfList);
   }
 
   return (
