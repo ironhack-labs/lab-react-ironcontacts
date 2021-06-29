@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+/* base styles */
+/* @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Prata&display=swap&family'); */
+
+/* base styles */
+* {
+	margin: 0;
+	box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-size: 1.25rem;
+	color: #2d0060;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Prata", serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+	font-size: 2rem;
+}
+
+/* extras */
+
+button {
+	background-color: #d1b0b3;
+	border: none;
+	padding: 0.75rem 1.25rem;
+	font-size: 1rem;
+	border-radius: 3px;
+}
+
+button:hover {
+  background-color: rgba(209,176,179,0.5);
+  cursor: pointer;
+}
+
+.App_table__wrapper {
+  margin: 3rem 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.App_Buttons_wrapper {
+  margin: 2rem 0 3rem;
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.App h1 {
+  font-size: 4rem;
+}
+
+.App_table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App thead {
+  margin: 2rem;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: lighter;
 }
 
-.App-link {
-  color: #61dafb;
+.App tr {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App tbody {
+  margin: 2rem;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  display: flex
+}
+
+td {
+  width: 200px;
+}
+
+tbody img {
+  width: 100%;
 }
