@@ -13,11 +13,13 @@ function App() {
       return (
         <tr key={i}>
           <td>
-            <img
-              src={contact.pictureUrl}
-              style={{ width: "6vw" }}
-              alt="contact"
-            />
+            <a href={`${contact.pictureUrl}`} target='_blank' rel='noreferrer'>
+              <img
+                src={contact.pictureUrl}
+                style={{ width: "4vw" }}
+                alt="contact"
+              />
+            </a>
           </td>
           <td>{contact.name}?</td>
           <td>{contact.popularity.toFixed(2)}</td>
@@ -74,7 +76,7 @@ function App() {
       <button onClick={sortPopular}> Sort by popularity ▼</button>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <table>
+        <table id="contacts">
           <thead>
             <tr>
               <th>Picture</th>
