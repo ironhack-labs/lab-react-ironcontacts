@@ -1,7 +1,8 @@
 import './contacts.css'
 import contacts from "../contacts.json";
 import React, {useState} from 'react'
-import { push_uniq } from 'terser';
+import { indexOf } from 'lodash';
+
 
 function MyContacts(){
     /* const {item1, item2, item3, item4, item5} = contacts  */
@@ -40,14 +41,25 @@ function MyContacts(){
     function sortPopularity(){
         console.log('in sort by popularity')
         const sortByPopularity = prevContacts.sort(function(a, b) {
-            console.log(a.popularity, b.popularity)
             return b.popularity - a.popularity;
         });
+
         setContact(prevContacts => {
-        
             return [...sortByPopularity]
         })
     }
+
+    function deleteContact(idToDelete){
+        console.log('delete contact', idToDelete)
+
+        const deletedContacts = prevContacts.filter(contact => contact.id !== idToDelete);
+
+        setContact(prevContacts => {
+            return [...deletedContacts]
+        }) 
+
+    }
+
     return(
         <div>
             <h2><b>IronContacts</b></h2>
@@ -70,7 +82,7 @@ function MyContacts(){
                         <td><img className= "pictureUrl" src={item.pictureUrl}></img></td>
                         <td>{item.name}</td>
                         <td>{Math.floor((item.popularity)*100)/100}</td>
-                        <td><button>Delete</button></td>
+                        <td><button onClick={() => deleteContact(item.id)}>Delete</button></td>
                     </tr>
                     ))}
                 </tbody>
