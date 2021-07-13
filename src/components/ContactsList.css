@@ -1,0 +1,13 @@
+button{
+    border: none;
+    padding: 8px 16px;
+    margin: 2px;
+    box-shadow: inset -2px -2px 7px 2px grey;
+    border-radius: 10%;
+}
+
+button:active{
+    box-shadow: inset -5px 0px 7px 2px grey;
+
+
+}
