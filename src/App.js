@@ -64,15 +64,4 @@ function App() {
   );
 }
 
-
-// return
-// <h1> hola</h1>
-// {contacts.map((contacts => 
-// <tr key={contact.id}>
-//     <td><img src={contact.pictureUrl} alt={contact.name} /></td>
-//         <td>{contact.name}</td>
-//         <td>{Math.floor(contact.popularity)}</td>
-//         </tr>
-// ))}
-
 export default App;
