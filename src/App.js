@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import contactsArr from './contacts.json';
+import 'bulma/css/bulma.css'
 
 function App() {
 
@@ -11,10 +12,10 @@ function App() {
       return (
         <tbody key={i}>
           <tr>
-            <td><img src={contact.pictureUrl} style={{ width: "50px"}}></img></td>
-            <td>{contact.name}</td>
-            <td>{contact.popularity.toFixed(2)}</td>
-            <td><button onClick={() => DeleteContact(i)}>Delete</button></td> 
+            <td className="td"><img src={contact.pictureUrl} style={{ width: "50px"}}></img></td>
+            <td className="td">{contact.name}</td>
+            <td className="td">{contact.popularity.toFixed(2)}</td>
+            <td className="td"><button onClick={() => DeleteContact(i)} className="button is-danger is-light">Delete</button></td> 
           </tr>
         </tbody>
       )
@@ -81,24 +82,26 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>IronContacts</h1>
-      <button onClick={AddRandom}>Add Random Contact</button>
-      <button onClick={SortName}>Sort By Name</button>
-      <button onClick={SortPopularity}>Sort By Popularity</button>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
+    <>
+    <div className="block">
+      <h1 className="title">IronContacts</h1>
+      <button onClick={AddRandom} className="button is-primary is-light">Add Random Contact</button>
+      <button onClick={SortName} className="button is-link is-light">Sort By Name</button>
+      <button onClick={SortPopularity} className="button is-link is-light">Sort By Popularity</button>
+    </div>
+    <div className="block">
+        <table className="table">
+          <thead className="thead">
+            <tr className="tr">
+              <th className="th">Picture</th>
+              <th className="th">Name</th>
+              <th className="th">Popularity</th>
             </tr>
           </thead>
           <ShowContacts />
         </table>
-      </div>
     </div>
+    </>
   );
 };
 
