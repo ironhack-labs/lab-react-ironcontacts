@@ -1,0 +1,28 @@
+body{
+    margin-left: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+img{
+    width: 100px;
+    border-radius: 15px;
+}
+
+p {
+    margin: 30px;
+
+}
+
+tr{
+    text-align: center;
+}
+
+button{
+    border-radius: 30px;
+  padding: 12px;
+  margin: 20px;
+}
+
+
