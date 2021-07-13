@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <h2> IronContact</h2>
-      <section className="App_Buttons_wrapper">
+      <section>
           <button onClick={addContact} >Add Random Contact</button>
           <button onClick={sortNames} > Sort by Name</button>
           <button onClick={sortPopularity} >Sort by Popularity</button>
