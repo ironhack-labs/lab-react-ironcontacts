@@ -1,0 +1,19 @@
+.contact-card{
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-card img{
+    width: 60px;
+}
+
+.contact-card th{
+    padding: 20px;
+    font-size: 30px;
+}
+
+.tableContact{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
