@@ -1,0 +1,37 @@
+.btn-custom {
+    display: block;
+    background-color: lightblue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 15px 30px;
+    margin: 10px;
+    width: 22%;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    cursor: pointer;
+    background-color: rgb(140, 164, 172);
+}
+
+.btn-delete {
+    display: block;
+    background-color: rgb(233, 136, 10);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 15px 30px;
+    width: 90%;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-delete:hover {
+    cursor: pointer;
+    background-color: rgb(214, 93, 23);
+}
