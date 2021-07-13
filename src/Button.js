@@ -1,10 +1,12 @@
+import './Button.css';
 import { Component } from "react";
 import contactList from './contacts.json'
 
 const Button = ({addContact, sortName, sortPopularity, deleteContact}) => {
 
     return (
-        <button 
+        <button            
+            className={deleteContact ? 'btn-delete' : 'btn-custom'}
             onClick={addContact || sortName || sortPopularity || deleteContact}
         >
             {addContact && <span>Add Random Contact</span>}

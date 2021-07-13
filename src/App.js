@@ -58,16 +58,18 @@ class App extends Component {
 
   render = () =>
    (
-      <>
+      <main className="App">
         <h1>IronContacts</h1>
 
         {/* <button onClick={this.addContact}>Add Random Contact</button>
         <button onClick={this.sortName}>Sort by name</button>
         <button onClick={this.sortPopularity}>Sort by popularity</button> */}
 
-        <Button addContact={this.addContact} />
-        <Button sortName={this.sortName} />
-        <Button sortPopularity={this.sortPopularity} />
+        <div className='button-container'>
+          <Button addContact={this.addContact} />
+          <Button sortName={this.sortName} />
+          <Button sortPopularity={this.sortPopularity} />
+        </div>
 
         <table>
           <thead>
@@ -87,13 +89,13 @@ class App extends Component {
               <td>{Math.round(el.popularity)}</td>
               <td>
                 {/* <button onClick={() => this.deleteContact(el.id)}>Delete</button> */}
-                <Button deleteContact={() => this.deleteContact(el.id)} />
+                <Button className='btn-delete' deleteContact={() => this.deleteContact(el.id)} />
               </td>
             </tr>
           )}
           </tbody>
         </table>
-      </>
+      </main>
     )
 }
 
