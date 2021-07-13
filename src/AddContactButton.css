@@ -1,0 +1,17 @@
+.xlButton{
+    border: 2px solid;
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.mdButton{
+    border: 2px solid;
+    display: inline-block;
+    width: 25%;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+}
