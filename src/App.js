@@ -3,24 +3,25 @@ import './App.css';
 import contactsArr from './contacts.json';
 
 function App() {
-  // destructure
-  let [list, getList] = useState(contactsArr.splice(0, 5))
 
-  function ShowContacts() {
+  let [list, updateList] = useState(contactsArr.slice(0, 5));
+
+  const ShowContacts = () => {
     return list.map((contact, i) => {
       return (
-        <tr key={i}>
-          <td>
-            <img src={contact.pictureUrl} style={{ width: "50px"}}></img>
-          </td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity.toFixed(2)}</td>
-        </tr>
+        <tbody key={i}>
+          <tr>
+            <td><img src={contact.pictureUrl} style={{ width: "50px"}}></img></td>
+            <td>{contact.name}</td>
+            <td>{contact.popularity.toFixed(2)}</td>
+            <td><button onClick={() => DeleteContact(i)}>Delete</button></td> 
+          </tr>
+        </tbody>
       )
     })
-  }
+  };
 
-  function AddRandom() {
+  const AddRandom = () => {
     let randomContact = contactsArr[Math.floor(Math.random()*contactsArr.length)]
 
       // check if already exists
@@ -28,13 +29,13 @@ function App() {
         AddRandom()
       }
       else {
-        getList(list => {
+        updateList(list => {
           return [randomContact, ...list]
       })
     }
-  }
+  };
 
-  function SortName() {
+  const SortName = () => {
     let cloneList = JSON.parse(JSON.stringify(list))
 
     cloneList.sort((a, b) => {
@@ -48,12 +49,12 @@ function App() {
         return 0;
       }
     })
-    getList(list => {
+    updateList(list => {
       return [...cloneList]
     })
-  }
+  };
 
-  function SortPopularity() {
+  const SortPopularity = () => {
     let cloneList = JSON.parse(JSON.stringify(list))
 
     cloneList.sort((a, b) => {
@@ -67,10 +68,17 @@ function App() {
         return 0;
       }
     })
-    getList(list => {
+    updateList(list => {
       return [...cloneList]
     })
-  }
+  };
+
+  const DeleteContact = (index) => {
+    let filteredArr = list.filter((contact, i) => {
+      return i !== index
+    })
+    updateList(filteredArr)
+  };
 
   return (
     <div>
@@ -80,16 +88,18 @@ function App() {
       <button onClick={SortPopularity}>Sort By Popularity</button>
       <div>
         <table>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
           <ShowContacts />
         </table>
       </div>
     </div>
   );
-}
+};
 
 export default App;
