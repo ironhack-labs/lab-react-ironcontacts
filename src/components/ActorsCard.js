@@ -1,7 +1,6 @@
 import './ActorsCard.css'
 
-
-const Card = ({ name, pictureUrl, popularity, id }) => {
+const Card = ({ name, pictureUrl, popularity, id, deleteById }) => {
     const formattedPop = popularity.toFixed(2)
     const altX = '' + name + '.jpg'
     return (
@@ -15,8 +14,10 @@ const Card = ({ name, pictureUrl, popularity, id }) => {
             </div>
             <div>
                 <h3>Popularity rate: </h3>
-                <h5>{formattedPop}</h5>
+                <p><strong>{formattedPop}</strong></p>
             </div>
+            <button onClick={deleteById}> cancella</button>
+
         </article>
     )
 

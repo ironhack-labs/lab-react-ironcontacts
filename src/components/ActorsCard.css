@@ -1,5 +1,8 @@
 
    .actor-card {
+    border: 1px solid rgba(167, 20, 20, 0.398);
+    box-shadow: inset -2px -2px 7px 2px grey;
+    margin: 5px;
     width: 100%;
     display: flex;
     align-content: center;
