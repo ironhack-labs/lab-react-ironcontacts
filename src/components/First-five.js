@@ -37,10 +37,8 @@ class Five extends Component {
     }
 
     deleteContact = (i) => {
-        console.log("check")
         const {contacts} = this.state 
-        let copyContacts = JSON.parse(JSON.stringify(contacts))
-        copyContacts.filter((contact, index) => {
+        let copyContacts = contacts.filter((contact, index) => {
             return index !== i
         })
         this.setState({
