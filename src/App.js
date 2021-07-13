@@ -61,9 +61,13 @@ class App extends Component {
       <>
         <h1>IronContacts</h1>
 
-        <button onClick={this.addContact}>Add Random Contact</button>
+        {/* <button onClick={this.addContact}>Add Random Contact</button>
         <button onClick={this.sortName}>Sort by name</button>
-        <button onClick={this.sortPopularity}>Sort by popularity</button>
+        <button onClick={this.sortPopularity}>Sort by popularity</button> */}
+
+        <Button addContact={this.addContact} />
+        <Button sortName={this.sortName} />
+        <Button sortPopularity={this.sortPopularity} />
 
         <table>
           <thead>
@@ -81,7 +85,10 @@ class App extends Component {
               <td><img src={el.pictureUrl} alt={el.name} /></td>
               <td>{el.name}</td>
               <td>{Math.round(el.popularity)}</td>
-              <td><button onClick={() => this.deleteContact(el.id)}>Delete</button></td>
+              <td>
+                {/* <button onClick={() => this.deleteContact(el.id)}>Delete</button> */}
+                <Button deleteContact={() => this.deleteContact(el.id)} />
+              </td>
             </tr>
           )}
           </tbody>
