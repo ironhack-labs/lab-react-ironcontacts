@@ -1,0 +1,14 @@
+
+   .actor-card {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.actor-card div {
+    margin: 10px;
+}
+.actor-card img{
+    width: 200px;
+}
