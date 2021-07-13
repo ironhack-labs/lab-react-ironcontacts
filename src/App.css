@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.image{
+  height: 50px;
+  width: 50px;
+}
+
+.box{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li{
+  margin:10px;
+
+}
+
+button{
+  margin: 10px;
+}
+
+.name{
+  margin-top: 20px;
+}
+
+.pop{
+  margin-top: 20px;
+}
