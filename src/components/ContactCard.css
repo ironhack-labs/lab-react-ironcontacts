@@ -1,0 +1,9 @@
+.contactCard img{
+    width:70%
+}
+
+.cardText {
+    font-weight: 800;
+    font-size: 1.7em;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
