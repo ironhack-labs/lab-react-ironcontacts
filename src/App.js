@@ -19,10 +19,22 @@ function App() {
 		else console.log('There are no more contacts to be added');
 	}
 
+	const sortByName = () => {
+			const newContact = contacts.sort((a, b) => a.name.localeCompare(b.name))
+			setContacts([...newContact]);
+	}
+
+	const sortByPopularity = () => {
+		const newContact = contacts.sort((a, b) => b.popularity - a.popularity)
+		setContacts([...newContact]);
+	}
+
 	return (
 		<div className="App">
 		<header className="App-header">
 			<button onClick={addContact}>Add Random Contact</button>
+			<button onClick={sortByName}>Sort by name</button>
+			<button onClick={sortByPopularity}>Sort by popularity</button>
 			<table>
 				<tr>
 					<th>Picture</th>
