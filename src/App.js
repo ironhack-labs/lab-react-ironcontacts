@@ -39,6 +39,12 @@ function App() {
     setState(sortedActors)
   }
 
+  function deleteEntry(id){
+    let listAfterDelete = [...actors]
+    listAfterDelete.filter(el => el.id !== id)
+    setState(listAfterDelete)
+  }
+
 
   return (
     <div className="App">
@@ -50,9 +56,10 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Action</th>
         </tr>
         {actors.map((actor) => {
-          return <RenderActorRow pictureUrl = {actor.pictureUrl } name = {actor.name} popularity = {actor.popularity} />
+          return <RenderActorRow actor = {actor} handleDelete = {deleteEntry}/>
         })}
       </table>
     </div>
