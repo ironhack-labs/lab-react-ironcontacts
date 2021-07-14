@@ -1,0 +1,12 @@
+.character-card {
+    width: calc(33.33% - 50px);
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    font-size: .8em;
+    display: inline-block;
+}
+img {
+    width: 100%;
+    height: auto;
+}
