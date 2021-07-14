@@ -76,21 +76,23 @@ class App extends React.Component {
     console.log(contacts);
 
     return (
-      <>
+      <div className="page">
         <h1>IronContacts</h1>
+        <div className="btns">
         <button onClick={this.addContactHandler}>Add Random Contact</button>
         <button onClick={this.sortContactNameHandler}>Sort by Name</button>
         <button onClick={this.sortContactPopHandler}>Sort by Popularity</button>
-
-        <table>
+        </div>
+        
+        <table className="table">
           <thead>
             <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Polularity</th>
+              <th>Action</th>
             </tr>
           </thead>
-
           {contacts.map((contact) => {
             return (
               <tbody>
@@ -112,7 +114,8 @@ class App extends React.Component {
             );
           })}
         </table>
-      </>
+
+      </div>
     );
   }
 }
