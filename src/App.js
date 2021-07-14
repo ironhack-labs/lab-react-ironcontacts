@@ -17,10 +17,10 @@ class App extends React.Component {
 
   sortAlphabet = () => {
     let sorted = this.state.displayedContacts.sort(function(a, b) {
-      let nameA = a.name;
-      let nameB = b.name;
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
+      console.log(a)
+  
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
       return 0;
     });
 
@@ -45,24 +45,27 @@ class App extends React.Component {
     }));
   }
 
-  delete = (id) => {
-   console.log(id)
+  delete = (arr) => {
+    console.log(arr)
 
-    // this.setState((state) => ({
-    // displayedContacts: sorted
+    const reducedContact = [...this.state.displayedContacts]
+    reducedContact.splice(arr,1)
 
-    // }));
+    this.setState((state) => ({
+    displayedContacts: reducedContact
+
+    }));
   }
 
   renderAllInitialsContacts = () => {
-    const output = this.state.displayedContacts.map((contact) => { 
+    const output = this.state.displayedContacts.map((contact, index) => { 
       let popularitySpliced = String(contact.popularity).slice(0,5)
       return ( 
         <tr key={contact.id}>
           <td><img src={contact.pictureUrl} alt="celeb"/></td>   
           <td>{contact.name}</td>
           <td>{popularitySpliced}</td>
-          <td><button onClick={this.delete}> Delete</button></td>
+          <td><button onClick={() => this.delete(index)}>Delete</button></td>
         </tr>
       )   
     })
