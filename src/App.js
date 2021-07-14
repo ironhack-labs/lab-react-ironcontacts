@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import contacts from "./contacts.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  state = {
+    contacts: contacts.splice(0, 5),
+  };
+
+  addRandomContact = () => {
+    let randomArray = Math.floor(Math.random() * (contacts.length -0)) + 0;  
+    let newContact = contacts[randomArray];
+    this.setState((previousState) => {
+      return {
+        contacts: previousState.contacts.concat(newContact)
+      };
+    });
+  };
+
+  render() { 
+    const {contacts} = this.state;
+    return (
+      <div className="App">
+      <button type="submit">Add Random Contact</button>
+        <h1>Iron Contacts</h1>
+        <table className="list">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          {contacts.map((person, index) => {
+            return (
+              <tbody key={index}>
+                <tr>
+                  <td>
+                    <img className="picture" alt="portrait" src={person.pictureUrl}></img>
+                  </td>
+                  <td>{person.name}</td>
+                  <td>{person.popularity}</td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
+
+
+      </div>
+    );
+  };
 }
-
 export default App;
