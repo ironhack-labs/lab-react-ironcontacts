@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 10vmin auto;
 }
 
 .App-link {
@@ -38,5 +39,23 @@
 }
 
 img {
-  width: 5em;
+  border-radius: 50%;
+  height: 40vmin;
+}
+
+.Random-btn,
+.Th-btn {
+  font-size: calc(10px + 2vmin);
+  font-weight: 900;
+  padding: 1vmin 4vmin;
+  background-color: #61dafb;
+}
+
+.Th-btn {
+  color: white;
+  background-color: #282c34;
+}
+
+th {
+  padding: 5vmin;
 }

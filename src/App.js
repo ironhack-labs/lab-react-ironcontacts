@@ -1,5 +1,5 @@
 import { Component } from 'react';
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import contactsData from './contacts.json';
 
@@ -50,8 +50,15 @@ class App extends Component {
 
   render() {
     return (
+
+
       <>
-      <button onClick={this.randomNew}>Add random one</button>
+      <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      <h1>IronContacts</h1>
+    
+      <button onClick={this.randomNew} className="Random-btn">Add a random one</button>
 
       
       <table>
@@ -59,8 +66,8 @@ class App extends Component {
         <thead>
           <tr>
             <th>Picture</th>
-            <th><button onClick={this.sortedByName}>Name</button></th>
-            <th><button onClick={this.sortedByPop}>Popularity</button></th>
+            <th><button onClick={this.sortedByName} className="Th-btn">Name</button></th>
+            <th><button onClick={this.sortedByPop} className="Th-btn">Popularity</button></th>
             <th>Action</th>
           </tr>
         </thead>
@@ -70,7 +77,7 @@ class App extends Component {
           this.state.celebrities.map((contact, index) => {
             return (
                 <tr key={contact.id}>
-                  <td> <img src={contact.pictureUrl}/></td>
+                  <td> <img src={contact.pictureUrl} className="App-logo" alt="face"/></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td> <button onClick={() => this.delete(index)}>Delete</button> </td>                  
@@ -82,32 +89,11 @@ class App extends Component {
         </tbody>
 
       </table>
+      </header>
+      </div>
       </>
     )
   }
 }
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-
-
-
-
-
 
 export default App;
