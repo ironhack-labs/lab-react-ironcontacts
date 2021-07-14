@@ -10,6 +10,7 @@ const shuffledData = contactsData[Math.floor(Math.random() * contactsData.length
 function ContactsList(){
     const [contacts, setContacts] = useState(first5Contacts)
 
+    
     function addContact(){
         const newContactArray = contacts.unshift(shuffledData)
         setContacts(newContactArray)
