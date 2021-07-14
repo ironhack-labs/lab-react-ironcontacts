@@ -9,12 +9,22 @@ class App extends Component {
     celebrities: contactsData.slice(0, 5)
   }
 
+
+
   randomNew = () => {
-    let randomNum = Math.ceil(Math.random() * (contactsData.length - this.state.celebrities.length)) + this.state.celebrities.length
+    let arr = contactsData
+    console.log(arr)
+    let randomNum = Math.floor(Math.random() * (arr.length - 5)) + 5
     console.log(randomNum)
-    this.setState(state => ({
-      celebrities: [contactsData[randomNum], ...this.state.celebrities]
+    let reducedArr = arr.splice(randomNum, 1)
+    console.log(reducedArr)
+    console.log(arr)
+    console.log(reducedArr[0])
+
+    arr.length > 5 && this.setState(state => ({
+      celebrities: [reducedArr[0], ...this.state.celebrities] 
     }))
+
   }
 
   sortedByName = () => {
