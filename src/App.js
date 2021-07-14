@@ -19,9 +19,32 @@ function App() {
     }
   }
 
+  function sortByName() {
+    let sortedActors = [...actors];
+    sortedActors.sort((a,b) => {
+      if(a.name < b.name) return -1;
+      if(a.name > b.name) return 1;
+      return 0;
+    })
+    setState(sortedActors)
+  }
+
+  function sortByPop() {
+    let sortedActors = [...actors];
+    sortedActors.sort((a,b) => {
+      if(a.popularity < b.popularity) return 1;
+      if(a.popularity > b.popularity) return -1;
+      return 0;
+    })
+    setState(sortedActors)
+  }
+
+
   return (
     <div className="App">
       <button onClick={()=>pushNewValue(contacts, actors)}>Add Random Contact</button>
+      <button onClick={()=>sortByName()}>Sort by name</button>
+      <button onClick={()=>sortByPop()}>Sort by popularity</button>
       <table>
         <tr>
           <th>Picture</th>
