@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+import DynamicContactList from './Contacts'
+
+
+
 function App() {
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+
+      <h2>Lista de contactos </h2>
+
+      <DynamicContactList />
+
+
+
+      <hr />
+      <h2>Listado de películas (estático)</h2>
+
+
+
+      <hr />
+      <h2>Listado de bebidas</h2>
+
+    </main >
+
   );
 }
 
