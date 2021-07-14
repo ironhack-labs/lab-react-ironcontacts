@@ -5,13 +5,23 @@ import React, {useState} from "react"
 
 function App() {
 
-  const [actors, setContacts] = useState(contacts.filter((_, idx) => idx < 5))
+  const [actors, setState] = useState(contacts.filter((_, idx) => idx < 5))
+
+  function pushNewValue(contacts, actors){
+
+    let sortedContacts = contacts.filter((value) => !actors.includes(value));
+
+    if(sortedContacts.length!==0){
+      let randIdx = Math.floor(Math.random() * sortedContacts.length);
+      let newActor = sortedContacts[randIdx];
+      let updatedActors = actors.concat([newActor]);
+      setState(updatedActors)
+    }
+  }
 
   return (
     <div className="App">
-      <button>
-        Add Random Contact
-      </button>
+      <button onClick={()=>pushNewValue(contacts, actors)}>Add Random Contact</button>
       <table>
         <tr>
           <th>Picture</th>
@@ -24,6 +34,8 @@ function App() {
       </table>
     </div>
   );
+
+  
 }
 
 export default App;
