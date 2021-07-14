@@ -20,34 +20,47 @@ function App() {
 	}
 
 	const sortByName = () => {
-			const newContact = contacts.sort((a, b) => a.name.localeCompare(b.name))
-			setContacts([...newContact]);
+		const newContacts = contacts.sort((a, b) => a.name.localeCompare(b.name))
+		setContacts([...newContacts]);
 	}
 
 	const sortByPopularity = () => {
-		const newContact = contacts.sort((a, b) => b.popularity - a.popularity)
-		setContacts([...newContact]);
+		const newContacts = contacts.sort((a, b) => b.popularity - a.popularity)
+		setContacts([...newContacts]);
+	}
+
+	const deleteContact = (id) => {
+		const newContacts = contacts.filter(e => e.id !== id); 
+		setContacts([...newContacts]);
 	}
 
 	return (
 		<div className="App">
 		<header className="App-header">
-			<button onClick={addContact}>Add Random Contact</button>
-			<button onClick={sortByName}>Sort by name</button>
-			<button onClick={sortByPopularity}>Sort by popularity</button>
+			<div id="buttons">
+				<button onClick={addContact}>Add Random Contact</button>
+				<button onClick={sortByName}>Sort by name</button>
+				<button onClick={sortByPopularity}>Sort by popularity</button>
+			</div>
 			<table>
-				<tr>
-					<th>Picture</th>
-					<th>Name</th>
-					<th>Popularity</th>
-				</tr>
-				{contacts.map(contact => (
-				<tr key={contact.id}>
-					<td>{<img src={contact.pictureUrl} alt="Profile" height="100px"></img>}</td>
-					<td>{contact.name}</td>
-					<td>{contact.popularity}</td>
-				</tr>
-				))}
+				<thead>
+					<tr>
+						<th>Picture</th>
+						<th>Name</th>
+						<th>Popularity</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{contacts.map(contact => (
+					<tr key={contact.id}>
+						<td>{<img src={contact.pictureUrl} alt="Profile" height="100px"></img>}</td>
+						<td>{contact.name}</td>
+						<td>{contact.popularity}</td>
+						<td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
+					</tr>
+					))}
+				</tbody>
 			</table>
 		</header>
 		</div>
