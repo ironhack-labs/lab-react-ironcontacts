@@ -39,10 +39,13 @@
 
 .aligning{
   display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 1px solid black
-
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  justify-content: space-between;
+  width: 500px;
+  margin:5px;
+  padding: 2px;
 }
 
 .test{
