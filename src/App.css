@@ -2,6 +2,38 @@
   text-align: center;
 }
 
+table{
+  margin: 10px;
+}
+
+
+thead tr{
+  width: 450px;
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 1px solid black; */
+}
+
+tr{
+  display: flex;
+  align-items: center;
+  /* border: 1px solid black; */
+  width: 400px;
+  justify-content: space-evenly;
+}
+
+
+
+table img{
+  width: 100px;
+}
+
+
+
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
