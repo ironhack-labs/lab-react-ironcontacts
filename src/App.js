@@ -1,22 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 import contactsData from './contacts.json';
 
 function App() {
-  	let state = {
-		  contacts: [contactsData[0], contactsData[1], contactsData[2], contactsData[3], contactsData[4]]
-  	}
+	const [contacts, setContacts] = useState(contactsData.slice(0, 5));
+
+	const addContact = () => {
+		if (contacts.length < contactsData.length) {
+			let random = Math.floor(Math.random() * contactsData.length);
+			while (contacts.filter(e => e.id === contactsData[random].id).length > 0) {
+				console.log('random WAS: ', random)
+				random = Math.floor(Math.random() * contactsData.length);
+				console.log('but it existed in the array already, so now random IS: ', random)
+			}
+			const newContact = contactsData[random];
+			setContacts([...contacts, newContact]);
+		}
+		else console.log('There are no more contacts to be added');
+	}
 
 	return (
 		<div className="App">
 		<header className="App-header">
+			<button onClick={addContact}>Add Random Contact</button>
 			<table>
 				<tr>
 					<th>Picture</th>
 					<th>Name</th>
 					<th>Popularity</th>
 				</tr>
-				{state.contacts.map(contact => (
+				{contacts.map(contact => (
 				<tr key={contact.id}>
 					<td>{<img src={contact.pictureUrl} alt="Profile" height="100px"></img>}</td>
 					<td>{contact.name}</td>
