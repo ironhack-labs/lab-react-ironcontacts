@@ -74,10 +74,10 @@ sortByPopularity = () =>{
       <button onClick = {this.sortByPopularity}>Sort by Popularity</button>
         <table>
           <tr className="aligning">
-        <th>Picture</th>
-        <th>Name</th>
-        <th>Popularity</th>
-        <th>Action</th>
+        <th className="test">Picture</th>
+        <th className="test">Name</th>
+        <th className="test">Popularity</th>
+        <th className="test">Action</th>
       </tr>
       {contacts.map((contact, index)=>{
                     return (

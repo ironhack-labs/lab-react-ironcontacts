@@ -41,4 +41,10 @@
   display: flex;
     flex-direction: row;
     align-items: center;
+    border: 1px solid black
+
+}
+
+.test{
+  width: 70px;
 }
