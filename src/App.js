@@ -40,8 +40,7 @@ function App() {
   }
 
   function deleteEntry(id){
-    let listAfterDelete = [...actors]
-    listAfterDelete.filter(el => el.id !== id)
+    let listAfterDelete = actors.filter(el => el.id !== id)
     setState(listAfterDelete)
   }
 
