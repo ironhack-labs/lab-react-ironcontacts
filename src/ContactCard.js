@@ -1,5 +1,5 @@
 import './ContactCard.css'
-import AddContactButton from './AddContactButton';
+import Button from './Button';
 
 const ContactCard = ({ name, pictureUrl, popularity, removeContact }) => {
     return (
@@ -8,7 +8,7 @@ const ContactCard = ({ name, pictureUrl, popularity, removeContact }) => {
             <h4 className='contactCardInfo'>{name}</h4>
             <h4 className='contactCardInfo'>{popularity}</h4>
             {/* <button className='contactCardInfo' onClick={removeContact}>Remove</button> */}
-            <AddContactButton className="contactCardInfo mdButton" buttonAction='Remove' addContact={removeContact} />
+            <Button className="contactCardInfo" buttonText='Remove' buttonAction={removeContact} />
         </article>
     )
 }

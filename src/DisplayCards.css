@@ -1,7 +1,16 @@
-.filterArea{
-    display: flex;
+.commandArea{
+    display: flex;    
+    flex-wrap: wrap;
 }
 
-/* .filterAreaButton{
-    display: inline-block;
-} */
+.commandArea button:first-child{
+    width: 100%;
+    background-color: #A0E7E5;
+}
+
+.chosenCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+

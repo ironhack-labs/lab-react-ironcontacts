@@ -1,30 +1,33 @@
 .contactCard {
-    width: calc(100%);
+    width: calc(50% - 50px);
     height: 10vh;
     padding: 10px;
-    margin: 10px;
+    margin: 20px 10px;
     border: 1px solid #ccc;
+    border-radius: 3px;
     font-size: .8em;
+    background-color: #FBE7C6;
+    color: #f89baa;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .contactCardInfo{
     display: inline-block;
-    width: 23%;
+    width: 25%;
 }
 
 .contactCard img{
-
-    width: 10%;
+    /* width: 10%; */
     border-radius: 50%;
     object-fit: cover;
 }
 
 .contactCard button {
-    width: 100%;
+    width: 20%;
     margin-top: 10px;
-    background-color: black;
+    background-color: #FFAEBC;
     color: white;
     border: none;
     box-shadow: none;

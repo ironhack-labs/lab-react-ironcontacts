@@ -6,7 +6,6 @@ import DisplayCards from './DisplayCards';
 function App() {
   return (
     <div className="App">
-
       <DisplayCards />
     </div>
   );
