@@ -3,8 +3,10 @@ import contactsJson from '../contacts.json'
 import Table from "./Table";
 import Button from "./Button";
 
-const baseContacts = [...contactsJson]
-const contacts = baseContacts.splice(0, 5)
+const fullContacts = [...contactsJson]
+
+let baseContacts = [...fullContacts]
+let contacts = baseContacts.splice(0, 5)
 
 
 
@@ -13,17 +15,35 @@ class Contacts extends Component {
         constructor() {
                 super()
                 this.state = {
-                        contacts
+                        contacts,
+                        emptyList: false
                 }
         }
 
-        addRandomContact = () => {
 
+        reStart = () => {
+                baseContacts = [...fullContacts]
+                contacts = baseContacts.splice(0, 5)
+
+                this.setState({
+                        contacts: contacts,
+                        emptyList: false
+                })
+        }
+
+
+        addRandomContact = () => {
 
                 const [randomContact] = baseContacts.splice(Math.floor(Math.random() * baseContacts.length), 1)
 
                 if (!randomContact) {
-                        alert('NO QUEDAN CONTACTOS !!!')
+
+                        alert('No more contacts to add, you can reset if needed')
+
+                        this.setState({
+                                emptyList: true
+                        })
+
                 } else {
                         this.setState({
                                 contacts: [...this.state.contacts, randomContact]
@@ -59,7 +79,9 @@ class Contacts extends Component {
 
                                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
 
-                                        <Button name='Add random contact' fn={this.addRandomContact} />
+                                        <Button name={this.state.emptyList ? 'Reset Contacts' : 'Add random contact'} fn={!this.state.emptyList ? this.addRandomContact : this.reStart} />
+
+
                                         <Button name='Sort by name' fn={this.sortByName} />
                                         <Button name='Sort by popularity' fn={this.sortByPopularity} />
 
