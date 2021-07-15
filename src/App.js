@@ -61,7 +61,6 @@ class App extends React.Component {
             <>
               <div>
                 <Card key={contact.id} {...contact} removeContact={this.deleteContactHandler} />
-                <button onClick={() => this.deleteContactHandler(contact.id)}>Delete</button>
               </div>
             </>
 

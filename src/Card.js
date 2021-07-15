@@ -8,7 +8,7 @@ function Card({ name, pictureUrl, popularity, id, removeContact }) {
                 <img src={pictureUrl} alt={pictureUrl} />
                 <h3>{name}</h3>
                 <h3>{popularity.toFixed(2)}</h3>
-                {/* <button onClick={removeContact(id)}>Delete</button> */}
+                <button onClick={() => removeContact(id)}>Delete</button>
             </div>
         </div>
     );
