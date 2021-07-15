@@ -6,38 +6,44 @@ import React from 'react';
 
 class Contacts extends React.Component {
   state = {
-    contactsArray: contacts.slice(0,5)
+    contacts: contacts.slice(0,5)
   }
   addRandomContact = () => {
     const newContact = contacts[Math.floor(Math.random() * contacts.length)];
+    if (this.state.contacts.find(contact => contact.id === newContact.id)) {
+      if (this.state.contacts.length < contacts.length) {
+        this.addRandomContact();
+      }
+      return;
+    }
     this.setState(state => {
       return {
-        contactsArray: [...state.contactsArray, newContact]        
+        contacts: [...state.contacts, newContact]        
       }
     })
 
   }
   sortByName = () => {
-    const contactsCopy = this.state.contactsArray;
+    const contactsCopy = this.state.contacts;
     this.setState({
-      contactsArray: contactsCopy.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+      contacts: contactsCopy.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
     })
   }
   sortByPop = () => {
-    const contactsCopy = this.state.contactsArray;
+    const contactsCopy = this.state.contacts;
     this.setState({
-      contactsArray: contactsCopy.sort((a,b) => (b.popularity - a.popularity))
+      contacts: contactsCopy.sort((a,b) => (b.popularity - a.popularity))
     })
   }
 
   deleteContact = (id) => {
-    const contactsCopy = this.state.contactsArray;
+    const contactsCopy = this.state.contacts;
       this.setState({
-        contactsArray: contactsCopy.filter(contact => contact.id !== id)
+        contacts: contactsCopy.filter(contact => contact.id !== id)
       })
   }
   render() {
-    const tableContents = this.state.contactsArray.map(contact => {
+    const tableContents = this.state.contacts.map(contact => {
       return (
          <tr key={contact.id}>
             <td><img src={contact.pictureUrl} alt={contact.name}/></td>
