@@ -51,10 +51,10 @@ class App extends React.Component {
   //  }
   deleteCeleb = (id) => {
     const newContacts = [...this.state.contacts];
-    const index = newContacts.findIndex(contact => contact.id === id);    
+    const index = newContacts.findIndex(contact => contact.id === id);
     newContacts.splice(index, 1);
     this.setState({
-    contacts: newContacts 
+      contacts: newContacts
     })
     //   return {
     //     contacts: state.contactsList.filter((contact) => {
@@ -64,10 +64,6 @@ class App extends React.Component {
     // })
   }
 
-
-
-
-  
 
   renderAllInitialsContacts = () => {
     const output = this.state.contactsList.map((contact) => {
@@ -117,8 +113,6 @@ class App extends React.Component {
 
     );
   }
-
-
 }
 
 export default App;
