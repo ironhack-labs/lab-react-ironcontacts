@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import contacts from "./contacts.json";
 
-function App() {
+
+class App extends React.Component {
+  state = {
+    ironContacts : contacts.slice(0,5)
+  }
+
+  //Iteration 1 | Display 5 Contacts
+  render() {
+    const renderedContacts = this.state.ironContacts.map((contact, index) => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+      <tr>
+          <td>
+            <img src={contact.pictureUrl} width='50' alt="logo" ></img>
+          </td>
+          <td>{contact.name}</td>
+          
+          <td>{contact.popularity}</td>
+          
+      </tr>
+    
+  )
+  }
+    )
+    return(
+      <>
+      <h1 className="h1-display">Contacts IRONHACK</h1>
+
+      <table className="tabla-display">
+          <thead>
+              <tr>
+                  <td>Picture</td>
+                  <td>Name</td>
+                  <td>Popularity</td>
+              </tr>
+          </thead>
+
+          <tbody>
+              {renderedContacts}
+          </tbody>
+      </table>
+    </>
+
+    )
+}
+
 }
 
 export default App;

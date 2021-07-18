@@ -28,6 +28,25 @@
   color: #61dafb;
 }
 
+.h1-display{
+  text-align: center;
+
+}
+
+.tabla-display{
+  width: 400px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.6em;
+
+  
+}
+.tabla-display img{
+  width: 75px;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
