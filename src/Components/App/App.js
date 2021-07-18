@@ -1,12 +1,13 @@
 import { Component } from "react";
-import TableStructure from "./Components/TableStructure";
+import TableStructure from "../TableStructure/TableStructure";
+import './App.css'
 
 class App extends Component{
   render(){
     return (
       <>
-      <h1>IronContacts</h1>
       <div className="App">
+      <h1>IronContacts</h1>
        <TableStructure/>
       </div>
       </>

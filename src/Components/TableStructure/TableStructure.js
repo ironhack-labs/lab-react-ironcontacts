@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import actorList from '../Data/contacts.json'
-import TableRow from './TableRow/TableRow.js';
+import actorList from '../../Data/contacts.json'
+import TableRow from '../TableRow/TableRow.js';
+import './TableStructure.css'
 
 class TableStructure extends Component {
 
@@ -35,7 +36,7 @@ class TableStructure extends Component {
     }
 
     handleSortByPop() {
-        const sortList = this.state.list.sort( (a,b) => a.popularity - b.popularity)
+        const sortList = this.state.list.sort( (a,b) => b.popularity - a.popularity)
         this.setState({
             list: sortList,
         });
@@ -54,9 +55,11 @@ class TableStructure extends Component {
     render() {
         return(
             <>
-            <button onClick ={() => {this.handleAddRandom()}}>Add Random Actor</button>
-            <button onClick ={() => {this.handleSortByName()}}>Sort By Name</button>
-            <button onClick ={() => {this.handleSortByPop()}}>Sort By Name</button>
+            <div className = 'div-btn'>
+                <button onClick ={() => {this.handleAddRandom()}}>Add Random Actor</button> 
+                <button onClick ={() => {this.handleSortByName()}}>Sort By Name</button>
+                <button onClick ={() => {this.handleSortByPop()}}>Sort By Popularity</button>
+            </div>
             <table>
                 <tr>
                     <th>Picture</th>

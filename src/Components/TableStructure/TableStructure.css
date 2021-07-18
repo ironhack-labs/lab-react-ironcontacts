@@ -1,0 +1,22 @@
+td,
+tr,
+table {
+    border: 1px solid black;
+    justify-items: center;
+}
+.div-btn {
+    width: 400px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: baseline;
+	align-content: space-around;
+    margin: 10px;
+}
+
+.div-btn btn{
+    border-radius: 20px;
+    
+}
+

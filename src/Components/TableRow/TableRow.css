@@ -1,3 +1,8 @@
 #img {
     width: 80px;
 }
+
+#center{
+    align-items: center;
+    justify-content: center;
+}

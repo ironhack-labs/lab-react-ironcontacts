@@ -1,0 +1,16 @@
+.App {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: flex-start;
+	align-content: stretch;
+    justify-content: center;
+    align-items: center;
+
+    width: 1200px;
+}
+
+.App h1 {
+    display: inline;
+}
