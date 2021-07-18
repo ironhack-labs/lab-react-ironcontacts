@@ -67,6 +67,7 @@ class App extends React.Component {
 
 
 
+  
 
   renderAllInitialsContacts = () => {
     const output = this.state.contactsList.map((contact) => {
