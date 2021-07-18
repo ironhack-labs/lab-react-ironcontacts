@@ -39,12 +39,23 @@
   margin-left: auto;
   margin-right: auto;
   font-size: 1.6em;
+  margin-top: 5px;
 
   
 }
 .tabla-display img{
   width: 75px;
 
+}
+
+.buton-add{
+  width: 250px;
+  height: 35px;
+  background-color: blueviolet;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: white;
+  margin-left: 43%;
 }
 
 @keyframes App-logo-spin {

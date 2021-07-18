@@ -8,6 +8,22 @@ class App extends React.Component {
     ironContacts : contacts.slice(0,5)
   }
 
+//adding new random contact - second iteration
+
+addRandomContact = () => {
+
+  let newContact = '';
+  const randomIndex = Math.floor(Math.random() * contacts.length -1)
+  
+  // Call Index upon Array
+  newContact = contacts[randomIndex]
+  this.setState(state => {
+    return {
+      ironContacts: [...state.ironContacts, newContact]
+    }
+  })
+}
+
   //Iteration 1 | Display 5 Contacts
   render() {
     const renderedContacts = this.state.ironContacts.map((contact, index) => {
@@ -30,6 +46,9 @@ class App extends React.Component {
     return(
       <>
       <h1 className="h1-display">Contacts IRONHACK</h1>
+
+      {/* button of the secon iteration adding contact */}
+      <button onClick={this.addRandomContact} className="buton-add">Add Random Contact</button>
 
       <table className="tabla-display">
           <thead>
