@@ -105,7 +105,7 @@ class App extends React.Component {
             </thead>
             <tbody>
               {this.renderAllInitialsContacts()}
-            </tbody>
+             </tbody>
           </table>
         </header>
       </div>
