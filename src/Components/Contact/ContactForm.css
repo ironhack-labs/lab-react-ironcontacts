@@ -1,0 +1,15 @@
+.eachContactDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.eachContactDiv img,
+p {
+    margin: 10px 30px;
+    width: 30%;
+}
+
+.eachContactDiv img {
+    width: 9%;
+}
