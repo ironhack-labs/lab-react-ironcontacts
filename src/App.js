@@ -50,11 +50,11 @@ class App extends React.Component {
   // delete = (id) => {      
   //  }
   deleteCeleb = (id) => {
-    const newContacts = [...this.state.contacts];
+    const newContacts = [...this.state.contactsList];
     const index = newContacts.findIndex(contact => contact.id === id);
     newContacts.splice(index, 1);
     this.setState({
-      contacts: newContacts
+      contactsList: newContacts
     })
     //   return {
     //     contacts: state.contactsList.filter((contact) => {
@@ -75,7 +75,7 @@ class App extends React.Component {
           <td><img src={contact.pictureUrl} alt="celeb" /></td>
           <td>{contact.name}</td>
           <td>{popularitySpliced}</td>
-          <td><button onClick={this.deleteCeleb}> Delete</button></td>
+          <td><button onClick={() => this.deleteCeleb(contact.id)}> Delete</button></td>
         </tr>
 
       )
@@ -89,11 +89,11 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1 className="Celeb">IronContacts</h1>
-          <th1 className="th1">
+          <h2 className="On-click">
             <button onClick={this.randomContact}> Add Random Contact</button>
             <button onClick={this.sortAlphabet}> Sort Alphabeticaly</button>
             <button onClick={this.sortPopular}> Sort by Popularity</button>
-          </th1>
+          </h2>
           <table>
             <thead>
               <tr>

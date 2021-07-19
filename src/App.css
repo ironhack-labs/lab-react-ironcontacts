@@ -20,16 +20,16 @@ padding:6px 10px;
 text-decoration:none;
 } 
 
-.th1{
+.On-click{
+
 border:2px solid #25692A;
 border-radius:4px;
 display:inline-block;
 cursor:pointer;
 font-family:Verdana;
 font-weight:bold;
-font-size:3px;
+font-size:10px;
 padding:6px 10px;
-text-decoration:none;
 background:linear-gradient(to bottom, #eb9b48 5%, #f7d6b3 100%);
 }
 
