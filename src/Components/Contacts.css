@@ -1,0 +1,48 @@
+body{
+    background-color: bisque;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 50px;
+    margin: 0;
+}
+
+button {
+    margin-top:10px;
+    width: 200px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.Buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+th{
+    width: 75px;
+    height: 100px;
+    font-size: 25px;
+}
+
+td{
+    width: 75px;
+    height: 100px;
+    font-size: 25px;
+}
+
+img{
+    width: 75px;
+    height: 100px;
+}
+
+.delete-button{
+    width: 100px;
+    
+}
