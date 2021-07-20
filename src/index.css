@@ -1,13 +1,66 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+margin: 0vw;
+padding: 0vw;
+font-family: Georgia, 'Times New Roman', Times, serif;
+background-color: black;
+display:flex;
+text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
+
+.contacts {
+  font-size: 8vw;
+  color: white;
+  text-align: center;
+  margin: 0vw 20vw 0vw 18vw;
+}
+
+.button {
+display: inline-block;
+padding:  0.2vw 1vw 0.2vw 1vw;
+border: 0.1vw solid blue;
+margin: 0vw 0vw 0vw 0vw;
+border-radius: 0.4vw;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color: green;
+text-align:center;
+transition: all 0.2s;
+cursor: pointer;
+}
+
+.button :hover{
+color:#000000;
+background-color: greenyellow
+}
+
+
+.table {
+  font-size: 3vw;
+  color:white;
+}
+
+#actors {
+  width: 12vw;
+  margin: 0vw 12vw 0vw 10vw;
+  align-items: center;
+}
+
+.names{
+  margin: 0vw 0vw 0vw 0vw;
+  border-style: outset;
+  border-color: red;
+}
+
+.pop {
+  border-style: outset;
+  border-color: blue;
+  text-align: center;
+}
+
