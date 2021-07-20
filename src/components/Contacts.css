@@ -1,0 +1,11 @@
+img {
+  width: 100px;
+  height: 150px;
+}
+table {
+  margin-left: 300px;
+}
+
+.titles tr {
+  font-size: 100px;
+}
