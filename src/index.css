@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    border: 1px solid red;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.contact-picture{
+    width: 50px;
+}
+.contact-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image{
+    width: 60px;
+}
+.name{
+    width: 200px;
+}
+.popularity{
+    width: 100px;
+}
+.cabecalho{
+    width: 379px;
+}
+.cabecalho-picture{
+    width : 60px;
+    font-size: 19px;
+}
+.cabecalho-name{
+    width: 200px;
+    font-size: 19px;
+}
+.cabecalho-popularity{
+    width: 100px;
+    font-size: 19px;
 }
