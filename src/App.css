@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+
+h1{
+    font-size: 5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.App{
+    margin-top: -4rem;
+    text-align: center;
+    background-image: url(./componentes/logo512.png);
+    background-repeat: repeat;
+   background-size: 5rem;
+    
+    }
+    
+    .table-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 35rem;
+    
+    
+    }
+    .App1{
+    
+    display: flex;
+    justify-content: center;
+       
+    }
+    .table-center td,th {
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+  
+        width: 35rem;
+       text-align: center;
+       padding-top: 1rem;
+    }
+    
+    .table-center tr{
+  
+    background-color: tomato;
+    margin-top: 2rem;
+    box-shadow: 10px 10px 10px 2px black;
+    height: 7rem;
+    
+    
+    } 
+    .tr-fixo{
+        display: flex;
+        align-items: center;
+    }
+    
+    .bt {
+        border:1px solid tomato;
+        border-radius:4px;
+        display:inline-block;
+        cursor:pointer;
+        font-family:Verdana;
+        font-weight:bold;
+        font-size:13px;
+        padding:6px 10px;
+        text-decoration:none;
+        background-color: tomato;
+        height: 3rem;
+        margin-top: 1rem;
+        box-shadow: 10px 10px 10px 2px black;
+        }
