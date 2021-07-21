@@ -1,9 +1,19 @@
 import {Component} from "react";
 import contacts from '../Contacts/Contact'
-  
+import './Table.css'  
+
 class Table extends Component {
     state = {
         contactsFive: contacts.slice(0 , 5),
+    }
+    handleDelete = (id) => {
+      let arrayCopy = [...this.state.contactsFive];
+      const index = arrayCopy.findIndex(() => this.props.id === id)
+      console.log(index)
+      arrayCopy.splice(index, 1)
+      this.setState({
+        contactsFive: arrayCopy
+      })
     }
     handleAddClick = () => {
       let arrayCopy = [...contacts];
@@ -66,11 +76,13 @@ class Table extends Component {
                   <tbody>
                     {this.state.contactsFive.map((c) => {
                       return (
+                        
                         <tr key = {c.id}>
                           <td className = 'image' ><img src = {c.pictureUrl} className = 'contact-picture'></img></td>
                           <td className = 'name'>{c.name}</td>
-                          <td className = 'popularity'>{c.popularity}</td>
-                        </tr>
+                          <td className = 'popularity'>{c.popularity}</td> 
+                          <button onClick = {this.handleDelete} >DELETE CONTACT</button>
+                       </tr>
                         )
                       })}
                   </tbody>
