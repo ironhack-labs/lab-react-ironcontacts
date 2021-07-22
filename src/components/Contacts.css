@@ -1,0 +1,43 @@
+.buttons-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.buttons-div button {
+    padding: 5px;
+    width: 200px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    margin: 5px;
+}
+
+.table {
+    font-size: 30px;
+    text-align: center;
+    width: 700px;
+}
+
+.table tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards img {
+    width: 70px;
+}
+
+.cards button {
+    padding: 5px;
+    width: 80px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    margin: 5px;
+}

@@ -7,6 +7,7 @@ class ContactCard extends Component {
                 <td> <img src={this.props.pictureUrl} alt='contact-pic'/> </td>
                 <td>{this.props.name}</td>
                 <td>{this.props.popularity.toFixed(2)}</td>
+                <td><button onClick={this.props.deleteContact}>Delete</button></td>
             </tr>
         )
     }
