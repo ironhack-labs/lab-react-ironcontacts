@@ -1,0 +1,27 @@
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.avatar{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+thead {
+    padding: 90px
+    
+}
+tbody {
+    margin-top: 200px;
+}
+
+table {
+    text-align: left;
+    background-color: #fff;
+}
+
+td {
+    vertical-align: middle;
+}
