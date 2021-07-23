@@ -1,0 +1,14 @@
+.ContactItem img {
+    height: 10em;
+}
+
+.ContactItem td {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ContactItem #delete {
+    background-color: white;
+    border-color: white;
+}
