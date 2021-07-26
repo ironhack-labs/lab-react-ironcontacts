@@ -39,6 +39,12 @@ class ContactList extends Component {
     }));
   }
 
+  handleSortByPopularity() {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.sort((a, b) => b.popularity - a.popularity)
+    }));
+  }
+
   render() {
     const { contacts } = this.state;
 
@@ -60,6 +66,13 @@ class ContactList extends Component {
             onClick={() => this.handleSortByName()}
           >
             Sort by name
+          </button>
+          <button
+            type="button"
+            className="btn btn-primary my-4 mx-3"
+            onClick={() => this.handleSortByPopularity()}
+          >
+            Sort by popularity
           </button>
           </div>
           
