@@ -5,7 +5,7 @@ import "./Contact.css"
 
 class ContactList extends Component {
     state = {
-        contacts: []
+        contacts: [],
       }
     
       componentDidMount() {
@@ -13,30 +13,29 @@ class ContactList extends Component {
       }
     
       handleDeleteContact(id) {
-        this.setState((prevState) => ({
-          contacts: prevState.contacts.filter(contact => contact.id !== id)
+        this.setState(({contacts}) => ({
+          contacts: contacts.filter(contact => contact.id !== id)
         }))
       }
 
       handleAddContact() {
-        const random = data.filter(contact => contact.id !== this.state.contacts.id)[Math.floor(Math.random() * data.length)];
-        this.state.contacts.push(random)          
-        this.setState((prevState) => ({            
-            contacts: prevState.contacts
-        }))
-     } 
+        const { contacts } = this.state;        
+        const restOfContacts = data.filter( ({ id }) => !contacts.some(contact => contact.id === id))
+        if (restOfContacts.length > 0) {
+            const random = restOfContacts[Math.floor(Math.random() * restOfContacts.length)];        
+            this.setState(({contacts}) => ({ contacts: [...contacts, random]}))
+        }
+    } 
 
-     handleSortByname() {  
-        this.state.contacts.sort((a, b) => a.name.localeCompare(b.name))     
-        this.setState((prevState) => ({            
-            contacts: prevState.contacts
+     handleSortByname() {          
+        this.setState(( {contacts} ) => ({            
+            contacts: contacts.sort((a, b) => a.name.localeCompare(b.name)) 
         }))
      }
 
-     handleSortByPopularity() {  
-        this.state.contacts.sort((a, b) => b.popularity - a.popularity)     
-        this.setState((prevState) => ({            
-            contacts: prevState.contacts
+     handleSortByPopularity() {         
+        this.setState(({contacts}) => ({            
+            contacts: contacts.sort((a, b) => b.popularity - a.popularity) 
         }))
      }
 
@@ -87,3 +86,5 @@ class ContactList extends Component {
 }
 
 export default ContactList
+
+
