@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.contact-picture {
+  height: 10rem;
+}
+
+.contactTable {
+  margin-left: 5rem;
+}
