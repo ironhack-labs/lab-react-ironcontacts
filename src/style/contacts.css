@@ -1,0 +1,11 @@
+.table, td{
+    border: 1px solid black;
+    width: 150px;
+    height: 100px ;
+}
+
+
+.ContactImg{
+    width: 100px;
+    height: 100px;
+}
