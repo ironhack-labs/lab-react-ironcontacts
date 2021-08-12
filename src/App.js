@@ -6,6 +6,7 @@ import './App.css';
 
 class App extends Component {
   state = {
+    //initial state, only called once
     contacts : contacts.slice(0, 5)
   }
 
@@ -107,7 +108,7 @@ class App extends Component {
 
                 <td> {contact.name} </td>
                 <td> {contact.popularity.toFixed(2)} </td>
-                <td> <button onClick={this.deleteContact} className="btn btn-nameDeleter"> Delete </button></td>
+                <td> <button onClick={() => this.deleteContact(contact.id)} className="btn btn-nameDeleter"> Delete </button></td>
                
               </tr>
             )
