@@ -15,10 +15,11 @@ img {
 
 .rowTitle th {
   font-size: 25px;
+  padding-top: 30px;
 }
 
-.randomBtn {
-  margin-bottom: 20px;
+.btns button{
+  margin: 20px;
 }
 
 
