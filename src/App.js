@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import contacts from "./contacts.json";
+import "./App.css";
 
 function App() {
+  const shortContactList = contacts.slice(0, 5);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Iron Contacts</h1>
+      <table>
+        <tr className="header-row">
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </tr>
+        {shortContactList.map((elm) => {
+          return (
+            <tr>
+              <td>
+                <img src={elm.pictureUrl} alt={elm.name + "photo"} />
+              </td>
+              <td>{elm.name}</td>
+              <td>{Math.round(elm.popularity * 100) / 100}</td>
+            </tr>
+          );
+        })}
+      </table>
     </div>
   );
 }
