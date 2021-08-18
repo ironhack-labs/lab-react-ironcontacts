@@ -28,6 +28,36 @@
   color: #61dafb;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  font-style: bold;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.contact {
+  display: flex;
+}
+
+.contactImg {
+  height: 100px;
+  width: auto;
+}
+
+.property {
+  font-weight: bold;
+  margin-left: 2%;
+}
+
+.deleteButton {
+  height: 30px;
+  margin-left: 4%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
