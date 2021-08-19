@@ -1,0 +1,7 @@
+.ContactItem .avatar {
+  max-width: 50px;
+}
+
+.ContactItem p {
+  font-size: 13px;
+}

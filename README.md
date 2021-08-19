@@ -1,114 +1,74 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+# React Contacs
 
-# LAB | React IronContacts
+[Demo](https://ironptsolutions.github.io/react-contacts/index.html)
 
-## Introduction
+# Getting Started with Create React App
 
-After Ironhack, you have decided to work in the movie industry, and you've found a job where you need to manage the contacts of a famous producer.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-We are going to create a contact management app with React for this producer.
+## Available Scripts
 
-<!-- You can find the starter code in the starter code folder of this GitHub repo. -->
+In the project directory, you can run:
 
-## Setup
+### `npm start`
 
-- Fork this repo
-- Clone this repo
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```shell
-$ cd lab-react-ironcontacts
-$ npm install
-$ npm start
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Submission
+### `npm test`
 
-- Upon completion, run the following commands
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-  ```
-  git add .
-  git commit -m "done"
-  git push origin master
-  ```
+### `npm run build`
 
-- Create Pull Request so your TAs can check up your work.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Instructions
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Iteration 1 | Display 5 Contacts
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Let's take a look at the starter code.
+### `npm run eject`
 
-Inside `src` folder, we can find `contacts.json`, a JSON file with the producer's contacts. Import this file and **create an array of the 5 first contacts** to use as your initial state.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Display that array of 5 contacts in a `<table>` and display the `picture`, `name`, and `popularity` of each contact.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-For now, let's add all the code to `App.js`. This being said, don't proceed to create a dedicated component to render the contact list. This will become a bit more clear later when we add the delete button next to each contact. Unless you are already familiar with the concept of "lifting state up", you won't be able to actually remove contacts so having the whole code in one component that actually renders the contacts, allows us to mitigate this even if we are not using the lifting state up approach.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Let's proceed.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-To import `contacts.json` in `App.js`, you can simply use:
+## Learn More
 
-```js
-import contacts from "./contacts.json";
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-At the end of this iteration, your application should look like this:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-<details>
-  <summary> Check image inside </summary>
+### Code Splitting
 
-![Screenshot](https://i.imgur.com/fPuwZXv.png)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-</details>
+### Analyzing the Bundle Size
 
-### Iteration 2 | Add New Random Contacts
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-In your application, create an _Add Random Contact_ button so that every time you click on this button, it adds a new random actor.
+### Making a Progressive Web App
 
-First, randomly select a contact from the larger `contacts` array. Then add that contact to the array that lives in your state (that's the previously created array of 5). Don't forget to `setState()` to cause React to re-render the app.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-At the end of this iteration, your website will probably look like this:
+### Advanced Configuration
 
-<details>
-  <summary> Check image inside </summary>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-![Screenshot](https://i.imgur.com/GuNyYiU.png)
+### Deployment
 
-</details>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### Iteration 3 | Sort Contacts By Name And Popularity
+### `npm run build` fails to minify
 
-The producer asked you to add two new buttons to help them sort their contacts. When you click on one of the buttons, it should **sort the table by `name`** (alphabetically) and when you click the other, it should **sort by `popularity`** (highest first).
-
-Don't forget to `setState()` after you sort!
-
-This is what you may have at the end of this iteration:
-
-<details>
-  <summary> Check image inside </summary>
-
-![Screenshot](https://i.imgur.com/vUDGZ7Y.png)
-
-</details>
-
-### Iteration 4 | Remove Contacts
-
-The producer also would like to remove some of their contacts. Implement a _Delete_ button on each row of your `<table>` that will let the user remove the contact they clicked.
-
-When they click, you should get the id of that actor and use it to remove the contact from the array. Don't forget to `setState()` after you remove the contact!
-
-At the end of this iteration, your app may look like this (after playing a little bit with the _Delete_ button):
-
-<details>
-  <summary> Check image inside </summary>
-
-![Screenshot](https://i.imgur.com/N3K1K1k.png)
-
-</details>
-
-### Iteration 5 | Bonus | Styling
-
-Unfortunately, this contact list isn't production-ready. This is the movie business! It has to sparkle! Add some beautiful CSS to make the app "pop".
-
-Happy coding! :heart:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
