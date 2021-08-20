@@ -2,6 +2,8 @@ import React from "react";
 import contacts from "./contacts.json";
 import "./App.css";
 
+const shortContactsList = contacts.slice(0, 5);
+
 function getRandomContact() {
   return contacts[Math.floor(Math.random() * contacts.length)];
 }
@@ -14,21 +16,48 @@ class Contact extends React.Component {
         </td>
         <td>{this.props.name}</td>
         <td>{Math.round(this.props.popularity * 100) / 100}</td>
+        <td>
+          <button onClick={this.props.methodToDeleteContact}>Delete</button>
+        </td>
       </tr>
     );
   }
 }
 class App extends React.Component {
   state = {
-    contactList: contacts.slice(0, 5),
+    contactList: shortContactsList,
   };
 
   addContact = () => {
-    console.log("click");
-    console.log(getRandomContact());
+    const newContact = getRandomContact();
+
     this.setState((prevState) => {
       return {
-        contactList: prevState.contactList.push(getRandomContact()),
+        contactList: [...prevState.contactList, newContact],
+      };
+    });
+  };
+
+  filterContactsByName = () => {
+    this.setState((prevState) => {
+      return {
+        contactList: prevState.contactList.sort((a, b) => (a.name > b.name ? 1 : -1)),
+      };
+    });
+  };
+
+  filterContactsByPopularity = () => {
+    this.setState((prevState) => {
+      return {
+        contactList: prevState.contactList.sort((a, b) => (a.popularity > b.popularity ? -1 : 1)),
+      };
+    });
+  };
+
+  deleteContact = (contactId) => {
+    this.setState((prevState) => {
+      return {
+        contactList: prevState.contactList.filter((contact) => contact.id !== contactId),
       };
     });
   };
@@ -38,17 +67,30 @@ class App extends React.Component {
       <div className="App">
         <h1>Iron Contacts</h1>
         <button onClick={this.addContact}>Add Random Contact</button>
+        <div>
+          <button onClick={this.filterContactsByName}>Sort by Name</button>
+          <button onClick={this.filterContactsByPopularity}>Sort by Popularity</button>
+        </div>
         <table>
           <thead>
             <tr className="header-row">
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {this.state.contactList.map((contactObj) => {
-              return <Contact key={contactObj.id} {...contactObj} />;
+              return (
+                <Contact
+                  key={contactObj.id}
+                  {...contactObj}
+                  methodToDeleteContact={() => {
+                    this.deleteContact(contactObj.id);
+                  }}
+                />
+              );
             })}
           </tbody>
         </table>
