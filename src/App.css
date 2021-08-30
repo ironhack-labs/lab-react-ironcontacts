@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+.App img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.App-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.App-table tbody,thead {
+  margin: 0 10px 0 10px;
+}
+
+.App-table tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-table th,td {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  width: 10vw;
+}
+
+.App-table th {
+  font-size: 25px;
+}
+.App-table td {
+  font-size: 17px;
+}
+
