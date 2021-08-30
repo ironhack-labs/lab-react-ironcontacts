@@ -12,6 +12,16 @@ export default class App extends React.Component {
   addActor = () => {
     this.setState((previous) => ({ count: previous.count + 1 }));
   };
+
+  deleteItem = (contactId) => {
+    this.setState((previous) => ({
+      contacts: this.state.contacts.filter(
+        (contact) => contact.id !== contactId
+      ),
+      count: previous.count - 1,
+    }));
+  };
+
   render() {
     const getActors = () => {
       const fiveActors = [];
@@ -20,26 +30,10 @@ export default class App extends React.Component {
         if (!fiveActors.includes(contacts[randomIndex]))
           fiveActors.push(contacts[randomIndex]);
       }
-      console.log(fiveActors)
+      console.log(fiveActors);
       return fiveActors;
     };
     let fiveActors = getActors();
-
-    // const addActor = () => {
-    //   this.setState((prevState) => {
-    //     count: prevState.count + 1;
-    //   });
-    //   let actorsLength = fiveActors.length;
-    //   const finalActorsLength = fiveActors.length + 1;
-    //   while (actorsLength < finalActorsLength) {
-    //     const randomIndex = Math.floor(Math.random() * contacts.length);
-    //     if (!fiveActors.includes(contacts[randomIndex])) actorsLength++;
-    //     fiveActors.push(contacts[randomIndex]);
-    //   }
-
-    //   console.log(fiveActors);
-    //   return fiveActors;
-    // };
 
     return (
       <div className="App">
@@ -63,6 +57,9 @@ export default class App extends React.Component {
               <th>
                 <strong>POPULARITY</strong>
               </th>
+              <th>
+                <strong>ACTION</strong>
+              </th>
             </tr>
           </thead>
           <tbody value={fiveActors.length}>
@@ -75,6 +72,15 @@ export default class App extends React.Component {
                   <strong>{actor.name}</strong>
                 </td>
                 <td>{actor.popularity.toFixed(2)}</td>
+                <td>
+                  <button
+                    onClick={() => this.deleteItem(actor.id)}
+                    type="button"
+                    className="btn btn-danger"
+                  >
+                    Delete item
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
