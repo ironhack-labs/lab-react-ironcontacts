@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 40px;
 }
 
 .App-logo {
@@ -52,8 +53,10 @@
   margin: 20px;
 }
 
-.App-table tbody,thead {
+.App-table tbody,
+thead {
   margin: 0 10px 0 10px;
+  border: 1px solid black;
 }
 
 .App-table tr {
@@ -63,19 +66,41 @@
   align-items: center;
 }
 
-.App-table th,td {
+.App-table th,
+td {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 30px;
-  width: 10vw;
+  padding: 20px ;
+  width: 18vw;
+  border: 1px solid black;
 }
 
 .App-table th {
-  font-size: 25px;
+  font-size: 1.7rem;
+  background-color: rgb(58, 56, 56);
+  color: white;
 }
 .App-table td {
-  font-size: 17px;
+  font-size: 1.7rem;
+  border-bottom: 1px solid black;
+  height: 20vh;
 }
 
+.App-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.App-buttons button {
+  margin: 3rem 5rem 3rem 5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+h1{
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
