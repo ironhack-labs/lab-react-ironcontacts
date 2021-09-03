@@ -50,6 +50,13 @@
   font-size: 20px;
 }
 
+button {
+  border: 1px solid gray;
+  background-color: white;
+  font-size: 20px;
+  padding: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
