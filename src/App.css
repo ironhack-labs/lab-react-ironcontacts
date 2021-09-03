@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -26,6 +29,25 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.App img {
+  width: 10vh;
+}
+
+.App thead {
+  display: flex;
+  font-size: 30px;
+  margin: 0 auto;
+}
+
+.App table {
+  display:flex;
+  flex-direction: column;
+}
+
+.App tbody {
+  font-size: 20px;
 }
 
 @keyframes App-logo-spin {
