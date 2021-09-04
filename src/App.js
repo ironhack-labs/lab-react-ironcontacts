@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import TableRow from "./Components/TableRow/TableRow";
+import Contacts from "./contacts.json";
+
+const firstFive = Contacts.slice(0, 5);
 
 function App() {
+  const [counter, setCounter] = React.useState(firstFive);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <table>
+      <tbody>
+      {firstFive.map((element) => {
+        return (
+          <TableRow 
+            pictureUrl={element.pictureUrl}
+            name={element.name}
+            popularity={element.popularity.toFixed(2)}
+          />
+        );
+        })}        
+      </tbody>
+    </table>
   );
 }
-
 export default App;
