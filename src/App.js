@@ -25,11 +25,23 @@ export default class App extends Component{
   };
 
   sortByName = () => {
-    const nameSortedContacts = this.state.contacts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+    const nameSortedContacts = this.state.contacts.sort(
+      (a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
 
     this.setState(state => {
       return {
         nameSortedContacts
+      }
+    })
+  };
+
+  sortByPopularity = () => {
+    const popularitySortedContacts = this.state.contacts.sort(
+      (a,b) => (a.popularity > b.popularity) ? 1 : ((b.popularity > a.popularity) ? -1 : 0))
+
+    this.setState(state => {
+      return {
+        popularitySortedContacts
       }
     })
   };
@@ -58,6 +70,7 @@ export default class App extends Component{
         <div>
           <button onClick={this.addRandomContact}> Add Random Contact</button>
           <button onClick={this.sortByName}> Sort By Name</button>
+          <button onClick={this.sortByPopularity}> Sort By Popularity</button>
         </div>
         
         <table>
