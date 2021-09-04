@@ -68,7 +68,7 @@ export default class App extends Component{
             {contact.popularity.toFixed(2)}
           </td>
           <td>
-            <TrashIcon className="delete-icon" style={{width:24, height:24}} onClick={() => this.deleteContact(contact.id)} />
+            <TrashIcon className="delete-icon" onClick={() => this.deleteContact(contact.id)} />
           </td>
         </tr>
       )
@@ -78,14 +78,14 @@ export default class App extends Component{
       <div className="App">
         <h1>IronContacts</h1>
         <div>
-          <button onClick={this.addRandomContact}> Add Random Contact</button>
-          <button onClick={this.sortByName}> Sort By Name</button>
-          <button onClick={this.sortByPopularity}> Sort By Popularity</button>
+          <button className="button_a" onClick={this.addRandomContact}> Add Random Contact</button>
+          <button className="button_a" onClick={this.sortByName}> Sort By Name</button>
+          <button className="button_a" onClick={this.sortByPopularity}> Sort By Popularity</button>
         </div>
         
-        <table>
+        <table className="styled-table">
           <thead>
-            <tr>
+            <tr className="active-row">
               <th>
                 Picture
               </th>
@@ -94,6 +94,9 @@ export default class App extends Component{
               </th>
               <th>
                 Popularity
+              </th>
+              <th>
+
               </th>
             </tr>
           </thead>

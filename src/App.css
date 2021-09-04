@@ -44,5 +44,63 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
-  color: red;
+  color: #009879 !important;
+  transition: all 0.4s ease 0s;
+  ;
+}
+
+.delete-icon:hover {
+  color: #ec4646 !important;
+  transition: all 0.4s ease 0s;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #9c9c9c;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.button_a {
+  color: #494949 !important;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 20px;
+  border: 4px solid #009879;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.button_a:hover {
+	color: #ffffff !important;
+	background: #009879;
+	border-color: #009879 !important;
+	transition: all 0.4s ease 0s;
 }
