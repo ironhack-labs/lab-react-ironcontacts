@@ -24,6 +24,16 @@ export default class App extends Component{
     })
   };
 
+  sortByName = () => {
+    const nameSortedContacts = this.state.contacts.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+
+    this.setState(state => {
+      return {
+        nameSortedContacts
+      }
+    })
+  };
+
   render() {
 
     const contactsList = this.state.contacts.map((contact) => {
@@ -45,7 +55,11 @@ export default class App extends Component{
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={this.addRandomContact}> Add Random Contact</button>
+        <div>
+          <button onClick={this.addRandomContact}> Add Random Contact</button>
+          <button onClick={this.sortByName}> Sort By Name</button>
+        </div>
+        
         <table>
           <thead>
             <tr>
