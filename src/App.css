@@ -39,3 +39,10 @@
     transform: rotate(360deg);
   }
 }
+
+.delete-icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  color: red;
+}

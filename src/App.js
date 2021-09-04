@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import contacts from './contacts.json';
+import { TrashIcon } from '@heroicons/react/solid'
 import './App.css';
 
 const firstContacts = contacts.splice(0, 5);
@@ -37,7 +38,7 @@ export default class App extends Component{
 
   sortByPopularity = () => {
     const popularitySortedContacts = this.state.contacts.sort(
-      (a,b) => (a.popularity > b.popularity) ? 1 : ((b.popularity > a.popularity) ? -1 : 0))
+      (a,b) => (a.popularity > b.popularity) ? -1 : ((b.popularity > a.popularity) ? 1 : 0))
 
     this.setState(state => {
       return {
@@ -45,6 +46,12 @@ export default class App extends Component{
       }
     })
   };
+
+  deleteContact = (contactId) => {
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+    })
+  }
 
   render() {
 
@@ -59,6 +66,9 @@ export default class App extends Component{
           </td>
           <td>
             {contact.popularity.toFixed(2)}
+          </td>
+          <td>
+            <TrashIcon className="delete-icon" style={{width:24, height:24}} onClick={() => this.deleteContact(contact.id)} />
           </td>
         </tr>
       )
