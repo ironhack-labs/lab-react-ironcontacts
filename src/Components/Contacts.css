@@ -1,0 +1,44 @@
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
+.contacts-container > h3 {
+  font-size: 5em;
+  letter-spacing: 0.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px;
+}
+
+.table-container {
+  margin: auto;
+}
+
+.table img {
+  width: 100px;
+}
+
+.table > tbody {
+  font-size: 2em;
+}
+
+.add {
+  width: 500px;
+  margin: auto;
+}
+
+.other-buttons {
+  margin: auto;
+  width: 500px;
+}
+
+.other-buttons > .button {
+  width: 250px;
+}
+
+.td-content {
+  display: relative;
+}
