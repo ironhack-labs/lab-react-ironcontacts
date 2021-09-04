@@ -39,12 +39,12 @@ function App() {
     setContacts(sortedArray);
   }
 
-  const deleteThis = () => {
-
-    console.log("delete is running");
-    
-    
-   };
+  const deleteThis = (id) => {
+    let newArr = contacts.find(artist => artist.id === id );
+    console.log(newArr)
+    // newArr.splice(0,1);
+    setContacts(newArr);
+  }
 
   return (
     <div className="App">
@@ -66,7 +66,7 @@ function App() {
             </td>
             <td>{contact.name}</td>
             <td>{contact.popularity.toFixed(2)}</td>
-            <td><button onClick=''>DELETE</button> </td>
+            <td><button onClick={deleteThis}>DELETE</button> </td>
           </tr>
         ))}
       </table>
