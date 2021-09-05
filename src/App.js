@@ -12,10 +12,30 @@ class App extends Component {
     }
   }
 
+  onAddRandom = () => {
+    let randomNum = Math.round(Math.random()* (contacts.length - 5)) + 5
+
+    let isUnique = true;
+
+    for (let i = 0; i < this.state.contacts.length; i++) {
+      if(contacts[randomNum].id === this.state.contacts[i].id) {
+        isUnique = false
+      }
+    }
+
+    if (isUnique) {
+      this.setState({contacts: [...this.state.contacts, contacts[randomNum]]})
+    } else {
+      this.onAddRandom()
+    }
+
+  }
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
+        <button onClick={this.onAddRandom}> Add Random Contact </button>
         <table>
           <thead>
             <tr>

@@ -11,6 +11,10 @@
   padding-top: 20px;
 }
 
+.App button {
+  margin-right: auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
