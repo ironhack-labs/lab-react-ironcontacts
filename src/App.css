@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  width:fit-content;
+}
+
+.App img {
+  width: 100px;
+}
+
+.App tr {
+  padding-top: 20px;
 }
 
 .App-logo {
