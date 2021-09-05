@@ -31,11 +31,28 @@ class App extends Component {
 
   }
 
+  onSort = (e) => {
+    const value = e.target.value
+    console.log(value)
+    const contactsCopy = [...this.state.contacts]
+    value === "name" ? 
+      contactsCopy.sort((a, b) => {
+        return a.name.localeCompare(b.name)
+      }) :
+      contactsCopy.sort((a, b) => {
+        return a.popularity - b.popularity
+      })
+    this.setState({contacts: contactsCopy})
+  }
+
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.onAddRandom}> Add Random Contact </button>
+        <button onClick={this.onSort} value="name"> Sort By Name </button>
+        <button onClick={this.onSort} value="popularity"> Sort by popularity </button>
         <table>
           <thead>
             <tr>
