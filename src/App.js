@@ -33,7 +33,6 @@ class App extends Component {
 
   onSort = (e) => {
     const value = e.target.value
-    console.log(value)
     const contactsCopy = [...this.state.contacts]
     value === "name" ? 
       contactsCopy.sort((a, b) => {
@@ -43,6 +42,15 @@ class App extends Component {
         return a.popularity - b.popularity
       })
     this.setState({contacts: contactsCopy})
+  }
+
+  onDelete = (e) => {
+    const value = e.target.value
+    const contactsCopy = [...this.state.contacts]
+    const filteredArr = contactsCopy.filter((el) => {
+      return el.id !== value
+    })
+    this.setState({contacts: filteredArr})
   }
 
 
@@ -59,6 +67,7 @@ class App extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -73,6 +82,9 @@ class App extends Component {
                   </td>
                   <td>
                     {contact.popularity.toFixed(2)}
+                  </td>
+                  <td>
+                    <button value={contact.id} onClick={this.onDelete}>Delete</button>
                   </td>
                 </tr>
               )
