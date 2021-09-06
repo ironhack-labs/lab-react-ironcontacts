@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.celeb-icon {
+  width: 70px;
+}
+
+.App {
+  width: 400px;
+  display:flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+
+.buttons {
+  display:flex;
+  flex-direction: column;
+}
