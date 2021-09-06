@@ -9,11 +9,8 @@ export default class App extends React.Component {
   }
   
   onRandomContact = () => {
-    let randomContact =
-      contacts[Math.floor(Math.random() * contacts.length)];
-
+    let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
     let contactsCopy = [...this.state.contacts];
-
     contactsCopy.push(randomContact);
 
     this.setState({
@@ -21,12 +18,28 @@ export default class App extends React.Component {
     });
   };
 
+  onSortByName = () => {
+    this.setState({
+      contacts: this.state.contacts.sort((a, b) => a.name.localeCompare(b.name))
+  })
+}
+
+  onSortByPopularity = () => {
+    this.setState({
+      contacts: this.state.contacts.sort((a, b) => b.popularity-a.popularity)
+  })
+  }
+
   render() {
   const contact = this.props;
   return (
     <div className="App">
       <h1>Iron Contacts</h1>
-        <button onClick={this.onRandomContact}>Add Random Contact</button>
+        <div className='buttons'>
+          <button onClick={this.onRandomContact}>Add Random Contact</button>
+          <button onClick={this.onSortByName}>Sort By Name</button>
+          <button onClick={this.onSortByPopularity}>Sort By Popularity</button>
+        </div>
           <table>
             <thead className='title'>
               <tr>
@@ -42,7 +55,7 @@ export default class App extends React.Component {
                     <img src={contact.pictureUrl} alt={contact.name} />
                   </th>
                   <th>{contact.name}</th>
-                  <th>{contact.popularity}</th>
+                  <th>{contact.popularity.toFixed(2)}</th>
                 </tr>
               ))}
             </tbody>
