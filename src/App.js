@@ -30,6 +30,10 @@ export default class App extends React.Component {
   })
   }
 
+  onDelete = (contactId) => {
+    this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== contactId) })
+  }
+
   render() {
   const contact = this.props;
   return (
@@ -46,16 +50,20 @@ export default class App extends React.Component {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {this.state.contacts.map(contact => (
-                <tr>
+                <tr className='contactsData'>
                   <th>
                     <img src={contact.pictureUrl} alt={contact.name} />
                   </th>
                   <th>{contact.name}</th>
                   <th>{contact.popularity.toFixed(2)}</th>
+                  <th>
+                    <button onClick={() => this.onDelete(contact.id)}>Delete</button>
+                  </th>
                 </tr>
               ))}
             </tbody>
