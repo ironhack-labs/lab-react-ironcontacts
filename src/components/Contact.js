@@ -1,11 +1,16 @@
 import React from "react";
 import '../contacts.json';
 
-const Contact = ({arrContacts}) => {
+const Contact = () => {
     return(
-        <div>
-        <p>display {arrContacts}</p>
-        </div>
+        <tr>
+        <td>
+          <img src={''} width="80px" alt={' '} />
+        </td>
+        <td></td>
+        <td>{''}</td>
+        <td><button onClick={'deleteThis'}>DELETE</button> </td>
+      </tr>
     );
 };
 

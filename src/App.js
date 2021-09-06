@@ -3,55 +3,52 @@ import "./App.css";
 import contacts from "./contacts.json";
 
 let arrContacts = JSON.parse(JSON.stringify(contacts));
+const primeirosCinco = arrContacts.splice(0, 5);
 
 function App() {
-  let primeirosCinco = arrContacts.splice(0, 5);
   let positionRandom = Math.floor(Math.random() * arrContacts.length) + 1;
   let randomActor = arrContacts[positionRandom];
 
-/*   console.log(primeirosCinco);
-  console.log(randomActor); */
-
-  const [contacts, setContacts] = useState(primeirosCinco);
+  const [atual, setAtual] = useState(primeirosCinco);
 
   const AddRandom = () => {
-    console.log("Add is running");
-    
-     setContacts([...contacts, randomActor])
-     };
+    setAtual([...atual, randomActor]);
+  };
 
   const sortName = () => {
-    let sortedArray = [...contacts];
-    sortedArray.sort((a,b)=> {
-      if(a.name < b.name) return -1
-      if(a.name > b.name) return 1
+    let sortedByName = [...atual];
+    sortedByName.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
       return 0;
     });
-    console.log(sortedArray);
-    setContacts(sortedArray);
-  }
+    setAtual(sortedByName);
+  };
   const sortPopularity = () => {
-    let sortedArray = [...contacts];
-    sortedArray.sort((a, b) => {
+    let sortedByPop = [...atual];
+    sortedByPop.sort((a, b) => {
       return a.popularity - b.popularity;
-    })
-    console.log(sortedArray);
-    setContacts(sortedArray);
-  }
+    });
+    setAtual(sortedByPop);
+  };
 
   const deleteThis = (id) => {
-    let newArr = contacts.find(artist => artist.id === id );
-    console.log(newArr)
-    // newArr.splice(0,1);
-    setContacts(newArr);
-  }
+    let deletedList = [...atual];
+    let theOne = deletedList.find((x) => x.id === id);
 
+    deletedList.splice(deletedList.indexOf(theOne), 1);
+
+    setAtual(deletedList);
+  };
+
+  /* console.log(randomActor)
+console.log(primeirosCinco)
+console.log(atual) */
   return (
     <div className="App">
-      <button onClick={AddRandom}>Add Random Contact</button>
-      <button onClick={sortName}>Sort by Name</button>
-      <button onClick={sortPopularity}>Sort by Popularity</button>
-
+      <button onClick={AddRandom}>Add Ranndom Contact</button>
+      <button onClick={sortName}>Sorrt by Name</button>
+      <button onClick={sortPopularity}>So3rt by Popularity</button>
       <table>
         <tr>
           <th>Picture</th>
@@ -59,16 +56,20 @@ function App() {
           <th>Popularity</th>
           <th>Action</th>
         </tr>
-        {contacts.map((contact) => (
-          <tr key={contact.id}>
-            <td>
-              <img src={contact.pictureUrl} width="80px" alt={contact.name} />
-            </td>
-            <td>{contact.name}</td>
-            <td>{contact.popularity.toFixed(2)}</td>
-            <td><button onClick={deleteThis}>DELETE</button> </td>
-          </tr>
-        ))}
+        {atual.map((artista) => {
+          return (
+            <tr key={artista.key}>
+              <td>
+                <img src={artista.pictureUrl} width="80px" alt={artista.name} />
+              </td>
+              <td>{artista.name}</td>
+              <td>{artista.popularity.toFixed(2)}</td>
+              <td>
+                <button onClick={() => deleteThis(artista.id)}>DELETE!</button>{" "}
+              </td>
+            </tr>
+          );
+        })}
       </table>
     </div>
   );
