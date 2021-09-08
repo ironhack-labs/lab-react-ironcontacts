@@ -1,5 +1,9 @@
 .App {
+  display: flex;
   text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -35,4 +39,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.addContact {
+  background-color: aliceblue;
+  border-radius: 2px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.btn-area {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
 }

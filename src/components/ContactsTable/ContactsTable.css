@@ -1,0 +1,15 @@
+.main-table {
+  padding: 10px;
+  width: 50%;
+}
+
+img {
+  width: 100px;
+}
+
+tr {
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
