@@ -1,13 +1,15 @@
 import React from "react";
 
-const TableRow = ({ pictureUrl, name, popularity }) => {
-    return (          
-        <tr>
-          <td><img src={pictureUrl} height="150"/></td>
-          <td>{name}</td>
-          <td>{popularity}</td>
-        </tr>
-    );
+const TableRow = (props) => {
+  return (
+    <tr className="contact-row">
+      <td>
+        <img src={props.contact.pictureUrl} alt={props.contact.name} />
+      </td>
+      <td>{props.contact.name}</td>
+      <td>{props.contact.popularity}</td>
+    </tr>
+  );
 };
 
 export default TableRow;
