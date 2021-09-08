@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  font-style: bold;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.contact {
+  display: flex;
+}
+
+.contactImg {
+  height: 100px;
+  width: auto;
+}
+
+.property {
+  font-weight: bold;
+  margin-left: 2%;
+}
+
+.deleteButton {
+  height: 30px;
+  margin-left: 4%;
+}

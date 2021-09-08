@@ -1,25 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import contacts from "./contacts.json";
+
+let actors = contacts.slice(0, 5)
+
+const ShowTable = () => {
+  let list = actors.map(actor => {
+    return (
+      <tr>
+        <td><img src={actor.pictureUrl} height = "50px"/></td>
+        <td>{actor.name}</td>
+        <td>{actor.popularity}</td>
+      </tr>
+    )
+  })
+  return list
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>IronContacts</h1>
+      <table>
+        <tr>
+          <th>picutre</th>
+          <th>name</th>
+          <th>popularity</th>
+        </tr>
+        <ShowTable/>
+      </table>
     </div>
   );
+}
+
+function selectRandomContact(data) {
+  let randomNumber = Math.floor(Math.random() * (data.length + 1));
+  return data[randomNumber];
 }
 
 export default App;
