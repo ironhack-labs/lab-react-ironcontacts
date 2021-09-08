@@ -16,7 +16,8 @@ const ContactsTable = ({ contactList, deleteContact }) => {
 
             <tbody>
                 {contactList.map(contact =>
-                    <TableRow 
+                    <TableRow
+                        key={contact.id} 
                         contact={contact}                        
                         deleteContact={deleteContact}
                     />
