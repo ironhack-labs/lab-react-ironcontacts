@@ -15,6 +15,13 @@ const App = () => {
   const sortByName = () =>  setContactList([...firstArr].sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
   // Sorts firstArr by popularity descending
   const sortByPop = () =>  setContactList([...firstArr].sort((a,b) => (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0)));
+  const deleteContact = (contactId) =>  {
+    const contactToDelete = firstArr.find(contact => contact.id === contactId);
+    console.log(contactToDelete);
+  }
+
+  
+  
   
   return (
     <div className="app">
@@ -24,6 +31,7 @@ const App = () => {
       <button onClick={sortByPop}>Sort By Popularity</button>
       <ContactsTable 
         contactList={firstArr}
+        deleteContact={deleteContact}        
       />
     </div>
   );

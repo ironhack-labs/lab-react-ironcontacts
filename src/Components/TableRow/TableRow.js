@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TableRow = (props) => {
+const TableRow = ({ contact, deleteContact }) => {
   return (
     <tr className="contact-row">
       <td>
-        <img src={props.contact.pictureUrl} alt={props.contact.name} />
+        <img src={contact.pictureUrl} alt={contact.name} />
       </td>
-      <td>{props.contact.name}</td>
-      <td>{props.contact.popularity}</td>
+      <td>{contact.name}</td>
+      <td>{contact.popularity.toFixed(2)}</td>
+      <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
     </tr>
   );
 };

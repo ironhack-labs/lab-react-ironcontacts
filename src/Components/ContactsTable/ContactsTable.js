@@ -2,7 +2,7 @@ import React from "react";
 import "./ContactsTable.css";
 import TableRow from "../TableRow/TableRow";
 
-const ContactsTable = props => {
+const ContactsTable = ({ contactList, deleteContact }) => {
     return(
         <table className="contacts-table">
             <thead>
@@ -10,12 +10,16 @@ const ContactsTable = props => {
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Popularity</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
             <tbody>
-                {props.contactList.map(contact =>
-                    <TableRow key={contact.id} contact={contact} />
+                {contactList.map(contact =>
+                    <TableRow 
+                        contact={contact}                        
+                        deleteContact={deleteContact}
+                    />
                 )}
             </tbody>
         </table>
