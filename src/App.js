@@ -9,19 +9,18 @@ const App = () => {
 
   // Generates random contact from larger array
   const randomContact = largerArr[Math.floor(Math.random() * largerArr.length)];
+  
   // Add Random Contact from largerArr to firstArr
   const addRandomContact = () => setContactList([...firstArr, randomContact]);
+  
   // Sorts firstArr by name ascending
   const sortByName = () =>  setContactList([...firstArr].sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
+  
   // Sorts firstArr by popularity descending
   const sortByPop = () =>  setContactList([...firstArr].sort((a,b) => (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0)));
-  const deleteContact = (contactId) =>  {
-    const contactToDelete = firstArr.find(contact => contact.id === contactId);
-    console.log(contactToDelete);
-  }
-
   
-  
+  // Deletes contact
+  const deleteContact = (contactId) => setContactList([...firstArr].filter(contact => contact.id !== contactId));
   
   return (
     <div className="app">
