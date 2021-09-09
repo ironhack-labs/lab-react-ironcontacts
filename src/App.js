@@ -2,6 +2,7 @@ import { useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import contacts from "./contacts.json";
+import { act } from 'react-dom/test-utils';
 
 function App() {
   let [actors, setActors] = useState(contacts.slice(0,5));
@@ -31,10 +32,30 @@ function App() {
     setActors(copyOfActors)
   }
 
+  // Sort by Name Function
+  function sortNameContact() {
+    let copyOfActors = [...actors];
+    copyOfActors.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+    setActors(copyOfActors);
+  }
+
+  // Sort by Popularity Function
+  function sortByPopularity() {
+    let copyOfActors = [...actors];
+    copyOfActors.sort((a, b) => {
+      return b.popularity - a.popularity;
+    })
+    setActors(copyOfActors);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick = {randomContact}>Add Random Contact</button>
+      <button onClick = {randomContact}>Add Random Contact</button> &nbsp; 
+      <button onClick = {sortNameContact}>Sort by Name</button> &nbsp; 
+      <button onClick = {sortByPopularity}>Sort by Popularity</button>
       <table>
         <tr>
           <th>Picture</th>
