@@ -15,6 +15,7 @@ function App() {
           <td><img src={actor.pictureUrl} width="50"></img></td>
           <td>{actor.name}</td>
           <td>{actor.popularity}</td>
+          <td><button onClick={deleteActor}>Delete</button></td>
         </tr>
       )
     })
@@ -50,6 +51,13 @@ function App() {
     setActors(copyOfActors);
   }
 
+  // Delete Actor Function
+  const deleteActor = (i) => {
+    let copyOfActors = [...actors];
+    copyOfActors.splice(i, 1);
+    setActors(copyOfActors);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -61,6 +69,7 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Action</th>
         </tr>
         <ShowTable />
       </table>
