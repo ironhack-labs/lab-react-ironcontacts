@@ -1,0 +1,16 @@
+.contacts-container {
+ margin-top: 40px;   
+}
+
+.contact-row {
+    text-align: center;
+}
+
+.contact-row td{
+    text-align: center;
+}
+
+.contact-row img{
+    width: 150px;
+}
+
