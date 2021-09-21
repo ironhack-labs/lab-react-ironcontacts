@@ -1,0 +1,11 @@
+.profile-item img {
+    width: 20%;
+    height: 40%;
+    object-fit: cover;
+}
+
+.column {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
