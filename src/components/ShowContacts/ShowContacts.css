@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1454117096348-e4abbeba002c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+}
+
+.table_container h2 {
+  font-size: 4rem;
+}
+
+.contacts-table {
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  font-size: 1.8rem;
+}
+
+.topButton {
+  background-color: grey;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.5rem;
+  margin: 25px 10px 10px 10px;
+  border-radius: 10px;
+}
+
+.topButton:hover {
+  color: yellow;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: grey;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.deleteButton:hover {
+  background-color: crimson;
+  cursor: pointer;
+}
+
+.contacts-table img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 0px 15px 5px;
+}
+
+table {
+  border: 5px solid black;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 300px 5px;
+}
+
+tr {
+  height: 200px;
+}
+
+td {
+  border: none;
+}
+
+tr:nth-child(even) {
+  background: lightgray;
+}
+
+tr:nth-child(odd) {
+  background: white;
+}
