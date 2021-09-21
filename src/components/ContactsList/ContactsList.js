@@ -110,8 +110,8 @@ class ContactsList extends React.Component {
 
                 <div className="buttons-container">
                     <Button action={() => this.addRandomContact()} text="Add new contact" />
-                    <Button action={() => this.sort("name")} text="Sort by Name" />
-                    <Button action={() => this.sort("popularity")} text="Sort by Popularity" />
+                    <Button action={() => this.sort("name")} text={this.state.descendingName ? "Sort by Name Ascending" : "Sort by Name Descending"} />
+                    <Button action={() => this.sort("popularity")} text={this.state.descendingPopularity ? "Sort by Popularity Ascending" : "Sort by Popularity Descending"} />
                 </div>
                 
 
