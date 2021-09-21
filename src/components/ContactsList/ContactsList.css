@@ -1,11 +1,49 @@
-.profile-item img {
-    width: 20%;
-    height: 40%;
-    object-fit: cover;
+
+h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    color: rgb(74, 111, 141);
+    margin-top: 2rem;
 }
 
-.column {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
+table {
+    width: 50%;
+    margin: auto
 }
+
+table img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+tr.spaceUnder>td,
+tr.spaceUnder>th
+ {
+  padding-bottom: 1em;
+}
+
+.profile-item > * > * {
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-item > * {
+    text-align: center;
+}
+
+
+th {
+    font-size: 2rem;
+}
+
+.buttons-container {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+

@@ -1,0 +1,13 @@
+button {
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(74, 111, 141);
+    color: white;
+    border: 1px solid black;
+    box-shadow: none;
+    outline: inherit;
+    border-radius: 5px;
+}

@@ -10,7 +10,6 @@ function App() {
       </header>
         <main className="main-section">
           <ContactList />
-          
         </main>
     </div>
   );
