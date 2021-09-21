@@ -1,8 +1,9 @@
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
-.App img {
-  height: 100px;
+body {
+  text-align: center;
 }
+
