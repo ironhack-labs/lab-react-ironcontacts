@@ -24,26 +24,55 @@ class App extends React.Component {
   }
 
 
-  sortByName = () => {
+  sortBy = (key) => {
 
     const contactsCopy = [...this.state.contacts];
 
     this.setState({
       ...this.state,
-      contacts: contactsCopy.sort((contact1, contact2) => contact1.name.localeCompare(contact2.name))
+      contacts: contactsCopy.sort((contact1, contact2) => {
+
+        if (key === 'name') return contact1.name.localeCompare(contact2.name)
+        else if (key === 'popularity') return contact2.popularity - contact1.popularity
+
+      })
     })
+
+    // if (key === 'name') {
+    //   this.setState({
+    //     ...this.state,
+    //     contacts: contactsCopy.sort((contact1, contact2) => contact1.name.localeCompare(contact2.name))
+    //   })
+    // } else if (key === 'popularity') {
+    //   this.setState({
+    //     ...this.state,
+    //     contacts: contactsCopy.sort((contact1, contact2) => contact2.popularity - contact1.popularity)
+    //   })
+    // }
+
   }
 
 
-  sortByPopularity = () => {
+  // sortByName = () => {
 
-    const contactsCopy = [...this.state.contacts];
+  //   const contactsCopy = [...this.state.contacts];
 
-    this.setState({
-      ...this.state,
-      contacts: contactsCopy.sort((contact1, contact2) => contact2.popularity - contact1.popularity)
-    })
-  }
+  //   this.setState({
+  //     ...this.state,
+  //     contacts: contactsCopy.sort((contact1, contact2) => contact1.name.localeCompare(contact2.name))
+  //   })
+  // }
+
+
+  // sortByPopularity = () => {
+
+  //   const contactsCopy = [...this.state.contacts];
+
+  //   this.setState({
+  //     ...this.state,
+  //     contacts: contactsCopy.sort((contact1, contact2) => contact2.popularity - contact1.popularity)
+  //   })
+  // }
 
 
   deleteContact = (id) => {
@@ -61,8 +90,8 @@ class App extends React.Component {
         <h1>IronContacts</h1>
         <br />
         <button onClick={() => this.addRandomContact()}>Add Random Contact</button>
-        <button onClick={() => this.sortByName()}>Sort By Name</button>
-        <button onClick={() => this.sortByPopularity()}>Sort By Popularity</button>
+        <button onClick={() => this.sortBy('name')}>Sort By Name</button>
+        <button onClick={() => this.sortBy('popularity')}>Sort By Popularity</button>
         <br />
         <table>
           <thead>
