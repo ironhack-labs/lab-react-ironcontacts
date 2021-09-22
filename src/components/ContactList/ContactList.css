@@ -1,0 +1,19 @@
+.card {
+    justify-content: center;
+    border: black;
+}
+
+.image-card {
+    width: 90px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.button-card{
+    border-radius: 15px;
+    margin: 50px;
+    background-color: lightgray;
+}
+
+
