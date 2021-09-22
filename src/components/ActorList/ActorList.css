@@ -1,0 +1,17 @@
+*{
+    padding: 8px;
+    position: static;
+
+}
+.imageO{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.buttonO {
+    background-color: #212529;
+    margin: 5px;
+    color: white
+}
