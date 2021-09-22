@@ -1,0 +1,9 @@
+table {
+    border: 2px dashed gray;
+    margin-top: 40px;
+}
+
+tr>th{
+    color: rgb(205, 199, 199);
+    font-weight: 900;
+}

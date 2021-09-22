@@ -1,0 +1,19 @@
+.img {
+    height: 200px;
+    filter:grayscale(100%);
+    border-radius: 40px
+}
+
+button{
+    background-color: black;
+    color: white;
+    border: 3px solid gray;
+    border-radius: 10px;
+    width: 100%;
+}
+
+tr>td {
+    font-weight: bolder;
+    color: grey;
+}
+
