@@ -1,0 +1,6 @@
+.flex-container {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+}
