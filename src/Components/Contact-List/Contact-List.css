@@ -1,0 +1,23 @@
+.contact-image{
+    height: 150px;
+}
+
+.center-table{
+margin: auto;
+}
+
+.thead{
+    font-weight: 900;
+}
+
+.center{
+    text-align: center;
+}
+.center-button{
+margin-left: 550px;
+}
+
+.contact-card{
+    padding-left: 400px;
+    padding-right: 400px;
+}
