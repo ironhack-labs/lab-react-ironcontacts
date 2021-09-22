@@ -1,0 +1,25 @@
+.contact-image {
+    height: 100%;
+    width: 100px;
+    object-fit: cover;
+}
+th {
+    text-align: center;
+}
+
+table {
+    background-color: rgba(36, 36, 36, 0.945);
+}
+.first-row {
+    text-align: center;
+}
+.btn {
+    padding: 7px;
+    margin: 2px;
+    background-color: rgb(230, 137, 15);
+    box-shadow: rgb(20, 20, 20);
+    border-style: none;
+}
+.head {
+    background-color: rgb(230, 137, 15);
+}
