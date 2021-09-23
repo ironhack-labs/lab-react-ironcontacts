@@ -37,6 +37,13 @@ class App extends React.Component {
     this.setState({ ironContacts: sortedByPop });
   };
 
+  deleteContact = (id) => {
+    let newContacts = this.state.ironContacts.filter(
+      (contact) => contact.id !== id
+    );
+    this.setState({ ironContacts: newContacts });
+  };
+
   render() {
     return (
       <div>
@@ -49,16 +56,26 @@ class App extends React.Component {
           </tr>
           {this.state.ironContacts.map((contact) => {
             return (
-              <tr key={contact.id}>
-                <img
-                  style={{ width: "50px", height: "70px" }}
-                  src={contact.pictureUrl}
-                  alt=""
-                />
+              <div>
+                <tr key={contact.id}>
+                  <img
+                    style={{ width: "50px", height: "70px" }}
+                    src={contact.pictureUrl}
+                    alt=""
+                  />
 
-                <th>{contact.name}</th>
-                <th>{contact.popularity}</th>
-              </tr>
+                  <th>{contact.name}</th>
+                  <th>{contact.popularity}</th>
+                </tr>
+                <button
+                  onClick={() => {
+                    this.deleteContact(contact.id);
+                  }}
+                >
+                  Delete this contact
+                </button>
+                ;
+              </div>
             );
           })}
         </table>
