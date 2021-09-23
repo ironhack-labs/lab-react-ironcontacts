@@ -21,6 +21,22 @@ class App extends React.Component {
     this.setState({ ironContacts: newContacts });
   };
 
+  sortByName = () => {
+    let toSortByName = [...this.state.ironContacts];
+    let sortedByName = toSortByName.sort((contactA, contactB) =>
+      contactA.name > contactB.name ? 1 : contactB.name > contactA.name ? -1 : 0
+    );
+    this.setState({ ironContacts: sortedByName });
+  };
+
+  sortByPopularity = () => {
+    let toSortByPop = [...this.state.ironContacts];
+    let sortedByPop = toSortByPop.sort(
+      (contactA, contactB) => contactB.popularity - contactA.popularity
+    );
+    this.setState({ ironContacts: sortedByPop });
+  };
+
   render() {
     return (
       <div>
@@ -47,6 +63,8 @@ class App extends React.Component {
           })}
         </table>
         <button onClick={this.addRandomContact}>Add random contact</button>;
+        <button onClick={this.sortByName}>Sort by name</button>;
+        <button onClick={this.sortByPopularity}>Sort by popularity</button>;
       </div>
     );
   }
