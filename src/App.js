@@ -12,14 +12,6 @@ class App extends React.Component {
 
   getActors = () =>
     this.state.contacts.map((actor, i) => {
-      const handelRemoveActor = () => {
-        const copy = [...this.state.contacts];
-        copy.splice(i, 1);
-        this.setState({
-          contacts: copy,
-        });
-      };
-
       return (
         <tr key={i}>
           <td>
@@ -32,13 +24,21 @@ class App extends React.Component {
           <td>{actor.name}</td>
           <td>{actor.popularity}</td>
           <td>
-            <button onClick={handelRemoveActor}>Delete</button>
+            <button onClick={() => this.handelRemoveActor(i)}>Delete</button>
           </td>
         </tr>
       );
     });
 
-  handleAddMovie = () => {
+  handelRemoveActor = (i) => {
+    const copy = [...this.state.contacts];
+    copy.splice(i, 1);
+    this.setState({
+      contacts: copy,
+    });
+  };
+
+  handleAddActor = () => {
     const randomIndex =
       this.state.initNumberOfActors +
       ~~(Math.random() * (contacts.length - this.state.initNumberOfActors));
@@ -70,7 +70,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <div className='buttons-container'>
-          <button onClick={this.handleAddMovie}>Add Random Contact</button>
+          <button onClick={this.handleAddActor}>Add Random Contact</button>
           <button onClick={this.handleSortByName}>Sort by Name</button>
           <button onClick={this.handleSortByPopularity}>
             Sort by popularity
