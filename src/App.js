@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { Fragment } from "react";
+import contacts from "./contacts.json";
 
 function App() {
+  const [listContacts, setListContacts] = useState(contacts.slice(0, 5));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {listContacts.map((contact, index) => {
+        return (
+          <Fragment key={index}>
+            <img style={{ width: "10%" }} src={contact.pictureUrl} alt="" />
+            <h1>name: {contact.name}</h1>;
+            <h1>Popularity{contact.popularity}</h1>
+          </Fragment>
+        );
+      })}
+      ;
     </div>
   );
 }
