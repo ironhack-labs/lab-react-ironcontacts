@@ -16,9 +16,23 @@ function App() {
     setListContacts(newArr);
   }
 
+  function sortByName() {
+    const newArr = [...listContacts];
+    newArr.sort((a, b) => a.name.localeCompare(b.name));
+    setListContacts(newArr);
+  }
+
+  function sortByPopularity() {
+    const newArr = [...listContacts];
+    newArr.sort((a, b) => a.popularity.toString().localeCompare(b.popularity));
+    setListContacts(newArr);
+  }
+
   return (
     <div>
       <button onClick={addContact}>Add new contact</button>
+      <button onClick={sortByName}>Sort by Name</button>
+      <button onClick={sortByPopularity}>Sort by Popularity</button>
       {listContacts.map((contact, index) => {
         return (
           <Fragment key={index}>
@@ -30,7 +44,7 @@ function App() {
                 <img style={{ width: "10%" }} src={contact.pictureUrl} alt="" />
               </tr>
               <tr>name: {contact.name}</tr>
-              <tr>Popularity{contact.popularity}</tr>
+              <tr>Popularity: {contact.popularity}</tr>
             </table>
           </Fragment>
         );
