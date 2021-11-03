@@ -22,6 +22,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .buttons button {
@@ -57,5 +58,20 @@ img {
 
 
 td {
+  padding: 1rem;
   text-align: center;
+}
+
+.delete-btn button {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  color: rgb(34, 34, 34);
+  background-color: white;
+  border: 1px solid white;
+  padding: 0.5rem;
+}
+
+.delete-btn button:hover {
+    color: white;
+  background-color: rgb(34, 34, 34);
 }
