@@ -1,57 +1,73 @@
 import './App.css';
 import contacts from "./contacts.json";
+import React from "react";
 
 const initialContacts = contacts.slice(0,5)
-// console.log(initialContacts[5].pictureUrl)
 
-function App() {
-  return (
+// console.log(initialContacts)
 
-    <div className="container">
+function getActorRandomly(){
+  return contacts[Math.floor(Math.random()*contacts.length)]
+}
+// console.log(getRandomActor(contacts))
 
-      <table className="table">
-        <h1>IronContacts</h1>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-        </tr>
-        <tr>
-          <td><img src={initialContacts[0].pictureUrl} alt="" /></td>
-          <td>{initialContacts[0].name}</td>
-          <td>{initialContacts[0].popularity}</td>
-        </tr>
+class Actors extends React.Component {
+   render() {
+    return (
+          <tr>
+           <td><img src={this.props.pictureUrl} alt="" /></td>
+           <td>{this.props.name}</td>
+           <td>{this.props.popularity}</td>
+         </tr>
+    )
+  }
+}
 
-        <tr>
-          <td><img src={initialContacts[1].pictureUrl} alt="" /></td>
-          <td>{initialContacts[1].name}</td>
-          <td>{initialContacts[1].popularity}</td>
-        </tr>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialActors: initialContacts
+    };
+  }
 
-        <tr>
-          <td><img src={initialContacts[2].pictureUrl} alt="" /></td>
-          <td>{initialContacts[2].name}</td>
-          <td>{initialContacts[2].popularity}</td>
-        </tr>
+  randomActor = () => {
+    const newArr = this.state.initialActors;
+    // console.log("this is newArr",newArr)
+    let actorRandom = getActorRandomly();
+    // console.log("this is actorRandom", actorRandom)
+    this.setState((prevState, props)=>{
+     return newArr.push(actorRandom)
+    })
+    
+  }
 
-        <tr>
-          <td><img src={initialContacts[3].pictureUrl} alt="" /></td>
-          <td>{initialContacts[3].name}</td>
-          <td>{initialContacts[3].popularity}</td>
-        </tr>
+  
+  render() {
+    return (
+      <div className="container">
+        <table className="table">
+          <h1>IronContacts</h1>
+          <button onClick={this.randomActor}>Add Random Contact</button>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
 
-        <tr>
-          <td><img src={initialContacts[4].pictureUrl} alt="" /></td>
-          <td>{initialContacts[4].name}</td>
-          <td>{initialContacts[4].popularity}</td>
-        </tr>
-
-      </table>
-
-    </div>
+          <tbody>
+            {this.state.initialActors.map((actor) => {
+              return <Actors key={actor.id} {...actor} />
+            })}
+          </tbody>
+        </table>
+      </div>
 
 
-  );
+    )
+
+  }
+
 }
 
 export default App;
