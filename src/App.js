@@ -1,61 +1,49 @@
+import React, { Component } from "react";
 import "./App.css";
 import contacts from "./contacts.json";
 
-let shortContactsList = contacts.splice(0,5)
-console.log(shortContactsList[0].name)
+var ShowContact;
 
-// function Table(){
-//   return (
-//     <table className="table">
-//         <thead>
-//           <tr>
-//             <th>
-//               <h2>Picture</h2>
-//             </th>
-//             <th>
-//               <h2>Name</h2>
-//             </th>
-//             <th>
-//               <h2>Popularity</h2>
-//             </th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           <tr>
-//             <td>1</td>
-//             <td>2</td>
-//             <td>3</td>
-//           </tr>
-//           <tr>
-//             <td>1</td>
-//             <td>2</td>
-//             <td>3</td>
-//           </tr>
-//           <tr>
-//             <td>1</td>
-//             <td>2</td>
-//             <td>3</td>
-//           </tr>
-//           <tr>
-//             <td>1</td>
-//             <td>2</td>
-//             <td>3</td>
-//           </tr>
-//           <tr>
-//             <td>1</td>
-//             <td>2</td>
-//             <td>3</td>
-//           </tr>
-//         </tbody>
-//       </table>
-//   )
-// }
+let shortContactsList = contacts.splice(0, 5);
+console.log(shortContactsList);
 
+function randomContact() {
+  let randomPeople = contacts[Math.floor(Math.random() * contacts.length)];
+  console.log(randomPeople);
+}
+
+class Table extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: "no", // real app better use boolean
+    };
+  }
+
+  render(props) {
+    return (
+      <>
+        <tr>
+          <td>
+            <img
+              className="thumbnails"
+              src={this.props.pictureUrl}
+              alt="profil"
+            />
+          </td>
+          <td>{this.props.name}</td>
+          <td>{this.props.popularity}</td>
+        </tr>
+      </>
+    );
+  }
+}
 
 function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={randomContact}>Random contact</button>
       <table className="table">
         <thead>
           <tr>
@@ -71,31 +59,10 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><img className="thumbnails" src={shortContactsList[0].pictureUrl}/></td>
-            <td>{shortContactsList[0].name}</td>
-            <td>{shortContactsList[0].popularity}</td>
-          </tr>
-          <tr>
-            <td><img className="thumbnails" src={shortContactsList[1].pictureUrl}/></td>
-            <td>{shortContactsList[1].name}</td>
-            <td>{shortContactsList[1].popularity}</td>
-          </tr>
-          <tr>
-            <td><img className="thumbnails" src={shortContactsList[2].pictureUrl}/></td>
-            <td>{shortContactsList[2].name}</td>
-            <td>{shortContactsList[2].popularity}</td>
-          </tr>
-          <tr>
-            <td><img className="thumbnails" src={shortContactsList[3].pictureUrl}/></td>
-            <td>{shortContactsList[3].name}</td>
-            <td>{shortContactsList[3].popularity}</td>
-          </tr>
-          <tr>
-            <td><img className="thumbnails" src={shortContactsList[4].pictureUrl}/></td>
-            <td>{shortContactsList[4].name}</td>
-            <td>{shortContactsList[4].popularity}</td>
-          </tr>
+          {shortContactsList.map((contact) => {
+          console.log(contact.name);
+          return <Table />
+          })
         </tbody>
       </table>
     </div>
