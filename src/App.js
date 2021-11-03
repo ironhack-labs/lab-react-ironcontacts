@@ -1,24 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import contacts from "./contacts.json";
+
+
+let shortArr = contacts.slice(0, 5)
+console.log(shortArr);
+
+function NewContacts(props) {
+    return(
+      <>
+        <tr>
+          <img src={props.pictureUrl} width="50px"/>
+          <td>{props.name}</td>
+          <td>{props.popularity.toFixed(2)}</td>
+        </tr>
+      </>
+    )
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <h1>Iron Contacts</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+              {shortArr.map((elem) => {
+                return (
+                  <NewContacts 
+                    pictureUrl = {elem.pictureUrl} 
+                    name = {elem.name} 
+                    popularity = {elem.popularity}/>);
+              })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 
