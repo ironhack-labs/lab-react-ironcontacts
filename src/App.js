@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import contacts from './contacts.json'
+
+const firstFiveContacts = contacts.slice(0,5)
+console.log(firstFiveContacts);
+
+class Contact extends React.Component {
+  render() {
+    return (
+      <tr>
+        <td>
+          <img src={this.props.pictureUrl} alt="profile" />
+        </td>
+        <td>{this.props.name}</td>
+        <td>{this.props.popularity.toFixed(2)}</td>
+      </tr>
+    );
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>IronContacts</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {firstFiveContacts.map((contact) => {
+            return <Contact key={contact.id} {...contact} />;
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
