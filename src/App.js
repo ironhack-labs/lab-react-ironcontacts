@@ -4,7 +4,6 @@ import React from 'react'
 
 
 let shortArr = contacts.slice(0, 5)
-// console.log(shortArr);
 
 function NewContacts(props) {
     return(
@@ -27,10 +26,17 @@ class App extends React.Component {
     }
   }
 
-  newActor = () => {
+  addNewActor = () => {
     this.setState((prevState)=>{
        const randomActor = contacts[Math.floor(Math.random()*contacts.length)]
        return prevState.newActorArr.push(randomActor)
+    })
+  }
+  
+  sortActors = () => {
+    this.setState((prevState)=>{
+      const sortedList = prevState.newActorArr.sort((a, b) => a.name.localeCompare(b.name))
+      return {newActorArr: sortedList}
     })
   }
 
@@ -39,7 +45,8 @@ class App extends React.Component {
       <>
         <div className="App">
           <h1>Iron Contacts</h1>
-          <button onClick={this.newActor}>Add new actor</button>
+          <button onClick={this.addNewActor}>Add New Actor</button>
+          <button onClick={this.sortActors}>Sort Actors</button>
         <hr/>
           <table>
             <thead>
