@@ -18,9 +18,25 @@ h1 {
 }
 
 .buttons {
+  margin: 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.buttons button {
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(34, 34, 34);
+  background-color: white;
+  border: 1px solid white;
+  padding: 0.5rem;
+}
+
+.buttons button:hover {
+  color: white;
+  background-color: rgb(34, 34, 34);
 }
 
 table {
