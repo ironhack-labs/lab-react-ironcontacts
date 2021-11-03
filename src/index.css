@@ -17,6 +17,12 @@ h1 {
   outline: 1px solid white;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 table {
   margin: 0 auto;
   width: 50vw;
