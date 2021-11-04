@@ -9,9 +9,11 @@ function NewContacts(props) {
     return(
       <>
         <tr>
-          <img src={props.pictureUrl} width="50px"/>
+          <td><img src={props.pictureUrl} width="50px" alt="thisImage"/></td>
           <td>{props.name}</td>
+          <td>{props.id}</td>
           <td>{props.popularity.toFixed(2)}</td>
+          <td><button onClick={props.deleteBtn}>Delete</button></td>
         </tr>
       </>
     )
@@ -40,6 +42,18 @@ class App extends React.Component {
     })
   }
 
+  deleteActors = (reqID) => {
+    this.setState((prevState)=>{
+      const newArr = prevState.newActorArr.filter(function(item) {
+        return item.id !== reqID 
+      });
+        console.log(newArr);
+        return {newActorArr: newArr}
+    })
+  }
+
+
+
   render(){
     return (
       <>
@@ -53,16 +67,20 @@ class App extends React.Component {
               <tr>
                 <th>Picture</th>
                 <th>Name</th>
+                <th>Id</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-                {shortArr.map((elem) => {
+                {this.state.newActorArr.map((elem) => {
                   return (
                     <NewContacts 
                       pictureUrl = {elem.pictureUrl} 
                       name = {elem.name} 
-                      popularity = {elem.popularity}/>);
+                      id = {elem.id} 
+                      popularity = {elem.popularity}
+                      deleteBtn = {() => this.deleteActors(elem.id)}/>)
                 })}
             </tbody>
           </table>
