@@ -32,12 +32,24 @@ class App extends React.Component{
       return {newListContacts : [randomContact, ...prevState.newListContacts]}
     })
   }
+
+  sortByName = ()=>{
+    this.setState((prevState, props)=>{
+      const sortedList = prevState.newListContacts.sort((a,b)=>{
+        return a.name - b.name
+      })
+      return {newListContacts: sortedList}
+    })
+  }
   render(){
     return (
       <>
         <div className="App">
           <h1>IronContacts</h1>
-          <button onClick={this.createRandomContact}>Add Random Contact</button>
+          <div className="buttons">
+            <button onClick={this.createRandomContact}>Add Random Contact</button>
+            <button onClick={this.sortByName}>Sort by Name</button>
+          </div>
           <table>
             <thead>
               <tr>
