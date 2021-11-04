@@ -41,6 +41,15 @@ class App extends React.Component{
       return {newListContacts: sortedList}
     })
   }
+
+  sortByPopularity = ()=>{
+    this.setState((prevState, props)=>{
+      const sortedList = prevState.newListContacts.sort((a,b)=>{
+        return a.popularity > b.popularity
+      })
+      return {newListContacts: sortedList}
+    })
+  }
   render(){
     return (
       <>
@@ -49,6 +58,7 @@ class App extends React.Component{
           <div className="buttons">
             <button onClick={this.createRandomContact}>Add Random Contact</button>
             <button onClick={this.sortByName}>Sort by Name</button>
+            <button onClick={this.sortByPopularity}>Sort by Popularity</button>
           </div>
           <table>
             <thead>
