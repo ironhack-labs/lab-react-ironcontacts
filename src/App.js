@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import contacts from "./contacts.json";
+import AddContact from "./AddContact";
 
 const firstFiveContacts = contacts.slice(0, 5);
 console.log(firstFiveContacts);
@@ -17,7 +18,7 @@ class Contact extends React.Component {
           <img src={this.props.pictureUrl} alt="profile" />
         </td>
         <td>{this.props.name}</td>
-        <td>{this.props.popularity.toFixed(2)}</td>
+        <td>{this.props.popularity}</td>
         <td className="delete-btn">
           <button onClick={this.props.clickToDelete}>Delete</button>
         </td>
@@ -69,6 +70,11 @@ class App extends React.Component {
     this.setState({ contactsDisplayed: contactsCopy });
   }
 
+  createContact = (contact) => {
+    const contactsCopy = [...this.state.contactsDisplayed, contact];
+    this.setState({contactsDisplayed: contactsCopy})
+  }
+
   render() {
     return (
       <div className="container">
@@ -77,6 +83,9 @@ class App extends React.Component {
           <button onClick={this.addRandomContact}>Add Random Contact</button>
           <button onClick={this.sortByName}>Sort by Name</button>
           <button onClick={this.sortByPopularity}>Sort by Popularity</button>
+        </div>
+        <div>
+          <AddContact addContactHandler={this.createContact}/>
         </div>
         <table>
           <thead>
