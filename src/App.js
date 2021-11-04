@@ -27,7 +27,6 @@ let Contact = (props) => {
 
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -45,12 +44,22 @@ class App extends React.Component {
     })
   }
 
+  sortByName = () => {
+    this.setState((prevState) => {
+      const sortedList = prevState.contactsList.sort( function (a, b)  {
+        return a.name.localeCompare(b.name)
+      })
+      return { contactsList: sortedList}      
+    })
+  }
+
 render() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <table className="table">
         <button onClick={this.randomContact}>Random contact</button>
+        <button onClick={this.sortByName}>Sort by name</button>
         <thead>
           <tr>
             <th>
