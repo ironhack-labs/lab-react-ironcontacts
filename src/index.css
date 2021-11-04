@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.table{
+  border: 1px solid black;
+  margin: 5% 30%;
+}
+
+.table-head{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+.contact-details {
+  align-items: center;
+  border: 1px solid black;
+  padding: 20px;
+  margin: auto 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-details img{
+  max-width:50px;
+  margin: 10px auto;
+}
