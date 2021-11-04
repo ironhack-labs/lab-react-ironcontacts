@@ -4,12 +4,31 @@ import contacts from "./contacts.json";
 
 let shortContactsList = contacts.splice(0, 5)
 
-// function randomContact() {
-//   let randomPeople = contacts[Math.floor(Math.random() * contacts.length)];
-//   console.log(randomPeople);
-// }
 
-class Table extends React.Component {
+let Contact = (props) => {
+
+      return (
+        <>
+          <tr>
+            <td>
+              <img
+                className="thumbnails"
+                src={props.pictureUrl}
+                alt="profil"
+              />
+            </td>
+            <td>{props.name}</td>
+            <td>{props.popularity}</td>
+          </tr>
+        </>
+      );
+    }
+
+
+
+
+
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,42 +37,20 @@ class Table extends React.Component {
   }
 
   randomContact = () => {
-    let randomPeople = contacts[Math.floor(Math.random() * contacts.length)];
-    
-    this.setState((prevState, props) => {
-      const newArr = prevState.contactsList.push(randomPeople)
-      return {contactsList: newArr}
+    const randomPeople = contacts[Math.floor(Math.random() * contacts.length)];
+
+    this.setState((prevState) => {
+      const newList = [...prevState.contactsList, randomPeople]
+      return { contactsList: newList }
     })
   }
 
-  render(props) {
-    return (
-      <>
-        <button onClick={this.randomContact}>Random contact</button>
-        <tr>
-          <td>
-            <img
-              className="thumbnails"
-              src={this.props.pictureUrl}
-              alt="profil"
-            />
-          </td>
-          <td>{this.props.name}</td>
-          <td>{this.props.popularity}</td>
-        </tr>
-      </>
-    );
-  }
-}
-
-
-
-
-function App() {
+render() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <table className="table">
+        <button onClick={this.randomContact}>Random contact</button>
         <thead>
           <tr>
             <th>
@@ -68,14 +65,14 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {shortContactsList.map((contact) => {
-            console.log(contact.name);
-            return <Table pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/>
+          {this.state.contactsList.map((contact) => {
+            return <Contact pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/>
           })}
         </tbody>
       </table>
     </div>
   );
+        }
 }
 
 export default App;
