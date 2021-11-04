@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import contacts from "./contacts.json";
+import React from 'react';
+
+
+const fiveContacts = contacts.slice(0, 5);
+console.log(fiveContacts);
+console.log(fiveContacts[3]);
+
+class Contact extends React.Component {
+
+  render() {
+    return (
+      <tr key="contact.id">
+        <td>
+          <img src={this.props.pictureURl} alt="" />
+        </td>
+        <td>{this.props.name}</td>
+        <td>{this.props.popularity}</td>
+      </tr>
+    );
+  }
 }
+
+class App extends React.Component {
+ 
+
+  render() {
+    return (
+      <div className="container">
+        <h1>Iron Contacts</h1>
+        <table>
+          <thead>
+           <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            </tr>
+           </thead>
+          <tbody>
+          {/* <h1>hello</h1> */}
+            <Contact
+            name={fiveContacts.name}
+            image={fiveContacts.imageUrl}
+            popularity={fiveContacts.popularity}
+            />
+          </tbody>
+        </table>
+
+      </div>
+    );
+  }
+}
+
 
 export default App;
