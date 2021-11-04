@@ -5,12 +5,6 @@ import React from "react";
 const initialContacts = contacts.slice(0,5)
 
 // console.log(initialContacts)
-
-function getActorRandomly(){
-  return contacts[Math.floor(Math.random()*contacts.length)]
-}
-// console.log(getRandomActor(contacts))
-
 class Actors extends React.Component {
    render() {
     return (
@@ -23,6 +17,11 @@ class Actors extends React.Component {
   }
 }
 
+function getActorRandomly(){
+  return contacts[Math.floor(Math.random()*contacts.length)]
+}
+// console.log(getRandomActor(contacts))
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -32,23 +31,22 @@ class App extends React.Component {
   }
 
   randomActor = () => {
-    const newArr = this.state.initialActors;
-    // console.log("this is newArr",newArr)
-    let actorRandom = getActorRandomly();
-    // console.log("this is actorRandom", actorRandom)
-    this.setState((prevState, props)=>{
-     return newArr.push(actorRandom)
-    })
-    
+    this.setState((prevState) => {
+      let actorRandom = getActorRandomly();
+      const newListActors = [...prevState.initialActors, actorRandom]
+      return {initialActors: newListActors}
+    })    
   }
-
   
   render() {
     return (
       <div className="container">
-        <table className="table">
+        <div className="table">
           <h1>IronContacts</h1>
           <button onClick={this.randomActor}>Add Random Contact</button>
+          <button onClick={this.sortName}>sort the table by name</button>
+          <button >sort by popularity</button>
+          <table>
           <tr>
             <th>Picture</th>
             <th>Name</th>
@@ -61,6 +59,7 @@ class App extends React.Component {
             })}
           </tbody>
         </table>
+        </div>
       </div>
 
 
