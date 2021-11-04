@@ -49,7 +49,16 @@ class App extends React.Component {
       const sortedList = prevState.contactsList.sort( function (a, b)  {
         return a.name.localeCompare(b.name)
       })
-      return { contactsList: sortedList}      
+      return { contactsList: sortedList}
+    })
+  }
+
+  sortByRating = () => {
+    this.setState((prevState) => {
+      const sortedList = prevState.contactsList.sort(function (a, b) {
+        return a.popularity - b.popularity
+      })
+      return { contactsList: sortedList }
     })
   }
 
@@ -60,6 +69,7 @@ render() {
       <table className="table">
         <button onClick={this.randomContact}>Random contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
+        <button onClick={this.sortByRating}>Sort by rating</button>
         <thead>
           <tr>
             <th>
