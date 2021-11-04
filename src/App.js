@@ -1,6 +1,8 @@
 import './App.css';
 import contacts from "./contacts.json";
 import React from 'react'
+import AddContacts from './addContact'
+
 
 
 let shortArr = contacts.slice(0, 5)
@@ -11,8 +13,8 @@ function NewContacts(props) {
         <tr>
           <td><img src={props.pictureUrl} width="50px" alt="thisImage"/></td>
           <td>{props.name}</td>
-          <td>{props.id}</td>
-          <td>{props.popularity.toFixed(2)}</td>
+          {/* <td>{props.id}</td> */}
+          <td>{(Math.round(props.popularity * 100) / 100)}</td>
           <td><button onClick={props.deleteBtn}>Delete</button></td>
         </tr>
       </>
@@ -42,6 +44,24 @@ class App extends React.Component {
     })
   }
 
+  
+
+  createActor = (contactInfo) => {
+    // const arrContactId = this.state.newActorArr.map(actor => actor.id)
+    // contactInfo.id = Math.max(...arrContactId) +  1;
+    
+    contactInfo.id = this.state.newActorArr.length + 1
+    contactInfo.imgURL = '';
+
+
+    this.setState((prevState)=>{
+
+        const newList = [contactInfo, ...prevState.newActorArr];
+
+        return {newActorArr: newList}
+    })
+  }
+
   deleteActors = (reqID) => {
     this.setState((prevState)=>{
       const newArr = prevState.newActorArr.filter(function(item) {
@@ -53,7 +73,6 @@ class App extends React.Component {
   }
 
 
-
   render(){
     return (
       <>
@@ -62,12 +81,15 @@ class App extends React.Component {
           <button onClick={this.addNewActor}>Add New Actor</button>
           <button onClick={this.sortActors}>Sort Actors</button>
         <hr/>
+        <AddContacts refCreate={this.createActor}/>
+        <hr/>
+
           <table>
             <thead>
               <tr>
                 <th>Picture</th>
                 <th>Name</th>
-                <th>Id</th>
+                {/* <th>Id</th> */}
                 <th>Popularity</th>
                 <th>Action</th>
               </tr>
@@ -78,7 +100,7 @@ class App extends React.Component {
                     <NewContacts 
                       pictureUrl = {elem.pictureUrl} 
                       name = {elem.name} 
-                      id = {elem.id} 
+                      // id = {elem.id} 
                       popularity = {elem.popularity}
                       deleteBtn = {() => this.deleteActors(elem.id)}/>)
                 })}
