@@ -2,4 +2,7 @@
   text-align: center;
 }
 
-
+.Picture{
+  max-height: 30px;
+  max-height: auto;
+}
