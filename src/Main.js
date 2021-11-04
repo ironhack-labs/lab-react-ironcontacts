@@ -1,5 +1,5 @@
 import React from "react"
-import Contacts from "./Contacts"
+import {Contacts} from "./Contacts"
 import contactsArr from "./contacts.json"
 
 export default class Main extends React.Component{
@@ -13,12 +13,18 @@ export default class Main extends React.Component{
   render(){
     return (
       <>
-        <div className="contacts-list">
-          {this.state.contactsToDisplay.map((contact)=>{
-            return <Contacts key={contact.id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/>
-            
-          })}
-  
+        <div className="table">
+          <div className="table-head">
+            <p>Picture</p>
+            <p>Name</p>
+            <p>Popularity</p>
+          </div>
+
+          <div>
+            {this.state.contactsToDisplay.map((contact)=>{
+               return <Contacts key={contact.id} pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/>
+            })}
+          </div>
         </div>
       </>
     )
