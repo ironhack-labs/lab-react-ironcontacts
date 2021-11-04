@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.imgClass{
+  width: 90px;
+  margin-left: 10px; 
+  margin-right: 20px; 
+}
+.table-header{
+ font-size: 22px;
+ position: relative;
+ left: -20px;
+ bottom: 10px;
+}
+.tData{
+  font-size: 19px;  
+}
+.random-btn{
+  padding: 10px;
+  position: relative;
+  left:40%;
+  bottom:30px;
+}
