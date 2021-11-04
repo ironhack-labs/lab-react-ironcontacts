@@ -8,6 +8,17 @@ const fiveContacts = contacts.slice(0, 5);
 console.log(fiveContacts);
 console.log(fiveContacts[3]);
 
+randomActor = () => {
+  const newArr = this.state.initialActors
+  console.log("please logg")
+  let actorRandom = getActorRandomly();
+  console.log("pleasse")
+  this.setState((prevState, props)=> {
+    return {initialActors: prevState.initialActors.push(randomActor)}
+
+  })
+}
+
 class Contact extends React.Component {
 
   render() {
@@ -39,8 +50,8 @@ class App extends React.Component {
             </tr>
            </thead>
           <tbody>
-          {/* <h1>hello</h1> */}
-            <Contact
+          {/* <h1>hello</h1> */  use map method!!!! }
+            <Contact                                
             name={fiveContacts.name}
             image={fiveContacts.imageUrl}
             popularity={fiveContacts.popularity}
