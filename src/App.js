@@ -10,13 +10,14 @@ function getActorRandomly(){
 // console.log(getRandomActor(contacts))
 
 
-class Actors extends React.Component {
+class Actor extends React.Component {
    render() {
     return (
           <tr>
            <td><img src={this.props.pictureUrl} alt="" /></td>
            <td>{this.props.name}</td>
            <td>{this.props.popularity}</td>
+           <td><button onClick={this.props.clickToDelete}>Delete Autor</button></td>
          </tr>
     )
   }
@@ -40,7 +41,6 @@ class App extends React.Component {
     })
   }
 
-
   sortName = () => {
 
     this.setState((prevState, props) => {
@@ -53,7 +53,6 @@ class App extends React.Component {
     })
   }
   
-    
   sortByPopularity = () => {
     this.setState((prevState, props) => {
       const popularityList = prevState.initialActors.sort((a, b) => {
@@ -61,6 +60,16 @@ class App extends React.Component {
       });
       return {initialActors: popularityList}
     })
+  }
+
+  deleteContact = (id) =>{
+    const initialActorsCopy = [...this.state.initialActors]
+    const initialContactsIndex = initialActorsCopy.findIndex(actor=> actor.id === id);
+    initialActorsCopy.splice(initialContactsIndex,1);
+    this.setState (
+      {initialActors : initialActorsCopy}
+      )
+
   }
 
   render() {
@@ -81,7 +90,8 @@ class App extends React.Component {
           <tbody>
             {this.state.initialActors.map((actor) => {
               // console.log({...actor})
-              return <Actors key={actor.id} {...actor} />
+              return <Actor key={actor.id} {...actor} clickToDelete={() => this.deleteContact(actor.id) } 
+              />
             })}
           </tbody>
         </table>
