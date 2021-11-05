@@ -20,6 +20,7 @@ let Contact = (props) => {
             <td>{props.name}</td>
             <td>{props.popularity}</td>
           </tr>
+          <button onClick={props.clickToDelete}>DELETE</button>
         </>
       );
     }
@@ -62,6 +63,18 @@ class App extends React.Component {
     })
   }
 
+  // delete = () => {
+  //   console.log(this.state.contactsList[0].id)
+  // }
+  deleteContactHandler = id => {
+    const initialContactsCopy = this.state.contactsList;
+    const intitialContactsIndex = initialContactsCopy.findIndex(contact => contact.id === id);
+    initialContactsCopy.splice(intitialContactsIndex, 1);
+    this.setState({
+      initialContacts: initialContactsCopy
+    })
+  }
+
 render() {
   return (
     <div className="App">
@@ -85,7 +98,12 @@ render() {
         </thead>
         <tbody>
           {this.state.contactsList.map((contact) => {
-            return <Contact pictureUrl={contact.pictureUrl} name={contact.name} popularity={contact.popularity}/>
+            return <Contact
+            key={contact.id} {...contact} clickToDelete={() => this.deleteContactHandler(contact.id)}
+            pictureUrl={contact.pictureUrl}
+            name={contact.name}
+            popularity={contact.popularity}
+            delete={this.delete}/>
           })}
         </tbody>
       </table>
