@@ -26,6 +26,57 @@ let Contact = (props) => {
     }
 
 
+class AddContact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      popularity: 0
+    };
+  }
+
+  handleInput = (event) => {
+    const propName = event.target.name
+    this.setState({ [propName]: event.target.value })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const contactInfo = {
+      name: this.state.name,
+      popularity: this.state.popularity,
+    }
+
+    this.props.addContactHandler(contactInfo)
+
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label> Name:
+          <input
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleInput}
+          />
+        </label>
+        <label> Popularity:
+          <input
+            type="number"
+            name="popularity"
+            value={this.state.popularity}
+            onChange={this.handleInput}
+          />
+        </label>
+        <button>Submit</button>
+      </form>
+    )
+  }
+}
+
 
 
 class App extends React.Component {
@@ -63,22 +114,29 @@ class App extends React.Component {
     })
   }
 
-  // delete = () => {
-  //   console.log(this.state.contactsList[0].id)
-  // }
   deleteContactHandler = id => {
-    const initialContactsCopy = this.state.contactsList;
-    const intitialContactsIndex = initialContactsCopy.findIndex(contact => contact.id === id);
-    initialContactsCopy.splice(intitialContactsIndex, 1);
+    const contactsListCopy = this.state.contactsList;
+    const contactsListIndex = contactsListCopy.findIndex(contact => contact.id === id);
+    contactsListCopy.splice(contactsListIndex, 1);
     this.setState({
-      initialContacts: initialContactsCopy
+      contactsList: contactsListCopy
     })
   }
+
+
+  createContact = (newContactDetails) => {
+    this.setState((prevState) => {
+      const newList = [...prevState.contactsList, newContactDetails]
+      return { contactsList: newList }
+    })
+  }
+
 
 render() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <AddContact addContactHandler={this.createContact}/>
       <table className="table">
         <button onClick={this.randomContact}>Random contact</button>
         <button onClick={this.sortByName}>Sort by name</button>
