@@ -1,0 +1,13 @@
+.AddActor {
+    margin: 1rem auto;
+    border: 1px solid #999;
+    padding: 1rem;
+    max-width: 400px;
+    text-align: center;
+}
+
+.AddActor label, .AddMovie input {
+    display: block;
+    margin: 0.5rem auto;
+
+}

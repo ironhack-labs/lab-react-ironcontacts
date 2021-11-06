@@ -1,6 +1,11 @@
 import './App.css';
 import contacts from "./contacts.json";
 import React from "react";
+import AddActor from './AddActor';
+
+
+
+
 
 const initialContacts = contacts.slice(0,5)
 // console.log(initialContacts)
@@ -72,6 +77,15 @@ class App extends React.Component {
 
   }
 
+  createActor = (newActorDetails) => {
+    this.setState((prevState, props) => {
+      const newActor = [...prevState.initialActors, newActorDetails]
+      return{initialActors: newActor}
+
+    })
+
+  }
+
   render() {
     return (
       <div className="container">
@@ -80,6 +94,12 @@ class App extends React.Component {
           <button onClick={this.randomActor}>Add Random Contact</button>
           <button onClick={this.sortName}>Sort the table by name</button>
           <button onClick={this.sortByPopularity}>sort by popularity</button>
+
+          <AddActor addActorHandler = {this.createActor}/>
+
+
+
+
           <table>
           <tr>
             <th>Picture</th>
