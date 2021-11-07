@@ -27,10 +27,29 @@ class App extends React.Component {
 
   addRandom = () => {
     console.log("click") 
-    this.setState((prevState, this.props.)=>{
+    this.setState((prevState, props)=>{
       const contactRandom = contacts[Math.floor(Math.random()*contacts.length)]
       return prevState.contacts.push(contactRandom)
    })
+  }
+
+  sortName = ()=>{
+    this.setState((prevState, props)=>{
+      const sortedList = prevState.contacts.sort((a,b)=>{
+        return a.name.localeCompare(b.name)
+      })
+      console.log (sortedList)
+      return {contacts: sortedList}
+    })
+  }
+
+  sortPopularity = ()=>{
+    this.setState((prevState, props)=>{
+      const sortedList = prevState.contacts.sort((a,b)=>{
+        return a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
+      })
+      return {contacts: sortedList}
+    })
   }
 
   render() {
@@ -38,6 +57,8 @@ class App extends React.Component {
       <div className="App">
         <h1>IronContacts</h1>
         <button onClick={this.addRandom}>Add Contact</button>
+        <button onClick={this.sortName}>Sort by name</button>
+        <button onClick={this.sortPopularity}>Sort by popularity</button>
         <table className="table">
           <thead>
             <tr>
