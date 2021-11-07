@@ -25,10 +25,19 @@ class App extends React.Component {
     };
   }
 
+  addRandom = () => {
+    console.log("click") 
+    this.setState((prevState, this.props.)=>{
+      const contactRandom = contacts[Math.floor(Math.random()*contacts.length)]
+      return prevState.contacts.push(contactRandom)
+   })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>IronContacts</h1>
+        <button onClick={this.addRandom}>Add Contact</button>
         <table className="table">
           <thead>
             <tr>
