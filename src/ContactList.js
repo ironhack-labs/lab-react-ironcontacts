@@ -8,15 +8,34 @@ class ContactList extends Component {
         super() 
 
         this.state = {
-            contacs: contacts.slice(0, 5)
+            contacts: contacts.slice(0, 5)
         }
     }
+
+
+    addRandom() {
+
+        const arr = [...this.state.contacts]
+
+        arr.push(contacts[Math.floor(Math.random() * contacts.length)])
+
+        this.setState({
+            contacts: arr
+        }) 
+        
+    }
+
+
+
+
 
     render() {
 
         return (
-            
+            <>
+            <button onClick={() => this.addRandom()} >Add random </button>
             <table>
+            
                 <thead>
                     <tr>
                         <th></th>
@@ -33,13 +52,17 @@ class ContactList extends Component {
                 </thead>
                 <tbody>
                 {
-                    this.state.contacs.map((eachContact) => (
+                    this.state.contacts.map((eachContact) => (
                     <Table key={eachContact.id} name={eachContact.name} popularity={eachContact.popularity.toFixed(2)} pictureUrl= {eachContact.pictureUrl} />
                     ))
+                    
                 }
                 </tbody>
+
+                
+
             </table>
-            
+            </>
         )      
             
     }
