@@ -72,36 +72,53 @@ class ContactList extends React.Component {
     render() {
 
         return (
-            <div>
-            {this.state.currentContacts.map((eachContact) => 
+            <div className="global-container">
                 <div>
-                    <div>
-                        <img src={eachContact.pictureUrl} alt={eachContact.pictureUrl}></img>
-                    </div>
-                    <div>
-                        <h1>{eachContact.name}</h1>
-                        <h3>Popularity:</h3>
-                        <p>{eachContact.popularity}</p>
-                    </div>
-                    <div>
-                        <DeleteBtn deleteContact={() => this.deleteContact(eachContact.id)} />
-                    </div>
-                </div>
-            )}
-            <div>
-                <div>
-                    <RandomContactBtn handleClick={() => this.handleClick()} />
-                </div>
+                    <div className="cards-container">
+                        {this.state.currentContacts.map((eachContact) => 
+                            <div className="card-envelope-container">
+                                <div className="envelope-body">
+                                    <div className="card">
+                                        <div className="card-img-container">
+                                            <img className="card-img" src={eachContact.pictureUrl} alt={eachContact.pictureUrl}></img>
+                                        </div>
 
-                <div>
-                    <SortByNameBtn sortByName={() => this.sortByName()} />
-                </div>
+                                        <div className="card-info-container">
+                                            <div>
+                                                <div className="title-container">
+                                                    <h1>{eachContact.name}</h1>
+                                                </div>
+                                                <h3>Popularity:</h3>
+                                                <p className="subtitle">{eachContact.popularity}</p>
+                                            </div>
+                                            <div className="delete-btn-container">
+                                                <DeleteBtn deleteContact={() => this.deleteContact(eachContact.id)} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="envelope-top"></div>
+                                </div>
+                            </div>
+                        )}
+                    
+                    
 
-                <div>
-                    <SortByPopularityBtn sortByPopularity={() => this.sortByPopularity()} />
+                    </div>
                 </div>
+                <div className="btns-container">
+                    <div className="btn-margin">
+                        <RandomContactBtn handleClick={() => this.handleClick()} />
+                    </div>
 
-            </div>
+                    <div className="btn-margin">
+                        <SortByNameBtn sortByName={() => this.sortByName()} />
+                    </div>
+
+                    <div className="btn-margin">
+                        <SortByPopularityBtn sortByPopularity={() => this.sortByPopularity()} />
+                    </div>
+
+                </div>
 
             </div>
         )

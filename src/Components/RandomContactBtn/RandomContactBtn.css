@@ -1,0 +1,16 @@
+.random-btn {
+    background-color: rgb(134, 167, 167);
+    padding: 10px 80px;
+    border: 0px;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.random-btn:hover {
+    background-color: rgb(112, 141, 141);
+    transition: 0.2s;
+}

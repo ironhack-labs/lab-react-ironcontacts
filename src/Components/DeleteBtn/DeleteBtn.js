@@ -28,7 +28,7 @@ class DeleteBtn extends React.Component {
 
         return (
             <div>
-                <button onClick={() => {this.mainFunc()}}>{this.state.text}</button>
+                <button className="delete-btn" onClick={() => {this.mainFunc()}}>{this.state.text}</button>
             </div>
         )
     }

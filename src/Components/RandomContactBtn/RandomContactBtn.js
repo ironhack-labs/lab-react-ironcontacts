@@ -10,7 +10,7 @@ class RandomContactBtn extends React.Component {
 
         this.state = {
             pressed: false,
-            text: "Add random contact",
+            text: "Random Contact",
         }
     }
 
@@ -23,7 +23,7 @@ class RandomContactBtn extends React.Component {
     mainFunc() {
         this.setState({ text: "Random Created", pressed: true })
         setTimeout(() => {
-            this.setState({ text: "Add random contact", pressed: false })
+            this.setState({ text: "Random Contact", pressed: false })
         }, 1000)
         this.props.handleClick()
     }
@@ -33,7 +33,7 @@ class RandomContactBtn extends React.Component {
 
         return (
             <div>
-                <button onClick={() => {this.mainFunc()}}>{this.state.text}</button>
+                <button className="random-btn" onClick={() => {this.mainFunc()}}>{this.state.text}</button>
             </div>
         )
     }

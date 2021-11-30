@@ -1,0 +1,16 @@
+.sort-btn2 {
+    background-color: rgb(49, 82, 88);
+    padding: 10px 80px;
+    border: 0px;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.sort-btn2:hover {
+    background-color: rgb(31, 51, 54);
+    transition: 0.2s;
+}

@@ -27,7 +27,7 @@ class SortByNameBtn extends React.Component {
 
         return (
             <div>
-                <button onClick={() => {this.mainFunc()}}>{this.state.text}</button>
+                <button className="sort-btn" onClick={() => {this.mainFunc()}}>{this.state.text}</button>
             </div>
         )
     }

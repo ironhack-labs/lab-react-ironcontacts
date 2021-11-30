@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+.card {
+    width: 440px;
+    height: 220px;
+    border-radius: 30px;
+    background-color: rgb(228, 229, 235);
+    margin: 40px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position:relative;
+    left:5px;
+    bottom: 0px;
+    z-index: -500;
+    transition-duration: 2s;
+}
+
+
+.card-img-container {
+    margin-left: 10px;
+
+}
+
+
+.card-img {
+    height: 200px;
+    border-radius: 20px 0px 0px 20px;
+    mix-blend-mode:multiply;
+    filter:grayscale(20%);
+}
+
+
+.card-info-container {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 30px;
+}
+
+
+.global-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    padding: 150px 20px;
+}
+
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.btns-container {
+    margin: 60px;
+}
+
+
+.title-container {
+    width: 200px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+.subtitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: rgb(67, 67, 73);
+}
+
+
+.delete-btn-container {
+    margin-left: -50px;
+}
+
+
+.envelope-body {
+    width: 450px;
+    height: 230px;
+    background-image: url("../../images/envelope_body.png");
+    margin: 100px 60px;
+}
+
+
+.envelope-body:hover .card {
+    bottom: 180px;
+    z-index: 10;
+    transition: 1s 0.7s;
+}
+
+
+.card-envelope-container {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+
+.envelope-top {
+    width: 500px;
+    height: 190px;
+    background-image: url("../../images/envelope_top.png");
+    background-position: center;
+    position: relative;
+    top: -273px;
+    left: -25px;
+    transition: 1s 2s;
+}
+
+
+.envelope-body:hover .envelope-top {
+    transform: rotateX(-180deg);
+    top: -440px;
+    transition-duration: 1s;
+    transition: linear 0.7s;
+    z-index: -400;
+}
+
+
+.btn-margin {
+    margin-bottom: 10px;
+}
+
+
