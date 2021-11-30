@@ -9,35 +9,35 @@ class ContactList extends Component {
     super()
 
     this.state = {
-      contacts: contactsImport.slice(0,5),
+      // contacts: contactsImport.slice(0,5),
       newContactsArr: contactsImport.slice(0,5)
     }
   }
 
   addContact() {
-    const { contacts } = this.state
-    contacts.push(contacts[Math.floor(Math.random()*contacts.length)])
-    this.setState({contacts: contacts})
+    const { newContactsArr } = this.state
+    newContactsArr.push(newContactsArr[Math.floor(Math.random()*newContactsArr.length)])
+    this.setState({newContactsArr: newContactsArr})
   }
 
   sortAlpha() {
-    const { contacts } = this.state
-    const sortedContacts = contacts.sort((a, b) => {
+    const { newContactsArr } = this.state
+    const sortedContacts = newContactsArr.sort((a, b) => {
       return a.name.localeCompare(b.name);
     })
     this.setState({contacts: sortedContacts})
   }
 
   sortScore () {
-    const { contacts } = this.state
-    const sortedContacts = contacts.sort((a, b) => {
+    const { newContactsArr } = this.state
+    const sortedContacts = newContactsArr.sort((a, b) => {
       return b.popularity - a.popularity;
     })
     this.setState({contacts: sortedContacts})
   }
 
   killContact(contactID) {
-    const newContactsArrFilter = this.state.contacts.filter(contact => contact.id !== contactID)
+    const newContactsArrFilter = this.state.newContactsArr.filter(contact => contact.id !== contactID)
     this.setState({
       newContactsArr: newContactsArrFilter
     })
@@ -66,12 +66,8 @@ class ContactList extends Component {
       <th>Popularity</th>
       <th>Action</th>
 
-{/* Si se usa el state de arriba funcionan los botones de ordenar, si se usa el de abajo funciona el boton de borrar */}
-{/* No sé cómo hacer que funcionen los dos a la vez :( */}
-
-      {this.state.contacts.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} />)}
-      {/* {this.state.newContactsArr.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} killContact={() => this.killContact(eachContact.id)} />)
-        } */}
+      {this.state.newContactsArr.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} killContact={() => this.killContact(eachContact.id)} />)
+        }
       </table>
       </div>
      )
