@@ -14,7 +14,8 @@ class App extends Component {
 
   addRandom() {
     let contactLength = contacts.length;
-    let randomNumber = Math.floor(Math.random() * (contactLength - 5 + 1) + 5);
+    let actualLength = this.state.arrayContacts.length;
+    let randomNumber = Math.floor(Math.random() * (contactLength - (actualLength+1) + 1) + actualLength);
     let actual = this.state.arrayContacts;
     actual.push(contacts[randomNumber]);
 
@@ -54,13 +55,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1> IronContacts </h1>
-        <button className="btn btn-info" onClick={() => this.addRandom()}>
+        <button className="btn btn-dark" onClick={() => this.addRandom()}>
           Add random Contact
         </button>
-        <button className="btn btn-info" onClick={() => this.sortByName()}>
+        <button className="btn btn-dark" onClick={() => this.sortByName()}>
           Sort by name
         </button>
-        <button className="btn btn-info" onClick={() => this.sortByPopularity()}>
+        <button className="btn btn-dark" onClick={() => this.sortByPopularity()}>
           Sort by Popularity
         </button>
 
