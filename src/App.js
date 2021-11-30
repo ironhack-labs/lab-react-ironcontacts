@@ -15,25 +15,32 @@ class App extends React.Component {
 
 
   addRamdom(){
-    let newContacts = this.state.fiveContacts
-    newContacts.push(contacts[Math.ceil(Math.random()*contacts.length)])
-
+    let newContacts = this.state.fiveContacts.push(contacts[Math.ceil(Math.random()*contacts.length)])
     this.setState({
       fiveContacts: newContacts
     })
   }
 
   sortByName = () => {
-    contactsCopy.sort((a,b) => a.name.localeCompare(b.name) )
+    let newContacts = this.state.fiveContacts.sort((a,b) => a.name.localeCompare(b.name) )
     this.setState({
-      fiveContacts: contactsCopy
+      fiveContacts: newContacts
     })
   }
-    sortByPopularity = () => {
-      contactsCopy.sort((a,b) => b.popularity - a.popularity)
-      this.setState({
-        fiveContacts: contactsCopy
-      })
+  
+  sortByPopularity = () => {
+    let newContacts = this.state.fiveContacts.sort((a,b) => b.popularity - a.popularity)
+    this.setState({
+      fiveContacts: newContacts
+    })
+
+  }
+
+  deleteContact = (id) => {
+    let newContacts = this.state.fiveContacts.filter(contact => contact.id !== id)
+    this.setState({
+      fiveContacts: newContacts
+    })
 
   }
 
@@ -49,10 +56,10 @@ class App extends React.Component {
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Picture</th>
             <th scope="col">Name</th>
             <th scope="col">Pupularity</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
 
@@ -60,10 +67,10 @@ class App extends React.Component {
         {this.state.fiveContacts.map(eachContact => {
           return(
           <tr>
-            <th scope="row"></th>
             <td><img src={(eachContact.pictureUrl)}/></td>
             <td>{eachContact.name}</td>  
             <td>{eachContact.popularity.toFixed(2)}</td>
+            <td><button onClick={() => this.deleteContact(eachContact.id)}>Delete</button></td>
           </tr>
           )
             }
