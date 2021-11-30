@@ -20,3 +20,11 @@ h3{
 td{
     padding: 20px;
 }
+
+.btn{
+    background-color: white;
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 150px;
+    height: 25px;
+}

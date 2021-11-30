@@ -3,7 +3,7 @@ import './CelebrityCard.css'
 const CelebrityCard = ({ name, image, popularity, id }) => {
 
     return (
-        <div className="celebrity-card">
+        <div>
 
             <table>
                 <tbody>
@@ -16,6 +16,8 @@ const CelebrityCard = ({ name, image, popularity, id }) => {
             </table>
 
         </div>
+
+
     )
 }
 

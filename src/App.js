@@ -5,6 +5,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>IronContact</h1>
+      <button className="btn">Add Random Contact</button>
       <tr className="tableHead">
         <td><h3>Picture</h3></td>
         <td><h3>Name</h3></td>

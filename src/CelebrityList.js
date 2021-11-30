@@ -24,9 +24,19 @@ class CelebrityList extends Component {
         ))
     }
 
-    addCelebrity(celebrityID) {
-        const newCelebrity = this.state.celebrityArray.filter(celebrityArray => celebrityArray.id !== celebrityID)
-    }
+    // addCelebrity(celebrityID) {
+    //     render()
+    //     {
+    //         const newCelebrity = this.state.celebrity.filter(celebrity => celebrity.id !== celebrityID)
+    //         return (
+
+    //             <CelebrityCard key={eachCelebrity.id}
+    //                 {...eachCelebrity} addCelebrity={() => this.addCelebrity(eachCelebrity.id)}
+    //             />
+    //         )
+
+    //     }
+    // }
 }
 
 export default CelebrityList
