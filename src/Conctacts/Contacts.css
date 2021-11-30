@@ -1,0 +1,43 @@
+.allContacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  width: 30%;
+  margin-bottom: 40px;
+}
+
+.contacLine img {
+  width: 80px;
+  border-radius: 5px;
+  margin: 2px 2px 2px 2px;
+}
+
+.contacLine p {
+  width: 80px;
+  padding-left: 50px;
+}
+.contacLine button {
+  width: 120px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.buttons button {
+  height: 40px;
+  width: 180px;
+  margin: 50px;
+}
