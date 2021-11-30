@@ -1,0 +1,22 @@
+.Card {
+  display: flex;
+  margin: 25px auto;
+  background-color: #fa8072;
+  border: 1.5px solid black;
+  border-radius: 25px;
+  padding: 25px;
+}
+button {
+  padding: 10px;
+  background-color: rgb(166, 112, 218);
+  border-radius: 7.5px;
+  border: none;
+}
+button:hover {
+  background-color: #8e2fe7;
+  color: white;
+}
+img {
+  border-radius: 5px;
+  height: 200px;
+}
