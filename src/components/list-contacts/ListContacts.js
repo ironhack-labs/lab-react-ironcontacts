@@ -3,9 +3,9 @@ import './ListContacts.css';
 import Card from '../card/Card';
 import contacts from './../../contacts.json';
 
-const allContacts = contacts;
-const firstFive = allContacts.slice(0, 5);
-
+const allContacts = contacts.slice(5);
+const firstFive = contacts.slice(0, 5);
+let count = 5;
 
 
 function randomBetween(min, max) {
@@ -18,8 +18,9 @@ function ListContacts(props){
 	const[contactState, setContactState] = useState(firstFive);
 
 	function addRandomContact(){
-		const randomIndex = randomBetween(4, allContacts.length - 1)
-		const randomContact = allContacts[randomIndex];
+		console.log('total contacts:', count++);
+		const randomIndex = randomBetween(0, allContacts.length - 1)
+		const randomContact = allContacts[randomIndex] ? allContacts[randomIndex] : {};
 		allContacts.splice(allContacts.indexOf(randomContact), 1);
 		setContactState([...contactState, randomContact]);
 	}

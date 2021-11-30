@@ -2,6 +2,10 @@ import './Card.css';
 
 function Card({pictureUrl, name, popularity, deleteContact}){
 
+	if (!name){
+		return null;
+	}
+
 	return(
 		<div className="card-main">
 
