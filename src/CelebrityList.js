@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import celebrityArray from './contacts.json'
 import CelebrityCard from "./CelebrityCard";
 
+const fiveCelebrity = celebrityArray.slice(0, 5)
+
 class CelebrityList extends Component {
     constructor() {
         super()
         this.state = {
-            celebrity: celebrityArray
+            celebrity: fiveCelebrity
         }
     }
 
@@ -20,6 +22,10 @@ class CelebrityList extends Component {
             />
 
         ))
+    }
+
+    addCelebrity(celebrityID) {
+        const newCelebrity = this.state.celebrityArray.filter(celebrityArray => celebrityArray.id !== celebrityID)
     }
 }
 

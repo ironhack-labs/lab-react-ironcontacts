@@ -5,6 +5,11 @@ const App = () => {
   return (
     <div className="App">
       <h1>IronContact</h1>
+      <tr className="tableHead">
+        <td><h3>Picture</h3></td>
+        <td><h3>Name</h3></td>
+        <td><h3>Popularity</h3></td>
+      </tr>
       <CelebrityList
 
 

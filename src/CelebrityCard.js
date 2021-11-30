@@ -1,12 +1,20 @@
 import React from "react";
-
+import './CelebrityCard.css'
 const CelebrityCard = ({ name, image, popularity, id }) => {
 
     return (
         <div className="celebrity-card">
-            <img src={image} />
-            <p>{name}</p>
-            <p>{popularity}</p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src={image} /></td>
+                        <td>{name}</td>
+                        <td>{popularity}</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
     )
 }
