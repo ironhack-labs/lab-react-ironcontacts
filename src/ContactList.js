@@ -3,6 +3,7 @@ import contacts from "./contacts.json"
 import Table from "./Table";
 import "./ContactList.css"
 
+
 class ContactList extends Component {
     constructor() {
         super() 
@@ -27,14 +28,53 @@ class ContactList extends Component {
 
 
 
+    sortByName() {
+
+        const arr = [...this.state.contacts]
+        
+        arr.sort(function(a, b){
+            if (a.name < b.name) {return -1}
+            if (a.name > b.name) {return 1}
+            return 0
+        })
+
+        this.setState({
+            contacts: arr
+        })
+
+    }
+
+
+    
+    sortByPopularity() {
+        const arr = [...this.state.contacts]
+
+        arr.sort(function (a, b) {
+            if (a.popularity < b.popularity) { return 1 }
+            if (a.popularity > b.popularity) { return -1 }
+            return 0
+        })
+
+        this.setState({
+            contacts: arr
+        })
+    }
+
+
+
 
 
     render() {
 
         return (
             <>
+            <br />
+            <button onClick={() => this.sortByPopularity()} >Sort by popularity </button>
+            <br />
+            <button onClick={() => this.sortByName()} >Sort by name </button>
+            <br />  
             <button onClick={() => this.addRandom()} >Add random </button>
-            <table>
+                <table className="App-header">
             
                 <thead>
                     <tr>

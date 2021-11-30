@@ -3,7 +3,7 @@ import "./ContactList.css"
 
 
 const Table = ({ name, pictureUrl, popularity }) => {
-console.log({name})
+// console.log({name})
     return (
         <tr>
             <td> <img src={pictureUrl} alt={name} /> </td>
