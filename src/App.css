@@ -1,38 +1,75 @@
-.App {
+
+
+.container-contacts {
+  display: flex; 
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  width: 500px;
+  margin: 50px auto;
+}
+.cont-btn{
+  display: flex; 
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.cont-btn button {
+  width: fit-content;
+  border-radius: 5px;
+  height: 30px;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+.cont-btn button:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+.cont-delete button{
+  width: fit-content;
+  border-radius: 5px;
+  height: 30px;
+  border: 1px solid white;
+  color: white;
+  background-color: red;
+}
+
+.cont-delete button:hover {
+  border: 1px solid red;
+  color: red;
+  background-color: white;
+}
+
+.cont-cabecera td{
+  height: 10px;
+}
+
+h1{
+  font-weight: bold;
+}
+img {
+  width: 50px;
+  height: 80px;
+  border-radius: 50px;
+  transition: transform .7s ease-in-out;
+}
+
+img:hover {
+  transform: rotate(360deg);
+}
+
+.contact{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.contact tr td{
+  min-width: 100px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
