@@ -1,0 +1,26 @@
+.contacts-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-radius: 2.25rem !important;
+  box-shadow: #1b1b1c2d 0px 0px 60px 0px;
+}
+
+.col-md-4 {
+  max-height: 150px;
+  justify-content: flex-end;
+}
+
+.contact-image {
+  height: 80%;
+  margin-top: 15px;
+  align-items: center;
+  border-radius: 50%;
+}

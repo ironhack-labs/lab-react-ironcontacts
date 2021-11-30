@@ -1,0 +1,12 @@
+.contact-card {
+  height: 100px;
+}
+
+.top-btn {
+  margin-right: 5px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-evenly;
+}
