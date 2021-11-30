@@ -46,36 +46,52 @@ class DisplayList extends Component {
 
   }
 
+  
+  remove(id) {
+
+    let copyRemove = [...this.state.contacts]
+    copyRemove = copyRemove.filter(elem => elem.id !== id)
+
+    this.setState({
+      contacts: copyRemove
+    });
+
+
+  }
+
   render() {
     return (
-      <div className="personal-info">
-        <button onClick={this.newContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by Name</button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
-        {this.state.contacts.map((elem, idx) =>
-          <>
-            <table>
-              <tr>
-                <th>Picture</th>
-                <th><strong> Name</strong></th>
-                <th><strong> Rating</strong></th>
 
-              </tr>
-              <tr>
-                <th><img src={elem.pictureUrl} alt="profile" /></th>
-                <th>{elem.name}</th>
-                <th>{elem.popularity.toFixed(2)}</th>
-              </tr>
-            </table>
+    <> 
+     <div class="buttons">
+      <button onClick={this.newContact}>Add Random Contact</button>
+      <button onClick={this.sortByName}>Sort by Name</button>
+      <button onClick={this.sortByPopularity}>Sort by popularity</button>
+    </div>
+    
+      <div>
+        {this.state.contacts.map((elem, idx) => {
+          return <div className="personal-info">
+          
+                
+                  <table>
+                  <tr>
+                    <th><img src={elem.pictureUrl} alt="profile" /></th>
+                    <th>{elem.name}</th>
+                    <th>{elem.popularity.toFixed(2)}</th>
+                  </tr>
+                </table>
 
-            <button onClick={this.newContact}>  Eliminar</button>
+                <button onClick={() => this.remove(elem.id)}>  Eliminar</button>
 
+          </div>
 
-          </>)}
-
+        })}
       </div>
+    </>
 
     )
+  
   }
 }
 

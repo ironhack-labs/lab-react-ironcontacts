@@ -1,13 +1,43 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .personal-info {
     display: flex;
     justify-content: space-around;
-    flex-direction: column;
     align-items: center;
     margin: auto;
     padding: auto;
 }
 
-.personal-info img {
-    width: 100px;
-    height: 100px;
+table {
+    margin: 20px;
+}
+
+img {
+    width: 180px;
+    height: 180px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 100px 40px;
+    font-size: bold;
+
+}
+
+
+button {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);     
+    font-size: bold;
+     
+}
+
+button:hover {
+    color: white;
+    cursor: pointer;
 }
