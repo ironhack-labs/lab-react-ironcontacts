@@ -27,6 +27,28 @@
 .App-link {
   color: #61dafb;
 }
+.contacts {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+.personsTable {
+  width: 400px;
+}
+.personsTable :nth-child(1) {
+  font-weight: 900;
+}
+.personsTable td {
+  width: fit-content;
+}
+.personsTable img {
+  width: 40%;
+}
 
 @keyframes App-logo-spin {
   from {
