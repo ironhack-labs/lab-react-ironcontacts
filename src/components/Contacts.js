@@ -50,7 +50,7 @@ class ContactList extends Component {
 
     
     return (      
-      <>
+      <div className="bigdiv">
       <button onClick={() => this.addContact()}>
         Add Contact
       </button>
@@ -65,11 +65,15 @@ class ContactList extends Component {
       <th>Name</th>
       <th>Popularity</th>
       <th>Action</th>
-      {/* {this.state.contacts.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} />)} */}
-      {this.state.newContactsArr.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} killContact={() => this.killContact(eachContact.id)} />)
-        }
+
+{/* Si se usa el state de arriba funcionan los botones de ordenar, si se usa el de abajo funciona el boton de borrar */}
+{/* No sé cómo hacer que funcionen los dos a la vez :( */}
+
+      {this.state.contacts.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} />)}
+      {/* {this.state.newContactsArr.map(eachContact => <ContactTable key={eachContact.id} {...eachContact} killContact={() => this.killContact(eachContact.id)} />)
+        } */}
       </table>
-      </>
+      </div>
      )
   }
 }
