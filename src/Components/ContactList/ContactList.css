@@ -1,8 +1,8 @@
 .ButtonPanel {
-  margin: 50px 0;
+  margin: 20px 0;
 }
 .ButtonPanel button {
-  margin: 0 10px;
+  margin: 0 10px 0 0;
 }
 .List {
   display: flex;
@@ -15,4 +15,7 @@
     rgba(255, 160, 122, 1) 0%,
     rgba(205, 92, 92, 1) 100%
   );
+}
+h1 {
+  font-size: 36px;
 }

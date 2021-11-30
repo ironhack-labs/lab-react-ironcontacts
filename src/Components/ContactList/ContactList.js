@@ -59,6 +59,8 @@ export default class ContactList extends Component {
   render() {
     return (
       <div className="List">
+        <h1>Iron Contacts</h1>
+        <small>By a IronCrack</small>
         <div className="ButtonPanel">
           <button onClick={() => this.addContact()}>
             Add a random contact
