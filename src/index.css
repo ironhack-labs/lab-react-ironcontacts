@@ -5,9 +5,54 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: Poppins;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+img{
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+.table-actors{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+table{
+   border-collapse: collapse;
+width: 40%;
+margin: 1rem 0;
+border-spacing: 0 15px;
+}
+.table-actors span{
+  font-size: 1.3rem;
+
+}
+button{
+  margin: 1rem;
+  box-shadow: 0 0 15px 2px;
+  font-family: 'Poppins';
+  border-radius: 25px;
+}
+tr{
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+border-spacing: 5em;
+
+}
+
+td{
+   padding: 0.5rem;
+}
+tr.spaceUnder>td {
+  padding-bottom: 1em;
+}
+
