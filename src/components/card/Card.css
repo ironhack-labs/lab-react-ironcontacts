@@ -1,0 +1,16 @@
+.card-main{
+	display: flex;
+	gap: 20px;
+	margin-top: 20px;
+	width: 400px;
+	height: 200px;
+}
+
+
+.card-img{
+	width: 200px;
+	height: 200px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
