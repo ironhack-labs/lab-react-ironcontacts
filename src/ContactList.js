@@ -45,7 +45,7 @@ class ContactList extends Component {
     }
 
 
-    
+
     sortByPopularity() {
         const arr = [...this.state.contacts]
 
@@ -61,10 +61,21 @@ class ContactList extends Component {
     }
 
 
+    removeContact(contactId) {
+        const newContacts = this.state.contacts.filter(contact => contact.id !== contactId)
+
+        this.setState({
+            contacts: newContacts
+        })
+
+
+    }
 
 
 
     render() {
+
+
 
         return (
             <>
@@ -93,7 +104,7 @@ class ContactList extends Component {
                 <tbody>
                 {
                     this.state.contacts.map((eachContact) => (
-                    <Table key={eachContact.id} name={eachContact.name} popularity={eachContact.popularity.toFixed(2)} pictureUrl= {eachContact.pictureUrl} />
+                    <Table key={eachContact.id} removeContact={() => this.removeContact(eachContact.id)}  name={eachContact.name} popularity={eachContact.popularity.toFixed(2)} pictureUrl= {eachContact.pictureUrl} />
                     ))
                     
                 }
