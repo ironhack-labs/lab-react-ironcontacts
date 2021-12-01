@@ -8,6 +8,8 @@ export default class Contacts extends React.Component {
     this.state = {
       contacts: arraycontacts,
       fiveContacts: arraycontacts.slice(0, 5),
+      up_down: true,
+      pop_up_down: true,
     };
   }
 
@@ -39,19 +41,23 @@ export default class Contacts extends React.Component {
 
   shortContactName = () => {
     let copyArray = [...this.state.fiveContacts];
-
-    copyArray.sort((a, b) => a.name.localeCompare(b.name));
+    this.state.up_down
+      ? copyArray.sort((a, b) => a.name.localeCompare(b.name))
+      : copyArray.sort((a, b) => b.name.localeCompare(a.name));
     this.setState({
       fiveContacts: copyArray,
+      up_down: !this.state.up_down,
     });
   };
 
   shortContactPopularity = () => {
     let copyArray = [...this.state.fiveContacts];
-
-    copyArray.sort((n1, n2) => n2.popularity - n1.popularity);
+    this.state.pop_up_down
+      ? copyArray.sort((n1, n2) => n2.popularity - n1.popularity)
+      : copyArray.sort((n1, n2) => n1.popularity - n2.popularity);
     this.setState({
       fiveContacts: copyArray,
+      pop_up_down: this.state.pop_up_down,
     });
   };
 
