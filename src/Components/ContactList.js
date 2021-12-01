@@ -45,10 +45,10 @@ class ContactList extends Component{
     sortPopularity (){
     let newPopularity = [...this.state.contacts]
     let sortyArray = newPopularity.sort((a,b) => {
-        if(a.rating > b.rating){
+        if(a.popularity > b.popularity){
                 return 1;
             }
-            if (a.rating < b.rating) {
+            if (a.popularity < b.popularity) {
                 return -1;
             }
 
