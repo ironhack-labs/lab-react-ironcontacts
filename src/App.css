@@ -6,6 +6,8 @@ h1 {
   text-align: center;
 }
 .Add-btn {
-  margin-left: 300px;
-  margin-bottom: 30px;
+  display: flex;
+   flex-direction: row;
+   justify-content:center;
+   align-items: center;
 }
