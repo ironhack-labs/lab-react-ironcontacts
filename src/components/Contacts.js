@@ -35,28 +35,45 @@ const Contacts = () => {
   };
 
   return (
-    <>
-      {/* <h1>Add new Contact</h1>
-      <AddContact /> */}
+    <div className="m-20">
+      <h1 className="text-lg">IronContacts</h1>
 
       <h1>Change Contacts</h1>
-      <button onClick={() => generateRandomContact()}>Random Contacts</button>
-
+      <button
+        onClick={() => generateRandomContact()}
+        type="button"
+        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Random Contacts
+      </button>
       <h1>Sort</h1>
-      <button onClick={() => sortByName()}>Sort by Name</button>
-      <button onClick={() => sortByPopularity()}>Sort by Popularity</button>
-
-      {addContact.map(({ name, pictureUrl, popularity, id }, index) => {
-        return (
-          <Contact
-            key={index}
-            name={name}
-            pictureUrl={pictureUrl}
-            popularity={popularity}
-          />
-        );
-      })}
-    </>
+      <button
+        onClick={() => sortByName()}
+        type="button"
+        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Sort by Name
+      </button>
+      <button
+        onClick={() => sortByPopularity()}
+        type="button"
+        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Sort by Popularity{" "}
+      </button>
+      <div class="card-group">
+        {addContact.map(({ name, pictureUrl, popularity }, index) => {
+          return (
+            <Contact
+              key={index}
+              name={name}
+              pictureUrl={pictureUrl}
+              popularity={popularity}
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
