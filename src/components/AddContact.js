@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Contact from "./Contact";
 
+//me confundi yo estaba creando un personaje
 const AddContact = () => {
   // 1. HOOKS
   const [addContact, setAddContact] = useState({
