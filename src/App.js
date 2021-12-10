@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import "./App.css";
+import Contacts from "./components/Contacts"
+
+const App = () => {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="grid place-items-center h-screen box-decoration-slice bg-gradient-to-r from-indigo-600 to-green-500 text-white px-2">
+      <Contacts />
     </div>
+    </>
   );
-}
+};
 
 export default App;
+
