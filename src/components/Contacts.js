@@ -1,41 +1,39 @@
+// Contacts.js
 import React,  { useState } from 'react'
 import contacts from './../contacts.json'
 
 
 
-const Contacts = (props) => {
-//---------------------------HOOKS--------------------------------
-    const allContacts = props.contacts
+const Contacts = () => {
+
+    
+    const allContacts = contacts
     const fiveCont = allContacts.slice(0,5) 
-    const [dataCont, setDataCont] = useState(fiveCont)
+    
+    const [sumContact, setSumContact] = useState(fiveCont)
 
    /*  console.log(fiveCont)
     console.log(allContacts) */
-    const randomCont = allContacts[Math.floor(Math.random() * 53)]
+    
 
-    console.log(randomCont)
+    const randomContact = (contact) => {
 
-    //------------------------FUNCTION--------------------------------    
-    const randomContact = (e) => {
-        e.preventDefault()
-        setDataCont([
-            ...dataCont,
-            randomCont
+        const obtainRandomContact = contact[Math.floor(Math.random() * contact.length)]
+
+        return setSumContact([
+            ...sumContact, obtainRandomContact
         ])
 
     }
 
    
 
-    
-
-    
     return (
         <>
-        
-             <button onClick={() => randomContact()}>CLICK</button> 
+           
+            <button onClick={() => randomContact(contacts)}>Add Random Contact</button>
              {
-                dataCont.map(e => {
+                sumContact.map(e => {
                 return (
                 <div key={e.id} className="p-5">
                 <div className="lg:flex">
