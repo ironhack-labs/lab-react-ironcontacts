@@ -1,4 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;700&family=Oswald:wght@200;300;400;500;700&display=swap');
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  color: rgb(79, 81, 83);
+
+}
 .contacts-table {
   display: flex;
   justify-content: center;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  padding: 40px 20px;
+  background: rgb(237 249 255 / 62%);
+}
+
+.random-contact {
+  background: #00bcd4;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid #32bdcf;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin: 20px;
+  align-self: flex-end;
+  width: 40%;
 }
