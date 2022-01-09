@@ -1,48 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;700&family=Oswald:wght@200;300;400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Eczar:wght@400;700&family=Licorice&family=Oswald:wght@200;400&family=Work+Sans:wght@100;200;400;500;700&display=swap');
 .app-wrapper {
   display: flex;
   flex-direction: column;
+  color: #726d69;
 }
 
+.header-wrapper {
+  background-image: url("./frontpage.png");
+  height: 65vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  border-radius: 0 20%;
+}
+.header-wrapper::after {
+  background-image: linear-gradient(120deg, #272273b0, #272273b0);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 65vh;
+  width: 100%;
+  z-index: 900;
+  opacity: 0.8;
+  border-radius: 0 20%;
+}
 h1 {
-  font-family: 'Oswald', sans-serif;
-  color: rgb(79, 81, 83);
+  font-family: 'Cookie', cursive;
+  color: #fff;
+  font-weight: 200;
+  margin-top: 0;
+  z-index: 1000;
+  font-size: 3rem;
 
 }
 .contacts-table {
   display: flex;
   justify-content: center;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   padding: 40px 20px;
-  background: rgb(237 249 255 / 62%);
+  background: rgb(231 231 231 / 20%);
 }
 
 .contacts-table img {
   border-radius: 50%;
   width: 70px;
   height: 70px;
+  object-fit: cover;
 }
 
-.random-contact {
-  background: #00bcd4;
+.contacts-table td {
+  text-align: center;
 }
 
-.sortePopularity {
-  background: #e0ca00;
-}
-.sortName {
-  background: #ff9800;
+th {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
 }
 
-.random-contact,
-.sortePopularity, 
-.sortName {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  margin: 20px;
-  align-self: flex-end;
-  width: 40%;
+
+.random-contact-btn {
+  background-color: #a5579f;
+}
+
+.sortePopularity-btn {
+  background-color: #a5579f;
+}
+.sortName-btn {
+  background-color: #a5579f;
+}
+
+.delete-btn {
+  background-color: rgb(233 41 7 / 88%);
+}
+
+.btn {
+  font-family: 'Work Sans', sans-serif;
+  margin: 10px;
+  align-self: center;
   border-radius: 20px;
   padding: 10px;
-  border: 0;
+  border: 1px solid #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: .7rem;
+  color: #fff;
+}
+
+.btn-wrapper {
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 22% 0 22% 0;
+  z-index: 1000;
 }

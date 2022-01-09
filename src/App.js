@@ -31,22 +31,28 @@ function App() {
       // if the random is not included inside the 'currentContacts'
       // update the 'state'
       // call the function setContact to merge-> currentContacts with the new random contact
-      console.log(randomContact)
-      console.log(currentContacts)
-      console.log('before useState -> setContact', currentContacts)
+      //console.log(randomContact)
+      //console.log(currentContacts)
+      //console.log('before useState -> setContact', currentContacts)
       setContact([...currentContacts, randomContact]);
-      console.log('after useState -> setContact', currentContacts)
+      //console.log('after useState -> setContact', currentContacts)
     }
   }
 
   const sortName = () => {
     const arrContacts = [...currentContacts];
+    // const sortedContacts = arrContacts.sort((a,b) => {
+    //   if (a.name < b.name) return -1
+    //   if (a.name > b.name) return  1
+    //   return 0
+    // });
+
     const sortedContacts = arrContacts.sort((a,b) => {
-      if (a.name < b.name) return -1
-      if (a.name > b.name) return  1
-      return 0
+      return a.name < b.name ? -1 
+            : a.name > b.name ? 1
+            : 0
     });
-    console.log(sortedContacts)
+    //console.log(sortedContacts)
     // give the new sorted value / object to render
     setContact(sortedContacts)
   }
@@ -55,18 +61,30 @@ function App() {
     const arrContacts = [...currentContacts];
     // sorted numbers, only with - descending order or + ascending order
     const sortedPopContacts = arrContacts.sort((a,b) => b.popularity - a.popularity)
-    console.log(sortedPopContacts)
+    //console.log(sortedPopContacts)
     setContact(sortedPopContacts)
+  }
+
+  const deleteContact = (id) => {
+    console.log(id)
+     const contactsAfterRemoved = currentContacts.filter(item => item.id !== id);
+     console.log(contactsAfterRemoved)
+     // update view of contacts after removed contact
+     setContact(contactsAfterRemoved); 
+
   }
 
   
   return (
     <div className="app-wrapper">
-      <h1>IronContacts Hello</h1>
-      <button className="random-contact" onClick={ addRandom }>+ Add Random Contact</button>
-      <button className="sortePopularity" onClick={ sortPopularity }>Sort by popularity</button>
-      <button className="sortName" onClick={ sortName }>+ Sort by name</button>
-
+      <div className="header-wrapper">
+        <h1>IronContacts</h1>
+        <div className="btn-wrapper">
+          <button className="random-contact-btn btn" onClick={ addRandom }>+ Random Contact</button>
+          <button className="sortePopularity-btn btn" onClick={ sortPopularity }>More popular</button>
+          <button className="sortName-btn btn" onClick={ sortName }>Sort by name</button>
+        </div>
+      </div>
       {/* Iteration 1 - table of contacts */}
       <div className="contacts-table">
         <table>
@@ -75,16 +93,18 @@ function App() {
             <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th></th>
             </tr>
-
+            
             </thead>
             <tbody>
             {currentContacts.map(contact => {
               return(
-                <tr key={contact.id}>
-                  <td><img src={contact.pictureUrl} alt="" /></td>
-                  <td>{contact.name}</td>
-                  <td>{contact.popularity}</td>
+                <tr key={contact?.id}>
+                  <td><img src={contact?.pictureUrl} alt="" /></td>
+                  <td>{contact?.name}</td>
+                  <td>{contact?.popularity.toFixed(2)}</td>
+                  <td><button className="delete-btn btn" onClick={ ()=>{deleteContact(contact.id)}  }>Delete</button></td>
                 </tr>
                 )  
               })
