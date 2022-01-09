@@ -18,13 +18,31 @@ h1 {
   background: rgb(237 249 255 / 62%);
 }
 
+.contacts-table img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
 .random-contact {
   background: #00bcd4;
-  border-radius: 20px;
-  padding: 10px;
-  border: 1px solid #32bdcf;
+}
+
+.sortePopularity {
+  background: #e0ca00;
+}
+.sortName {
+  background: #ff9800;
+}
+
+.random-contact,
+.sortePopularity, 
+.sortName {
   font-family: 'Be Vietnam Pro', sans-serif;
   margin: 20px;
   align-self: flex-end;
   width: 40%;
+  border-radius: 20px;
+  padding: 10px;
+  border: 0;
 }
