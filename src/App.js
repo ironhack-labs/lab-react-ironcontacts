@@ -45,8 +45,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>IronContacts</h1><br />
+    <div class="App">
+      
       <button onClick={addRandomContact}>Add Random Contact</button>
       <button onClick={sortNames}>Sort by name</button>
       <button onClick={sortByPopularity}>Sort by popularity</button>
