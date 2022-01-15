@@ -51,45 +51,51 @@ function App() {
 
   return (
     <div className="container">
-      <h1>IronContacts</h1>
-      <div className="contactsActions">
-        <button onClick={() => handleAddContact()}>Add new contact</button>
-        <button onClick={() => handleSortName()}>Sort by name</button>
-        <button onClick={() => handleSortPopularity()}>
-          Sort by popularity
-        </button>
-      </div>
-      <table className="contactsTable">
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contactList.map((contact) => {
-            return (
-              <tr key={contact.id}>
-                <td className="contactsPicture">
-                  <img src={contact.pictureUrl} alt={contact.name} />
-                </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity.toFixed(2)}</td>
-                <td>
-                  <button
-                    className="delete"
-                    onClick={() => handleDeleteContact(contact.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+      <div className="contacts">
+        <h1>IronContacts</h1>
+        <div className="contactsActions">
+          <button onClick={() => handleAddContact()}>Add new contact</button>
+          <button onClick={() => handleSortName()}>Sort by name</button>
+          <button onClick={() => handleSortPopularity()}>
+            Sort by popularity
+          </button>
+        </div>
+        {contactList.length > 0 ? (
+          <table className="contactsTable">
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+                <th>Action</th>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+              {contactList.map((contact) => {
+                return (
+                  <tr key={contact.id}>
+                    <td className="contactsPicture">
+                      <img src={contact.pictureUrl} alt={contact.name} />
+                    </td>
+                    <td>{contact.name}</td>
+                    <td>{contact.popularity.toFixed(2)}</td>
+                    <td>
+                      <button
+                        className="delete"
+                        onClick={() => handleDeleteContact(contact.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        ) : (
+          <h3>Add a contact to see its information</h3>
+        )}
+      </div>
     </div>
   );
 }
