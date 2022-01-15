@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.75rem;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.contactsActions {
+  display: flex;
+  gap: 0.5rem;
+  border-collapse: collapse;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contactsTable {
+  border-collapse: collapse;
+}
+
+button {
+  background: #dadada;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #92bbf8;
+}
+
+button.delete:hover {
+  background: #f89e92;
+}
+
+.contactsTable {
+  width: 492px;
+}
+
+.contactsTable th {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.contactsTable td {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.contactsTable td img {
+  max-width: 3.5rem;
+}
+
+.contactsTable tbody tr {
+  border: 1px solid #bbbbbb;
+}
+
+.contactsPicture {
+  display: flex;
+  align-items: center;
+  height: 100px;
 }
