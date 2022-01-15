@@ -2,12 +2,15 @@ import React from 'react';
 import "./ContactsList.css"
 import contactsData from "../../contacts.json" 
 import {useState} from 'react';
+import Random from '../random/Random';
 
 let fiveContacts = contactsData.slice(0,5);
 
 const ContactsList = ({name, pictureUrl, popularity, id}) =>{
     const [contacts, setContacts] = useState(fiveContacts);
  return(
+   <div>
+   <Random setContacts = {setContacts} contacts = {contacts}/>
     <table key={id}>
     <thead className='head'>
     <tr className='title' >
@@ -33,9 +36,11 @@ const ContactsList = ({name, pictureUrl, popularity, id}) =>{
    
             </tr> 
             </tbody>
+            
         )
         })}
   </table>
+  </div>
  )
 }
 export default ContactsList;
