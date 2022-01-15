@@ -1,6 +1,6 @@
 import DeleteButton from "./DeleteButton"
 
-const ContactCard = ({name, pictureUrl, popularity, id}) => {
+const ContactCard = ({name, pictureUrl, popularity, id, onDelete}) => {
   return (
       <>
         <td>
@@ -8,7 +8,7 @@ const ContactCard = ({name, pictureUrl, popularity, id}) => {
         </td>
         <td>{name}</td>
         <td>{popularity}</td>
-        <td><DeleteButton/></td>
+        <td><DeleteButton onDelete={onDelete} id={id} /></td>
       </>
   )
 }

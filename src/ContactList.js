@@ -19,14 +19,13 @@ const ContactList = () => {
 
   const sortContact = (str) => {
     let sortedContacts = listOfContact.slice(0)
-    sortedContacts.sort((a, b) => (str === 'name') ? (a[str] > b[str] ? 1 : -1 ) : b[str] - a[str])
+    sortedContacts.sort((a, b) => (str === 'name') ? (a[str] > b[str] ? 1 : -1) : b[str] - a[str])
     setContact(sortedContacts)
   }
   
-
-  // const deleteContact = () => {
-
-  // }
+  const deleteContact = (id) => {
+    setContact(listOfContact.filter((contact) => contact.id !== id))
+  }
   
   return (
     <>
@@ -44,7 +43,7 @@ const ContactList = () => {
       </thead>
       <tbody>
           {
-            listOfContact.map((contact)=><tr key={contact.id}><ContactCard {...contact} /></tr>)
+            listOfContact.map((contact)=><tr key={contact.id}><ContactCard {...contact} onDelete={deleteContact} /></tr>)
           }
       </tbody>
       </table>
