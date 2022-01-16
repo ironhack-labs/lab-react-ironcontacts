@@ -3,6 +3,8 @@ import "./ContactsList.css"
 import contactsData from "../../contacts.json" 
 import {useState} from 'react';
 import Random from '../random/Random';
+import Sort from '../sort/Sort';
+import SortPopularity from '../../sortpopularity/SortPopularity';
 
 let fiveContacts = contactsData.slice(0,5);
 
@@ -11,6 +13,8 @@ const ContactsList = ({name, pictureUrl, popularity, id}) =>{
  return(
    <div>
    <Random setContacts = {setContacts} contacts = {contacts}/>
+   <Sort setContacts = {setContacts} contacts = {contacts}/>
+   <SortPopularity setContacts = {setContacts} contacts = {contacts}/>
     <table key={id}>
     <thead className='head'>
     <tr className='title' >
