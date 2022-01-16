@@ -5,6 +5,9 @@ import {useState} from 'react';
 import Random from '../random/Random';
 import Sort from '../sort/Sort';
 import SortPopularity from '../../sortpopularity/SortPopularity';
+import Remove from '../remove/Remove';
+
+
 
 let fiveContacts = contactsData.slice(0,5);
 
@@ -15,6 +18,7 @@ const ContactsList = ({name, pictureUrl, popularity, id}) =>{
    <Random setContacts = {setContacts} contacts = {contacts}/>
    <Sort setContacts = {setContacts} contacts = {contacts}/>
    <SortPopularity setContacts = {setContacts} contacts = {contacts}/>
+
     <table key={id}>
     <thead className='head'>
     <tr className='title' >
@@ -29,20 +33,20 @@ const ContactsList = ({name, pictureUrl, popularity, id}) =>{
       <td>{popularity}</td>
 
     </tr> */}
-
+    <tbody>
     {contacts.map((contact) => {
         return (
-          <tbody key={contact.id}>
-            <tr>
+         
+            <tr key={contact.id}>
                 <td><img className='picture' src={contact.pictureUrl} alt="" /></td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
-   
+                <Remove />
             </tr> 
-            </tbody>
-            
+             
         )
         })}
+        </tbody>
   </table>
   </div>
  )
