@@ -1,0 +1,25 @@
+.Contacts h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.Contacts table,
+button {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.Contacts th {
+    font-size: 20px
+}
+
+.Contacts th,
+td {
+    font-weight: bold;
+}
+
+.Contacts img {
+    width: 100px;
+}
