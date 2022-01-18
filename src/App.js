@@ -16,13 +16,14 @@ function App() {
             <img src={entry.pictureUrl}></img>
           </td>
           <td>{entry.name}</td>
-          <td>{entry.popularity}</td>
+          <td>{entry.popularity.toFixed(2)}</td>
         </tr>
       );
     });
   console.log(list);
   return (
     <div className="App">
+      <h1>IronContacts</h1>
       <table>
         <tbody>
           <tr className="table-head">
