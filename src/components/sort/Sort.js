@@ -24,8 +24,8 @@ const Sort = ({setContacts, contacts}) => {
     }
     
     return(
-        <div>
+        
         <button onClick ={organizeByName}>Sort By Name</button>
-        </div>)
+        )
 }
 export default Sort;

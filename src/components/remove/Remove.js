@@ -1,19 +1,11 @@
 import React from "react";
 
 
-const Remove = ({setContacts, contacts}) => {
 
-    const RemoveContact =(id) =>{
-       
-        const filteredContacts = contacts.filter((contact) => contact.id !== id)
-        const newContactsDelete = [...contacts, filteredContacts];
-        return setContacts(newContactsDelete) ;
-        
-    }
-
-
-    return(
-        <div>{RemoveContact}</div>
+const Remove = ({contacts, setContacts, onDelete, id}) => {
+ 
+      return(
+        <td><button onClick={() => {onDelete(id)}}>Delete</button></td>
         )
 }
 export default Remove;

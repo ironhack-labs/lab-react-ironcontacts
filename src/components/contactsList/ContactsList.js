@@ -9,10 +9,15 @@ import Remove from '../remove/Remove';
 
 
 
+
 let fiveContacts = contactsData.slice(0,5);
 
-const ContactsList = ({name, pictureUrl, popularity, id}) =>{
+const ContactsList = ({id}) =>{
     const [contacts, setContacts] = useState(fiveContacts);
+    const onDelete = (id) => {
+      setContacts(contacts.filter((contact) => contact.id !== id));
+    }
+    
  return(
    <div>
    <Random setContacts = {setContacts} contacts = {contacts}/>
@@ -41,7 +46,7 @@ const ContactsList = ({name, pictureUrl, popularity, id}) =>{
                 <td><img className='picture' src={contact.pictureUrl} alt="" /></td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
-                <Remove />
+                <Remove onDelete = {onDelete} id ={contact.id}/> 
             </tr> 
              
         )

@@ -11,9 +11,9 @@ const SortPopularity = ({setContacts, contacts}) =>{
           return setContacts(organizeP);
     }
     return(
-        <div>
+        
         <button onClick ={comparePopularity}>Sort By Popularity</button>
-        </div>)
+        )
     
 }
 export default SortPopularity;
