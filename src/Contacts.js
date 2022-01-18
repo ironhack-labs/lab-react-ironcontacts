@@ -4,33 +4,53 @@ import "./Contacts.css"
 
 export const Contacts = () => {
 
-    const arr = contactData.slice(0,5)
- 
-    const [contact, setContact] = useState(arr)
+    const [contact, setContact] = useState(contactData.slice(0,5))
+    const [leftContacts, setLeftContacts] = useState(contactData.slice(5))
+    const [isAscend, setIsAscend] = useState(true) 
 
     const addRandomContact = () => {
-
-        const randomIndex = Math.floor(Math.random() * (contactData.length) - 1)
-        const randomContact = contactData[randomIndex];    
+        
+        if (leftContacts.length === 0) return
         const contactCopy = [...contact];
-        
+        const leftContactCopy =[...leftContacts];
 
-        !contactCopy.includes(randomContact) ? contactCopy.push(randomContact) : addRandomContact()
+        const randomIndex = Math.floor(Math.random() * (leftContactCopy.length - 1));
+        const randomContact = leftContactCopy.splice(randomIndex, 1);
         
-        setContact(contactCopy)
+        contactCopy.push(randomContact[0]);
+
+        setLeftContacts(leftContactCopy)
+        setContact(contactCopy);    
         
     }
     
     const sortName = () => {
+
         const sortedContacts = [...contact];
-            sortedContacts.sort((a, b) => a.name===b.name ? (a.name > b.name ? 1 : -1) : (b.name > a.name ? -1 : 1) )
-      
-        setContact(sortedContacts)
+
+
+        if(isAscend) {
+            sortedContacts.sort((a,b) => a.name.localeCompare(b.name));
+        } else {
+            sortedContacts.sort((a,b) => b.name.localeCompare(a.name));
+        }
+        //localeCompare is used only for strings.
+
+        setIsAscend(!isAscend);
+            
+        setContact(sortedContacts);
+
     }
 
     const sortPopularity = () => {
         const sortedContacts = [...contact];
-            sortedContacts.sort((a, b) => a.popularity===b.popularity ? (a.popularity > b.popularity ? 1 : -1) : (b.popularity > a.popularity ? -1 : 1) )
+        
+        if(isAscend){
+            sortedContacts.sort((a, b) => a.popularity === b.popularity ? 0 : a.popularity > b.popularity ? 1 : -1 );
+        } else {
+            sortedContacts.sort((a,b) => a.popularity === b.popularity ? 0 :a.popularity > b.popularity ? -1 : 1 );
+        }
+        setIsAscend(!isAscend)
       
         setContact(sortedContacts)
     }
@@ -40,6 +60,7 @@ export const Contacts = () => {
 
         setContact(deletedContact)
     }
+    
     return(
         <div className="Contacts">
             <h1>IronContacts </h1>
