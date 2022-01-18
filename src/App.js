@@ -39,8 +39,6 @@ function App() {
     //Adição contato aleatório
     const addRandomContact = ()=>{
       if(notShownContacts.length===0){
-        const bton = document.getElementById("add")
-        bton.textContent = "No more contacts"
         return
       }
       const rd = Math.round(Math.random()*(notShownContacts.length -1))
@@ -50,6 +48,10 @@ function App() {
 
       setNotShownContacts([...notShownContacts])
       setCts([...cts])
+      if(notShownContacts.length===0){
+        const bton = document.getElementById("add")
+        bton.textContent = "No more contacts"
+      }
     }
     //Organização alfabética dos contatos
     const sortByName = ()=>{
