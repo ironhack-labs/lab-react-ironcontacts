@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import contacts from './contacts.json'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App contacts={contacts} />
   </React.StrictMode>,
   document.getElementById('root')
 );
