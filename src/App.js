@@ -72,7 +72,7 @@ function App() {
   return (
     <div className='container'>
       <h1>IronContacts</h1>
-      <div className = "contacts">
+      <div>
         <div className="buttons">
           <button id= 'add' className= 'button fbutton' onClick = {addRandomContact}>Add new contact</button>
           <button className= 'button fbutton' onClick = {sortByName}>Sort by name</button>
