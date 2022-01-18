@@ -44,13 +44,12 @@ function App() {
         return
       }
       const rd = Math.round(Math.random()*(notShownContacts.length -1))
-      const nCts = [...cts]
-      const nNotShownContacts = [...notShownContacts]
-      nCts.push(nNotShownContacts[rd])
-      nNotShownContacts.splice(rd,1)
+      
+      cts.push(notShownContacts[rd])
+      notShownContacts.splice(rd,1)
 
-      setNotShownContacts([...nNotShownContacts])
-      setCts([...nCts])
+      setNotShownContacts([...notShownContacts])
+      setCts([...cts])
     }
     //Organização alfabética dos contatos
     const sortByName = ()=>{
