@@ -7,7 +7,7 @@ const SortPopularity = ({setContacts, contacts}) =>{
             return b.popularity - a.popularity;
           })
           
-          const organizeP = [...contacts, compare];
+          const organizeP = [...compare];
           return setContacts(organizeP);
     }
     return(

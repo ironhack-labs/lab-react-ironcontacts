@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const Remove = ({contacts, setContacts, onDelete, id}) => {
+const Remove = ({onDelete, id}) => {
  
       return(
         <td><button onClick={() => {onDelete(id)}}>Delete</button></td>

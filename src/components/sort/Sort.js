@@ -3,6 +3,7 @@ import "./Sort.css";
 
 
 
+
 const Sort = ({setContacts, contacts}) => {
 
     const organizeByName = () =>{
@@ -17,7 +18,9 @@ const Sort = ({setContacts, contacts}) => {
             
             return 0;
           });
-          const organize = [...contacts, byName];
+          
+          const organize = [...byName];
+          
           return setContacts(organize);
         
 

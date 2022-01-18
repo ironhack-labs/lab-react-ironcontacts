@@ -8,7 +8,7 @@ const Random = ({setContacts, contacts}) =>{
     
     const addContact = () =>{
         const select =  contactsData[Math.floor(Math.random() * contactsData.length)];
-        let include = contacts.includes(select) 
+        let include = contacts.includes(select);
         const newContacts = [...contacts, select];
         if(include == true){
             addContact();
