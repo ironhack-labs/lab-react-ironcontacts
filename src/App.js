@@ -1,38 +1,49 @@
 import React from "react";
-import contacts from "./contacts.json";
+import contactsData from "./contacts.json";
 import "./App.css";
 
-// to get only the first 5 contacts from contacts
-const initialContacts = contacts.slice(0, 5);
-
 function App() {
-  const [contactSlate, setContactSlate] = React.useState(initialContacts);
-  // preparing table elements
-  const contactList = () =>
-    contactSlate.map((contact) => {
-      return (
-        <tr key={contact.id}>
-          <td>
-            <img style={imgStyle} src={contact.pictureUrl} alt={contact.name} />
-          </td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity}</td>
-        </tr>
-      );
-    });
+  // to get only the first 5 contacts from contacts as initial state
+  const initialContacts = contactsData.slice(0, 5).map((contact) => (
+    <tr key={contact.id}>
+      <td>
+        <img
+          style={{ height: "150px" }}
+          src={contact.pictureUrl}
+          alt={contact.name}
+        />
+      </td>
+      <td>{contact.name}</td>
+      <td>{contact.popularity}</td>
+    </tr>
+  ));
+  //setting up the contact state
+  const [contacts, setContacts] = React.useState(initialContacts);
+  const addRandomActor = () => {
+    // random actor suchen
+    const randomActor =
+      contactsData[Math.floor(Math.random() * contactsData.length)];
+    const randomActorElement = (
+      <tr key={randomActor.id}>
+        <td>
+          <img
+            style={{ height: "150px" }}
+            src={randomActor.pictureUrl}
+            alt={randomActor.name}
+          />
+        </td>
+        <td>{randomActor.name}</td>
+        <td>{randomActor.popularity}</td>
+      </tr>
+    );
+    // durch set Contacts dem state hinzufügen
+    setContacts([randomActorElement, ...contacts]);
+  };
 
-  // styling for the table
-  const tableStyle = {
-    borderCollapse: "collapse",
-    width: "80%",
-    margin: "0 10%",
-  };
-  const imgStyle = {
-    height: "150px",
-  };
   return (
     <div className="App">
-      <table style={tableStyle}>
+      <button onClick={addRandomActor}>Add Random Actor</button>
+      <table style={{ width: "90%" }}>
         <thead>
           <tr>
             <th>Picture</th>
@@ -40,7 +51,7 @@ function App() {
             <th>Popularity</th>
           </tr>
         </thead>
-        <tbody>{contactList()}</tbody>
+        <tbody>{contacts}</tbody>
       </table>
     </div>
   );
