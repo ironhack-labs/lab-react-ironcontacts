@@ -11,10 +11,18 @@ function App() {
     let idx = Math.floor(Math.random() * contactsData.length)
     list.push(contactsData[idx])
     setContacts([...list]);
-
-
-    
   };
+
+  const sortName = () => {
+    list.sort((a, b) => a.name.localeCompare(b.name));
+    setContacts([...list])
+  }
+
+const sortPopularity = () => {
+  list.sort((a, b) => a.popularity - b.popularity)
+  setContacts([...list])
+}
+
   const iteratedList = list.map((contact) => {
     return (
       <tr>
@@ -31,6 +39,8 @@ function App() {
   return (
     <div className="App">
       <button onClick={addContact}>Add Random Contact</button>
+      <button onClick={sortName}>Sort (name)</button>
+      <button onClick={sortPopularity}>Sort (popularity)</button>
       <h1>IronContacts</h1>
       <table>
         <tbody>
