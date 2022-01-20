@@ -19,6 +19,8 @@
   text-align: center;
   position: relative;
   border-radius: 0 20%;
+  margin: 0 auto;
+  max-width: 650px;
 }
 .header-wrapper::after {
   background-image: linear-gradient(120deg, #272273b0, #272273b0);
@@ -31,6 +33,8 @@
   z-index: 900;
   opacity: 0.8;
   border-radius: 0 20%;
+  margin: 0 auto;
+  max-width: 650px;
 }
 h1 {
   font-family: 'Cookie', cursive;
