@@ -23,6 +23,15 @@ const sortPopularity = () => {
   setContacts([...list])
 }
 
+const deleteContact = (event) => {
+
+  let id = event.target.id
+ 
+  let removedContact = list.filter(contact => contact.id !== id)
+  setContacts([...removedContact])
+ 
+}
+
   const iteratedList = list.map((contact) => {
     return (
       <tr>
@@ -31,6 +40,7 @@ const sortPopularity = () => {
         </td>
         <td>{contact.name}</td>
         <td>{contact.popularity.toFixed(2)}</td>
+        <td><button id={contact.id} onClick={deleteContact}>Delete</button></td>
       </tr>
     );
   });
