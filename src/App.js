@@ -19,6 +19,12 @@ function App() {
     const sortedContacts = contacts.sort((a, b) => a.name.localeCompare(b.name));
     setContacts([...sortedContacts]);
   };
+  const deleteActor = ({target}) => {
+    console.log(target.id);
+    //actor must be deleted
+    const actorsFiltered = contacts.filter((contact) => contact.id !== target.id) 
+    setContacts([...actorsFiltered])
+  }
 
   return (
     <div className="App">
@@ -42,6 +48,7 @@ function App() {
                   src={contact.pictureUrl}
                   alt={contact.name}
                 />
+                <button id={contact.id} onClick={deleteActor}>Delete</button>
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
