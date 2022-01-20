@@ -25,6 +25,7 @@ function App() {
     const actorsFiltered = contacts.filter((contact) => contact.id !== target.id) 
     setContacts([...actorsFiltered])
   }
+  //
 
   return (
     <div className="App">
