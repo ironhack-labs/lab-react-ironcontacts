@@ -1,28 +1,36 @@
-import logo from "./logo.svg";
 import React from "react";
 import "./App.css";
 import contactsData from "./contacts.json";
 
 function App() {
-  const [contacts, setContacts] = React.useState(contactsData);
+  let filteredList = contactsData.slice(0, 1);
 
-  const list = contacts
-    .filter((contact, idx) => idx < 5)
-    .map((entry) => {
-      console.log(entry);
-      return (
-        <tr>
-          <td>
-            <img src={entry.pictureUrl}></img>
-          </td>
-          <td>{entry.name}</td>
-          <td>{entry.popularity.toFixed(2)}</td>
-        </tr>
-      );
-    });
-  console.log(list);
+  const [list, setContacts] = React.useState(filteredList);
+
+  const addContact = () => {
+    let idx = Math.floor(Math.random() * contactsData.length)
+    list.push(contactsData[idx])
+    setContacts([...list]);
+
+
+    
+  };
+  const iteratedList = list.map((contact) => {
+    return (
+      <tr>
+        <td>
+          <img src={contact.pictureUrl} alt={contact.name} />
+        </td>
+        <td>{contact.name}</td>
+        <td>{contact.popularity.toFixed(2)}</td>
+      </tr>
+    );
+  });
+
+
   return (
     <div className="App">
+      <button onClick={addContact}>Add Random Contact</button>
       <h1>IronContacts</h1>
       <table>
         <tbody>
@@ -31,7 +39,7 @@ function App() {
             <td>Name</td>
             <td>Popularity</td>
           </tr>
-          {list}
+          {iteratedList}
         </tbody>
       </table>
     </div>
