@@ -1,0 +1,66 @@
+$green: rgb(0, 0, 100)
+
+body
+    background-color: rgb(0, 0, 25)
+    display: flex
+    justify-content: center
+    align-content: center
+    width: 100%
+    height: 100vh
+.App
+    background-color: rgb(0, 0, 20)
+    height: 100vh
+    width: 97vw
+    margin: auto
+    margin-top: 10px
+
+%btn
+    font-size: .8rem
+    height: 40px
+    color: white
+    background-color: rgb(0, 50, 140)
+    border-radius: 5px
+    border: none
+    font-weight: 100
+    margin: 10px
+    &:hover
+        transform: scale(1.05)
+    &:active
+        background-color: black
+
+.btn-primary
+    @extend %btn
+
+.btn-danger
+    @extend %btn
+    color: white
+    background-color: rgb(200, 30, 30)
+    font-size: 1.5rem
+
+table
+    border: none
+    font-size: 1.8rem
+    font-weight: 500
+    text-align: center
+    background-color: rgb(150, 150, 180)
+    width: 100%
+
+    .table-head
+        font-weight: 100
+        color: rgb(200, 200, 255)
+        background-color: rgb(10, 10, 10)
+
+
+h1
+    font-weight: 100
+    font-size: 4.5rem
+    color: rgb(180, 180, 255)
+    margin: 0
+
+.App img
+    height: 80px
+    transition: .3s
+    position: relative
+
+.App img:hover
+    transform: scale(3)

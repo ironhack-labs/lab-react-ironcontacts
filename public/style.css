@@ -1,0 +1,70 @@
+body {
+  background-color: #000019;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.App {
+  background-color: #000014;
+  height: 100vh;
+  width: 97vw;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.btn-danger, .btn-primary {
+  font-size: 0.8rem;
+  height: 40px;
+  color: white;
+  background-color: #00328c;
+  border-radius: 5px;
+  border: none;
+  font-weight: 100;
+  margin: 10px;
+}
+.btn-danger:hover, .btn-primary:hover {
+  transform: scale(1.05);
+}
+.btn-danger:active, .btn-primary:active {
+  background-color: black;
+}
+
+.btn-danger {
+  color: white;
+  background-color: #c81e1e;
+  font-size: 1.5rem;
+}
+
+table {
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: #9696b4;
+  width: 100%;
+}
+table .table-head {
+  font-weight: 100;
+  color: #c8c8ff;
+  background-color: #0a0a0a;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 4.5rem;
+  color: #b4b4ff;
+  margin: 0;
+}
+
+.App img {
+  height: 80px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.App img:hover {
+  transform: scale(3);
+}

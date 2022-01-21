@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
 import contactsData from "./contacts.json";
+import './App.css'
 
 function App() {
   let filteredList = contactsData.slice(0, 1);
@@ -40,7 +40,7 @@ const deleteContact = (event) => {
         </td>
         <td>{contact.name}</td>
         <td>{contact.popularity.toFixed(2)}</td>
-        <td><button id={contact.id} onClick={deleteContact}>Delete</button></td>
+        <td><button className='btn-danger' id={contact.id} onClick={deleteContact}>Delete</button></td>
       </tr>
     );
   });
@@ -48,10 +48,11 @@ const deleteContact = (event) => {
 
   return (
     <div className="App">
-      <button onClick={addContact}>Add Random Contact</button>
-      <button onClick={sortName}>Sort (name)</button>
-      <button onClick={sortPopularity}>Sort (popularity)</button>
+     
       <h1>IronContacts</h1>
+      <button className='btn-primary' onClick={addContact}>ADD (random)</button>
+      <button className='btn-primary' onClick={sortName}>SORT (name)</button>
+      <button className='btn-primary' onClick={sortPopularity}>SORT (popularity)</button>
       <table>
         <tbody>
           <tr className="table-head">
