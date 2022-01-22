@@ -9,9 +9,10 @@ const Table = ( {headers, data}) => {
         return tableData.map((data, idx) => {
             return (
                 <tr>
-                    <td>{data.pictureUrl}</td>
-                    <td>{data.Name}</td>
-                    <td>{data.popularity}</td>
+                    <td>
+                    <img src={data.pictureUrl} alt={`${data.name} profile`}/></td>
+                    <td>{data.name}</td>
+                    <td>{data.popularity.toFixed(2)}</td>
                 </tr>
             );
         });
