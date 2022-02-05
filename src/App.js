@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import contacts from "./contacts.json";
+import { useState } from 'react';
 
 function App() {
+  const List = contacts.slice(0,5)
+  const [ listContacts, setContact ] = useState(List);
+
+  const addRandom = () => { contacts[Math.floor(Math.random() * contacts.length)];
+
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button className="random-contact" onClick={ addRandom }>Add Random Contact</button>
+
+
+        
+          <div className="contacts-table">
+      <table>
+       <thead>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </thead>
+        <tbody>
+        {List.map(contact => {
+          return(
+            <tr key={contact.id}>
+              <td><img src={contact.pictureUrl} width={50} alt="" /></td>
+              <td>{contact.name}</td>
+              <td>{contact.popularity}</td>
+            </tr>
+            )  
+        })
+      }
+      </tbody>
+      </table>
+      </div>
     </div>
   );
 }
