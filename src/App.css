@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.actorImage {
+  width: 100px;
+}
