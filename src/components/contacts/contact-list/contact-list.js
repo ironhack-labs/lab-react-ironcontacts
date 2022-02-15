@@ -12,8 +12,19 @@ class ContactsList extends Component {
         this.setState({ contacts })
     }
 
-    handleCreateContact() {
+    // handleCreateContact() {
+    //     this.setState((state, props) => {
 
+    //          return {
+    //             contacts: [...state.contacts, contact]
+    //         }
+    //     })
+    // }
+
+    handleDeleteContact(id){
+
+        this.setState((state, props) => 
+        ({contacts: state.contacts.filter(contact => contact.id !== id)}))
     }
 
 
@@ -26,7 +37,7 @@ class ContactsList extends Component {
             <>
                 <h1 className="mb-3">Iron Contacts </h1>
                 <div className='d-flex justify-content-center mb-3'>
-                    <button className='btn btn-primary'>New Contact</button>
+                    <button className='btn btn-primary' onClick={() => this.handleCreateContact()}>New Contact</button>
                 </div>
 
                 <div className=''>
@@ -38,8 +49,9 @@ class ContactsList extends Component {
 
                     {contacts.map((contact) => (
                         <div key={contact.id}>
-                            <ContactItem {...contact} />
+                            <ContactItem {...contact} onDeleteContact={(id) => this.handleDeleteContact(id)} />
                         </div>
+                       
                     ))}
                 </div>
             </>
