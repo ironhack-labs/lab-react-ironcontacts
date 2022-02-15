@@ -12,7 +12,7 @@ function ContactItem({ name, pictureUrl, popularity, id, onDeleteContact }) {
                     <img className='' style={{ maxWidth: '120px' }} src={pictureUrl} alt={name} />
                 </div>
                 <h2>{name}</h2>
-                <h2>{popularity}</h2>
+                <h2 className=''>{popularity}</h2>
                 <button className='btn btn-danger' onClick={()  => onDeleteContact(id)}>DELETE</button>
             </div>
         </div>

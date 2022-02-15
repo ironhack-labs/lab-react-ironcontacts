@@ -28,10 +28,33 @@ class ContactsList extends Component {
     }
 
     handleSortName() {
-        this.setState((state, props) => 
-        ({contacts : state.contacts.sort((a,b) => a.name.localeCompare(b.name))}))
+      this.setState((state, props) => 
+      ({contacts: state.contacts.sort((a, b) => {
+        if(a.name > b.name){
+            return 1;
+        }
+        if(a.name < b.name){
+            return - 1;
+        }
+        return 0
+      })}))
     }
 
+
+    handleSortPopularity() {
+        this.setState((state, props) => 
+        ({contacts: state.contacts.sort((a, b) => {
+            if(a.popularity > b.popularity) {
+                return 1
+            }
+            if(a.popularity < b.popularity){
+                return - 1
+            }
+            return 0
+        })}))
+    }
+
+    
 
 
 
@@ -40,18 +63,21 @@ class ContactsList extends Component {
         const { contacts } = this.state
         return (
             <>
-                <h1 className="mb-3">Iron Contacts </h1>
-                <div className='d-flex justify-content-center mb-3'>
-                    <button className='btn btn-primary' onClick={() => this.handleCreateContact()}>New Contact</button>
-                    <button className='btn btn-secondary' onClick={() => this.handleSortName()}>Sort By Name</button>
+                <div className='d-flex justify-content-center'>
+                <h1 className="mb-5"><strong> IRON CONTACTS </strong></h1>
+                </div>
+                <div className='d-flex justify-content-center mb-5'>
+                    <button className='btn btn-primary ' onClick={() => this.handleCreateContact()}>New Contact</button>
+                    <button className='btn btn-secondary ms-5' onClick={() => this.handleSortName()}>Sort By Name</button>
+                    <button className='btn btn-secondary ms-5' onClick={() => this.handleSortPopularity()}>Sort By Popularity</button>
                 </div>
 
                 <div className=''>
-                    <div className='d-flex row g-2 row-cols-1 row-cols-md-3'>
+                    <div className='d-flex row g-2 row-cols-1 row-cols-md-3 mb-5'>
                         
-                        <h1>Picture</h1>
-                        <h1>Name</h1>
-                        <h1>Popularity</h1>
+                        <h3>Picture</h3>
+                        <h3>Name</h3>
+                        <h3>Popularity</h3>
                     </div>
 
                     {contacts.map((contact)=> (
