@@ -1,9 +1,10 @@
 import contact from '../../../contacts.json'
+import ContactsList from '../contact-list/contact-list'
 import './contact-item.css'
 
 
 function ContactItem({ name, pictureUrl, popularity, id, onDeleteContact }) {
-
+       
     return (
         <div className='d-flex'>
             <div className='d-flex row g-2 row-cols-1 row-cols-md-3 mb-5 '>
