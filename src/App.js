@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import contactsData from "./contacts.json";
 import "./App.css";
 
@@ -14,12 +14,34 @@ function App() {
     setContacts([...contacts,contactsData[randomNumber]])
 
   }
-  console.log("CONTACTS", contacts);
+
+  const handleSortByName = () => {
+    const sortedArray = [...contacts].sort(compareByName)
+    setContacts(sortedArray)
+  }
+
+  const handleSortByPopularity = () => {
+    const sortedArray = [...contacts].sort((a,b)=>b.popularity-a.popularity)
+    setContacts(sortedArray)
+  }
+//compare sort
+function compareByName(a,b){
+  const nameA = a.name.toUpperCase()
+  const nameB = b.name.toUpperCase()
+  let comparison = 0;
+
+  if(nameA > nameB){comparison = 1}
+  if(nameA < nameB){comparison = -1}
+  return comparison
+}
 
   return (
     <div className="App">
+    {console.log("CONTACTS CON DIV",contacts)}
     <h1>IronContacts</h1>
       <button onClick={handleClick}>Add Random Contact</button>
+      <button onClick={handleSortByName}>Sort by name</button>
+      <button onClick={handleSortByPopularity}>Sort by popularity</button>
       <table>
         <thead>
           <tr>
