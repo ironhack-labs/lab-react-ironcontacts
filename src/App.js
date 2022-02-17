@@ -17,6 +17,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularitys</th>
+            <th>Won oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody className="table-body">
@@ -26,6 +28,8 @@ function App() {
               <td><img className="profile-pic" src={contact.pictureUrl} alt=""/></td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
+                <td>{contact.wonOscar ? <span>🏆</span> : null}</td>
+                <td>{contact.wonEmmy ? <span>🏆</span> : null}</td>
               </tr>
             );
           })}
