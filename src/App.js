@@ -50,6 +50,7 @@ function compareByName(a,b){
             <th>Popularitys</th>
             <th>Won oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody className="table-body">
@@ -67,6 +68,7 @@ function compareByName(a,b){
                 <td>{contact.popularity}</td>
                 <td>{contact.wonOscar ? <span>🏆</span> : null}</td>
                 <td>{contact.wonEmmy ? <span>🏆</span> : null}</td>
+                <td><button>Delete</button></td>
               </tr>
             );
           })}
