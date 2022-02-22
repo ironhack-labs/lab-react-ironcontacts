@@ -8,9 +8,20 @@ function App() {
 
   const [contacts, setContacts] = useState(fiveContacts);
 
+  const remainingContacts = contactsArr.slice(5);
+  console.log(remainingContacts);
+
+  const addRandomContact = () => {
+    let randomNumber = Math.floor(Math.random() * remainingContacts.length)
+    contacts.push(remainingContacts[randomNumber])
+    setContacts([...contacts])
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Ironcontacts</h1>
+        <button onClick={addRandomContact}>Add Random Contact</button>
         <table>
           <thead>
             <tr>
@@ -25,7 +36,7 @@ function App() {
             {contacts.map(element => {
               return (
                 <tr>
-                  <td><img src={element.pictureUrl} alt="" width="100px"/></td>
+                  <td><img src={element.pictureUrl} alt="" width="100px" /></td>
                   <td>{element.name}</td>
                   <td>{element.popularity.toFixed(2)}</td>
                   <td>{element.wonOscar ? '🏆' : ''}</td>
