@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+.Control button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 1rem;
+}
+
+.Control button:hover {
+  background-color: white;
+  color: #008CBA;
+}
+
+.Table {
+  width: 80vw;
+  margin: 2rem;
+  padding: 1rem;
+  border: 2px solid;
+  border-radius: 2rem;
+}
+
+.TableHeader {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.TableBody {
+  color: white;
+}
+
