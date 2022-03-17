@@ -13,7 +13,7 @@ code {
 }
 
 #celebPic {
-  max-width: 4rem;
+  max-width: 3rem;
 }
 
 .h1 {
@@ -23,5 +23,11 @@ code {
 .center {
   margin-left: auto;
   margin-right: auto;
+  border: solid 1px black;
+  margin-top: 2rem;
 }
 
+.centerButton {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
