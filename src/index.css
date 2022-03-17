@@ -22,7 +22,23 @@ code {
 
 }
 
+.contacts-buttons {
+  display: flex;
+  width: 500px;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
 
 .ironContacts .celebrity img {
   width: 100px;
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid #000;
+  
+}
+
+table {
+  border-collapse: collapse;
 }

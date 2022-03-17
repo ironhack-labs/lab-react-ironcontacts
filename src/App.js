@@ -33,7 +33,7 @@ function App() {
 
   
   let sortContactsName = () => {
-    
+
     contacts.sort((a,b) => {
 
       if ( a.name < b.name ){
@@ -57,9 +57,19 @@ function App() {
     setContacts([...contacts]);
   };
 
+  const deleteContact = (contactId) => {
+    const filteredContacts = contacts.filter(item => item.id !== contactId);
+    setContacts(filteredContacts);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <div className="contacts-buttons">
+        <button onClick={addRandomContact}>Add Random Contact</button> 
+        <button onClick={sortContactsName} >Sort by Name</button>
+        <button onClick={sortContactsPopularity} >Sort by Popularity</button>
+      </div>
       <table className="ironContacts">
         <tbody>
           <tr>
@@ -68,7 +78,7 @@ function App() {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
-
+            <th>Actions</th>
           </tr>
           {contacts.map(contact => {
             return (
@@ -78,15 +88,14 @@ function App() {
                 <td>{contact.popularity}</td>
                 <td>{contact.wonOscar && <span>🏆</span>}</td>
                 <td>{contact.wonEmmy && <span>🏆</span>}</td>
+                <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
               </tr>
             )
           })}     
           
         </tbody>
       </table>
-      <button onClick={addRandomContact}>Add Random Contact</button> 
-      <button onClick={sortContactsName} >Sort by Name</button>
-      <button onClick={sortContactsPopularity} >Sort by Popularity</button>
+      
     </div>
   );
 }
