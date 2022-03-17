@@ -14,6 +14,7 @@ code {
 
 #celebPic {
   max-width: 3rem;
+  padding-top: .3rem;
 }
 
 .h1 {
@@ -30,4 +31,17 @@ code {
 .centerButton {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+table {
+  border-collapse: collapse;
+}
+
+td {
+    border-left: 1px solid black;
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
+    padding: 1rem;
 }

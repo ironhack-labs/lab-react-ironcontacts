@@ -43,10 +43,10 @@ function App() {
     setContacts(sortedNameList);
   }
 
-//   const deleteContactHandler = (id) => {
-//     const newContactList = contacts.filter((contactSample) => contactSample.id !== id);
-//     setContacts(newMoviesList)
-// }
+  const deleteContactHandler = (id) => {
+    const newContactList = contacts.filter((contactSample) => contactSample.id !== id);
+    setContacts(newContactList)
+}
 
   return (
     <>
@@ -59,7 +59,7 @@ function App() {
             <button onClick={sortedName}>Sort by Name</button>
           </div>
         </>
-        <table className="center">
+        <table class="table table-striped" className="center">
           <thead>
             <tr>
               <th>Picture</th>
@@ -84,8 +84,8 @@ function App() {
                     <td>{contact.name}</td>
                     <td>{contact.popularity.toFixed(2)}</td>
                     <td>{contact.wonOscar ? "🏆" : ""}</td>
-                    <td>{contact.wonEmmy ? "🏆" : ""}</td>
-                    <td></td>
+                    <td>{contact.wonEmmy ? "🌟" : ""}</td>
+                    <td><button onClick={() => deleteContactHandler(contact.id)}>Remove</button></td>
                   </tr>
                 </>
               );
