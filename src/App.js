@@ -14,6 +14,8 @@ function App() {
   //state2
   let [newContacts, setNewContacts] = useState(restOfContacts);
 
+  /* let sortedStrings = contacts.filter(element => element.name).sort();
+  let [sortName, setSortName] = useState(sortedStrings); */
 
   const addRandomContact = () => {
     
@@ -27,9 +29,32 @@ function App() {
     console.log('name =>',randomContact.name);
     console.log('rest of contacts after adding to contacts =>',newContacts);
     console.log('new contacts  =>',contacts); */
+  };
 
+  
+  let sortContactsName = () => {
     
-    
+    contacts.sort((a,b) => {
+
+      if ( a.name < b.name ){
+        return -1;
+      }
+      if ( a.name > b.name ){
+        return 1;
+      } 
+      return 0;
+      
+    });
+    setContacts([...contacts]);
+  };
+
+  const sortContactsPopularity = () => {
+
+    contacts.sort((a,b) => {
+
+      return b.popularity - a.popularity;
+    });
+    setContacts([...contacts]);
   };
 
   return (
@@ -60,6 +85,8 @@ function App() {
         </tbody>
       </table>
       <button onClick={addRandomContact}>Add Random Contact</button> 
+      <button onClick={sortContactsName} >Sort by Name</button>
+      <button onClick={sortContactsPopularity} >Sort by Popularity</button>
     </div>
   );
 }
