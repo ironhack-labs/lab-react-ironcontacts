@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// jshint esversion:8
+import "./App.css";
+import contactsData from './contacts.json';
+import {useState} from 'react';
 
 function App() {
+
+  let [contacts, setContacts] = useState([contactsData[0], contactsData[1], contactsData[2], contactsData[3], contactsData[4]]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>IronContacts</h1>
+      <table className="ironContacts">
+        <tbody>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
+
+          </tr>
+          {contacts.map(contact => {
+            return (
+              <tr key={contact.id} className="celebrity">
+                <td><img src={contact.pictureUrl} alt={contact.name}/></td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity}</td>
+                <td>{contact.wonOscar && <span>🏆</span>}</td>
+                <td>{contact.wonEmmy && <span>🏆</span>}</td>
+              </tr>
+            )
+          })}      
+        </tbody>
+      </table>
     </div>
   );
 }
-
 export default App;
