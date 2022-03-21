@@ -18,7 +18,7 @@ function App() {
         const randomContact = contactsJson[Math.floor(Math.random()* contactsJson.length)]
         setContacts([randomContact, ...contacts])
     }
-  // arr.sort((a,b)=>a-b); con este no funciona... hay que usar localCompare 
+  // arr.sort((a,b)=>a-b); con este no funciona... hay que usar localCompare porque son LETRAS
   //items.sort(function (a, b) {
   // return a.localeCompare(b);
   //  });
@@ -28,6 +28,12 @@ function App() {
       const sortContact = contacts.sort((a,b) => a.name.localeCompare(b.name))
       setContacts([...sortContact])
   }
+
+  // arr.sort((a,b)=>a-b);
+  function sortContactspopularity(){
+    let sortContactbyPopularity = contacts.sort((a,b) => a.popularity - (b.popularity))
+    setContacts([...sortContactbyPopularity])
+}
 
 
   // arr = arr.filter(function(el){
@@ -41,12 +47,16 @@ function App() {
 
   return (
     <div className="App">
-    <table>
+      <button onClick={addRandomContact}>Add Contact</button>
+      <button onClick={sortContacts}>Order Contacts</button>
+      <button onClick={sortContactspopularity}>Order Contacts by Popularity</button>
+    <table style={{ width: "80%"}}>
         <thead>
           <tr>
             <th>IronContacts</th>
           </tr>
           <tr>
+            <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
             <th>Won Emmy</th>
@@ -58,11 +68,11 @@ function App() {
             <>
               <tbody>
                 <tr>
-                  <td><img src={contact.pictureUrl} style={{ width: "100px"}}></img></td>
+                  <td><img src={contact.pictureUrl} style={{ width: "75px"}}></img></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
                   {/* si tiene ? si no tiene :  */}
-                  <td>{contact.wonEmmy ? "🏆" : ""}</td>
+                  <td>{contact.wonEmmy ? "⭐" : ""}</td>
                   <td>{contact.wonOscar ? "🏆" : ""}</td>
                 </tr>
                 <button id={contact.id} onClick={deleteContact}>Delete Contact</button>
@@ -72,8 +82,7 @@ function App() {
         })}
       </table>
       
-      <button onClick={addRandomContact}>Add Contact</button>
-      <button onClick={sortContacts}>Order Contacts</button>
+      
       
     </div>
   );
