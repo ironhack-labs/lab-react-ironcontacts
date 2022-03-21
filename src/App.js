@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import contacts from './contacts';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    contacts: contacts.filter((el, index) => index < 5)
+  }
+
+
+  render(){
+    console.log(this.state.contacts);
+    return (
+      <div className="App">
+        <h2>IronContacts</h2>
+        <div className="actors-table container">
+          <table>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                this.state.contacts.map(contact => {
+                  return (
+                    <tr key={contact.id}>
+                      <th><img src={contact.pictureUrl} alt="" /></th>
+                      <th>{contact.name}</th>
+                      <th>{contact.popularity.toFixed(2)}</th>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
