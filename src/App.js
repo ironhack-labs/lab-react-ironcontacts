@@ -40,7 +40,7 @@ function App() {
   //   return el.url !== "link 2";
   // });
   function deleteContact({target}){
-      const deletedContact = contacts.filter((element) => element.id !== target.id)
+      const deletedContact = contacts.filter((element) => element.id !==target.id)
       setContacts([...deletedContact])
   }
 
@@ -61,6 +61,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Emmy</th>
             <th>Won Oscar</th>
+            <th>Action</th>
           </tr>
         </thead>
         {contacts.map((contact) => {
@@ -68,14 +69,14 @@ function App() {
             <>
               <tbody>
                 <tr>
-                  <td><img src={contact.pictureUrl} style={{ width: "75px"}}></img></td>
+                  <td><img src={contact.pictureUrl} style={{ width: "100px"}}></img></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
                   {/* si tiene ? si no tiene :  */}
                   <td>{contact.wonEmmy ? "⭐" : ""}</td>
                   <td>{contact.wonOscar ? "🏆" : ""}</td>
+                  <td><button id={contact.id} onClick={deleteContact}>Delete Contact</button></td>
                 </tr>
-                <button id={contact.id} onClick={deleteContact}>Delete Contact</button>
               </tbody>
             </>
           )
