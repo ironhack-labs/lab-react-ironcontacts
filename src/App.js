@@ -29,33 +29,58 @@ function App() {
       setContacts([...sortContact])
   }
 
-  function deleteContacts(){
-      const deletedContact = 
+
+  // arr = arr.filter(function(el){
+  //   return el.url !== "link 2";
+  // });
+  function deleteContact({target}){
+      const deletedContact = contacts.filter((element) => element.id !== target.id)
+      setContacts([...deletedContact])
   }
 
 
   return (
     <div className="App">
-     <table>
-       <h1>IronContacts</h1>
-       {contacts.map((contact) => (
-         <tr>
-        <div>
-          <td><img src={contact.pictureUrl} style={{ width: "100px"}}></img></td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity}</td>
-
-        </div>
-        </tr>
-
-       ))}
-       
-       </table> 
+    <table>
+        <thead>
+          <tr>
+            <th>IronContacts</th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won Emmy</th>
+            <th>Won Oscar</th>
+          </tr>
+        </thead>
+        {contacts.map((contact) => {
+          return (
+            <>
+              <tbody>
+                <tr>
+                  <td><img src={contact.pictureUrl} style={{ width: "100px"}}></img></td>
+                  <td>{contact.name}</td>
+                  <td>{contact.popularity}</td>
+                  {/* si tiene ? si no tiene :  */}
+                  <td>{contact.wonEmmy ? "🏆" : ""}</td>
+                  <td>{contact.wonOscar ? "🏆" : ""}</td>
+                </tr>
+                <button id={contact.id} onClick={deleteContact}>Delete Contact</button>
+              </tbody>
+            </>
+          )
+        })}
+      </table>
       
       <button onClick={addRandomContact}>Add Contact</button>
       <button onClick={sortContacts}>Order Contacts</button>
+      
     </div>
   );
 }
 
 export default App;
+
+
+
+
