@@ -14,11 +14,24 @@ function App() {
     const [contacts, setContacts] = useState(startContacts);
 
   // añadimos un contacto nuevo con un aleatorio con un Math random
-    const addRandomContact = () => {
+    function addRandomContact(){
         const randomContact = contactsJson[Math.floor(Math.random()* contactsJson.length)]
         setContacts([randomContact, ...contacts])
     }
-  // 
+  // arr.sort((a,b)=>a-b); con este no funciona... hay que usar localCompare 
+  //items.sort(function (a, b) {
+  // return a.localeCompare(b);
+  //  });
+
+
+  function sortContacts(){
+      const sortContact = contacts.sort((a,b) => a.name.localeCompare(b.name))
+      setContacts([...sortContact])
+  }
+
+  function deleteContacts(){
+      const deletedContact = 
+  }
 
 
   return (
@@ -40,6 +53,7 @@ function App() {
        </table> 
       
       <button onClick={addRandomContact}>Add Contact</button>
+      <button onClick={sortContacts}>Order Contacts</button>
     </div>
   );
 }
