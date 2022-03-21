@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  text-transform: uppercase;
+}
+
+.ironcontacts-img {
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+tr td {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconWin, 
+.iconLose {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: rgb(57, 187, 57);
+}
+
+.iconLose {
+  background-color: rgb(190, 56, 56);
+}
