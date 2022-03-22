@@ -1,13 +1,53 @@
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+@import './assets/styles/general.scss';
+
+.title {
+  text-align: center;
+  margin: 20px 0px
+}
+.btns {
+  @include flex(flex, row, wrap, space-evenly, center);
+  margin-bottom: 50px;
+
+  &__single {
+    @include btn($primary-color, $white-color);
+
+    &:hover {
+      @include btn($secondary-color, $primary-color);
+    }
+  }
 }
 
 .table {
+  margin: 0 auto;
+
+  &__title {
+    width: 150px;
+    font-size: 2rem;
+  }
+
+  &__info {
+    width: 150px;
+    text-align: center;
+    border: solid 1px $primary-color;
+
+    &--img {
+      height: 200px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 
   &__img {
     width: 100px;
     height: auto;
+  }
+
+  &__btn {
+    @include btn-border($white-color, $primary-color);
+
+    &:hover {
+      @include btn($secondary-color, $white-color)
+    }
   }
   
 }

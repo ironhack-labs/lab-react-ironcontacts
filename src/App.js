@@ -64,46 +64,47 @@ class App extends Component {
     this.sortContacts();
 
     return (
-      <div className="app wrapper">
+      <div className="wrapper">
   
-        <h1>IronContacts</h1>
-        <button onClick={this.randomContact}>Add Random Contact</button>        
-        <button name="name" onClick={this.handleSortBy}>Sort by name</button>
-        <button name="popularity" onClick={this.handleSortBy}>Sort by popularity</button>
+        <h1 className="title">IronContacts</h1>
+
+        <div className="btns">
+          <button className="btns__single" onClick={this.randomContact}>Add Random Contact</button>        
+          <button className="btns__single" name="name" onClick={this.handleSortBy}>Sort by name</button>
+          <button className="btns__single" name="popularity" onClick={this.handleSortBy}>Sort by popularity</button>
+        </div>
+        
   
-        <div className="table">
-          <table>
+        <div>
+          <table className="table">
             <thead>
               <tr>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Popularity</th>
-                  <th>Won an Oscar</th>
-                  <th>Won an Emmy</th>
-                  <th>Delete</th>
+                  <th className="table__title">Picture</th>
+                  <th className="table__title">Name</th>
+                  <th className="table__title">Popularity</th>
+                  <th className="table__title">Won an Oscar</th>
+                  <th className="table__title">Won an Emmy</th>
+                  <th className="table__title">Delete</th>
                 </tr>
             </thead>
             <tbody>
               {contacts.map(({ pictureUrl, name, popularity, wonOscar, wonEmmy, id }) => {
-                return <tr key={id} >
-                  <td><img src={pictureUrl} className="table__img" alt="contact" /></td>
-                  <td>{name}</td>
-                  <td>{popularity.toFixed(2)}</td>
-                  <td>{wonOscar ? '🏆' : ''}</td>
-                  <td>{wonEmmy ? '⭐️' : ''}</td>
-                  <td><button onClick={() => this.deleteContact(id)}>Delete</button></td>
+                return <tr className="table__tr" key={id} >
+                  <td className="table__info table__info--img" style={{backgroundImage: `url('${pictureUrl}')`}}></td>
+                  <td className="table__info">{name}</td>
+                  <td className="table__info">{popularity.toFixed(2)}</td>
+                  <td className="table__info">{wonOscar ? '🏆' : ''}</td>
+                  <td className="table__info">{wonEmmy ? '⭐️' : ''}</td>
+                  <td className="table__info"><button className='table__btn' onClick={() => this.deleteContact(id)}>Delete</button></td>
                 </tr>
               })}
             </tbody> 
           </table>
-  
-  
         </div>
   
       </div>
     );
   }
-  
 }
 
 export default App;
