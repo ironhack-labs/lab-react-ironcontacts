@@ -62,14 +62,14 @@ class App extends Component {
             </button>
           </div>
           <div className="actors-table container">
-            <table>
+            <table className="table">
               <thead>
                 <tr>
                   <th>Picture</th>
                   <th>Name</th>
-                  <th>Popularity</th>
-                  <th>Won Oscar</th>
-                  <th>Won Emmy</th>
+                  <th style={{paddingRight: '30px'}}>Popularity</th>
+                  <th style={{paddingRight: '30px'}}>Won Oscar</th>
+                  <th style={{paddingRight: '30px'}}>Won Emmy</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -80,10 +80,10 @@ class App extends Component {
                       <tr key={contact.id}>
                         <th><img src={contact.pictureUrl} alt="" /></th>
                         <th>{contact.name}</th>
-                        <th>{contact.popularity.toFixed(2)}</th>
-                        <th>{contact.wonOscar && '🏆'}</th>
-                        <th>{contact.wonEmmy && '🌟'}</th>
-                        <th>
+                        <th style={{paddingRight: '30px'}}>{contact.popularity.toFixed(2)}</th>
+                        <th style={{paddingRight: '30px'}}>{contact.wonOscar && '🏆'}</th>
+                        <th style={{paddingRight: '30px'}}>{contact.wonEmmy && '🌟'}</th>
+                        <th className="remove-contact-wrapper">
                           <button className="remove-contact" onClick={() => this.deleteContacts(contact.id)}>
                             Delete
                           </button>

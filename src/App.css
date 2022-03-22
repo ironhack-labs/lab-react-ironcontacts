@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  color: darkslategray;
 }
 
 .actors-table img {
@@ -16,14 +18,19 @@
 
 .buttons-div button {
   margin-bottom: 50px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
-.App h2, .main-content {
+.App h2 {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.main-content {
+  margin-top: 80px;
+  z-index: 1;
 }
 
 .App h2 {
@@ -39,4 +46,20 @@ button {
   background-color: aquamarine;
   color: darkslategray;
   border: none;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 5px 7px darkslategray;
+}
+
+.table {
+  color: darkslategray;
+}
+
+.table tr {
+  padding-right: 10px;
+}
+
+.table thead {
+  color: aquamarine;
+  background-color: darkslategray;
 }
