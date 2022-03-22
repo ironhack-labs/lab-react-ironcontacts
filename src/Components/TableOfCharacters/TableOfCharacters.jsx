@@ -20,8 +20,14 @@ const TableOfCharacters = ({ contacts }) => {
                 </tr>
               </thead>
               {
-                contacts.slice(0, 4).map(({ id, name, pictureUrl, popularity }) => (
-                  <Character key={id} name={name} pictureUrl={pictureUrl} popularity={popularity} />
+                contacts.slice(12,21).map(({ id, name, pictureUrl, popularity, wonEmmy, wonOscar }) => (
+                  <Character key={id} 
+                            name={name} 
+                            pictureUrl={pictureUrl} 
+                            popularity={popularity}
+                            wonEmmy={wonEmmy}
+                            wonOscar={wonOscar}
+                   />
                 ))
               }
             </table>
