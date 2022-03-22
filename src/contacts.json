@@ -32,19 +32,19 @@
     "wonEmmy": false
   },
   {
-    "name": "Ian McKellen",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/coWjgMEYJjk2OrNddlXCBm8EIr3.jpg",
-    "popularity": 10.070132,
-    "id": "0067ae32-97b6-4431-898e-eb1c10150abb",
-    "wonOscar": false,
-    "wonEmmy": false
-  },
-  {
     "name": "Matt Damon",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg",
     "popularity": 9.500475,
     "id": "fd998a8f-1c9f-4ad8-8a03-45f93b630aa1",
     "wonOscar": true,
+    "wonEmmy": false
+  },
+  {
+    "name": "Ian McKellen",
+    "pictureUrl": "https://image.tmdb.org/t/p/w500/coWjgMEYJjk2OrNddlXCBm8EIr3.jpg",
+    "popularity": 10.070132,
+    "id": "0067ae32-97b6-4431-898e-eb1c10150abb",
+    "wonOscar": false,
     "wonEmmy": false
   },
   {
