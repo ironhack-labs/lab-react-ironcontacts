@@ -3,19 +3,24 @@ import "./App.css";
 import contacts from "./contacts.json";
 
 class App extends Component {
-  state = {
-    contacts: contacts, //tried to contacts.slice here but didn´t work 👀👀
+  constructor(props) {
+    super(props)
+    this.remainingContacts = [...contacts]
+    this.state = {
+      contacts: this.remainingContacts.splice(0, 5)
+  }
   };
 
   // add random contact
 
   addRandomContact = () => {
-    const remainingContacts = this.state.contacts.slice(5);
+    /* const remainingContacts = this.state.contacts.slice(5); */
     const random =
-      remainingContacts[Math.floor(Math.random() * remainingContacts.length)];
+      contacts[Math.floor(Math.random() * contacts.length)];
     this.setState({
       contacts: [...this.state.contacts, random],
     });
+    console.log(random)
   };
 
   // sorting handlers
@@ -60,8 +65,8 @@ class App extends Component {
   };
 
   render() {
-    const { contacts } = this.state;
-    const justFiveContacts = contacts.slice(0, 5);
+ /*    const { contacts } = this.state;
+    const justFiveContacts = contacts.slice(0, 5); */
 
     this.sortBy(); // First click don´t work, need to click again, why?
 
@@ -97,7 +102,7 @@ class App extends Component {
                 <th>Actions</th>
               </tr>
             </tbody>
-            {justFiveContacts.map((elements, key) => {
+            {this.state.contacts.map((elements, key) => {
               return (
                 <tr key={key}>
                   <td>
