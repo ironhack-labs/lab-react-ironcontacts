@@ -15,14 +15,18 @@ function App() {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Won an Oscar</th>
+                <th>Won an Emmy</th>
               </tr>
           </thead>
           <tbody>
-            {firstFiveContacts.map(({ pictureUrl, name, popularity }, index) => {
+            {firstFiveContacts.map(({ pictureUrl, name, popularity, wonOscar, wonEmmy }, index) => {
               return <tr key={index} >
                 <td><img src={pictureUrl} className="table__img" alt="contact" /></td>
                 <td>{name}</td>
                 <td>{popularity.toFixed(2)}</td>
+                <td>{wonOscar ? '🏆' : ''}</td>
+                <td>{wonEmmy ? '🏆' : ''}</td>
               </tr>
             })}
           </tbody> 
