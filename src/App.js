@@ -49,10 +49,19 @@ class App extends Component {
     }
   }
 
+  deleteContact = (id) => {
+    const { contacts } = this.state;
+
+    this.setState({
+      contacts: contacts.filter(contact => contact.id !== id)
+    })
+    console.log(contacts)
+  }
+
 
   render() {
     const { contacts } = this.state;
-    const contactsSort = this.sortContacts();
+    this.sortContacts();
 
     return (
       <div className="app wrapper">
@@ -71,16 +80,18 @@ class App extends Component {
                   <th>Popularity</th>
                   <th>Won an Oscar</th>
                   <th>Won an Emmy</th>
+                  <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-              {contacts.map(({ pictureUrl, name, popularity, wonOscar, wonEmmy }, index) => {
-                return <tr key={index} >
+              {contacts.map(({ pictureUrl, name, popularity, wonOscar, wonEmmy, id }) => {
+                return <tr key={id} >
                   <td><img src={pictureUrl} className="table__img" alt="contact" /></td>
                   <td>{name}</td>
                   <td>{popularity.toFixed(2)}</td>
                   <td>{wonOscar ? '🏆' : ''}</td>
                   <td>{wonEmmy ? '⭐️' : ''}</td>
+                  <td><button onClick={() => this.deleteContact(id)}>Delete</button></td>
                 </tr>
               })}
             </tbody> 
