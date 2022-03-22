@@ -14,6 +14,29 @@
   width: auto;
 }
 
+.buttons-div button {
+  margin-bottom: 50px;
+  margin-right: 10px;
+}
+
+.App h2, .main-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.App h2 {
+  font-size: 220px;
+  font-style: italic;
+  color: aquamarine;
+  opacity: 0.15;
+}
+
 button {
-  margin-bottom: 20px;
+  padding: 4px 10px;
+  text-decoration: none;
+  background-color: aquamarine;
+  color: darkslategray;
+  border: none;
 }

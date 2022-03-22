@@ -14,50 +14,87 @@ class App extends Component {
       if (!prevState.contacts.includes(newContact)){
         return {
           contacts: prevState.contacts.concat(newContact)
-        }
+        };
+      };
+    });
+  };
+
+  sortContacts = (event) => {
+    const { contacts } = this.state;
+
+    if (event.target.name === 'popularity') {
+      const contactsSorted = contacts.sort((a, b) => b.popularity - a.popularity);
+
+      this.setState({
+        contacts: contactsSorted
+      });
+    } else if (event.target.name === 'name') {
+      const contactsSorted = contacts.sort((a, b) => a.name.normalize().localeCompare(b.name.normalize()));
+
+      this.setState({
+        contacts: contactsSorted
+      });
+    };
+  };
+
+  deleteContacts = (id) => {
+    this.setState(prevState => {
+      return {
+        contacts: prevState.contacts.filter(contact => contact.id !== id)
       }
     })
   }
 
-
   render(){
-    console.log(this.state.contacts);
     return (
       <div className="App">
         <h2>IronContacts</h2>
-        <button
-          className="add-contact"
-          onClick={() => this.addRandomContact()}
-        >
-          Add Random Contact
-        </button>
-        <div className="actors-table container">
-          <table>
-            <thead>
-              <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-                <th>Won Oscar</th>
-                <th>Won Emmy</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                this.state.contacts.map(contact => {
-                  return (
-                    <tr key={contact.id}>
-                      <th><img src={contact.pictureUrl} alt="" /></th>
-                      <th>{contact.name}</th>
-                      <th>{contact.popularity.toFixed(2)}</th>
-                      <th>{contact.wonOscar && '🏆'}</th>
-                      <th>{contact.wonEmmy && '🏆'}</th>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
+        <div className="main-content">
+          <div className="buttons-div">
+            <button className="add-contact" onClick={() => this.addRandomContact()}>
+              Add Random Contact
+            </button>
+            <button className="sort-popularity" name="popularity" onClick={this.sortContacts}>
+              Sort by Popularity
+            </button>
+            <button className="sort-name" name="name" onClick={this.sortContacts}>
+              Sort by Name
+            </button>
+          </div>
+          <div className="actors-table container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>Name</th>
+                  <th>Popularity</th>
+                  <th>Won Oscar</th>
+                  <th>Won Emmy</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  this.state.contacts.map(contact => {
+                    return (
+                      <tr key={contact.id}>
+                        <th><img src={contact.pictureUrl} alt="" /></th>
+                        <th>{contact.name}</th>
+                        <th>{contact.popularity.toFixed(2)}</th>
+                        <th>{contact.wonOscar && '🏆'}</th>
+                        <th>{contact.wonEmmy && '🌟'}</th>
+                        <th>
+                          <button className="remove-contact" onClick={() => this.deleteContacts(contact.id)}>
+                            Delete
+                          </button>
+                        </th>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );
