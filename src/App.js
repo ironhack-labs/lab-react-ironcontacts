@@ -18,7 +18,11 @@ class App extends Component {
     this.setState({contacts : this.state.contacts.concat(randomUnit)})
   }
 
-
+  // DELETE CONTACT
+  delete = (id) => {
+    console.log(id)
+    this.setState({contacts : this.state.contacts.filter(el => el.id !== id)})
+  }
 
   
   handleSortBy = (event) => {
@@ -56,6 +60,7 @@ class App extends Component {
       <div className="App container d-flex flex-column align-items-center ">
         <h1>IronContacts</h1>
 
+        {/* BUTTONS */}
         <div>
           <button className='btn btn-primary m-3'  onClick={this.randomContact} 
           >Add random contact
@@ -71,6 +76,7 @@ class App extends Component {
         </div>
       
 
+        {/* TABLE */}
         <table style={{width:"800px"}}>
         <thead>
           <tr>
@@ -79,27 +85,25 @@ class App extends Component {
             <th><h3>Popularity</h3></th>
             <th><h3>Won Oscar</h3></th>
             <th><h3>Won Emmy</h3></th>
+            <th><h3>Actions</h3></th>
           </tr>
         </thead>
         <tbody>
           {contacts.map( ({name,id,popularity,pictureUrl,wonOscar,wonEmmy},index) => {
             return  <tr key = {id}>
-              <th><img src={pictureUrl} alt="" style={{height:"100px"}}  /> </th> 
-              <th>{name}</th>
-              <th>{popularity}</th>
-              {wonOscar && <th><h2>🏆</h2> </th> }
-              {wonEmmy && <th><h2>🏆</h2> </th> }
+              <td><img src={pictureUrl} alt="" style={{height:"100px"}}  /> </td> 
+              <td>{name}</td>
+              <td>{popularity}</td>
+              <td>{wonOscar && <h2>🏆 </h2>}</td>
+              <td>{wonEmmy  && <h2>🏆 </h2>}</td>
+              <td><button className='btn btn-warning' onClick={() => this.delete(id)}>Delete</button></td>
             </tr>
           } )}
         </tbody>
-
-        
-
         </table>
       </div>
     );
-}
-  
+  }
 }
 
 export default App;
