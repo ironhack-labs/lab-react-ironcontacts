@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import contacts from './contacts.json';
 
 function App() {
+  const firstFiveContacts = [...contacts].splice(0, 5);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app wrapper">
+
+      <h1>IronContacts</h1>
+      <div className="table">
+        <table>
+          <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+              </tr>
+          </thead>
+          <tbody>
+            {firstFiveContacts.map(({ pictureUrl, name, popularity }, index) => {
+              return <tr key={index} >
+                <td><img src={pictureUrl} className="table__img" alt="contact" /></td>
+                <td>{name}</td>
+                <td>{popularity.toFixed(2)}</td>
+              </tr>
+            })}
+          </tbody> 
+        </table>
+
+
+      </div>
+
     </div>
   );
 }
