@@ -11,7 +11,7 @@ class App extends Component {
   fiveContacts(){
     let newArr = []
 
-    for( let i = 0; i <= 4; i ++){
+    for( let i = 0; i <= 20; i ++){
       newArr.push( contacts[i])
     }
 
@@ -35,6 +35,8 @@ class App extends Component {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
           </tr>
           </thead>
 
@@ -49,6 +51,12 @@ class App extends Component {
                   </td>
                   <td>{contact.name}</td>
                   <td>{(contact.popularity).toFixed(2)}</td>
+                  <td>
+                    {contact.wonOscar ? '🏆' : ''}
+                  </td>
+                  <td>
+                    {contact.wonEmmy ? '✔️' : ''}
+                  </td>
               </tr>
               )
             })}
