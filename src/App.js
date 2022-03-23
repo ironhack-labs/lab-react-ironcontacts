@@ -12,13 +12,15 @@ class App extends Component {
   }
 
 
-
   addRandomContact = () => {
-    const addContact = contacts.slice(5, (contacts.length + 1))
-    const randomCharacter = addContact[Math.floor(Math.random() * addContact.length)]
+ 
+    const randomCharacter = contacts[Math.floor(Math.random() * contacts.length)]
 
-    this.setState({
-      contacts: [...this.state.contacts, randomCharacter]
+    this.setState(prevState => {
+      if(!prevState.contacts.includes(randomCharacter))
+      return{
+        contacts: prevState.contacts.concat(randomCharacter)
+      }  
     })
   }
 
