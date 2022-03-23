@@ -7,7 +7,7 @@ class App extends Component {
 
   state = {
     contacts : data.slice(0, 6),
-    sort: ''
+    sort: 'nada'
   };
 
   // ADD RANDOM CONTACT 
@@ -28,18 +28,23 @@ class App extends Component {
   handleSortBy = (event) => {
     const tipoDeSort = event.target.name
     console.log(tipoDeSort)
-    
+
     this.setState(prevState => {
       return {
-        sort: prevState.sort === tipoDeSort ? '' : tipoDeSort
+        sort: prevState.sort === tipoDeSort ? 'nada' : tipoDeSort
       }
     })
+    // this.setState( {
+       
+    //     sort: this.state.sort === tipoDeSort ? 'nada' : tipoDeSort
+      
+    // })
   }
 
   sortContacts = () => {
     const { sort , contacts} = this.state
     console.log("dentro sortContacts",sort)
-    if (!sort) {
+    if (sort === "nada") {
       return contacts
     }
 
@@ -68,11 +73,11 @@ class App extends Component {
           </button>
 
           <button name='name' className='btn btn-primary m-3' onClick={this.handleSortBy} 
-          >Sort by Name
+          >{this.state.sort === 'name' ? "back" : "Sort by name" }
           </button>
 
           <button name='popularity' className='btn btn-primary m-3' onClick={this.handleSortBy} 
-          >Sort by Popularity
+          >{this.state.sort === 'popularity' ?  "back" : "Sort by Popularity" } 
           </button>
 
           <button name='prueba' className='btn btn-primary m-3' onClick={this.handleSortBy} 
