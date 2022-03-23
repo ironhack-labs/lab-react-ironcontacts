@@ -5,7 +5,8 @@ import React, { Component } from 'react'
 
 class App extends Component {
   state = {
-    contacts:[]
+    contacts:[],
+    sort: ''
   }
 
   fiveContacts(){
@@ -31,6 +32,40 @@ class App extends Component {
      this.setState({
       contacts: [...this.state.contacts, filteredContacts[Math.floor(Math.random() * this.state.contacts.length)] ]
     }) 
+  }
+ 
+    handleSortBy = (event) => {
+    const { name } = event.target
+
+    this.setState(prevState => {
+      return {
+        sort: prevState.sort === name ? '' : name
+      }
+    })
+  }
+
+  sortContacts() {
+    const { contacts, sort } = this.state
+
+    if(!sort){
+      return contacts
+    }
+
+    if (sort === 'name') {
+      return contacts.sort((a, b) =>  a.name.localeCompare(b.name))
+    }
+
+    if (sort === 'popularity') {
+      return contacts.sort((a, b) => (a.popularity > b.popularity) ? -1 : 1)
+    }
+  } 
+
+  deleteItem(id){
+    const { contacts } = this.state
+
+    this.setState({
+      contacts: contacts.filter((contact) => contact.id !== id)
+    })
 
   }
 
@@ -38,12 +73,16 @@ class App extends Component {
     this.fiveContacts()
   }
 
-
   render(){
+    const contacts = this.sortContacts()
     return (
       <div className="App">
         <h1>Ironcontacts</h1>
-        <button onClick={() => this.randomContact()}>Add a Random Contact</button>
+        <div>
+          <button onClick={() => this.randomContact()}> Add a Random Contact </button>
+          <button name="popularity" onClick={this.handleSortBy}> Sort by popularity </button>
+          <button name="name" onClick={this.handleSortBy}> Sort by name </button>
+        </div>
         <table>
           <thead>
           <tr>
@@ -52,11 +91,12 @@ class App extends Component {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            <th>Action</th>
           </tr>
           </thead>
 
           <tbody>
-            {this.state.contacts.map((contact, index) => {
+            {contacts.map((contact, index) => {
               return(
               <tr key={contact.id}>
                   <td>
@@ -71,6 +111,9 @@ class App extends Component {
                   </td>
                   <td>
                     {contact.wonEmmy ? '✔️' : ''}
+                  </td>
+                  <td>
+                    <button onClick={() => this.deleteItem(contact.id)}> Delete </button>
                   </td>
               </tr>
               )
