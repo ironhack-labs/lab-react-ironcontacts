@@ -17,4 +17,13 @@ h3 {
 
 .contact-img {
   width: 80px;
+  border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
