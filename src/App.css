@@ -1,14 +1,14 @@
 .App {
-width:1000px;
+width:2000px;
 }
 
 .table-title{
     margin-left: auto;
     margin-right: auto;
-    font-size: 45px;
+    font-size: 35px;
     padding: 15px;
-    margin-left: 400px;
-      display: flex;
+    margin-left: -350px;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -30,9 +30,12 @@ width:1000px;
   height:200px;
 }
 
-.separate th{
-  margin: 0 2.5%;
-   margin-right: 20px;
-
+.separate tr{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
 }
 
