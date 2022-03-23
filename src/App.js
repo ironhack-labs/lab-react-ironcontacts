@@ -10,12 +10,12 @@ class App extends Component {
     sort: ''
   };
 
-  // ADD RANDOM CONTACT
+  // ADD RANDOM CONTACT 
   randomContact = () => {
-    const restArr  = data.slice(6)
+    const {contacts} = this.state
+    const restArr  = data.filter(item => !contacts.includes(item))
     const randomUnit = restArr[Math.floor(Math.random()*restArr.length)];
-
-    this.setState({contacts : this.state.contacts.concat(randomUnit)})
+    return randomUnit ?  this.setState({contacts: contacts.concat(randomUnit)}) : null
   }
 
   // DELETE CONTACT
@@ -27,17 +27,18 @@ class App extends Component {
   
   handleSortBy = (event) => {
     const tipoDeSort = event.target.name
-
-    this.setState(xxx => {
+    console.log(tipoDeSort)
+    
+    this.setState(prevState => {
       return {
-        sort: xxx.sort === tipoDeSort ? '' : tipoDeSort
+        sort: prevState.sort === tipoDeSort ? '' : tipoDeSort
       }
     })
   }
 
   sortContacts = () => {
     const { sort , contacts} = this.state
-
+    console.log("dentro sortContacts",sort)
     if (!sort) {
       return contacts
     }
@@ -72,6 +73,10 @@ class App extends Component {
 
           <button name='popularity' className='btn btn-primary m-3' onClick={this.handleSortBy} 
           >Sort by Popularity
+          </button>
+
+          <button name='prueba' className='btn btn-primary m-3' onClick={this.handleSortBy} 
+          >prueba
           </button>
         </div>
       
