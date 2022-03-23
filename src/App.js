@@ -117,7 +117,7 @@ class App extends Component {
                 <td>
                 {wonEmmy && "🏆"}
                 </td>
-                <td>
+                <td className="delete-btn">
                   <button
                   className="btn btn-danger"
                   key={id}

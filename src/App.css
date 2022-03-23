@@ -1,9 +1,11 @@
+
 .App {
   text-align: center;
 }
 
 h3 {
   margin-top: 30px;
+  text-decoration: underline;
 }
 
 .table {
@@ -16,7 +18,7 @@ h3 {
 }
 
 .contact-img {
-  width: 80px;
+  width: 60px;
   border-radius: 5px;
 }
 
@@ -26,4 +28,9 @@ h3 {
   margin-top: 3%;
   margin-left: 15%;
   margin-right: 15%;
+}
+button {
+  text-transform: none;
+  border-radius: 5px;
+  height: 36px;
 }
