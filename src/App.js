@@ -11,13 +11,27 @@ class App extends Component {
   fiveContacts(){
     let newArr = []
 
-    for( let i = 0; i <= 20; i ++){
+    for( let i = 0; i <= 5; i ++){
       newArr.push( contacts[i])
     }
 
     this.setState({
       contacts: newArr
     })
+  }
+
+  randomContact() {
+    const filteredContacts = []
+
+    contacts.forEach( contact => {
+      if(!this.state.contacts.includes(contact)){
+        filteredContacts.push(contact)
+      }
+    })
+     this.setState({
+      contacts: [...this.state.contacts, filteredContacts[Math.floor(Math.random() * this.state.contacts.length)] ]
+    }) 
+
   }
 
   componentDidMount(){
@@ -29,6 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Ironcontacts</h1>
+        <button onClick={() => this.randomContact()}>Add a Random Contact</button>
         <table>
           <thead>
           <tr>
