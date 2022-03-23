@@ -1,7 +1,11 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+.Ironcontacts {
+  margin: 15px 0px;
+}
 
 .App-header {
   background-color: #282c34;
@@ -15,10 +19,43 @@
 }
 
 .ContactsPics {
-  width: 120px;
-  height: 150 px;
+  width: 100px;
+  height: auto;
+
 }
 
+
 .Button {
-  margin: 5px;
+  background-color: black;
+  color: white;
+  padding: 8px 20px;
+  margin: 30px 20px;
+  border: 1px solid C02942;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.DeleteButton {
+  background-color: #d95b43;
+  color: white;
+  padding: 8px 20px;
+  margin: 10px;
+  border: 1px solid C02942;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Table {
+ margin: 0 auto;
+ 
+}
+
+.TableHeaders {
+
+  font-size: 1.1rem;
+}
+
+.Elements {
+  text-align: center;
+  
 }
