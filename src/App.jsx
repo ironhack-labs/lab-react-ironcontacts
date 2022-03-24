@@ -29,19 +29,28 @@ class App extends Component {
     });
   }
 
-   sortByName = () => {
-      const sortContactsByName = this.state.contacts.sort((a,b) => a.name.localeCompare(b.name))
+  sortByName = () => {
+    const sortContactsByName = this.state.contacts.sort((a,b) => a.name.localeCompare(b.name))
 
-      this.setState({
-        contacts: sortContactsByName
-      })
+    this.setState({
+      contacts: sortContactsByName
+    })
   }
 
   sortByPopularity = () => {
 
-    let sortContactsbyPopularity = this.state.contacts.sort((a,b) => b.popularity - (a.popularity))
+    const sortContactsbyPopularity = this.state.contacts.sort((a,b) => b.popularity - (a.popularity))
     this.setState({
       contacts: sortContactsbyPopularity
+    })
+  }
+
+
+
+  deleteContact = (id) => {
+    const nonDeletedContacts = this.state.contacts.filter((contact) => contact.id !== id)
+    this.setState({
+      contacts: nonDeletedContacts
     })
   }
 
@@ -51,7 +60,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <div>
+        <div className='Table'>
           <button onClick={() => this.addRandomContact()}>Add random contact</button>
           <button onClick={() => this.sortByName()}>Sort by name</button>
           <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
@@ -77,7 +86,7 @@ class App extends Component {
                       <th>{contact.popularity.toFixed(2)}</th>
                       <th>{contact.wonOscar && '🏆'}</th>
                       <th>{contact.wonEmmy && '🏆'}</th>
-                      <th><button>Delete</button></th>
+                      <th><button onClick={() => this.deleteContact(contact.id)} >Delete</button></th>
                     </tr>
                   )
                 })
