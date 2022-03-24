@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -38,5 +39,67 @@
 }
 
 .Table {
-  width: auto
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
 }
+
+tr:nth-child(even){
+  background-color: #D3D3D3;
+}
+
+.Filters {
+  margin: 20px 300px 20px 300px;
+  display: flex;
+  justify-content: space-around;
+  padding-right: 35px;  
+}
+
+.Title {
+
+  padding-right: 30px;
+}
+
+.Headerbuttons {
+  border: none;
+  padding:20px;
+}
+
+.Headers {
+height: 100px;
+}
+
+.btn-3 {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+}
+
+.btn-3:hover {
+  background: #c0392b;
+}
+
+.btn-3:active {
+  background: #c0392b;
+  top: 2px;
+}
+
+.btn-3:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3;
+  font-size: 140%;
+  width: 60px;
+}
+
+
+.icon-send:before {
+  content: "\f1d8";
+}
+
+    
+

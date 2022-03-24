@@ -59,34 +59,34 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>IronContacts</h1>
-        <div className='Table'>
-          <button onClick={() => this.addRandomContact()}>Add random contact</button>
-          <button onClick={() => this.sortByName()}>Sort by name</button>
-          <button onClick={() => this.sortByPopularity()}>Sort by popularity</button>
+        <h1 className='Title'>IronContacts</h1>
+        <div  className='Filters'>
+          <button className='Headerbuttons' onClick={() => this.addRandomContact()}>Add random contact</button>
+          <button className='Headerbuttons' onClick={() => this.sortByName()}>Sort by name</button>
+          <button className='Headerbuttons' onClick={() => this.sortByPopularity()}>Sort by popularity</button>
         </div>
-        <table>
+        <table className='Table'>
             <thead>
               <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-                <th>Won Oscar</th>
-                <th>Won Emmy</th>
-                <th>Actions</th>
+                <th className='Headers'>Picture</th>
+                <th className='Headers'>Name</th>
+                <th className='Headers'>Popularity</th>
+                <th className='Headers'>Won Oscar</th>
+                <th className='Headers'>Won Emmy</th>
+                <th className='Headers'>Actions</th>
               </tr>
             </thead>
             <tbody>
               {
                 this.state.contacts.map(contact => {
                   return (
-                    <tr key={contact.id}>
+                    <tr key={contact.id} >
                       <th><img src={contact.pictureUrl} style={{width:'100px'}}alt="Celebrity" /></th>
                       <th>{contact.name}</th>
                       <th>{contact.popularity.toFixed(2)}</th>
                       <th>{contact.wonOscar && '🏆'}</th>
                       <th>{contact.wonEmmy && '🏆'}</th>
-                      <th><button onClick={() => this.deleteContact(contact.id)} >Delete</button></th>
+                      <th><button className='btn btn-3 btn-sep icon-send' onClick={() => this.deleteContact(contact.id)} >Delete</button></th>
                     </tr>
                   )
                 })
