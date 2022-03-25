@@ -55,7 +55,7 @@ class App extends Component {
   sortContacts = () => {
     const {firstContacts, sort} = this.state;
     
-    if(sort === 'popularity') {
+    if(sort === 'name') {
       return firstContacts.sort((a, b) => {
         if(a.name < b.name) return 1;
         if(b.name < a.name) return -1;
@@ -65,8 +65,8 @@ class App extends Component {
 
     if(sort === 'popularity') {
       return firstContacts.sort((a, b) => {
-        if(a.popilarity < b.popilarity) return 1;
-        if(b.popilarity < a.popilarity) return -1;
+        if(a.popularity < b.popularity) return 1;
+        if(b.popularity < a.popularity) return -1;
         return 0;
       })
     }
