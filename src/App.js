@@ -42,7 +42,8 @@ class App extends Component {
   }
 
   sortContacts = () => {
-    const { sort , contacts} = this.state
+    // const { sort , contacts} = this.state
+    const { sort , contacts: [...contacts]} = this.state
     console.log("dentro sortContacts",sort)
     if (sort === "nada") {
       return contacts
