@@ -25,6 +25,7 @@ import contacts from './contacts.json';
 // }
 
 class App extends Component {
+  
   state = {
     firstContacts: [...contacts].splice(0,5),
     otherContacts: [...contacts].splice(5, contacts.length),
@@ -34,8 +35,8 @@ class App extends Component {
   addRandom = () => {
     const {firstContacts, otherContacts} = this.state;
 
-    let contactRandom = otherContacts[Math.floor(Math.random()*otherContacts.lenght)];
-    console.log(firstContacts);
+    let contactRandom = otherContacts[Math.floor(Math.random()*otherContacts.length)];
+    console.log(contactRandom);
 
     this.setState({
       firstContacts: [contactRandom, ...firstContacts]
@@ -43,42 +44,43 @@ class App extends Component {
     console.log(firstContacts);
   }
 
-  hamdleSortBy = (event) => {
-    const {name} = event.target;
+  handleSortBy = (event) => {
+    const { name } = event.target;
+
     this.setState(prevState => {
       return {
         sort: prevState.sort === name ? '' : name
       }
-    })
+    });
   }
 
   sortContacts = () => {
-    const {firstContacts, sort} = this.state;
-    
-    if(sort === 'name') {
+    const { firstContacts, sort } = this.state;
+
+    if (sort === 'name') {
       return firstContacts.sort((a, b) => {
-        if(a.name < b.name) return 1;
-        if(b.name < a.name) return -1;
-        return 0;
+        if (a.name < b.name) return 1
+        if (b.name < a.name) return -1
+        return 0
       })
     }
 
-    if(sort === 'popularity') {
+    if (sort === 'popularity') {
       return firstContacts.sort((a, b) => {
-        if(a.popularity < b.popularity) return 1;
-        if(b.popularity < a.popularity) return -1;
-        return 0;
+        if (a.popularity < b.popularity) return 1
+        if (b.popularity < a.popularity) return -1
+        return 0
       })
     }
   }
 
-  deleteContacs =(id) => {
+  deleteContacts =(id) => {
     const{firstContacts} = this.state
     this.setState({firstContacts: firstContacts.filter(contact => contact.id !== id)})
   }
 
   render(){
-    const {firstContacts} = this.state;
+    // const {firstContacts} = this.state;
     this.sortContacts();
 
     return(
@@ -86,16 +88,16 @@ class App extends Component {
         <h1>IronContacts</h1>
         <div className='buttons'>
           <button  
-            onclick={this.addRandom}>
+            onClick={this.addRandom}>
             Add Random Contact
           </button>
           <button  
-            onclick={this.handleSortBy}
+            onClick={this.handleSortBy}
             name='name'>
             Sort by name
           </button>
           <button  
-            onclick={this.handleSortBy}
+            onClick={this.handleSortBy}
             name='popularity'>
             Sort by popularity
           </button>
@@ -128,13 +130,12 @@ class App extends Component {
               <tbody>
                 <tr>
                   <td>
-                    <img 
+                    <img
                       key={id}
                       value={pictureUrl}
                       className='contact-img'
                       src={pictureUrl}
-                      alt=""
-                    />
+                      alt="" />
                   </td>
                   <td>{name}</td>
                   <td>{popularity.toFixed(2)}</td>
@@ -154,7 +155,7 @@ class App extends Component {
                   </td>
                 </tr>
               </tbody>
-            )
+            );
           })
         }  
         </table>
