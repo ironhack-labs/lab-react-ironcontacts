@@ -1,0 +1,12 @@
+.button-group, .contacts-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.contacts-group {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
