@@ -9,17 +9,19 @@ import contacts from './contacts.json';
 
 class App extends Component {
   state = {
-    contacts: contacts.slice( 1, 6 ),
-    length: contacts.length
+    contacts: contacts.slice( 0, 5 ),
+    remainingContacts: contacts.slice(5)
   }
 
   addRandomContact = () => {
-    const randomNumber = Math.floor(Math.random()*this.state.length);
-    const randomContact = contacts[randomNumber];
+    const { remainingContacts } = this.state;
+    const randomNumber = Math.floor( Math.random() * remainingContacts.length );
+    const randomContact = remainingContacts.splice( randomNumber, 1 )[0];
+    console.log(remainingContacts);
     this.setState(
       {
         contacts: [...this.state.contacts, randomContact],
-        length: this.state.length
+        remainingContacts: remainingContacts
       }
     )
   }
