@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
-
+import "bulma/css/bulma.css";
 
 import './App.css';
 import contacts from './contacts.json';
@@ -60,30 +60,30 @@ class App extends Component {
           <td><img className="picture" src={pictureUrl} alt={name} /></td>
           <td>{name}</td>
           <td>{Math.round(popularity*10)/10}</td>
-          <td>{wonOscar && <FontAwesomeIcon icon={faTrophy} />}</td>
-          <td>{wonEmmy && <FontAwesomeIcon icon={faTrophy} />}</td>
-          <td><button onClick={ () => this.deleteContact(id)}>Delete</button></td>
+          <td>{wonOscar && <FontAwesomeIcon className='tag is-danger' icon={faTrophy} />}</td>
+          <td>{wonEmmy && <FontAwesomeIcon className='tag is-warning' icon={faTrophy} />}</td>
+          <td><button className="delete" onClick={ () => this.deleteContact(id)}></button></td>
         </tr>
       )
     });
     return (
-      <div className="App">
+      <div className="App" className="content">
         <h1>IronContacts</h1>
 
         <div>
-          <button onClick={this.addRandomContact}>Add Random Contact</button>
-          <button onClick={this.sortByPopularity}>Sort by popularity</button>
-          <button onClick={this.sortByName}>Sort by name</button>
+          <button className="button is-primary" onClick={this.addRandomContact}>Add Random Contact</button>
+          <button className="button is-info" onClick={this.sortByPopularity}>Sort by popularity</button>
+          <button className="button is-info" onClick={this.sortByName}>Sort by name</button>
         </div>
         
-        <table>
+        <table className="table is-striped" >
           <thead>
             <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-              <th>Won Oscar</th>
-              <th>Won Emmy</th>
+              <th> <span className='tag is-dark is-large'>Picture</span> </th>
+              <th> <span className='tag is-dark is-large'>Name</span> </th>
+              <th> <span className='tag is-dark is-large'>Popularity</span> </th>
+              <th> <span className='tag is-dark is-large'>Won Oscar</span> </th>
+              <th> <span className='tag is-dark is-large'>Won Emmy</span> </th>
               <th></th>
             </tr>
           </thead>
