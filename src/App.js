@@ -17,7 +17,6 @@ class App extends Component {
     const { remainingContacts } = this.state;
     const randomNumber = Math.floor( Math.random() * remainingContacts.length );
     const randomContact = remainingContacts.splice( randomNumber, 1 )[0];
-    console.log(remainingContacts);
     this.setState(
       {
         contacts: [...this.state.contacts, randomContact],
@@ -27,7 +26,7 @@ class App extends Component {
   }
 
   sortByPopularity = () => {
-    const contactsSorted = this.state.contacts.sort( (previousContact, contact) =>  contact.popularity - previousContact.popularity );
+    const contactsSorted = this.state.contacts.sort( (previousContact, contact) => contact.popularity - previousContact.popularity );
     this.setState({
       ...this.state,
       contacts: contactsSorted
@@ -42,6 +41,17 @@ class App extends Component {
     })
   }
 
+  deleteContact = (id) => {
+    const newListContacts = this.state.contacts.filter( (contact) => contact.id !== id );
+    const deletedContact = this.state.contacts.filter( (contact) => contact.id === id )[0];
+    this.setState (
+      {
+        contacts: newListContacts,
+        remainingContacts: [ ...this.state.remainingContacts, deletedContact ]
+      }
+    )
+  }
+
   render (){
     const listContacts = this.state.contacts.map( (contact) => {
       const { id, pictureUrl, name, popularity, wonOscar, wonEmmy } = contact;
@@ -52,6 +62,7 @@ class App extends Component {
           <td>{Math.round(popularity*10)/10}</td>
           <td>{wonOscar && <FontAwesomeIcon icon={faTrophy} />}</td>
           <td>{wonEmmy && <FontAwesomeIcon icon={faTrophy} />}</td>
+          <td><button onClick={ () => this.deleteContact(id)}>Delete</button></td>
         </tr>
       )
     });
@@ -73,6 +84,7 @@ class App extends Component {
               <th>Popularity</th>
               <th>Won Oscar</th>
               <th>Won Emmy</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
