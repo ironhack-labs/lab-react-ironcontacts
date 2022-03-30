@@ -26,6 +26,22 @@ class App extends Component {
     )
   }
 
+  sortByPopularity = () => {
+    const contactsSorted = this.state.contacts.sort( (previousContact, contact) =>  contact.popularity - previousContact.popularity );
+    this.setState({
+      ...this.state,
+      contacts: contactsSorted
+    })
+  }
+
+  sortByName = () => {
+    const contactsSorted = this.state.contacts.sort( (previousContact, contact) => previousContact.name.localeCompare(contact.name) );
+    this.setState({
+      ...this.state,
+      contacts: contactsSorted
+    })
+  }
+
   render (){
     const listContacts = this.state.contacts.map( (contact) => {
       const { id, pictureUrl, name, popularity, wonOscar, wonEmmy } = contact;
@@ -42,7 +58,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
+
+        <div>
+          <button onClick={this.addRandomContact}>Add Random Contact</button>
+          <button onClick={this.sortByPopularity}>Sort by popularity</button>
+          <button onClick={this.sortByName}>Sort by name</button>
+        </div>
+        
         <table>
           <thead>
             <tr>
