@@ -30,7 +30,7 @@ class App extends Component {
               <p>{contact.name}</p>
               <img src={contact.pictureUrl} alt={contact.name}></img>
               <p>{contact.popularity}</p>
-              <p>{contact.wonOscar ? "won Oscar" : ""}</p>
+              <p>{contact.wonOscar ? <span alt="won Oscar">🏆</span> : ""}</p>
             </div>
           );
         })}
