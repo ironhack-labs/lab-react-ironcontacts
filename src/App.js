@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import contacts from "./contacts.json";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    name: "Mir",
+    firstFive: contacts.slice(0, 5),
+  };
+
+  clickHandler = () => {
+    let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    this.setState({
+      name: "Potato",
+      firstFive: [...this.state.firstFive, randomContact],
+    });
+  };
+
+  render() {
+    //console.log("contatcts", contacts);
+    //let firstFive = contacts.slice(0, 5);
+    //console.log(firstFive);
+
+    return (
+      <div className="container">
+        <h1>{this.state.name}</h1>
+        {this.state.firstFive.map((contact) => {
+          return (
+            <div className="card">
+              <p>{contact.name}</p>
+              <img src={contact.pictureUrl} alt={contact.name}></img>
+              <p>{contact.popularity}</p>
+              <p>{contact.wonOscar ? "won Oscar" : ""}</p>
+            </div>
+          );
+        })}
+
+        <button onClick={this.clickHandler}>Click</button>
+      </div>
+    );
+  }
 }
 
 export default App;
