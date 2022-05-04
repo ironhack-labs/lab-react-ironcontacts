@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.contact-photo{
+  max-width: 5rem;
+}
+
+.container {
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-table{
+  padding-top: 5%;
+}
