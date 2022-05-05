@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import contactsDataJSON from './contacts.json';
+import { useState } from 'react';
+import IronContacts from './components/IronContacts';
 
 function App() {
+  const firstFive = contactsDataJSON.slice(0, 5);
+  console.log(firstFive);
+  const [contacts, setContacts] = useState(firstFive);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <table style={{ width: '100%' }}>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+          </tr>
+        </thead>
+        {contacts.map((contact) => (
+          <IronContacts eachContact={contact} />
+        ))}
+      </table>
     </div>
   );
 }
