@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import contactList from './contacts.json';
 
-function App() {
+function App(props) {
+
+  const { name, pictureUrl, popularity, id, wonOscar, wonEmmy } = props;
+  const firstFiveContactsArray = [contactList[0], contactList[1], contactList[2], contactList[3], contactList[4]];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2> List of Contacts </h2>
+      <table>
+                  <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Popularity</th> 
+                  </tr>
+
+                  { firstFiveContactsArray.map(()=> {
+                    return (
+                  <tr>
+                    <td>{pictureUrl}</td>
+                    <td>{name}</td>
+                    <td>{popularity}</td>
+                  </tr>
+                    )
+                  })}
+
+               </table>
+
     </div>
   );
 }
