@@ -3,7 +3,6 @@ import contactList from './contacts.json';
 
 function App(props) {
 
-  const { name, pictureUrl, popularity, id, wonOscar, wonEmmy } = props;
   const firstFiveContactsArray = [contactList[0], contactList[1], contactList[2], contactList[3], contactList[4]];
 
   return (
@@ -14,19 +13,28 @@ function App(props) {
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Popularity</th> 
+                    <th>Won Oscar</th>
+                    <th>Won Emmy</th>
                   </tr>
 
-                  { firstFiveContactsArray.map(()=> {
+
+                  { firstFiveContactsArray.map((contact)=> {
                     return (
                   <tr>
-                    <td>{pictureUrl}</td>
-                    <td>{name}</td>
-                    <td>{popularity}</td>
+                    <td><img src={contact.pictureUrl} alt="" style={{width: '50px'}} /></td>
+                    <td>{contact.name}</td>
+                    <td>{(Math.round(contact.popularity + Number.EPSILON))}</td>
+                    {contact.wonOscar && <td>🏆</td>}
+                    {!contact.wonOscar && <td></td>}
+                    {contact.wonEmmy && <td>🏆</td>}
+                    {!contact.wonEmmy && <td></td>}
                   </tr>
-                    )
-                  })}
+                  )})}
+                  
 
-               </table>
+                  
+                  
+      </table>
 
     </div>
   );
