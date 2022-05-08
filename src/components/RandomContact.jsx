@@ -1,5 +1,5 @@
-// const IronContacts = (props) => {
-//   const { pictureUrl, name, popularity, wonOscar, wonEmmy } = props.eachContact;
+// const RandomContact = (props) => {
+//   const { pictureUrl, name, popularity, wonOscar, wonEmmy } = props.eachPerson;
 //   return (
 //     <div>
 //       <tr>
@@ -12,5 +12,5 @@
 //     </div>
 //   );
 // };
-// export default IronContacts;
-// passing props practice
+
+// export default RandomContact;
