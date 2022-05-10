@@ -18,6 +18,11 @@
 .App td {
   text-align: center;
 }
+.Buttons {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
 hr{
   width: 100vw;
   height: 0.5px;

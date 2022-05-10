@@ -10,15 +10,23 @@ function App() {
   // console.log(newContactsArr);
   const randomIndex = Math.floor(Math.random() * newContactsArr.length);
   const newContact = newContactsArr[randomIndex];
+  const displayedContacts = [...contacts, newContact]
 
   const randomContact = () => {
-    setContacts([...fiveContacts, newContact])
+   return setContacts(displayedContacts)
+  }
+  const sortByName = () => {
+    const sortedContacts = [...contacts].sort((a, b) => { return (a > b ? 1 : (a === b ? 0 : -1)) })
+    setContacts(sortedContacts);
   }
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <div className='Buttons'>
       <button onClick={randomContact}>Add Random Contact</button>
+      <button onClick={sortByName}>Sort by name</button>
+      </div>
       <hr />
       <table>
         <tbody>
