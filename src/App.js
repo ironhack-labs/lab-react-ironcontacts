@@ -18,18 +18,38 @@ function App() {
   };
 
   const sortContacts = () => {
-  let sortedContacts = [...contacts]
-  sortedContacts.sort((a, b) => (a.name > b.name) ? 1 : (b.name > a.name) ? -1: 0 );
-  console.log(sortedContacts)
-   }
+    let sortedContacts = [...contacts];
+    setContacts(
+      sortedContacts.sort((a, b) =>
+        a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+      )
+    );
+    console.log(sortedContacts);
+  };
 
-  console.log(contacts)
+  const sortPopularity = () => {
+    let sortedContacts = [...contacts];
+    setContacts(
+      sortedContacts.sort((a, b) =>
+        a.popularity < b.popularity ? 1 : b.popularity < a.popularity ? -1 : 0
+      )
+    );
+    console.log(sortedContacts);
+  };
+
+  const deleteContact = (id) => {
+    let allContacts = [...contacts];
+    setContacts(allContacts.filter((contact) => contact.id !== id));
+  };
+
+  console.log(contacts);
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={addRandomContact}>Add A Random Contact</button>
       <button onClick={sortContacts}>Sort by Name</button>
+      <button onClick={sortPopularity}>Sort by Popularity</button>
 
       <h2 className="contact-row">
         <span>Picture</span> <span>Name</span> <span>Popularity</span>{" "}
@@ -44,6 +64,7 @@ function App() {
               <span> {contact.popularity}</span>
               <span> {contact.wonOscar && "🏆"}</span>
               <span>{contact.wonEmmy && "🏆"}</span>
+              <button onClick={() => deleteContact(contact.id)}>Delete</button>
             </div>
           );
         })}
