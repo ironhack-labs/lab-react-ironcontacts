@@ -31,6 +31,11 @@ const sortByPopularity = () => {
   setContacts(orderByPopularity);
 };
 
+// Iteration 5, delete contacts
+const deleteContact = (idToRemove) => {
+  setContacts(contacts.filter(contact => contact.id !== idToRemove));
+}
+
 
   return (
     <div className="App">
@@ -46,6 +51,7 @@ const sortByPopularity = () => {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +62,8 @@ const sortByPopularity = () => {
                 <td><span>{contact.name}</span></td>
                 <td><span>{Math.round(contact.popularity * 100) / 100}</span></td>
                 <td><span>{contact.wonOscar ? <img id="trophyIcon" src="../trophy.png" alt="Trophy Icon"></img> : ""}</span></td>
-                <td><span>{contact.name}</span></td>
+                <td><span>{contact.wonEmmy ? <img id="trophyIcon" src="../trophy.png" alt="Trophy Icon"></img> : ""}</span></td>
+                <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
               </tr>
             )
           })}
