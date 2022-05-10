@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <div>
+      <div className="button">
         <button onClick={addRandomContact}>Add Random Contact</button>
         <button onClick={sortByName}>Sort Contact by Name</button>
         <button onClick={sortByPopularity}>Sort Contact by Popularity</button>
@@ -67,9 +67,9 @@ function App() {
               <td>{<img src={contact.pictureUrl} alt=""></img>}</td>
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
-              <td>{contact.wonOscar === false ? '' :<span>🏆</span>}</td>
-              <td>{contact.wonEmmy === false ? '' :<span>🏆</span>}</td>
-              <button onClick={()=>deleteContact(contact.id)}>Delete</button>
+              <td>{contact.wonOscar === false ? '' :<span class="emoji">🏆</span>}</td>
+              <td>{contact.wonEmmy === false ? '' :<span class="emoji">🏆</span>}</td>
+              <button className="del-but" onClick={()=>deleteContact(contact.id)}><span class="emoji">🗑</span></button>
             </tr>
           ))}
         </tbody>
