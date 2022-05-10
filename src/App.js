@@ -20,9 +20,27 @@ function App() {
   }
 
   const sortAlphabetically = () => {
-    const newList = contacts.sort((x, y) => {
-      
-    })
+
+    const newList = [...contacts.sort((x, y) => 
+     x.name.localeCompare(y.name))]
+
+     setContacts(newList)
+  }
+
+  const sortByPopularity = () => {
+
+    const newList = [...contacts.sort((x,y) => {
+      if(x.popularity > y.popularity) {
+        return -1;
+      } else if(x.popularity < y.popularity) {
+        return +1;
+      } else {
+        return 0;
+      }
+    })]
+
+    setContacts(newList)
+
   }
   
  
@@ -31,6 +49,8 @@ function App() {
         <div className="App">
 
         <button onClick={addRandomContact}>Add Random</button> 
+        <button onClick={sortAlphabetically}>Sort Alphabetically</button> 
+        <button onClick={sortByPopularity}>Sort By Popularity</button> 
         
         <table>
           <tr>
