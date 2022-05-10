@@ -4,12 +4,22 @@ import { useState } from 'react';
 
 function App() {
   let fiveContacts = contactsArr.slice(0, 5)
-  console.log(fiveContacts);
+  // console.log(fiveContacts);
   const [contacts, setContacts] = useState(fiveContacts);
+  const newContactsArr = contactsArr.slice(5);
+  // console.log(newContactsArr);
+  const randomIndex = Math.floor(Math.random() * newContactsArr.length);
+  const newContact = newContactsArr[randomIndex];
 
+  const randomContact = () => {
+    setContacts([...fiveContacts, newContact])
+  }
 
   return (
     <div className="App">
+      <h1>IronContacts</h1>
+      <button onClick={randomContact}>Add Random Contact</button>
+      <hr />
       <table>
         <tbody>
           <tr>

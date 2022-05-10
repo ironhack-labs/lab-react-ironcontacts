@@ -1,5 +1,7 @@
-
-.App-header {
+.App-link {
+  color: #61dafb;
+}
+.App{
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -10,17 +12,16 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-.App{
-  display: flex;
-  justify-content: center;
-}
-
 .App img {
-  width: 100px;
+  width: 90px;
 }
 .App td {
   text-align: center;
+}
+hr{
+  width: 100vw;
+  height: 0.5px;
+  border: none;
+  margin: 30px 0;
+  background-color: aliceblue;
 }
