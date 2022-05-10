@@ -3,7 +3,11 @@
 }
 
 img {
-  width: 8vw;
+  width: 5vw;
+}
+
+.button-row {
+  margin: 20px;
 }
 
 .table {
@@ -11,13 +15,21 @@ img {
   align-items: left;
   flex-direction: column;
   position: relative;
+  margin-top: 15px;
+  
   
 }
 
 .contact-row {
   display: flex;
   justify-content: space-around;
+  text-align: left;
   align-items: center;
+  border: 1px solid black;
+  width: 50%;
+  position: relative;
+  left: 25%;
+  box-shadow: 2px 2px 5px red;
   
 }
 
