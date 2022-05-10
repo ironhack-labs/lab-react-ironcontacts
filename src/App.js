@@ -11,13 +11,21 @@ function App() {
 
  const [contacts, setContact] = useState(arrOfFive);
 
+ 
 
+  const addRandomContact = () => {
+    
+    let filterList = contactsArr.filter((newContact) => {
+      return !contacts.includes(newContact)
+      })
 
+    const randomItm = filterList[Math.floor(Math.random()* filterList.length)]
 
+    setContact(contacts.concat(randomItm))
 
+  
 
-
-
+  }
 
 
 
@@ -27,6 +35,9 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <div className='add-button'>
+        <button onClick={addRandomContact}>Add Random Contact</button>
+      </div>
 
       <table>
         <thead>
@@ -40,7 +51,7 @@ function App() {
         </thead>
 
         <tbody>
-          { arrOfFive.map((contact) => {
+          { contacts.map((contact) => {
             return (
               <tr key={contact.id}>
                 <td><img src={contact.pictureUrl} alt={contact.name}/></td>
