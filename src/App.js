@@ -9,10 +9,27 @@ console.log(fiveContacts)
 
   //const [contacts, setContact ] = useState(fiveContacts);
 
+
+  const randomItem = contactsArr[Math.floor(Math.random()*contactsArr.length)];
+
+  console.log(randomItem)
+
+  contactsArr.forEach(item => {
+    //console.log(item)
+    const newArr = [];
+    contactsArr.push(newArr)
+    console.log(newArr)
+  })
+
+  // const randomContact = () => {
+  //   setContact()
+  // }
+
   return (
     <div className="App">
     <h1>IronContacts</h1>
-      <table className='contactitos'>
+    <button>Add Random Contact</button>
+      <table className='contactTable'>
       <tbody>
         <tr>
           <th>Picture</th>
