@@ -2,9 +2,13 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto';
 }
 
-
+h1 {
+  background-color: blueviolet;
+  color: white;
+}
 
 img {
   width: 80px;
@@ -14,4 +18,9 @@ img {
 th {
   font-size: 1.5em;
 
+}
+
+
+.trophee {
+  font-size: 2.5em;
 }
