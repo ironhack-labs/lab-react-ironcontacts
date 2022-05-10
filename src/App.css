@@ -21,3 +21,6 @@
 .App img {
   width: 100px;
 }
+.App td {
+  text-align: center;
+}
