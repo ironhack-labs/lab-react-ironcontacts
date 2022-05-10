@@ -22,14 +22,17 @@ function App() {
             <th>Won an Emmy</th>
           </tr>
 
+
           {contacts.map((props) => {
             return (
             <tr>
             <td className="pictureUrl"> 
-              <img src={props.pictureUrl}></img>
+              <img src={props.pictureUrl} alt="actor picture"></img>
             </td>
             <td className="name">{props.name}</td>
             <td className="popularity">{props.popularity}</td>
+            <td className="wonOscar"> {props.wonOscar ? "🏆" : null} </td>
+            <td className="wonEmmy"> {props.wonEmmy ? "🏆" : null} </td>
           </tr>
           )
           })}
