@@ -1,11 +1,29 @@
+import { useState } from "react";
 import './App.css';
 import contactsArr from "./contacts.json";
 
 function App() {
   const fiveContacts = contactsArr.slice(0, 5);
-  console.log(fiveContacts)
+
+  const [contacts, setContacts] = useState(fiveContacts)
+
+  const addRandomContact = ()=>{
+    setContacts((prevContacts)=>{
+      const newContactsList = contactsArr.filter((contact)=> {
+        return !prevContacts.includes(contact);
+      });
+      const getRandomContact = newContactsList[Math.floor(Math.random()* newContactsList.length)];
+      const newConctactSelection = [...prevContacts,getRandomContact]
+      return newConctactSelection;
+    })
+  };
+
+
   return (
     <div className="App">
+      <div>
+        <button onClick={addRandomContact}>Add Random Contact</button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -17,7 +35,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {fiveContacts.map((contact)=>(
+          {contacts.map((contact)=>(
             <tr key={contact.id}>
               <td>{<img src={contact.pictureUrl} alt=""></img>}</td>
               <td>{contact.name}</td>
