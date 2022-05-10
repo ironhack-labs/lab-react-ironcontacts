@@ -3,27 +3,40 @@ import contactsArr from "./contacts.json";
 import { useState } from "react";
 
 // Storing the first 5 contacts from the contacts.json
-const contacts = contactsArr.slice(0, 5);
+const fiveContacts = contactsArr.slice(0, 5);
 const remainingContacts = contactsArr.slice(6, contactsArr.length);
 
 
 
 function App() {
-  const [contact, setContact] = useState(contacts);
+  const [contacts, setContacts] = useState(fiveContacts);
 
 //Iteration 3, add new Random Contacts
-function getRandomContact() {
+const getRandomContact = () => {
   const newContact = remainingContacts.splice(Math.floor(Math.random()*(remainingContacts.length - 1)), 1);
-  const newList = contact.concat(newContact);
-  setContact(newList);
+  const newList = contacts.concat(newContact);
+  setContacts(newList);
 }
 
 //Iteration 4, Sort Contacts by Name and Popularity
+const sortByName = () => {
+  const orderByName = [...contacts.sort((a,b) => (a.name > b.name) ? 1 : -1)];
+  
+  setContacts(orderByName);
+};
+
+const sortByPopularity = () => {
+  const orderByPopularity = [...contacts.sort((a,b) => (a.popularity < b.popularity) ? 1 : -1)];
+  
+  setContacts(orderByPopularity);
+};
 
 
   return (
     <div className="App">
       <button onClick={getRandomContact}>Add Random Contact</button>
+      <button onClick={sortByName}>Sort By Name</button>
+      <button onClick={sortByPopularity}>Sort By Popularity</button>
 
       <table>
         <thead>
@@ -36,7 +49,7 @@ function getRandomContact() {
           </tr>
         </thead>
         <tbody>
-          {contact.map(contact => {
+          {contacts.map(contact => {
             return(
               <tr key={contact.id}>
                 <td><img src={contact.pictureUrl} alt={contact.name}></img></td>
