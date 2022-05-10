@@ -36,6 +36,12 @@ function App() {
     setContacts(updatedPopuList);
   };
 
+  const removeContact = (e) => {
+    const arrayContact = [...contacts];
+    const contactId = e.target.getAttribute("name");
+    setContacts(arrayContact.filter((contact) => contact.id !== contactId));
+  };
+
   return (
     <div className="App">
       <button onClick={randomPicker}>Add Contact</button>
@@ -50,6 +56,9 @@ function App() {
           <th>Won an Emmy</th>
         </tr>
         {contacts.map((x) => {
+          console.log(x);
+          const deleteContacts = (idOfContact) => {};
+
           return (
             <tr>
               <td>
@@ -59,7 +68,9 @@ function App() {
               <td>{x.popularity}</td>
               <td>{x.wonOscar ? "🏆" : ""}</td>
               <td>{x.wonEmmy ? "🏆" : ""}</td>
-              <button>Delete</button>
+              <button name={x.id} onClick={removeContact}>
+                Delete
+              </button>
             </tr>
           );
         })}
