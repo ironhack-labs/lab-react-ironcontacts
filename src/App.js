@@ -18,6 +18,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won an Oscar</th>
+          <th>Won an Emmy</th>
         </tr>
         {fiveContacts.map((elem) => {
           return (
@@ -25,6 +27,8 @@ function App() {
               <th><img src={elem.pictureUrl} /></th>
               <th>{elem.name}</th>
               <th>{elem.popularity}</th>
+              <th>{elem.wonOscar ? <span>🏆</span> : ""}</th>
+              <th>{elem.wonEmmy ? <span>🏆</span> : ""}</th>
             </tr>
           )
         })}
