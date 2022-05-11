@@ -6,13 +6,22 @@ function App() {
 
   const fiveContacts = contactsArr.slice(0, 5)
 
-  // const [contactState, setContact] = useState(fiveContacts);
+  const [contactState, setContact] = useState(fiveContacts);
+
+  const randomContactArr = contactsArr.map(() => {
+    
+  })
+
+  const randomContact = () => {
+    setContact 
+  }
 
 
 
   return (
     <div className="App">
     <h1>Iron Contacts</h1>
+    <button onClick={randomContact}>Add Random Contact</button>
       <table>
         <tr>
           <th>Picture</th>
