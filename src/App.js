@@ -3,19 +3,21 @@ import './App.css';
 import { useState } from 'react'
 
 function App() {
-  const fiveContact = contactsArr.splice(0, 5);
-
+  const fiveContact = contactsArr.filter((contact,index)=> index<5);
+console.log(fiveContact)
   const [contacts, setContact] = useState(fiveContact);
 
-  const otherContacts = contactsArr.slice(5,contactsArr.length);
+  const otherContacts = contactsArr.filter(contact=> fiveContact.indexOf(contact)<0);
   const randomIndex = Math.floor(Math.random() * otherContacts.length)
+  
   const shallowCopyContact = [...contacts]
 
 console.log(otherContacts)
   const addRandom = () => {
-    const randomContact = otherContacts.slice(randomIndex,randomIndex +1)
-    const addToContacts = shallowCopyContact.concat(randomContact)
-    console.log(addToContacts)
+    // const randomContact = otherContacts.splice(randomIndex,1)
+    const addToContacts = shallowCopyContact.concat(otherContacts[randomIndex])
+    // const addToContacts = shallowCopyContact.concat(randomContact)
+    // console.log(addToContacts)
     setContact(addToContacts)
   }
 
