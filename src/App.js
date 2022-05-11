@@ -7,11 +7,11 @@ function App() {
 
   const [contacts, setContact] = useState(fiveContact);
 
-  const otherContacts = contactsArr.slice(6);
+  const otherContacts = contactsArr.slice(5,contactsArr.length);
   const randomIndex = Math.floor(Math.random() * otherContacts.length)
   const shallowCopyContact = [...contacts]
 
-
+console.log(otherContacts)
   const addRandom = () => {
     const randomContact = otherContacts.slice(randomIndex,randomIndex +1)
     const addToContacts = shallowCopyContact.concat(randomContact)
