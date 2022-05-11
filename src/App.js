@@ -6,38 +6,53 @@ function App() {
   let fiveContacts = contactsArr.slice(0, 5);
 
   /** Iteration 3 | Add New Random Contacts **/
-  const [contacts, setContact] = useState(fiveContacts);
-  const remainingContact = contactsArr.slice(6, contactsArr.length);
-  const randomContactIndex = Math.floor(
-    Math.random() * remainingContact.length
-  );
-  const randomContact = remainingContact[randomContactIndex];
-  const randomArr = fiveContacts.concat(randomContact);
-  // console.log(randomArr);
+  const [contacts, setContacts] = useState(fiveContacts);
+  // const remainingContact = contactsArr.slice(6, contactsArr.length);
+  // const randomContactIndex = Math.floor(
+  //   Math.random() * remainingContact.length
+  // );
+  // const randomContact = remainingContact[randomContactIndex];
+  // // const randomArr = fiveContacts.concat(randomContact);
+  // const randomArr = [...contacts].concat(randomContact);
 
   function addRandomContact() {
-    setContact(randomArr);
+    setContacts((prevContacts) => {
+      const newContactsList = contactsArr.filter((contact) => {
+        return !prevContacts.includes(contact);
+      });
+      const getRandomContact =
+        newContactsList[Math.floor(Math.random() * newContactsList.length)];
+      const newConctactSelection = [...prevContacts, getRandomContact];
+      return newConctactSelection;
+    });
   }
 
   /** Iteration 4 | Sort Contacts by Name and Popularity **/
   function sortByPopularity() {
-    const orderByPopularity = randomArr.sort(
-      (a, b) => b.popularity - a.popularity
-    );
-    setContact(orderByPopularity);
+    setContacts((prevContacts) => {
+      let sortedByPopularity = [...prevContacts].sort(
+        (a, b) => b.popularity - a.popularity
+      );
+      return sortedByPopularity;
+    });
   }
 
   function sortByName() {
-    const orderByName = randomArr.sort((a, b) => a.name.localeCompare(b.name));
-    setContact(orderByName);
+    setContacts((prevContacts) => {
+      let sortByName = [...prevContacts].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      return sortByName;
+    });
   }
 
   function removeContact(idToRemove) {
-    const arrAfterDelete = randomArr.filter(
-      (element) => element.id !== idToRemove
-    );
-    // console.log(arrAfterDelete);
-    setContact(arrAfterDelete);
+    setContacts((prevContacts) => {
+      let arrAfterDelete = [...prevContacts].filter(
+        (element) => element.id !== idToRemove
+      );
+      return arrAfterDelete;
+    });
   }
 
   return (
