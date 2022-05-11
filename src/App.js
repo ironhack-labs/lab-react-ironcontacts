@@ -13,7 +13,9 @@ function App() {
 
 
   const addRandom = () => {
-    const addToContacts = shallowCopyContact.concat(otherContacts[randomIndex])
+    const randomContact = otherContacts.slice(randomIndex,randomIndex +1)
+    const addToContacts = shallowCopyContact.concat(randomContact)
+    console.log(addToContacts)
     setContact(addToContacts)
   }
 
