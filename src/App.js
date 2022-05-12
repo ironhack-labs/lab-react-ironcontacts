@@ -4,22 +4,17 @@ import contactsArr from "./contacts.json";
 
 function App() {
   let fiveContacts = contactsArr.slice(0, 5);
+  const [contacts, setContacts] = useState(fiveContacts);
+  // console.log(contactsArr.length);
 
   /** Iteration 3 | Add New Random Contacts **/
-  const [contacts, setContacts] = useState(fiveContacts);
-  // const remainingContact = contactsArr.slice(6, contactsArr.length);
-  // const randomContactIndex = Math.floor(
-  //   Math.random() * remainingContact.length
-  // );
-  // const randomContact = remainingContact[randomContactIndex];
-  // // const randomArr = fiveContacts.concat(randomContact);
-  // const randomArr = [...contacts].concat(randomContact);
-
   function addRandomContact() {
     setContacts((prevContacts) => {
+      console.log(prevContacts); //= fiveContacts lần 1, sau mỗi lần thêm 1 contact thì prevContacts tăng 1 còn newContactsList giảm 1
       const newContactsList = contactsArr.filter((contact) => {
-        return !prevContacts.includes(contact);
+        return !prevContacts.includes(contact); // prevContacts.includes(contact) = fiveContacts
       });
+      console.log(newContactsList);
       const getRandomContact =
         newContactsList[Math.floor(Math.random() * newContactsList.length)];
       const newConctactSelection = [...prevContacts, getRandomContact];
@@ -46,6 +41,7 @@ function App() {
     });
   }
 
+  /** Iteration 5 | Delete **/
   function removeContact(idToRemove) {
     setContacts((prevContacts) => {
       let arrAfterDelete = [...prevContacts].filter(
