@@ -1,3 +1,7 @@
+html{
+  background-color: gray;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,34 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.tabela {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+table{
+  width: 600px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+th, td, img{
+  width: 100px;
+}
+
+img {
+  border-radius: 10px;
+}
+
+button {
+  margin-right: 5px;
+}
+
+.App {
+  background-color: gray;
+  color: white;
 }
