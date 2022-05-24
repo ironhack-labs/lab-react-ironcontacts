@@ -1,10 +1,19 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  margin: 1rem;
 }
 
 code {
@@ -20,10 +29,32 @@ code {
 }
 
 .celeb-pic {
+  margin: 0.5rem;
   height: 100px;
 }
 
 .contacts-table {
+  padding: 0.5rem;
+  min-width: 900px;
+  min-height: 600px;
+  border: 0.2rem solid beige;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.th {
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.td {
+  width: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,8 +62,24 @@ code {
 }
 
 .contacts-tr {
+  min-width: 700px;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.button {
+  color: rgb(65, 63, 63);
+  border: 0.05rem solid rgb(194, 194, 172);
+  background-color: beige;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 0.5rem;
+  min-height: 40px;
+  min-width: 90px;
+}
+
+.button:hover {
+  color: beige;
+  background-color: rgb(147, 146, 146);
 }

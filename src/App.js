@@ -33,50 +33,64 @@ function App() {
   return (
     <div key={allContacts._id} className="App">
       <h1>IronContacts</h1>
-      <button onClick={randomizeMovie}>Add Random Contact</button>
-      <button onClick={sortContactNames}>Sort by name</button>
-      <button onClick={sortContactPopularity}>Sort by popularity</button>
+      <div className="buttons">
+        <button className="button" onClick={randomizeMovie}>
+          Add Random Contact
+        </button>
+        <button className="button" onClick={sortContactNames}>
+          Sort by name
+        </button>
+        <button className="button" onClick={sortContactPopularity}>
+          Sort by popularity
+        </button>
+      </div>
       <table className="contacts-table">
         <tr className="contacts-tr">
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-          <th>Won Oscar</th>
-          <th>Won Emmy</th>
-          <th>Action</th>
+          <th className="th">Picture</th>
+          <th className="th">Name</th>
+          <th className="th">Popularity</th>
+          <th className="th">Won Oscar</th>
+          <th className="th">Won Emmy</th>
+          <th className="th">Action</th>
         </tr>
         {allContacts.map((el) => {
           return (
-            <tr>
-              <td className="contacts-tr">
+            <tr className="contacts-tr">
+              <td className="td">
                 <img
                   className="celeb-pic"
                   src={el.pictureUrl}
                   alt="celeb-pic"
                 />
               </td>
-              <td>
+              <td className="td">
                 <p>{el.name}</p>
               </td>
-              <td>
+              <td className="td">
                 <p>{Math.round(el.popularity)}</p>
               </td>
               {el.wonOscar ? (
-                <td>
+                <td className="td">
                   <p>🏆</p>
                 </td>
               ) : (
-                ""
+                <td className="td">
+                  <p> </p>
+                </td>
               )}
               {el.wonEmmy ? (
-                <td>
+                <td className="td">
                   <p>🏆</p>
                 </td>
               ) : (
-                ""
+                <td className="td">
+                  <p> </p>
+                </td>
               )}
-              <td>
-                <button onClick={() => deleteContact(el.id)}>Delete</button>
+              <td className="td">
+                <button className="button" onClick={() => deleteContact(el.id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           );
