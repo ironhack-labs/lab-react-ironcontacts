@@ -10,12 +10,12 @@ function App() {
     setContact((contact) => [contacts[newIndex], ...contact]);
   };
   const sortPopularity = () => {
-    const sorted = contact.sort((a, b) => b.popularity - a.popularity);
-    setContact([...sorted]);
+    const sorted = [...contact].sort((a, b) => b.popularity - a.popularity);
+    setContact(sorted);
   };
   const sortName = () => {
-    const sorted = contact.sort((a, b) => a.name.localeCompare(b.name));
-    setContact([...sorted]);
+    const sorted = [...contact].sort((a, b) => a.name.localeCompare(b.name));
+    setContact(sorted);
   };
   const deleteActor = (actorId) => {
     const filteredArr = contact.filter((e) => actorId !== e.id);
