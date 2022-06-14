@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+.celi {
+  height: 200px;
+}
+
+h1{
+  font-size: 50px;
+}
+
+table{
+  display: inline;
+  align-items: center;
+}
+
+th{
+  font-size: 25px;
+}
+
+td{
+  font-size: 25px;
+}
