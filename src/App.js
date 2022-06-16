@@ -16,6 +16,12 @@ setContacts([randomContact, ...contacts])
 }
 
 
+// sort by name
+
+
+// sort by popularity
+
+
 
   return (
     <div className='App'>
