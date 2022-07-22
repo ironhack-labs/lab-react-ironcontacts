@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.contactImg {
+height:100px;
+
+}
+.buttons{
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.buttons button{
+  margin: 0 5px;
+}
