@@ -13,12 +13,30 @@ function App() {
     })
   }
 
-  const [contactsAlphabetical, setAlphabetically]= useState(contactsArr)
-  setAlphabetically ( (prevValue) => {
-    const copy = [...prevValue]
-    copy.sort((a, b) => a.name.localeCompare(b.name))
-    return copy;
-});
+const setAlphabetically = ( () => {
+    setContact( (prevContacts) => {
+      const copy = [...prevContacts]
+      copy.sort((a, b) => a.name.localeCompare(b.name))
+      return copy;
+    })
+  })
+
+  const setPopularity = ( () => {
+    setContact( (prevContacts) => {
+      const copy = [...prevContacts]
+      copy.sort(function (a, b) {  return a.popularity - b.popularity;  })
+      return copy.reverse();
+    })
+  })
+
+const deleteContact = (contactId) => {
+  setContact( (prevContacts) => {
+      const newList = prevContacts.filter( (element) => {
+          return element.id !== contactId;
+      });
+      return newList;
+  });
+}
 
   return (
     <div className="App">
@@ -26,7 +44,7 @@ function App() {
         <h1>Iron Contacts</h1>
         <button onClick={addRandomContact}>Add random contact</button>
         <button onClick={setAlphabetically}>Sort by Name</button>
-        <button>Sort by Popularity</button>
+        <button onClick={setPopularity}>Sort by Popularity</button>
         <table>
           <tr>
             <th>Picture</th>
@@ -34,6 +52,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Action</th>
           </tr>
           {contactsArr.map((contact) => {
             return (
@@ -47,6 +66,7 @@ function App() {
                   {contact.wonOscar
                     ? <td>🏆</td>
                     : <td></td>}
+                  <td><button onClick={() => {deleteContact(contact.id)}}>Delete</button></td>
                 </tr>
               </div>
             )
