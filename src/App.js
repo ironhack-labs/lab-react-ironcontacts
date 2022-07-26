@@ -19,14 +19,24 @@ function App() {
         <th>Picture</th>
         <th>Name</th>
         <th>Popularity</th>
+        <th>Won an Oscar</th>
+        <th>Won an Emmy</th>
       </tr>
 
       {contacts.map( (contact) => {
         return (
-          <tr>
+          <tr key={contact.id}>
               <td> <img src={contact.pictureUrl}/> </td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
+
+              {contact.wonOscar 
+              ? <td>🏆</td>
+              : <td></td>}
+
+              {contact.wonEmmy 
+              ? <td>🏆</td>
+              : <td></td>}
           </tr>
         )
       }
