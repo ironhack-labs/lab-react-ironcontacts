@@ -8,10 +8,20 @@ function App() {
 
   const [contactsArr, setContact] = useState(contacts.slice(0, 5));
 
-
+  const addRandomContact = (newContact) => {
+    setContact((prevContacts) => {
+      const newContacts = [...prevContacts];
+      const unusedContacts = contacts.filter(e => !prevContacts.includes(e))
+      newContacts.push(unusedContacts[Math.floor(Math.random()*unusedContacts.length)])
+      return newContacts
+    })
+  }
 
   return (
     <>
+
+      <button onClick={addRandomContact}>Add new Random Cantact</button>
+
       <table>
         <tr>
           <th>Picture</th>
