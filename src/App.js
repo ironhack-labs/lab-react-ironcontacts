@@ -17,10 +17,22 @@ function App() {
     })
   }
 
+  const sortContactByName = () => {
+    setContact((prevContacts) => {
+      const newContacts = [...prevContacts];
+      const sortedByNameContacts = newContacts.sort((a, b) => a.name.localeCompare(b.name))
+      return sortedByNameContacts 
+    })
+  }
+
+
+
   return (
     <>
 
       <button onClick={addRandomContact}>Add new Random Cantact</button>
+      <button onClick={sortContactByName}>Sort by Name</button>
+      {/* <button onClick={addRandomContact}>Sort by Popularity</button>             */}
 
       <table>
         <tr>
