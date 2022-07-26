@@ -23,6 +23,30 @@ function App() {
     });
   };
 
+  const sortPopularity = () => {
+    setContacts(() => {
+      const copyArr = [...contact];
+      copyArr.sort((a, b) => b.popularity - a.popularity);
+      return copyArr;
+    });
+  };
+
+  const sortName = () => {
+    setContacts(() => {
+      const copyArr = [...contact];
+      copyArr.sort((a, b) => {
+        let firstLetterA = a.name.toLowerCase(),
+          firstLetterB = b.name.toLowerCase();
+        return firstLetterA < firstLetterB
+          ? -1
+          : firstLetterA > firstLetterB
+          ? 1
+          : 0;
+      });
+      return copyArr;
+    });
+  };
+
   const deleteContact = (contactId) => {
     setContacts((prevContacts) => {
       const newList = prevContacts.filter((element) => {
@@ -37,8 +61,8 @@ function App() {
       <header>
         <h1>Iron contacts</h1>
         <button onClick={addContact}>Add random contact</button>
-        <button>Sort by popularity</button>
-        <button>Sort by name</button>
+        <button onClick={sortPopularity}>Sort by popularity</button>
+        <button onClick={sortName}>Sort by name</button>
       </header>
 
       <div className="all-Table">
@@ -68,7 +92,7 @@ function App() {
                 <td>
                   <button
                     onClick={() => {
-                      deleteContact(contact.Id);
+                      deleteContact(contact.id);
                     }}
                   >
                     Delete

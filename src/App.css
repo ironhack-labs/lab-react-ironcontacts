@@ -10,13 +10,11 @@ header button {
 }
 
 table {
+  margin: auto;
+  width: 50%;
+  padding: 2rem;
   border: 1px solid black;
   border-radius: 1rem;
-  padding: 5%;
-  align-items: center;
-  position: relative;
-  left: 15%;
-  right: 15%
 }
 
 th{
