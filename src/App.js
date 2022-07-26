@@ -25,6 +25,13 @@ function App() {
     })
   }
 
+  const sortContactByPopularity = () => {
+    setContact((prevContacts) => {
+      const newContacts = [...prevContacts];
+      const sortedByPopularity = newContacts.sort((a, b) => b.popularity - a.popularity)
+      return sortedByPopularity
+    })
+  }
 
 
   return (
@@ -32,6 +39,8 @@ function App() {
 
       <button onClick={addRandomContact}>Add new Random Cantact</button>
       <button onClick={sortContactByName}>Sort by Name</button>
+      <button onClick={sortContactByPopularity}>Sort by Popularity</button>      
+
       {/* <button onClick={addRandomContact}>Sort by Popularity</button>             */}
 
       <table>
