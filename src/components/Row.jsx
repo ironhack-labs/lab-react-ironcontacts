@@ -1,18 +1,22 @@
 import styled from 'styled-components'
 
-const Row = ({ pic, name, rating, wonOscar, wonEmmy }) => {
+const Row = ({ contact }) => {
   return (
-    <TableRow>
-      <Tcontent>{<Img src={pic} alt={name} />}</Tcontent>
-      <Tcontent>
-        <p>{name}</p>
-      </Tcontent>
-      <Tcontent>
-        <span>{rating}</span>
-      </Tcontent>
-      <Tcontent>{wonOscar && <p>🏆</p>}</Tcontent>
-      <Tcontent>{wonEmmy && <p>🏆</p>}</Tcontent>
-    </TableRow>
+    <>
+      {contact && (
+        <TableRow>
+          <Tcontent>{<Img src={contact.pictureUrl} alt={contact.name} />}</Tcontent>
+          <Tcontent>
+            <p>{contact.name}</p>
+          </Tcontent>
+          <Tcontent>
+            <span>{contact.popularity.toFixed(2)}</span>
+          </Tcontent>
+          <Tcontent>{contact.wonOscar && <p>🏆</p>}</Tcontent>
+          <Tcontent>{contact.wonEmmy && <p>🏆</p>}</Tcontent>
+        </TableRow>
+      )}
+    </>
   )
 }
 

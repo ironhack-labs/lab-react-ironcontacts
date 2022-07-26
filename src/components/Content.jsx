@@ -1,37 +1,53 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import contacts from '../contacts.json'
+import Buttons from './Buttons'
 import Row from './Row'
 
 const Content = () => {
-  const [list, setList] = useState(contacts.filter((contact, index) => index < 5))
+  const [lists, setLists] = useState({ firstPart: contacts.filter((contact, index) => index < 5), secondPart: contacts.filter((contact, index) => index >= 5) })
+  const [message, setMessage] = useState('')
+  const addRandomHandler = () => {
+    if (!lists.secondPart[0]) return setMessage('There are no more contacts left to add...')
+
+    const random = Math.floor(Number((Math.random() * (lists.secondPart.length - 1)).toFixed(0)))
+
+    const newArrays = { firstPart: [lists.secondPart[random], ...lists.firstPart], secondPart: lists.secondPart.filter((contact, index) => index !== random) }
+
+    return setLists(newArrays)
+  }
   return (
-    <Wrapper>
-      <Table>
-        <thead>
-          <TableRow>
-            <Tcontent>
-              <h3>Picture</h3>
-            </Tcontent>
-            <Tcontent>
-              <h3>Name</h3>
-            </Tcontent>
-            <Tcontent>
-              <h3>Popularity</h3>
-            </Tcontent>
-            <Tcontent>
-              <h3>Won an Oscar</h3>
-            </Tcontent>
-            <Tcontent>
-              <h3>Won an Amy</h3>
-            </Tcontent>
-          </TableRow>
-        </thead>
-        {list.map((item) => (
-          <Row pic={item.pictureUrl} name={item.name} rating={item.popularity.toFixed(2)} wonOscar={item.wonOscar} wonEmmy={item.wonEmmy} />
-        ))}
-      </Table>
-    </Wrapper>
+    <>
+      <Buttons addRandom={addRandomHandler} addRandomError={message} />
+      <Wrapper>
+        <Table>
+          <thead>
+            <TableRow>
+              <Tcontent>
+                <h3>Picture</h3>
+              </Tcontent>
+              <Tcontent>
+                <h3>Name</h3>
+              </Tcontent>
+              <Tcontent>
+                <h3>Popularity</h3>
+              </Tcontent>
+              <Tcontent>
+                <h3>Won an Oscar</h3>
+              </Tcontent>
+              <Tcontent>
+                <h3>Won an Amy</h3>
+              </Tcontent>
+            </TableRow>
+          </thead>
+          <tbody>
+            {lists.firstPart.map((item) => (
+              <Row key={item.id} contact={item} />
+            ))}
+          </tbody>
+        </Table>
+      </Wrapper>
+    </>
   )
 }
 
