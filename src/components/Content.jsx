@@ -17,10 +17,16 @@ const Content = () => {
             <Tcontent>
               <h3>Popularity</h3>
             </Tcontent>
+            <Tcontent>
+              <h3>Won an Oscar</h3>
+            </Tcontent>
+            <Tcontent>
+              <h3>Won an Amy</h3>
+            </Tcontent>
           </TableRow>
         </thead>
         {contacts.map((item) => (
-          <Row pic={item.pictureUrl} name={item.name} rating={item.popularity.toFixed(2)} />
+          <Row pic={item.pictureUrl} name={item.name} rating={item.popularity.toFixed(2)} wonOscar={item.wonOscar} wonEmmy={item.wonEmmy} />
         ))}
       </Table>
     </Wrapper>
@@ -36,7 +42,7 @@ const Wrapper = styled.div`
   align-items: center;
 `
 const Table = styled.table`
-  width: 50%;
+  width: 70%;
 `
 const TableRow = styled.tr`
   display: flex;

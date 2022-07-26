@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Row = ({ pic, name, rating }) => {
+const Row = ({ pic, name, rating, wonOscar, wonEmmy }) => {
   return (
     <TableRow>
       <Tcontent>{<Img src={pic} alt={name} />}</Tcontent>
@@ -10,6 +10,8 @@ const Row = ({ pic, name, rating }) => {
       <Tcontent>
         <span>{rating}</span>
       </Tcontent>
+      <Tcontent>{wonOscar && <p>🏆</p>}</Tcontent>
+      <Tcontent>{wonEmmy && <p>🏆</p>}</Tcontent>
     </TableRow>
   )
 }
@@ -20,14 +22,20 @@ const TableRow = styled.tr`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 0;
 `
 const Tcontent = styled.td`
   width: calc(100% / 3);
+  height: 200px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
   font-size: 1.5rem;
+  :last-child {
+    border-right: none;
+  }
 `
 const Img = styled.img`
-  max-width: 30%;
+  max-width: 50%;
 `
