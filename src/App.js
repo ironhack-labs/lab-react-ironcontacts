@@ -11,6 +11,18 @@ function App() {
   
   const [contacts, setContacts] = useState(fiveContacts);
   // console.log(contacts)
+
+  const addRandomContact = () => {
+    const randomContact =  allContacts[Math.floor(Math.random()*allContacts.length)];
+    console.log(randomContact)
+    setContacts((prevList) => {
+      const prevListCopy = [...prevList];
+      prevListCopy.push(randomContact);
+      console.log(prevListCopy);
+      return prevListCopy;
+    })
+    // const remainingContacts = allContacts.slice()
+  }
   
   return <div className="App">
 
@@ -39,9 +51,11 @@ function App() {
               : <td></td>}
           </tr>
         )
-      }
 
+      }
       )}
+
+      <button onClick={addRandomContact}>Add random contact</button>
 
     </table>
 
