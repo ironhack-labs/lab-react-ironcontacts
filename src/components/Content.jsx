@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import contacts from '../contacts.json'
 import Row from './Row'
 
 const Content = () => {
+  const [list, setList] = useState(contacts.filter((contact, index) => index < 5))
   return (
     <Wrapper>
       <Table>
@@ -25,7 +27,7 @@ const Content = () => {
             </Tcontent>
           </TableRow>
         </thead>
-        {contacts.map((item) => (
+        {list.map((item) => (
           <Row pic={item.pictureUrl} name={item.name} rating={item.popularity.toFixed(2)} wonOscar={item.wonOscar} wonEmmy={item.wonEmmy} />
         ))}
       </Table>
