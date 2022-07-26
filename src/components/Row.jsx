@@ -1,9 +1,27 @@
 import styled from 'styled-components'
 
-const Row = ({ contact }) => {
+const Row = ({ contact, isHead }) => {
   return (
     <>
-      {contact && (
+      {isHead ? (
+        <TableRow>
+          <HeadContent>
+            <h3>Picture</h3>
+          </HeadContent>
+          <HeadContent>
+            <h3>Name</h3>
+          </HeadContent>
+          <HeadContent>
+            <h3>Popularity</h3>
+          </HeadContent>
+          <HeadContent>
+            <h3>Won an Oscar</h3>
+          </HeadContent>
+          <HeadContent>
+            <h3>Won an Amy</h3>
+          </HeadContent>
+        </TableRow>
+      ) : (
         <TableRow>
           <Tcontent>{<Img src={contact.pictureUrl} alt={contact.name} />}</Tcontent>
           <Tcontent>
@@ -42,4 +60,9 @@ const Tcontent = styled.td`
 `
 const Img = styled.img`
   max-width: 50%;
+`
+const HeadContent = styled.td`
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
 `

@@ -7,6 +7,7 @@ import Row from './Row'
 const Content = () => {
   const [lists, setLists] = useState({ firstPart: contacts.filter((contact, index) => index < 5), secondPart: contacts.filter((contact, index) => index >= 5) })
   const [message, setMessage] = useState('')
+
   const addRandomHandler = () => {
     if (!lists.secondPart[0]) return setMessage('There are no more contacts left to add...')
 
@@ -16,29 +17,35 @@ const Content = () => {
 
     return setLists(newArrays)
   }
+
+  const sortByNameHandler = () => {
+    const firstListCopy = [...lists.firstPart]
+    const sorted = {
+      ...lists,
+      firstPart: firstListCopy.sort((a, b) => {
+        if (a.name.toLowerCase() < b.name.toLowerCase()) return -1
+        if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
+        return 0
+      }),
+    }
+    return setLists(sorted)
+  }
+
+  const sortByPolularityHandler = () => {
+    const firstListCopy = [...lists.firstPart]
+    const sorted = {
+      ...lists,
+      firstPart: firstListCopy.sort((a, b) => b.popularity - a.popularity),
+    }
+    return setLists(sorted)
+  }
   return (
     <>
-      <Buttons addRandom={addRandomHandler} addRandomError={message} />
+      <Buttons addRandom={addRandomHandler} addRandomError={message} sortByName={sortByNameHandler} sortByPopularity={sortByPolularityHandler} />
       <Wrapper>
         <Table>
           <thead>
-            <TableRow>
-              <Tcontent>
-                <h3>Picture</h3>
-              </Tcontent>
-              <Tcontent>
-                <h3>Name</h3>
-              </Tcontent>
-              <Tcontent>
-                <h3>Popularity</h3>
-              </Tcontent>
-              <Tcontent>
-                <h3>Won an Oscar</h3>
-              </Tcontent>
-              <Tcontent>
-                <h3>Won an Amy</h3>
-              </Tcontent>
-            </TableRow>
+            <Row isHead={true} />
           </thead>
           <tbody>
             {lists.firstPart.map((item) => (
@@ -61,14 +68,4 @@ const Wrapper = styled.div`
 `
 const Table = styled.table`
   width: 70%;
-`
-const TableRow = styled.tr`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-const Tcontent = styled.td`
-  width: calc(100% / 3);
-  display: flex;
-  justify-content: center;
 `
