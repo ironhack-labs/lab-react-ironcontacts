@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Row = ({ contact, isHead }) => {
+const Row = ({ contact, isHead, remove }) => {
   return (
     <>
       {isHead ? (
@@ -20,6 +20,9 @@ const Row = ({ contact, isHead }) => {
           <HeadContent>
             <h3>Won an Amy</h3>
           </HeadContent>
+          <HeadContent>
+            <h3>Actions</h3>
+          </HeadContent>
         </TableRow>
       ) : (
         <TableRow>
@@ -32,6 +35,9 @@ const Row = ({ contact, isHead }) => {
           </Tcontent>
           <Tcontent>{contact.wonOscar && <p>🏆</p>}</Tcontent>
           <Tcontent>{contact.wonEmmy && <p>🏆</p>}</Tcontent>
+          <Tcontent>
+            <button onClick={() => remove(contact.id)}>Delete</button>
+          </Tcontent>
         </TableRow>
       )}
     </>

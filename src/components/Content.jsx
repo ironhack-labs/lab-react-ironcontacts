@@ -39,6 +39,10 @@ const Content = () => {
     }
     return setLists(sorted)
   }
+
+  const deleteContactHandler = (contactId) => {
+    setLists({ ...lists, firstPart: lists.firstPart.filter((contact) => contactId !== contact.id) })
+  }
   return (
     <>
       <Buttons addRandom={addRandomHandler} addRandomError={message} sortByName={sortByNameHandler} sortByPopularity={sortByPolularityHandler} />
@@ -49,7 +53,7 @@ const Content = () => {
           </thead>
           <tbody>
             {lists.firstPart.map((item) => (
-              <Row key={item.id} contact={item} />
+              <Row key={item.id} contact={item} remove={deleteContactHandler} />
             ))}
           </tbody>
         </Table>
@@ -67,5 +71,6 @@ const Wrapper = styled.div`
   align-items: center;
 `
 const Table = styled.table`
-  width: 70%;
+  width: 90%;
+  margin-bottom: 3rem;
 `
