@@ -60,9 +60,9 @@ function App() {
                   <td><img src={contact.pictureUrl}></img></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
-                  {contact.wonOscar && <td>🏆</td>}
-                  {contact.wonEmmy && <td>🏆</td>}
-                  <button onClick={() => deleteContact(contact.id)}>Delete</button>
+                  <td>{contact.wonOscar && "🏆"}</td>
+                  <td>{contact.wonEmmy && "🏆"}</td>
+                  <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
                 </tr>
               </>
             );

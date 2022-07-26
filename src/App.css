@@ -5,3 +5,8 @@
 .table img {
   max-width: 10vw;
 }
+
+.table {
+  margin: 0;
+  width: 100%;
+}
