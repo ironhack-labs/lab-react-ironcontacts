@@ -1,25 +1,61 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import contacts from "./contacts.json"
+const newArr = contacts.slice(0, 5);
 
 function App() {
-  return (
+
+  // add contact
+  const [contact, randomContacts]= useState(newArr);
+  function addRandomContact(){ 
+    const remainingContacts = contacts.filter((element0) => !contact.includes(element0) )
+    if (remainingContacts.length === 0) { return }
+    const randomOne = remainingContacts[Math.floor(Math.random()*remainingContacts.length)]
+  randomContacts([...contact, randomOne]);
+  }
+
+  // sort
+  
+
+  return ( 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>IronContacts</h1>
+      <button onClick={addRandomContact}>Add Random Contact</button>
+      
+      <table>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>WonOscar</th>
+          <th>WonEmmy</th>
+        </tr>
+        </table>
+      {newArr.map((element) => {
+        return (
+          <table>
+        <tr>
+          <td>
+            {" "}
+            <img src={element.pictureUrl} 
+            width="80px"
+            height="100px"
+            />
+            
+            {" "}
+          </td>
+          <td>{element.picture}</td>
+          <td>{element.name}</td>
+          <td>{element.popularity}</td>
+          <td>{element.wonOscar}</td>
+          <td>{element.wonEmmy}</td>
+        </tr>
+        </table>
+        )
+      })}
     </div>
-  );
+    )
 }
+
 
 export default App;
