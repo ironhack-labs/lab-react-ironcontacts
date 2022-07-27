@@ -2,15 +2,14 @@ import "./App.css";
 import contactsArray from "./contacts.json";
 import { useState } from "react";
 
-const contacts = [
-  contactsArray[0],
-  contactsArray[1],
-  contactsArray[2],
-  contactsArray[3],
-  contactsArray[4],
-];
-
 function App() {
+  const contacts = [
+    contactsArray[0],
+    contactsArray[1],
+    contactsArray[2],
+    contactsArray[3],
+    contactsArray[4],
+  ];
   const [actors, setActors] = useState(contacts);
 
   const deleteContact = (contactId) => {
@@ -31,14 +30,12 @@ function App() {
             let randomContact = contactsArray[randomIndex]; // pick a random from whole list
             prevActors.push(randomContact); // push to newList
             prevActors = actors;
-            console.log(actors);
-            console.log(prevActors);
             return actors;
           });
         }}
       >
         Add random contact
-      </button>{" "}
+      </button>
       <table>
         <tbody>
           <tr>
