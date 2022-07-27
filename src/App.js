@@ -46,6 +46,15 @@ function App() {
       return prevListCopy;
     })
   }
+
+  const deleteContact = (contactId) => {
+    setContacts((prevList) => {
+      const newList = prevList.filter( (element) => {
+        return element.id !== contactId;
+      })
+      return newList;
+    })
+  }
   
   return <div className="App">
 
@@ -75,6 +84,8 @@ function App() {
               {contact.wonEmmy 
               ? <td>🏆</td>
               : <td></td>}
+
+              <td> <button onClick={() => {deleteContact(contact.id)}}> Delete </button></td>
           </tr>
         )
 
