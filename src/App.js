@@ -18,7 +18,7 @@ function App() {
       copy.push(randomContact)
       setContacts(copy)
     } else {
-      setContacts(contacts)
+      addRandomContact()
     }
   }
 
@@ -42,8 +42,6 @@ function App() {
       return newList;
     })
   }
-
-  console.log(contacts)
 
   return (
     <div className='App'>
