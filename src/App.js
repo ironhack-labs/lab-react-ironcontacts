@@ -10,18 +10,20 @@ let fiveContacts = allContacts.slice(0,5)
 function App() {
   
   const [contacts, setContacts] = useState(fiveContacts);
-  // console.log(contacts)
 
   const addRandomContact = () => {
     const randomContact =  allContacts[Math.floor(Math.random()*allContacts.length)];
-    // console.log(randomContact)
-    setContacts((prevList) => {
-      const prevListCopy = [...prevList];
-      prevListCopy.push(randomContact);
-      // console.log(prevListCopy);
-      return prevListCopy;
-    })
-    // const remainingContacts = allContacts.slice()
+    const found = contacts.find(element => element.id=== randomContact.id);
+    if (found === undefined) {
+      setContacts((prevList) => {
+        const prevListCopy = [...prevList];
+        prevListCopy.push(randomContact);
+        return prevListCopy;
+      })
+    }
+    else {
+      addRandomContact();
+    }
   }
 
   const sortByName = () => {
@@ -38,9 +40,6 @@ function App() {
     setContacts((prevList) => {
       const prevListCopy = [...prevList];
       prevListCopy.sort(function(a,b) {
-        console.log(a.popularity)
-        console.log(b.popularity)
-        console.log(a.popularity - b.popularity)
         return b.popularity - a.popularity;
       })
       return prevListCopy;
@@ -58,6 +57,7 @@ function App() {
   
   return <div className="App">
 
+    <button onClick={addRandomContact}>Add random contact</button>
     <button onClick={sortByName}>Sort by name</button>
     <button onClick={sortByPopularity}>Sort by popularity</button>
 
@@ -91,9 +91,6 @@ function App() {
 
       }
       )}
-
-      <button onClick={addRandomContact}>Add random contact</button>
-
     </table>
 
   </div>;
