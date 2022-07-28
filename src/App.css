@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+.profilePic {
+  height: 100px;
+}
+.pic {
+  width: 80px;
+}
+.name {
+  width: 120px;
+}
+.popularity{
+  width: 50px;
+}
+.wonOscar, .wonEmmy{
+  width: 120px;
+}
