@@ -1,38 +1,85 @@
 .App {
   text-align: center;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.App h1 {
+  color: #32c3ff;
+  font-size: -webkit-xxx-large;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
+
+.displayContacts img {
+  width: 65px;
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 0 40vw 3vw 40vw;
+  margin: 0;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.btns button {
+  background-color: #0a222d;
+  color: white;
+  width: 20vh;
+  height: 5vh;
+  border-radius: 6px;
+  font-size: 0.8em;
+  border: none;
+}
+
+
+.displayContacts table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.displayContacts td,th {
+  border: 1px solid rgb(184, 184, 184);
+  width: 12vw;
+  height: 44px;
+  font-size: large;
+}
+
+.displayContacts table button {
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 35px;
+  text-transform: uppercase;
+  width: 50%;
+  background-color: #910f0f;
+  font-weight: 100;
+  border-radius: 25px;
+}
+
