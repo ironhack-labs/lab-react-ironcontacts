@@ -1,23 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useState, useEffect } from "react";
+import contacts from "./contacts.json";
+//Formatearlos
 function App() {
+  const [data, setData] = useState([]);
+  const [index, setIndex] = useState(5);
+  const arrAux = [];
+
+  useEffect(() => {
+    for (let i = 0; i < 5; i++) {
+      arrAux.push(contacts[i]);
+    }
+    setData(arrAux);
+  }, []);
+
+  const addRandomContact = () => {
+    const copyData = [...data, contacts[index]];
+    setIndex((prevStatus) => prevStatus + 1);
+    setData(copyData);
+  };
+
+  const deleteContact = (id) => {
+    const copyData = [...data];
+    const fData = copyData.filter((artist) => artist.id !== id);
+    setData(fData);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+      <h1>IronContacts</h1>
+      <div className="buttons">
+      <button onClick={addRandomContact}>Add Random Contact</button>
+      <button>Sort by popularity</button>
+      <button>Sort by name</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((artist, index) => {
+            const { name, pictureUrl, popularity, id, wonOscar, wonEmmy } =
+              artist;
+            return (
+              <tr key={index}>
+                <td>
+                  <img src={pictureUrl} alt="" />
+                </td>
+                <td>{name}</td>
+                <td>{popularity}</td>
+                <td>{wonOscar && <span>🏆</span>}</td>
+                <td>{wonEmmy && <span>🏆</span>}</td>
+                <td>
+                  <button onClick={() => deleteContact(id)}>Delete</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      </div>
     </div>
   );
 }
