@@ -4,14 +4,36 @@ import { useState } from "react";
 import dataContacts from "./contacts.json";
 
 function App() {
-  const firstSixContacts = dataContacts.filter((contact, idx) => idx < 6);
+  const firstSixContacts = dataContacts.filter((item, idx) => idx < 6);
 
-  const [contacts, useContacts] = useState(firstSixContacts);
+  const [contacts, setContacts] = useState(firstSixContacts);
 
-  console.log(contacts);
+  console.log("yo soy antes de pushear ", contacts);
+  const HandlerRandom = () => {
+    setContacts((prevVals) => [
+      ...prevVals,
+      dataContacts[
+        Math.floor(
+          Math.random() * (dataContacts.length - 0 + 1) +
+            0
+        )
+      ],
+    ]);
+
+    console.log("yo soy despues de pushear ", contacts);
+  };
 
   return (
     <div className="App">
+      <h1>IronContacts</h1>
+      <button
+        className="button"
+        onClick={() => {
+          HandlerRandom();
+        }}
+      >
+        Random contact
+      </button>
       <table>
         <thead>
           <tr>
