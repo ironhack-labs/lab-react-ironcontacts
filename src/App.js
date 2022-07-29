@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import "./App.css";
+import { useState } from "react";
+import dataContacts from "./contacts.json";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+  const firstFiveContacts = dataContacts.filter((contact,idx)=> idx<5)
+  
+
+  const [contacts, useContacts] = useState(firstFiveContacts);
+
+  console.log(contacts);
+
+  return <div className="App">
+
+<table>
+  <tr>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Popularity</th>
+  </tr>
+{contacts.map(contact =>
+{return (
+  <tr>
+    <td>
+    <img src={contact.pictureUrl} alt="contacts[0].name" height={200}/>
+    
+    </td>
+    <td>{contact.name}</td>
+    <td>{contact.popularity}</td>
+  </tr>
+)})}
+ 
+
+
+</table>
+
+  </div>;
+}
 export default App;
