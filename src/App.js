@@ -8,20 +8,42 @@ function App() {
 
   const [contacts, setContacts] = useState(firstSixContacts);
 
-  console.log("yo soy antes de pushear ", contacts);
   const HandlerRandom = () => {
     setContacts((prevVals) => [
       ...prevVals,
       dataContacts[
-        Math.floor(
-          Math.random() * (dataContacts.length - 0 + 1) +
-            0
-        )
+        Math.floor(Math.random() * (dataContacts.length - 0 + 1) + 0)
       ],
     ]);
-
-    console.log("yo soy despues de pushear ", contacts);
   };
+
+  const HandlerSort = () => {
+    setContacts((prevVals) => {
+      let valueArray = prevVals.map((contact) => Object.values(contact)[0]);
+      let orderedNames = valueArray.sort();
+      let result = prevVals.map((item, idx, array) =>
+        array.find((contact) => {
+          return orderedNames[idx] === Object.values(contact)[0];
+        })
+      );
+      return result;
+    });
+  };
+
+  const HandlerSortPop = ()=>{
+    setContacts((prevVals) => {
+      let valueArray = prevVals.map((contact) => Object.values(contact)[2]);
+      let orderedPop = valueArray.sort(function(a,b){return b-a});
+      let result = prevVals.map((item, idx, array) =>
+        array.find((contact) => {
+          return orderedPop[idx] === Object.values(contact)[2];
+        })
+      );
+      return result;
+    });
+
+
+  }
 
   return (
     <div className="App">
@@ -34,6 +56,25 @@ function App() {
       >
         Random contact
       </button>
+
+      <button
+        className="button"
+        onClick={() => {
+          HandlerSort();
+        }}
+      >
+        Sort by name
+      </button>
+
+      <button
+        className="button"
+        onClick={() => {
+          HandlerSortPop();
+        }}
+      >
+        Sort by popularity
+      </button>
+
       <table>
         <thead>
           <tr>
