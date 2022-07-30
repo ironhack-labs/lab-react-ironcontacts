@@ -42,12 +42,18 @@ function App() {
       return result;
     });
 
+  }
 
+  const HandlerDelete = (id) => {
+    console.log(id)
+    setContacts((prevVals) => prevVals.filter(contact => contact.id !== id))
   }
 
   return (
     <div className="App">
+
       <h1>IronContacts</h1>
+      <div className="buttons">
       <button
         className="button"
         onClick={() => {
@@ -74,6 +80,7 @@ function App() {
       >
         Sort by popularity
       </button>
+      </div>
 
       <table>
         <thead>
@@ -83,6 +90,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -100,7 +108,24 @@ function App() {
                 <td>{contact.popularity}</td>
                 {contact.wonOscar ? <td>🏆</td> : <td></td>}
                 {contact.wonEmmy ? <td>🏆</td> : <td></td>}
+             <td>
+             <button
+        className="button"
+        onClick={() => {
+          HandlerDelete(contact.id);
+        }}
+      >
+        Delete
+      </button>
+
+
+
+             </td>
+             
+             
               </tr>
+
+
             );
           })}
         </tbody>
