@@ -24,11 +24,37 @@ function App() {
       addRandomContact();
     }
   }
+//sort alphabetically
+	const sortByName = () => {
+    //copy of contacts
+		const contactsCopy = [...contacts];
+
+		contactsCopy.sort((a, b) => {
+			return a.name.localeCompare(b.name);
+		});
+    //sorted contactsCopy is the new state
+		setContacts(contactsCopy);
+	};
+
+  //sort by popularity
+	const sortByPopularity = () => {
+        //copy of contacts
+		const contactsCopy = [...contacts];
+
+		contactsCopy.sort((a, b) => {
+			return b.popularity - a.popularity;
+		});
+    //sorted contactsCopy is the new state
+		setContacts(contactsCopy);
+	};
+
 
   return <div className="App">
     <h1>IronContacts</h1>
 <table className="contact-table">
   <button onClick={addRandomContact}>Add Random Contact</button>
+    <button onClick={sortByPopularity}>Sort By Popularity</button>
+      <button onClick={sortByName}>Sort By Name</button>
   <thead>
   <tr>
     <th><h2>Picture</h2></th>
