@@ -17,18 +17,24 @@ function App() {
     <th><h2>Picture</h2></th>
     <th><h2>Name</h2></th>
     <th><h2>Popularity</h2></th>
+    <th><h2>Won an Oscar</h2></th>
+    <th><h2>Won an Emmy</h2></th>
   </tr>
   </thead>
       <tbody>
   {/* contacts mapping, a key with an index is needed at parent html tag and to use html we need a return */}
   {contacts.map((contact,index)=>{
+    const {name, pictureUrl, popularity,wonOscar, wonEmmy,id}=contact;
     return ( 
     <tr key={index}>
-    <td><img src={contact.pictureUrl} alt="contact profile" width={100}/></td>
-    <td><p>{contact.name}</p></td>
-    <td><p>{contact.popularity.toFixed(2)}</p></td>
+      <td><img src={pictureUrl} alt="contact profile" width={100}/></td>
+      <td><p>{name}</p></td>
+      <td><p>{popularity.toFixed(2)}</p></td>
+      <td>{wonOscar && <span>🏆</span>}</td>
+      <td>{wonEmmy && <span>🏆</span>}</td>
   </tr>
-  )})}
+  );
+  })}
   </tbody>
 </table>
   </div>
