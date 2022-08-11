@@ -49,5 +49,13 @@
 .table-list {
   font-size: 30px;
 }
-    
+
+h1 {
+  font-size: 60px;
+}
+
+button {
+  width: 300px;
+  font-size: 25px;
+}
 
