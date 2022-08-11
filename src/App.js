@@ -4,6 +4,10 @@ import contacts from "./contacts.json";
 
 const contactsArr = contacts.slice(0, 5); 
 
+let randomIndex = Math.floor(Math.random() * contacts.length) + 5;
+for (let i = 0; i < contacts.length; i++) {
+  contactsArr.push(contactsArr[randomIndex]);
+}
 
 function App() {
 
@@ -12,7 +16,7 @@ function App() {
   return (
     <div className="App">
     <h1> IronContacts </h1>
-    <button>Add Random Contact</button>
+    <button onClick={() => setRandom(random + 1)}>Add Random Contact</button>
     <table className="table-list">
       <tr>
         <th>Picture</th>
