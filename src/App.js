@@ -56,6 +56,11 @@ function App() {
         return result
         })
         }
+
+      const handleDelete = (id) => {
+        console.log(id);
+        setContacts((prevState) =>  prevState.filter(contact => contact.id !== id))
+        }   
   return (
     <div className="App">
       <div className="header">
@@ -64,7 +69,6 @@ function App() {
         <button onClick={() => handleSorting()}>Sort by Name</button>
         <button onClick={() => handleSortPopularity()}>The most popular</button>
       </div>
-      {/* {contact === contact ? contact.hide() : contact.show()} */}
       <table className="contacts-table">
         <tbody>
           <tr>
@@ -86,6 +90,34 @@ function App() {
           </tr>
           {listContacts}
         </tbody>
+        {contacts.map((contact) => {
+          return (
+            <tr key={contact.id}>
+              <td>
+                <img 
+                src={contact.pictureUrl} 
+                alt="contacts[0].name"
+                height={150}
+                // style={{borderRadius:"50%"}}
+                />
+              </td>
+              <td>{contact.name}</td>
+              <td>{contact.popularity}</td>
+                {contact.wonOscar ? <td>🏆</td> : <td></td>}
+                {contact.wonEmmy ? <td>🏆</td> : <td></td>}
+              <td>
+                <button 
+                className="button"
+                onClick={() => {
+                  handleDelete(contact.id)
+                  }}
+                  >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            )
+        })}
       </table>
     </div>
   )
