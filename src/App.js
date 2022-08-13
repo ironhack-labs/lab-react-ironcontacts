@@ -30,13 +30,41 @@ function App() {
         Math.floor(Math.random() * (prevState.length - 0 + 1) + 0)
         ]])
         };
-  
+
+    const handleSorting = () => {
+      setContacts((prevState) => {
+        let namesArr = prevState.map((contact) => Object.values(contact)[0])
+        let namesInOrder = namesArr.sort()
+        let result = prevState.map((item, idx, array) =>
+           array.find((contact ) => {
+          return namesInOrder[idx] === Object.values(contact)[0]
+          })
+      )
+      return result
+      })
+      }
+
+      const handleSortPopularity = () => {
+        setContacts((prevState) => {
+          let popArr = prevState.map((contact) => Object.values(contact)[2])
+          let mostPopular = popArr.sort(function(a,b){return b-a})
+          let result = prevState.map((item, idx, arr) =>
+          arr.find ((contact) => {
+            return mostPopular[idx] === Object.values(contact)[2]
+          })
+        )
+        return result
+        })
+        }
   return (
     <div className="App">
       <div className="header">
         <h1>IronContacts</h1>
         <button onClick={() => handleRandom()}>Add Random Contact</button>
+        <button onClick={() => handleSorting()}>Sort by Name</button>
+        <button onClick={() => handleSortPopularity()}>The most popular</button>
       </div>
+      {/* {contact === contact ? contact.hide() : contact.show()} */}
       <table className="contacts-table">
         <tbody>
           <tr>
