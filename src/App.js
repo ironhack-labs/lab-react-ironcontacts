@@ -21,8 +21,11 @@ function App() {
 
   return (
     <div className="App">
+      <div className="navbar">
       <h1>IronContacts</h1>
-      <button className="button" onClick={() => addRandomContact()}>Add Random Contact</button>
+      <button onClick={() => addRandomContact()} className="button">Add Random Contact</button>
+      </div>
+      <div>
       <table className="contact-table">
         <tr>
           <th>Picture</th>
@@ -46,7 +49,7 @@ function App() {
           );
         })}
       </table>
-
+      </div>
     </div>
   );
 }
