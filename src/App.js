@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Contacts from './components/Contacts'
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>IronContacts</h1>
+      <button>Add Random Contact</button>
+      <table>
+        <thead>
+          <tr key="title">
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        
+          <Contacts />
+      
+      </table>
     </div>
   );
 }
