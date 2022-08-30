@@ -1,0 +1,22 @@
+table, th, td {
+
+}
+
+.table{
+ width: 70%;
+ margin: 20px 0px 20px 0px;
+}
+
+.table > tr{
+ height: 50px;
+ 
+}
+
+.table > tr:first-child  {
+ font-size: 20px;
+}
+
+.table img {
+ width: 70px;
+ height: 70px;
+}
