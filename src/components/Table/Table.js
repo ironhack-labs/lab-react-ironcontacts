@@ -11,18 +11,48 @@ const [contact, setContact] = useState(fiveFirstContacts)
 
 const handleClick = () => {
   const randomContact = contacts[Math.floor(Math.random() * contacts.length)]
-
   setContact([randomContact, ...contact]);
-
   console.log(setContact)
-
 }
 
+const  handleClickPopularity = () => {
+  contact.sort(function (a, b) {
+    if (a.popularity > b.popularity) {
+      return -1;
+    }
+    if (a.popularity < b.popularity) {
+      return 1;
+    }
+    return 0;
+  });
+
+  setContact([...contact]);
+}
+
+const  handleClickName = () => {
+  contact.sort(function (a, b) {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
+
+  setContact([...contact]);
+}
 
 
   return(
     <div className='row text-center justify-content-center'>
-      <button onClick={handleClick} className='btn btn-primary w-25 mb-3'>Add Random Contact</button>
+      <div class="d-grid gap-2 d-md-block">
+        <button onClick={handleClick} className='btn btn-primary'>Add Random Contact</button>
+        <button onClick={handleClickPopularity} className='btn btn-primary'>Sort By Popularity</button>
+        <button onClick={handleClickName} className='btn btn-primary'>Sort By Name</button>
+      </div>
+
+
       <div className='row d-flex justify-content-center '>
         <div className='col'>
           <h3>Picture</h3>
