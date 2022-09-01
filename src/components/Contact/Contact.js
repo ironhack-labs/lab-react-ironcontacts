@@ -1,6 +1,6 @@
 import './Contact.css'
 
-function Contact({name, pictureUrl, popularity}) {
+function Contact({name, pictureUrl, popularity, wonOscar, wonEmmy}) {
 
 let rating = popularity.toFixed(2)
 
@@ -15,6 +15,12 @@ let rating = popularity.toFixed(2)
         </div>
         <div className="col align-self-center">
           {rating}
+        </div>
+        <div className="col align-self-center">
+          {wonOscar && '🏆'}
+        </div>
+        <div className="col align-self-center">
+          {wonEmmy && '🏆'}
         </div>
       </li>
     </div>
