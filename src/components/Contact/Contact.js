@@ -1,6 +1,12 @@
 import './Contact.css'
 
-function Contact({name, pictureUrl, popularity, wonOscar, wonEmmy}) {
+function Contact({name, pictureUrl, popularity, wonOscar, wonEmmy, deleteContact }) {
+
+const handleClickDelete = () => {
+    deleteContact(name);
+};
+
+
 
 let rating = popularity.toFixed(2)
 
@@ -21,6 +27,11 @@ let rating = popularity.toFixed(2)
         </div>
         <div className="col align-self-center">
           {wonEmmy && '🏆'}
+        </div>
+        <div className="col align-self-center">
+          <div className="d-grid gap-2 d-md-block">
+            <button onClick={handleClickDelete} className='btn btn-danger'>Delete</button>
+          </div>
         </div>
       </li>
     </div>
