@@ -22,7 +22,7 @@ function App() {
   }
 
   const handleSortByName = () => {
-    setContactsData([...contacts.sort((a, b) => a.name - b.name)])
+    setContactsData([...contacts.sort((a, b) => a.name > b.name ? -1 : 1)])
   }
 
   const handleDelete = (contact) => {
