@@ -49,7 +49,9 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {contacts.map(contact => <Contact key={contact.id} contact={contact} onDelete={() => handleDelete(contact)}/>)}
+            {contacts.map(contact => 
+              <Contact key={contact.id} contact={contact} onDelete={() => handleDelete(contact)}/>
+            )}
           </tbody>
       </table>
     </div>
