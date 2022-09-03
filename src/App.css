@@ -4,3 +4,14 @@ img{
 body{
   text-align: center;
 }
+header{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+table{
+  width: 100vw;
+  padding-inline: 20px;
+}
