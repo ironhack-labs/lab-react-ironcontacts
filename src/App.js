@@ -7,11 +7,12 @@ function App() {
   const [contactsLength, setContactsLength] = useState(6)
 
   function addRandom(){
-    let contactsCopy = [...contactsJson];
-    const randomContact =Math.floor(Math.random()*(contactsCopy.length-5)+5)
-    contactsCopy.push(contactsCopy[randomContact])
+    let allContacts = [...contactsJson];
+    const randomContact =Math.floor(Math.random()*(allContacts.length-5)+5)
+    let contactCopy = [...contacts]
+    contactCopy.push(allContacts[randomContact])
     setContactsLength(contactsLength+1)
-    setContacts(contactsCopy.slice(0,contactsLength))
+    setContacts(contactCopy.slice(0,contactsLength))
   }
   function sortByName(){
     let contactsCopy = [...contacts];
@@ -29,6 +30,11 @@ function App() {
     setContacts(contactsCopy)
   }
 
+  function deleteContact(index){
+    let contactsCopy = [...contacts];
+    contactsCopy.splice(index, 1)
+    setContacts(contactsCopy)
+  }
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -43,6 +49,7 @@ function App() {
             <td key="Popularity"><b>Popularity</b></td>
             <td key="WonOscar"><b>Won an Oscar</b></td>
             <td key="WonEmmy"><b>Won an Emmy</b></td>
+            <td key="Actions"><b>Actions</b></td>
           </tr>
         </thead>
         <tbody>  
@@ -55,6 +62,7 @@ function App() {
                   <td key={el.popularity}>{Math.round(el.popularity*100)/100}</td>
                   <td key={i + 0.25}>{el.wonOscar && '🏆'}</td>
                   <td key={i + 0.5}>{el.wonEmmy && '🏆'}</td>
+                  <td key={i + 0.75}><button onClick={function(){deleteContact(i)}}>Delete</button></td>
                 </tr>
               )
             })
