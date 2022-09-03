@@ -60,11 +60,9 @@ const ContactList = () => {
           <th>Action</th>
         </tr>
       </thead>
-      <tbody>
-        {contacts.map(contacts =>
-          <ContactRow {...contacts} deleted={() => { deleteContact() }} />)}
-      </tbody>
 
+      {contacts.map(contacts =>
+        <ContactRow {...contacts} deleted={() => { deleteContact(contacts.id) }} />)}
     </table >
   </div >;
 }

@@ -18,9 +18,9 @@ const ContactRow = (contact) => {
           {contact.popularity.toFixed(2)}
         </td>
         <td>
-          {contact.wonOscar ? 'trofeu' : 'sem trofeu'}
+          {contact.wonOscar ? '\u{1F3C6}' : <span></span>}
         </td>
-        {contact.wonEmmy ? 'trofeu' : 'sem trofeu'}
+        {contact.wonEmmy ? '\u{1F3C6}' : <span></span>}
         <td>
           <button onClick={() => { contact.deleted(contact.id) }}>Delete</button>
         </td>
