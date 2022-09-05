@@ -1,3 +1,8 @@
+body {
+  background: url(Hall-of-Fame.jpg);
+  background-size: cover;
+}
+
 .App {
   text-align: center;
 }
@@ -26,6 +31,34 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.contact-name {
+  padding: 30px;
+}
+
+.contact-picture {
+  padding: 20px 0px 0px 20px;
+}
+
+.contact-popularity {
+  color: green;
+}
+
+.delete-button {
+  color: red;
+  font-weight: bold;
+}
+
+th {
+  padding: 20px;
+  text-align: center;
+}
+
+.middle-button {
+  margin: 20px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
