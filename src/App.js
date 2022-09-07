@@ -2,35 +2,34 @@ import "./App.css";
 import contactsData from "./contacts.json";
 import { useState } from "react";
 function App() {
-  const [contacts, setContacts] = useState(contactsData);
+  const contactsFive = contactsData.slice(0,5)
+  const [contacts, setContacts] = useState(contactsFive);
   const deleteContact = (contactId) => {
     const filteredContact = contacts.filter((contact) => {
       return contact.id !== contactId;
     });
     setContacts(filteredContact);
   };
-  const randomContact = (array) =>{
-    const randomFilter = array.sort(()=>{
-     return  Math.random()-0.5;
-    } )
-    setContacts(randomFilter)
-    console.log(randomFilter)
+  const randomContact = () =>{
+   const randomData = Math.floor(Math.random()*contactsData.length)
+   const contactsRandom = [contactsData[randomData],...contacts]
+   setContacts(contactsRandom)
+    for(let i = 0;i<contacts.length;i++ ){
+    if(contactsData[randomData].id === contacts[i].id ){
+      return randomContact()
+   }
   }
-  const sortName =(array)=>{
-    const filterNameContact = array.sort((a,b) =>{
-      return a.name.localeCompare(b.name); 
-    });
-    setContacts(filterNameContact)
-    console.log(filterNameContact)
   }
-  const sortPopularity = (array) =>{
-    const filterPopularityContact = array.sort((a,b) =>{
+  const sortName =()=>{
+    const filterNameContact =[...contacts].sort((a, b) => a.name > b.name ? 1 : -1)
+   setContacts(filterNameContact)
+  }
+  const sortPopularity = () =>{
+    const filterPopularityContact = [...contacts].sort((a,b) =>{
       return b.popularity - a.popularity;
     })
     setContacts(filterPopularityContact)
-    console.log(filterPopularityContact)
   }
-  const number = (num) => num.toFixed(2);
   return (
     <div className="App">
     <div id="Menu">
@@ -38,7 +37,7 @@ function App() {
       <div id="MenuButton">
       <button onClick={() =>randomContact(contacts)} >Add Random Contact</button>
       <button onClick={() => sortPopularity(contacts)} >Sort by popularity</button>
-      <button onClick={()=>sortName(contacts)}  >Sort by name</button>
+      <button onClick={()=>sortName()}  >Sort by name</button>
       </div>
       </div>
       <table>
@@ -54,28 +53,19 @@ function App() {
         </thead>
         <tbody>
         {contacts.map((contato) => {
+          console.log(contacts)
         return (
           <tr key={contato.id}>
             <td>
               <img src={contato.pictureUrl} alt="imagePerson" />
             </td>
             <td>{contato.name}</td>
-            <td>{number(contato.popularity)}</td>
+            <td>{contato.popularity.toFixed(2)}</td>
             <td>
-              {contato.wonOscar && (
-                <img
-                  src="https://img.freepik.com/vetores-gratis/taca-das-tacas-de-ouro_1284-18399.jpg"
-                  alt="imageTrophy"
-                />
-              )}
+              {contato.wonOscar && '🏆'}
             </td>
             <td>
-              {contato.wonEmmy && (
-                <img
-                  src="https://i.pinimg.com/originals/90/ef/a0/90efa0f3e41a6df63b5581ca4d0372a3.png"
-                  alt="imageTrophyEmmy"
-                />
-              )}
+              {contato.wonEmmy && '🏆'}
             </td>
             <td>
               <button onClick={() => deleteContact(contato.id)}>Delete</button>

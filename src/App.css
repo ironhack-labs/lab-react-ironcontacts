@@ -27,7 +27,7 @@ table{
 tr{
    align-items: center;
 }
-th{
+/*th{
     
     padding: 10px 44.5px;
     border:1px solid black;
@@ -35,7 +35,7 @@ th{
 td{
     padding: 10px 30px;
     align-items: center;
-}
+}*/
 img{
     width: 90px;
     height: 110px;
