@@ -47,6 +47,7 @@ function App() {
     setContactsState(sortedContacts);
   };
 
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -65,7 +66,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <ContactEntry contactList={contactsState} />
+          <ContactEntry contactList={contactsState} setContactsState={setContactsState} />
         </tbody>
       </table>
     </div>

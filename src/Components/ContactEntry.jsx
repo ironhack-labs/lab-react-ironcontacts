@@ -1,16 +1,14 @@
-import {useState} from "react";
-function ContactEntry({ contactList }) {
+function ContactEntry({ contactList, setContactsState }) {
 
-  const [initContact, setInitContact] = useState(contactList);
   
   const deleteContact = (id) => {
-    const newContact = initContact.filter((contact) => contact.id !== id);
-    setInitContact(newContact);
+    const newContact = contactList.filter((contact) => contact.id !== id);
+    setContactsState(newContact);
     // console.log(newContact);
   };
   return (
     <>
-      {initContact.map((contact) => {
+      {contactList.map((contact) => {
         return (
           <tr key={contact.id}>
             <td>
