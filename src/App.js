@@ -18,13 +18,36 @@ function App() {
     }
   }
 
+  const sortPopularity = () => {
+    const newContact = [...initContact]
+    newContact.sort((a, b) => -a.popularity + b.popularity);
+    setContact(newContact)
+  }
+
+
+  const sortName = () => {
+    const newContact = [...initContact]
+    newContact.sort((a, b) => a.name.localeCompare(b.name));
+    setContact(newContact)
+  }
+
+  const deleteContact = (name) => {
+    const newContact = initContact.filter((contact) => contact.name !== name);
+    setContact(newContact);
+  }
+
+
   return (<div className="App App-header">
 
     <h1>IronContacts</h1>
 
     <button onClick={addContact}>Add Random Contact</button>
+    <button onClick={sortPopularity}>Sort by Popularity</button>
+    <button onClick={sortName}>Sort by Name</button>
 
-    <table className="">
+
+
+    <table>
       <thead>
         <tr>
           <th>Picture</th>
@@ -36,12 +59,14 @@ function App() {
       </thead>
       <tbody>
         {initContact.map((actor) =>
-          < tr >
+          < tr key={actor.name}>
             <td><img className="img-actor" src={actor.pictureUrl} /></td>
             <td>{actor.name}</td>
             <td>{actor.popularity}</td>
             <td>{actor.wonOscar ? '🏆' : '👎'}</td>
             <td>{actor.wonEmmy ? '🏆' : '👎'}</td>
+            <td><button onClick={() => { deleteContact(actor.name) }}>Delete Actor</button></td>
+
           </tr>
 
         )}
