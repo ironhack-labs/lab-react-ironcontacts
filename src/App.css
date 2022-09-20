@@ -32,7 +32,15 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.img-actor {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid aquamarine;
 }
