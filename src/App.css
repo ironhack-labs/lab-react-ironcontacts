@@ -1,38 +1,65 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    
 }
 
-.App-link {
-  color: #61dafb;
+img {  
+  height: 200px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  border: none;
+  border-radius: 2px;
+  background-color:  rgba(170, 170, 170, 0.911);
+  height: 25px;
+  width: 200px;
+  margin: 20px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: rgb(119, 119, 119);
+}
+
+.btn-remove {
+  width: 80px;
+  background-color:  rgba(204, 202, 202, 0.911);
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 25px ;  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+  height: 50px;
+  background-color: #1e2330bb;
+  color: #ffffff;
+  text-align: left;
+  text-indent: 5px;
+  
+}
+
+
+
+thead th:not(:first-child){
+  width: 150px;
+  border-left: 1px solid	rgba(255, 255, 255, 0.096);
+}
+
+ tbody tr{  
+  border-bottom: .5px solid #1e233021;
+  text-align: left;
+  text-indent: 10px;
+}
+
+tbody tr:nth-child(2n) {
+  background-color: rgba(194, 185, 185, 0.137);;
 }
