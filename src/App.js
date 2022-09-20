@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import contacts from "./contacts.json";
 
 function App() {
+  const maxContacts = contacts.slice(0, 5);
+  const [movieContact, setMovieContact] = useState(maxContacts);
+  console.log(maxContacts);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>IronContacts</h1>
+      <table>
+        <tbody>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+          {movieContact.map((actor) => {
+            return (
+              <tr key={actor.id}>
+                <td>
+                  <img
+                    src={actor.pictureUrl}
+                    alt="actor-img"
+                    className="actor-img"
+                  />
+                </td>
+                <td>{actor.name}</td>
+                <td>{actor.popularity}</td>
+              </tr>
+            );
+          })}
+          {/* <tr>
+            <td>
+              <img src={movieContact[0].pictureUrl} alt="actor-img" />
+            </td>
+            <td>Math Damon</td>
+            <td>9.50</td>
+          </tr> */}
+        </tbody>
+      </table>
     </div>
   );
 }
