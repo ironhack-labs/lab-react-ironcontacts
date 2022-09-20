@@ -32,7 +32,21 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.table-artist img {
+  width: 20%;
+}
+
+.head-table {
+  background-color: black;
+  color: white;
+}
+
+.body-table td {
+  border: 2px solid black;
 }
