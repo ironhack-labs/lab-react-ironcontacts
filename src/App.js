@@ -10,16 +10,29 @@ import { useState } from "react";
 function App() {
   const [contacts, setContacts] = useState(contactsArr.slice(0, 6));
 
+  function pickRandomContact() {
+    const randomNum = Math.floor(Math.random() * (contactsArr.length - 5) + 5);
+    setContacts([...contacts, contactsArr[randomNum]]);
+  }
+
+  function sortByPopularity() {
+    const sorted = contacts.sort((a, b) =>
+      a.popularity < b.popularity ? 1 : -1
+    );
+    setContacts([...sorted]);
+  }
+
+  function sortByName() {
+    const sorted = contacts.sort((a, b) => (a.name < b.name ? 1 : -1));
+    setContacts([...sorted]);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button
-        onClick={() => {
-          setContacts([...contacts, pickRandomContact(contacts)]);
-        }}
-      >
-        Add random contact
-      </button>
+      <button onClick={pickRandomContact}>Add random contact</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
       <table>
         <thead>
           <tr>
@@ -51,16 +64,6 @@ function App() {
       </table>
     </div>
   );
-}
-
-function pickRandomContact(arr) {
-  // console.log("Button clicked");
-  const randomNum = Math.floor(
-    Math.random() * (contactsArr.length - arr.length - 1) + arr.length - 1
-  );
-  // console.log("Random Number: ", randomNum);
-  return contactsArr[randomNum];
-  // console.log("Random Contact: ", randomContact);
 }
 
 export default App;
