@@ -32,7 +32,33 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.table-artists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1 px solid black;
+}
+
+.table-artists img {
+  width: 20%;
+}
+
+.head-table {
+  background-color: black;
+  color: white;
+}
+
+.head-table th {
+  padding: 20px;
+}
+
+.body-table td {
+  border: 1px solid black;
+  padding: 0 20px;
 }
