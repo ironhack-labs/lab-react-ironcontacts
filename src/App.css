@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(126,115,158);
+background: linear-gradient(204deg, rgba(126,115,158,1) 0%, rgba(84,47,115,1) 50%);
 }
 
 .App-logo {
@@ -35,4 +40,137 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  color: #fff;
+}
+
+/* **** TABLE **** */
+table {
+  /* border: dashed #fff 2px; */
+  border-spacing: 0 10px;
+  width: 900px;
+  font-size: 20px;
+}
+
+tr:nth-child(even){
+  background-color: rgba(220, 220, 220, .75);
+}
+
+tr:nth-child(odd){
+  background-color: rgba(220, 220, 220, .5);
+}
+
+td {
+  /* border: dashed #fff 2px; */
+  padding: 0;
+
+}
+
+.award {
+  font-size: 55px;
+}
+
+img {
+  border-radius: 15%;
+}
+
+
+/* **** BUTTONS **** */
+.btn-container {
+  display: flex;
+  margin: 20px;
+}
+/* CSS */
+button {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(rgba(179, 132, 201, .84), rgba(57, 31, 91, .84) 50%);
+  border-radius: 42px;
+  border-width: 0;
+  box-shadow: rgba(57, 31, 91, 0.24) 0 2px 2px,rgba(179, 132, 201, 0.4) 0 8px 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  font-family: Quicksand,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: .04em;
+  line-height: 16px;
+  margin: 0;
+  padding: 18px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,rgba(255, 255, 255, 0.2) 0 0 12px,rgba(57, 31, 91, 0.6) 1px 1px 4px,rgba(57, 31, 91, 0.32) 4px 4px 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+button:hover {
+  background-image: linear-gradient(#B384C9, #391F5B 50%);
+}
+
+@media (min-width: 768px) {
+  button {
+    font-size: 21px;
+    padding: 18px 34px;
+  }
+}
+
+
+/* CSS */
+.btn-delete {
+  align-items: center;
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #FEE0E0;
+  border-radius: 11px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.btn-delete:active,
+.btn-delete:hover,
+.btn-delete:focus {
+  outline: 0;
+}
+
+
+.btn-delete:active {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.btn-delete:hover {
+  background-color: #FFE3E3;
+  border-color: #FAA4A4;
+}
+
+.btn-delete:active:hover,
+.btn-delete:focus:hover,
+.btn-delete:focus {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
 }
