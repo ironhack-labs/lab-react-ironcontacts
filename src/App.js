@@ -44,9 +44,11 @@ function App() {
     <div>
       <h1>IronContacts</h1>
     </div>
+    <div className='btnsDiv'>
     <button className="button" onClick={() => setContacts(newArr)} type="submit">Add random celeb</button>
     <button className="button" onClick={() => setContacts(sortedName)}>Sort alphabetically</button>
     <button className="button" onClick={() => setContacts(sortedPop)}>Sort by popularity</button>
+    </div>  
       <table>
         <tr>
           <th>Picture</th>

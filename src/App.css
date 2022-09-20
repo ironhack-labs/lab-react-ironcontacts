@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color:azure;
 }
 
 .App-logo {
@@ -39,24 +40,43 @@ img {
 
 table {
   border: black 0.5px solid;
+  background-color: white;
 }
 
 .button {
   background-color: lightpink;
   border: black solid 0.5px;
   border-radius: 2px;
-  padding: 10px 20px 10px 20px
+  padding: 10px 20px 10px 20px;
+  font-weight: 800;
+
 }
 
 .btn {
   background-color: lightpink;
   border: black solid 0.5px;
   border-radius: 2px;
-  padding: 5px 10px 5px 10px
+  padding: 5px 10px 5px 10px;
+  font-weight: 800;
 }
+
+.button:hover {
+background-color: rgb(249, 158, 171);
+}
+
+.btn:hover {
+  background-color: rgb(249, 158, 171);
+  }
 
 td {
   font-family: serif;
   font-weight: 800;
   padding: 5px
+}
+
+.btnsDiv {
+  margin: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%
 }
