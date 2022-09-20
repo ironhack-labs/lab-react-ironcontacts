@@ -11,8 +11,16 @@ function App() {
   const [contacts, setContacts] = useState(contactsArr.slice(0, 6));
 
   function pickRandomContact() {
-    const randomNum = Math.floor(Math.random() * (contactsArr.length - 5) + 5);
-    setContacts([...contacts, contactsArr[randomNum]]);
+    const randomNum = Math.floor(Math.random() * (contactsArr.length - 1));
+    const randomContact = contactsArr[randomNum];
+
+    const contactAlreadyInList = contacts.find(
+      (element) => element.id === randomContact.id
+    );
+
+    if (!contactAlreadyInList) {
+      setContacts([...contacts, randomContact]);
+    }
   }
 
   function sortByPopularity() {
@@ -25,6 +33,13 @@ function App() {
   function sortByName() {
     const sorted = contacts.sort((a, b) => (a.name < b.name ? 1 : -1));
     setContacts([...sorted]);
+  }
+
+  function deleteContact() {
+    const newContactsArr = contacts.filter(
+      (contact) => contact.deletedContact !== contact.id
+    );
+    setContacts([...newContactsArr]);
   }
 
   return (
@@ -41,6 +56,7 @@ function App() {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +73,16 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{contact.wonOscar ? "🏆" : ""}</td>
                 <td>{contact.wonEmmy ? "🏆" : ""}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      contact.deletedContact = contact.id;
+                      deleteContact();
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
