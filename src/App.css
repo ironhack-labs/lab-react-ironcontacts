@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -28,11 +32,31 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  width: 150px;
+  height: 200px
+}
+
+table {
+  border: black 0.5px solid;
+}
+
+.button {
+  background-color: lightpink;
+  border: black solid 0.5px;
+  border-radius: 2px;
+  padding: 10px 20px 10px 20px
+}
+
+.btn {
+  background-color: lightpink;
+  border: black solid 0.5px;
+  border-radius: 2px;
+  padding: 5px 10px 5px 10px
+}
+
+td {
+  font-family: serif;
+  font-weight: 800;
+  padding: 5px
 }
