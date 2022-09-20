@@ -50,7 +50,7 @@ thead tr {
 
 
 thead th:not(:first-child){
-  width: 150px;
+  width: 12vw;
   border-left: 1px solid	rgba(255, 255, 255, 0.096);
 }
 
