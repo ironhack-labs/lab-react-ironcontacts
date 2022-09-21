@@ -32,14 +32,17 @@ function App() {
   const deleteActor = (id) => {
     const newActor = movieContact.filter((contact) => contact.id !== id);
     setMovieContact(newActor);
+    // the parameter of id in this function is pointing to the id that this function gets via the map method in our table
   };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={getRandomActor}>Add Random Contact</button>
-      <button onClick={sortActorPopularity}>Sort by Popularity</button>
-      <button onClick={sortActors}>Sort by name</button>
+      <div className="table-menu-container">
+        <button onClick={getRandomActor}>Add Random Contact</button>
+        <button onClick={sortActorPopularity}>Sort by Popularity</button>
+        <button onClick={sortActors}>Sort by name</button>
+      </div>
       <table>
         <tbody>
           <tr>

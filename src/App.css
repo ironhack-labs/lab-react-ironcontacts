@@ -37,6 +37,21 @@
   }
 }
 
+table {
+  border-spacing: 0 10px;
+  width: 900px;
+  font-size: 20px;
+}
+
+td {
+  padding: 0;
+}
+
+.table-menu-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .actor-img {
   height: 120px;
 }
