@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 25px ;  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+thead tr {
+  height: 50px;
+  background-color: #1e2330bb;
+  color: #ffffff;
+  text-align: left;
+  text-indent: 5px;
+
+}
+
+
+
+thead th:not(:first-child){
+  width: 12vw;
+  border-left: 1px solid	rgba(255, 255, 255, 0.096);
+}
+
+ tbody tr{  
+  border-bottom: .5px solid #1e233021;
+  text-align: left;
+  text-indent: 10px;
+}
+
+/* tbody tr:nth-child(2n) {
+  background-color: rgba(194, 185, 185, 0.137);;
+} */
+
