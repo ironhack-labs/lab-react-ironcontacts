@@ -8,7 +8,6 @@ function App() {
   const contactsCopy = [...contacts];
   console.log(maxContacts);
 
-  // const randomActor = contacts[Math.floor(Math.random() * contacts.length)];
   const getRandomActor = () => {
     const randomActor = Math.floor(Math.random() * contactsCopy.length);
     const newContact = contactsCopy.splice(randomActor, 1);
@@ -16,19 +15,19 @@ function App() {
     setMovieContact(updatedContacts);
   };
 
-  console.log("Random Actor:", contacts);
+  const sortActors = () => {
+    const sortedActors = [...movieContact].sort((a, b) => {
+      return a.name > b.name ? 1 : -1;
+    });
+    setMovieContact(sortedActors);
+  };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button
-        // onClick={() => {
-        //   setMovieContact([...movieContact, getRandomActor(contacts)]);
-        // }}
-        onClick={getRandomActor}
-      >
-        Add Random Contact
-      </button>
+      <button onClick={getRandomActor}>Add Random Contact</button>
+      <button>Sort by Popularity</button>
+      <button onClick={sortActors}>Sort by name</button>
       <table>
         <tbody>
           <tr>
