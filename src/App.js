@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import contacts from './contacts.json'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const originalContacts = [...contacts] // este array sirve para luego sacar los random contacts
+
+
+class App extends Component {
+  state = {
+    contacts: originalContacts.splice(0, 5)
+  }
+
+  render() {
+    return (
+      <div className="App">
+      {this.state.contacts.map((contact) => {
+        return (
+            <div>
+              <img src={contact.pictureUrl} alt="img"/>
+              <p>{contact.name}</p>
+              <p>{Math.round(contact.popularity)}</p>
+            </div>
+        )
+      })}
+      </div>
+    );
+  }
 }
 
 export default App;
+
