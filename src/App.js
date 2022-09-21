@@ -17,16 +17,23 @@ function App() {
 
   const sortActors = () => {
     const sortedActors = [...movieContact].sort((a, b) => {
-      return a.name > b.name ? 1 : -1;
+      return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
     });
     setMovieContact(sortedActors);
+  };
+
+  const sortActorPopularity = () => {
+    const sortedPopularity = [...movieContact].sort((a, b) => {
+      return a.popularity < b.popularity ? 1 : -1;
+    });
+    setMovieContact(sortedPopularity);
   };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={getRandomActor}>Add Random Contact</button>
-      <button>Sort by Popularity</button>
+      <button onClick={sortActorPopularity}>Sort by Popularity</button>
       <button onClick={sortActors}>Sort by name</button>
       <table>
         <tbody>
