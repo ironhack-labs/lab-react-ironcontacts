@@ -1,7 +1,11 @@
 import { Component } from 'react';
 import contacts from './contacts.json'
 
+console.log(contacts)
+
 const originalContacts = [...contacts] // este array sirve para luego sacar los random contacts
+
+console.log(originalContacts)
 
 
 class App extends Component {
@@ -17,7 +21,7 @@ class App extends Component {
             <div>
               <img src={contact.pictureUrl} alt="img"/>
               <p>{contact.name}</p>
-              <p>{Math.round(contact.popularity)}</p>
+              <p>{contact.popularity.toFixed(2)}</p>
             </div>
         )
       })}
