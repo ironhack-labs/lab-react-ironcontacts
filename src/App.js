@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import contactsData from "./contacts.json"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ 
+      const copyContacts = [...contactsData];
+      const fiveContacts = copyContacts.slice(0,5);
+      return (
+        <div className="App">
+          <h1>Iron Contacts</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popular</th>
+                <th>Won a Oscar</th>
+                <th>Won a Emmy</th>
+              </tr>
+            </thead>
+            <tbody>
+              {fiveContacts.map(contact =>
+                <tr>
+                  <th><img src={contact.pictureUrl} alt="contact-details" className={'contactPicture'}/> </th>
+                  <th>{contact.name}</th>
+                  <th>{contact.popularity}</th>
+                  <th>{contact.wonOscar ?  "🏆" : "❌"}</th>
+                  <th>{contact.wonEmmy ? "🏆" : "❌"}</th>
+                  </tr>
+                )}
+            </tbody>
+          </table>
+         
+      </div>
   );
 }
 

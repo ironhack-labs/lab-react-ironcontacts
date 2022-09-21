@@ -1,3 +1,18 @@
+.contactPicture{
+  height: 70px;
+}
+table, th, td {
+  background: #ffffff;
+  padding: 5px;
+}
+table {
+  
+  
+  margin-left: 30%;
+  background: #0f0000;
+  border-spacing: 5px;
+}
+
 .App {
   text-align: center;
 }
