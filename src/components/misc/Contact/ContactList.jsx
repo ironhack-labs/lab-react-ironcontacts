@@ -15,12 +15,28 @@ class ContactList extends Component {
   addRandom = () => {
     const index= this.randomIndex()
     const item = contactsArr[index]
-    this.setState((prevState) =>{
+    this.setState(() =>{
       return {
         contacts: [...this.state.contacts, item]
       }
-  })
-}
+    })
+  }
+
+  sortByName = () => {
+    this.setState((prevState) => {
+      return {
+        contacts:[ ...prevState.contacts].sort((a,b)=> a.name.localeCompare(b.name))
+      }
+    })
+  }
+
+  sortByRating = () => {
+    this.setState((prevState) => {
+      return {
+        contacts:[ ...prevState.contacts].sort((a,b)=> b.popularity-a.popularity)
+      }
+    })
+  }
 
   render () {
     const { contacts } = this.state
@@ -32,8 +48,8 @@ class ContactList extends Component {
         <div>
           <button onClick={this.addRandom}>Add contact</button>
         </div>
-        {/* <button onClick={this.sortByRating}>Sort by rating</button>
-        <button onClick={this.sortByName}>Sort by name</button> */}
+        <button onClick={this.sortByRating}>Sort by rating</button>
+        <button onClick={this.sortByName}>Sort by name</button>
         {
           contacts && contacts.length > 0 
             ? (
