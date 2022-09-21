@@ -29,6 +29,11 @@ function App() {
     setMovieContact(sortedPopularity);
   };
 
+  const deleteActor = (id) => {
+    const newActor = movieContact.filter((contact) => contact.id !== id);
+    setMovieContact(newActor);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -43,6 +48,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
           {movieContact.map((actor) => {
             return (
@@ -57,7 +63,10 @@ function App() {
                 <td>{actor.name}</td>
                 <td> {Number(actor.popularity).toFixed(2)}</td>
                 {actor.wonEmmy ? <td>🏆</td> : ""}
-                {actor.wonOscar ? <td>🏆</td> : ""}
+                {actor.wonOscar ? <td>⭐️</td> : ""}
+                <td>
+                  <button onClick={() => deleteActor(actor.id)}>Delete</button>
+                </td>
               </tr>
             );
           })}
