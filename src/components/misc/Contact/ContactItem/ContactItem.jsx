@@ -1,6 +1,6 @@
 import "./ContactItem.css"
 
-function ContactItem ({ number, pictureUrl, name, popularity,onDelete, wonOscar, wonEmmy }) {
+function ContactItem ({ number, pictureUrl, name, popularity, onDelete, wonOscar, wonEmmy }) {
   return (
     //<tr className={rating >= 8 ? 'table-warning' : ''}>
     <tr>

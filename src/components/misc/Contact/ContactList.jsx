@@ -38,6 +38,10 @@ class ContactList extends Component {
     })
   }
 
+  onDeleteContact = (id) => {  
+    this.setState({contacts: this.state.contacts.filter(contact =>  contact.id !== id )})
+  }
+
   render () {
     const { contacts } = this.state
     console.log(contacts);
@@ -45,11 +49,11 @@ class ContactList extends Component {
 
       <div className="ContactsList mt-4">
         <h1>Contacts available</h1>
-        <div>
-          <button onClick={this.addRandom}>Add contact</button>
+        <div className='row ms-4'>
+          <button onClick={this.addRandom} className="btn btn-dark col-sm-4">Add contact</button>
+          <button onClick={this.sortByRating} className="btn btn-dark col-sm-4 ">Sort by rating</button>
+          <button onClick={this.sortByName} className="btn btn-dark col-sm-4">Sort by name</button>
         </div>
-        <button onClick={this.sortByRating}>Sort by rating</button>
-        <button onClick={this.sortByName}>Sort by name</button>
         {
           contacts && contacts.length > 0 
             ? (
@@ -67,7 +71,7 @@ class ContactList extends Component {
                 </thead>
                 <tbody>
                   {contacts.map( (contact, i) => (
-                    <ContactItem key={contact.id} number={i + 1} {...contact}/>
+                    <ContactItem key={contact.id} number={i + 1} {...contact} onDelete={() => this.onDeleteContact(contact.id)}/>
                   ))}
                 </tbody>
               </table>
