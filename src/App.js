@@ -12,9 +12,29 @@ function App() {
 
   const [contacts, setcontact] = useState(fiveContacts);
 
+  const addRandomContact = () => {
+    const randomIndex = Math.floor(Math.random() * (allContacts.length - 1));
+    // console.log("Randon Index:", randomIndex);
+
+    const newContact = allContacts[randomIndex];
+    // console.log("New Contact:", newContact);
+
+    const contactIsIntheList = contacts.find(
+      (element) => element.id === newContact.id
+    );
+
+    if (!contactIsIntheList) {
+      const updateContacts = [...contacts, newContact];
+      console.log(updateContacts);
+      setcontact(updateContacts);
+    }
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={addRandomContact}>Add Random Contact</button>
+
       <div className="tableContacts">
         <table className="contacts">
           <thead style={{ fontWeight: 500 }}>
@@ -22,6 +42,8 @@ function App() {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Won Oscar</th>
+              <th>Won Emmy</th>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +61,8 @@ function App() {
                   <th style={{ fontWeight: 200 }}>
                     {contact.popularity.toFixed(2)}{" "}
                   </th>
+                  <th>{contact.wonOscar && "🏆"} </th>
+                  <th>{contact.wonEmmy && "🏆"} </th>
                 </tr>
               );
             })}
