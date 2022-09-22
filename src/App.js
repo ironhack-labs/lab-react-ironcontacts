@@ -25,15 +25,32 @@ function App() {
 
     if (!contactIsIntheList) {
       const updateContacts = [...contacts, newContact];
-      console.log(updateContacts);
+      // console.log(updateContacts);
       setcontact(updateContacts);
     }
+  };
+
+  // Sort by Popularity
+
+  const sortByPop = () => {
+    const sortedPops = contacts.sort((a, b) =>
+      a.popularity < b.popularity ? 1 : -1
+    );
+    setcontact([...sortedPops]);
+  };
+
+  // Sort By Name
+  const sortByName = () => {
+    const sortedNames = contacts.sort((a, b) => (a.name < b.name ? -1 : 1));
+    setcontact([...sortedNames]);
   };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortByPop}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
 
       <div className="tableContacts">
         <table className="contacts">
