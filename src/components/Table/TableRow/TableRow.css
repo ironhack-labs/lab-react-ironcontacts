@@ -1,0 +1,13 @@
+.TableRow button {
+    padding: 6px 20px;
+    font-weight: 700;
+    background-color: rgb(255, 87, 87);
+    border-radius: 8px;
+    color: white;
+    border: none;
+}
+
+.TableRow button:hover {
+    background-color: rgb(188, 0, 0);
+    cursor: pointer;
+}
