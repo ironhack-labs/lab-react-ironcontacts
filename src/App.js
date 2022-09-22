@@ -1,21 +1,36 @@
-import logo from "./logo.svg";
 import "./App.css";
-import contacts from "./contacts.json";
-import Contact from "./components/contact";
+import contactList from "./contacts.json";
+import { useState } from "react";
 
 function App() {
+  const [contacts, setContacts] = useState(contactList.slice(0, 5));
   return (
     <div className="App">
       <h1>Iron Contacts</h1>
       <table>
-        <tr>
-          <th> Picture</th>
-          <th> Name</th>
-          <th> Popularity</th>
-        </tr>
-        <tr>
-          <Contact name={contacts.name}></Contact>
-        </tr>
+        <thead>
+          <tr>
+            <th> Picture</th>
+            <th> Name</th>
+            <th> Popularity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contacts.map((contact) => {
+            return (
+              <tr>
+                <td>
+                  <img
+                    style={{ height: "80px" }}
+                    src={contact.pictureUrl}
+                  ></img>
+                </td>
+                <td> {contact.name}</td>
+                <td> {contact.popularity}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );
