@@ -45,12 +45,25 @@ function App() {
     setcontact([...sortedNames]);
   };
 
+  // Delete Contact
+
+  const deleteContact = (id) => {
+    const newContact = contacts.filter((contact) => contact.id !== id);
+    setcontact(newContact);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByPop}>Sort by popularity</button>
-      <button onClick={sortByName}>Sort by name</button>
+      <button className="button-24" onClick={addRandomContact}>
+        Add Random Contact
+      </button>
+      <button className="button-24" onClick={sortByPop}>
+        Sort by popularity
+      </button>
+      <button className="button-24" onClick={sortByName}>
+        Sort by name
+      </button>
 
       <div className="tableContacts">
         <table className="contacts">
@@ -61,6 +74,7 @@ function App() {
               <th>Popularity</th>
               <th>Won Oscar</th>
               <th>Won Emmy</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +93,15 @@ function App() {
                     {contact.popularity.toFixed(2)}{" "}
                   </th>
                   <th>{contact.wonOscar && "🏆"} </th>
-                  <th>{contact.wonEmmy && "🏆"} </th>
+                  <th>{contact.wonEmmy && "🌟"} </th>
+                  <th>
+                    <button
+                      className="button-24"
+                      onClick={() => deleteContact(contact.id)}
+                    >
+                      Delete
+                    </button>
+                  </th>
                 </tr>
               );
             })}
