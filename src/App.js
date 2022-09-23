@@ -13,7 +13,7 @@ function App() {
 
   const sortPopularity = () =>{
     const newArray =[...contacts]
-    const sortArray= newArray.sort((a, b) => a.popularity - b.popularity)
+    const sortArray= newArray.sort((a, b) => b.popularity - a.popularity)
     setContacts(sortArray)
   }
   const sortName = () =>{
