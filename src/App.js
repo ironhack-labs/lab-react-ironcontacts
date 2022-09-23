@@ -22,10 +22,12 @@ function App() {
     setContacts(sortArray)
   }
 
-  const deleteContact = (index) =>{
+  const deleteContact = (id) =>{
     const newArray =[...contacts]
-    newArray.splice(index, 1)
-    setContacts(newArray)
+    const filterArray = newArray.filter((contact)=>{
+      return contact.id !== id
+    })
+    setContacts(filterArray)
   }
   return (
     <div className="App">
@@ -44,19 +46,22 @@ function App() {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            <th>Actions</th>
+
 
           </tr>
           {contacts.map((contact, index) => {
+            const{name, popularity, wonOscar, wonEmmy, id}= contact;
             return (
               <tr>
                 <td>
                   <img width={60} src={contact.pictureUrl} alt={contact.name} />
                 </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity.toFixed(2)}</td>
-                <td>{contact.wonOscar === true && <img width={30} src="https://cdn-icons-png.flaticon.com/512/1366/1366509.png" alt=""/>}</td>
-                <td>{contact.wonEmmy === true && <img width={30} src="https://cdn-icons-png.flaticon.com/512/1366/1366509.png" alt=""/>}</td>
-                <button onClick={()=> deleteContact(index)}>Remove</button>
+                <td>{name}</td>
+                <td>{popularity.toFixed(2)}</td>
+                <td>{wonOscar === true && <img width={30} src="https://cdn-icons-png.flaticon.com/512/1366/1366509.png" alt=""/>}</td>
+                <td>{wonEmmy === true && <img width={30} src="https://cdn-icons-png.flaticon.com/512/1366/1366509.png" alt=""/>}</td>
+                <button onClick={()=> deleteContact(id)}>Remove</button>
               </tr>
             );
           })}
