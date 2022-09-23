@@ -41,6 +41,19 @@ function App() {
       return sortAlph;
     });
   };
+
+  const deleteContact = (contactId) => {
+    // Traer la lista de contactos actualizados
+    setContacts((updatedContacts) => {
+      // Filtra el contacto de la lista y devuelve una list actualizada
+      const updatedList = updatedContacts.filter((contact) => {
+        // Devuelve los contactos que no sean iguales que el contacto filtrado
+        return contact.id !== contactId;
+      });
+      return updatedList;
+    });
+  };
+
   return (
     <div className="App">
       <h1>Iron Contacts</h1>
@@ -64,6 +77,7 @@ function App() {
             <th> Popularity</th>
             <th> Won Oscar</th>
             <th> Won Emmy</th>
+            <th> Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -81,6 +95,15 @@ function App() {
                 <td> {contact.popularity}</td>
                 <td>{contact.wonOscar ? "🏆" : ""}</td>
                 <td>{contact.wonEmmy ? "🏆" : ""}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      deleteContact(contact.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
