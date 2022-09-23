@@ -37,3 +37,17 @@
   }
 }
 
+body{
+  background-color: rgb(4, 0, 14);
+  color: white;
+}
+h1{
+  color: aqua;
+}
+button{
+  background-color: rgba(56, 22, 245, 0.498);
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  margin: 5px;
+}
