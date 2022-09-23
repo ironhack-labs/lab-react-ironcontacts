@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+table{
+  width: 50%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.btn button{
+  margin: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
