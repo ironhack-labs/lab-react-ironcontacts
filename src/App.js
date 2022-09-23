@@ -15,7 +15,7 @@ function App() {
       setContacts((updatedContacts) => {
         return [...updatedContacts, otherContacts[randomContact]];
       });
-      //Después actualizamos la lista de otros contactos removiendo el contacto random generado
+      //Después actualizamos la lista de otros contactos removiendo el contacto random generado, para que no se repita
       setOtherContacts((updatedOtherContacts) => {
         updatedOtherContacts.splice(randomContact, 1);
         return updatedOtherContacts;
@@ -23,6 +23,24 @@ function App() {
     }
   };
 
+  const sortByPopularity = () => {
+    //Hace el sort en la lista de contactos actualizados
+    setContacts((updatedContacts) => {
+      const sortByPop = [...updatedContacts].sort(
+        (a, b) => b.popularity - a.popularity
+      );
+      return sortByPop;
+    });
+  };
+
+  const sortAlphabetically = () => {
+    setContacts((updatedContacts) => {
+      const sortAlph = [...updatedContacts].sort((a, b) =>
+        a.name > b.name ? 1 : -1
+      );
+      return sortAlph;
+    });
+  };
   return (
     <div className="App">
       <h1>Iron Contacts</h1>
@@ -35,6 +53,8 @@ function App() {
           {" "}
           Add Random Contact
         </button>
+        <button onClick={sortByPopularity}>Sort By Popularity</button>
+        <button onClick={sortAlphabetically}>Sort Alphabetically</button>
       </div>
       <table>
         <thead>
