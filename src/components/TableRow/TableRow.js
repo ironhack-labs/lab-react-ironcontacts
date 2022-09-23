@@ -3,7 +3,6 @@ import "./TableRow.css";
 function TableRow({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
 		
 	return (
-		<div className="TableRow-container">
 			<tr className="TableRow">
 				<td><img src={pictureUrl} alt="img" className="TableRow-img" /></td>
 				<td>{name}</td>
@@ -11,7 +10,7 @@ function TableRow({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
 				<td>{wonOscar  ? '🤩' : '😭'}</td>
 				<td>{wonEmmy ? '🤩' : '😭'}</td>
 			</tr>
-		</div>
+		
 	);
 }
 
