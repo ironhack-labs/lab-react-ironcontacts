@@ -8,7 +8,7 @@ class Contacts extends Component {
         remainContacts: this.props.remainContacts,
     }
 
-    addRandomContact = () => {
+  addRandomContact = () => {
       const randomContact = this.state.remainContacts[Math.round(Math.random() * ((this.state.remainContacts.length - 1) - 0) + 0)]
       console.log(randomContact)
       this.setState((prevState)=> {
@@ -18,13 +18,14 @@ class Contacts extends Component {
       })
 
       this.setState((prevState) => {
-        return { contacts: prevState.contacts.push(randomContact) }
+        return { contacts: [...prevState.contacts, randomContact]}
       })
 
       console.log(this.state.remainContacts)
       console.log(this.state.contacts)
       
     }
+
 
 
 
