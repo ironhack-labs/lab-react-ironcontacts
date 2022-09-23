@@ -11,7 +11,10 @@ class Table extends Component {
 	};
 
   RandomContact = () => {
-   
+    const famousRandom = contacts(Math.floor(Math.random()* contacts.length))
+    console.log(famousRandom)
+  
+    
   }
 
   // Para no modificar el estado original, clonamos el prevState.contacts, 
@@ -81,3 +84,4 @@ class Table extends Component {
 }
 
 export default Table;
+
