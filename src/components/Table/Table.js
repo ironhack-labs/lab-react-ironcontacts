@@ -36,6 +36,16 @@ class Table extends Component {
     })
   }
 
+
+  //DeleteContact = (id) => {
+   // this.setState((prevState) => {
+    //  return {
+     //   contacts:[...prevState.contacts].filter((contact) => contact.id !== id)
+     // }
+   // })
+//}
+
+
 	render() {
 		const { contacts } = this.state;
 
@@ -46,19 +56,22 @@ class Table extends Component {
           <button className="btn btn-primary" onClick={this.sortByPopularity}>Sort by popularity </button>
           <button className="btn btn-primary" onClick={this.sortByName}>Sort by Name </button>
 				</div>
-				<table className="Table-Container">
+				<table className="table mt-4 text-center">
 					<thead>
 						<tr>
-							<th>Picture</th>
-							<th>Name</th>
-							<th>Popularity</th>
-							<th>Won Oscar</th>
-							<th>Won Emmy</th>
+							<th scope="col">Picture</th>
+							<th scope="col">Name</th>
+							<th scope="col">Popularity</th>
+							<th scope="col">Won Oscar</th>
+							<th scope="col">Won Emmy</th>
+              <th scope="col">Actions</th>
 						</tr>
 					</thead>
-					<tbody className="Table-Body">
+					<tbody>
 						{contacts.map((contact) => (
-							<TableRow key={contact.id} {...contact} />
+							<TableRow key={contact.id} {...contact} 
+              onDelete={()=> this.DeleteContact(contact.id)}
+              />
 						))}
 					</tbody>
 				</table>

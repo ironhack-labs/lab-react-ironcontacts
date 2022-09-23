@@ -1,12 +1,7 @@
 .TableRow-img {
     margin-top: 10px;
-    height: 90px;
-    width: 90px;
-}
-
-.TableRow {
- display: flex;
- align-items: center;
- justify-content: space-between;
+    height: 50px;
+    width: 50px;
+    border-radius:50% ;
 }
 
