@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import contactsData from './contacts.json'
 import Contacts from './Contacts/Contacts';

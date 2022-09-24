@@ -38,7 +38,7 @@ render () {
       <div>
       <h1>IRON CONTACTS</h1>
       <button onClick={this.addRandomContact}>Add Random Contact</button>
-         <table className="table">
+         <table className="table table-striped container text-center align-middle">
                 <thead>
                   <tr>
                     <th scope="col">Name</th>

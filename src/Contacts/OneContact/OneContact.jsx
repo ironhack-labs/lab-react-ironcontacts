@@ -5,9 +5,9 @@ function OneContact({ name, picture, pictureUrl, popularity, id, wonOscar, wonEm
     
     return (
               <tr>
-                <td>{name}</td>
+                <td className='fs-2'>{name}</td>
                 <td><img width="100px" src= {pictureUrl} alt='actor'></img></td>
-                <td>{popularity.toFixed(2)}</td>
+                <td className='fs-3'>{popularity.toFixed(2)}</td>
                 <td>{id}</td>
                 <td>{wonOscar ? "🏆" : ""}</td>
                 <td>{wonEmmy}</td>
