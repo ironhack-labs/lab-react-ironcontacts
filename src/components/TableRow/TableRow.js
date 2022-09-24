@@ -1,7 +1,7 @@
 import "./TableRow.css";
 
 
-function TableRow({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
+function TableRow({ pictureUrl, name, popularity, wonOscar, wonEmmy, onDelete }) {
 		
 	return (
 			<tr>
@@ -10,7 +10,7 @@ function TableRow({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
 				<td>{popularity.toFixed(2)}</td>
 				<td>{wonOscar  ? '🤩' : '😭'}</td>
 				<td>{wonEmmy ? '🤩' : '😭'}</td>
-				<td><button className="btn btn-danger">Delete</button></td>
+				<td><button onClick={onDelete} className="btn btn-danger">Delete</button></td>
 			</tr>
 		
 	);

@@ -40,13 +40,13 @@ class Table extends Component {
   }
 
 
-  //DeleteContact = (id) => {
-   // this.setState((prevState) => {
-    //  return {
-     //   contacts:[...prevState.contacts].filter((contact) => contact.id !== id)
-     // }
-   // })
-//}
+  DeleteContact = (id) => {
+    this.setState((prevState) => {
+     return {
+       contacts:[...prevState.contacts].filter((contact) => contact.id !== id)
+      }
+    })
+}
 
 
 	render() {
