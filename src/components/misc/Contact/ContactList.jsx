@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
-import contactsArr from "../../../contacts.json";
+import contactsJSON from "../../../contacts.json";
 import ContactItem from './ContactItem/ContactItem';
 
+const contactsArr =[...contactsJSON];
 
 class ContactList extends Component {
-  contacts = [...contactsArr].slice(0,5);
+  //contacts =Array.from([...contactsArr].splice(0,5));
+  
   state = {
-    contacts: this.contacts,
+    contacts: contactsArr.splice(0,5),
     sortBy: null
   }
 
-  randomIndex = () =>  (Math.floor(Math.random() *contactsArr.length))
+  randomIndex = () => (Math.floor(Math.random() * contactsArr.length))
  
   addRandom = () => {
     const index= this.randomIndex()
-    const item = contactsArr[index]
-    this.setState(() =>{
+    const item = contactsArr.splice([index],1)
+    this.setState((prevState) =>{
       return {
-        contacts: [...this.state.contacts, item]
+        contacts: [...item, ...prevState.contacts]
       }
     })
   }
@@ -46,7 +48,6 @@ class ContactList extends Component {
     const { contacts } = this.state
     console.log(contacts);
     return (
-
       <div className="ContactsList mt-4">
         <h1>Contacts available</h1>
         <div className='row ms-4'>

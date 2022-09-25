@@ -8,8 +8,8 @@ function ContactItem ({ number, pictureUrl, name, popularity, onDelete, wonOscar
       <td><img src={pictureUrl} className="picture" alt="pic"/></td>
       <td>{name}</td>
       <td>{popularity}</td>
-      <td>{wonOscar ?  <i class="bi bi-trophy"></i> : ''}</td>
-      <td>{wonEmmy ? '\uF5E7' : ''}</td>
+      <td>{wonOscar ?  "🏆" : ''}</td>
+      <td>{wonEmmy ? '🏆' : ''}</td>
       {/* <td>{rating}</td>  */}
       <td><button onClick={onDelete} className="btn btn-danger">Delete</button></td>
   </tr>
