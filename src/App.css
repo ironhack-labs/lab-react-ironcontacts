@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 10rem;
+}
+
+main{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.title {
+  width: 150px;
+  margin: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+  background-color: var(--secondary-color);
+  position:relative;
+  overflow: hidden;
+}
+
+.pic{
+  width:100%;
+}
