@@ -14,7 +14,7 @@ function App() {
       remainingContactsList[Math.floor(Math.random() * contacts.length)];
 
     const newContactsList = [...contactList, newContact];
-
+    console.log(newContactsList);
     setContactList(newContactsList);
   };
 
@@ -30,6 +30,13 @@ function App() {
       return a.name > b.name ? 1 : -1;
     });
     setContactList(sortedContactsByName);
+  };
+
+  const deleteContact = (contactId) => {
+    const filteredContacts = contactList.filter((contact) => {
+      return contact.id !== contactId;
+    });
+    setContactList(filteredContacts);
   };
 
   return (
@@ -49,6 +56,7 @@ function App() {
                 <th>Popularity</th>
                 <th>Won Oscar</th>
                 <th>Won Emmy</th>
+                <th>Actions</th>
               </tr>
               <tr>
                 <td>
@@ -65,6 +73,11 @@ function App() {
                   {contact.wonEmmy && (
                     <img src="./3d-fluency-trophy.png" alt="Emmy" />
                   )}
+                </td>
+                <td>
+                  <button onClick={() => deleteContact(contact.id)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             </table>
