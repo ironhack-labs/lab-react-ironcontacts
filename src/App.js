@@ -4,34 +4,42 @@ import contacts from "./contacts.json";
 
 function App() {
   const [contactList, setContactList] = useState(contacts.slice(0, 5));
-  //console.log(contactList.length);
-  //maak lijst met overige contacten
+
   const remainingContactsList = contacts.filter(
     (el) => !contactList.includes(el)
   );
 
-  //console.log(remainingContactsList.length);
-
   const addContact = () => {
-    // kies willekerig contact uit lijst met overige
     const newContact =
       remainingContactsList[Math.floor(Math.random() * contacts.length)];
-    console.log(typeof newContact);
-    //voeg toe aan contactList
-    //const newContactsList = contactList.push(newContact);
+
     const newContactsList = [...contactList, newContact];
 
-    console.log(newContactsList);
     setContactList(newContactsList);
   };
 
-  //addContact();
+  const sortByPopularity = () => {
+    const sortedContactsByPopularity = [...contactList].sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+    setContactList(sortedContactsByPopularity);
+  };
+
+  const sortByName = () => {
+    const sortedContactsByName = [...contactList].sort((a, b) => {
+      return a.name > b.name ? 1 : -1;
+    });
+    setContactList(sortedContactsByName);
+  };
 
   return (
     <div className="App">
       <div>
         <h1>IronContacts</h1>
         <button onClick={addContact}>Add Random Contact</button>
+        <button onClick={sortByPopularity}>Sort by popularity</button>
+        <button onClick={sortByName}>Sort by name</button>
+
         {contactList.map((contact) => {
           return (
             <table key={contact.id} {...contact}>
