@@ -44,26 +44,33 @@ function App() {
   return (
     <div className="App">
     <h1>IronContacts</h1>
-     <button onClick={()=> {
+    <h2>AKA Cancel the Actoresses as per Comintern's Orders</h2>
+    <div className="buttonsDiv">
+     <button className="threeButtons" onClick={()=> {
         setContacts([...contacts, getRandomContact(contactList)])
       }}>Add Random Contact</button>
-      <button onClick={sortContacts}>Sort by popularity</button>
-      <button onClick={sortNames}>Sort by name</button>
-      <table >
+      <button className="threeButtons" onClick={sortContacts}>Sort by popularity</button>
+      <button className="threeButtons" onClick={sortNames}>Sort by name</button>
+      </div>
+      <div className="mainTable">
+      <table>
         <thead>
           <tr>
-            <th><b>Picture</b></th>
-            <th><b>Name</b></th>
-            <th><b>Popularity</b></th>
-            <th><b>Won an Oscar</b></th>
-            <th><b>Won an Emmy</b></th>
-            <th><b>Actions</b></th>
+            <th style={{minWidth: "120px"}}><b>Picture</b></th>
+            <th style={{minWidth: "180px"}}><b>Name</b></th>
+            <th style={{minWidth: "120px"}}><b>Popularity</b></th>
+            <th style={{minWidth: "120px"}}><b>Won an Oscar</b></th>
+            <th style={{minWidth: "120px"}}><b>Won an Emmy</b></th>
+            <th style={{minWidth: "280px"}}><b>Actions</b></th>
           </tr>
         </thead>
         <tbody>
           {contacts.map((contact, index) => {
             return (      
-              <tr key={index}>
+              <tr key={index} style={{background: index%2===0 
+              ? "lightgrey"
+              : "white", 
+              }}>
                 <td><img style={{width: "80px"}} src={contact.pictureUrl} alt="someSmugHollywoodStar"></img></td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity.toFixed(2)}</td>
@@ -75,12 +82,13 @@ function App() {
                   ? "🌟"
                   : null
                 }</td>
-                <td><button onClick={() => deleteSmugActoress(contact)}>Launch cancellation witchhunt campaign</button></td>
+                <td><button style={{color: "white", background: "red"}} onClick={() => deleteSmugActoress(contact)}>Launch Cancellation WitcHunt Campaign</button></td>
               </tr>
             );
          })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
