@@ -30,6 +30,11 @@ function App() {
   }
   // ^^^ alteratively the functions above (sortContacts and sortNames) could be just one that takes 3 arguments: 1.array copy to sort, 2.property to sort by, 3.optionally a different toggle
   
+  function deleteSmugActoress(contact) {
+    setContacts(contacts.filter((actoress) => { 
+        return  actoress.name !== contact.name
+    }))
+  }
 
   function getRandomContact(contactList) {
     const randomIndex = Math.floor(Math.random() * contactList.length)
@@ -70,7 +75,7 @@ function App() {
                   ? "🌟"
                   : null
                 }</td>
-                <td><button onClick={console.log(contact)}>Launch cancellation witchhunt campaign</button></td>
+                <td><button onClick={() => deleteSmugActoress(contact)}>Launch cancellation witchhunt campaign</button></td>
               </tr>
             );
          })}
