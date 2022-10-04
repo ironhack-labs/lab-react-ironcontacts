@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,15 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.contact-img {
+  height: 100px;
+  width: 75px;
+}
+
+.add-contact-btn {
+  width: 170px;
+  height: 30px;
+  margin: 10px;
 }
