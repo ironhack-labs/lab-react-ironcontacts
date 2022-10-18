@@ -37,7 +37,7 @@
   }
 }
 
-.btn-group button {
+button {
   background-color: azure;
   margin: 0 1em;
   border: solid 1px black;
@@ -50,8 +50,8 @@ table {
   margin: 0 auto;
 }
 
-td {
-  margin: 0
+th {
+  padding: 0 2em;
 }
 
 

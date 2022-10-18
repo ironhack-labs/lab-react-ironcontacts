@@ -4,56 +4,56 @@ import contactsFromJSON from './contacts.json';
 import React, { useState } from 'react';
 
 function App() {
-  
-  const firstFive = contactsFromJSON.slice(0, 5)
+	const firstFive = contactsFromJSON.slice(0, 5);
 
 	const [contacts, setContacts] = useState(firstFive);
 
-  const addRandom = () => {
-    const randomIndex = Math.floor(Math.random() * contactsFromJSON.length)
+	const addRandom = () => {
+		const randomIndex = Math.floor(Math.random() * contactsFromJSON.length);
 
-    if (contacts.length === contactsFromJSON.length){
-      return
-    }
+		if (contacts.length === contactsFromJSON.length) {
+			return;
+		}
 
-    if (contacts.indexOf(contactsFromJSON[randomIndex]) === -1){
-      setContacts([...contacts, contactsFromJSON[randomIndex]])
-      return
-    }
+		if (contacts.indexOf(contactsFromJSON[randomIndex]) === -1) {
+			setContacts([...contacts, contactsFromJSON[randomIndex]]);
+			return;
+		}
 
-    addRandom() 
-  }
+		addRandom();
+	};
 
-  const sortByName = () => {
-    let copy = [...contacts]
+	const sortByName = () => {
+		let copy = [...contacts];
 
-    copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()))
+		copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()));
+
+		setContacts(copy);
+	};
+
+	const sortByPop = () => {
+		let copy = [...contacts];
+
+		copy.sort((a, b) => b.popularity - a.popularity);
+
+		setContacts(copy);
+	};
+
+  const deleteContact = (id) => {
+    let copy = contacts.filter(contact => contact.id !== id)
 
     setContacts(copy)
   }
-
-  const sortByPop = () => {
-    let copy = [...contacts]
-
-    copy.sort((a, b) => b.popularity - a.popularity)
-
-    setContacts(copy)
-  }
-
-
 
 	return (
 		<div className='App'>
 			<h1> IronContacts </h1>
 
-
-
-      <div className='btn-group'>
-        <button onClick={() => addRandom()}> Add Random Contact </button>
-        <button onClick={() => sortByName()}> Sort A - Z </button>
-        <button onClick={() => sortByPop()}> Sort by popularity </button>
-      </div>
-
+			<div className='btn-group'>
+				<button onClick={() => addRandom()}> Add Random Contact </button>
+				<button onClick={() => sortByName()}> Sort A - Z </button>
+				<button onClick={() => sortByPop()}> Sort by popularity </button>
+			</div>
 
 			<table>
 				<thead>
@@ -74,8 +74,11 @@ function App() {
 							</td>
 							<td> {contact.name} </td>
 							<td> {contact.popularity} </td>
-							<td> {contact.wonOscar ? '🏆' : null } </td>
+							<td> {contact.wonOscar ? '🏆' : null} </td>
 							<td> {contact.wonEmmy ? '🏆' : null} </td>
+							<td>
+								<button onClick={() => deleteContact(contact.id)}>Delete</button>
+							</td>
 						</tr>
 					))}
 				</tbody>
