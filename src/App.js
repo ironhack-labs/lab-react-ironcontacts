@@ -7,6 +7,7 @@ function App() {
   const firstFiveContacts = contactsArray.slice(0, 5);
 
   const [listOfContacts, setListOfContacts] = useState(firstFiveContacts);
+  const trophy = '🏆';
 
   return <div className="App"><h1>IronContacts</h1>
     <table>
@@ -15,6 +16,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +29,8 @@ function App() {
               <td>{imgContent}</td>
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
+              <td>{contact.wonOscar ? trophy : null }</td>
+              <td>{contact.wonEmmy ? trophy : null }</td>
             </tr>
           )
         })}
