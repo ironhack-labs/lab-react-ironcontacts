@@ -12,6 +12,7 @@ function App() {
 		const randomIndex = Math.floor(Math.random() * contactsFromJSON.length);
 
 		if (contacts.length === contactsFromJSON.length) {
+      console.log('reached the end of list')
 			return;
 		}
 
@@ -23,24 +24,37 @@ function App() {
 		addRandom();
 	};
 
-	const sortByName = () => {
+	const sortByName = (order) => {
 		let copy = [...contacts];
 
-		copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()));
+    if (order === 'asc'){
+		  copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()));
+    }
+
+    if (order === 'des'){
+		  copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLocaleLowerCase()));
+    }
 
 		setContacts(copy);
 	};
 
-	const sortByPop = () => {
+	const sortByPop = (order) => {
 		let copy = [...contacts];
 
-		copy.sort((a, b) => b.popularity - a.popularity);
+
+    if (order === 'asc'){
+      copy.sort((a, b) => a.popularity - b.popularity);
+    }
+
+    if (order === 'des'){
+      copy.sort((a, b) => b.popularity - a.popularity);
+    }
 
 		setContacts(copy);
 	};
 
   const deleteContact = (id) => {
-    let copy = contacts.filter(contact => contact.id !== id)
+    const copy = contacts.filter(contact => contact.id !== id)
 
     setContacts(copy)
   }
@@ -51,8 +65,10 @@ function App() {
 
 			<div className='btn-group'>
 				<button onClick={() => addRandom()}> Add Random Contact </button>
-				<button onClick={() => sortByName()}> Sort A - Z </button>
-				<button onClick={() => sortByPop()}> Sort by popularity </button>
+				<button onClick={() => sortByName('asc')}> Sort A - Z </button>
+				<button onClick={() => sortByName('des')}> Sort Z - A </button>
+				<button onClick={() => sortByPop('asc')}> Sort by popularity Lo - Hi </button>
+				<button onClick={() => sortByPop('des')}> Sort by popularity Hi - Lo </button>
 			</div>
 
 			<table>
