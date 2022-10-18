@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-group button {
+  background-color: azure;
+  margin: 0 1em;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: .25em .5em;
+}
+
+
+table {
+  margin: 0 auto;
+}
+
+td {
+  margin: 0
+}
+
+
+.actor-pic{
+  width: 100px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+
+
