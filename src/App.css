@@ -23,7 +23,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +34,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+th{
+  padding: 0rem 2rem;
+}
+td{
+  padding:2rem;
+}
+.img-resize{
+  width:6rem;
+}
+.icon-resize{
+  width:20rem;
+}
+.App button{
+  margin: 1rem;
 }
