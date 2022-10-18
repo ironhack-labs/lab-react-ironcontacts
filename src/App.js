@@ -10,7 +10,7 @@ let firstFive = contactsArray.slice(0,5)
 const [contacts, setContacts] = useState(firstFive)
 console.log(firstFive)
 
-const elements = firstFive.map((contact)=>{
+const contactInfo = firstFive.map((contact)=>{
   return(
 
 
@@ -18,6 +18,8 @@ const elements = firstFive.map((contact)=>{
 <td><img src={contact.pictureUrl} width='60px'/></td>
 <td>{contact.name}</td>
 <td>{(contact.popularity).toFixed(2)}</td>
+<td>{contact.wonOscar ? "🏆" :null} </td>
+<td>{contact.wonEmmy ? "🏆":null}</td>
 </tr>
 
   )
@@ -31,9 +33,11 @@ const elements = firstFive.map((contact)=>{
 <th>Picture</th>
 <th>Name</th>
 <th>Popularity</th>
+<th>Won An Oscar</th>
+<th>Won An Emmy</th>
 </tr>
 </thead>
-<tbody>{elements}</tbody>
+<tbody>{contactInfo}</tbody>
   </table>
   </div>
  )
