@@ -5,11 +5,24 @@ import contactsArray from './contacts.json';
 
 function App() {
   const firstFiveContacts = contactsArray.slice(0, 5);
+  const remainingContacts = contactsArray.slice(5);
+
+  function addRandom() {
+    let index = Math.floor(Math.random() * remainingContacts.length);
+    let randomContact = remainingContacts[index];
+    const contactCopy = [...listOfContacts];
+    contactCopy.push(randomContact);
+    remainingContacts.splice(index, 1);
+    return setListOfContacts(contactCopy);
+  }
 
   const [listOfContacts, setListOfContacts] = useState(firstFiveContacts);
   const trophy = '🏆';
 
   return <div className="App"><h1>IronContacts</h1>
+
+    <button onClick={addRandom}>Add Random Contact</button>
+
     <table>
       <thead>
         <tr>
