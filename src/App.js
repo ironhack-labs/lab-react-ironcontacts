@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import "./App.css";
+import contactsArray from "./contacts.json";
+import { useState } from "react";
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [contacts, setContacts] = useState(contactsArray);
+
+  const fistFive = contacts.slice(0, 5);
+  console.log(fistFive);
+
+
+  return <div className="App" >
+    <h1>IronContacts</h1>
+    <table>
+    <tr>
+            <th><h3>Picture</h3></th>
+            <th><h3>Name</h3></th>
+            <th><h3>Popularity</h3></th>
+          </tr>
+
+
+      {fistFive.map((contact) => {
+
+        return (
+          <tr>
+            <th><img src={contact.pictureUrl} /></th>
+            <th><p>{contact.name}</p></th>
+            <th><p>{contact.popularity}</p></th>
+          </tr>
+        )
+      })}
+
+    </table>
+  </div>;
 }
 
 export default App;
