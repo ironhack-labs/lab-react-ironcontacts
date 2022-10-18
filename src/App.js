@@ -6,15 +6,27 @@ import contactsArray from './contacts.json'
 
 
 function App() {
+  //first five
 let firstFive = contactsArray.slice(0,5)
+//all other contacts
+let remainingContacts = contactsArray.slice(5)
+//destructed array of useHook
 const [contacts, setContacts] = useState(firstFive)
-console.log(firstFive)
+//get a random contact 
+let newContact = contactsArray[Math.floor(Math.random()*contactsArray.length)]
+console.log(newContact)
+
+const addRandomContact = ()=>{
+const newContacts = [...contacts, newContact]
+setContacts(newContact)
+}
+
 
 const contactInfo = firstFive.map((contact)=>{
   return(
 
 
-<tr>
+<tr key={contact.id}>
 <td><img src={contact.pictureUrl} width='60px'/></td>
 <td>{contact.name}</td>
 <td>{(contact.popularity).toFixed(2)}</td>
@@ -39,6 +51,7 @@ const contactInfo = firstFive.map((contact)=>{
 </thead>
 <tbody>{contactInfo}</tbody>
   </table>
+  <button onClick={addRandomContact}>Create a random contact</button>
   </div>
  )
 }
