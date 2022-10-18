@@ -3,7 +3,6 @@ import "./App.css";
 import contactsArray from "./contacts.json";
 
 function App() {
-  console.log("Render App component");
   const initialContacts = contactsArray.slice(0, 5);
   const remainingContacts = contactsArray.slice(5);
 
