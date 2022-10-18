@@ -1,23 +1,75 @@
 import logo from './logo.svg';
 import './App.css';
+import contactsFromJSON from "./contacts.json"
+import { useState } from 'react'
+
+
+
 
 function App() {
+
+  let firstFive = contactsFromJSON.slice(0, 5)
+
+  const [contacts, setContacts] = useState(firstFive)
+
+  console.log(firstFive)
+
+
+
   return (
+
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <table>
+        <tbody>
+          <tr>
+            <th>picture</th>
+            <th>name</th>
+            <th>popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
+          </tr>
+          <tr>
+            <td> <img src={firstFive[0].picture} alt="picture"></img>  </td>
+            <td>{firstFive[0].name}</td>
+            <td>{firstFive[0].popularity}</td>
+            {firstFive[0].wonOscar ? <td>🏆</td> : <td></td>}
+            {firstFive[0].wonEmmy ? <td>🏆</td> : <td></td>}
+
+          </tr>
+          <tr>
+            <td> <img src={firstFive[1].picture} alt="picture"></img>  </td>
+            <td>{firstFive[1].name}</td>
+            <td>{firstFive[1].popularity}</td>
+            {firstFive[1].wonOscar ? <td>🏆</td> : <td></td>}
+            {firstFive[1].wonEmmy ? <td>🏆</td> : <td></td>}
+          </tr>
+          <tr>
+            <td> <img src={firstFive[2].picture} alt="picture"></img>  </td>
+            <td>{firstFive[2].name}</td>
+            <td>{firstFive[2].popularity}</td>
+            {firstFive[2].wonOscar ? <td>🏆</td> : <td></td>}
+            {firstFive[2].wonEmmy ? <td>🏆</td> : <td></td>}
+          </tr>
+          <tr>
+            <td> <img src={firstFive[3].picture} alt="picture"></img>  </td>
+            <td>{firstFive[3].name}</td>
+            <td>{firstFive[3].popularity}</td>
+            {firstFive[3].wonOscar ? <td>🏆</td> : <td></td>}
+            {firstFive[3].wonEmmy ? <td>🏆</td> : <td></td>}
+          </tr>
+          <tr>
+            <td> <img src={firstFive[4].picture} alt="picture"></img>  </td>
+            <td>{firstFive[4].name}</td>
+            <td>{firstFive[4].popularity}</td>
+            {firstFive[4].wonOscar ? <td>🏆</td> : <td></td>}
+            {firstFive[4].wonEmmy ? <td>🏆</td> : <td></td>}
+          </tr>
+        </tbody>
+
+      </table>
+
     </div>
   );
 }
