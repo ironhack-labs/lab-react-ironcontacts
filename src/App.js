@@ -67,8 +67,8 @@ function App() {
 				<button onClick={() => addRandom()}> Add Random Contact </button>
 				<button onClick={() => sortByName('asc')}> Sort A - Z </button>
 				<button onClick={() => sortByName('des')}> Sort Z - A </button>
-				<button onClick={() => sortByPop('asc')}> Sort by popularity Lo - Hi </button>
-				<button onClick={() => sortByPop('des')}> Sort by popularity Hi - Lo </button>
+				<button onClick={() => sortByPop('asc')}> Sort by Ascending popularity </button>
+				<button onClick={() => sortByPop('des')}> Sort by Descending popularity </button>
 			</div>
 
 			<table>
