@@ -2,10 +2,14 @@
   text-align: center;
 }
 
+button {
+  margin: 1rem;
+}
+
 .contact-picture{
   width: 5rem;
 }
 
-th {
-  padding: 0 10px;
+th, td {
+  padding: 0.25rem 1rem;
 }
