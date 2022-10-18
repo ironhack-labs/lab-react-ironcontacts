@@ -5,3 +5,7 @@
 .contact-picture{
   width: 5rem;
 }
+
+th {
+  padding: 0 10px;
+}
