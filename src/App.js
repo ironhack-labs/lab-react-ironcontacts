@@ -19,8 +19,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -30,9 +30,9 @@ function App() {
               <tr key={contactElem.id}>
                 <td><img src={contactElem.pictureUrl} alt="" height="100"/></td>
                 <td>{contactElem.name}</td>
-                <td>{Math.round(contactElem.popularity)}</td>
-                <td>{contactElem.name}</td>
-                <td>{contactElem.name}</td>
+                <td>{Math.round(contactElem.popularity * 100) / 100}</td>
+                <td>{contactElem.wonOscar ? '🏆' : null}</td>
+                <td>{contactElem.womEmmy ? '🏆' : null}</td>
               </tr>
             )
           })}
