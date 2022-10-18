@@ -8,28 +8,53 @@ function App() {
   const [contacts, setContacts] = useState(firstFive);
 
   const addRandomContact = () => {
-    const newFive = contacts
+    const newList = [...contacts]
     const contact = remainder[Math.floor(Math.random()*remainder.length)];
+     newList.push(contact)
     remainder.splice(parseInt(remainder.indexOf(contact)), 1)
-    newFive.push(contact)
-    setContacts(newFive)
-    console.log(newFive.length);
+    
+    console.log(newList.length);
     console.log(remainder.length);
+    return setContacts(newList)
   };
+
+
+
+  const sortByName = () => {
+    setContacts((prevValue) => {
+      const copy = [...prevValue]; 
+      copy.sort( (a, b) => {
+        
+        return a.name.localeCompare(b.name) 
+      } )
+      return copy
+    })
+  }
+
+
+  const sortByPopularity = () => {
+    setContacts((prevValue) => {
+      const copy = [...prevValue]; 
+      copy.sort( (a, b) => {
+        return b.popularity - a.popularity 
+      } )
+      return copy
+    })
+  }
 
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button
-        onClick={() => {
-          addRandomContact();
-        }}
+        onClick={addRandomContact}
       >
         Add Random Contacts
       </button>
-      <button>Sort by Popularity</button>
-      <button>Sort by Name</button>
+      <button onClick={() => {
+        sortByPopularity()
+      }}>Sort by Popularity</button>
+      <button onClick={sortByName}>Sort by Name</button>
       <table>
         <thead>
           <tr>
