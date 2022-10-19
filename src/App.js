@@ -17,14 +17,15 @@ const [contacts, setContacts] = useState(firstFive)
 function addRandom() {
   let index = Math.floor(Math.random() * remainingContacts.length);
   let randomContact = remainingContacts[index];
-  const copyOfContacts = [...contacts];
-  copyOfContacts.push(randomContact);
-  remainingContacts.splice(index, 1);
-  return setContacts(copyOfContacts);
+  setContacts(prevContacts => {
+    const newList = [...contacts, randomContact]
+    return newList
+  })
+    
 }
 
 
-const contactInfo = firstFive.map((contact)=>{
+const contactInfo = contacts.map((contact)=>{
   return(
 
 
