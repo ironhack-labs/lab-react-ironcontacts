@@ -17,7 +17,7 @@ function App() {
       const randomIndex = Math.floor(Math.random() * contactsFiltered.length);
 
       setContacts((prevArrayContacts) => {
-        const newArray = [...prevArrayContacts, contactsFiltered[randomIndex]];
+        const newArray = [contactsFiltered[randomIndex], ...prevArrayContacts];
         return newArray;
       });
     } else {
@@ -27,20 +27,14 @@ function App() {
   };
 
   const sortByPopularity = () => {
-    setContacts((prevArrayContacts) => {
-      const arraySorted = prevArrayContacts.sort(
-        (a, b) => b.popularity - a.popularity
-      );
-      return [...arraySorted];
-    });
+    setContacts((prevArrayContacts) =>
+      [...prevArrayContacts].sort((a, b) => b.popularity - a.popularity)
+    );
   };
   const sortByName = () => {
-    setContacts((prevArrayContacts) => {
-      const arraySorted = prevArrayContacts.sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
-      return [...arraySorted];
-    });
+    setContacts((prevArrayContacts) =>
+      [...prevArrayContacts].sort((a, b) => a.name.localeCompare(b.name))
+    );
   };
 
   const deleteContact = (id) => {
