@@ -82,12 +82,12 @@ function App() {
               {contacts.map((contact)=>{
                 return (
                   <tr key={contact.id}>
-                    <th><img src={contact.pictureUrl} alt={contact.name}/></th>
-                    <th>{contact.name}</th>
-                    <th>{contact.popularity.toFixed(2)}</th>
-                    <th>{contact.wonOscar && "🏆"}</th>
-                    {contact.wonEmmy ? <th> ⭐️ </th> : <th></th>}
-                    <th><button onClick={() => deleteContact(contact.id)}>Delete</button></th>
+                    <td><img src={contact.pictureUrl} alt={contact.name}/></td>
+                    <td>{contact.name}</td>
+                    <td>{contact.popularity.toFixed(2)}</td>
+                    <td>{contact.wonOscar && "🏆"}</td>
+                    {contact.wonEmmy ? <td> ⭐️ </td> : <td></td>}
+                    <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
                   </tr>
                 )
               })}
