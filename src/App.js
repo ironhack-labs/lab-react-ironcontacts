@@ -19,7 +19,7 @@ function App() {
     const randomContact = contactsFromJSON[Math.floor(Math.random() * contactsFromJSON.length)];
 
     if (randomContact !== firstFive) {
-      firstFive.push(randomContact)
+      contacts.push(randomContact)
 
     };
   }
@@ -41,7 +41,7 @@ function App() {
             <th>Won an Emmy</th>
           </tr>
           <tr>
-            <td> <img src={firstFive[0].picture} alt="profile-pic"></img>  </td>
+            <td> <img src={firstFive[0].pictureUrl} alt="profile-pic"></img>  </td>
             <td>{firstFive[0].name}</td>
             <td>{firstFive[0].popularity}</td>
             {firstFive[0].wonOscar ? <td>🏆</td> : <td></td>}
@@ -49,28 +49,28 @@ function App() {
 
           </tr>
           <tr>
-            <td> <img src={firstFive[1].picture} alt="profile-pic"></img>  </td>
+            <td> <img src={firstFive[1].pictureUrl} alt="profile-pic"></img>  </td>
             <td>{firstFive[1].name}</td>
             <td>{firstFive[1].popularity}</td>
             {firstFive[1].wonOscar ? <td>🏆</td> : <td></td>}
             {firstFive[1].wonEmmy ? <td>🏆</td> : <td></td>}
           </tr>
           <tr>
-            <td> <img src={firstFive[2].picture} alt="profile-pic"></img>  </td>
+            <td> <img src={firstFive[2].pictureUrl} alt="profile-pic"></img>  </td>
             <td>{firstFive[2].name}</td>
             <td>{firstFive[2].popularity}</td>
             {firstFive[2].wonOscar ? <td>🏆</td> : <td></td>}
             {firstFive[2].wonEmmy ? <td>🏆</td> : <td></td>}
           </tr>
           <tr>
-            <td> <img src={firstFive[3].picture} alt="profile-pic"></img>  </td>
+            <td> <img src={firstFive[3].pictureUrl} alt="profile-pic"></img>  </td>
             <td>{firstFive[3].name}</td>
             <td>{firstFive[3].popularity}</td>
             {firstFive[3].wonOscar ? <td>🏆</td> : <td></td>}
             {firstFive[3].wonEmmy ? <td>🏆</td> : <td></td>}
           </tr>
           <tr>
-            <td> <img src={firstFive[4].picture} alt="profile-pic"></img>  </td>
+            <td> <img src={firstFive[4].pictureUrl} alt="profile-pic"></img>  </td>
             <td>{firstFive[4].name}</td>
             <td>{firstFive[4].popularity}</td>
             {firstFive[4].wonOscar ? <td>🏆</td> : <td></td>}
