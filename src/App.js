@@ -3,22 +3,27 @@ import "./App.css";
 import contactsArray from "./contacts.json";
 
 function App() {
+  let errorMessage = "";
   const initialContacts = contactsArray.slice(0, 5);
-  const remainingContacts = contactsArray.slice(5);
 
   const [contacts, setContacts] = useState(initialContacts);
 
   const addRandomContact = () => {
-    const contactsFiltered = remainingContacts.filter(
+    const contactsFiltered = contactsArray.filter(
       (contact) => !contacts.some((e) => e.id === contact.id)
     );
 
-    const randomIndex = Math.round(Math.random() * contactsFiltered.length - 1);
+    if (contactsFiltered.length > 0) {
+      const randomIndex = Math.floor(Math.random() * contactsFiltered.length);
 
-    setContacts((prevArrayContacts) => {
-      const newArray = [...prevArrayContacts, contactsFiltered[randomIndex]];
-      return newArray;
-    });
+      setContacts((prevArrayContacts) => {
+        const newArray = [...prevArrayContacts, contactsFiltered[randomIndex]];
+        return newArray;
+      });
+    } else {
+      errorMessage = "THERE ARE NO MORE CONTACTS";
+      setContacts((prevArrayContacts) => [...prevArrayContacts]);
+    }
   };
 
   const sortByPopularity = () => {
@@ -48,7 +53,11 @@ function App() {
     return (
       <tr key={contact.id}>
         <td>
-          <img src={contact.pictureUrl} alt={contact.name}></img>
+          {contact.pictureUrl ? (
+            <img src={contact.pictureUrl} alt={contact.name}></img>
+          ) : (
+            <h4>IMAGE NOT AVAILABLE</h4>
+          )}
         </td>
         <td>{contact.name}</td>
         <td>{Math.round(contact.popularity)}</td>
@@ -70,6 +79,7 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <h2>{errorMessage}</h2>
       <button onClick={addRandomContact}>Add Random Contact</button>
       <button onClick={sortByPopularity}>Sort by popularity</button>
       <button onClick={sortByName}>Sort by name</button>
