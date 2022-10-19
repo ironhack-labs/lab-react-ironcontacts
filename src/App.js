@@ -6,15 +6,44 @@ import { useState } from "react";
 function App() {
   let firstFive = contactsArr.slice(0,5);
   const [contacts, setContacts] = useState(firstFive)
-
   
+  //Felipe's Solution
   const addRandom = () => {
-    const remainingContacts = contactsArr.slice(5)
-    let randomIndex = Math.floor(Math.random() * remainingContacts.length);
-    let newRandomContact = remainingContacts[randomIndex];
-    remainingContacts.splice(randomIndex, 1);
-    setContacts([...contacts, newRandomContact]);
-  }
+		const randomIndex = Math.floor(Math.random() * contactsArr.length);
+
+		if (contacts.length === contactsArr.length) {
+      console.log('reached the end of list')
+			return;
+		}
+
+		if (contacts.indexOf(contactsArr[randomIndex]) === -1) {
+			setContacts([...contacts, contactsArr[randomIndex]]);
+			return;
+		}
+
+		addRandom();
+	};
+
+  //2nd Solution shared
+  // const addRandomContact = ()=>{
+  //   setContacts((prevContacts)=>{
+  //     const newContactsList = contactsArr.filter((contact)=> {
+  //       return !prevContacts.includes(contact);
+  //     });
+  //     const getRandomContact = newContactsList[Math.floor(Math.random()* newContactsList.length)];
+  //     const newConctactSelection = [...prevContacts,getRandomContact]
+  //     return newConctactSelection;
+  //   })
+  // };
+  
+  //One of my many broken solution
+  //   const addRandom = () => {
+  //   const remainingContacts = contactsArr.slice(5)
+  //   let randomIndex = Math.floor(Math.random() * remainingContacts.length);
+  //   let newRandomContact = remainingContacts[randomIndex];
+  //   remainingContacts.splice(randomIndex, 1);
+  //   setContacts([...contacts, newRandomContact]);
+  // }
   
   const sortByName = () => {
     const sortedCopy = [...contacts];
@@ -56,7 +85,7 @@ function App() {
                     <th><img src={contact.pictureUrl} alt={contact.name}/></th>
                     <th>{contact.name}</th>
                     <th>{contact.popularity.toFixed(2)}</th>
-                    {contact.wonOscar ? <th> 🏆 </th> : <th></th>}
+                    <th>{contact.wonOscar && "🏆"}</th>
                     {contact.wonEmmy ? <th> ⭐️ </th> : <th></th>}
                     <th><button onClick={() => deleteContact(contact.id)}>Delete</button></th>
                   </tr>
