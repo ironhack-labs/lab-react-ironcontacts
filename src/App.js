@@ -42,6 +42,15 @@ function App() {
     })
   }
 
+  const deleteContact = (contactId) => {
+    
+    const newList = contacts.filter((contact) => {
+
+      return contact.id !== contactId;
+    });
+    setContacts(newList);
+  };
+
 
   return (
     <div className="App">
@@ -73,6 +82,9 @@ function App() {
             <th>
               <h2>Won Emmy</h2>
             </th>
+            <th>
+              <h2>Actions</h2>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -90,6 +102,13 @@ function App() {
                 </td>
                 <td>{contact.wonOscar && <p> 🏆 </p>}</td>
                 <td>{contact.wonEmmy && <p> 🏆 </p>}</td>
+                <td><button
+                  onClick={() => {
+                    deleteContact(contact.id);
+                  }}
+                >
+                  Delete
+                </button></td>
               </tr>
             );
           })}
