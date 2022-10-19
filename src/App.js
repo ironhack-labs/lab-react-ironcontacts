@@ -12,13 +12,15 @@ let firstFive = contactsArray.slice(0,5)
 let remainingContacts = contactsArray.slice(5)
 //destructed array of useHook
 const [contacts, setContacts] = useState(firstFive)
-//get a random contact 
-let newContact = contactsArray[Math.floor(Math.random()*contactsArray.length)]
-console.log(newContact)
 
-const addRandomContact = ()=>{
-const newContacts = [...contacts, newContact]
-setContacts(newContact)
+
+function addRandom() {
+  let index = Math.floor(Math.random() * remainingContacts.length);
+  let randomContact = remainingContacts[index];
+  const copyOfContacts = [...contacts];
+  copyOfContacts.push(randomContact);
+  remainingContacts.splice(index, 1);
+  return setContacts(copyOfContacts);
 }
 
 
@@ -51,7 +53,7 @@ const contactInfo = firstFive.map((contact)=>{
 </thead>
 <tbody>{contactInfo}</tbody>
   </table>
-  <button onClick={addRandomContact}>Create a random contact</button>
+  <button onClick={addRandom}>Create a random contact</button>
   </div>
  )
 }
