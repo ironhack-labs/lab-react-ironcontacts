@@ -51,7 +51,7 @@ function App() {
           <img src={contact.pictureUrl} alt={contact.name}></img>
         </td>
         <td>{contact.name}</td>
-        <td>{contact.popularity}</td>
+        <td>{Math.round(contact.popularity)}</td>
         <td>{contact.wonOscar && "🏆"}</td>
         <td>{contact.wonEmmy && "🏆"}</td>
         <td>
