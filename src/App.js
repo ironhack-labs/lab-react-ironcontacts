@@ -16,6 +16,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
           {firstFive.map((contact) => {
             return (
@@ -28,6 +30,12 @@ function App() {
                 </td>
                 <td>
                   <p>{contact.popularity}</p>
+                </td>
+                <td>
+                  <p>{contact.wonOscar && '🏆'}</p>
+                </td>
+                <td>
+                  <p>{contact.wonEmmy && '🏆'}</p>
                 </td>
               </tr>
             );
