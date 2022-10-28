@@ -21,20 +21,18 @@ function App() {
   function handleClickRandom() {
     setContacts((current) => [...current, randomContact(allContacts)]);
   }
-
-  // Sort by popularity
-  const toggleSortingPop = () => {
-    // 👇️ passed function to setState
+  // Toggle sorting direction
+  const toggleSortingDirection = () => {
     setSortingDirection((current) => !current);
   };
-
+  // Sort by popularity
   function handleClickSortPop() {
     const contactsPopSort = [...contacts];
     contactsPopSort.sort((a, b) => {
       return sortingDirection ? b.popularity - a.popularity : a.popularity - b.popularity;
     });
     setContacts(contactsPopSort);
-    toggleSortingPop();
+    toggleSortingDirection();
   }
 
   // Sort by name
@@ -44,7 +42,14 @@ function App() {
       return sortingDirection ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
     });
     setContacts(contactsNameSort);
-    toggleSortingPop();
+    toggleSortingDirection();
+  }
+  // Delete Contact
+  function handleClickDelete(id) {
+    const contactToDelete = contacts.findIndex((obj) => obj.id === id);
+    const contactsMinusOne = [...contacts];
+    contactsMinusOne.splice(contactToDelete, 1);
+    setContacts(contactsMinusOne);
   }
 
   const buttonStyle = { padding: '5px', margin: '0 5px' };
@@ -69,6 +74,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
           {contacts.map((contact) => {
             return (
@@ -87,6 +93,15 @@ function App() {
                 </td>
                 <td>
                   <p>{contact.wonEmmy && '🏆'}</p>
+                </td>
+                <td>
+                  <button
+                    onClick={(e) => {
+                      handleClickDelete(contact.id);
+                    }}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
