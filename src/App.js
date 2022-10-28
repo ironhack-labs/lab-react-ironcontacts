@@ -2,14 +2,30 @@
 import { useState } from 'react';
 import './App.css';
 
-let contacts = require('./contacts.json');
-const firstFive = contacts.slice(0, 5);
+let allContacts = require('./contacts.json');
+const initialState = allContacts.slice(0, 5);
 
 function App() {
-  const [contacts, setContacts] = useState({ firstFive });
+  const [contacts, setContacts] = useState(initialState);
+
+  function randomContact(input) {
+    let randomContact = input[Math.floor(Math.random() * input.length)];
+    while (contacts.includes(randomContact)) {
+      randomContact = input[Math.floor(Math.random() * input.length)];
+    }
+    return randomContact;
+  }
+
+  function handleClick() {
+    setContacts((current) => [...current, randomContact(allContacts)]);
+  }
 
   return (
-    <div>
+    <div className="App">
+      <h1>IronContacts</h1>
+      <button onClick={handleClick} style={{ padding: '10px' }}>
+        Add random Contact
+      </button>
       <table>
         <tbody>
           <tr>
@@ -19,7 +35,7 @@ function App() {
             <th>Won Oscar</th>
             <th>Won Emmy</th>
           </tr>
-          {firstFive.map((contact) => {
+          {contacts.map((contact) => {
             return (
               <tr key={contact.id}>
                 <td>
