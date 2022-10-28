@@ -19,19 +19,17 @@ function App() {
           </tr>
           {firstFive.map((contact) => {
             return (
-              <>
-                <tr key={contact.id}>
-                  <td>
-                    <img style={{ width: '50px' }} src={contact.pictureUrl} alt="" />
-                  </td>
-                  <td>
-                    <p>{contact.name}</p>
-                  </td>
-                  <td>
-                    <p>{contact.popularity}</p>
-                  </td>
-                </tr>
-              </>
+              <tr key={contact.id}>
+                <td>
+                  <img style={{ width: '50px' }} src={contact.pictureUrl} alt={contact.name} />
+                </td>
+                <td>
+                  <p>{contact.name}</p>
+                </td>
+                <td>
+                  <p>{contact.popularity}</p>
+                </td>
+              </tr>
             );
           })}
         </tbody>
