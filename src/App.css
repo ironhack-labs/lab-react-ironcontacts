@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -35,4 +39,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.profilePicture {
+  height: 80px;
+  width: auto;
+}
+
+.contactsTable {
+  width: 50vw;
 }
