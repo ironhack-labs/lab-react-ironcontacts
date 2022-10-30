@@ -1,6 +1,9 @@
+import "dracula-ui/styles/dracula-ui.css";
 import "./App.css";
+import { Table } from "dracula-ui";
 import { useState } from "react";
 import fullContactsList from "./contacts.json";
+import { Button, Heading } from "dracula-ui";
 
 function App() {
   let firstFiveContacts = fullContactsList.slice(0, 5);
@@ -28,45 +31,55 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>IronContacts</h1>
-      <button onClick={sortByName}>Sort alphabetically</button>
-      <button onClick={getRandomContact}>Get random contact</button>
-      <button onClick={sortbyPopularity}>Sort by popularity</button>
-
-      <table>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-          <th>
-            Won <br /> Oscar
-          </th>
-          <th>
-            Won <br /> Emmy
-          </th>
-        </tr>
+    <div className="App" color="blackLight">
+      <Heading color="red" size="2xl">
+        IronContacts
+      </Heading>
+      <div className="buttons">
+        <Button size="sm" variant="ghost" color="yellowPink" onClick={sortByName}>
+          Sort alphabetically
+        </Button>
+        <Button size="sm" variant="ghost" color="yellowPink" onClick={getRandomContact}>
+          Get random contact
+        </Button>
+        <Button size="sm" variant="ghost" color="yellowPink" onClick={sortbyPopularity}>
+          Sort by popularity
+        </Button>
+      </div>
+      <Table variant="striped" color="cyan">
+        <thead className="columnHeaders">
+          <tr>
+            <th className="drac-text drac-text-white">Picture</th>
+            <th className="drac-text drac-text-white">Name</th>
+            <th className="drac-text drac-text-white">Popularity</th>
+            <th className="drac-text drac-text-white">Oscar</th>
+            <th className="drac-text drac-text-white">Emmy</th>
+            <th style={{ maxWidth: 200 }} className="drac-text drac-text-white">
+              Remove
+            </th>
+          </tr>
+        </thead>
         {contacts.map((contact) => (
           <tr id={contact.id}>
             <td>
               <img src={contact.pictureUrl} alt={contact.name}></img>
             </td>
             <td>
-              <p>{contact.name}</p>
+              <p className="drac-text drac-text-red">{contact.name}</p>
             </td>
             <td>
-              <p>{contact.popularity}</p>
+              <p className="drac-text drac-text-white">{contact.popularity}</p>
             </td>
             <td>{contact.wonOscar ? "🏆" : false}</td>
             <td>{contact.wonEmmy ? "🏆" : false}</td>
             <td>
-              <button id={contact.id} onClick={deleteContact}>
+              <Button id={contact.id} variant="outline" color="yellowPink" onClick={deleteContact}>
                 Delete
-              </button>
+              </Button>
             </td>
           </tr>
         ))}
-      </table>
+      </Table>
     </div>
   );
 }
