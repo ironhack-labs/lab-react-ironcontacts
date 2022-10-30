@@ -3,13 +3,32 @@ import { useState } from "react";
 import fullContactsList from "./contacts.json";
 
 function App() {
-  let firstFive = fullContactsList.slice(0, 5);
-  const [contacts, setContacts] = useState(firstFive);
+  let firstFiveContacts = fullContactsList.slice(0, 5);
+  const [contacts, setContacts] = useState(firstFiveContacts);
+
+  function getRandomContact() {
+    let remainingContacts = fullContactsList.slice(5, 51);
+    console.log(remainingContacts);
+    const randomContact = remainingContacts[Math.floor(Math.random() * remainingContacts.length)];
+    setContacts((contacts) => [...contacts, randomContact]);
+  }
+
+  function sortByName() {
+    //In UTF-16 'a' = \u{61}
+    setContacts((contacts) => [...contacts].sort((a, b) => (a.name > b.name ? 1 : -1)));
+  }
+
+  function sortbyPopularity() {
+    setContacts((contacts) => [...contacts].sort((a, b) => (a.popularity > b.popularity ? -1 : 1)));
+  }
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button>Get random contact</button>
+      <button onClick={sortByName}>Sort alphabetically</button>
+      <button onClick={getRandomContact}>Get random contact</button>
+      <button onClick={sortbyPopularity}>Sort by popularity</button>
+
       <table>
         <tr>
           <th>Picture</th>
@@ -25,7 +44,7 @@ function App() {
         {contacts.map((contact) => (
           <tr id={contact.id}>
             <td>
-              <img src={contact.pictureUrl} alt="image of celeb"></img>
+              <img src={contact.pictureUrl} alt={contact.name}></img>
             </td>
             <td>
               <p>{contact.name}</p>
