@@ -68,7 +68,7 @@ function App() {
               <p className="drac-text drac-text-red">{contact.name}</p>
             </td>
             <td>
-              <p className="drac-text drac-text-white">{contact.popularity}</p>
+              <p className="drac-text drac-text-white">{Math.floor(contact.popularity)}</p>
             </td>
             <td>{contact.wonOscar ? "🏆" : false}</td>
             <td>{contact.wonEmmy ? "🏆" : false}</td>
