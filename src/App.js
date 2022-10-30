@@ -32,29 +32,29 @@ function App() {
 
   return (
     <div className="App" color="blackLight">
-      <Heading color="red" size="2xl">
+      <Heading color="red" as="h1" size="2xl">
         IronContacts
       </Heading>
       <div className="buttons">
-        <Button size="sm" variant="ghost" color="yellowPink" onClick={sortByName}>
+        <Button size="md" variant="ghost" color="yellowPink" onClick={sortByName}>
           Sort alphabetically
         </Button>
-        <Button size="sm" variant="ghost" color="yellowPink" onClick={getRandomContact}>
+        <Button size="md" variant="ghost" color="yellowPink" onClick={getRandomContact}>
           Get random contact
         </Button>
-        <Button size="sm" variant="ghost" color="yellowPink" onClick={sortbyPopularity}>
+        <Button size="md" variant="ghost" color="yellowPink" onClick={sortbyPopularity}>
           Sort by popularity
         </Button>
       </div>
       <Table variant="striped" color="cyan">
         <thead className="columnHeaders">
           <tr>
-            <th className="drac-text drac-text-white">Picture</th>
-            <th className="drac-text drac-text-white">Name</th>
-            <th className="drac-text drac-text-white">Popularity</th>
-            <th className="drac-text drac-text-white">Oscar</th>
-            <th className="drac-text drac-text-white">Emmy</th>
-            <th style={{ maxWidth: 200 }} className="drac-text drac-text-white">
+            <th className="drac-text drac-text-orange">Picture</th>
+            <th className="drac-text drac-text-orange">Name</th>
+            <th className="drac-text drac-text-orange">Popularity</th>
+            <th className="drac-text drac-text-orange">Oscar</th>
+            <th className="drac-text drac-text-orange">Emmy</th>
+            <th style={{ maxWidth: 200 }} className="drac-text drac-text-orange">
               Remove
             </th>
           </tr>
