@@ -1,3 +1,4 @@
+// Material UI testing here
 import allContacts from './contacts.json';
 import { useState } from 'react';
 import './App.css';
