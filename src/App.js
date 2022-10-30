@@ -40,7 +40,7 @@ function App() {
           Sort alphabetically
         </Button>
         <Button size="md" variant="ghost" color="yellowPink" onClick={getRandomContact}>
-          Get random contact
+          Add random contact
         </Button>
         <Button size="md" variant="ghost" color="yellowPink" onClick={sortbyPopularity}>
           Sort by popularity
