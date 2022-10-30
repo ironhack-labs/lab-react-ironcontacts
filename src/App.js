@@ -1,31 +1,47 @@
 import "./App.css";
-import contacts from "./contacts.json";
+import allContacts from "./contacts.json";
 import React, { useState } from "react";
 
 function App() {
-  const initialContacts = contacts.slice(0, 5);
-  const remaingContacts = contacts.slice(5);
+  const initialContacts = allContacts.slice(0, 5);
+  const remaingContacts = allContacts.slice(5);
 
   const [contact, setContact] = useState(initialContacts);
 
-  const getRandomContact = () => {
-    const randomContact =
-      remaingContacts[Math.floor(Math.random() * remaingContacts.length)];
-    const showContacts = [...contact, randomContact];
-    setContact(showContacts);
+  const addRandomContact = () => {
+    const randomContactIndex = Math.floor(
+      Math.random() * remaingContacts.length
+    );
+    const randomContact = remaingContacts[randomContactIndex];
+    const newContactsList = [...contact];
+    newContactsList.push(randomContact);
+    remaingContacts.splice(randomContactIndex, 1);
+    return setContact(newContactsList);
+  };
+
+  const sortByName = () => {
+    const copy = [...contact];
+    const sortedByName = copy.sort((a, b) => (a.name > b.name ? 1 : -1));
+    return setContact(sortedByName);
+  };
+
+  const sortByPopularity = () => {
+    const copy = [...contact];
+    const sortedByPopularity = copy.sort((a, b) => b.popularity - a.popularity);
+    return setContact(sortedByPopularity);
   };
 
   return (
     <>
       <div className="App">
         <h1>IronContacts</h1>
-        <button onClick={getRandomContact}>Add Random Contact</button>
+        <button onClick={addRandomContact}>Add Random Contact</button>
+        <button onClick={sortByName}>Sort by name</button>
+        <button onClick={sortByPopularity}>Sort by popularity</button>
         <table>
           <thead>
             <tr>
-              <th>
-                <h2>Picture</h2>
-              </th>
+              <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
               <th>Won Oscar</th>
