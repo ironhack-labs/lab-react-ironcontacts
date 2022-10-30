@@ -8,9 +8,9 @@ function App() {
 
   function getRandomContact() {
     let remainingContacts = fullContactsList.slice(5, 51);
-    console.log(remainingContacts);
+
     const randomContact = remainingContacts[Math.floor(Math.random() * remainingContacts.length)];
-    setContacts((contacts) => [...contacts, randomContact]);
+    setContacts((contacts) => [...new Set([...contacts, randomContact])]);
   }
 
   function sortByName() {
@@ -20,6 +20,11 @@ function App() {
 
   function sortbyPopularity() {
     setContacts((contacts) => [...contacts].sort((a, b) => (a.popularity > b.popularity ? -1 : 1)));
+  }
+
+  function deleteContact(event) {
+    let newArr = [...contacts].filter((contact) => contact.id !== event.currentTarget.id);
+    setContacts(newArr);
   }
 
   return (
@@ -54,6 +59,11 @@ function App() {
             </td>
             <td>{contact.wonOscar ? "🏆" : false}</td>
             <td>{contact.wonEmmy ? "🏆" : false}</td>
+            <td>
+              <button id={contact.id} onClick={deleteContact}>
+                Delete
+              </button>
+            </td>
           </tr>
         ))}
       </table>
