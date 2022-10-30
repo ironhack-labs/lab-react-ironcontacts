@@ -2,14 +2,24 @@ import "./App.css";
 import contacts from "./contacts.json";
 import React, { useState } from "react";
 
-const initialContacts = contacts.slice(0, 5);
-
 function App() {
+  const initialContacts = contacts.slice(0, 5);
+  const remaingContacts = contacts.slice(5);
+
   const [contact, setContact] = useState(initialContacts);
+
+  const getRandomContact = () => {
+    const randomContact =
+      remaingContacts[Math.floor(Math.random() * remaingContacts.length)];
+    const showContacts = [...contact, randomContact];
+    setContact(showContacts);
+  };
+
   return (
     <>
       <div className="App">
         <h1>IronContacts</h1>
+        <button onClick={getRandomContact}>Add Random Contact</button>
         <table>
           <thead>
             <tr>
