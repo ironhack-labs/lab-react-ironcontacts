@@ -1,6 +1,9 @@
 import allContacts from './contacts.json';
 import { useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 
 const initialState = allContacts.slice(0, 5);
 
@@ -57,26 +60,22 @@ function App() {
     setContacts(contactsMinusOne);
   };
 
-  const buttonStyle = { padding: '5px', margin: '0 5px' };
-
   return (
     <div className="App">
-      <h1>IronContacts</h1>
-      <button onClick={getRandomContact} style={buttonStyle}>
+      <h1 className="display-5 mt-3">IronContacts</h1>
+      <Button className="mt-3 mb-4" variant="outline-light" onClick={getRandomContact}>
         Add random Contact
-      </button>
-      <button onClick={sortByPopularity} style={buttonStyle}>
-        Sort by popularity
-      </button>
-      <button onClick={sortByName} style={buttonStyle}>
-        Sort by name
-      </button>
-      <table>
+      </Button>
+      <Table striped="columns" bordered hover variant="dark">
         <tbody>
           <tr>
             <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
+            <th style={{ cursor: 'pointer' }} onClick={sortByName}>
+              Name <span>&#8639;&#8642;</span>
+            </th>
+            <th style={{ cursor: 'pointer' }} onClick={sortByPopularity}>
+              Popularity <span>&#8639;&#8642;</span>
+            </th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
             <th>Actions</th>
@@ -85,34 +84,37 @@ function App() {
             return (
               <tr key={contact.id}>
                 <td>
-                  <img style={{ width: '50px' }} src={contact.pictureUrl} alt={contact.name} />
+                  <img style={{ width: '80px' }} src={contact.pictureUrl} alt={contact.name} />
                 </td>
-                <td>
+                <td className="align-middle">
                   <p>{contact.name}</p>
                 </td>
-                <td>
+                <td className="align-middle">
                   <p>{contact.popularity}</p>
                 </td>
-                <td>
-                  <p>{contact.wonOscar && '🏆'}</p>
+                <td className="align-middle">
+                  <p style={{ fontSize: '30px' }}>{contact.wonOscar && '🏆'}</p>
                 </td>
-                <td>
-                  <p>{contact.wonEmmy && '🏆'}</p>
+                <td className="align-middle">
+                  <p style={{ fontSize: '30px' }}>{contact.wonEmmy && '🏆'}</p>
                 </td>
-                <td>
-                  <button
+                <td className="align-middle">
+                  <Button
+                    className="text-light"
+                    variant="outline-danger"
+                    size="sm"
                     onClick={() => {
                       handleClickDelete(contact.id);
                     }}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </td>
               </tr>
             );
           })}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }
