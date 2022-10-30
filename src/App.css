@@ -1,17 +1,40 @@
 .App {
   text-align: center;
+  background-color: #222;
+}
+
+h1 {
+  font-size: 3em;
+  color: whitesmoke;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 table {
-  width: 80vw;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   text-align: center;
+  border-spacing: 0;
+  padding: 30px;
 }
 
-/* td {
-  text-align: center;
-} */
+th {
+  background-color: #666;
+  color: whitesmoke;
+}
 
-td > img {
+td {
+  background-color: whitesmoke;
+  border-bottom: 1px dashed lightgray;
+}
+
+th,
+td {
+  padding: 20px;
+}
+
+img {
   max-width: 100px;
   border-radius: 14px;
 }
@@ -19,4 +42,11 @@ td > img {
 button {
   margin: 10px;
   padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: gold;
+}
+
+button:hover {
+  background-color: goldenrod;
 }
