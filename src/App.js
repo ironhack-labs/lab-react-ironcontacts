@@ -26,9 +26,19 @@ function App() {
   };
 
   const sortByPopularity = () => {
-    const copy = [...contact];
-    const sortedByPopularity = copy.sort((a, b) => b.popularity - a.popularity);
+    const contactCopy = [...contact];
+    const sortedByPopularity = contactCopy.sort(
+      (a, b) => b.popularity - a.popularity
+    );
     return setContact(sortedByPopularity);
+  };
+
+  const deleteContact = (id) => {
+    setContact((current) =>
+      current.filter((contact) => {
+        return contact.id !== id;
+      })
+    );
   };
 
   return (
@@ -37,7 +47,13 @@ function App() {
         <h1>IronContacts</h1>
         <button onClick={addRandomContact}>Add Random Contact</button>
         <button onClick={sortByName}>Sort by name</button>
-        <button onClick={sortByPopularity}>Sort by popularity</button>
+        <button
+          onClick={() => {
+            sortByPopularity(contact.id);
+          }}
+        >
+          Sort by popularity
+        </button>
         <table>
           <thead>
             <tr>
@@ -46,6 +62,7 @@ function App() {
               <th>Popularity</th>
               <th>Won Oscar</th>
               <th>Won Emmy</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -58,7 +75,16 @@ function App() {
                   <td>{contact.name}</td>
                   <td>{Math.round(contact.popularity * 100) / 100}</td>
                   <td>{contact.wonOscar ? <h1>🏆</h1> : ""}</td>
-                  <td>{contact.wonEmmy ? <h1>🏆</h1> : ""}</td>
+                  <td>{contact.wonEmmy ? <h1>🌟</h1> : ""}</td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        deleteContact(contact.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}

@@ -12,5 +12,11 @@ table {
 } */
 
 td > img {
-  width: 100px;
+  max-width: 100px;
+  border-radius: 14px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
 }
