@@ -13,9 +13,12 @@ function App() {
       Math.random() * remaingContacts.length
     );
     const randomContact = remaingContacts[randomContactIndex];
+    console.log(randomContact);
     const newContactsList = [...contact];
-    newContactsList.push(randomContact);
-    remaingContacts.splice(randomContactIndex, 1);
+    if (!newContactsList.includes(randomContact)) {
+      newContactsList.push(randomContact);
+      remaingContacts.splice(randomContactIndex, 1);
+    }
     return setContact(newContactsList);
   };
 
