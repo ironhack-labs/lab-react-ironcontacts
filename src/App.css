@@ -49,3 +49,7 @@
 .contactsTable {
   width: 50vw;
 }
+
+.buttonsDiv {
+  display: flex;
+}
