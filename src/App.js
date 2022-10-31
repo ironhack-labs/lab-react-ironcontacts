@@ -3,6 +3,15 @@ import allContacts from './contacts.json';
 import { useState } from 'react';
 import './App.css';
 
+import Button from '@mui/material/Button';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 const initialState = allContacts.slice(0, 5);
 
 function App() {
@@ -58,62 +67,65 @@ function App() {
     setContacts(contactsMinusOne);
   };
 
-  const buttonStyle = { padding: '5px', margin: '0 5px' };
-
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={getRandomContact} style={buttonStyle}>
+      <Button onClick={getRandomContact} variant="outlined">
         Add random Contact
-      </button>
-      <button onClick={sortByPopularity} style={buttonStyle}>
-        Sort by popularity
-      </button>
-      <button onClick={sortByName} style={buttonStyle}>
-        Sort by name
-      </button>
-      <table>
-        <tbody>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
-            <th>Actions</th>
-          </tr>
-          {contacts.map((contact) => {
-            return (
-              <tr key={contact.id}>
-                <td>
-                  <img style={{ width: '50px' }} src={contact.pictureUrl} alt={contact.name} />
-                </td>
-                <td>
-                  <p>{contact.name}</p>
-                </td>
-                <td>
-                  <p>{contact.popularity}</p>
-                </td>
-                <td>
-                  <p>{contact.wonOscar && '🏆'}</p>
-                </td>
-                <td>
-                  <p>{contact.wonEmmy && '🏆'}</p>
-                </td>
-                <td>
-                  <button
-                    onClick={() => {
-                      handleClickDelete(contact.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      </Button>
+      <TableContainer component={Paper} sx={{ maxHeight: '100vh' }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow hover>
+              <TableCell>Picture</TableCell>
+              <TableCell style={{ cursor: 'pointer' }} onClick={sortByName}>
+                Name <span>&#8639;&#8642;</span>
+              </TableCell>
+              <TableCell style={{ cursor: 'pointer' }} onClick={sortByPopularity}>
+                <span>Popularity &#8639;&#8642;</span>
+              </TableCell>
+              <TableCell>Won Oscar</TableCell>
+              <TableCell>Won Emmy</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {contacts.map((contact) => {
+              return (
+                <TableRow hover key={contact.id}>
+                  <TableCell>
+                    <img sx={{ m: 0 }} style={{ width: '80px' }} src={contact.pictureUrl} alt={contact.name} />
+                  </TableCell>
+                  <TableCell>
+                    <p>{contact.name}</p>
+                  </TableCell>
+                  <TableCell>
+                    <p>{contact.popularity}</p>
+                  </TableCell>
+                  <TableCell>
+                    <p style={{ fontSize: '30px' }}>{contact.wonOscar && '🏆'}</p>
+                  </TableCell>
+                  <TableCell>
+                    <p style={{ fontSize: '30px' }}>{contact.wonEmmy && '🏆'}</p>
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="error"
+                      onClick={() => {
+                        handleClickDelete(contact.id);
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }
