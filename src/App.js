@@ -12,6 +12,54 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { purple } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
+
+import { Badge } from '@mui/material';
+
+let darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      light: '#757ce8',
+      main: purple[500],
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#fff',
+      dark: '#ba000d',
+      contrastText: '#000',
+      custom: '#ba000d',
+    },
+  },
+});
+
+darkTheme = createTheme(darkTheme, {
+  palette: {
+    error: {
+      main: darkTheme.palette.secondary.custom,
+    },
+  },
+});
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -5,
+    top: 30,
+    border: `2px solid ${theme.palette.primary.main}`,
+    backgroundColor: 'transparent',
+    borderRadius: '0 50% 0',
+    width: '50px',
+    height: '50px',
+    zIndex: '-1',
+    fontSize: '16px',
+  },
+}));
+
 const initialState = allContacts.slice(0, 5);
 
 function App() {
@@ -68,9 +116,13 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>IronContacts</h1>
-      <Button onClick={getRandomContact} variant="outlined">
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <StyledBadge badgeContent={contacts.length} color="primary">
+        <h1>IronContacts</h1>
+      </StyledBadge>
+
+      <Button onClick={getRandomContact} sx={{ margin: 7 }}>
         Add random Contact
       </Button>
       <TableContainer component={Paper} sx={{ maxHeight: '100vh' }}>
@@ -79,7 +131,7 @@ function App() {
             <TableRow hover>
               <TableCell>Picture</TableCell>
               <TableCell style={{ cursor: 'pointer' }} onClick={sortByName}>
-                Name <span>&#8639;&#8642;</span>
+                Name <span color="error">&#8639;&#8642;</span>
               </TableCell>
               <TableCell style={{ cursor: 'pointer' }} onClick={sortByPopularity}>
                 <span>Popularity &#8639;&#8642;</span>
@@ -126,7 +178,7 @@ function App() {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </ThemeProvider>
   );
 }
 export default App;
