@@ -23,16 +23,9 @@ let darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      light: '#757ce8',
       main: purple[500],
-      dark: '#002884',
-      contrastText: '#fff',
     },
     secondary: {
-      light: '#ff7961',
-      main: '#fff',
-      dark: '#ba000d',
-      contrastText: '#000',
       custom: '#ba000d',
     },
   },
