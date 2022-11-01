@@ -14,11 +14,29 @@ function App() {
     setList(cloneContacts);
   };
 
+  const sortByPop = () => {
+    const cloneContacts = [...list];
+    cloneContacts.sort((elem1, elem2) =>
+      elem1.popularity > elem2.popularity ? -1 : 1
+    );
+
+    setList(cloneContacts);
+  };
+
+  const sortByName = () => {
+    const cloneContacts = JSON.parse(JSON.stringify(list));
+    cloneContacts.sort((elem1, elem2) => (elem1.name > elem2.name ? 1 : -1));
+
+    setList(cloneContacts);
+  };
+
   return (
     <div className="App">
       <div>
         <h3>IronContacts</h3>
         <button onClick={addContact}>Add Random Contact</button>
+        <button onClick={sortByPop}>Sort by popularity</button>
+        <button onClick={sortByName}>Sort by name</button>
         <table>
           <thead>
             <tr>
