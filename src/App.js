@@ -16,18 +16,22 @@ function App() {
 
   const sortByPop = () => {
     const cloneContacts = [...list];
-    cloneContacts.sort((elem1, elem2) =>
-      elem1.popularity > elem2.popularity ? -1 : 1
-    );
+    cloneContacts.sort((elem1, elem2) => elem1.popularity > elem2.popularity ? -1 : 1);
 
     setList(cloneContacts);
   };
 
   const sortByName = () => {
     const cloneContacts = JSON.parse(JSON.stringify(list));
-    cloneContacts.sort((elem1, elem2) => (elem1.name > elem2.name ? 1 : -1));
+    cloneContacts.sort((elem1, elem2) => elem1.name > elem2.name ? 1 : -1);
 
     setList(cloneContacts);
+  };
+
+  const deleteContact = (contactId) => {
+    const filteredList = list.filter((eachPerson) => eachPerson.id === contactId ? false : true);
+
+    setList(filteredList);
   };
 
   return (
@@ -45,6 +49,7 @@ function App() {
               <th>Popularity</th>
               <th>Won Oscar</th>
               <th>Won Emmy</th>
+              <th>Actions</th>
             </tr>
           </thead>
           {list.map((eachPerson) => {
@@ -62,6 +67,9 @@ function App() {
                   <td>{eachPerson.popularity.toFixed(2)}</td>
                   <td>{eachPerson.wonOscar === true ? "🏆" : ""}</td>
                   <td>{eachPerson.wonEmmy === true ? "🏆" : ""}</td>
+                  <td>
+                    <button onClick={() => {deleteContact(eachPerson.id)}}>Delete</button>
+                  </td>
                 </tr>
               </tbody>
             );
@@ -71,13 +79,5 @@ function App() {
     </div>
   );
 }
-
-// "name": "Gal Gadot",
-// "pictureUrl": "https://image.tmdb.org/t/p/w500/34kHAyBaBhq2kUrmhM15paEBuuI.jpg",
-// "popularity": 10.049256,
-// "id": "b497e3c4-50bb-4ae2-912f-eb36802c5bc2",
-// "wonOscar": false,
-// "wonEmmy": false
-// 🏆
 
 export default App;
