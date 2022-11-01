@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
-
+import contacts from "./contacts.json";
+import "./App.css";
+import { useState } from "react";
 function App() {
+  let initialPersons = contacts.slice(0, 5);
+  const [list, setList] = useState(initialPersons);
+
+  const addContact = () => {
+    let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    const cloneContacts = structuredClone(list);
+
+    cloneContacts.push(randomContact);
+
+    setList(cloneContacts);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h3>IronContacts</h3>
+        <button onClick={addContact}>Add Random Contact</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Won Oscar</th>
+              <th>Won Emmy</th>
+            </tr>
+          </thead>
+          {list.map((eachPerson) => {
+            return (
+              <tbody key={eachPerson.id}>
+                <tr>
+                  <td>
+                    <img
+                      src={eachPerson.pictureUrl}
+                      alt="picture"
+                      width="80px"
+                    />
+                  </td>
+                  <td>{eachPerson.name}</td>
+                  <td>{eachPerson.popularity.toFixed(2)}</td>
+                  <td>{eachPerson.wonOscar === true ? "🏆" : ""}</td>
+                  <td>{eachPerson.wonEmmy === true ? "🏆" : ""}</td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
+      </div>
     </div>
   );
 }
+
+// "name": "Gal Gadot",
+// "pictureUrl": "https://image.tmdb.org/t/p/w500/34kHAyBaBhq2kUrmhM15paEBuuI.jpg",
+// "popularity": 10.049256,
+// "id": "b497e3c4-50bb-4ae2-912f-eb36802c5bc2",
+// "wonOscar": false,
+// "wonEmmy": false
+// 🏆
 
 export default App;
