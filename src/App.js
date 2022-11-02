@@ -7,11 +7,28 @@ function App() {
   const [list, setList] = useState(firstFiveFamous);
 
   const addRandomContact = () => {
+
+    if (list.length === contacts.length) {
+      return
+    }
+
     const randomIndex = Math.floor(Math.random() * contacts.length);
     const randomContact = contacts[randomIndex];
-    let copyContacts = [...list];
-    console.log(copyContacts);
-    !copyContacts.includes(randomContact) && copyContacts.push(randomContact);
+
+      const filteredContact = list.filter((eachContact) => {
+       return eachContact.id === randomContact.id
+     })
+
+    //causar recursion si el elemento ya existe.
+    //console.log(copyContacts);
+    //!copyContacts.includes(randomContact) && copyContacts.push(randomContact);
+    if (filteredContact.length !== 0) {
+      addRandomContact()
+      console.log("dup item")
+      return // deja de ejecutar la funcion
+    }
+    let copyContacts = [...list]
+    copyContacts.push(randomContact)
     setList(copyContacts);
   };
 
