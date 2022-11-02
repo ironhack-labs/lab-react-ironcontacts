@@ -8,8 +8,22 @@ function App() {
   const [list, setList] = useState(initialPersons);
 
   const addContact = () => {
+
+    if(list.length === contacts.length){
+      return
+    }
+    
     let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
     const cloneContacts = structuredClone(list);
+
+    const filteredList = list.filter((eachPerson)=>{
+      return eachPerson.id === randomContact.id
+    })
+
+    if (filteredList.length !== 0){
+      addContact()
+      return;
+    }
 
     cloneContacts.push(randomContact);
 
