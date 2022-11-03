@@ -1,35 +1,67 @@
 import './App.css';
-import celebrityContacts from "./contacts.json";
+import contacts from "./contacts.json";
 import {useState} from 'react';
 
 
 
 function App() {
-
-  const [contacts, setContacts] = useState(celebrityContacts)
-  
-  
   const firstFive = contacts.slice(0,5);
-
+  const [list, setList] = useState(firstFive)
+  
+    // add random contact event handler function
      const addRandomContact = () => {
     
-       let randomIndex = Math.floor( Math.random() * contacts.length);
-      let contactToAdd = contacts[randomIndex]
+      const randomIndex = Math.floor( Math.random() * contacts.length);
+       const randomContact = contacts[randomIndex];
+       let contactsCopy = [...list];
 
-        if(!firstFive.includes(contactToAdd)){
-          firstFive.push(contactToAdd);
+        if(!contactsCopy.includes(randomContact)){
+          contactsCopy.push(randomContact);
         }
       
-        setContacts(firstFive);
+        setList(contactsCopy);
+
      }
     
-//  delete event handler
+  //  sort by popularity event handler:
+      
+     const sortByPopularity = () => {
+         const listCopy = [...list];
+        const sortedByPopularity =  listCopy.sort( (a , b) => {
+          //  return b.popularity - a.popularity;
+          if( a.popularity < b.popularity){
+            return 1
+          }
+          else{
+            return -1
+          }
+        })
+         setList(sortedByPopularity);
+     }
+   // sort by name event handler: 
+    
+    const sortByName = () => {
+        const listCopy = [...list];
+        const sortedNames = listCopy.sort( (a, b) => {
+          if(a.name > b.name){
+            return 1;
+          }
+          else{
+            return -1
+          }
+        });
+        setList(sortedNames);
+    }
+
+
+
+//  delete event handler function:
     const handleOnDelete = (contactId)=> {
         
-        const filteredContacts = firstFive.filter( (contact) => {
+        const filteredContacts = list.filter( (contact) => {
           return contact.id !== contactId;
         })
-        setContacts(filteredContacts)
+        setList(filteredContacts)
     }
 
   return (
@@ -40,7 +72,9 @@ function App() {
          <h1>IronContacts</h1>
 
           <button  onClick={addRandomContact} className='random-btn'>Add Random Contact</button>
-        { firstFive.map( (contact) => {
+          <button onClick={sortByPopularity} className="sort-btn">Sort By Popularity</button>
+          <button onClick={sortByName}>Sort By Name</button>
+        { list.map( (contact) => {
          
            return(
            

@@ -11,34 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.profile-picture {
-  width: 70px;
-  border-radius: 10px;
-}
-
-table {
-  border-collapse: collapse;
-
-  width: 600px;
-  margin: 0 auto;
-}
-
-th,
-td {
-  margin: 30px;
-}
-
-th {
-  font-weight: 900;
-  /* border: 1px solid #000 */
-}
-
-td {
-  font-weight: 500;
-  /* border: 1px solid #000 */
-}
-
-.random-btn {
-  margin: 30px;
-}
