@@ -38,3 +38,37 @@ td {
 .sort-btn {
   margin-right: 30px;
 }
+
+.delete-btn {
+  width: 70px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 8px;
+  transition: background-color .15s;
+
+}
+
+.delete-btn:hover {
+  background-color: crimson;
+  color: #fff;
+}
+
+.random-btn,
+.sort-btn {
+  padding: 1em 1.5em;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px lightgrey;
+  transition: background-color .15s;
+}
+
+.random-btn:hover {
+  background-color: #050575;
+  color: #fff;
+
+}
+
+.sort-btn:hover {
+  background-color: #050575;
+  color: #fff;
+}

@@ -43,6 +43,7 @@ function App() {
     const sortByName = () => {
         const listCopy = [...list];
         const sortedNames = listCopy.sort( (a, b) => {
+          // return a.name > b.name ? 1 : -1;
           if(a.name > b.name){
             return 1;
           }
@@ -73,7 +74,7 @@ function App() {
 
           <button  onClick={addRandomContact} className='random-btn'>Add Random Contact</button>
           <button onClick={sortByPopularity} className="sort-btn">Sort By Popularity</button>
-          <button onClick={sortByName}>Sort By Name</button>
+          <button onClick={sortByName} className="sort-btn">Sort By Name</button>
         { list.map( (contact) => {
          
            return(
@@ -97,7 +98,7 @@ function App() {
                     <td>{contact.popularity}</td>
                     <td>{contact.wonOscar? '🏆' : '' }</td>
                     <td>{contact.wonEmmy? '🏆' : ''}</td>
-                    <td><button onClick={() => handleOnDelete(contact.id)}>Delete</button></td>
+                    <td><button onClick={() => handleOnDelete(contact.id)} className="delete-btn">Delete</button></td>
                   </tr>
 
                 
