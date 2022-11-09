@@ -15,6 +15,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -26,8 +28,8 @@ function App() {
                 </td>
                 <td>{contact.name}</td>
                 <td>{Math.round(contact.popularity * 100) / 100}</td>
-                {/* <td>{contact.wonOscar ? <h1>🏆</h1> : ""}</td>
-                <td>{contact.wonEmmy ? <h1>🏆</h1> : ""}</td> */}
+                <td>{contact.wonOscar ? <h1>🏆</h1> : ""}</td>
+                <td>{contact.wonEmmy ? <h1>🏆</h1> : ""}</td>
               </tr>
             );
           })}
