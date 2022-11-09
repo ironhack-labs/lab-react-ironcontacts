@@ -3,7 +3,8 @@ import contacts from "./contacts.json";
 import React, { useState } from "react";
 
 function App() {
-  const [contactsArr, setContactsArr] = useState(contacts.slice(0, 5));
+  const firstFiveContacts = contacts.slice(0, 5);
+  const [contact, setContact] = useState(firstFiveContacts);
 
   return (
     <div className="App">
@@ -17,13 +18,19 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <img src={contactsArr[0].pictureUrl} alt="Contact" />
-            </td>
-            <td>{contactsArr[0].name}</td>
-            <td>{contactsArr[0].popularity}</td>
-          </tr>
+          {contact.map((contact) => {
+            return (
+              <tr key={contact.id}>
+                <td>
+                  <img src={contact.pictureUrl} alt="Contact" />
+                </td>
+                <td>{contact.name}</td>
+                <td>{Math.round(contact.popularity * 100) / 100}</td>
+                {/* <td>{contact.wonOscar ? <h1>🏆</h1> : ""}</td>
+                <td>{contact.wonEmmy ? <h1>🏆</h1> : ""}</td> */}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
