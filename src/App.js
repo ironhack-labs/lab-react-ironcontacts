@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
- const [ contactsList, setContactsList ] = useState (contacts.slice(0,5));
+ const [ contactsList, setContactsList ] = useState (contacts.slice(0,20));
 
 
  if (contactsList) {
@@ -57,6 +57,14 @@ function App() {
 
                 <td>
                 <h4>{celebrity.popularity}</h4>
+                </td>
+
+                <td>
+                <h4>{celebrity.wonOscar ? "🏆" : " "}</h4>
+                </td>
+
+                <td>
+                <h4>{celebrity.wonEmmy ? "🏆" : " "}</h4>
                 </td>
 
 
