@@ -2,9 +2,15 @@ import { useState } from 'react';
 import contacts from "./contacts.json";
 import './App.css';
 
+
 function App() {
 
- //  const [contactsList, setContactsList] = useState (contacts);
+ const [ contactsList, setContactsList ] = useState (contacts.slice(0,5));
+
+
+ if (contactsList) {
+  console.log(contactsList)
+ }
 
   return (
     <div className="App">
@@ -15,25 +21,51 @@ function App() {
         <thead>
           <tr>
             <th>
-              <h4>Picture</h4>
+              <h2>Picture</h2>
             </th>
 
             <th>
-              <h4>Name</h4>
+              <h2>Name</h2>
             </th>
 
             <th>
-              <h4>Popularity</h4>
+              <h2>Popularity</h2>
+            </th>
+
+            <th>
+              <h2>Won an Oscar</h2>
+            </th>
+
+            <th>
+              <h2>Won an Emmy</h2>
             </th>
 
           </tr>
         </thead> 
         <tbody>
-          <tr>
-            <td>
-              <h3>TEST</h3>
-            </td>
-          </tr>
+
+          {contactsList.map((celebrity) => {
+            return (
+              <tr>
+                <td>
+                  <img style={{height: "200px"}} src={celebrity.pictureUrl} alt="celebrity"/>
+                </td>
+
+                <td>
+                  <h4>{celebrity.name}</h4>
+                </td>
+
+                <td>
+                <h4>{celebrity.popularity}</h4>
+                </td>
+
+
+              </tr>
+
+             )
+          })}
+
+        
         </tbody>
       </table>
         
