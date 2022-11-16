@@ -21,3 +21,75 @@ table.contacts {
 table.contacts tr td img {
   width: 100px;
 }
+
+
+.profile-picture {
+  width: 80px;
+  border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+
+  width: 600px;
+  margin: 0 auto;
+}
+
+th,
+td {
+  width: 75px;
+  margin: 30px;
+  padding: 10px;
+}
+
+th {
+  font-weight: 900;
+  /* border: 1px solid #000 */
+}
+
+td {
+  font-weight: 500;
+  /* border: 1px solid #000 */
+}
+
+.random-btn {
+  margin: 30px;
+}
+
+.sort-btn {
+  margin-right: 30px;
+}
+
+.delete-btn {
+  width: 70px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 8px;
+  transition: background-color .15s;
+
+}
+
+.delete-btn:hover {
+  background-color: crimson;
+  color: #fff;
+}
+
+.random-btn,
+.sort-btn {
+  padding: 1em 1.5em;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px lightgrey;
+  transition: background-color .15s;
+}
+
+.random-btn:hover {
+  background-color: #050575;
+  color: #fff;
+
+}
+
+.sort-btn:hover {
+  background-color: #050575;
+  color: #fff;
+}
