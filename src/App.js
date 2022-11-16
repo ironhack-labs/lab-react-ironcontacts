@@ -15,6 +15,11 @@ function App() {
   contacts.splice(randomIndex, 1)
  }
 
+ const sortPopularity = () => {
+  const contactsSorted = [...contacts].sort((a, b) => a.popularity - b.popularity);
+  setContactsList(contactsSorted);
+};
+
  
 
 
@@ -30,7 +35,7 @@ function App() {
 
       <button onClick={() => randomContact()}>Add Random Contact</button>
 
-      <button >SOrt by popularity</button>
+      <button onClick={sortPopularity}>Sort by popularity</button>
 
        <table>
         <thead>
