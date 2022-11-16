@@ -14,6 +14,7 @@ function App() {
   setContactsList([...contactsList, randomCelebrities])
   contacts.splice(randomIndex, 1)
  }
+
  
 
 
@@ -28,6 +29,8 @@ function App() {
       <h1>IronContacts</h1>
 
       <button onClick={() => randomContact()}>Add Random Contact</button>
+
+      <button >SOrt by popularity</button>
 
        <table>
         <thead>
