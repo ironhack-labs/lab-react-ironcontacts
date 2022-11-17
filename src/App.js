@@ -29,7 +29,6 @@ function App() {
     setList(sortedByPopularity);
   }
    
-  // sort by name event handler: 
   const sortByName = () => {
     const listCopy = [...list];
     const sortedNames = listCopy.sort( (a, b) => {
@@ -43,7 +42,6 @@ function App() {
     setList(sortedNames);
   }
 
-  //  delete event handler function:
   const handleOnDelete = (contactId)=> {
     const filteredContacts = list.filter( (contact) => {
       return contact.id !== contactId;
