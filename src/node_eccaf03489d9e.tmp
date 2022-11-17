@@ -1,0 +1,41 @@
+import './App.css';
+import contactsData from "./contacts.json";
+import {useState} from 'react'
+
+function App() {
+  const first5 = contactsData.slice(0, 5)
+  console.log(first5)
+
+
+
+
+  const [contacts, setContacts] = useState(contactsData)
+  const contactName = contacts.map(contact => {
+    return (
+      <tr>
+        <td><img className='image' src={contact.pictureUrl} alt="Contact" /></td>
+        <td>{contact.name}</td>
+        <td>{contact.popularity.toFixed(2)}</td>
+        {contact.wonOscar === true ? <td>🏆</td> : <td></td>}
+        {contact.wonEmmy === true ? <td>🏆</td> : <td></td>}
+      </tr>
+    )
+  })
+  return (
+    <div className="App">
+      <h1>IronContacts</h1>
+      <table className='table'>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>Won<br></br>Oscar</th>
+          <th>Won<br></br>Emmy</th>
+        </tr>
+        {contactName.slice(0, 5)}
+      </table>
+    </div>
+  );
+}
+
+export default App;

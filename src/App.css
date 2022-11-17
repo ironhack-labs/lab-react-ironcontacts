@@ -1,38 +1,82 @@
+:root {
+  --color1: #012030;
+  --color2: #13678a;
+  --color3: #45c4b0;
+  --color4: #9aeba3;
+  --color5: #dafdba;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 3.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.table {
+  margin: auto;
+  border-collapse: collapse;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.table td {
+  border: 1px solid black;
+}
+
+.table th {
+  font-size: 1rem;
+  padding: 2px 5px;
+  border: 1px solid black;
+}
+
+td {
+  font-size: .9rem;
+}
+
+.name {
+  padding: 5px;
+}
+
+.image {
+  width: 80px;
+  margin: 3px 3px 0 3px;
+  border: 0.5px solid var(--color1);
+}
+
+button {
+  width: 150px;
+  height: 30px;
+  margin: 10px;
+  padding: 3px;
+  font-weight: 900;
+  border-radius: 5px;
+  background-color: var(--color4);
+  color: var(--color1);
+  border: 0.5px solid var(--color1);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color2);
+  color: var(--color5);
+  transform: translate(2%, 2%);
+  border: 0.5px dashed var(--color5);
+}
+
+.delete-contact {
+  width: 60px;
+  height: 25px;
+  background-color: var(--color2);
+  color: var(--color5);
+}
+
+.delete-contact:hover {
+  background-color: rgba(255, 0, 0, 0.592);
+  border: 2px dashed red;
   color: white;
+  transform: translate(-2%, -2%);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
