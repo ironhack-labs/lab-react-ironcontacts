@@ -11,7 +11,7 @@ function App() {
     const randomContact = contactsData[randomChoose]
     let newContactsArr = [...contacts]
     if (!newContactsArr.includes(randomContact)) {
-      newContactsArr.push(randomContact)
+      newContactsArr.unshift(randomContact)
     }
     setContacts(newContactsArr)
   }
