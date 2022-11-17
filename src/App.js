@@ -6,7 +6,6 @@ function App() {
   const firstFive = contacts.slice(0,5);
   const [list, setList] = useState(firstFive)
 
-  // add random contact event handler function
   const addRandomContact = () => {
     const randomIndex = Math.floor( Math.random() * contacts.length);
     const randomContact = contacts[randomIndex];
@@ -17,11 +16,9 @@ function App() {
     setList(contactsCopy);
   }
 
-  //  sort by popularity event handler:
   const sortByPopularity = () => {
     const listCopy = [...list];
     const sortedByPopularity =  listCopy.sort( (a , b) => {
-      //  return b.popularity - a.popularity;
       if( a.popularity < b.popularity){
         return 1
       }
