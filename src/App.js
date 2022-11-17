@@ -36,7 +36,6 @@ function App() {
   const sortByName = () => {
     const listCopy = [...list];
     const sortedNames = listCopy.sort( (a, b) => {
-      // return a.name > b.name ? 1 : -1;
       if(a.name > b.name){
         return 1;
       }
@@ -78,7 +77,7 @@ function App() {
                 <tr key={contact.id}>
                   <td><img src={contact.pictureUrl} alt="contact portrait" className='profile-picture'></img></td>
                   <td>{contact.name}</td>
-                  <td>{contact.popularity}</td>
+                  <td>{contact.popularity.toFixed(2)}</td>
                   <td>{contact.wonOscar? '🏆' : '' }</td>
                   <td>{contact.wonEmmy? '🏆' : ''}</td>
                   <td><button onClick={() => handleOnDelete(contact.id)} className="delete-btn">Delete</button></td>
