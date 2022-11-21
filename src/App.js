@@ -21,9 +21,9 @@ function App() {
     const popSort = [...realContact].sort((a, b) => b.popularity > a.popularity ? 1 : -1);
     setRealContact(popSort)
   }
-  const deleteHandler = () => {
-    const deleteOne = [...realContact].filter((one) => {
-      return one.id !== one
+  const deleteHandler = (elementId) => {
+    const deleteOne = realContact.filter((one) => {
+      return one.id !== elementId
     })
     setRealContact(deleteOne)
   }
@@ -58,7 +58,7 @@ function App() {
                   <td>{pop}</td>
                   <td>{element.wonOscar ? '🏆' : ''}</td>
                   <td>{element.wonEmmy ? '🏆': ''}</td>
-                  <td><button onClick={deleteHandler} >Delete</button></td>
+                  <td><button onClick={() => deleteHandler(element.id)} >Delete</button></td>
                 </tr>
             </tbody>
           )
