@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+img {
+   height: 200px;
+}
+
+table , th, td {
+    border: 0px solid black;
+    padding: 10px;
+    margin: auto;
+}
+.titles {
+    text-align: center;
+    margin: auto;
+    
+}
+
+.titles button {
+    margin: 30px;
+    /* display: flex; */
+    /* justify-content:space-between; */
+    /* flex-direction: column; */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btn-delete {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
