@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  font-size: 45px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 50px;
+}
+
+img {
+  border: 1px solid black;
+  width: 20%;
+  height: 20%;
+}
+
+.btn {
+  margin: 30px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 20px;
+
+}
+.buttons{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+
+}
