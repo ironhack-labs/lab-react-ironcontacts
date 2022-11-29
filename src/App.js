@@ -8,9 +8,16 @@ import { useState } from 'react';
 function App() {
   //console.log(ShowContacts)
   const [contact,setContact] = useState(showContacts);
+  function addContact(){
+    const randomNumber=  Math.floor(Math.random() * contacts.length) + 6 //from 6 to length of array
+    console.log(randomNumber)
+     const newContacts   = [...contact,contacts[randomNumber]];
+    setContact(newContacts);
+  }
   return (
+    
     <div className="App">
-      
+       <button onClick={addContact}>Add random contact</button>
       <h2>IronContacts</h2>
       <table>
       <thead>
