@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import contactsArray from "./contacts.json";
 
-function App() {
+const Contacts = () => {
+
+  const contacts = contactsArray.slice(0, 10);
+
+
+
+  // Sacamos Un Random Contact 
+
+  const newContact = (Math.floor(Math.random()) * contacts.length)
+  const contactsCopy = [...contacts]
+  contactsCopy.push(contacts(newContact))
+
+  // Actualizamos la copia mutada
+  // setContacts(contactsCopy)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <table class='table'>
+      <h2>IronContacts</h2>
+      <button onClick={randomContact}>Add Random Contact</button>
+      <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Popularity</th>
+        <th>Won an Oscar</th>
+        <th>Won an Emmy</th>
+      </tr>
+      {contacts.map(elm => {
+        return (
+          <tr key={elm._id}>
+            <td>
+              <img src={elm.pictureUrl} />
+            </td>
+            <td>{elm.name}</td>
+            <td>{elm.popularity}</td>
+            {elm.wonOscar && "🏆"}
+            {elm.wonEmmy && "🏆"}
+          </tr>
+        )
+      })}
+    </table>
+  )
 }
 
-export default App;
+export default Contacts;
+
