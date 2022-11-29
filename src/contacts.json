@@ -12,7 +12,7 @@
     "pictureUrl": "https://image.tmdb.org/t/p/w500/kbWValANhZI8rbWZXximXuMN4UN.jpg",
     "popularity": 15.656534,
     "id": "7dad00f7-3949-477d-a7e2-1467fd2cfc06",
-    "wonOscar": false,
+    "wonOscar": true,
     "wonEmmy": false
   },
   {
@@ -21,7 +21,7 @@
     "popularity": 16.096436,
     "id": "0ad5e441-3084-47a1-9e9b-b917539bba71",
     "wonOscar": false,
-    "wonEmmy": false
+    "wonEmmy": true
   },
   {
     "name": "Gal Gadot",
