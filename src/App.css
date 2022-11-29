@@ -32,7 +32,33 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+td {
+  width: 20%;
+  height: 150px;
+}
+
+td img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.btn {
+  margin: 30px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 20px;
+
+}
+
+.btn-delete {
+  border: 1px solid black;
+  border-radius: 20px;
 }
