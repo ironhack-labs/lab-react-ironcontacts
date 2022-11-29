@@ -18,6 +18,8 @@ function App() {
     <th>Picture</th>
     <th>Name</th>
     <th>Popularity</th>
+    <th>Won An Oscar</th>
+    <th>Won An Emmy</th>
   </tr>
   </thead>
   <tbody>
@@ -28,6 +30,8 @@ function App() {
     <td><img src={elm.pictureUrl} alt="img" /></td>
     <td>{elm.name}</td>
     <td>{elm.popularity}</td>
+    {elm.wonOscar ?<td>🏆</td>: <td></td>}
+    {elm.wonEmmy ? <td>🏆</td>: <td></td>}
     </tr>
   )}
   </tbody>

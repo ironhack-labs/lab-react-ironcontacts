@@ -8,12 +8,20 @@
     "wonEmmy": false
   },
   {
-    "name": "Johnny Depp",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/kbWValANhZI8rbWZXximXuMN4UN.jpg",
-    "popularity": 15.656534,
-    "id": "7dad00f7-3949-477d-a7e2-1467fd2cfc06",
+    "name": "Ben Affleck",
+    "pictureUrl": "https://image.tmdb.org/t/p/w500/cPuPt6mYJ83DjvO3hbjNGug6Fbi.jpg",
+    "popularity": 9.157077,
+    "id": "1599707e-5f49-4529-b920-db3831419b04",
     "wonOscar": false,
-    "wonEmmy": false
+    "wonEmmy": true
+  },
+  {
+    "name": "Anthony Hopkins",
+    "pictureUrl": "https://image.tmdb.org/t/p/w500/jdoBTIru71FbPuHGEgox5RVmIO0.jpg",
+    "popularity": 10.273801,
+    "id": "f197b07c-c0f6-4837-a4d6-f98f8673b0e6",
+    "wonOscar": true,
+    "wonEmmy": true
   },
   {
     "name": "Monica Bellucci",
@@ -31,14 +39,7 @@
     "wonOscar": false,
     "wonEmmy": false
   },
-  {
-    "name": "Ian McKellen",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/coWjgMEYJjk2OrNddlXCBm8EIr3.jpg",
-    "popularity": 10.070132,
-    "id": "0067ae32-97b6-4431-898e-eb1c10150abb",
-    "wonOscar": false,
-    "wonEmmy": false
-  },
+ 
   {
     "name": "Matt Damon",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg",
@@ -95,14 +96,7 @@
     "wonOscar": false,
     "wonEmmy": false
   },
-  {
-    "name": "Ben Affleck",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/cPuPt6mYJ83DjvO3hbjNGug6Fbi.jpg",
-    "popularity": 9.157077,
-    "id": "1599707e-5f49-4529-b920-db3831419b04",
-    "wonOscar": true,
-    "wonEmmy": false
-  },
+ 
   {
     "name": "James McAvoy",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/oPIfGm3mf4lbmO5pWwMvfTt5BM1.jpg",
@@ -240,14 +234,7 @@
     "wonOscar": false,
     "wonEmmy": false
   },
-  {
-    "name": "Anthony Hopkins",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/jdoBTIru71FbPuHGEgox5RVmIO0.jpg",
-    "popularity": 10.273801,
-    "id": "f197b07c-c0f6-4837-a4d6-f98f8673b0e6",
-    "wonOscar": true,
-    "wonEmmy": true
-  },
+  
   {
     "name": "John Goodman",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/eOIx8zj1vYIRhVY2bK5cjIQfua0.jpg",
