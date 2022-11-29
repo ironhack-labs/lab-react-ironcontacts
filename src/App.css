@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.contact-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.container table {
+  padding: 0 10rem 0 10rem;
+}
+
+.button-list {
+  display: flex;
+  gap: 1rem;
+  margin: 3rem 0 3rem 0;
+  justify-content: center;
+}
+
+thead td {
+  color:rgb(99, 32, 162);
+  font-weight: bolder;
+}
