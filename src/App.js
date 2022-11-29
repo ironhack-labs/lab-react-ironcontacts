@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import allContacts from '../src/contacts.json';
 import { useState } from 'react';
@@ -8,13 +7,13 @@ function App() {
   console.log("App contacts:", contacts)
 
   function addContact() {
-    const otherContacts = allContacts.slice(5)
+    const otherContacts = allContacts.slice(5).filter(contact => contacts.includes(contact) === false);
     const randContact = otherContacts[Math.floor(Math.random() * otherContacts.length)]
-    return setContacts([randContact, ...contacts])
+    setContacts([randContact, ...contacts])
   }
 
   function sortByName() {
-    setContacts([...contacts].sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)))
+    setContacts([...contacts].sort((a,b) => (a.name > b.name) ? 1 : (b.name > a.name) ? -1 : 0))
   }
 
   function sortByPopularity() {
