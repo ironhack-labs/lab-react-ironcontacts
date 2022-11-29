@@ -1,0 +1,1 @@
+import contacts from './../contacts.json'
