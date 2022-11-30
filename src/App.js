@@ -16,6 +16,8 @@ function App() {
     const randomElement  = contacts[Math.floor(Math.random() * contacts.length)];
     const listContacts   = [...contact, randomElement]; // Pass the updated list 
     setContacts(listContacts);
+    contacts.splice(randomElement, 1);
+
   }
 
   /* --------- Sort contacts by name ------------ */
