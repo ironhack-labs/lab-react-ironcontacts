@@ -33,7 +33,7 @@ const deletedContacts = [...data].filter(contact => contact.id !== id);
       <button onClick={sortByName}>Sort by name</button>
       <button onClick={sortByPopularity}>Sort by popularity</button> 
       <table>
-
+  <thead>
         <tr>
           <th>Picture</th>
           <th>Name</th>
@@ -42,7 +42,8 @@ const deletedContacts = [...data].filter(contact => contact.id !== id);
           <th>Won an Emmy</th>
           <th>Actions</th>
         </tr>
-  
+        </thead>
+    <tbody>
       {data.map((Data) => (
           <tr key={Data._id}>
             <td><img src={Data.pictureUrl} alt="profilepic" /></td>
@@ -50,10 +51,12 @@ const deletedContacts = [...data].filter(contact => contact.id !== id);
             <td>{Data.popularity.toFixed(2)}</td>
             <td>{Data.wonOscar && <p>🏆</p>}</td>
             <td>{Data.wonEmmy && <p>🏆</p>}</td>
-            <td><button onClick={()=> {deleteContact(Data.id)}}>Delete</button></td>          
+            <td>
+              <button onClick={()=> {deleteContact(Data.id)}}>Delete</button>
+              </td>          
           </tr>
      ))}
- 
+ </tbody>
      </table>
      </div>
   );
