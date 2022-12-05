@@ -1,6 +1,5 @@
 import './App.css'
 import contactsDB from './contacts.json'
-import DbSearch from './dbSearch'
 import {useState} from 'react';
 
 function App() {
