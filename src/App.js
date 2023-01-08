@@ -16,6 +16,7 @@ function App() {
   const [contactsList, setContacts] = useState(fiveContacts);
 
   let randomContact = restOfContacts[Math.floor(Math.random() * restOfContacts.length)]
+
   
   let addRandomContact = () =>{
     setContacts([randomContact, ...contactsList])
@@ -35,6 +36,8 @@ let sortByPopularity = () => {
   setContacts(sortByPop)
 }
 
+
+
   return <div className="App">
      <button onClick={() => addRandomContact()}>Add Random Contact</button> 
      <button onClick={() => sortByName()}>Sort Contacts by Name</button> 
@@ -48,6 +51,7 @@ let sortByPopularity = () => {
       <th>Popularity</th>
       <th>Won Oscar?</th>
       <th>Won Emmy?</th>
+      <th>Delete?</th>
     </tr>
   </thead>
   <tbody>
@@ -60,6 +64,7 @@ let sortByPopularity = () => {
       <td>{e.popularity.toFixed(2)}</td>
       <td>{e.wonOscar ?  '🏆' : '' } </td>  {/* using ternary operator */}
       <td>{e.wonEmmy && '🏆' }</td> {/*  using && operator */}
+      {/* <td><button onClick={() => deleteContact(contacts.id)}>Delete</button></td> */}
     </tr> )
    })}
   </tbody>
