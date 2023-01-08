@@ -36,7 +36,13 @@ let sortByPopularity = () => {
   setContacts(sortByPop)
 }
 
+let deleteContact = (id) => {
+  const filteredContacts = contactsList.filter(contact => {
+    return contact.id !== id;
+  });
 
+  setContacts(filteredContacts);
+};
 
   return <div className="App">
      <button onClick={() => addRandomContact()}>Add Random Contact</button> 
@@ -64,7 +70,7 @@ let sortByPopularity = () => {
       <td>{e.popularity.toFixed(2)}</td>
       <td>{e.wonOscar ?  '🏆' : '' } </td>  {/* using ternary operator */}
       <td>{e.wonEmmy && '🏆' }</td> {/*  using && operator */}
-      {/* <td><button onClick={() => deleteContact(contacts.id)}>Delete</button></td> */}
+      <td><button onClick={() => deleteContact(e.id)}>Delete</button></td>
     </tr> )
    })}
   </tbody>
