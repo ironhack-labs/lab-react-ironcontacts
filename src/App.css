@@ -28,11 +28,38 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#contactPicture{
+max-width: 300px;
+max-height: 450px;
+}
+
+#table {
+  width: 900px;
+  margin: auto;
+  border: 5px solid red;
+  border-collapse: collapse;
+}
+
+#tableHead {
+  border: 1px solid red;
+ }
+
+ #tableBody {
+  border: 1px solid red;
+ }
+
+ .columns{
+  border: 1px solid red;
+ }
+
+ .rows{
+  border: 1px solid red;
+ }
+ 
+.button{
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-top: 20px;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
 }

@@ -45,32 +45,32 @@ let deleteContact = (id) => {
 };
 
   return <div className="App">
-     <button onClick={() => addRandomContact()}>Add Random Contact</button> 
-     <button onClick={() => sortByName()}>Sort Contacts by Name</button> 
-     <button onClick={() => sortByPopularity()}>Sort Contacts by Popularity</button>
+     <button onClick={() => addRandomContact()} className="button">Add Random Contact</button> 
+     <button onClick={() => sortByName()} className="button">Sort Contacts by Name</button> 
+     <button onClick={() => sortByPopularity()} className="button">Sort Contacts by Popularity</button>
     <p>
-    <table>
-  <thead>
+    <table id="table">
+  <thead id="tableHead">
     <tr>
-      <th>Picture</th>
-      <th>Name</th>
-      <th>Popularity</th>
-      <th>Won Oscar?</th>
-      <th>Won Emmy?</th>
-      <th>Delete?</th>
+      <th className="columns">Picture</th>
+      <th className="columns">Name</th>
+      <th className="columns">Popularity</th>
+      <th className="columns">Won Oscar?</th>
+      <th className="columns">Won Emmy?</th>
+      <th className="columns">Delete?</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="tableBody">
     {contactsList.map((e) =>{
 
       return (
     <tr key= {e.id} >
-      <td><img src={e.pictureUrl} alt="celeb pic" /></td>
-      <td>{e.name}</td>
-      <td>{e.popularity.toFixed(2)}</td>
-      <td>{e.wonOscar ?  '🏆' : '' } </td>  {/* using ternary operator */}
-      <td>{e.wonEmmy && '🏆' }</td> {/*  using && operator */}
-      <td><button onClick={() => deleteContact(e.id)}>Delete</button></td>
+      <td className="rows"><img src={e.pictureUrl} alt="celeb pic" id="contactPicture" /></td>
+      <td className="rows">{e.name}</td>
+      <td className="rows">{e.popularity.toFixed(2)}</td>
+      <td className="rows">{e.wonOscar ?  '🏆' : '' } </td>  {/* using ternary operator */}
+      <td className="rows">{e.wonEmmy && '🏆' }</td> {/*  using && operator */}
+      <td className="rows"><button onClick={() => deleteContact(e.id)}>Delete</button></td>
     </tr> )
    })}
   </tbody>
