@@ -4,16 +4,21 @@ import { useState } from 'react';
 
 import contacts from './contacts.json'
 
-let fiveContacts = contacts.slice(0,5)
 
-let restOfContacts= contacts.slice(5,contacts.length)
+
 
 function App() {
 
+  let fiveContacts = contacts.slice(0,5)
+
+  let restOfContacts= contacts.slice(5,contacts.length)
+
   const [contactsList, setContacts] = useState(fiveContacts);
+
+  let randomContact = restOfContacts[Math.floor(Math.random() * restOfContacts.length)]
   
   let addRandomContact = () =>{
-    setContacts(fiveContacts.push(restOfContacts[Math.floor(Math.random() * restOfContacts.length)]))
+    setContacts([randomContact, ...contactsList])
   }
 
 
@@ -31,7 +36,7 @@ function App() {
     </tr>
   </thead>
   <tbody>
-    {fiveContacts.map((e) =>{
+    {contactsList.map((e) =>{
 
       return (
     <tr key= {e.id} >
