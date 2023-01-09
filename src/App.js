@@ -51,6 +51,14 @@ function App() {
     setContacts(sortedContacts);
   };
 
+  //remove contact
+  const removeContact = (id) => {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== id;
+    });
+    setContacts(filteredContacts);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -65,6 +73,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
           {contacts.map((contact) => {
             return (
@@ -76,6 +85,15 @@ function App() {
                 <td>{(Math.ceil(contact.popularity) / 2).toFixed(2)}</td>
                 <td>{contact.wonOscar ? "🏆" : ""}</td>
                 <td>{contact.wonEmmy ? "🏆" : ""}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      removeContact(contact.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
