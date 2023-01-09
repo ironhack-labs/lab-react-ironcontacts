@@ -20,15 +20,43 @@ function App() {
     // New Contact
     let newContact = unListedContacts.splice(randomContactIndex, 1);
 
-    console.log(contacts);
-    console.log(newContact[0]);
     setContacts([...contacts, newContact[0]]);
+  };
+
+  //sort by alphabetically
+  const sortAlphabetically = () => {
+    const sortedContacts = [
+      ...contacts.sort((a, b) => {
+        const contactA = a.name.toUpperCase();
+        const contactB = b.name.toUpperCase();
+        if (contactA < contactB) {
+          return -1;
+        }
+        if (contactA > contactB) {
+          return 1;
+        }
+        return 0;
+      }),
+    ];
+    setContacts(sortedContacts);
+  };
+
+  //sort by popularity
+  const sortPopularity = () => {
+    const sortedContacts = [
+      ...contacts.sort((a, b) => {
+        return b.popularity - a.popularity;
+      }),
+    ];
+    setContacts(sortedContacts);
   };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortPopularity}>Sort by popularity</button>
+      <button onClick={sortAlphabetically}>Sort by name</button>
       <table>
         <tbody>
           <tr>
