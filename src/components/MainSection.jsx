@@ -15,6 +15,8 @@ function MainSection() {
               name={contact.name}
               pictureUrl={contact.pictureUrl}
               popularity={contact.popularity}
+              wonOscar={contact.wonOscar && <p>Got the Oscar Award! </p>}
+              wonEmmy={contact.wonOscar && <p>Got the Emy Award! </p>}
             />
           );
         })}

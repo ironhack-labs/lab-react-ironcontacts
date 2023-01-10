@@ -6,6 +6,8 @@ function ContactCard(props) {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won an Oscar</th>
+          <th>Won an Emmy</th>
         </tr>
         <tr>
           <td>
@@ -13,6 +15,8 @@ function ContactCard(props) {
           </td>
           <td>{props.name}</td>
           <td>{props.popularity}</td>
+          <td>{props.wonOscar}</td>
+          <td>{props.wonEmmy}</td>
         </tr>
       </table>
     </div>
