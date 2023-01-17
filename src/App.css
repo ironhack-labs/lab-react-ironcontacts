@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.table{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.table th{
+  background-color: rgba(128, 128, 128, 0.24);
+  padding: 10px 20px;
+}
+
+.table td{
+  background-color: rgba(128, 128, 128, 0.068);
+  padding: 30px 50px 30px 50px;
+  /*padding: top, right, bottom, left */
+}
+
+
+.img{
+  width: 100px;
+  height: 150px;
+}
+
+.buttons-div{
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: blanchedalmond;
+}
