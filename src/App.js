@@ -6,11 +6,12 @@ function App() {
 	const firstFive = contactsFromJSON.slice(0, 5);
 
 	const [contacts, setContacts] = useState(firstFive);
+	const [search, setSearch] = useState('')
 
-
+	const filter = contacts.filter(contact => contact.name.toLowerCase().includes(search.toLowerCase()))
+	
 	const addRandom = () => {
 		if (contacts.length === contactsFromJSON.length) {
-			console.log('reached the end of list');
 			return;
 		}
 
@@ -22,39 +23,38 @@ function App() {
 	};
 
 	const sortBy = (order, type) => {
-		let copy = [...contacts];
-
-		const sorts = {
-			name: 
-			{
-				asc() {
-					copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+		setContacts(prevContacts => {
+			let copy = [...prevContacts];
+	
+			const sorts = {
+				name: 
+				{
+					asc() {
+						copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+					},
+					des() {
+						copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()));
+					}
 				},
-				des() {
-					copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()));
-				}
-			},
-			pop: 
-			{
-				asc(){
-					copy.sort((a, b) => a.popularity - b.popularity);
-				},
-				des(){
-					copy.sort((a, b) => b.popularity - a.popularity);
+				pop: 
+				{
+					asc(){
+						copy.sort((a, b) => a.popularity - b.popularity);
+					},
+					des(){
+						copy.sort((a, b) => b.popularity - a.popularity);
+					}
 				}
 			}
-		}
+	
+			sorts[type][order]()
 
-		sorts[type][order]()
-
-		setContacts(copy);
+			return copy
+		})
 	};
 
-
   const deleteContact = (id) => {
-    const copy = contacts.filter(contact => contact.id !== id)
-
-    setContacts(copy)
+		setContacts(prevContacts => prevContacts.filter(contact => contact.id !== id))
   }
 
 	return (
@@ -69,7 +69,11 @@ function App() {
 				<button onClick={() => sortBy('des', 'pop')}> Sort by Descending popularity </button>
 			</div>
 
-			<p> Number of celebrities contacts: { contacts.length } </p>
+			<p> Number of celebrities contacts: { contacts.length } { contacts.length === 52 && ' - Hey! Already added every contact' } </p>
+
+			<input type='text'  onChange={e => setSearch(e.target.value)} />
+
+			{ search.length >= 1 && filter.map(contact => <span> { contact.name } </span>) }
 
 			<table>
 				<thead>
