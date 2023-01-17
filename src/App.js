@@ -6,12 +6,33 @@ const displayedContacts = copy.splice(0, 5);
 const remainingContacts = copy;
 function App() {
   const [contact, setContact] = useState(displayedContacts);
-  function addContact() {
+  function AddContact() {
     const randomIndex = Math.floor(Math.random() * remainingContacts.length);
     const randomContact = remainingContacts.splice(randomIndex, 1)[0];
     if (remainingContacts.length > 0) {
       setContact([...contact, randomContact]);
     }
+  }
+
+  function SortByName() {
+    setContact([...contact].sort((a, b) => a.name.localeCompare(b.name)));
+  }
+
+  function SortByPopularity() {
+    setContact(
+      [...contact].sort(
+        (b, a) => Math.floor(a.popularity) - Math.floor(b.popularity)
+      )
+    );
+  }
+
+  const DeleteContact = (idOfTheContactToDelete) => {
+
+    const newListOfContacts = contact.filter( (contact) => {
+      return contact.id !== idOfTheContactToDelete;
+    });
+
+    setContact(newListOfContacts);
   }
 
   return (
@@ -28,8 +49,11 @@ function App() {
                 </td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
-                {!wonOscar && <td>NO</td>}
-                {!wonEmmy && <td>NO</td>}
+                {wonOscar && <td>🏆</td>}
+                {wonEmmy && <td>🏆</td>}
+                <td>
+                <button onClick={() => {DeleteContact(contact.id)}}>Delete this contact</button>
+                </td>
               </tr>
             );
           })}
@@ -37,13 +61,25 @@ function App() {
       </table>
       <button
         onClick={() => {
-          addContact();
+          AddContact();
         }}
       >
         Add Random Contact
       </button>
-      <button>Sort by Name</button>
-      <button>Sort by Popularity</button>
+      <button
+        onClick={() => {
+          SortByName();
+        }}
+      >
+        Sort by Name
+      </button>
+      <button
+        onClick={() => {
+          SortByPopularity();
+        }}
+      >
+        Sort by Popularity
+      </button>
     </div>
   );
 }
