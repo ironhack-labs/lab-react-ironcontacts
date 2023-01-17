@@ -65,32 +65,33 @@ function App() {
   return (
   <div className="App">
       <h1>IronContacts</h1>
-        <button onClick={addNewContacts} >Add Random Contact</button>
-        <button onClick={sortByPopularity} >Sort by popularity</button>
-        <button onClick={sortByName} >Sort by name</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won an Oscar</th>
-            <th>Won an Emmy</th>
-            <th></th>
+        <button className=" buttonTop" onClick={addNewContacts} >Add Random Contact</button>
+        <button className=" buttonTop" onClick={sortByPopularity} >Sort by popularity</button>
+        <button className=" buttonTop" onClick={sortByName} >Sort by name</button>
+      <table className="contactTable">
+        <thead className="contactDetails">
+          <tr className="theader">
+            <th className="td">Picture</th>
+            <th className="td">Name</th>
+            <th className="td">Popularity</th>
+            <th className="td">Won an Oscar</th>
+            <th className="td">Won an Emmy</th>
+            <th className="td"></th>
           </tr>
         </thead>
         <tbody>
           {contactsExsistArr.map((contact) => {
             return (
-              <tr key={contact.id}>
-                <td><img src={contact.pictureUrl} alt="" /></td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity}</td>
-                <td>{(contact.wonOscar) ? "🏆" : null}</td>
-                <td>{(contact.wonEmmy) ? "🏆" : null}</td>
-                <td><button onClick={() => deletContact(contact.id)}>Delete this Contact</button></td>
-              </tr>
-
+              <div className="contactDetails">
+                <tr className="theader" key={contact.id}>
+                  <td className="td"><img src={contact.pictureUrl} alt="" /></td>
+                  <td className="td">{contact.name}</td>
+                  <td className="td">{contact.popularity.toFixed(2)}</td>
+                  <td className="td">{(contact.wonOscar) ? "🏆" : null}</td>
+                  <td className="td">{(contact.wonEmmy) ? ":star2" : null}</td>
+                  <td className="td"><button className=" button" onClick={() => deletContact(contact.id)}>Delete</button></td>
+                </tr>
+              </div>
             )
           })}
         </tbody>
