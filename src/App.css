@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: blanchedalmond;
 }
 
 .App-logo {
@@ -35,4 +36,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Main .card {
+  max-width: 80%;
+  margin: 1rem auto;
+  border: 1px solid #666;
+  box-shadow: 5px 5px 10px -5px;
+  transition: 0.4s;
+}
+
+.Main .card:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
+  background-color: #666;
+}
+
+.Main .badge {
+  background-color: rgb(154, 160, 154);
+  color: #fff;
+  border-radius: 4px;
+  width: inline-block;
 }
