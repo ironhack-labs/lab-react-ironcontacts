@@ -7,19 +7,23 @@ const firstFive = contactsFromJSON.slice(0, 5);
 
 function App() {
   return (
+
     <div className="App">
+
+      <button>Add Random Contact</button>
+
       {firstFive.map((contactObj) => {
         return (
-          <table>
+          <table key={contactObj.id}>
             <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
             </tr>
             <tr>
-              <th>{contactObj.pictureUrl}</th>
-              <th>{contactObj.name}</th>
-              <th>{contactObj.popularity}</th>
+              <td>{contactObj.pictureUrl}</td>
+              <td>{contactObj.name}</td>
+              <td>{contactObj.popularity}</td>
             </tr>
           </table>
         );
