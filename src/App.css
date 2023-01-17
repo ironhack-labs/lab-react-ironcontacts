@@ -1,12 +1,82 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+
+}
+.Navbar{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+ 
+ 
+}
+.Navbar button{
+ 
+  margin: 10px;
+  padding: 15px;
+  font-size: 12px;
+  width:200px;
+  height:50px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6
 }
 
+
+h1{
+  color: rgb(37, 30, 4);
+}
 .Contact-table img{
   width: 186px;
   height:200px ;
 }
-th{
-  font-size: large;
-  font-weight: bold;
+.container{
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+background-color: blanchedalmond;
+  
+}
+table {
+  border-collapse: collapse;
+
+ 
+}
+
+th, td {
+ 
+  padding: 8px;
+  text-align: left;
+ 
+}
+
+th { 
+  background-color: #dddddd;
+ 
+}
+tr{
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .Navbar button {
+    font-size: 16px;
+  }
+}
+.delete-btn{
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6;
+  background-color: rgb(225, 58, 58);
+  color: #dddddd;
+  width: 150px;
+  height: 50px;
+  
 }
