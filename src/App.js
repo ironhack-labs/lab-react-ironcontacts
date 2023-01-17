@@ -14,6 +14,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +25,8 @@ function App() {
                 <td><img src={contactDetails.pictureUrl} alt="" /></td>
                 <td>{contactDetails.name}</td>
                 <td>{contactDetails.popularity}</td>
+                <td>{contactDetails.wonOscar? "🏆":""}</td>
+                <td>{contactDetails.wonEmmy? "🏆":""}</td>
               </tr>
             )
           })}
