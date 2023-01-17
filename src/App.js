@@ -5,17 +5,29 @@ import { useState } from "react";
 function App() {
   //iteration 1
 
-  const [contacts, setContacts] = useState(contactsFromJSON);
+  const [contacts, setContacts] = useState(contactsFromJSON.slice(0, 5));
 
-  const firstFive = contacts.slice(0, 5);
+  // const contacts = contacts;
 
   //iteration 3
 
   const addRandom = () => {
-    const randomIndex = Math.floor(Math.random() * contacts.length);
-    const randomContact = contacts[randomIndex];
-    firstFive.push(randomContact);
+    const arrCopy = [...contacts];
+    const randomIndex = Math.floor(Math.random() * contactsFromJSON.length);
+    const randomContact = contactsFromJSON[randomIndex];
+    arrCopy.push(randomContact);
+    setContacts(arrCopy);
   };
+
+  //iteration 5
+
+  const deleteContact = (contactObj) => {
+    const arrCopy = [...contacts];
+    const newArr = arrCopy.filter((actor) => {
+      return actor.id !== contactObj;
+    });
+    setContacts(newArr);
+  }
 
   return (
     <div className="App">
@@ -29,23 +41,27 @@ function App() {
       </button>
       <button
         onClick={() => {
-          firstFive.sort(function (a, b) {
+          const arrCopy = [...contacts];
+          arrCopy.sort(function (a, b) {
             return a.name.localeCompare(b.name);
           });
+          return arrCopy;
         }}
       >
         Sort by Name
       </button>
       <button
         onClick={() => {
-          let sortedByPop = Object.keys(firstFive).sort(function (a, b) {
-            return firstFive[a] - firstFive[b];
-          })
+          const arrCopy = [...contacts];
+          let sortedByPop = Object.keys(arrCopy).sort(function (a, b) {
+            return arrCopy[a] - arrCopy[b];
+          });
+          return arrCopy;
         }}
       >
         Sort by Popularity
       </button>
-      {firstFive.map((contactObj) => {
+      {contactsFromJSON.map((contactObj) => {
         return (
           <table key={contactObj.id} className="table">
             <tr>
@@ -63,6 +79,13 @@ function App() {
               <td>{contactObj.popularity}</td>
               <td>{contactObj.wonOscar === true && <p>🏆</p>}</td>
               <td>{contactObj.wonEmmy === true && <p>🏆</p>}</td>
+              <td>
+                <button
+                  onClick={() => {deleteContact(contactObj)}}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           </table>
         );
