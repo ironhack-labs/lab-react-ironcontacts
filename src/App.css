@@ -1,7 +1,92 @@
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
 .contact-img {
-  max-width: 10vw;
+  max-width: 9vw;
+  border-radius: 0.5rem;
+  border: 2px solid #045685;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.styled-table {
+  position: relative;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(4, 86, 133, 0.6);
+  max-height: 100vh;
+}
+
+
+.styled-table thead tr {
+  background-color: #045685;
+  color: #ffffff;
+  text-align: left;
+  border-radius: 0.5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #045685;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #045685;
+}
+
+.btn {
+  background-image: linear-gradient(#444444, #2b2b2b);
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: .9em;
+  margin: 5px 0;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+.btn.delete:hover {
+  color: #fff;
+  background-image: linear-gradient(#d30505, #850404);
+}
+
+.btn:hover {
+  color: #fff;
+  background-image: linear-gradient(#05b1d3, #045685);
+}
+
+
+h1 {
+  margin: 0;
+  font-size: 6rem;
+  background: linear-gradient(to right, #05b1d3, #2b4d8d, #033356);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }

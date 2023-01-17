@@ -47,22 +47,28 @@ function App() {
 
   return (
     <div className="App">
+      <h1>
+        <span>Iron</span>
+        <span>Contacts</span>
+	    </h1>
       {/* Iteration 3 */}
       <button onClick={addRandomContact} className="btn">Add Random Contact</button>
       {/* Iteration 4 */}
       <button onClick={sortAlphabetically} className="btn">Sort by Name</button>
       <button onClick={sortPopularity} className="btn">Sort by Popularity</button>
       {/* Iteration 1 */}
-      <table>
+      <div align="center">
+      <table className="styled-table">
         <thead>
           <tr>
-            <th>Picture</th>
+            <th></th>
             <th>Name</th>
             <th>Popularity</th>
             {/* Iteration 2 */}
-            <th>Won an Oscar</th>
-            <th>Won an Emmy</th>
+            <th align='center'>Won an Oscar</th>
+            <th align='center'>Won an Emmy</th>
             {/* Iteration 5 */}
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -76,28 +82,28 @@ function App() {
                   }
                 </td>
                 <td>{contact.name}</td>
-                <td>{contact.popularity}</td>
+                <td align='center'>{(Math.ceil(contact.popularity) / 2).toFixed(2)}</td>
                 {/* Iteration 2 */}
-                <td>
+                <td align='center'>
                   {contact.wonOscar
                   ? '🏆'
                   : ''
                   }
                 </td>
-                <td>
+                <td align='center'>
                   {contact.wonEmmy
                   ? '🏆'
                   : ''
                   }
                 </td>
                 {/* Iteration 5 */}
-                <td><button onClick={() => {deleteContact(contact.id)}}>Remove</button></td>
+                <td><button onClick={() => {deleteContact(contact.id)}} className="btn delete">Remove</button></td>
               </tr>
             )
           })}
         </tbody>
       </table>
-
+      </div>    
     </div>
   );
 }
