@@ -8,50 +8,49 @@ function App() {
 
 	const [contacts, setContacts] = useState(firstFive);
 
+
 	const addRandom = () => {
-		const randomIndex = Math.floor(Math.random() * contactsFromJSON.length);
-
 		if (contacts.length === contactsFromJSON.length) {
-      console.log('reached the end of list')
+			console.log('reached the end of list');
 			return;
 		}
 
-		if (contacts.indexOf(contactsFromJSON[randomIndex]) === -1) {
-			setContacts([...contacts, contactsFromJSON[randomIndex]]);
-			return;
-		}
+		let remaining = contactsFromJSON.filter(contact => !contacts.find(element => element.id === contact.id));
 
-		addRandom();
+		const randomIndex = Math.floor(Math.random() * remaining.length);
+
+		setContacts(prevContacts => [...prevContacts, remaining[randomIndex]]);
 	};
 
-	const sortByName = (order) => {
+	const sortBy = (order, type) => {
 		let copy = [...contacts];
 
-    if (order === 'asc'){
-		  copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()));
-    }
+		const sorts = {
+			name: 
+			{
+				asc() {
+					copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()));
+				},
+				des() {
+					copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLocaleLowerCase()));
+				}
+			},
+			pop: 
+			{
+				asc(){
+					copy.sort((a, b) => a.popularity - b.popularity);
+				},
+				des(){
+					copy.sort((a, b) => b.popularity - a.popularity);
+				}
+			}
+		}
 
-    if (order === 'des'){
-		  copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLocaleLowerCase()));
-    }
+		sorts[type][order]()
 
 		setContacts(copy);
 	};
 
-	const sortByPop = (order) => {
-		let copy = [...contacts];
-
-
-    if (order === 'asc'){
-      copy.sort((a, b) => a.popularity - b.popularity);
-    }
-
-    if (order === 'des'){
-      copy.sort((a, b) => b.popularity - a.popularity);
-    }
-
-		setContacts(copy);
-	};
 
   const deleteContact = (id) => {
     const copy = contacts.filter(contact => contact.id !== id)
@@ -65,10 +64,10 @@ function App() {
 
 			<div className='btn-group'>
 				<button onClick={() => addRandom()}> Add Random Contact </button>
-				<button onClick={() => sortByName('asc')}> Sort A - Z </button>
-				<button onClick={() => sortByName('des')}> Sort Z - A </button>
-				<button onClick={() => sortByPop('asc')}> Sort by Ascending popularity </button>
-				<button onClick={() => sortByPop('des')}> Sort by Descending popularity </button>
+				<button onClick={() => sortBy('asc', 'name')}> Sort A - Z </button>
+				<button onClick={() => sortBy('des', 'name')}> Sort Z - A </button>
+				<button onClick={() => sortBy('asc', 'pop')}> Sort by Ascending popularity </button>
+				<button onClick={() => sortBy('des', 'pop')}> Sort by Descending popularity </button>
 			</div>
 
 			<table>
