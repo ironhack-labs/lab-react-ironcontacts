@@ -8,15 +8,45 @@ function App() {
   //console.log(firstFive);
 
 const addContact = () =>{
-  const item = contactsFromJson[Math.floor(Math.random()*contactsFromJson.length)];
- // console.log(item);
-  const newList = [...listOfContacts];
-  
-  newList.push(item);
- // console.log(newList);
-  setListOfContacts(newList);
+
+
+const newList = contactsFromJson.filter((contact)=>{
+return !listOfContacts.includes(contact)
+})
+const item = newList[Math.floor(Math.random()*newList.length)];
+
+const newContact = [...listOfContacts];
+newContact.push(item);
+
+setListOfContacts(newContact);
+
+
+ 
+}
+///////////////// Sort by Name ///////////////////////
+
+const sortByName = () =>{
+const copyOfContacts = [...listOfContacts];
+copyOfContacts.sort((a, b) => a.name.localeCompare(b.name));
+setListOfContacts(copyOfContacts);
+
 }
 
+////////////////// SOrt by pop /////////////////////////////
+const sortByPop = () =>{
+  const copyPop = [...listOfContacts];
+  copyPop.sort((a, b)=> b.popularity-a.popularity);
+ setListOfContacts(copyPop);
+}
+/////////////// Delete Contact /////////////////////////////
+
+const deleteContact = (id) => {
+
+  const newListOfContacts = listOfContacts.filter((contact) => {
+    return contact.id !== id;
+  });
+  setListOfContacts(newListOfContacts);
+ };
 
   return (
     <div className="App">
@@ -24,6 +54,12 @@ const addContact = () =>{
 
       <div>
         <button onClick={addContact} >Add Contact</button>
+      </div>
+      <div>
+        <button onClick={sortByName} >Sort By name</button>
+      </div>
+      <div>
+        <button onClick={sortByPop} >Sort By Popularity</button>
       </div>
 
       <table>
@@ -45,7 +81,9 @@ const addContact = () =>{
                 <td> {contactDetails.popularity}</td>
                 <td>{ contactDetails.wonOscar && '🏆' }</td>
                 <td>{ contactDetails.wonEmmy && '🏆' }</td>
-               
+                <td><button onClick={() => {
+                deleteContact(contactDetails.id);
+              }}>Delete</button></td>
               </tr>
             </table>
           </div>
