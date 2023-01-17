@@ -5,7 +5,7 @@ import getContacts from './contacts.json';
 function App() {
   // Iteration 1
   const fiveContacts = getContacts.slice(0,5);
-  //console.log(fiveContacts);
+  console.log(fiveContacts);
   const [contacts, setContacts] = useState(fiveContacts);
   // Iteration 3
   const remainingContacts = getContacts.slice(5, getContacts.length);
@@ -35,6 +35,15 @@ function App() {
     })];
     setContacts(sortedPopularity);
   }
+  // Iteration 5
+  const deleteContact = (id) => {
+    console.log('Delete Contact', id);
+    const filteredContacts = contacts.filter( (contact) => {
+        return contact.id !== id;
+    });
+    // Update State
+    setContacts(filteredContacts);
+}
 
   return (
     <div className="App">
@@ -53,6 +62,7 @@ function App() {
             {/* Iteration 2 */}
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            {/* Iteration 5 */}
           </tr>
         </thead>
         <tbody>
@@ -80,6 +90,8 @@ function App() {
                   : ''
                   }
                 </td>
+                {/* Iteration 5 */}
+                <td><button onClick={() => {deleteContact(contact.id)}}>Remove</button></td>
               </tr>
             )
           })}
