@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import contactsFromJSON from './contacts.json';
 import React, { useState } from 'react';
@@ -29,10 +28,10 @@ function App() {
 			name: 
 			{
 				asc() {
-					copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()));
+					copy.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 				},
 				des() {
-					copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLocaleLowerCase()));
+					copy.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()));
 				}
 			},
 			pop: 
@@ -69,6 +68,8 @@ function App() {
 				<button onClick={() => sortBy('asc', 'pop')}> Sort by Ascending popularity </button>
 				<button onClick={() => sortBy('des', 'pop')}> Sort by Descending popularity </button>
 			</div>
+
+			<p> Number of celebrities contacts: { contacts.length } </p>
 
 			<table>
 				<thead>
