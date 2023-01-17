@@ -35,11 +35,15 @@ function App() {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Won an Oscar</th>
+              <th>Won an Emmy</th>
             </tr>
             <tr>
               <td>{contactObj.pictureUrl}</td>
               <td>{contactObj.name}</td>
               <td>{contactObj.popularity}</td>
+              <td>{contactObj.wonOscar === true && <p>🏆</p>}</td>
+              <td>{contactObj.wonEmmy === true && <p>🏆</p>}</td>
             </tr>
           </table>
         );
