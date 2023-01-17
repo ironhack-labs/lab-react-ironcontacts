@@ -14,15 +14,35 @@ function App() {
   const addRandomContact = () => {
     let randomRemainingContacts = Math.floor(Math.random() * remainingContacts.length);
     let getRandomContact = remainingContacts.splice(randomRemainingContacts, 1);
-    console.log(randomRemainingContacts);
-    console.log(getRandomContact[0]);
+    //console.log(randomRemainingContacts);
+    //console.log(getRandomContact[0]);
     setContacts([...contacts, getRandomContact[0]]);
+  }
+  // Iteration 4
+  // Sort by Name Alphabetically
+  const sortAlphabetically = () => {
+    const sortedAlphabetically = [...contacts.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+      if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+      return 0;
+    })];
+    setContacts(sortedAlphabetically);
+  }
+  // Sort by Popularity
+  const sortPopularity = () => {
+    const sortedPopularity = [...contacts.sort((a, b) => {
+      return b.popularity - a.popularity;
+    })];
+    setContacts(sortedPopularity);
   }
 
   return (
     <div className="App">
       {/* Iteration 3 */}
       <button onClick={addRandomContact} className="btn">Add Random Contact</button>
+      {/* Iteration 4 */}
+      <button onClick={sortAlphabetically} className="btn">Sort by Name</button>
+      <button onClick={sortPopularity} className="btn">Sort by Popularity</button>
       {/* Iteration 1 */}
       <table>
         <thead>
