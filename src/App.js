@@ -39,7 +39,7 @@ function App() {
               <th>Won an Emmy</th>
             </tr>
             <tr>
-              <td>{contactObj.pictureUrl}</td>
+              <td><img src={contactObj.pictureUrl}></img></td>
               <td>{contactObj.name}</td>
               <td>{contactObj.popularity}</td>
               <td>{contactObj.wonOscar === true && <p>🏆</p>}</td>
