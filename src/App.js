@@ -13,7 +13,7 @@ function App() {
     let randomIndex = Math.floor(Math.random() * copyData.length)
     let randomContact = copyData[randomIndex];
     const copy = [...contacts]
-    copy.push(randomContact)
+    copy.unshift(randomContact)
     copyData.splice(randomIndex, 1)
     return setContacts(copy)
   }
@@ -21,17 +21,18 @@ function App() {
   const sortByPopularity = () => {
     const copy = [...contacts]
     const sortedArr = copy.sort((a, b) => b.popularity - a.popularity)
-    return setContacts(sortedArr)
+    setContacts(sortedArr)
   }
 
   const sortByName = () => {
     const copy = [...contacts]
-    const sortedArr = copy.sort((a, b) => a.name > b.name ? 1 : -1)
-    return setContacts(sortedArr)
+    const sortedArr = copy.sort((a, b) => a.name.localeCompare(b.name))
+    setContacts(sortedArr)
   }
 
   const deleteContact = (id) => {
-    const newContacts = contacts.filter((contact) => {
+    const copy = [...contacts]
+    const newContacts = copy.filter((contact) => {
       return contact.id !== id;
     });
     setContacts(newContacts);

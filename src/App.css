@@ -17,9 +17,9 @@ th, td {
   width: 200px
 }
 th {
-  background-color: rgb(113, 25, 253);
+  background-color: rgb(255, 0, 179);
   font-size: larger;
-  color: rgb(238, 152, 39);
+  color: white;
 }
 
 img {
