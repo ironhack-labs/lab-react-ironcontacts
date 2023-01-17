@@ -37,29 +37,8 @@ function App() {
 
   return (
     <div className="App">
-      <table>
-        <tbody>
-          {contact.map((contact) => {
-            const wonOscar = contact.wonOscar ? true : false;
-            const wonEmmy = contact.wonEmmy ? true : false;
-            return (
-              <tr key={contact.name}>
-                <td>
-                  <img src={contact.pictureUrl} alt="" />
-                </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity}</td>
-                {wonOscar && <td>🏆</td>}
-                {wonEmmy && <td>🏆</td>}
-                <td>
-                <button onClick={() => {DeleteContact(contact.id)}}>Delete this contact</button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <button
+    <h1>IronContacts</h1>
+        <button
         onClick={() => {
           AddContact();
         }}
@@ -80,6 +59,34 @@ function App() {
       >
         Sort by Popularity
       </button>
+      <table>
+        <td><h2>Picture</h2></td>
+        <td><h2>Name</h2></td>
+        <td><h2>Popularity</h2></td>
+        <td><h2>Won an Oscar</h2></td>
+        <td><h2>Won an Emmy</h2></td>
+        <td><h2>Actions</h2></td>
+        <tbody>
+          {contact.map((contact) => {
+            const wonOscar = contact.wonOscar ? true : false;
+            const wonEmmy = contact.wonEmmy ? true : false;
+            return (
+              <tr key={contact.name}>
+                <td>
+                  <img src={contact.pictureUrl} alt="" />
+                </td>
+                <td><h3>{contact.name}</h3></td>
+                <td><h3>{contact.popularity}</h3></td>
+                <td><h3>{wonOscar ? '🏆' : ''}</h3></td>
+                <td><h3>{wonEmmy ? '🌟':  ''}</h3></td>
+                <td>
+                <button className='delete' onClick={() => {DeleteContact(contact.id)}}>Delete this contact</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
