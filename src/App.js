@@ -3,7 +3,6 @@ import contactsFromJSON from "./contacts.json";
 import { useState } from "react";
 
 function App() {
-
   //iteration 1
 
   const [contacts, setContacts] = useState(contactsFromJSON);
@@ -28,9 +27,27 @@ function App() {
       >
         Add Random Contact
       </button>
+      <button
+        onClick={() => {
+          firstFive.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+          });
+        }}
+      >
+        Sort by Name
+      </button>
+      <button
+        onClick={() => {
+          let sortedByPop = Object.keys(firstFive).sort(function (a, b) {
+            return firstFive[a] - firstFive[b];
+          })
+        }}
+      >
+        Sort by Popularity
+      </button>
       {firstFive.map((contactObj) => {
         return (
-          <table key={contactObj.id}>
+          <table key={contactObj.id} className="table">
             <tr>
               <th>Picture</th>
               <th>Name</th>
@@ -39,7 +56,9 @@ function App() {
               <th>Won an Emmy</th>
             </tr>
             <tr>
-              <td><img src={contactObj.pictureUrl}></img></td>
+              <td>
+                <img src={contactObj.pictureUrl} />
+              </td>
               <td>{contactObj.name}</td>
               <td>{contactObj.popularity}</td>
               <td>{contactObj.wonOscar === true && <p>🏆</p>}</td>
