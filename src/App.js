@@ -1,12 +1,36 @@
+import { useState } from 'react';
 import './App.css';
 import contactsFromJSON from "./contacts.json"
 
 function App() {
-  const contacts = contactsFromJSON.splice(0, 5);
-  console.log(contacts);
+  const contacts = contactsFromJSON.slice(0, 5);
+  
+  const [contactArr, setContactArr] = useState(contacts);
+
+  
+  let newListOfContact = contactArr;
+  let randomNumberArr = [];
+  const newRandomContact = () => {
+    console.log(newListOfContact);
+    
+    let randomNumber = Math.floor(Math.random()*(contactsFromJSON.length - 4) + 5);
+    randomNumber = Number(randomNumber);
+
+    newListOfContact.push(contactsFromJSON[randomNumber])
+    setContactArr([...contactArr, newListOfContact]);
+
+    if(!randomNumberArr.includes(randomNumber)) {
+      randomNumberArr.push(randomNumber);
+      return randomNumber;
+    }
+    
+  }
+  
   return (
     <div className="App">
       <h1>IronContacts</h1>
+
+      <button onClick={()=>newRandomContact()}>Add Random Contact</button>
 
       <table>
         <thead>
@@ -19,7 +43,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contactDetails) => {
+          {contactArr.map((contactDetails) => {
             return (
               <tr key={contactDetails.id} className="table">
                 <td><img src={contactDetails.pictureUrl} alt="" /></td>
