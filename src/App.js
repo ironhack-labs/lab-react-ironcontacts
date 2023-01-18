@@ -46,34 +46,55 @@ function App() {
     <div className="App">
       <h1>IronContacts</h1>
 
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByPopularity}>Sort by popularity</button>
-      <button onClick={sortByName}>Sort by name</button>
+      <div className="btn-group">
+        <button onClick={addRandomContact}>Add Random Contact</button>
+        <button onClick={sortByPopularity}>Sort by popularity</button>
+        <button onClick={sortByName}>Sort by name</button>
+      </div>
 
       <table>
         <thead>
           <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
-            <th>Actions</th>
+            <th>
+              <b>Picture</b>
+            </th>
+            <th>
+              <b>Name</b>
+            </th>
+            <th>
+              <b>Popularity</b>
+            </th>
+            <th>
+              <b>Won Oscar</b>
+            </th>
+            <th>
+              <b>Won Emmy</b>
+            </th>
+            <th>
+              <b>Actions</b>
+            </th>
           </tr>
         </thead>
         <tbody>
           {contacts.map((contacts) => {
             return (
-              <tr key={contacts.id} className="table">
+              <tr key={contacts.id} className="table-contents">
                 <td>
                   <img src={contacts.pictureUrl} alt={contacts.name} />
                 </td>
-                <td>{contacts.name}</td>
-                <td>{contacts.popularity}</td>
+                <td>
+                  <b>{contacts.name}</b>
+                </td>
+                <td>
+                  <b>{contacts.popularity}</b>
+                </td>
                 <td>{contacts.wonOscar ? "🏆" : ""}</td>
                 <td>{contacts.wonEmmy ? "🏆" : ""}</td>
                 <td>
-                  <button onClick={() => handleDeleteContact(contacts.id)}>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDeleteContact(contacts.id)}
+                  >
                     Delete
                   </button>
                 </td>
