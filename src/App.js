@@ -15,9 +15,11 @@ function App() {
   const addRandomContact = () => {
     let randomRemainingContacts = Math.floor(Math.random() * remainingContacts.length);
     let getRandomContact = remainingContacts.splice(randomRemainingContacts, 1);
-    //console.log(randomRemainingContacts);
+    //console.log(remainingContacts);
     //console.log(getRandomContact[0]);
-    setContacts([getRandomContact[0], ...contacts]);
+    if (remainingContacts.length > 0) {
+      setContacts([getRandomContact[0], ...contacts]);
+    }
   }
   // Iteration 4
   // Sort by Name Alphabetically
