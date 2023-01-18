@@ -32,6 +32,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +53,12 @@ function App() {
                 <td>
                   <p>{contactDetails.popularity}</p>
                 </td>
+                {contactDetails.wonOscar && <td>
+                  <p>🏆</p>
+                </td>}
+                {contactDetails.wonEmmy && <td>
+                  <p>🏆</p>
+                </td>}
               </tr>
             );
           })}
