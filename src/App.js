@@ -5,9 +5,20 @@ import { useState } from "react";
 function App() {
   const [contacts, setContacts] = useState(contactsList.slice(0, 5));
 
+  function addRandomContact() {
+    const newContact =
+      contactsList[Math.floor(Math.random() * contactsList.length)];
+
+    if (!contacts.includes(newContact)) {
+      setContacts([newContact, ...contacts]);
+    }
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+
+      <button onClick={addRandomContact}>Add Random Contact</button>
 
       <table>
         <thead>
