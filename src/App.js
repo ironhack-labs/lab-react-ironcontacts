@@ -2,13 +2,14 @@ import { useState } from 'react';
 import './App.css';
 import getContacts from './contacts.json';
 
+const remainingContacts = getContacts.slice(5, getContacts.length);
+
 function App() {
   // Iteration 1
   const fiveContacts = getContacts.slice(0,5);
   console.log(fiveContacts);
   const [contacts, setContacts] = useState(fiveContacts);
-  // Iteration 3
-  const remainingContacts = getContacts.slice(5, getContacts.length);
+  // Iteration 3 // check for random not getting duplicates and implement
   //console.log(remainingContacts);
 
   const addRandomContact = () => {
@@ -16,7 +17,7 @@ function App() {
     let getRandomContact = remainingContacts.splice(randomRemainingContacts, 1);
     //console.log(randomRemainingContacts);
     //console.log(getRandomContact[0]);
-    setContacts([...contacts, getRandomContact[0]]);
+    setContacts([getRandomContact[0], ...contacts]);
   }
   // Iteration 4
   // Sort by Name Alphabetically
