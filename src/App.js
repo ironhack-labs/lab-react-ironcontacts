@@ -48,6 +48,14 @@ function App() {
     setContactArr(copyOfContactArr);
   }
 
+  const deleteContact = (id) => {
+    const newListOfContact = contactArr.filter((contact) => {
+        return contact.id !== id;
+    })
+
+    setContactArr(newListOfContact);       
+}
+
 
   return (
     <div className="App">
@@ -65,6 +73,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -76,6 +85,7 @@ function App() {
                 <td>{contactDetails.popularity}</td>
                 <td>{contactDetails.wonOscar? "🏆":""}</td>
                 <td>{contactDetails.wonEmmy? "🏆":""}</td>
+                <td><button onClick={() => {deleteContact(contactDetails.id)}}>Deleted</button></td>
               </tr>
             )
           })}
