@@ -23,14 +23,39 @@ function App() {
       randomNumberArr.push(randomNumber);
       return randomNumber;
     }
-    
   }
   
+  const copyOfContactArr = [];
+  contactArr.forEach((elm) => {
+    copyOfContactArr.push(elm)
+  })
+
+  const sortByPopularity = () => {
+    copyOfContactArr.sort((a, b) => b.popularity - a.popularity);
+    setContactArr(copyOfContactArr);
+  }
+
+  const sortByName = () => {
+    copyOfContactArr.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      } else if(a.name < b.name) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    setContactArr(copyOfContactArr);
+  }
+
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
 
       <button onClick={()=>newRandomContact()}>Add Random Contact</button>
+      <button onClick={()=>sortByPopularity()}>Sort by popularity</button>
+      <button onClick={()=>sortByName()}>Sort by name</button>
 
       <table>
         <thead>
