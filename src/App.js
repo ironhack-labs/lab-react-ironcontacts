@@ -15,6 +15,20 @@ function App() {
     //update state
     setContactsArray([...contactsArray, randomContact]);
   };
+  const sortContactsByName = () => {
+    const copyOfContacts = [...contactsArray];
+    copyOfContacts.sort(function(a,b){
+      return a.name.localeCompare(b.name);
+  })
+    setContactsArray(copyOfContacts);
+  }
+  const sortContactsByPopularity = () => {
+    const copyOfContacts = [...contactsArray];
+    copyOfContacts.sort(function(a,b){
+      return b.popularity - a.popularity;
+  })
+    setContactsArray(copyOfContacts);
+  }
 
   return (
     <div className="App">
@@ -25,6 +39,20 @@ function App() {
         }}
       >
         Add Random Contact
+      </button>
+      <button
+        onClick={() => {
+          sortContactsByName();
+        }}
+      >
+        Sort by Name
+      </button>
+      <button
+        onClick={() => {
+          sortContactsByPopularity();
+        }}
+      >
+        Sort by Popularity
       </button>
       <table>
         <thead>
