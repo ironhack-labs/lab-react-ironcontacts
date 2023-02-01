@@ -1,0 +1,1 @@
+export {default as IronContacts} from './IronContacts/IronContacts.jsx'
