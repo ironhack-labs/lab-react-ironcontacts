@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 80px;
 }
 
 .App-logo {
@@ -26,6 +27,36 @@
 
 .App-link {
   color: #61dafb;
+}
+
+img{
+  border-radius: 10px;
+}
+
+.Header{
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 40px 0px;
+  height: 40px;
+  display: flex;
+  padding: 20px;
+  width: 1000px;
+  
+}
+
+button{
+  height: 40px;
+  color: #ffffff;
+  background-color: rgb(19, 49, 117);
+  border-style: none;
+  padding: 0px 20px;
+  border-radius: 8px;
+}
+
+table{
+  margin: auto;
+  width: 1000px;
+  border-spacing: 0px 20px;
 }
 
 @keyframes App-logo-spin {
