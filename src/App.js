@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 import data from "./contacts.json";
+const trophy = "🏆";
 
 function App() {
   const firstFiveContacts = data.slice(0, 5);
@@ -24,6 +25,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won an Oscar</th>
+          <th>Won an Emmy</th>
         </tr>
         {contacts.map((contact) => {
           return (
@@ -33,15 +36,11 @@ function App() {
               </td>
               <td> {contact.name}</td>
               <td>{contact.popularity}</td>
+              <td>{contact.wonOscar && trophy}</td>
+              <td>{contact.wonEmmy && trophy}</td>
             </tr>
           );
         })}
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td></td>
-        </tr>
       </table>
     </div>
   );
