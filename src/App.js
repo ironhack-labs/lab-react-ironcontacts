@@ -72,9 +72,11 @@ return(
   return (
     <div className="App">
       <h1>Iron Contact</h1>
+      <div className="button-container">
       <button onClick={()=>addRandomContact()}> Add Random Contact</button>
       <button onClick={()=>sortPopularity()}> Sort by popularity</button>
       <button onClick={()=>sortName()}> Sort by name</button>
+      </div>
       <table>
         <thead>
           <tr>
