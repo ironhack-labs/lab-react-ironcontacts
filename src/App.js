@@ -1,14 +1,18 @@
-
 import './App.css';
 import contacts from './contacts.json';
 import { useState } from 'react';
 
-
 function App() {
   const [contactArray, setContacts] = useState(contacts.slice(0, 5))
+
+  const addRandomHandler = () => {
+    const randomIndex = Math.floor(Math.random() * contacts.length);
+    setContacts([...contactArray, contacts[randomIndex]])
+  }
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={addRandomHandler}>Add Random Contact</button>
       <table>
         <tr>
           <th>Picture</th>
