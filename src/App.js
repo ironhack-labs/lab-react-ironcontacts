@@ -18,6 +18,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
         </tr>
 
         {contactArray.map((value) => {
@@ -25,6 +27,9 @@ function App() {
             <td><img src={value.pictureUrl} alt="celeb-prof-pic" /></td>
             <td>{value.name}</td>
             <td>{value.popularity}</td>
+            <td>{value.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
+            <td>{value.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
+
           </tr>
         })}
       </table>
