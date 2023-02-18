@@ -19,12 +19,35 @@ function App() {
     setContacts([...contactArray]);
   };
 
+  const sortAlphabetically = () => {
+    contactArray.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1
+      } else if (b.name < a.name) {
+        return 1
+      }
+      return 0
+    })
+    setContacts([...contactArray]);
+  }
+
+
+
+
+  const deleteContact = (event) => {
+    const filteredArray = contactArray.filter((contact) => {
+      return contact.id !== event
+    })
+    setContacts(filteredArray);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <div className="actions">
         <button onClick={addRandomHandler}>Add Random Contact</button>
         <button onClick={sortByPopularityHandler}>Sort by popularity</button>
+        <button onClick={sortAlphabetically}>Sort Alphabetically</button>
       </div>
       <table>
         <thead>
@@ -34,6 +57,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Delete</th>
           </tr>
         </thead>
 
@@ -47,7 +71,8 @@ function App() {
                 <td>{value.name}</td>
                 <td>{value.popularity}</td>
                 <td>{value.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
-                <td>{value.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
+                <td>{value.wonEmmy ? <p> ⭐ </p> : <p> </p>}</td>
+                <td><button onClick={() => deleteContact(value.id)} className="btn-delete">Delete</button></td>
               </tr>
             );
           })}
