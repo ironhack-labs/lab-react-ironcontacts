@@ -3,37 +3,24 @@ import "./App.css";
 import contacts from "./contacts.json";
 
 function App() {
-  const [contactsData, setContacts] = useState(contacts.slice(0, 5));
+  const [contactsList, setContacts] = useState(contacts.slice(0, 5));
 
-  // function random() {
-  const getRandom = (newContact) => {
-    const newArray = [...contacts];
-    const randomIndex = Math.floor(Math.random() * newArray.length);
-    const randomContact = contacts[randomIndex];
-    newArray.slice(0, 5);
-    // newArray.push(randomContact);
-    // newArray.splice(0, 5, randomIndex);
-    // newArray.slice(0, 6);
-    console.log("NewArray", newArray);
-    console.log("Random Contact", randomContact);
-    // setContacts(newArray.splice(5, 0, randomIndex));
-    setContacts([randomContact]);
+  const addRandomContact = () => {
+    const remainingContacts = contacts.filter((contact) => {
+      return contact.id !== contactsList.id;
+    });
+    const randomIndex = Math.floor(Math.random() * remainingContacts.length);
+    const randomContact = remainingContacts[randomIndex];
+
+    const newContactsList = [...contactsList];
+    newContactsList.push(randomContact);
+    setContacts(newContactsList);
   };
-
-  // }
-
-  // function getRandom() {
-  //   const randomContact = contacts[Math.floor(Math.random()) * contacts.length];
-  //   console.log(randomContact);
-  //   return randomContact;
-
-  //   setContacts(randomContact);
-  // }
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={getRandom}>Add Random Contact</button>
+      <button onClick={addRandomContact}>Add Random Contact</button>
       <div className="table">
         <table>
           <thead>
@@ -42,7 +29,7 @@ function App() {
             <th>Popularity</th>
           </thead>
           <tbody>
-            {contactsData.map((contact) => {
+            {contactsList.map((contact) => {
               return (
                 <tr key={contact.id}>
                   <td>
