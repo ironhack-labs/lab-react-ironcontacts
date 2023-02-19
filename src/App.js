@@ -49,18 +49,30 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByPopularity}>Sort by popularity</button>
-      <button onClick={sortByName}>Sort by name</button>
+      <button
+        onClick={addRandomContact}
+        className="btn btn-outline-secondary fs-6"
+      >
+        Add Random Contact
+      </button>
+      <button
+        onClick={sortByPopularity}
+        className="btn btn-outline-secondary fs-6"
+      >
+        Sort by popularity
+      </button>
+      <button onClick={sortByName} className="btn btn-outline-secondary fs-6">
+        Sort by name
+      </button>
       <div className="table">
         <table>
           <thead>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
-            <th>Actions</th>
+            <th className="fs-3">Picture</th>
+            <th className="fs-3">Name</th>
+            <th className="fs-3">Popularity</th>
+            <th className="fs-3">Won Oscar</th>
+            <th className="fs-3">Won Emmy</th>
+            <th className="fs-3">Actions</th>
           </thead>
           <tbody>
             {contactsList.map((contact) => {
@@ -72,9 +84,12 @@ function App() {
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td>{contact.wonOscar ? <p>🏆</p> : <p></p>}</td>
-                  <td>{contact.wonEmmy ? <p>🏆</p> : <p></p>}</td>
+                  <td>{contact.wonEmmy ? <p>🌟</p> : <p></p>}</td>
                   <td>
-                    <button onClick={() => deleteContact(contact.id)}>
+                    <button
+                      className="btn btn-outline-danger fs-6"
+                      onClick={() => deleteContact(contact.id)}
+                    >
                       Delete
                     </button>
                   </td>

@@ -1,5 +1,7 @@
 .App{
   text-align: center;
+  font-size: 20px;
+  padding: 30px
 }
 
 .table{
@@ -15,4 +17,18 @@ img {
 
 button {
   margin: 10px;
+  font-size: 20px;
+}
+
+th, td {
+  padding: 5px 30px;
+}
+
+th, h1 {
+  color: #2d3c7f;
+  font-family: 'Gloock', serif;
+}
+
+h1 {
+  font-size: 60px;
 }
