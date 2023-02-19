@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0 2% 0;
+  gap: 1%;
+}
+
+button {
+  padding: 5px 10px 5px 10px;
+  font-size: 25px;
+}
+
+table {
+  font-size: 25px;
+  border-collapse: separate;
+  width: 50%;
+  margin: 0 25% 0 25%;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+td,
+th {
+  text-align: right;
+  vertical-align: top;
+  padding-right: 5%;
+}
+
+h1 {
+  font-size: 50px;
+}

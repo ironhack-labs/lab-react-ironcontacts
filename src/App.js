@@ -57,7 +57,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
-            <th>Delete</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -69,7 +69,7 @@ function App() {
                   <img src={value.pictureUrl} alt="celeb-prof-pic" />
                 </td>
                 <td>{value.name}</td>
-                <td>{value.popularity}</td>
+                <td>{value.popularity.toFixed(2)}</td>
                 <td>{value.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
                 <td>{value.wonEmmy ? <p> ⭐ </p> : <p> </p>}</td>
                 <td><button onClick={() => deleteContact(value.id)} className="btn-delete">Delete</button></td>
