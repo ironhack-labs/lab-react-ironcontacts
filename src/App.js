@@ -17,6 +17,9 @@ function App() {
     setContacts(newContactsList);
   };
 
+  // const addAward = () => {}
+  // const [wonAward, setWonAward] = useState(awards)
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -27,6 +30,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </thead>
           <tbody>
             {contactsList.map((contact) => {
@@ -37,6 +42,8 @@ function App() {
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity}</td>
+                  <td>{contact.wonOscar ? <p>🏆</p> : <p></p>}</td>
+                  <td>{contact.wonEmmy ? <p>🏆</p> : <p></p>}</td>
                 </tr>
               );
             })}
