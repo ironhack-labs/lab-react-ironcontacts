@@ -12,3 +12,7 @@ img {
   width: 100px;
   height: auto;
 }
+
+button {
+  margin: 10px;
+}

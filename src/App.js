@@ -17,13 +17,33 @@ function App() {
     setContacts(newContactsList);
   };
 
-  // const addAward = () => {}
-  // const [wonAward, setWonAward] = useState(awards)
+  const sortByPopularity = () => {
+    const popularityList = [...contactsList];
+    // popularityList.sort((a, b) => a.localeCompare(b));
+    popularityList.sort((a, b) => {
+      if (a.popularity < b.popularity) return 1;
+      else if (b.popularity < a.popularity) return -1;
+      return 0;
+    });
+    setContacts(popularityList);
+  };
+
+  const sortByName = () => {
+    const alphabeticalList = [...contactsList];
+    alphabeticalList.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      else if (b.name < a.name) return 1;
+      return 0;
+    });
+    setContacts(alphabeticalList);
+  };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
       <div className="table">
         <table>
           <thead>
