@@ -9,19 +9,21 @@ function App() {
 
   const [contacts, setContacts] = useState(contactsMovie.slice(0, 5));
 
-  // iteration 3 test
+  // iteration 2
+
+  // iteration 3
   // const restContacts = contactsMovie.slice(5, contacts.length);
   function randomContact() {
-    let getRandomContact = contactsMovie[Math.floor(Math.random()*contactsMovie.length)]
+    let getRandomContact =
+      contactsMovie[Math.floor(Math.random() * contactsMovie.length)];
 
-    setContacts([getRandomContact])
+    setContacts([getRandomContact]);
 
     let newContacts = [...contacts];
-    newContacts.push(getRandomContact)
-    setContacts(newContacts)
+    newContacts.push(getRandomContact);
+    setContacts(newContacts);
   }
- 
-   
+
   // iteration 4 sort by name and popularity
   function contactSort() {
     const alphabet = [...contacts];
@@ -50,14 +52,12 @@ function App() {
   }
 
   // iteration 5
-  function deleteContact(id){
-    const filteredContact = contacts.filter((contacts)=> {
-      return contacts.id !== id
-    })
-    setContacts(filteredContact)
+  function deleteContact(id) {
+    const filteredContact = contacts.filter((contacts) => {
+      return contacts.id !== id;
+    });
+    setContacts(filteredContact);
   }
-  
-
 
   return (
     <div className="App">
@@ -67,26 +67,34 @@ function App() {
       <button onClick={contactSort}>Sort by name</button>
 
       <table>
-      <thead>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+          </tr>
         </thead>
         <tbody>
-        {contacts.map((contacts) => {
-          return (
-            <tr>
-              <td><img src={contacts.pictureUrl} alt="Movie Stars" /></td>
-              <td>{contacts.name}</td>
-              <td>{contacts.popularity}</td>
-              <td>
-                <button onClick={()=>deleteContact(contacts.id)}>Delete</button>
-              </td>
-            </tr>
-          );
-        })}
+          {contacts.map((contacts) => {
+            return (
+              <tr>
+                <td>
+                  <img src={contacts.pictureUrl} alt="Movie Stars" />
+                </td>
+                <td>{contacts.name}</td>
+                <td>{contacts.popularity.toFixed(2)}</td>
+                <td>{contacts.wonOscar && <span>🏆</span>} </td>
+                <td>{contacts.wonEmmy && <span>🏆</span>} </td>
+                <td>
+                  <button onClick={() => deleteContact(contacts.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
