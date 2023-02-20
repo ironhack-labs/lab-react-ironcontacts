@@ -14,8 +14,49 @@ function App() {
     setContactInfo(newList)
   }
 
+  const sortName = ()=>{
+  const newList = [...contactInfo] //contiene la info + los 5
+    newList.sort((a,b)=>{
+      if (a.name < b.name){
+        return -1
+      }
+      if (a.name > b.name){
+        return 1
+      }
+      return 0
+    })
+  
+    setContactInfo(newList)
+  }
+  const sortPopularity= ()=>{
+    const newList = [...contactInfo]
+      newList.sort((a,b)=>{
+        if (a.popularity > b.popularity){
+          return -1
+        }
+        if (a.popularity < b.popularity){
+          return 1
+        }
+        return 0
+      })
+    
+      setContactInfo(newList)
+    }
+
+    const deleteContact = (index) => {
+      const newArr = [...contactInfo]
+      newArr.splice(index, 1)  
+      setContactInfo(newArr)
+    }
+
   return (
     <div className="App">
+      
+      <button onClick={addContact}>ADD</button>
+      <button onClick={sortName}>Sort By Name</button>
+      <button onClick={sortPopularity}>Sort By Popularity</button>
+      <button onClick={deleteContact}>Delete Celebrity</button>
+      
       <div>
       <table>
     <thead>
@@ -46,16 +87,14 @@ function App() {
                   {contact.wonEmmy && <p>🏆</p>}
                   {!contact.wonEmmy && <p>No</p>}
                   </td>
-                  <td>
-              
-                  </td>
+
                 </tr>
               ))
             }
     </tbody>
 </table>
       </div>
-      <button onClick={addContact}>ADD</button>
+
     </div>
   );
 }
