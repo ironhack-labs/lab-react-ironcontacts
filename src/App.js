@@ -6,14 +6,20 @@ function App() {
   const [contacts, setContacts] = useState(contactsJSON.slice(0, 5))
   const [order, setOrder] = useState("DSC")
 
-   
-   const addRandomContact = () => {
-         const randomContact = contactsJSON[Math.floor(Math.random() * contactsJSON.length)]
-         
-     const copiedContacts = [...contacts]
-     copiedContacts.push(randomContact)
- 
- setContacts(copiedContacts)
+
+  const addRandomContact = () => {
+    const randomContact = contactsJSON[Math.floor(Math.random() * contactsJSON.length)]
+   const alreadyThere = contacts.find(contact => {
+    return randomContact.id === contact.id
+    }) 
+    if (alreadyThere === true){
+      addRandomContact()
+    } else {
+    const copiedContacts = [...contacts]
+    copiedContacts.push(randomContact)
+
+    setContacts(copiedContacts)
+  }
 }
 
 
