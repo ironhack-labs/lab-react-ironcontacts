@@ -33,9 +33,11 @@ const App = () => {
 
   const sortByPopularity = () => {
     const popularityList = [...contactsList];
+    // FIRST APPROACH
     // popularityList.sort((a, b) => {
     //   return b.popularity - a.popularity;
     // });
+    // SECOND APPROACH
     popularityList.sort((a, b) => {
       if (a.popularity < b.popularity) return 1;
       else if (b.popularity < a.popularity) return -1;
