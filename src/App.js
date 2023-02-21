@@ -11,11 +11,43 @@ function App() {
       setContacts([newContact, ...contacts]);
     }
   }
+
+  function sortByPopularity() {
+    const newContacts = [...contacts];
+
+    newContacts.sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+
+    setContacts(newContacts);
+  }
+
+  function sortByName() {
+    const newContacts = [...contacts];
+
+    newContacts.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+
+    setContacts(newContacts);
+  }
+
+  function handleDeleteContact(contactId) {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== contactId;
+    });
+
+    setContacts(filteredContacts);
+  }
   
   return (
     <div className="App">
       <h1>Ironcontacts</h1>
+      <div>
       <button onClick={addRandomContact}>Add random contact</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
+      </div>
       <div>
       <table>
         <thead>
@@ -25,6 +57,7 @@ function App() {
           <th>Popularity</th>
           <th>won Oscar</th>
           <th>won Emmy</th>
+          <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +71,11 @@ function App() {
                 <td>{contacts.popularity}</td>
                 <td>{contacts.wonOscar ? "🏆" : ""}</td>
                 <td>{contacts.wonEmmy ? "🏆" : ""}</td>
+                <td>
+                  <button onClick={() => handleDeleteContact(contacts.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
