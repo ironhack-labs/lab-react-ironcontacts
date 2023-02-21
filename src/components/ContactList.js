@@ -50,7 +50,6 @@ function ContactList() {
       <h1>IronContacts</h1>
 
       <div className="buttons">
-        <button>Add Random Contact</button>
         <button onClick={sortContactsByName}>Sort by Name</button>
         <button onClick={sortContactsByPopularity}>Sort by Popularity</button>
       </div>
