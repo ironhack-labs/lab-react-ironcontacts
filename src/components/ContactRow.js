@@ -10,7 +10,7 @@ function ContactRow(props) {
         ></img>
       </td>
       <td>{contact.name}</td>
-      <td>{contact.popularity.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td>
+      <td>{contact.popularity.toLocaleString("en", { maximumFractionDigits: 2 })}</td>
       <td>{contact.wonOscar ? "🏆" : ""}</td>
       <td>{contact.wonEmmy ? "🌟" : ""}</td>
       <td>
