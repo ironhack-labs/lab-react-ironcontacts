@@ -116,3 +116,19 @@ table td {
   font-size: 16px;
   margin-bottom:2em;
 }
+
+.delete-btn {
+  background-color: red ;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-bottom:2em;
+}
+
+.bigger {
+  font-size: 32px;
+}

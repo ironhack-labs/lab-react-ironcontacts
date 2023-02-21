@@ -18,18 +18,27 @@ function App() {
     setContacts([...contacts, randomContact]);
   };
 
-  const sortAlphabetically = () =>{
-    let sortContact = [...contacts].sort((a, b) => a.name.localeCompare(b.name))
+  const sortAlphabetically = () => {
+    let sortContact = [...contacts].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
     setContacts(sortContact);
-  }
+  };
 
-  const sortPopularity = () =>{
-    let sortContactP = [...contacts].sort((a, b) => b.popularity - a.popularity)
+  const sortPopularity = () => {
+    let sortContactP = [...contacts].sort(
+      (a, b) => b.popularity - a.popularity
+    );
     setContacts(sortContactP);
-  }
- 
+  };
 
+  const deleteContact = (contactId) => {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== contactId;
+    });
 
+    setContacts(filteredContacts);
+  };
 
   return (
     <div className="App">
@@ -50,22 +59,28 @@ function App() {
             <th>Popularity</th>
             <th>Have won an Oscar</th>
             <th>Have won an Emmy</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-        {contacts.map((contact) => {
-          return (
-            <tr>
-              <th>
-                <img src={contact.pictureUrl} alt="" />
-              </th>
-              <th>{contact.name}</th>
-              <th>{contact.popularity}</th>
-              <th>{contact.wonOscar ? "🏆" : null}</th>
-              <th>{contact.wonEmmy ? "🏆" : null}</th>
-            </tr>
-          );
-        })}
+          {contacts.map((contact) => {
+            return (
+              <tr key={contact.id}>
+                <th>
+                  <img src={contact.pictureUrl} alt="" />
+                </th>
+                <th>{contact.name}</th>
+                <th>{contact.popularity}</th>
+                <th className="bigger">{contact.wonOscar ? "🏆" : null}</th>
+                <th className="bigger">{contact.wonEmmy ? "🏆" : null}</th>
+                <th>
+                  <button onClick={() => deleteContact(contact.id)} className="delete-btn">
+                    <span>Delete</span>
+                  </button>
+                </th>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
