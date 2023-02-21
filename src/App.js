@@ -1,25 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import contactsList from "./contacts.json";
+import { useState } from "react";
 
 function App() {
+  const [contacts, setContacts] = useState(contactsList.slice(0, 5));
+
+
+  function addRandomContact() {
+    const newContact =
+      contactsList[Math.floor(Math.random() * contactsList.length)];
+
+    if (!contacts.includes(newContact)) {
+      setContacts([newContact, ...contacts]);
+    }
+  }
+
+  function sortByPopularity() {
+    const newContacts = [...contacts];
+
+    newContacts.sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+
+    setContacts(newContacts);
+  }
+
+  function sortByName() {
+    const newContacts = [...contacts];
+
+    newContacts.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+
+    setContacts(newContacts);
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <h1>IronContacts</h1>
+
+    <button onClick={addRandomContact}>Add Random Contact</button>
+    <button onClick={sortByPopularity}>Sort by popularity</button>
+    <button onClick={sortByName}>Sort by name</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Name</th>
+      <th>Popularity</th>
+      <th>Won Oscar</th>
+      <th>Won Emmy</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {contacts.map((contacts) => {
+      return (
+        <tr key={contacts.id} className="table">
+          <td>
+            <img src={contacts.pictureUrl} alt={contacts.name} />
+          </td>
+          <td>{contacts.name}</td>
+          <td>{contacts.popularity}</td>
+          <td>{contacts.wonOscar ? "🏆" : ""}</td>
+          <td>{contacts.wonEmmy ? "🏆" : ""}</td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
+</div>
+);
 }
 
 export default App;
