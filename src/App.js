@@ -6,12 +6,16 @@ function App() {
   const [contacts, setContacts] = useState(contactsJSON.slice(0, 5))
   const [order, setOrder] = useState("DSC")
 
-  /*  const randomContact = contactsJSON[Math.floor(Math.random() * contactsJSON.length)]
-   const addRandomContact = (contact) => {
-         if (randomContact.id !== contactId)
-     }
-     setContacts(randomContact.id)
- } */
+   
+   const addRandomContact = () => {
+         const randomContact = contactsJSON[Math.floor(Math.random() * contactsJSON.length)]
+         
+     const copiedContacts = [...contacts]
+     copiedContacts.push(randomContact)
+ 
+ setContacts(copiedContacts)
+}
+
 
 
   const sorting = (col) => {
@@ -61,7 +65,7 @@ function App() {
       <h1>Ironcontacts</h1>
 
       <div>
-        <button className='btn'>Add Random Contact</button>
+        <button onClick={() => addRandomContact()} className='btn'>Add Random Contact</button>
         <button onClick={() => sorting("name")} className='btn'>Sort by Name</button>
         <button onClick={() => popSorting("popularity")} className='btn'>Sort by Popularity</button>
       </div>
