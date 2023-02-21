@@ -2,24 +2,40 @@ import { useState } from "react";
 import "./App.css";
 import contacts from "./contacts.json";
 
-function App() {
+const App = () => {
   const [contactsList, setContacts] = useState(contacts.slice(0, 5));
-
   const addRandomContact = () => {
     const remainingContacts = contacts.filter((contact) => {
-      return contact.id !== contactsList.id;
+      // return contact.id !== contactsList.id; --> returns the same items,
+      // because filter() get the every contact in [contacts] and doesn't get elements in [contactsList]
+      return !contactsList.find((element) => element.id === contact.id);
     });
-    const randomIndex = Math.floor(Math.random() * remainingContacts.length);
-    const randomContact = remainingContacts[randomIndex];
 
-    const newContactsList = [...contactsList];
-    newContactsList.push(randomContact);
-    setContacts(newContactsList);
+    if (remainingContacts.length === 0) {
+      alert("No more contacts to add!");
+      return;
+    }
+    // const randomIndex = Math.floor(Math.random() * remainingContacts.length);
+    // const randomContact = remainingContacts[randomIndex];
+    // the same -->
+    const randomContact =
+      remainingContacts[Math.floor(Math.random() * remainingContacts.length)];
+
+    // FIRST APPROACH
+    // const newContactsList = [...contactsList];
+    // newContactsList.push(randomContact);
+    // setContacts(newContactsList);
+
+    // SECOND approach to update the useState Hook:
+    // concatenating array (copy of state) and randomContact instead of push()
+    setContacts([...contactsList, randomContact]);
   };
 
   const sortByPopularity = () => {
     const popularityList = [...contactsList];
-    // popularityList.sort((a, b) => a.localeCompare(b));
+    // popularityList.sort((a, b) => {
+    //   return b.popularity - a.popularity;
+    // });
     popularityList.sort((a, b) => {
       if (a.popularity < b.popularity) return 1;
       else if (b.popularity < a.popularity) return -1;
@@ -43,7 +59,6 @@ function App() {
       return contact.id !== contactId;
     });
     setContacts(filteredContacts);
-    console.log(filteredContacts);
   };
 
   return (
@@ -67,12 +82,14 @@ function App() {
       <div className="table">
         <table>
           <thead>
-            <th className="fs-3">Picture</th>
-            <th className="fs-3">Name</th>
-            <th className="fs-3">Popularity</th>
-            <th className="fs-3">Won Oscar</th>
-            <th className="fs-3">Won Emmy</th>
-            <th className="fs-3">Actions</th>
+            <tr>
+              <th className="fs-3">Picture</th>
+              <th className="fs-3">Name</th>
+              <th className="fs-3">Popularity</th>
+              <th className="fs-3">Won Oscar</th>
+              <th className="fs-3">Won Emmy</th>
+              <th className="fs-3">Actions</th>
+            </tr>
           </thead>
           <tbody>
             {contactsList.map((contact) => {
@@ -101,6 +118,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
