@@ -5,8 +5,9 @@ import ContactRow from "../components/ContactRow";
 function ContactList() {
   const [contacts, setContacts] = useState(contactsFromJSON);
 
-  const sortContacts = () => {
+  const sortContactsByName = () => {
     let sortedContacts = [...contacts];
+
     sortedContacts.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
@@ -16,6 +17,23 @@ function ContactList() {
         return 0;
       }
     });
+
+    setContacts(sortedContacts);
+  };
+
+  const sortContactsByPopularity = () => {
+    let sortedContacts = [...contacts];
+
+    sortedContacts.sort((a, b) => {
+      if (a.popularity < b.popularity) {
+        return 1;
+      } else if (a.popularity > b.popularity) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
     setContacts(sortedContacts);
   };
 
@@ -25,8 +43,8 @@ function ContactList() {
 
       <div className="buttons">
         <button>Add Random Contact</button>
-        <button onClick={sortContacts}>Sort by Name</button>
-        <button>Sort by Popularity</button>
+        <button onClick={sortContactsByName}>Sort by Name</button>
+        <button onClick={sortContactsByPopularity}>Sort by Popularity</button>
       </div>
 
       <table>
