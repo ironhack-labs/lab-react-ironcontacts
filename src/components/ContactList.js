@@ -7,41 +7,18 @@ function ContactList() {
 
   const sortContactsByName = () => {
     let sortedContacts = [...contacts];
-
-    sortedContacts.sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      } else if (a.name > b.name) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-
+    sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
     setContacts(sortedContacts);
   };
 
   const sortContactsByPopularity = () => {
     let sortedContacts = [...contacts];
-
-    sortedContacts.sort((a, b) => {
-      if (a.popularity < b.popularity) {
-        return 1;
-      } else if (a.popularity > b.popularity) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-
+    sortedContacts.sort((a, b) => b.popularity - a.popularity);
     setContacts(sortedContacts);
   };
 
   const deleteContact = (id) => {
-    let filteredContacts = contacts.filter((contact) => {
-      return contact.id !== id;
-    });
-
+    let filteredContacts = contacts.filter((contact) => contact.id !== id);
     setContacts(filteredContacts);
   };
 
