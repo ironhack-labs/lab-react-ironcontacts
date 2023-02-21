@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import contactsJSON from "./contacts.json"
 
 function App() {
+  const contacts = contactsJSON.slice(0, 5)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Ironcontacts</h1>
+      <div className='table'>
+      <table className='table-outside'>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </tr>
+      </table>
+      {contacts.map(contact => {
+        return (
+
+          <table className='table-inside'>
+            <tr>
+              <td> <img src={contact.pictureUrl} alt="Picture" /></td>
+              <td>{contact.name}</td>
+              <td>{(contact.popularity).toFixed(2)}</td>
+            </tr>
+
+          </table>)
+
+      })}
+</div>
     </div>
   );
 }
