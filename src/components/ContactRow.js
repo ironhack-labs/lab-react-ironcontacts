@@ -1,5 +1,5 @@
 function ContactRow(props) {
-  const { contact } = props;
+  const { contact, callbackFn } = props;
 
   return (
     <tr>
@@ -14,7 +14,7 @@ function ContactRow(props) {
       <td>{contact.wonOscar ? "🏆" : ""}</td>
       <td>{contact.wonEmmy ? "🌟" : ""}</td>
       <td>
-        <button>Delete</button>
+        <button onClick={() => callbackFn(contact.id)}>Delete</button>
       </td>
     </tr>
   );

@@ -37,6 +37,14 @@ function ContactList() {
     setContacts(sortedContacts);
   };
 
+  const deleteContact = (id) => {
+    let filteredContacts = contacts.filter((contact) => {
+      return contact.id !== id;
+    });
+
+    setContacts(filteredContacts);
+  };
+
   return (
     <div className="ContactsTable">
       <h1>IronContacts</h1>
@@ -64,6 +72,7 @@ function ContactList() {
               <ContactRow
                 key={contact.id}
                 contact={contact}
+                callbackFn={deleteContact}
               />
             );
           })}
