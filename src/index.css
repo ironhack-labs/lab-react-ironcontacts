@@ -31,3 +31,7 @@ code {
   width: 150px;
   font-size: 20px;
 }
+
+.btn {
+  margin: 20px 10px;
+}
