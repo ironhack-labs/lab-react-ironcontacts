@@ -21,7 +21,7 @@ function contactList() {
         {contactsCopy.map((contact) => {
           return (
             <ContactRow
-              key={contact._id}
+              key={contact.id}
               contact={contact}
             />
           );
