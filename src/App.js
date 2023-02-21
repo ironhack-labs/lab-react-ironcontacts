@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <button className="glow-on-hover" onClick={addRandomContact}>Add Contact</button>
+      <button className="button" onClick={addRandomContact}>Add Contact</button>
       <table data-table-theme="dark zebra">
         <thead>
           <tr>
