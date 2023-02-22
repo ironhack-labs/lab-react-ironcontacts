@@ -11,3 +11,57 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app-table {
+  align-items: center;
+  width: 50%;
+}
+.app-table  tr th {
+  flex-direction:row;
+justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.app-img {
+  height: 20vh;
+}
+
+h1{
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  justify-content: space-between;
+
+}
+
+.btn button {
+  margin-right: 15px;
+  background-color: #4CAF50;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+}
+
+table {
+  display: table;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-delete {
+  margin-right: 15px;
+  background-color: #1d183d;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  font-size: 16px;
+}
