@@ -35,6 +35,15 @@ function App() {
     setContacts(newContacts);
   }
 
+  function handleDeleteContact(contactId) {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== contactId;
+    });
+
+    setContacts(filteredContacts);
+  }
+
+
 
   return (
     <div className="App">
@@ -66,6 +75,9 @@ function App() {
           <td>{contacts.popularity}</td>
           <td>{contacts.wonOscar ? "🏆" : ""}</td>
           <td>{contacts.wonEmmy ? "🏆" : ""}</td>
+          <button onClick={() => handleDeleteContact(contacts.id)}>
+                    Delete
+                  </button>
         </tr>
       );
     })}
