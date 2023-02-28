@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.sortButtons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 1.5em;
+}
+
+.sortButtons Button {
+  margin: 12px 48px;
+}
