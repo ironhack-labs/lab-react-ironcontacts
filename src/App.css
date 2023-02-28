@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-color: blue;
+}
+
+table {
+  border: #282c34;
+}
+
+table {
+  table-layout: fixed;
+  border: 1px solid red;
+}
+
+tr, td {
+  border: solid;
+}
+
+td {
+  border: 1px solid green;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+img {
+  width: 30%;
+}
+
+buttons {
+  display: flex;
+  justify-content: space-around;
+}
