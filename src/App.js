@@ -14,13 +14,53 @@ function App() {
     const randomPosition = Math.floor(randomNumber);
     const randomContact = contacts[randomPosition];
     console.log(randomContact);
+    if (
+      currentContacts.findIndex(
+        (currentContact) => currentContact.id === randomContact.id
+      ) === -1
+    ) {
+      const contactsClone = [...currentContacts];
+      contactsClone.push(randomContact);
+      setCurrentContact(contactsClone);
+    }
+  };
+
+  const sortByName = () => {
     const contactsClone = [...currentContacts];
-    contactsClone.push(randomContact);
+    contactsClone.sort((elem2, elem1) => {
+      if (elem2.name > elem1.name) {
+        return 1;
+      } else if (elem2.name < elem1.name) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    setCurrentContact(contactsClone);
+  };
+
+  const sortByPopularity = () => {
+    const contactsClone = [...currentContacts];
+
+    contactsClone.sort((elem1, elem2) => {
+      if (elem2.popularity > elem1.popularity) {
+        return 1;
+      } else if (elem2.popularity < elem1.popularity) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     setCurrentContact(contactsClone);
   };
 
   return (
     <div className="App">
+      <div id="btn-container">
+        <button onClick={addContact}>Add random contact</button>
+        <button onClick={sortByName}>Sort by name</button>
+        <button onClick={sortByPopularity}>Sort by popularity</button>
+      </div>
       <div id="card-container">
         {currentContacts.map((eachContact) => {
           return (
@@ -39,7 +79,6 @@ function App() {
           );
         })}
       </div>
-      <button onClick={addContact}>Add Random Contact</button>
     </div>
   );
 }
