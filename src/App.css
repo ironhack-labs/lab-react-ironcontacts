@@ -1,3 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  /* height: 100vh; */
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url("../public/background-gbd606172b_1920.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +50,67 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+table, th, td {
+border: 3px solid black;
+border-collapse: collapse;
+empty-cells: show;
+table-layout: fixed;
+width: 100%;
+}
+
+img {
+  width: 7rem;
+}
+
+table {
+  width: 90vw;
+  margin: 2rem 0 5rem 5rem;
+}
+
+th {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: black;
+  color:  rgb(193, 247, 247);
+}
+
+.btn-top {
+  width: 20rem;
+  margin: 3rem;
+  padding: 2rem;
+  background-color: rgb(193, 247, 247);
+  color: darkblue;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  box-shadow: 2px 2px black;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.popularity {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.btn-delete {
+  margin: 1rem;
+  padding: 1.5rem 1.5rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgb(77, 2, 77);
+  border: purple;
+  background-color: rgb(220, 102, 220);
+  color: rgb(107, 2, 107);
+  font-size: 1.2rem;
+  font-weight: 600;
+
 }
