@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+}
+
+#card-container {
   display: flex;
   flex-wrap: wrap;
 }
@@ -9,4 +12,8 @@
   margin: 20px;
   padding: 20px;
   width: 25%;
+}
+
+button {
+  margin: 50px 0 80px 0;
 }
