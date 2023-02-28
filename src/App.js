@@ -1,7 +1,6 @@
 import './index'
 import React, { useState } from 'react'
 import contactsDB from './contacts.json'
-// import Container from '../src/components/Container'
 const unusedContacts = contactsDB.slice(5)
 
 const App = () => {
@@ -46,59 +45,68 @@ const App = () => {
 
   return (
     <section>
-      <div className="title">
-        <h1>IronContacts</h1>
-        <div className="button">
-          <button onClick={handleAddContact}>Add id Contact</button>
-          <button onClick={handleSortPopularity}>Sort by popularity</button>
-          <button onClick={handleSortName}>Sort by name</button>
+      <div className="container">
+        <div className="title">
+          <h1>IronContacts</h1>
+          <div className="button">
+            <button onClick={handleAddContact}>Add id Contact</button>
+            <button onClick={handleSortPopularity}>Sort by popularity</button>
+            <button onClick={handleSortName}>Sort by name</button>
+          </div>
         </div>
+
+        <table>
+          <thead>
+            <tr class="tr">
+              <th>
+                <h2>Picture</h2>
+              </th>
+              <th>
+                <h2>Name</h2>
+              </th>
+              <th>
+                <h2>Popularity</h2>
+              </th>
+              <th>
+                <h2>Won Oscar</h2>
+              </th>
+              <th>
+                <h2>Won Emmy</h2>
+              </th>
+              <th>
+                <h2>Actions</h2>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="scroll">
+              {contacts.map((contact) => {
+                return (
+                  // deleteボタンの直前の親につける
+                  <tr key={contact.id} class="tr2">
+                    <td>
+                      <img src={contact.pictureUrl} alt={contact.name} />
+                    </td>
+                    <td>{contact.name}</td>
+                    <td>{Math.floor(contact.popularity * 100) / 100}</td>
+                    <td>{contact.wonOscar && '🏆'}</td>
+                    <td>{contact.wonEmmy && '🏆'}</td>
+                    <td class="btn-delete">
+                      <button
+                        onClick={() => handleDelete(contact.id)}
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        DELETE
+                      </button>
+                    </td>
+                  </tr>
+                )
+              })}
+            </div>
+          </tbody>
+        </table>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <h2>Picture</h2>
-            </th>
-            <th>
-              <h2>Name</h2>
-            </th>
-            <th>
-              <h2>popularity</h2>
-            </th>
-            <th>
-              <h2>Won Oscar</h2>
-            </th>
-            <th>
-              <h2>Won Emmy</h2>
-            </th>
-            <th>
-              <h2>Actions</h2>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {contacts.map((contact) => {
-            return (
-              // deleteボタンの直前の親につける
-              <tr key={contact.id}>
-                <td>
-                  <img src={contact.pictureUrl} alt={contact.name} />
-                </td>
-                <td>{contact.name}</td>
-                <td>{Math.floor(contact.popularity * 100) / 100}</td>
-                <td>{contact.wonOscar && '🏆'}</td>
-                <td>{contact.wonEmmy && '🏆'}</td>
-                <td>
-                  <button onClick={() => handleDelete(contact.id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
     </section>
   )
 }
