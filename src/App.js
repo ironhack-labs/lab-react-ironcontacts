@@ -4,11 +4,20 @@ import contactsDB from './contacts.json'
 // import Container from '../src/components/Container'
 
 const App = () => {
-  const [contacts] = useState(contactsDB.slice(0, 5))
-
+  const [contacts, setContacts] = useState(contactsDB.slice(0, 5))
+  const handleAddContact = () => {
+    const randomContact =
+      contactsDB[Math.floor(Math.random() * contactsDB.length)]
+    const copy = [...contacts]
+    copy.push(randomContact)
+    setContacts(copy)
+  }
   return (
     <section>
-      <h1>IronContacts</h1>
+      <div class="title">
+        <h1>IronContacts</h1>
+        <button onClick={handleAddContact}>Add Random Contact</button>
+      </div>
       <table>
         <thead>
           <tr>
