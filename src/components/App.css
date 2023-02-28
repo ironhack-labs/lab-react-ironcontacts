@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -32,7 +32,41 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.list img {
+  width: 40px;
+}
+
+.list {
+  display: inline-block;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  border-spacing: 20px;
+}
+
+.article {
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.list1 {
+  display: inline-block;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  border-spacing: 20px;
+
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
 }
