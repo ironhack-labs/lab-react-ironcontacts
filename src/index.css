@@ -14,6 +14,9 @@ h1 {
 table {
   margin: 0 auto;
 }
+td {
+  width: 5rem;
+}
 img {
   width: 6rem;
   height: 8rem;
@@ -29,10 +32,16 @@ td {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 2rem;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 button {
-  padding: .5rem;
-  font-size: 1.5rem;
+  padding: .1rem;
+  font-size: 1.2rem;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
