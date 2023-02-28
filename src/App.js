@@ -21,6 +21,12 @@ const App = () => {
             <th>
               <h2>popularity</h2>
             </th>
+            <th>
+              <h2>Won Oscar</h2>
+            </th>
+            <th>
+              <h2>Won Emmy</h2>
+            </th>
           </tr>
         </thead>
         {contacts.map((contact) => {
@@ -35,6 +41,12 @@ const App = () => {
                 </td>
                 <td>
                   <p>{Math.floor(contact.popularity * 100) / 100}</p>
+                </td>
+                <td>
+                  <p>{contact.wonOscar && '🏆'}</p>
+                </td>
+                <td>
+                  <p>{contact.wonEmmy && '🏆'}</p>
                 </td>
               </tr>
             </tbody>
