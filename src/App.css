@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
+  background:#141414;
+  color: #fff;
+  padding-top: 1rem;
+}
+.container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+.title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  margin-bottom: 2rem;
 }
-
-.App-link {
-  color: #61dafb;
+.button {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  font-size: 1.2rem;
+  border: none;
+  padding: .5rem;
+  /* box-shadow: 2px 2px 2px rgb(80, 80, 79); */
+  background-color: rgb(185, 149, 102);
+  color: #2d2b2b;
+}
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color:rgb(185, 149, 102);
+}
+img {
+  width: 6rem;
+  height: 8rem;
+  box-shadow: 2px 2px 3px #c8c6c68d;
+}
+p {
+  font-size: 1.5rem;
+}
+table {
+  margin: 0 auto;
+  width: 70%;
+}
+.scroll {
+  height: calc(100vh - 10rem);
+  overflow-y: scroll;
+  background-color: #020202;
+  color: #fff;
+}
+.tr {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.tr2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+thead h2 {
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 1.5rem;
+}
+tbody td {
+  width: calc(100% - 20rem);
+  margin: .5rem 1.5rem;
+}
+.btn-delete {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.btn-delete button {
+  height: 2rem;
+  border: none;
+  padding: .5rem;
+  text-align: center;
+  background-color: rgb(106, 4, 4);
+  color: rgb(185, 149, 102);
+  font-size: .7rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 2px rgb(185, 149, 102);
 }

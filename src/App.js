@@ -1,7 +1,7 @@
-import './index'
+import './App.css'
 import React, { useState } from 'react'
 import contactsDB from './contacts.json'
-const unusedContacts = contactsDB.slice(5)
+const unusedContacts = contactsDB.slice(5) //下でDBの５個までと指定しているので、５以上の要素をコピーしておく
 
 const App = () => {
   const [contacts, setContacts] = useState(contactsDB.slice(0, 5))
@@ -43,12 +43,33 @@ const App = () => {
     setContacts(newList)
   }
 
+  // function App() {
+  //   const [contacts, setContacts] = useState(contactsDB.slice(0, 6))
+  //   const addARandomContact = () => {
+  //     const idsExistingContacts = contacts.map((contact) => contact.id)
+  //     const remainingContacts = contactsDB.filter((contact) => {
+  //       return !idsExistingContacts.includes(contact.id)
+  //     })
+  //     if (!remainingContacts.length) {
+  //       console.log('Every contact has been added')
+  //       return
+  //     }
+  //     const randomContact =
+  //       remainingContacts[Math.floor(Math.random() * remainingContacts.length)]
+  //     const copy = [...contacts]
+  //     copy.push(randomContact)
+  //     setContacts(copy)
+  //   }
+  //   return <div></div>
+  // }
+
   return (
     <section>
       <div className="container">
         <div className="title">
           <h1>IronContacts</h1>
           <div className="button">
+            {/* <Button callback={handleAddContact}>Add id Contact</Button> これでcomponentを別途作ってもいい*/}
             <button onClick={handleAddContact}>Add id Contact</button>
             <button onClick={handleSortPopularity}>Sort by popularity</button>
             <button onClick={handleSortName}>Sort by name</button>
@@ -89,8 +110,10 @@ const App = () => {
                     </td>
                     <td>{contact.name}</td>
                     <td>{Math.floor(contact.popularity * 100) / 100}</td>
+                    {/* <td>{contact.popularity.toFixed(2)}</td> */}
                     <td>{contact.wonOscar && '🏆'}</td>
                     <td>{contact.wonEmmy && '🏆'}</td>
+                    {/* <td>{contact.wonEmmy ? '🏆' : '🗑️'}</td> */}
                     <td class="btn-delete">
                       <button
                         onClick={() => handleDelete(contact.id)}
@@ -99,6 +122,9 @@ const App = () => {
                       >
                         DELETE
                       </button>
+                      {/* <td>
+                        <p>🗑️</p>
+                      </td> */}
                     </td>
                   </tr>
                 )
