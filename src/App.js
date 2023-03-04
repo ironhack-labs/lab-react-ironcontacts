@@ -3,33 +3,33 @@ import contactData from './contacts.json';
 import React, { useState } from 'react';
 
 const contactList = contactData.splice(0, 5);
+
 function App() {
   const [actorsList, setActorsList] = useState(contactList);
-  console.log({ actorsList });
   const randomIndex = (max) => {
     return Math.random() * (max - 0) + 0;
   };
 
   const getRandomActor = () => {
-    const randomContact = contactData.splice(
-      randomIndex(contactData.length - 1),
-      1
-    );
-    return randomContact[0];
+    if (contactData.length) {
+      const randomContact = contactData.splice(
+        randomIndex(contactData.length - 1),
+        1
+      );
+      return randomContact[0];
+    }
+    return false;
   };
 
   const addActor = () => {
-    const newContactList = [...actorsList];
     const newContact = getRandomActor();
-
-    newContactList.push(newContact);
-    setActorsList(newContactList);
+    if (newContact) actorsList.unshift(newContact);
+    else console.log('no contact');
+    setActorsList([...actorsList]);
   };
 
   const sortTable = (field) => {
-    const actors = [...actorsList];
-
-    actors.sort((a, b) => {
+    actorsList.sort((a, b) => {
       if (field === 'popularity') return b.popularity - a.popularity;
       if (field === 'name') {
         const nameA = a.name.toUpperCase();
@@ -41,17 +41,15 @@ function App() {
       return 0;
     });
 
-    setActorsList(actors);
+    setActorsList([...actorsList]);
   };
 
   const deleteContact = (id) => {
-    const contacts = [...actorsList];
+    const contactIndex = actorsList.findIndex((el) => el.id === id);
 
-    const contactIndex = contacts.findIndex((el) => el.id === id);
+    actorsList.splice(contactIndex, 1);
 
-    contacts.splice(contactIndex, 1);
-
-    setActorsList(contacts);
+    setActorsList([...actorsList]);
   };
 
   const tableRows = actorsList.map((contact) => {
