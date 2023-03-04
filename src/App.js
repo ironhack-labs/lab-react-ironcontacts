@@ -15,7 +15,6 @@ function App() {
       randomIndex(contactData.length - 1),
       1
     );
-    // contactList.push(randomContact);
     return randomContact[0];
   };
 
@@ -88,34 +87,39 @@ function App() {
 
   return (
     <div>
-      <button onClick={addActor}>Get Random Actor</button>
-      <button
-        onClick={() => {
-          sortTable('popularity');
-        }}
-      >
-        Sort by popularity
-      </button>
-      <button
-        onClick={() => {
-          sortTable('name');
-        }}
-      >
-        Sort by name
-      </button>
-      <table>
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>{tableRows}</tbody>
-      </table>
+      <h1>IronContacts</h1>
+      <div className={'actionButtons'}>
+        <button onClick={addActor}>Add Random Contact</button>
+        <button
+          onClick={() => {
+            sortTable('popularity');
+          }}
+        >
+          Sort by popularity
+        </button>
+        <button
+          onClick={() => {
+            sortTable('name');
+          }}
+        >
+          Sort by name
+        </button>
+      </div>
+      <div className={'table'}>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Won Oscar</th>
+              <th>Won Emmy</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>{tableRows}</tbody>
+        </table>
+      </div>
     </div>
   );
 }
