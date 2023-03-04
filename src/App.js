@@ -3,7 +3,7 @@ import contactData from './contacts.json';
 import React, { useState } from 'react';
 
 function App() {
-  const [contact, updateContact] = useState(() => {
+  const [contact] = useState(() => {
     const contactTable = contactData
       .map((contact) => {
         return (
@@ -13,6 +13,16 @@ function App() {
             </td>
             <td>{contact.name}</td>
             <td>{contact.popularity}</td>
+            <td>
+              {contact.wonOscar && (
+                <img src="trophy.png" alt="" Style="height:40px" />
+              )}
+            </td>
+            <td>
+              {contact.wonEmmy && (
+                <img src="trophy.png" alt="" Style="height:40px" />
+              )}{' '}
+            </td>
           </tr>
         );
       })
@@ -28,6 +38,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
         </thead>
         <tbody>{contact}</tbody>
       </table>
