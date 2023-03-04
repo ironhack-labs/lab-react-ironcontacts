@@ -1,8 +1,7 @@
-import './App.css';
-import contactData from './contacts.json';
+import contactData from '../contacts.json';
 import React, { useState } from 'react';
 
-function App() {
+function ContactList() {
   const [contact, updateContact] = useState(() => {
     const contactTable = contactData
       .map((contact) => {
@@ -35,4 +34,4 @@ function App() {
   );
 }
 
-export default App;
+export default ContactList;
