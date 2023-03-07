@@ -1,0 +1,27 @@
+.RenderContacts{
+    margin: 10px auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.RenderContacts img {
+    width: 100px;
+}
+
+.DisplayContacts h1 {
+    text-align: center;
+}
+
+.DisplayContacts {
+    margin: 10px auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+
