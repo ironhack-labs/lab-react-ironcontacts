@@ -24,4 +24,13 @@
     justify-content: left;
 }
 
+.DisplayContacts th{
+text-align: left;
+width: 200px;
+}
+
+.Trophimg {
+    width: 10px;
+    height: 50px;
+}
 
