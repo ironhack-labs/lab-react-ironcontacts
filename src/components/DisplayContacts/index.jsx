@@ -33,13 +33,15 @@ class DisplayContacts extends React.Component {
     }
 
     handlePushRandomContact = () => {
+     
         const {members, contactsRender} = this.state
         const contactsRandom = [...members].splice(5)
         const indexRandom = Math.floor(Math.random() * (contactsRandom.length - 1))
         const deleteElement = contactsRandom[indexRandom]
-        const newContactsRender = [...contactsRender]
-        contactsRandom.splice(indexRandom, 1)
+        const newContactsRender = [...contactsRender].filter(elem => elem !== deleteElement)
+        
         newContactsRender.unshift(deleteElement)
+    
 
         this.setState({
             contactsRender: newContactsRender
