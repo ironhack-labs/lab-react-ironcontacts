@@ -11,14 +11,14 @@ class Contacts extends Component {
 
   AddRandom = () => {
     const remaining = contactsData.slice(5);
-    const randomIndex = Math.floor(Math.random() * remaining.length);
+    const randomIndex = Math.floor(Math.random() * (remaining.length-1));
     const randomContact = remaining[randomIndex];
-    // console.log(randomContact)
-    const contactClone = [...this.state.contact]
-    const newArrContact = contactClone.push(randomContact)
-    //console.log(newArrContact)
+    //console.log(randomContact)
+    // const contactClone = this.state.contact
+    // const newArrContact = contactClone.push(randomContact)
+    // console.log(newArrContact)
     this.setState({
-        contact: newArrContact
+        contact: [...this.state.contact, randomContact]
     })
   }
 
