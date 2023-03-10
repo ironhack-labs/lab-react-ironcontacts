@@ -1,31 +1,106 @@
 .App {
   text-align: center;
+  display: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  color: #67d2f0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.3em;
+  text-align: start;
+  font-family: sans-serif;
+  min-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.styled-table img{
+  width: 100px;
+  height: 130px;
+}
+
+.styled-table thead tr {
+  background-color: #177eba;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #176cb1;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.navbar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  display: inline-block;
+  background-color: rgb(85, 31, 179);
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  font-size: 23px;
+  padding: 10px;
+  width: 200px;
+  height: 100px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+h1 {
+  display: inline-block;
+  color: rgb(184, 182, 19);
+  font-size: 4em; 
+  text-shadow: .03em .03em 0;
+
+}
+
+.deleteBtn {
+  display: inline-block;
+  background-color: rgb(185, 77, 77);
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  font-size: 23px;
+  padding: 10px;
+  width: 200px;
+  height: 100px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
 
 @keyframes App-logo-spin {
