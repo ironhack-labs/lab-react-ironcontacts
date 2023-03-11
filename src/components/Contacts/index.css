@@ -1,0 +1,16 @@
+.ContactsTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 100px;
+}
+
+.ContactsTable img {
+  width: 100px;
+}
+
+.ButtonsContainer{
+  display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
