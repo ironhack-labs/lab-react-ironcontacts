@@ -5,13 +5,13 @@ import React, { Component } from "react";
 const contacts = contactsArr.slice(5, 10);
 
 
-
-
 class Contact extends Component{
     constructor(props) {
         super(props);
         this.state = {
           contacts: contacts,
+          sortedByName: false,
+          sortedByPopularity: false,
         };
     };
 
@@ -25,9 +25,40 @@ class Contact extends Component{
         });
       };
 
+      handleDeleteContact = (id) => {
+        const filteredContacts = this.state.contacts.filter((contact) => contact.id !== id);
+
+        this.setState({
+            contacts: filteredContacts,
+          });
+      }
+
+      sortByName = () => {
+        let contactsByName = this.state.contacts.sort((a, b) => a.name.localeCompare(b.name));
+
+        this.setState({
+            contacts: contactsByName,
+            sortedByName: true,
+            sortedByPopularity: false,
+
+        })
+      }
+
+      sortByPopularity = () => {
+        let contactsByPopularity = this.state.contacts.sort((a, b) => b.popularity - a.popularity);
+        this.setState({
+            contacts: contactsByPopularity,
+            sortedByName: false,
+            sortedByPopularity: true,
+
+        })
+      }
+
         render() {
             return (
                 <>
+                <button onClick={ () => this.sortByName() }>Sort By Name</button>
+                <button onClick={ () => this.sortByPopularity() }>Sort By Popularity</button>
                 <table className="table">
                     <thead>
                         <tr>
@@ -45,7 +76,7 @@ class Contact extends Component{
                             <td>
                             <img className="picture" src={contact.pictureUrl} />
                             </td>
-                            <td>{contact.artistName}</td>
+                            <td>{contact.name}</td>
                             <td>{contact.popularity}</td>
                             <td>
                             {contact.wonOscar ? (
@@ -60,6 +91,9 @@ class Contact extends Component{
                             ) : (
                                 " "
                             )}
+                            </td>
+                            <td>
+                            <button onClick={ () => this.handleDeleteContact(contact.id) }>Delete</button>
                             </td>
                         </tr>
                         
