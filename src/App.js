@@ -2,7 +2,7 @@
 import "./App.css";
 import contactsArr from "./contacts.json";
 
-const contacts = contactsArr.slice(0, 5);
+const contacts = contactsArr.slice(5, 10);
 
 function App() {
   console.log(contacts);
@@ -16,6 +16,8 @@ function App() {
             <th scope="col">Picture</th>
             <th scope="col">Name</th>
             <th scope="col">Popularity</th>
+            <th scope="col">Won an Oscar</th>
+            <th scope="col">Won an Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +29,16 @@ function App() {
                 </td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
+                <td>
+                  {contact.wonOscar ? <i className="bi bi-trophy-fill" /> : " "}
+                </td>
+                <td>
+                  {contact.wonEmmy ? (
+                    <i className="bi bi-trophy-fill"></i>
+                  ) : (
+                    " "
+                  )}
+                </td>
               </tr>
             );
           })}

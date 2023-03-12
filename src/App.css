@@ -5,6 +5,10 @@
 .App .picture {
   height: 100px;
 }
+.App i {
+  height: 80% !important;
+}
+
 
 .App-logo {
   height: 40vmin;
