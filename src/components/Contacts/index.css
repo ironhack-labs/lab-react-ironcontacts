@@ -2,15 +2,36 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 100px;
+  padding: 0 200px;
+  
 }
 
 .ContactsTable img {
   width: 100px;
+  margin: 15px;
 }
 
 .ButtonsContainer{
   display: flex;
-    justify-content: center;
-    gap: 2rem;
+  justify-content: center;
+  gap: 10rem;
+  height: 30px;
+  margin: 15px;
+}
+
+.ButtonsContainer button{
+background-color: gold;
+border-radius: 5px;
+border: none;
+}
+
+.delete-btn{
+  background-color: rgb(223, 12, 12);
+  border-radius: 5px;
+  border: none;
+  padding: 8px 18px;
+}
+
+.table{
+  border: 1px solid gold;
 }
