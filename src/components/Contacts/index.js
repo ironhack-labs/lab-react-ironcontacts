@@ -11,23 +11,23 @@ const ContactsTable = () => {
     if (remainingContacts.length > 0) {
       const randomIndex = Math.floor(Math.random() * remainingContacts.length);
       const randomContact = remainingContacts[randomIndex];
-      setContactsState([...contact, randomContact]);
+      setContactsState([randomContact, ...contactsState ]);
       setRemainingContacts(
         remainingContacts.filter((_, i) => i !== randomIndex)
       );
     }
   };
 
-  const deleteContact = (id) => {
-    setContactsState(contact.filter((contact) => contact.id !== id));
-    setRemainingContacts([...remainingContacts, contact.find((contact) => contact.id === id)]);
-  };
   const sortByName = () => {
-    setContactsState([...contact].sort((a, b) => a.name.localeCompare(b.name)));
+    setContactsState([...contactsState].sort((a, b) => a.name.localeCompare(b.name)));
   };
-
+  
   const sortByPopularity = () => {
-    setContactsState([...contact].sort((a, b) => b.popularity - a.popularity));
+    setContactsState([...contactsState].sort((a, b) => b.popularity - a.popularity));
+  };
+  const deleteContact = (id) => {
+    setContactsState(contactsState.filter((contact) => contact.id !== id));
+    setRemainingContacts([...remainingContacts, contactsState.find((contact) => contact.id === id)]);
   };
 
   return (
