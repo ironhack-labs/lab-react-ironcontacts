@@ -16,6 +16,8 @@ const Table = () => {
           <th>Image</th>
           <th>name</th>
           <th>popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
         </tr>
       </thead>
       <tbody>

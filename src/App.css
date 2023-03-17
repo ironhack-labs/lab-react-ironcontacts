@@ -24,3 +24,7 @@
 .table-container td {
   font-size: 1.5rem;
 }
+
+.table-container .award img {
+  width: 40px;
+}
