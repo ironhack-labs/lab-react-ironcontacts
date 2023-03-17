@@ -4,7 +4,6 @@ import Row from "./Row";
 
 const Table = () => {
   const [contacts, setContacts] = useState([]);
-  const [sorted, setSorted] = useState(true);
 
   useEffect(() => {
     setContacts(contactsJSON.slice(0, 5));
@@ -27,39 +26,52 @@ const Table = () => {
     if (randomContact) setContacts((prev) => [...prev, randomContact]);
   };
 
-  useEffect(() => {
-    setContacts((prev) => prev);
-  }, [sorted]);
-
   const handleSortPopularity = () => {
-    setContacts((prev) => prev.sort((a, b) => b.popularity - a.popularity));
-    setSorted(!sorted);
+    setContacts((prev) =>
+      prev
+        .map((contact) => contact)
+        .sort((popA, popB) => popB.popularity - popA.popularity)
+    );
   };
 
   const handleSortName = () => {
-    setContacts((prev) => prev.sort((a, b) => a.name.localeCompare(b.name)));
-    setSorted(!sorted);
+    setContacts((prev) =>
+      prev
+        .map((contact) => contact)
+        .sort((nameA, nameB) => nameA.name.localeCompare(nameB.name))
+    );
+  };
+
+  const handleDelete = (id) => {
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
   };
 
   return (
     <>
-      <button onClick={handleAddRandom}>Add Random Contact</button>
-      <button onClick={handleSortPopularity}>Sort by Popularity</button>
-      <button onClick={handleSortName}>Sort by Name</button>
+      <div className="btns">
+        <button onClick={handleAddRandom}>Add Random Contact</button>
+        <button onClick={handleSortPopularity}>Sort by Popularity</button>
+        <button onClick={handleSortName}>Sort by Name</button>
+      </div>
 
       <table className="table-container">
         <thead>
           <tr>
             <th>Image</th>
-            <th>name</th>
-            <th>popularity</th>
+            <th>Name</th>
+            <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {contacts.map((contact) => (
-            <Row key={contact.id} contact={contact} />
+            <Row
+              key={contact.id}
+              contact={contact}
+              handleDelete={() => handleDelete(contact.id)}
+            />
           ))}
         </tbody>
       </table>

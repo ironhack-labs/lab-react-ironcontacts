@@ -1,7 +1,7 @@
 import oscar from "../../images/oscarAward.png";
 import emmy from "../../images/emmyAward.png";
 
-const Row = ({ contact }) => {
+const Row = ({ contact, handleDelete }) => {
   return (
     <tr>
       <td>
@@ -23,6 +23,9 @@ const Row = ({ contact }) => {
       ) : (
         <td></td>
       )}
+      <td>
+        <button onClick={handleDelete}>Delete</button>
+      </td>
     </tr>
   );
 };
