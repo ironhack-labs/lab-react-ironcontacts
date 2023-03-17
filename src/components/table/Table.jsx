@@ -4,6 +4,7 @@ import Row from "./Row";
 
 const Table = () => {
   const [contacts, setContacts] = useState([]);
+  const [sorted, setSorted] = useState(true);
 
   useEffect(() => {
     setContacts(contactsJSON.slice(0, 5));
@@ -26,9 +27,26 @@ const Table = () => {
     if (randomContact) setContacts((prev) => [...prev, randomContact]);
   };
 
+  useEffect(() => {
+    setContacts((prev) => prev);
+  }, [sorted]);
+
+  const handleSortPopularity = () => {
+    setContacts((prev) => prev.sort((a, b) => b.popularity - a.popularity));
+    setSorted(!sorted);
+  };
+
+  const handleSortName = () => {
+    setContacts((prev) => prev.sort((a, b) => a.name.localeCompare(b.name)));
+    setSorted(!sorted);
+  };
+
   return (
     <>
       <button onClick={handleAddRandom}>Add Random Contact</button>
+      <button onClick={handleSortPopularity}>Sort by Popularity</button>
+      <button onClick={handleSortName}>Sort by Name</button>
+
       <table className="table-container">
         <thead>
           <tr>
