@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import ContactList from './components/contacts/ContactList';
+import contactsJson from './contacts.json'
+
+const contacts = contactsJson.slice(0, 5)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1 className='font-extrabold text-5xl text-start mb-2 ml-2'>IronContacts</h1>
+      <ContactList />
+     
     </div>
-  );
+  )
 }
 
 export default App;
