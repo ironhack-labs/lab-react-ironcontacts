@@ -3,6 +3,23 @@ import contacts from "./contacts.json";
 
 function App() {
 
+  function wonOscar(contact) {
+    if (contact.wonOscar) {
+      return "🏆";
+    } else {
+      return "";
+    }
+  };
+
+  function wonEmmy(contact) {
+    if (contact.wonEmmy) {
+      return "🏆";
+    } else {
+      return "";
+    }
+  };
+
+  console.log(wonOscar(contacts[0]))
 
   return (
     <div className="App bg-gradient-to-bl from-blue-700 via-blue-800 to-gray-900 text-white overflow-x-hidden font-[Poppins]">
@@ -24,6 +41,12 @@ function App() {
               <th scope="col" className="px-6 py-3">
                 Popularity
               </th>
+              <th scope="col" className="px-6 py-3">
+                Won Oscar
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Won Emmy
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -37,6 +60,12 @@ function App() {
                 </td>
                 <td className="px-6 py-4 font-medium text-base">
                   {contact.popularity.toFixed(2)}
+                </td>
+                <td className="px-6 py-4 font-medium text-3xl">
+                  {wonOscar(contact)}
+                </td>
+                <td className="px-6 py-4 font-medium text-3xl">
+                  {wonEmmy(contact)}
                 </td>
               </tr>
             )}
