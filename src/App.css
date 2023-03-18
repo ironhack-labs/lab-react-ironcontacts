@@ -1,5 +1,29 @@
 .App {
-  text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .App header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-top: 0;
+  }
+  
+  .App header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+  }
+  
+
+.App .contact-image {
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .App-logo {
