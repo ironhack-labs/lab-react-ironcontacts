@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Contact({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
+function Contact({ pictureUrl, name, popularity, wonOscar, wonEmmy, onClickDelete }) {
   const handleRound = () => {
     return Math.round(popularity*100)/100
   }
@@ -19,6 +19,7 @@ function Contact({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
       <td>{handleRound()}</td>
       <td>{handleShowOscar()}</td>
       <td>{handleShowEmmy()}</td>
+      <td><button className='btn btn-danger'><i className='fa fa-trash' onClick={onClickDelete}></i></button></td>
     </tr>
   )
 }

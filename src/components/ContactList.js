@@ -5,14 +5,14 @@ import contactsDB from '../contacts.json'
 function ContactList() {
   const [contacts, setContacts] = useState(contactsDB.slice(0, 5))
 
-  const onClickAddRandom = () => {
+  const handleAddRandom = () => {
     setContacts((prevs) => {
       const remains = contactsDB.filter(contact => prevs.every(prev => prev.id !== contact.id))
       return [...prevs, remains[Math.floor(Math.random() * (remains.length - 1))]]
     })
   }
 
-  const onClickSortBy = (field) => {
+  const handleSortBy = (field) => {
     setContacts((prevs) => {
       return [...prevs.sort((a, b) => {
         if (a[field] > b[field]) {
@@ -26,11 +26,17 @@ function ContactList() {
     })
   }
 
+  const handleContactDelete = (id) => {
+    setContacts((prevs) => {
+      return prevs.filter(prev => prev.id !== id)
+    })
+  }
+
   return (
     <>
-      <button className='btn btn-outline-primary mb-3 me-3' onClick={onClickAddRandom}>Add random contact</button>
-      <button className='btn btn-outline-primary mb-3 me-3' onClick={() => onClickSortBy('popularity')}>Sort by popularity</button>
-      <button className='btn btn-outline-primary mb-3' onClick={() => onClickSortBy('name')}>Sort by name</button>
+      <button className='btn btn-outline-primary mb-3 me-3' onClick={handleAddRandom}>Add random contact</button>
+      <button className='btn btn-outline-primary mb-3 me-3' onClick={() => handleSortBy('popularity')}>Sort by popularity</button>
+      <button className='btn btn-outline-primary mb-3' onClick={() => handleSortBy('name')}>Sort by name</button>
       <table className='table'>
         <thead>
           <tr>
@@ -39,10 +45,11 @@ function ContactList() {
             <th scope="col">Popularity</th>
             <th scope="col">Won Oscar</th>
             <th scope="col">Won Emmy</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contact) => <Contact key={contact.id} {...contact} />)}
+          {contacts.map((contact) => <Contact key={contact.id} {...contact} onClickDelete={() => handleContactDelete(contact.id)}/>)}
         </tbody>
       </table>
     </>
