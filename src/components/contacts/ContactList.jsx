@@ -46,13 +46,17 @@ export default function ContactList() {
     })
   }
 
+  const handleDeleteContact = (id) => {
+    console.log(id);
+    setContacts((prev) => prev.filter((contact) => contact.id !== id))
+  }
 
   return (
     <>
       <div className='flex m-2 gap-3'>
         <button className='border border-black px-3 bg-slate-200 disabled:opacity-50' onClick={handleAddClick} disabled={!remainContacts.length}>Add Random Contact</button>
-        <button className='border border-black px-3 bg-slate-200 disabled:opacity-50' onClick={handlePopularityClick}>Sort by popularity</button>
-        <button className='border border-black px-3 bg-slate-200 disabled:opacity-50' onClick={handleNameClick}>Sort by name</button>
+        <button className='border border-black px-3 bg-slate-200' onClick={handlePopularityClick}>Sort by popularity</button>
+        <button className='border border-black px-3 bg-slate-200' onClick={handleNameClick}>Sort by name</button>
       </div>
       <table className='table-auto mx-7'>
         <thead>
@@ -62,10 +66,11 @@ export default function ContactList() {
             <th className='w-16'>Popularity</th>
             <th className='w-16'>Won Oscar</th>
             <th className='w-16'>Won Emmy</th>
+            <th className='w-16'>Actions</th>
           </tr>
         </thead>
         <tbody className='text-center'>
-          {contacts.map((contact) => (<ContactItem key={contact.id} {...contact} />))}
+          {contacts.map((contact) => (<ContactItem key={contact.id} {...contact} onDelete={() => handleDeleteContact(contact.id)} />))}
         </tbody>
       </table>
     </>
