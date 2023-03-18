@@ -4,6 +4,7 @@ import contactsDB from '../contacts.json'
 
 function ContactList() {
   const [contacts, setContacts] = useState(contactsDB.slice(0, 5))
+
   const onClickAddRandom = () => {
     setContacts((prevs) => {
       const remains = contactsDB.filter(contact => prevs.every(prev => prev.id !== contact.id))
@@ -11,10 +12,25 @@ function ContactList() {
     })
   }
 
+  const onClickSortBy = (field) => {
+    setContacts((prevs) => {
+      return [...prevs.sort((a, b) => {
+        if (a[field] > b[field]) {
+          return field === 'popularity' ? -1 : 1
+        } else if (a[field] < b[field]) {
+          return field === 'popularity' ? 1 : -1
+        } else {
+          return 0
+        }
+      })]
+    })
+  }
 
   return (
     <>
-      <button className='btn btn-outline-primary mb-3' onClick={onClickAddRandom}>Add random contact</button>
+      <button className='btn btn-outline-primary mb-3 me-3' onClick={onClickAddRandom}>Add random contact</button>
+      <button className='btn btn-outline-primary mb-3 me-3' onClick={() => onClickSortBy('popularity')}>Sort by popularity</button>
+      <button className='btn btn-outline-primary mb-3' onClick={() => onClickSortBy('name')}>Sort by name</button>
       <table className='table'>
         <thead>
           <tr>
