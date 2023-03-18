@@ -23,14 +23,37 @@ export default function ContactList() {
         remainContacts[randomNum]
       ])
       setRemainContacts((prev) => prev.filter((contact) => contact.id !== remainContacts[randomNum].id))
-      console.log(remainContacts);
     }
+  }
+  const handlePopularityClick = () => {
+    setContacts((prev) => {
+      const prevClone = [...prev]
+      return prevClone.sort((a, b) => b.popularity - a.popularity)
+    })
+  }
+  const handleNameClick = () => {
+    setContacts((prev) => {
+      const prevClone = [...prev]
+      return prevClone.sort((a, b) => {
+        if (a.name.toUpperCase() < b.name.toUpperCase()) {
+          return -1
+        }
+        if (a.name.toUpperCase() > b.name.toUpperCase()) {
+          return 1
+        }
+        return 0
+      })
+    })
   }
 
 
   return (
     <>
-      <button className='border border-black py-1 px-5 bg-slate-200' onClick={handleAddClick}>Add Random Contact</button>
+      <div className='flex m-2 gap-3'>
+        <button className='border border-black px-3 bg-slate-200 disabled:opacity-50' onClick={handleAddClick} disabled={!remainContacts.length}>Add Random Contact</button>
+        <button className='border border-black px-3 bg-slate-200 disabled:opacity-50' onClick={handlePopularityClick}>Sort by popularity</button>
+        <button className='border border-black px-3 bg-slate-200 disabled:opacity-50' onClick={handleNameClick}>Sort by name</button>
+      </div>
       <table className='table-auto mx-7'>
         <thead>
           <tr>
