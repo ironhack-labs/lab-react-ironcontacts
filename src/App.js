@@ -32,6 +32,11 @@ function App() {
     setContacts([contact, ...contacts]);
   }
 
+  const handleSortbyName = () => {
+    contacts.sort((contact1, contact2) => contact1.name.localeCompare(contact2.name))
+    setContacts([...contacts]);
+  }
+
   return (
     <div className="App bg-gradient-to-bl from-blue-700 via-blue-800 to-gray-900 text-white overflow-x-hidden font-[Poppins]">
       <div className="w-screen flex items-center flex-col mb-10">
@@ -61,7 +66,7 @@ function App() {
             <span class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-5"></span>
             <span class="relative">Sort by Popularity</span>
           </button>
-          <button class="relative inline-flex items-center justify-center px-6 py-3 mb-8 overflow-hidden font-bold text-white rounded-md shadow-2xl group">
+          <button class="relative inline-flex items-center justify-center px-6 py-3 mb-8 overflow-hidden font-bold text-white rounded-md shadow-2xl group" onClick={handleSortbyName}>
             <span class="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-pink-600 via-purple-700 to-blue-400 group-hover:opacity-100"></span>
             <span class="absolute top-0 left-0 w-full bg-gradient-to-b from-white to-transparent opacity-5 h-1/3"></span>
             <span class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white to-transparent opacity-5"></span>
