@@ -1,7 +1,7 @@
 
 import './index.css'
 import React from 'react'
-import trophy from '../../assets/images/trophy.jpg'
+
 
 
 class DisplayContacts extends React.Component {
@@ -23,8 +23,8 @@ class DisplayContacts extends React.Component {
                         <td><img src={contact.pictureUrl}/></td>
                         <td>{contact.name}</td>
                         <td>{contact.popularity}</td>
-                        <td>{contact.wonOscar ? <img className="Trophimg" src={trophy}/> : "NO"}</td>
-                        <td>{contact.wonEmmy ? <img src={trophy}/> : "NO"}</td>
+                        <td>{contact.wonOscar ? "🏆" : "NO"}</td>
+                        <td>{contact.wonEmmy ? "🏆" : "NO"}</td>
                     </tr>
                  </table>
             </div>
