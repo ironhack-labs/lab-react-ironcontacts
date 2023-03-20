@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import contactsJson from '../../contacts.json'
 
-function ContactList() {
+function ContactList({ name, wonOscar, wonEmmy }) {
 
   const [contacts, setContacts] = useState([])
 
@@ -9,21 +9,16 @@ function ContactList() {
     setContacts(contactsJson.slice(0, 5))
   }, [])
 
-  function wonOscar(contact) {
-    if (contact.wonOscar) {
-      return "🏆";
-    } else {
-      return "❌";
-    }
-  };
+  let imageOscar = ''
+  let imageEmmy = ''
 
-  function wonEmmy(contact) {
-    if (contact.wonEmmy) {
-      return "🏆";
-    } else {
-      return "❌";
-    }
-  };
+  if (wonOscar) {
+    imageOscar = '🏆'
+  }
+
+  if (wonEmmy) {
+    imageEmmy = '🏆'
+  }
 
   return (
     <div>
@@ -42,12 +37,12 @@ function ContactList() {
             return (
               <tr key={contact.id}>
                 <th scope="row">
-                  <img src={contact.pictureUrl} />
+                  <img src={contact.pictureUrl} alt={name}  />
                 </th>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
-                <td>{wonOscar(contact)}</td>
-                <td>{wonEmmy(contact)}</td>
+                <td>{imageOscar}</td>
+                <td>{imageEmmy}</td>
               </tr>
             );
           })}
