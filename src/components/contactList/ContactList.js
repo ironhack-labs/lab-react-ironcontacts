@@ -9,6 +9,22 @@ function ContactList() {
     setContacts(contactsJson.slice(0, 5))
   }, [])
 
+  function wonOscar(contact) {
+    if (contact.wonOscar) {
+      return "🏆";
+    } else {
+      return "❌";
+    }
+  };
+
+  function wonEmmy(contact) {
+    if (contact.wonEmmy) {
+      return "🏆";
+    } else {
+      return "❌";
+    }
+  };
+
   return (
     <div>
       <table className="table">
@@ -17,8 +33,8 @@ function ContactList() {
             <th scope="col">Picture</th>
             <th scope="col">Name</th>
             <th scope="col">Popularity</th>
-            <th scope="col">wonOscar</th>
-            <th scope="col">wonEmmy</th>
+            <th scope="col">Won Oscar</th>
+            <th scope="col">Won Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -30,8 +46,8 @@ function ContactList() {
                 </th>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
-                <td>{contact.wonOscar}</td>
-                <td>{contact.wonEmmy}</td>
+                <td>{wonOscar(contact)}</td>
+                <td>{wonEmmy(contact)}</td>
               </tr>
             );
           })}
