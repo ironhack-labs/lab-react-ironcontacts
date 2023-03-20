@@ -1,6 +1,15 @@
 import "./ContactsItem.css";
+import Button from "../Buttons/Buttons";
 
-const ContactsItem = ({ name, pictureUrl, popularity, wonOscar, wonEmmy }) => {
+const ContactsItem = ({
+  id,
+  name,
+  pictureUrl,
+  popularity,
+  wonOscar,
+  wonEmmy,
+  btnAction,
+}) => {
   return (
     <tr className="ContactsItem">
       <td>
@@ -10,6 +19,9 @@ const ContactsItem = ({ name, pictureUrl, popularity, wonOscar, wonEmmy }) => {
       <td>{popularity.toFixed(2)}</td>
       <td>{wonOscar ? "🏆" : null}</td>
       <td>{wonEmmy ? "🌟" : null}</td>
+      <td>
+        <Button text="Delete" onClick={() => btnAction(id)} />
+      </td>
     </tr>
   );
 };

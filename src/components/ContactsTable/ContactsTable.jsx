@@ -31,6 +31,12 @@ class ContactsTable extends React.Component {
     }));
   };
 
+  deleteContact = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== id),
+    }));
+  };
+
   render() {
     return (
       <>
@@ -41,7 +47,6 @@ class ContactsTable extends React.Component {
         </div>
 
         <table className="ContactsTable">
-          {console.log(this.state.contacts)}
           <thead>
             <tr>
               <th>Picture</th>
@@ -49,11 +54,16 @@ class ContactsTable extends React.Component {
               <th>Popularity</th>
               <th>Won an Oscar</th>
               <th>Won an Emmy</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {this.state.contacts.map((contact) => (
-              <ContactsItem {...contact} key={contact.id} />
+              <ContactsItem
+                {...contact}
+                key={contact.id}
+                btnAction={this.deleteContact}
+              />
             ))}
           </tbody>
         </table>
