@@ -17,13 +17,31 @@ class ContactsTable extends React.Component {
     }));
   };
 
+  sortByName = () => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.sort((a, b) => (a.name > b.name ? 1 : -1)),
+    }));
+  };
+
+  sortByPopularity = () => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.sort((a, b) =>
+        a.popularity > b.popularity ? -1 : 1
+      ),
+    }));
+  };
+
   render() {
     return (
       <>
-        <Button onClick={this.addRandomContact} text="Add Random Contact" />
+        <div className="buttons">
+          <Button onClick={this.addRandomContact} text="Add Random Contact" />
+          <Button onClick={this.sortByPopularity} text="Sort by popularity" />
+          <Button onClick={this.sortByName} text="Sort by name" />
+        </div>
 
         <table className="ContactsTable">
-          {console.log(contacts)}
+          {console.log(this.state.contacts)}
           <thead>
             <tr>
               <th>Picture</th>

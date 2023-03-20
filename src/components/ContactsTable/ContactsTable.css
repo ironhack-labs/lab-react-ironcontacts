@@ -1,3 +1,11 @@
 .ContactsTable th {
     width: 100px;
 }
+
+.buttons {
+    display: flex;
+}
+
+.buttons button {
+    margin: 0 10px 10px;
+}
