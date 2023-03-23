@@ -2,18 +2,31 @@ import React, { useState } from 'react'
 import Contact from '../Contacts/Contact'
 import contactsData from "../../contacts.json"
 
-const contactsArray = contactsData.slice(0, 5)
+const restContacts = contactsData.map( x => x );
+
+for(let i = 0; i < 5; i++){
+  restContacts.shift();
+}
 
 function Table() {
+  const contactsArray = contactsData.slice(0,5);
+  const [contacts, setContacts] = useState(contactsArray);
+  
+  
 
-  const [contacts, setContacts] = useState(contactsArray)
-
-  function handleAddRandomContact(event) {
-    const randomIndex = Math.floor(Math.random() * contactsData.length)
-    const randomContact = contactsData[randomIndex]
-    const uniqueContacts = new Set([randomContact, ...contacts])
-    setContacts([...uniqueContacts])
+  function handleAddRandomContact() {
+    if(restContacts.length !== 0) {
+      const index = (Math.floor(Math.random()*restContacts.length))
+      setContacts([...new Set([restContacts[index], ...contacts])])
+    
+      restContacts.splice(index, 1);
+    } else {
+      return
+    }
   }
+  
+
+ 
 
   return (
     <div>
@@ -29,7 +42,7 @@ function Table() {
             <th>Won Emmy</th>
           </tr>
         </thead>
-        <tbody>{new Set(contacts.map(contact => <Contact contact={contact} key={contact.id} />))}</tbody>
+        <tbody>{contacts.map(contact => <Contact contact={contact} key={contact.id} />)}</tbody>
       </table>
     </div>
   )
