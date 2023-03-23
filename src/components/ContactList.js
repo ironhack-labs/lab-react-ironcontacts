@@ -25,6 +25,10 @@ export default function ContactList() {
     setContacts(prev => [...prev.sort((a, b) => b.popularity - a.popularity)]);
   }
 
+  const handleDeleteContact = (currentContact) => {
+    setContacts(prev => [...prev.filter(contact => contact !== currentContact)])
+  }
+
   return (
     <div className='container'>
       <div className='d-flex flex-row flex-wrap justify-content-center gap-3'>
@@ -40,10 +44,11 @@ export default function ContactList() {
             <th scope="col">Popularity</th>
             <th scope="col">Won Oscar</th>
             <th scope="col">Won Emmy</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {contacts.map(contact => <ContactItem contact={contact} key={contact.id}/>)}
+          {contacts.map(contact => <ContactItem contact={contact} key={contact.id} onDeleteContact={() => handleDeleteContact(contact)}/>)}
         </tbody>
       </table>
     </div>
