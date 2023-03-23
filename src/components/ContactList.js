@@ -13,17 +13,26 @@ export default function ContactList() {
     let randomContact = contactsDB[Math.floor(Math.random() * contactsDB.length)];
 
     if (!contacts.includes(randomContact)) {
-      setContacts((prev) => [
-        ...prev,
-        randomContact
-      ])
+      setContacts((prev) => [...prev, randomContact]);
     }
+  }
+
+  const handleSortByName = () => {
+    setContacts(prev => [...prev.sort((a, b) => a.name.localeCompare(b.name))]);
+  }
+
+  const handleSortByPopularity = () => {
+    setContacts(prev => [...prev.sort((a, b) => b.popularity - a.popularity)]);
   }
 
   return (
     <div className='container'>
+      <div className='d-flex flex-row flex-wrap justify-content-center gap-3'>
       <button className='btn btn-primary mb-3' onClick={handleAddContact}>Add random contact</button>
-      <table className='table'>
+      <button className='btn btn-primary mb-3' onClick={handleSortByName}>Sort by name</button>
+      <button className='btn btn-primary mb-3' onClick={handleSortByPopularity}>Sort by popularity</button>
+      </div>
+      <table className='table align-middle'>
         <thead>
           <tr>
             <th scope="col">Picture</th>
