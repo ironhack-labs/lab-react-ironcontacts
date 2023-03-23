@@ -35,6 +35,11 @@ function Table() {
   }
 
 
+  const handleDeleteContact = (contact) => {
+    setContacts((prev) => prev.filter(contactToDelete => contactToDelete.id !== contact.id))
+    restContacts.push(contact)
+  }
+
 
 
   return (
@@ -51,9 +56,10 @@ function Table() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody>{contacts.map(contact => <Contact contact={contact} key={contact.id} />)}</tbody>
+        <tbody>{contacts.map(contact => <Contact contact={contact} onClickDelete={(event) => handleDeleteContact(contact)} key={contact.id} />)}</tbody>
       </table>
     </div>
   )
