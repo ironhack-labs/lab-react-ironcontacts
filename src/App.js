@@ -5,9 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1 className='py-4'>Ironcontacts</h1>
-      <div className='container'>
-        <ContactList />
-      </div>
+      <ContactList />
 
     </div>
   );
