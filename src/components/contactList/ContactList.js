@@ -9,23 +9,32 @@ function ContactList({ name, wonOscar, wonEmmy }) {
     setContacts(contactsJson.slice(0, 5))
   }, [])
 
-
-
   const handleRandomContact = () => {
     setContacts((prevContacts) => {
-    let randomContact
-    
-    do {
-      randomContact = contactsJson[Math.floor(Math.random() * contactsJson.length)]
-    } while (prevContacts.includes(randomContact))
-    
-    return [randomContact, ...prevContacts]
-    })   
-}
+      let randomContact
+
+      do {
+        randomContact = contactsJson[Math.floor(Math.random() * contactsJson.length)]
+      } while (prevContacts.includes(randomContact))
+
+      return [randomContact, ...prevContacts]
+    })
+  }
+
+  const handleSortName = () => {
+    setContacts([...contacts].sort((a, b) => a.name.localeCompare(b.name)));
+  };
+
+  function handleSortPopularity() {
+    setContacts([...contacts].sort((a, b) => (b.popularity - a.popularity)));
+  };
+
 
   return (
     <div>
-        <button className='m-3' onClick={handleRandomContact}>Add Random Contact</button>
+      <button className='m-3' onClick={handleSortName}> Sort by Name</button>
+      <button className='m-3' onClick={handleSortPopularity}> Sort by Popularity</button>
+      <button className='m-3' onClick={handleRandomContact}>Add Random Contact</button>
       <table className="table">
         <thead>
           <tr>
@@ -41,7 +50,7 @@ function ContactList({ name, wonOscar, wonEmmy }) {
             return (
               <tr key={contact.id}>
                 <th scope="row">
-                  <img src={contact.pictureUrl} alt={name}  />
+                  <img src={contact.pictureUrl} alt={name} />
                 </th>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
