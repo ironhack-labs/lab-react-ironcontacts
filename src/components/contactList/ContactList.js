@@ -9,19 +9,23 @@ function ContactList({ name, wonOscar, wonEmmy }) {
     setContacts(contactsJson.slice(0, 5))
   }, [])
 
-  let imageOscar = ''
-  let imageEmmy = ''
 
-  if (wonOscar) {
-    imageOscar = '🏆'
-  }
 
-  if (wonEmmy) {
-    imageEmmy = '🏆'
-  }
+  const handleRandomContact = () => {
+    setContacts((prevContacts) => {
+    let randomContact
+    
+    do {
+      randomContact = contactsJson[Math.floor(Math.random() * contactsJson.length)]
+    } while (prevContacts.includes(randomContact))
+    
+    return [randomContact, ...prevContacts]
+    })   
+}
 
   return (
     <div>
+        <button className='m-3' onClick={handleRandomContact}>Add Random Contact</button>
       <table className="table">
         <thead>
           <tr>
@@ -41,8 +45,8 @@ function ContactList({ name, wonOscar, wonEmmy }) {
                 </th>
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
-                <td>{imageOscar}</td>
-                <td>{imageEmmy}</td>
+                <td className=''>{contact.wonOscar && <span>🏆</span>}</td>
+                <td className=''>{contact.wonEmmy && <span>🏆</span>}</td>
               </tr>
             );
           })}
