@@ -29,6 +29,9 @@ function ContactList({ name, wonOscar, wonEmmy }) {
     setContacts([...contacts].sort((a, b) => (b.popularity - a.popularity)));
   };
 
+  const handleDeleteContact = (id) => {
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
+  };
 
   return (
     <div>
@@ -56,6 +59,14 @@ function ContactList({ name, wonOscar, wonEmmy }) {
                 <td>{contact.popularity}</td>
                 <td className=''>{contact.wonOscar && <span>🏆</span>}</td>
                 <td className=''>{contact.wonEmmy && <span>🏆</span>}</td>
+                <td>
+                  <button
+                    className="btn btn-outline-danger fs-4 m-3"
+                    onClick={(event) => handleDeleteContact(contact.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
