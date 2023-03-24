@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json'
+import React, { useState } from 'react'
+import Table from './components/Table';
 
 function App() {
+  const [firstFive, setFirstFive] = useState(contacts.slice(0, 5))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Table />
     </div>
   );
 }
