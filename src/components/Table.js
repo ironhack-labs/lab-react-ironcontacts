@@ -15,7 +15,27 @@ function Table() {
         const randomContact = otherContacts[Math.floor(Math.random() * otherContacts.length)];
 
         setFirstFive([...firstFive, randomContact]);
-      };
+    };
+
+    function sortByPopularity(a, b) {
+        return b.popularity - a.popularity
+    }
+    
+    const sortPopularity = () => {
+        const sortedContacts = [...firstFive].sort(sortByPopularity);
+        setFirstFive(sortedContacts)
+    }
+
+    function sortByName(a, b) {
+        if (a.name < b.name) { return -1; }
+        if (a.name > b.name) { return 1; }
+        return 0;
+    }
+
+    const sortName = () => {
+        const sortedContacts = [...firstFive].sort(sortByName);
+        setFirstFive(sortedContacts)
+    }
 
     return (
         <div>
@@ -24,38 +44,42 @@ function Table() {
                 <li className="list-group-item" key={contact.name}></li>
             ))}
             <h2>Famous contacts</h2>
-            <button className='addRandomContact' onClick={addRandomContact}>
-        Add random contact
-      </button>
-      <table className='contacts'>
-        <thead>
-          <tr>
-            <th scope='col'>#</th>
-            <th scope='col'>Photo</th>
-            <th scope='col'>Name</th>
-            <th scope='col'>Rate of popularity</th>
-            <th scope='col'>Won an Oscar</th>
-            <th scope='col'>Won an Emmy</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          {firstFive.map((contact, index) => (
-            <tr key={contact.id}>
-              <th scope='row'>{index + 1}</th>
-              <td>
-                <img className='contactPicture' src={contact.pictureUrl} alt='' />
-              </td>
-              <td>{contact.name}</td>
-              <td>{contact.popularity.toFixed(2)}</td>
-              <td>{contact.wonOscar && <FontAwesomeIcon icon={faTrophy} />}</td>
-              <td>{contact.wonEmmy && <FontAwesomeIcon icon={faTrophy} />}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+            <button type="button" className="btn btn-primary btn-lg" onClick={addRandomContact}>
+                Add random contact
+            </button>
+
+            <button type="button" className="btn btn-primary btn-lg" onClick={sortPopularity}>Sort by popularity</button>
+            <button type="button" className="btn btn-primary btn-lg" onClick={sortName}>Sort by name</button>
+
+            <table className='contacts'>
+                <thead>
+                    <tr>
+                        <th scope='col'>#</th>
+                        <th scope='col'>Photo</th>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Rate of popularity</th>
+                        <th scope='col'>Won an Oscar</th>
+                        <th scope='col'>Won an Emmy</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {firstFive.map((contact, index) => (
+                        <tr key={contact.id}>
+                            <th scope='row'>{index + 1}</th>
+                            <td>
+                                <img className='contactPicture' src={contact.pictureUrl} alt='' />
+                            </td>
+                            <td>{contact.name}</td>
+                            <td>{contact.popularity.toFixed(2)}</td>
+                            <td>{contact.wonOscar && <FontAwesomeIcon icon={faTrophy} />}</td>
+                            <td>{contact.wonEmmy && <FontAwesomeIcon icon={faTrophy} />}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default Table;
