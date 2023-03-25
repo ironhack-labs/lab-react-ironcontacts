@@ -29,12 +29,16 @@ function Table() {
     function sortByName(a, b) {
         if (a.name < b.name) { return -1; }
         if (a.name > b.name) { return 1; }
-        return 0;
     }
 
     const sortName = () => {
         const sortedContacts = [...firstFive].sort(sortByName);
         setFirstFive(sortedContacts)
+    }
+
+    const deleteContact = (id) => {
+        const contactsAfterRemoveOne = firstFive.filter((contact) => contact.id !== id);
+        setFirstFive(contactsAfterRemoveOne)
     }
 
     return (
@@ -44,12 +48,12 @@ function Table() {
                 <li className="list-group-item" key={contact.name}></li>
             ))}
             <h2>Famous contacts</h2>
-            <button type="button" className="btn btn-primary btn-lg" onClick={addRandomContact}>
+            <button type="button" className="btn btn-outline-info" onClick={addRandomContact}>
                 Add random contact
             </button>
 
-            <button type="button" className="btn btn-primary btn-lg" onClick={sortPopularity}>Sort by popularity</button>
-            <button type="button" className="btn btn-primary btn-lg" onClick={sortName}>Sort by name</button>
+            <button type="button" className="btn btn-outline-primary" onClick={sortPopularity}>Sort by popularity</button>
+            <button type="button" className="btn btn-outline-success" onClick={sortName}>Sort by name</button>
 
             <table className='contacts'>
                 <thead>
@@ -60,6 +64,7 @@ function Table() {
                         <th scope='col'>Rate of popularity</th>
                         <th scope='col'>Won an Oscar</th>
                         <th scope='col'>Won an Emmy</th>
+                        <th scope='col'>Actions</th>
                     </tr>
                 </thead>
 
@@ -74,6 +79,9 @@ function Table() {
                             <td>{contact.popularity.toFixed(2)}</td>
                             <td>{contact.wonOscar && <FontAwesomeIcon icon={faTrophy} />}</td>
                             <td>{contact.wonEmmy && <FontAwesomeIcon icon={faTrophy} />}</td>
+                            <td>
+                            <button type="button" className="btn btn-outline-warning" onClick={() => deleteContact(contact.id)}>Delete</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
