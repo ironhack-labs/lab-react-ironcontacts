@@ -5,15 +5,14 @@ import ContactItem from './ContactItem';
 export default function ContactList() {
   const firstContacts = contactsDB.slice(5, 10);
 
-  console.log(contactsDB);
-
   const [contacts, setContacts] = useState(firstContacts);
 
   const handleAddContact = () => {
-    let randomContact = contactsDB[Math.floor(Math.random() * contactsDB.length)];
+    let contactsLeft = [...contactsDB.filter(elem => !contacts.includes(elem))];
+    let randomContact = contactsLeft[Math.floor(Math.random() * contactsLeft.length)];
 
     if (!contacts.includes(randomContact)) {
-      setContacts((prev) => [...prev, randomContact]);
+      setContacts((prev) => [randomContact, ...prev]);
     }
   }
 
@@ -32,9 +31,9 @@ export default function ContactList() {
   return (
     <div className='container'>
       <div className='d-flex flex-row flex-wrap justify-content-center gap-3'>
-      <button className='btn btn-primary mb-3' onClick={handleAddContact}>Add random contact</button>
-      <button className='btn btn-primary mb-3' onClick={handleSortByName}>Sort by name</button>
-      <button className='btn btn-primary mb-3' onClick={handleSortByPopularity}>Sort by popularity</button>
+        <button className='btn btn-primary mb-3' onClick={handleAddContact}>Add random contact</button>
+        <button className='btn btn-primary mb-3' onClick={handleSortByName}>Sort by name</button>
+        <button className='btn btn-primary mb-3' onClick={handleSortByPopularity}>Sort by popularity</button>
       </div>
       <table className='table align-middle'>
         <thead>
