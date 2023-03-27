@@ -1,6 +1,6 @@
 import React from "react";
 
-function Contact({ contact, onDelete }) {
+function Contact({ contact, onClikDelete }) {
   return (
     <tr>
       <th scope="row"></th>
@@ -12,14 +12,14 @@ function Contact({ contact, onDelete }) {
       <td>{contact.wonOscar ? "🏆" : ""}</td>
       <td>{contact.wonEmmy ? "🌟" : ""}</td>
       <td>
-        <button onClick={onDelete}>Delete</button>
+        <button onClick={onClikDelete}>Delete</button>
       </td>
     </tr>
   );
 }
 
 Contact.defaultValue = {
-  onDelete: () => {},
+  onClikDelete: () => {},
 };
 
 export default Contact;
