@@ -12,8 +12,8 @@
     "pictureUrl": "https://image.tmdb.org/t/p/w500/kbWValANhZI8rbWZXximXuMN4UN.jpg",
     "popularity": 15.656534,
     "id": "7dad00f7-3949-477d-a7e2-1467fd2cfc06",
-    "wonOscar": false,
-    "wonEmmy": false
+    "wonOscar": true,
+    "wonEmmy": true
   },
   {
     "name": "Monica Bellucci",
