@@ -6,8 +6,6 @@ import { useState } from 'react';
 function App() {
 	const [ironContacts, setIronContacts] = useState([contacts[0], contacts[1], contacts[2], contacts[3], contacts[4]]);
 
-	console.log(ironContacts);
-
 	return (
 		<div className='App'>
 			<table>
@@ -16,6 +14,8 @@ function App() {
 						<th>Picture</th>
 						<th>Name</th>
 						<th>Popularity</th>
+						<th>Won Oscar</th>
+						<th>Won Emmy</th>
 					</tr>
 				</thead>
 
@@ -27,6 +27,8 @@ function App() {
 							</th>
 							<td>{contact.name}</td>
 							<td>{contact.popularity}</td>
+							<td>{contact.popularity ? '🏆' : ''}</td>
+							<td>{contact.wonEmmy ? '🏆' : ''}</td>
 						</tr>
 					</tbody>
 				))}
