@@ -56,7 +56,7 @@ function App() {
 				</thead>
 
 				{ironContacts.map((contact) => (
-					<tbody className={color} key={contact.id}>
+					<tbody className={contact.popularity > 10 ? 'green' : 'yellow'} key={contact.id}>
 						<tr>
 							<th>
 								<img className='portrait' src={contact.pictureUrl} alt=' celebrity' />
