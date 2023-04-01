@@ -4,7 +4,20 @@ import contacts from './contacts.json';
 import { useState } from 'react';
 
 function App() {
-	const [ironContacts, setIronContacts] = useState([contacts[0], contacts[1], contacts[2], contacts[3], contacts[4]]);
+	const limitedContacts = contacts.slice(0, 5);
+
+	const [ironContacts, setIronContacts] = useState([
+		limitedContacts[0],
+		limitedContacts[1],
+		limitedContacts[2],
+		limitedContacts[3],
+		limitedContacts[4],
+	]);
+
+	function addRandomContact() {
+		const random = Math.floor(Math.random() * contacts.length);
+		setIronContacts([...ironContacts, contacts[random]]);
+	}
 
 	return (
 		<div className='App'>
@@ -33,6 +46,7 @@ function App() {
 					</tbody>
 				))}
 			</table>
+			<button onClick={addRandomContact}> Add Random Contact</button>
 		</div>
 	);
 }
