@@ -1,5 +1,5 @@
 body {
-  margin: 5%;
+  margin-top: 2%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,6 +10,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
 img {
   height: 16vh;
   border-radius: 10px;
@@ -18,4 +19,47 @@ img {
 
 tr {
   padding: 10px;
+}
+
+button {
+  padding: 8px;
+  border-radius: 32px;
+  border-style: none;
+  width: 300px;
+  margin: 24px;
+  cursor: pointer;
+}
+
+.smallBtn {
+  padding: 8px;
+  border-radius: 2px;
+  border-style: none;
+  width: 100px;
+  margin: 24px;
+  cursor: pointer;
+  background-color: rgb(255, 46, 46);
+  color: whitesmoke;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.card {
+  gap: 20px;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+tr {
+  margin: 0px 32 32 0;
+  display: flex;
+  width: 80vw;
+  justify-content: space-evenly;
+  align-items: center;
 }
