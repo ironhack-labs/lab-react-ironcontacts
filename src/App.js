@@ -38,6 +38,13 @@ function App() {
     setContacts(sortedByName);
   }
 
+  function deleteContact(index) {
+    const deletedContact = [...contacts];
+    deletedContact.splice(index, 1);
+
+    setContacts(deletedContact);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -60,15 +67,18 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contact) => (
-            <tr key={contact.id}>
+          {contacts.map((eachContact, i) => (
+            <tr key={i}>
               <td>
-                <img src={contact.pictureUrl} alt={contact.name} width="95" />
+                <img src={eachContact.pictureUrl} alt={eachContact.name} width="95" />
               </td>
-              <td>{contact.name}</td>
-              <td>{contact.popularity.toFixed(2)}</td>
-              <td>{contact.wonOscar ? <span role="img" aria-label="trophy">🏆</span> : null}</td>
-              <td>{contact.wonEmmy ? <span role="img" aria-label="trophy">🏆</span> : null}</td>
+              <td>{eachContact.name}</td>
+              <td>{eachContact.popularity.toFixed(2)}</td>
+              <td>{eachContact.wonOscar ? <span role="img" aria-label="trophy">🏆</span> : null}</td>
+              <td>{eachContact.wonEmmy ? <span role="img" aria-label="trophy">🏆</span> : null}</td>
+              <td>
+                <button onClick={() => deleteContact(i)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
