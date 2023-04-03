@@ -44,7 +44,7 @@ function App() {
   };
 
   const deleteContact = (id) => {
-    const filteredContacts = contacts.filter((contact) => {
+    const filteredContacts = [...contacts].filter((contact) => {
       return contact.id !== id;
     });
 
@@ -81,9 +81,9 @@ function App() {
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
               {contact.wonOscar && <td>😎🏆</td>}
-              {!contact.wonOscar && <td>-</td>}
+              {!contact.wonOscar && <td></td>}
               {contact.wonEmmy && <td>😎🏆</td>}
-              {!contact.wonEmmy && <td>-</td>}
+              {!contact.wonEmmy && <td></td>}
               <td>
                 <button onClick={() => deleteContact(contact.id)}>
                   Delete
