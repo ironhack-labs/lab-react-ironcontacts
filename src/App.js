@@ -1,10 +1,10 @@
 import './App.css';
 import {useState} from 'react'
-import contacts from './contacts.json'
+import contactsData from './contacts.json'
 
 function App() {
 
-  const [contacts, setContacts] = useState(5)
+  const [contacts, setContacts] = useState(contactsData.slice(0,4))
 
   return (
     <div className="App">
@@ -15,11 +15,15 @@ function App() {
           <th>Name</th>
           <th>Popularity</th>
         </tr>
-        <tr>
-          <td>{}</td>
-          <td>{}</td>
-          <td>{}</td>
-        </tr>
+          {contacts.map(contact => {
+            return (
+              <tr>
+                <td><img src={contact.pictureUrl} /></td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity.toFixed(2)}</td>
+              </tr>
+            )
+          })}
       </table>
     </div>
   );
