@@ -17,7 +17,15 @@ function App() {
   };
 
   const orderName = () => {
-    const sortedByName = contacts.name;
+    const sortedByName = [...contacts].sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
 
     setContacts(sortedByName);
   };
@@ -27,8 +35,8 @@ function App() {
   };
 
   const deleteContact = (id) => {
-    const filteredContacts = contacts.filter((contacts) => {
-      return contacts.id !== id;
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== id;
     });
 
     setContacts(filteredContacts);
@@ -64,11 +72,13 @@ function App() {
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
               {contact.wonOscar && <td>😎🏆</td>}
-              {!contact.wonOscar && <td>😔</td>}
+              {!contact.wonOscar && <td>-</td>}
               {contact.wonEmmy && <td>😎🏆</td>}
-              {!contact.wonEmmy && <td> 😔</td>}
+              {!contact.wonEmmy && <td>-</td>}
               <td>
-                <button onClick={() => deleteContact(contact.id)}>Delete</button>
+                <button onClick={() => deleteContact(contact.id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
