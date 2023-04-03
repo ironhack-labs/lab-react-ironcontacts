@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
 }
 
 .App-logo {
@@ -73,4 +73,21 @@ tr:nth-child(even) {
 
 td span {
   font-size: 20px;
+}
+
+.buttons button:hover {
+  background-color: green;
+  color: white;
+}
+
+button:hover {
+  background-color: red;
+  color: white;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0;
 }
