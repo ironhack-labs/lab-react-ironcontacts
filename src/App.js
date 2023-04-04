@@ -13,11 +13,28 @@ function App() {
     setContacts([...contacts, filteredContacts[randomNumber]])
   }
   
+  const sortByName = () => {
+    const sortedByName = [...contacts].sort((a, b) => {
+      if(a.name < b.name) return -1;
+      else if(a.name > b.name) return 1;
+      else return 0;
+    })
+
+    setContacts(sortedByName)
+  }
+
+  const sortByPopularity = () => {
+    const sortedByPopularity = [...contacts].sort((a,b) => b.popularity - a.popularity)
+    setContacts(sortedByPopularity)
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
 
       <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
 
       <table>
         <thead>
