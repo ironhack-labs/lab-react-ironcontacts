@@ -39,18 +39,20 @@ function App() {
 	return (
 		<div className="App">
 			<h1>IronContacts</h1>
-			<button onClick={addRandomContact}> Add Random Contact </button>
-			<button onClick={sortByPopularity}> Sort by Popularity </button>
-			<button onClick={sortByName}> Sort by Name </button>
+      <div className="">
+        <button onClick={addRandomContact}> Add Random Contact </button>
+        <button onClick={sortByPopularity}> Sort by Popularity </button>
+        <button onClick={sortByName}> Sort by Name </button>
+      </div>
 			<table>
-				<thead>
-					<tr>
-						<th>Picture</th>
-						<th>Name</th>
-						<th>Popularity</th>
-						<th>Won Oscar</th>
-						<th>Won Emmy</th>
-						<th>Actions</th>
+				<thead >
+					<tr >
+						<th className="table-head">Picture</th>
+						<th className="table-head">Name</th>
+						<th className="table-head">Popularity</th>
+						<th className="table-head">Won Oscar</th>
+						<th className="table-head">Won Emmy</th>
+						<th className="table-head ">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -67,7 +69,7 @@ function App() {
 							<td>{contact.popularity.toFixed(2)}</td>
 							<td>{contact.wonOscar ? "🏆" : "-"}</td>
 							<td>{contact.wonEmmy ? "🏆" : "-"}</td>
-							<td>
+							<td className="delete">
 								<button onClick={() => deleteContact(index)}>Delete</button>
 							</td>
 						</tr>
