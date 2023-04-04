@@ -1,14 +1,30 @@
-import "./App.css";
 import contacts from "./contacts.json";
 import { useState } from "react";
 
 function App() {
-  // const [contactsState, setContactsState] = useState(contacts.slice(0, 5));
-  const [contactsState, setContactsState] = useState(contacts);
-  console.log("contactsState: ", contactsState);
+  const [contactsState, setContactsState] = useState(contacts.slice(0, 5));
+  const [contactsRemain, setContactsRemain] = useState(contacts.slice(5));
+  // console.log("contactsRemain: ", contactsRemain);
+  // console.log("contactsState: ", contactsState);
+
+  const clickHandler = () => {
+    const randomIndex = Math.floor(Math.random() * contactsRemain.length);
+    const newContact = contactsRemain[randomIndex];
+    console.log("newContact: ", newContact);
+    const newRemain = contactsRemain.filter((contact, index) => {
+      return index !== randomIndex;
+    });
+
+    setContactsRemain(newRemain);
+    setContactsState((prevState) => {
+      return [...prevState, newContact];
+    });
+  };
 
   return (
     <div className="App">
+      <h1>Iron Contacts</h1>
+      <button onClick={clickHandler}>Add random contact</button>
       <table id="contactList">
         <thead>
           <tr>
