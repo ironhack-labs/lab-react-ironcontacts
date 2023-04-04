@@ -28,6 +28,11 @@ function App() {
     setContacts(sorted)
   }
 
+  function removeContact(id) {
+    const removed = contacts.filter(contact => contact.id !== id)
+    setContacts(removed)
+  }
+
   return <div className="App">
 
   <h1>IronContacts</h1>
@@ -46,6 +51,7 @@ function App() {
           <th>Popularity</th>
           <th>Won Oscar</th>
           <th>Won Emmy</th>
+          <th>Actions</th>
         </tr>
       </thead>
       {contacts.map(contact => {
@@ -55,8 +61,9 @@ function App() {
               <td><img src={contact.pictureUrl} alt="" /></td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
-              {contact.wonOscar && <td>🏆</td>}
-              {contact.wonEmmy && <td>🏆</td>}
+              {contact.wonOscar ? <td>🏆</td> : <td></td>}
+              {contact.wonEmmy ? <td>🏆</td> : <td></td>}
+              <td><button onClick={() => removeContact(contact.id)}>Delete</button></td>
             </tr>
           </tbody>
         )
