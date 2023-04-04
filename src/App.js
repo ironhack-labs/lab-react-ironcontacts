@@ -17,10 +17,46 @@ function App() {
   setContacts([...contacts, newRandomContact]);
   console.log("New contact added: " + newRandomContact.name);    
   }
+
+  const sortContactsByPopularity = ()=>{
+    // use sort function to sort contacts sorted by popularity
+    const sortedByPopularity = [...contacts].sort(function (a, b) {
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      return 0;
+    });
+  // add the sorted contacts by popularity
+  setContacts(sortedByPopularity);
+  }
+
+  const sortContactsByName = ()=>{
+    // use sort function to get sorted contacts by name
+    const sortedByName = [...contacts].sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+  // add the sorted contacts by name
+  setContacts(sortedByName);
+  };
+
+
   return (
   <div className="App">
     <h1>Iron Contacts</h1>
-    <button onClick={addNewContact}>Add random contact</button>
+    <div className='Buttons-Top'>
+        <button onClick={addNewContact}>Add random contact</button>
+        <button onClick={sortContactsByPopularity}>Sort By Popularity</button>
+        <button onClick={sortContactsByName}>Sort By Name</button>
+      </div>
     <table>
       <thead>
         <tr>
