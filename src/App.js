@@ -5,9 +5,22 @@ import contactsData from "./contacts.json";
 function App() {
   const [contacts, setContacts] = useState(contactsData.slice(0,5))
   console.log(contacts);
+  const addNewContact = ()=>{
+    // get all contacts that are not being displayed currently
+    const contactsNotDisplayed = contactsData.filter(
+      (contact) => !contacts.includes(contact)
+    );
+    // create a random number in range of contactsNotDisplayed
+    const randomNumber = Math.floor(Math.random() * contactsNotDisplayed.length);
+    const newRandomContact = contactsNotDisplayed[randomNumber];
+  // add the new random contact
+  setContacts([...contacts, newRandomContact]);
+  console.log("New contact added: " + newRandomContact.name);    
+  }
   return (
   <div className="App">
     <h1>Iron Contacts</h1>
+    <button onClick={addNewContact}>Add random contact</button>
     <table>
       <thead>
         <tr>
