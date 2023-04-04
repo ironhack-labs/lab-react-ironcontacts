@@ -14,11 +14,26 @@ const randomContacts = () => {
     setContactsArr([...contactsArr, remainingContacts[randomObject]], ) ;
   };
 
+  const sortByName = () => {
+    const sortedContacts = [...contactsArr].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setContactsArr(sortedContacts);
+  };
+
+  const sortByPopularity = () => {
+    const sortedContacts = [...contactsArr].sort(
+      (a, b) => b.popularity - a.popularity
+    );
+    setContactsArr(sortedContacts);
+  };
 
 return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={randomContacts}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
       <table  >
       <thead>
       <tr>
