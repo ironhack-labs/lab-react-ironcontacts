@@ -28,6 +28,11 @@ function App() {
     setDisplayedContacts(sortedContacts);
   }
 
+  function handleDeleteContact(id) {
+    const updatedContacts = displayedContacts.filter((contact) => contact.id !== id);
+    setDisplayedContacts(updatedContacts);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -42,6 +47,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Action</th>
           </tr>
         </thead>
         {displayedContacts.map((contact) => (
@@ -52,8 +58,11 @@ function App() {
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
-              {contact.wonOscar && <td>🏆</td>}
-              {contact.wonEmmy && <td>🏆</td>}
+              <td>{contact.wonOscar ? "🏆" : ""}</td>
+              <td>{contact.wonEmmy ? "🏆" : ""}</td>
+              <td>
+                <button onClick={() => handleDeleteContact(contact.id)}>Delete</button>
+              </td>
             </tr>
           </tbody>
         ))}
