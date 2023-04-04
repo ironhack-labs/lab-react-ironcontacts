@@ -39,11 +39,11 @@ function App() {
     <div className="App">
       <h1>IronContacts</h1>
 
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByPopularity}>Sort by popularity</button>
-      <button onClick={sortByName}>Sort by name</button>
+      <button type="button" className="btn btn-top btn-primary" onClick={addRandomContact}>Add Random Contact</button>
+      <button type="button" className="btn btn-top btn-success" onClick={sortByPopularity}>Sort by popularity</button>
+      <button type="button" className="btn btn-top btn-warning" onClick={sortByName}>Sort by name</button>
 
-      <table>
+      <table className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>Picture</th>
@@ -65,7 +65,7 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{contact.wonOscar? <p>🏆</p>:<p>✖️</p>}</td>
                 <td>{contact.wonEmmy? <p>🏆</p>:<p>✖️</p>}</td>
-                <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
+                <td><button type="button" className="btn btn-secondary" onClick={() => deleteContact(contact.id)}>Delete</button></td>
               </tr>
             )
           })}

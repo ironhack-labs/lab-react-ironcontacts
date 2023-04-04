@@ -12,6 +12,20 @@ code {
     monospace;
 }
 
+h1 {
+  font-size: 50px;
+  padding: 15px 0px;
+}
+
+.btn-top {
+  margin: 5px;
+  margin-bottom: 15px;
+}
+
 img {
   width: 100px;
+}
+
+td, th {
+  vertical-align: middle;
 }
