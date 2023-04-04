@@ -13,6 +13,8 @@ function App() {
 
   const popularity = contacts.popularity;
 
+console.log(contacts)
+
   return (
     <div className="App">
      
@@ -25,6 +27,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Populiarity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
           {contacts.map((contact) => {
             return (
@@ -34,6 +38,7 @@ function App() {
                 </div>
                 <th>{contact.name}</th>
                 <th>{contact.popularity}</th>
+                <th>{contact.wonOscar ? <p>🏆</p> : <p></p>}</th>
               </tr>
             );
           })}
