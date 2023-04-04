@@ -41,7 +41,6 @@
 }
 
 table {
-  margin-top: 2rem;
   text-align: center;
 }
 
@@ -57,4 +56,14 @@ td {
 img {
   max-height: 100%;
   max-width: 100%;
+}
+
+#buttonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 120%;
+  margin: 10px;
 }
