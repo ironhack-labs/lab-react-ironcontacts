@@ -1,11 +1,27 @@
+import { useState } from "react";
 import contacts from "./contacts.json";
-import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const [remainingContacts, setRemainingContacts] = useState([...contacts.slice(5)]);
+  const [displayedContacts, setDisplayedContacts] = useState([...contacts.slice(0, 5)]);
+
+  function getRandomContact() {
+    const index = Math.floor(Math.random() * remainingContacts.length);
+    const contact = remainingContacts[index];
+    return contact;
+  }
+
+  function handleAddRandomContact() {
+    const randomContact = getRandomContact();
+    setDisplayedContacts([...displayedContacts, randomContact]);
+    setRemainingContacts(remainingContacts.filter((contact) => contact !== randomContact));
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={handleAddRandomContact}>Add Random Contact</button>
       <table>
         <thead>
           <tr>
@@ -16,7 +32,7 @@ function App() {
             <th>Won Emmy</th>
           </tr>
         </thead>
-        {contacts.slice(0, 5).map((contact) => (
+        {displayedContacts.map((contact) => (
           <tbody key={contact.id}>
             <tr>
               <td>
