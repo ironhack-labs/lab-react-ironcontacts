@@ -14,6 +14,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won an Oscar</th>
+          <th>Won an Emmy</th>
         </tr>
           {contacts.map(contact => {
             return (
@@ -21,6 +23,8 @@ function App() {
                 <td><img src={contact.pictureUrl} /></td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity.toFixed(2)}</td>
+                <td>{contact.wonOscar? <p>🏆</p>:<p>✖️</p>}</td>
+                <td>{contact.wonEmmy? <p>🏆</p>:<p>✖️</p>}</td>
               </tr>
             )
           })}
