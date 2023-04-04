@@ -1,38 +1,57 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
   text-align: center;
+  background-image: url("/public/3581.jpg");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+table th, td {
+    padding: 12px 15px;
+    font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+tr {
+  border: 2px solid grey;
 }
 
-.App-link {
-  color: #61dafb;
+h1, th {
+  font-family: 'Limelight', cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+td {
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+
 }
+
+button {
+  background-color: #93bacf;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+button:hover {opacity: 1}
