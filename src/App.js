@@ -10,7 +10,6 @@ function App() {
   const clickHandler = () => {
     const randomIndex = Math.floor(Math.random() * contactsRemain.length);
     const newContact = contactsRemain[randomIndex];
-    console.log("newContact: ", newContact);
     const newRemain = contactsRemain.filter((contact, index) => {
       return index !== randomIndex;
     });
@@ -21,10 +20,43 @@ function App() {
     });
   };
 
+  const sortContacts = (value) => {
+    const arr = [...contactsState];
+    if (value === "name") {
+      arr.sort((first, second) => {
+        if (first.name.toLowerCase() < second.name.toLowerCase()) {
+          return -1;
+        }
+        if (first.name.toLowerCase() > second.name.toLowerCase()) {
+          return 1;
+        }
+
+        return 0;
+      });
+    } else {
+      arr.sort((first, second) => second[value] - first[value]);
+    }
+    setContactsState(arr);
+  };
+
   return (
     <div className="App">
       <h1>Iron Contacts</h1>
       <button onClick={clickHandler}>Add random contact</button>
+      <button
+        onClick={() => {
+          sortContacts("name");
+        }}
+      >
+        Sort contacts by Name
+      </button>
+      <button
+        onClick={() => {
+          sortContacts("popularity");
+        }}
+      >
+        Sort contacts by Popularity
+      </button>
       <table id="contactList">
         <thead>
           <tr>
