@@ -1,38 +1,90 @@
 .App {
   text-align: center;
+  align-content: center;
+  background-color: rgb(190, 181, 166);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  box-shadow: 5px 5px 15px 0px;
+  margin-bottom: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.image:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.randomBtn {
+  background-color: rgb(80, 77, 78);
   color: white;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+}
+.randomBtn:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.sortNameBtn {
+  background-color: rgb(80, 77, 78);
+  color: white;
+  margin-right: 15px;
+  margin-left: 15px;
+  border-radius: 10px;
+  border: none;
+}
+.sortNameBtn:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sortPopBtn {
+  background-color: rgb(80, 77, 78);
+  color: white;
+  margin-left: 15px;
+  border-radius: 10px;
+  border: none;
+}
+.sortPopBtn:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: black;
+  border-radius: 10px;
+  margin-left: 35px;
+  border: none;
+}
+.deleteBtn:hover{
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 0px;
+}
+
+.table {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+  font-size: 25px ;
+  color: rgb(244, 248, 252);
+  padding: 35px;
+}
+
+.content {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:darkslategray;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.oscar {
+  padding-right: 35px;
+  padding-left: 35px;
+}
+
+.actions {
+  padding-right: 35px;
+  padding-left: 35px;
 }
