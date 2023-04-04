@@ -1,11 +1,70 @@
 .App {
+  font-family: Arial, sans-serif;
   text-align: center;
+  background-color: #101010;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.contactImg{
-  height: 150px;
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
 }
 
-th{
-  margin: 20px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+th {
+  background-color: #212121;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+tr:nth-child(even) {
+  background-color: #303030;
+}
+
+tr:hover {
+  background-color: #454545;
+}
+
+.contactImg {
+  width: 100px;
+  border-radius: 50%;
+}
+
+button {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff5252;
+}
+
+button:active {
+  background-color: #ff4242;
 }

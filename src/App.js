@@ -81,10 +81,10 @@ function App() {
                   <img className="contactImg" src={contact.pictureUrl} alt="" />
                 </div>
                 <th>{contact.name}</th>
-                <th>{contact.popularity}</th>
+                <th>{contact.popularity.toFixed(2)}</th>
                 <th>{contact.wonOscar ? <p>🏆</p> : <p></p>}</th>
                 <th>{contact.wonEmmy ? <p>🏆</p> : <p></p>}</th>
-                <button
+                <button className="deleteBtn"
                   onClick={() => {
                     deleteContact(contact.id);
                   }}
