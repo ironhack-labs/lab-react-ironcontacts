@@ -1,7 +1,10 @@
 .App {
-  text-align: center;
+  padding-left: 50px;
 }
 
+.App h1 {
+  padding-left: 150px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +38,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App img {
+  width: 100px;
+  height: 150px;
+}
+
+.App .top-btns{
+  background-color: aquamarine;
+  color: black;
+  font-size: 16px;
+}
+
+.App .top-btns:hover{
+  background-color: aqua;
+}
+.App button{
+  padding: 30px;
+  margin: 10px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.App button:hover{
+  background-color: rgb(160, 14, 14);
+}
+.App th {
+  padding: 50px;
+}
+
+.App th {
+  background-color: bisque;
+}
+
+.App td {
+  background-color: beige;
+  text-align: center;
 }
