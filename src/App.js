@@ -13,6 +13,8 @@ function App() {
               <th>Picture </th>
               <th> Name</th>
               <th> Popularity </th>
+              <th> Won an Oscar </th>
+              <th>Won an Emmy </th>
             </tr>
             
       {contactsArr.map((contactObj) => {
@@ -28,6 +30,13 @@ function App() {
               </td>
               <td>
                 <p>{contactObj.popularity}</p>
+              </td>
+              <td>
+                   { contactObj.wonOscar ? <p> 🏆 </p> : <p> </p>}
+              </td>
+              { contactObj.wonEmmy ? <p> 🏆 </p> : <p> </p>}
+              <td>
+
               </td>
             </tr>
           
