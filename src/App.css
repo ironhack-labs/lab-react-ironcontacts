@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+ display: flex;
+ justify-content:space-around
+
+
+}
+.Title{
+  text-align: right;
+  font-size: 5rem;
+  padding: 2rem;
+  
 }
 
 .App-logo {
