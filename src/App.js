@@ -3,12 +3,24 @@ import contactsFromJson from "./contacts.json";
 import "./App.css";
 
 function App() {
-  const [contactsArr, setContactsArr] = useState(contactsFromJson);
+  const [contactsArr, setContactsArr] = useState(contactsFromJson.slice(0,5));
 
-  return (
+
+
+const randomContacts = () => {
+  const remainingContacts = contactsFromJson.filter(contact => !contactsArr.includes(contact));
+  const randomObject = [Math.floor(Math.random() * remainingContacts.length)];
+
+    setContactsArr([...contactsArr, remainingContacts[randomObject]], ) ;
+  };
+
+
+return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={randomContacts}>Add Random Contact</button>
       <table  >
+      <thead>
       <tr>
               <th>Picture </th>
               <th> Name</th>
@@ -16,7 +28,8 @@ function App() {
               <th> Won an Oscar </th>
               <th>Won an Emmy </th>
             </tr>
-            
+            </thead>
+            <tbody>
       {contactsArr.map((contactObj) => {
         return (
        
@@ -29,19 +42,19 @@ function App() {
                 <p>{contactObj.name}</p>
               </td>
               <td>
-                <p>{contactObj.popularity}</p>
+                <p>{contactObj.popularity.toFixed(2)}</p>
               </td>
               <td>
-                   { contactObj.wonOscar ? <p> 🏆 </p> : <p> </p>}
+                   { contactObj.wonOscar ? "🏆"  : " "}
               </td>
-              { contactObj.wonEmmy ? <p> 🏆 </p> : <p> </p>}
+              { contactObj.wonEmmy ? "🏆"  : " "}
               <td>
 
               </td>
             </tr>
-          
         );
       })}
+      </tbody>
       </table>
     </div>
   );
