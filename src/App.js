@@ -48,6 +48,12 @@ function App() {
   setContacts(sortedByName);
   };
 
+  const deleteThisContact = (Id) => {
+    // get all contacts without the one whose id matches the id passed in parameter
+    const updatedContacts = contacts.filter( contacts => contacts.id !== Id );
+    // add new contacts without the current one
+    setContacts(updatedContacts);
+  }
 
   return (
   <div className="App">
@@ -65,6 +71,7 @@ function App() {
           <th>Popularity</th>
           <th>Won an Oscar</th>
           <th>Won an Emmy</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -81,6 +88,11 @@ function App() {
             <td>{contact.popularity}</td>
             <td>{contact.wonOscar ? "🏆":""}</td>
             <td>{contact.wonEmmy ? "🏆":""}</td>
+            <td>
+              <button class="deleteBtn" onClick={ () => {deleteThisContact(contact.id)} }>
+                DELETE
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
