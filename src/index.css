@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td, th{
+  padding: 12px 15px;
+}
+
+table thead tr{
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.Buttons-Top{
+ padding: 12px 15px; 
+}
+
+.Buttons-Top button{
+  padding: 12px 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
