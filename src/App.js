@@ -59,33 +59,35 @@ function App() {
       <button className="button-one" onClick={sortName}>Sort by name</button>
       <button className="button-one" onClick={sortPopularity}>Sort by popularity</button>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-          <th>Won an Oscar</th>
-          <th>Won an Emmy</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {contacts.map( element => {
-          return (
-            <tr key={element.id}>
-              <td><img src={element.pictureUrl} alt="" /></td>
-              <td>{element.name}</td>
-              <td>{element.popularity}</td>
-              {element.wonOscar ? <td>🏆</td> : <td></td>}
-              {element.wonEmmy ? <td>🏆</td> : <td></td>}
-              <td><button className="button-two" onClick={() => {deleteContact(element.id)}}>Delete</button></td>
-            </tr>
-          )
-        })}        
-      </tbody>
-
+    <div className="tablediv">
+      <table>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contacts.map( element => {
+            return (
+              <tr key={element.id}>
+                <td><img src={element.pictureUrl} alt="" /></td>
+                <td>{element.name}</td>
+                <td>{element.popularity}</td>
+                {element.wonOscar ? <td>🏆</td> : <td></td>}
+                {element.wonEmmy ? <td>🏆</td> : <td></td>}
+                <td><button className="button-two" onClick={() => {deleteContact(element.id)}}>Delete</button></td>
+              </tr>
+            )
+          })}        
+        </tbody>
     </table>
+    </div>
+
   </div>
   )
 
