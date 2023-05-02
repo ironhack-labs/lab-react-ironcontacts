@@ -8,19 +8,10 @@ function App() {
 
 	// Iteration 3
 	const addRandomContact = () => {
-		// FIXME: attempting to avoid duplicates
-		console.log( 'allContacts.length :>> ', allContacts.length );
-		const remainingContacts = [];
-		allContacts.filter( ( contact ) => {
-			visibleContacts.forEach( ( visibleContact ) => {
-				if ( visibleContact.id !== contact.id ) {
-					return true;
-				} else {
-					return false;
-				}
-			} );
+		const remainingContacts = allContacts.filter( ( contact ) => {
+			// test foreach element, whether at least one element passes the test. return a boolean
+			return !visibleContacts.some( ( visibleContact ) => visibleContact.id === contact.id );
 		} );
-		console.log( 'remainingContacts.length :>> ', remainingContacts.length );
 		const randomCharacter = remainingContacts[Math.floor( Math.random() * remainingContacts.length )];
 		if ( remainingContacts.length > 0 ) {
 			setVisibleContacts( [...visibleContacts, randomCharacter] );
@@ -49,7 +40,7 @@ function App() {
 		<div className="App">
 			<h1>IronContacts</h1>
 			<div className='actions'>
-				<button onClick={addRandomContact}>Random Contact</button>
+				<button onClick={addRandomContact}>Add Random Contact</button>
 				<button onClick={sortByName}>Sort by Name</button>
 				<button onClick={sortByPopularity}>Sort by Popularity</button>
 			</div>
@@ -74,7 +65,7 @@ function App() {
 								{ contact.wonOscar ? <td>🏆</td> : <td></td>}
 								{ contact.wonEmmy ? <td>🏆</td> : <td></td>}
 								<td>
-									<button onClick={() => deleteContact( contact.id )}>✖️</button>
+									<button onClick={() => deleteContact( contact.id )}>❌</button>
 								</td>
 							</tr> );
 					} )}
