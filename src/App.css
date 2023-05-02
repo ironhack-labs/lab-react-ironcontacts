@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+  color: rgb(209, 216, 140);
+  /* max-width: 500px; */
 }
 
 .App-logo {
@@ -36,3 +42,47 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 100px;
+}
+
+
+.top-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+  text-decoration: none;
+  border: none;
+  background-color: rgb(209, 216, 140);
+}
+
+.just-button {
+  background-color: rgb(209, 216, 140);
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.just-button:hover {
+  font-weight: bold;
+}
+
+.delete-btn {
+  background-color: rgb(209, 216, 140);
+  padding: 3px;
+  margin: 10px;
+  border: none;
+  border-radius: .4rem;
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+table {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
