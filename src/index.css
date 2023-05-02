@@ -1,3 +1,12 @@
+:root {
+	--main-bg-color: #F6F1F1;
+	--second-bg-color: #19A7CE;
+	--main-text-color: #146C94;
+	--second-text-color: #AFD3E2;
+
+	--border: 3px solid var(--main-text-color);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +14,100 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--main-bg-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+	font-size: 3em;
+	font-weight: bolder;
+	color: var(--main-text-color);
+	letter-spacing: 0.3pt;
+	border-top: 5px solid var(--main-text-color);
+	border-bottom: 5px solid var(--main-text-color);
+	max-width: 350px;
+	margin: 50px auto;
+}
+button {
+	cursor: pointer;
+	border: unset;
+}
+
+.actions {
+	height: 120px;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.actions button {
+	padding: 20px 15px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.3pt;
+	border-radius: 3px;
+	background-color: var(--second-bg-color);
+	color: var(--main-bg-color);
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+table {
+	margin-top: 10px;
+	margin-bottom: 50px;
+	border-collapse: collapse;
+	border-spacing: none;
+	border-radius: 3px;
+	overflow: hidden;
+	font-weight: bold;
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+table img {
+	height: 100px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 3px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+table button {
+	padding: 15px; 
+	border-radius: var(--border-radius);
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: unset;
+	color: var(--main-text-color);
+}
+tr {
+	border-bottom: var(--border);
+	border-top: var(--border);
+}
+tr:first-child,
+tr:last-child {
+	border-bottom: none;
+	border-top: none;
+}
+thead {
+	background-color: var(--main-text-color);
+}
+th {
+	padding: 20px;
+	color: var(--main-bg-color);
+	font-size: 1.2em;
+	font-weight: 500;
+}
+tbody {
+	background-color: var(--second-text-color);
+}
+td {
+	padding: 10px;
+	color: var(--main-text-color);
 }
