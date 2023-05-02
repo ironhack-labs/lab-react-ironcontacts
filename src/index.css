@@ -11,3 +11,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*  */
+
+.App {
+  margin: 0;
+  padding: 0;
+}
+
+.AppTitle {
+  background-image: url(../public/red-carpet-png-37050.jpg);
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  width: 100vw;
+  height: 130vh;
+}
+
+.AppTitle > h1 {
+  font-family: serif;
+  font-size: 75px;
+  color: gold;
+  text-shadow: 2px 0 goldenrod, -2px 0 goldenrod, 0 2px goldenrod, 0 -2px goldenrod, 1px 1px goldenrod, -1px -1px goldenrod, -1px 1px goldenrod, 1px -1px goldenrod;
+  position: relative;
+  padding-top: 80vh;
+  margin: 0;
+}
+
+.BelowHeader {
+  margin: 0;
+  padding: 0;
+  background-color: #ca1514;
+}
+
+.TableFrame {
+  background-color: whitesmoke;
+  border: 4px solid darkred;
+  padding: 10px;
+  margin: auto;
+  width: fit-content;
+}
+
+.Table {
+  border-collapse: collapse;
+}
+
+.Table > th, td {
+  border-top: 1px solid darkred;
+  border-collapse: collapse;
+}
+
+.Button {
+  font-size: 18px;
+  width: fit-content;
+  height: 30px;
+  margin: 15px;
+  background-color: goldenrod;
+  border: 1px solid darkred;
+  border-radius: 15px;
+}
+
+.Title {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0px 10px 10px 10px;
+}
+
+.listImage {
+  width: 150px;
+  padding: 10px;
+}
