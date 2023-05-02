@@ -55,11 +55,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Ironontacts</h1>
+      <h1>IronContacts</h1>
 
-      <button onClick={addRandomContact}>Add random contact</button>
-      <button onClick={sortByPopularity}>Sort by popularity</button>
-      <button onClick={sortByName}>Sort by name</button>
+      <div className="buttons-top">
+        <button onClick={addRandomContact}>Add random contact 💥</button>
+        <button onClick={sortByPopularity}>Sort by popularity ✨</button>
+        <button onClick={sortByName}>Sort by name 🔤</button>
+      </div>
 
       <table>
         <thead>
@@ -95,7 +97,7 @@ function App() {
                       deleteContact(contact.id);
                     }}
                   >
-                    Delete contact
+                    Delete contact 🗑️
                   </button>
                 </td>
               </tr>
