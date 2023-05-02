@@ -30,17 +30,19 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByName}>Sort by name</button>
-      <button onClick={sortByPopularity}>Sort by Popularity</button>
+      <div className='controls-container'>
+            <button id='add-button' onClick={addRandomContact}>Add Random Contact</button>
+            <button onClick={sortByName}>Sort by name</button>
+            <button onClick={sortByPopularity}>Sort by Popularity</button>
+          </div>
       <table>
         <thead>
           <tr>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
-            <th>Won an Oscar</th>
-            <th>Won an Emmy</th>
+            <th>Oscar</th>
+            <th>Emmy</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -48,12 +50,12 @@ function App() {
           {myContacts.map(contact => {
             return(
               <tr key={contact.id}>
-                <td> <img height={100} src={contact.pictureUrl}/></td>
+                <td> <img src={contact.pictureUrl}/></td>
                 <td>{contact.name}</td>
                 <td>{Math.round(contact.popularity * 100)/100}</td>
-                <td>{contact.wonOscar ? '🏆' : null}</td>
-                <td>{contact.wonEmmy ? '🏆' : null}</td>
-                <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
+                <td>{contact.wonOscar ? '🏆' : '-'}</td>
+                <td>{contact.wonEmmy ? '🏆' : '-'}</td>
+                <td><button className='delete-button' onClick={() => deleteContact(contact.id)}>delete</button></td>
               </tr>
             )  
           })}

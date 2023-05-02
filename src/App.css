@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+table{
+  margin: 0 auto;
+  width: 800px;
+}
+table th{
+  font-size: 1.5rem;
+}
+table img{
+  height: 150px;
+  border-radius: 5px;
+}
+.controls-container{
+  margin: 50px auto;
+  width: 730px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+#add-button{
+  background-color: crimson;
+}
+.controls-container button{
+  flex-grow: 1;
+  font: inherit;
+  padding: 15px 0px;
+  text-transform: uppercase;
+  background-color: grey;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+.delete-button{
+  background-color: crimson;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover{
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
