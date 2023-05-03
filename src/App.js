@@ -4,7 +4,6 @@ import { useState } from "react";
 
 function App() {
   const [contactsArr, setContactsArr] = useState(contacts.slice(0, 6));
-  console.log(contactsArr);
 
   function addRandomContact() {
     const contactsOn = contactsArr.map((contact) => contact.id);
@@ -21,28 +20,16 @@ function App() {
     setContactsArr([...contactsArr, randomContact]);
   }
 
-  function sortByPopularity() {
-    const sortedByPopularity = contacts.sort((a, b) => {
-      if (a.popularity < b.popularity) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-
-    setContactsArr(sortedByPopularity);
+  function sortByName() {
+    const copy = [...contactsArr];
+    copy.sort((a, b) => a.name.localeCompare(b.name));
+    setContactsArr(copy);
   }
 
-  function sortByName() {
-    const sortedByName = contacts.sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      } else {
-        return 1;
-      }
-    });
-
-    setContactsArr(sortedByName);
+  function sortByPopularity() {
+    const copy = [...contactsArr];
+    copy.sort((a, b) => b.popularity - a.popularity);
+    setContactsArr(copy);
   }
 
   function deleteContact(id) {
