@@ -12,9 +12,10 @@ function App() {
 			// test foreach element, whether at least one element passes the test. return a boolean
 			return !visibleContacts.some( ( visibleContact ) => visibleContact.id === contact.id );
 		} );
-		const randomCharacter = remainingContacts[Math.floor( Math.random() * remainingContacts.length )];
+		const randomIndex = Math.floor( Math.random() * remainingContacts.length );
+		const randomContact = remainingContacts[randomIndex];
 		if ( remainingContacts.length > 0 ) {
-			setVisibleContacts( [...visibleContacts, randomCharacter] );
+			setVisibleContacts( [...visibleContacts, randomContact] );
 		}
 	};
 
