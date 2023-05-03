@@ -3,21 +3,19 @@ import './App.css';
 import ContactsDataJSON from './contacts.json'
 
 function App() {
-  const [ contacts, setContacts] = useState(ContactsDataJSON.slice(0, 5))
+  const copy = [ ...ContactsDataJSON]
+  const [ contacts, setContacts] = useState(copy.slice(0, 5))
 
   function addContact() {
-    const randomContact = ContactsDataJSON.slice(6)[Math.floor(Math.random() * ContactsDataJSON.length)];
+    const randomContact = copy.slice(6)[Math.floor(Math.random() * copy.length)];
 
-    setContacts([...contacts, randomContact])
+    setContacts([randomContact, ...contacts])
   }
 
   function sortbyPopularity() {
     const copy = [ ...contacts]
     const sortedContactsByPopularity = copy.sort((a, b) => {
-      if (a.popularity < b.popularity) {
-        return 1
-      } 
-      return -1
+      return b.popularity - a.popularity
     })
 
     setContacts(sortedContactsByPopularity)
@@ -26,10 +24,7 @@ function App() {
   function sortbyName() {
     const copy = [ ...contacts]
     const sortedContactsByName = copy.sort((a, b) => {
-      if (a.name < b.name) {
-        return -1
-      } 
-      return 1
+      return a.name.localeCompare(b.name)
     })
 
     setContacts(sortedContactsByName)
@@ -67,7 +62,7 @@ function App() {
             <tbody>
             {contacts.map(contact => {
               return (
-                  <tr>
+                  <tr key={contact.id}>
                     <td><img src={contact.pictureUrl} alt="" className="listImage" /></td>
                     <td>{contact.name}</td>
                     <td>{contact.popularity}</td>
