@@ -46,6 +46,8 @@ function sortByName () {
   setContactList(sortedByName);
 }
 
+// id - represents the id, that we want to delete. We filter all the contacts and the function returns
+// all the id's, that are not equal to this id, that we want to delete
 function deleteContact(id) {
   const contactsAfterDelete = contacts.filter((contact) => {
     return contact.id !== id;
