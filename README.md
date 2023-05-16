@@ -40,7 +40,7 @@ Your task is to create a contact management app for the producer using React.
 - Open the LAB and start:
 
   ```bash
-  cd lab-react-ironcontacts
+  cd lab-react-ironcontacts-vite
   npm install
   npm run dev
   ```
