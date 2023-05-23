@@ -4,12 +4,10 @@ import contacts from './contacts.json'
 
 function App() {
 
-  const contactsB = contacts.slice(0, 5)
+  const contactsStart = contacts.slice(0, 5)
   // const contactsRest = contacts.slice(5, contacts.lenght)
 
-  const [contactsArray, setContactsArray] = useState(contactsB)
-  const [nameArray, setName] = useState(contactsArray)
-  const [popularArray, setPopularity] = useState(contactsArray)
+  const [contactsArray, setContactsArray] = useState(contactsStart)
 
   const addRandom = () => {
 
@@ -26,11 +24,23 @@ function App() {
   const sortByName = () => {
 
     const contactsCopy = [...contactsArray]
-    contactsCopy.sort((a, b) => {
+    contactsCopy.sort((a, b) => a.name.localeCompare(b.name))
+    setContactsArray(contactsCopy)
 
-    })
-    setName(contactsCopy)
+  }
 
+  const sortByPopularity = () => {
+
+    const contactsCopy = [...contactsArray]
+    contactsCopy.sort((a, b) => b.popularity - a.popularity)
+    setContactsArray(contactsCopy)
+
+  }
+
+  const deleteActor = idToDelete => {
+    const contactsCopy = [...contactsArray]
+    const clearedContacts = contactsCopy.filter(elm => elm.id != idToDelete)
+    setContactsArray(clearedContacts)
   }
 
   return (
@@ -47,6 +57,7 @@ function App() {
                 <th>Popularity</th>
                 <th>Won an Oscar</th>
                 <th>Won an Emmy</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -59,6 +70,7 @@ function App() {
                     <td>{elm.popularity}</td>
                     {elm.wonOscar ? <td>🏆</td> : ' '}
                     {elm.wonEmmy ? <td>🏆</td> : ' '}
+                    <td><button onClick={() => deleteActor(elm.id)}>DELETE</button> </td>
                   </tr>
                 )
               })}
@@ -67,6 +79,7 @@ function App() {
 
           <button onClick={addRandom}>Add Random Contact</button>
           <button onClick={sortByName}>Sort by name</button>
+          <button onClick={sortByPopularity}>Sort by popularity</button>
         </>
 
 
