@@ -32,7 +32,32 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  width: 25%;
+}
+
+.card {
+  display: flex;
+  margin: 20px;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cardBody {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+table {
+  margin: 0 auto;
+  margin-top: 50px;
+  align-items: center;
+  display: block;
 }
