@@ -24,6 +24,18 @@
   color: white;
 }
 
+.tableImg {
+  width: 40%;
+}
+
+.oscar {
+  width: 40%;
+}
+
+.emmy {
+  width: 60%;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -32,6 +44,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
