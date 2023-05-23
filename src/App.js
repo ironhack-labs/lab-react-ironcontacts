@@ -5,13 +5,13 @@ import contacts from './contacts.json'
 function App() {
 
   const contactsStart = contacts.slice(0, 5)
-  // const contactsRest = contacts.slice(5, contacts.lenght)
+  const contactsRest = contacts.slice(5, contacts.lenght) // para que no se repita. Al final eso estaba bien!
 
   const [contactsArray, setContactsArray] = useState(contactsStart)
 
   const addRandom = () => {
 
-    const randomIndex = Math.floor(Math.random() * contacts.length)
+    const randomIndex = Math.floor(Math.random() * contactsRest.length)
 
     const contactsCopy = [...contactsArray]
     const randomActor = contacts[randomIndex]
