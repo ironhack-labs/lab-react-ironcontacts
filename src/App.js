@@ -20,6 +20,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +37,8 @@ function App() {
                 <th>
                   <p>{cel.popularity}</p>
                 </th>
+                <th>{cel.wonOscar ? <p>🏆</p> : <p></p>}</th>
+                <th>{cel.wonEmmy ? <p>🏆</p> : <p></p>}</th>
               </tr>
             );
           })}
