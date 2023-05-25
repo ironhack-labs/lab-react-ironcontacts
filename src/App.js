@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button>Add Random Celebrity</button>
       <table>
         <thead>
           <tr>
@@ -27,7 +28,7 @@ function App() {
         <tbody>
           {selectCelebrities.map((cel) => {
             return (
-              <tr>
+              <tr key={cel.id}>
                 <th>
                   <img src={cel.pictureUrl} alt="Profile" />
                 </th>
