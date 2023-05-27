@@ -4,27 +4,48 @@ import contacts from "./contacts.json";
 import React, { useState } from 'react';
 
 function App() {
-  const [fiveContacts, setFiveContacts] = useState(contacts.slice(0, 20));
-  console.log(fiveContacts);
+  const [fiveContacts, setFiveContacts] = useState(contacts.slice(0, 5));
+  
+
+  const generatingRemainingContacts = ((contacts) => {
+    for (let i = 0; i <= 5; i++) {
+      contacts.shift();
+
+    }
+    return;
+    
+  });
+ console.log(generatingRemainingContacts(contacts));
+  const remainingContacts = generatingRemainingContacts(contacts);
+ 
+
+  const newContactIndex = Math.floor(Math.random() * remainingContacts.length);
+  const newContact = remainingContacts[newContactIndex];
+ 
+
+
   const hasOscar = (elem) => {
     if (elem) {
       return <p>🏆</p>;
     }
-    
   }
   const hasEmmy = (elem) => {
     if (elem) {
       return <p>🏆</p>;
-    }
-    
+    } 
   }
+
   return (
     <div className="App">
+      {/* <button onClick={randomContact}>Add random contact</button> */}
+      
+
+
       
       <table>
-        <thead>
+        <thead> 
          
-          <th colspan="3">IronContacts</th>
+          <th colSpan="3">IronContacts</th>
           <tr>
             <th>Picture</th>
             <th>Name</th>
