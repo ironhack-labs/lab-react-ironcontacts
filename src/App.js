@@ -2,28 +2,50 @@ import "./App.css";
 import contacts from "./contacts.json";
 import { useEffect, useState } from "react";
 
-const arrayInit = Math.floor(Math.random() * (contacts.length - 5));
-
-function sortArrayByName(a, b) {}
-
-function sortArrayByPopularity(a, b) {}
-
 function App() {
+  const maxCelebrities = 5;
+  const arrayInit = Math.floor(Math.random() * (contacts.length - maxCelebrities));
+
   const [celebrities, setCelebrities] = useState([]);
-  const [maxCelebrities, setMax] = useState(5);
 
   useEffect(() => {
-    setCelebrities(contacts);
+    setCelebrities(contacts.slice(arrayInit, arrayInit + maxCelebrities));
   }, []);
 
-  const selectCelebrities = celebrities.slice(arrayInit, arrayInit + maxCelebrities);
+  const addRandom = () => {
+    const randomIndex = Math.floor(Math.random() * contacts.length);
+    setCelebrities((prevList) => [...prevList, contacts[randomIndex]]);
+  };
+
+  const sortPopularity = () => {
+    setCelebrities([...celebrities].sort((a, b) => b.popularity - a.popularity));
+  };
+
+  const sortName = () => {
+    setCelebrities(
+      [...celebrities].sort((a, b) => {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+      })
+    );
+  };
+
+  const deleteCelebrity = (celebrityId) => {
+    if (celebrityId) {
+      setCelebrities(celebrities.filter((celebrity) => celebrity.id !== celebrityId));
+    }
+  };
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={() => setMax(maxCelebrities + 1)}>Add Random Celebrity</button>
-      <button>Sort by popularity</button>
-      <button>Sort by name</button>
+      <button onClick={addRandom}>Add Random Celebrity</button>
+      <button onClick={sortPopularity}>Sort by popularity</button>
+      <button onClick={sortName}>Sort by name</button>
       <table>
         <thead>
           <tr>
@@ -32,23 +54,27 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {selectCelebrities.map((cel) => {
+          {celebrities.map((celebrity) => {
             return (
-              <tr key={cel.id}>
+              <tr key={celebrity.id}>
                 <th>
-                  <img src={cel.pictureUrl} alt="Profile" />
+                  <img src={celebrity.pictureUrl} alt="Profile" />
                 </th>
                 <th>
-                  <p>{cel.name}</p>
+                  <p>{celebrity.name}</p>
                 </th>
                 <th>
-                  <p>{cel.popularity}</p>
+                  <p>{celebrity.popularity}</p>
                 </th>
-                <th>{cel.wonOscar ? <p>🏆</p> : <p></p>}</th>
-                <th>{cel.wonEmmy ? <p>🏆</p> : <p></p>}</th>
+                <th>{celebrity.wonOscar ? <p>🏆</p> : <p></p>}</th>
+                <th>{celebrity.wonEmmy ? <p>🏆</p> : <p></p>}</th>
+                <th>
+                  <button onClick={(event) => deleteCelebrity(celebrity.id)}>Delete</button>
+                </th>
               </tr>
             );
           })}
