@@ -2,19 +2,28 @@ import "./App.css";
 import contacts from "./contacts.json";
 import { useEffect, useState } from "react";
 
+const arrayInit = Math.floor(Math.random() * (contacts.length - 5));
+
+function sortArrayByName(a, b) {}
+
+function sortArrayByPopularity(a, b) {}
+
 function App() {
-  const arrayInit = Math.floor(Math.random() * (contacts.length - 5));
   const [celebrities, setCelebrities] = useState([]);
+  const [maxCelebrities, setMax] = useState(5);
 
   useEffect(() => {
     setCelebrities(contacts);
   }, []);
-  const selectCelebrities = celebrities.slice(arrayInit, arrayInit + 5);
+
+  const selectCelebrities = celebrities.slice(arrayInit, arrayInit + maxCelebrities);
 
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button>Add Random Celebrity</button>
+      <button onClick={() => setMax(maxCelebrities + 1)}>Add Random Celebrity</button>
+      <button>Sort by popularity</button>
+      <button>Sort by name</button>
       <table>
         <thead>
           <tr>
