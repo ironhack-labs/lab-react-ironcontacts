@@ -40,3 +40,7 @@ table img{
   height:100px ;
   width: auto;
 }
+tbody tr{
+  border: solid red;
+  margin: 5px;
+}

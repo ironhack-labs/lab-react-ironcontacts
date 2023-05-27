@@ -23,8 +23,9 @@ function App() {
         </thead>
         <tbody>
           
+          
              {fiveContacts.map(contact => {
-               return <tr> <td>  <img  src={contact.pictureUrl}   /> </td>
+               return <tr> <td>  <img alt="pic" src={contact.pictureUrl}/> </td>
                  <td>{contact.name}</td>
                  <td>{contact.popularity} </td>
                </tr>
