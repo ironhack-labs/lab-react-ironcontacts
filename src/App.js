@@ -4,9 +4,20 @@ import contacts from "./contacts.json";
 import React, { useState } from 'react';
 
 function App() {
-  const [fiveContacts, setFiveContacts] = useState(contacts.slice(0, 5));
+  const [fiveContacts, setFiveContacts] = useState(contacts.slice(0, 20));
   console.log(fiveContacts);
- 
+  const hasOscar = (elem) => {
+    if (elem) {
+      return <p>🏆</p>;
+    }
+    
+  }
+  const hasEmmy = (elem) => {
+    if (elem) {
+      return <p>🏆</p>;
+    }
+    
+  }
   return (
     <div className="App">
       
@@ -18,6 +29,9 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+
           </tr>
 
         </thead>
@@ -28,6 +42,8 @@ function App() {
                return <tr> <td>  <img alt="pic" src={contact.pictureUrl}/> </td>
                  <td>{contact.name}</td>
                  <td>{contact.popularity} </td>
+                 <td> {hasOscar(contact.wonOscar)}   </td>
+                 <td>{hasEmmy(contact.wonEmmy)}</td>
                </tr>
                  ;
              })}
