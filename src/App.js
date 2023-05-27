@@ -65,6 +65,12 @@ function App() {
 		updateContactsArr(contactsToSort);
 	};
 
+	// delete
+
+	const deleteItem = (idToDelete) => {
+		updateContactsArr(contactsArr.filter(({ id }) => id !== idToDelete));
+	};
+
 	return (
 		<div className="App">
 			<h1>IronContacts</h1>
@@ -98,6 +104,7 @@ function App() {
 						</th>
 						<th>Won an Oscar</th>
 						<th>Won an Emmy</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -111,6 +118,14 @@ function App() {
 								<td>{popularity}</td>
 								<td>{wonOscar ? '🏆' : null}</td>
 								<td>{wonEmmy ? '🏆' : null}</td>
+								<td>
+									<button
+										onClick={(event) => {
+											deleteItem(id);
+										}}>
+										Delete
+									</button>
+								</td>
 							</tr>
 						);
 					})}
