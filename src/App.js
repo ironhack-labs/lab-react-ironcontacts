@@ -14,23 +14,24 @@ function App() {
 
   const [possibleContacts, setPossibleContacts] = useState(remainingContacts);
 
-  const addName = () => {
-    const newNameIndex = Math.floor(Math.random() * possibleContacts.length);
-    const newName = possibleContacts[newNameIndex];
-    initialContacts.push({ newName });
-    console.log(initialContacts);
-    index++;
+  const addContact = () => {
+    if (possibleContacts.length === 0) {
+      console.log("No more Contacts to add");
+      return;
+    }
+    const newContactIndex = Math.floor(Math.random() * possibleContacts.length);
+    const newContact = possibleContacts[newContactIndex];
 
     const possibleContactsCopy = [...possibleContacts];
-    possibleContactsCopy.splice(newNameIndex, 1);
+    possibleContactsCopy.splice(newContactIndex, 1);
     setPossibleContacts(possibleContactsCopy);
 
-    setShowedContacts([...showedContacts, { newName }]);
+    setShowedContacts([...showedContacts, newContact]);
   };
 
   return (
     <div className="App">
-      <button onClick={addName}>Add a Contact</button>
+      <button onClick={addContact}>Add a Contact</button>
       <table>
         <tr key="Header">
           <th key="Picture">Picture</th>
