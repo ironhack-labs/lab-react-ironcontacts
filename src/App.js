@@ -2,6 +2,7 @@ import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import contacts from './contacts.json'
+import { nanoid } from "nanoid";
 
 function App() {
   const contactsArray =  contacts.slice(0,5);
@@ -11,36 +12,31 @@ function App() {
   const addContact = () => {
     const newContactIndex = Math.floor(Math.random() * contacts.length);
     const newContact = contacts[newContactIndex];
-    const contactsArrayCopy = [...contactCelebrities];
-
-    contactsArrayCopy.push(newContact);
-    setContactCelebrities(contactsArrayCopy);
-
-    console.log(newContact);
-    console.log(contactsArrayCopy);
+    const contactCelebritiesCopy = [...contactCelebrities];
+    contactCelebritiesCopy.push(newContact);
+    setContactCelebrities(contactCelebritiesCopy);
   }
 
- /*
- const addName = () => {
-    if (possibleElements.length === 0) {
-      console.log("No more Elements to add");
-      return;
-    }
-    const newNameIndex = Math.floor(Math.random() * possibleElements.length);
-    const newName = possibleElements[newNameIndex];
+  const sortByName = () => {
+    const contactCelebritiesCopy = [...contactCelebrities];
+    contactCelebritiesCopy.sort((a,b) => a.name.localeCompare(b.name));
+    console.log(contactCelebritiesCopy);
+    setContactCelebrities(contactCelebritiesCopy);
+  }
 
-    const possibleElementsCopy = [...possibleElements];
-    possibleElementsCopy.splice(newNameIndex, 1);
-    setPossibleElements(possibleElementsCopy);
-
-    setElements([...elements, { name: newName, id: nanoid() }]);
-  };
- */
+  const sortByPopularity = () => {
+    const contactCelebritiesCopy = [...contactCelebrities];
+    contactCelebritiesCopy.sort((a,b) => b.popularity - a.popularity);
+    console.log(contactCelebritiesCopy);
+    setContactCelebrities(contactCelebritiesCopy);
+  }
 
   return (
     <div className="App">
     <h1>IronContacts</h1>
     <button onClick={addContact}>Add Random Contact</button>
+    <button onClick={sortByPopularity}>Sort by Popularity</button>
+    <button onClick={sortByName}>Sort by Name</button>
       <table>
       <thead>
           <tr>
