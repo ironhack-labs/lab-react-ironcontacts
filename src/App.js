@@ -38,13 +38,10 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
+      <div className="main">
         <h1>IronContacts</h1>
         <button onClick={addRandomContact}>Add Random Contact</button>
         <button onClick={sortbyPopularity}>Sort by popularity</button>
-        {console.log(allContacts)}
-
-
         <button onClick={sortbyName}>Sort by name</button> 
         <table>
           <thead>
@@ -65,14 +62,14 @@ function App() {
                     <td>{element.name}</td> <td>{element.popularity}</td>
                     <td> {element.wonOscar ? "🏆" : null} </td>
                     <td> {element.wonEmmy ? "🏆" : null} </td>
-                    <td><button onClick={() => deleteContact(element.id)}>Delete</button></td>
+                    <td><button className="deleteButton" onClick={() => deleteContact(element.id)}>Delete</button></td>
                   </tr>
                 </>
               );
             })}
           </thead>
         </table>
-      </ul>
+      </div>
     </div>
   );
 }
