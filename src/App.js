@@ -31,7 +31,7 @@ function App() {
   const sortByName = () => {
     displayedContacts.sort((a, b) => (a.name > b.name) ? 1 : -1);
     console.log("SORTED BY NAME", displayedContacts);
-    setFiveContacts(fiveContacts);
+    setFiveContacts(displayedContacts);
     return;
   };
 
