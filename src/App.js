@@ -29,9 +29,48 @@ function App() {
     setShowedContacts([...showedContacts, newContact]);
   };
 
+  //sorting Alphabetically
+  const sortAlphabetically = () => {
+    const showedContactsCopy = [...showedContacts];
+    const sortedContacts = showedContactsCopy.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    return setShowedContacts(sortedContacts);
+  };
+
+  //Sorting by popularity
+  const sortByPopularity = () => {
+    const showedContactsCopy = [...showedContacts];
+    const sortedContacts = showedContactsCopy.sort(function (a, b) {
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      return 0;
+    });
+    return setShowedContacts(sortedContacts);
+  };
+
+  const deleteContact = (idToDelete) => {
+    const showedContactsCopy = [...showedContacts];
+    return setShowedContacts(
+      showedContactsCopy.filter(({ id }) => id !== idToDelete)
+    );
+  };
+
   return (
     <div className="App">
       <button onClick={addContact}>Add a Contact</button>
+      <button onClick={sortAlphabetically}>Sort Alphabetically</button>
+      <button onClick={sortByPopularity}>Sort By Popularity</button>
       <table>
         <tr key="Header">
           <th key="Picture">Picture</th>
@@ -78,6 +117,14 @@ function App() {
                       }}
                     />
                   ) : null}
+                </td>
+                <td>
+                  <button
+                    onClick={(event) => {
+                      deleteContact(elem.id);
+                    }}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             </>
