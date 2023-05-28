@@ -31,6 +31,11 @@ function App() {
     setAllContacts(contactsSortedByName);
   };
 
+  const deleteContact = (idToDelete) => {
+    const contactedWithDeleted = [...allContacts].filter(({id}) => id !== idToDelete) ;
+    setAllContacts(contactedWithDeleted);
+  };
+
   return (
     <div className="App">
       <ul>
@@ -38,6 +43,8 @@ function App() {
         <button onClick={addRandomContact}>Add Random Contact</button>
         <button onClick={sortbyPopularity}>Sort by popularity</button>
         {console.log(allContacts)}
+
+
         <button onClick={sortbyName}>Sort by name</button> 
         <table>
           <thead>
@@ -47,18 +54,18 @@ function App() {
               <th>Popularity</th>
               <th>Won an Oscar</th>
               <th>Won an Emmy</th>
+              <th>Actions</th>
+              
             </tr>
             {allContacts.map((element) => {
               return (
                 <>
                   <tr>
-                    <td>
-                     
-                      <img src={element.pictureUrl} alt={element.name} />
-                    </td>
+                    <td><img src={element.pictureUrl} alt={element.name} /></td>
                     <td>{element.name}</td> <td>{element.popularity}</td>
                     <td> {element.wonOscar ? "🏆" : null} </td>
                     <td> {element.wonEmmy ? "🏆" : null} </td>
+                    <td><button onClick={() => deleteContact(element.id)}>Delete</button></td>
                   </tr>
                 </>
               );
