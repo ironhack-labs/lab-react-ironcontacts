@@ -9,23 +9,24 @@ function App() {
 
   const [contactCelebrities, setContactCelebrities] = useState(contactsArray);
 
-  const addContact = () => {
-    const newContactIndex = Math.floor(Math.random() * contacts.length);
-    const newContact = contacts[newContactIndex];
-    const contactCelebritiesCopy = [...contactCelebrities, newContact];
-    
-    // contactCelebritiesCopy.push(newContact);
-    setContactCelebrities(contactCelebritiesCopy);
-  }
-
   const sortByName = () => {
-    const contactCelebritiesCopy = [...contactCelebrities];
+    console.log(contactCelebrities)
+    const contactCelebritiesCopy = [...new Set(contactCelebrities)];
+    console.log(contactCelebritiesCopy)
     contactCelebritiesCopy.sort((a,b) => a.name.localeCompare(b.name));
     setContactCelebrities(contactCelebritiesCopy);
   }
 
+  const addContact = () => {
+    const newContactIndex = Math.floor(Math.random() * contacts.length);
+    const newContact = contacts[newContactIndex];
+    const contactCelebritiesCopy = [...new Set(contactCelebrities), newContact];
+    setContactCelebrities(contactCelebritiesCopy);
+    console.log(contactCelebrities)
+  }
+
   const sortByPopularity = () => {
-    const contactCelebritiesCopy = [...contactCelebrities];
+    const contactCelebritiesCopy = [...new Set(contactCelebrities)];
     contactCelebritiesCopy.sort((a,b) => b.popularity - a.popularity);
     setContactCelebrities(contactCelebritiesCopy);
   }
@@ -37,33 +38,34 @@ function App() {
 
   return (
     <div className="App">
-    <h1>IronContacts</h1>
-    <button onClick={addContact}>Add Random Contact</button>
-    <button onClick={sortByPopularity}>Sort by Popularity</button>
-    <button onClick={sortByName}>Sort by Name</button>
-      <table>
+    <h1 className='text-primary fw-bold text-uppercase'>IronContacts</h1>
+    <button className='btn btn-light border-dark mx-1 fs-5' onClick={addContact}>Add Random Contact</button>
+    <button className='btn btn-light border-dark mx-1 fs-5' onClick={sortByPopularity}>Sort by Popularity</button>
+    <button className='btn btn-light border-dark mx-1 fs-5' onClick={sortByName}>Sort by Name</button>
+    <div className='d-flex justify-content-center'>
+      <table style={{width:"600px"}}>
       <thead>
           <tr>
-            <td>Picture</td>
-            <td>Name</td>
-            <td>Popularity</td>
-            <td>Won Oscar</td>
-            <td>Won Emmy</td>
-            <td>Actions</td>
+            <td className='fs-5 fw-bold'>Picture</td>
+            <td className='fs-5 fw-bold'>Name</td>
+            <td className='fs-5 fw-bold'>Popularity</td>
+            <td className='fs-5 fw-bold'>Won Oscar</td>
+            <td className='fs-5 fw-bold'>Won Emmy</td>
+            <td className='fs-5 fw-bold'>Actions</td>
           </tr>
         </thead>
         <tbody>
 
         {contactCelebrities.map((contact) => {
          return (
-          <tr key={contact.id}>
-          <td><img src={contact.pictureUrl} style={{width: "50px"}} /></td>
-          <td>{contact.name}</td>
-          <td>{contact.popularity}</td>
-          {contact.wonOscar ? <td>🏆</td> : null}
-          {contact.wonEmmy ? <td>🏆</td> : null}
+          <tr className='border border-dark' key={contact.id}>
+          <td><img src={contact.pictureUrl} style={{width: "80px"}} /></td>
+          <td className='fw-bold fs-5'>{contact.name}</td>
+          <td className='fs-5'>{contact.popularity}</td>
+          {contact.wonOscar ? <td className='fs-2'>🏆</td> : <td></td>}
+          {contact.wonEmmy ? <td className='fs-2'>🏆</td> : <td></td>}
           <td>
-          <button onClick={(event) => {
+          <button className='btn btn-danger' onClick={(event) => {
          deleteHandler(event, contact.id);
           }}>Delete</button>
        </td>
@@ -72,6 +74,7 @@ function App() {
         })}
           </tbody>
       </table>
+      </div>
     </div>
   );
 }
