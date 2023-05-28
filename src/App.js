@@ -3,10 +3,12 @@ import './App.css';
 import contacts from "./contacts.json";
 import React, { useState } from 'react';
 
+
+
 function App() {
   const [contactsList, setContacts] = useState(contacts);
 
-  //  create array of 5 contacts 
+   //create array of 5 contacts 
   // const fiveContacts = contactsList.slice(5, 10);
   // console.log(fiveContacts);
   
@@ -45,7 +47,7 @@ const deleteContact = id => {
 
   return (
     <div className="App">
-      <button>Add random contact</button>
+      {/* <button>Add random contact</button> */}
       <table>
         <thead> 
           <th colSpan="5">IronContacts</th>
