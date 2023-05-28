@@ -42,6 +42,14 @@ function App() {
     return;
   };
 
+  const deleteContact = (idToDelete) => {
+    // const displayedContactsCopy = [...displayedContacts];
+    const filteredContacts = displayedContacts.filter((id) => {
+      return id !== idToDelete;
+    });
+    setFiveContacts(filteredContacts);
+  };
+
   const hasOscar = (elem) => {
     if (elem) {
       return <p>🏆</p>;
@@ -68,13 +76,14 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Action</th>
           </tr>
         <tbody>
           {fiveContacts.map((contact) => {
             return (
               <tr>
                 {" "}
-                <td>
+                <td key={contact.id}>
                   {" "}
                   <img alt="pic" src={contact.pictureUrl} id="contact-pic"/>{" "}
                 </td>
@@ -82,6 +91,7 @@ function App() {
                 <td>{contact.popularity} </td>
                 <td> {hasOscar(contact.wonOscar)} </td>
                 <td>{hasEmmy(contact.wonEmmy)}</td>
+                <td><button onClick={deleteContact(contact.id)}>Delete</button></td>
               </tr>
             );
           })}
