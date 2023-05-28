@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  font-size: 50px;
+}
+
+img {
+  height: 200px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.571);
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+th {
+  padding: 20px;
+  font-size: 25px;
+}
+
+td {
+  font-size: 20px;
+  padding: 10px;
+}
+
+tr {
+  border: 1px solid whitesmoke;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #6d6f7491;
+  color: white;
+  font-family: american typewriter;
+  font-size: 15px;
+}
+
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px;
+}
+
+.oscar-icon {
+  font-size: 30px;
+}
+
+.emmy-icon {
+  font-size: 30px;
+}
