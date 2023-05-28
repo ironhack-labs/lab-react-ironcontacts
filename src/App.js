@@ -21,14 +21,14 @@ function App() {
     ]);
   };
 
-  // const sortbyPopularity = () => {
-  //   const orderedContactsByPop = allContacts.sort();
-  //   setAllContacts(...allContacts,orderedContactsByPop);
-  // };
+  const sortbyPopularity = () => {
+    const contactsSortedByPop = [...allContacts].sort((a,b) => b.popularity - a.popularity);
+    setAllContacts(contactsSortedByPop);
+  };
 
   const sortbyName = () => {
-    const SortedByName = [...allContacts].sort((a,b)=> a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
-    setAllContacts(SortedByName);
+    const contactsSortedByName = [...allContacts].sort((a,b)=> a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
+    setAllContacts(contactsSortedByName);
   };
 
   return (
@@ -36,8 +36,8 @@ function App() {
       <ul>
         <h1>IronContacts</h1>
         <button onClick={addRandomContact}>Add Random Contact</button>
-        {console.log(allContacts)};
-        {/* <button onClick={sortbyPopularity}>Sort by popularity</button> */}
+        <button onClick={sortbyPopularity}>Sort by popularity</button>
+        {console.log(allContacts)}
         <button onClick={sortbyName}>Sort by name</button> 
         <table>
           <thead>
