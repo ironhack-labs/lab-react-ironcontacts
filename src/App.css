@@ -37,7 +37,12 @@
   }
 }
 
-table img {
+table {
+  width: 90%;
+  margin: 20px auto;
+}
+
+#contact-pic {
   height: 200px;
   width: auto;
 }

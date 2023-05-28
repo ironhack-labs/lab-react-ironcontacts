@@ -24,24 +24,16 @@ function App() {
 
     // setArray(oldArray => [...oldArray,newValue] );
     setFiveContacts(fiveContacts => [...fiveContacts,contactToAdd]);
-
-    // fiveContacts.push(contactToAdd);
-
-    // setRemainingContacts(remainingContacts);
-    // setFiveContacts(fiveContacts);
   };
 
-  // const generatingRemainingContacts = (contacts) => {
-  //   for (let i = 0; i <= 5; i++) {
-  //     contacts.shift();
-  //   }
-  //   return;
-  // };
-  // console.log(generatingRemainingContacts(contacts));
-  // const remainingContacts = generatingRemainingContacts(contacts);
+  const displayedContacts = [...fiveContacts];
 
-  // const newContactIndex = Math.floor(Math.random() * remainingContacts.length);
-  // const newContact = remainingContacts[newContactIndex];
+  const sortByName = () => {
+    displayedContacts.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    console.log("SORTED BY NAME", displayedContacts);
+    setFiveContacts(fiveContacts);
+    return;
+  };
 
   const hasOscar = (elem) => {
     if (elem) {
@@ -56,11 +48,12 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={addRandomContact}>Add random contact</button>
-
       <table>
-        <thead>
-          <th colSpan="3">IronContacts</th>
+        <caption>
+          IronContacts
+        </caption>
+        <button onClick={addRandomContact}>Add random contact</button>
+        <button onClick={sortByName}>Sort by name</button>
           <tr>
             <th>Picture</th>
             <th>Name</th>
@@ -68,7 +61,6 @@ function App() {
             <th>Won Oscar</th>
             <th>Won Emmy</th>
           </tr>
-        </thead>
         <tbody>
           {fiveContacts.map((contact) => {
             return (
@@ -76,7 +68,7 @@ function App() {
                 {" "}
                 <td>
                   {" "}
-                  <img alt="pic" src={contact.pictureUrl} />{" "}
+                  <img alt="pic" src={contact.pictureUrl} id="contact-pic"/>{" "}
                 </td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity} </td>
