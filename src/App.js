@@ -1,6 +1,7 @@
 import "./App.css";
 import contacts from "./contacts.json";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
 function App() {
   const slidedContacts = contacts.slice(0, 5);
@@ -17,6 +18,7 @@ function App() {
         popularity: oneRandomCeleb.popularity,
         wonOscar: oneRandomCeleb.wonOscar,
         wonEmmy: oneRandomCeleb.wonEmmy,
+        id: nanoid()
       },
     ]);
   };
@@ -57,12 +59,13 @@ function App() {
             {allContacts.map((element) => {
               return (
                 <>
-                  <tr>
+                  <tr key={element.id}>
                     <td><img src={element.pictureUrl} alt={element.name} /></td>
                     <td>{element.name}</td> <td>{element.popularity}</td>
                     <td> {element.wonOscar ? "🏆" : null} </td>
                     <td> {element.wonEmmy ? "🏆" : null} </td>
                     <td><button className="deleteButton" onClick={() => deleteContact(element.id)}>Delete</button></td>
+                    {console.log(element.id)}
                   </tr>
                 </>
               );
