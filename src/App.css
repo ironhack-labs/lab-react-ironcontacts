@@ -1,5 +1,10 @@
+
 .App {
   text-align: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .App-logo {
@@ -35,4 +40,65 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  height: 100px;
+}
+
+
+
+button{
+  width: 180px;
+  height: 40px;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: solid 1px grey;
+  box-shadow: lightgray 2px 2px;
+  font-family:Georgia, 'Times New Roman', Times, serif
+  
+}
+
+h1{
+  color: black;
+  text-shadow: lightgray 2px 2px;
+}
+
+table{
+  margin-top: 20px;
+  margin-bottom: 60px;
+  font-size: 10px;
+}
+
+main{
+  display: flex;
+  align-items: center;
+}
+
+th{
+  background-color: aliceblue;
+  
+}
+
+th,td{
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100px;
+  /* margin: 30px; */
+}
+
+tr:hover{
+  background-color: lightgray;
+}
+
+.deleteButton{
+  width: 100px;
+  font-size: 10px;
+}
+
+button:active{
+  background-color: gray;
 }
