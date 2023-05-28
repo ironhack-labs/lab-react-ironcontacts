@@ -35,6 +35,13 @@ function App() {
     return;
   };
 
+  const sortByPopularity = () => {
+    displayedContacts.sort((a, b) => (a.popularity < b.popularity) ? 1 : -1);
+    console.log("SORTED BY POPULARITY", displayedContacts);
+    setFiveContacts(displayedContacts);
+    return;
+  };
+
   const hasOscar = (elem) => {
     if (elem) {
       return <p>🏆</p>;
@@ -54,6 +61,7 @@ function App() {
         </caption>
         <button onClick={addRandomContact}>Add random contact</button>
         <button onClick={sortByName}>Sort by name</button>
+        <button onClick={sortByPopularity}>Sort by popularity</button>
           <tr>
             <th>Picture</th>
             <th>Name</th>
