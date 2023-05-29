@@ -6,12 +6,9 @@ import React, { useState } from 'react';
 
 
 function App() {
-  const [contactsList, setContacts] = useState(contacts);
+  const [contactsList, setContacts] = useState(contacts.slice(0,5));
 
-   //create array of 5 contacts 
-  // const fiveContacts = contactsList.slice(5, 10);
-  // console.log(fiveContacts);
-  
+
 
   //delete function
 const deleteContact = id => {
@@ -21,7 +18,7 @@ const deleteContact = id => {
     setContacts(filteredContacts);
   };
 
-  // const addContact = 
+  
 
 
 
@@ -47,7 +44,7 @@ const deleteContact = id => {
 
   return (
     <div className="App">
-      {/* <button>Add random contact</button> */}
+      <button>Add random contact</button>
       <table>
         <thead> 
           <th colSpan="5">IronContacts</th>
