@@ -18,19 +18,34 @@ const deleteContact = id => {
     setContacts(filteredContacts);
   };
 
-  
 
-
-
+ //attempt at adding random contact 
   // const generatingRemainingContacts = ((contacts) => {
   //   for (let i = 0; i <= 5; i++) {
   //     contacts.shift();
   //   }
   // });
-//   const remainingContacts = generatingRemainingContacts(contacts);
-//   const newContactIndex = Math.floor(Math.random() * remainingContacts.length);
-//   const newContact = remainingContacts[newContactIndex];  
+  // const remainingContacts = generatingRemainingContacts(contacts);
+  // const newContactIndex = Math.floor(Math.random() * remainingContacts.length);
+  // const newContact = remainingContacts[newContactIndex];
+  // console.log(newContact)
+
+
   
+  //not able to update the stave variable with setContacts when trying to sort by name
+  function sortContacts(a, b) {
+    
+  if( a.name < b.name ){
+    return -1;
+  }
+  if( a.name > b.name ){
+    return 1;
+  }
+    return 0;
+  
+  }
+  
+ 
   
 
   const hasOscar = (elem) => {
@@ -44,7 +59,9 @@ const deleteContact = id => {
 
   return (
     <div className="App">
-      <button>Add random contact</button>
+      
+      <button onClick={() => contactsList.sort(sortContacts)}>Sort by name</button>
+
       <table>
         <thead> 
           <th colSpan="5">IronContacts</th>
