@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+.table {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,6 +30,12 @@
 
 .App-link {
   color: #61dafb;
+}
+th,
+tr,
+td {
+  margin-right: 30px;
+  padding: 30px;
 }
 
 @keyframes App-logo-spin {
