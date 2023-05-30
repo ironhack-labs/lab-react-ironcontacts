@@ -1,4 +1,5 @@
 // src/App.js
+import { useState } from "react";
 import "./App.css";
 import allContacts from "./contacts.json";
 
@@ -53,11 +54,24 @@ const contacts = [
   }
 ];
 
+// const randomContact = allContacts[Math.floor(Math.random() * allContacts.length)];
+// console.log("RANDOM", randomContact);
+
 function App() {
+  const [contactsList, setContactsList] = useState(contacts);
+  console.log('MIS CONTACTS', contactsList);
+  const addContact = () => {
+    const copy = [...contactsList];
+    const randomContact = allContacts[Math.floor(Math.random() * allContacts.length)];
+    copy.unshift(randomContact);
+    setContactsList(copy);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      {contacts.map(contact => {
+      <button onClick={addContact}>Add Random Contact</button>
+      {contactsList.map(contact => {
         return (
           <table>
             <thead>
