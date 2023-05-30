@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 
 function App() {
-  const [contactsList, setContacts] = useState(contacts.slice(0,5));
+  const [contactsList, setContacts] = useState(contacts.slice(0,10));
 
 
 
@@ -33,9 +33,12 @@ const deleteContact = id => {
 
   
   //not able to update the stave variable with setContacts when trying to sort by name
-  function sortContacts(a, b) {
-    
-  if( a.name < b.name ){
+ 
+  
+  const sort = () => {
+    const copyArr = JSON.parse(JSON.stringify(contactsList))
+    const sorted = copyArr.sort((a, b) => {
+      if( a.name < b.name ){
     return -1;
   }
   if( a.name > b.name ){
@@ -43,9 +46,11 @@ const deleteContact = id => {
   }
     return 0;
   
-  }
-  
- 
+     
+    })
+    setContacts(sorted)
+
+  };
   
 
   const hasOscar = (elem) => {
@@ -60,7 +65,7 @@ const deleteContact = id => {
   return (
     <div className="App">
       
-      <button onClick={() => contactsList.sort(sortContacts)}>Sort by name</button>
+      <button onClick={()=>sort()}>Sort by name</button>
 
       <table>
         <thead> 
