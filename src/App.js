@@ -42,9 +42,16 @@ const contacts = [
     id: "0067ae32-97b6-4431-898e-eb1c10150abb",
     wonOscar: false,
     wonEmmy: false
+  },
+  {
+    name: "Matt Damon",
+    pictureUrl: "https://image.tmdb.org/t/p/w500/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg",
+    popularity: 9.500475,
+    id: "fd998a8f-1c9f-4ad8-8a03-45f93b630aa1",
+    wonOscar: true,
+    wonEmmy: false
   }
 ];
-
 
 function App() {
   return (
@@ -53,16 +60,26 @@ function App() {
       {contacts.map(contact => {
         return (
           <table>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-            </tr>
-            <tr>
-              <td><img src={contact.pictureUrl} alt="Contact Image"/></td>
-              <td>{contact.name}</td>
-              <td>{(contact.popularity).toFixed(2)}</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+                <th>Won Oscar</th>
+                <th>Won Emmy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img src={contact.pictureUrl} alt="Contact Image" />
+                </td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity.toFixed(2)}</td>
+                <td>{contact.wonOscar === true ? <span>🏆</span> : null}</td>
+                <td>{contact.wonEmmy === true ? <span>🏆</span> : null}</td>
+              </tr>
+            </tbody>
           </table>
         );
       })}
