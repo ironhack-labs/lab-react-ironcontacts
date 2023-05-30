@@ -1,12 +1,26 @@
-img{
-  height: 260px;
-  width: 200px;
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-td tr {
+img{
+  height: 240px;
+  width: 200px;
+  margin-top: 5px;
+  /* border-radius: 50%; */
+  border: 5px solid black;
+}
+
+td tr{
   font-size: 20px;
-  display: flex;
-  justify-content: space-between
+  padding: 10px;
+
+}
+
+th{
+    background: gray;
+    
+    
 }
 
 div h1{
@@ -14,5 +28,28 @@ div h1{
 justify-content: center;
 margin-top: 30px;
 }
+
+.btn-delete{
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: rgb(193, 78, 78);
+  color: white;
+  cursor: pointer;
+}
+
+.btn-top{
+  margin: 30px;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.content-contact{
+  border: 3px solid gray;
+}
+
+
 
 
