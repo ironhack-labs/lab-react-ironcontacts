@@ -21,33 +21,28 @@ function App() {
     const contactToAdd = remainingContacts[contactToAddIndex];
     console.log("RANDOM CONTACT TO ADD", contactToAdd);
 
-
     // setArray(oldArray => [...oldArray,newValue] );
-    setFiveContacts(fiveContacts => [...fiveContacts,contactToAdd]);
+    setFiveContacts((fiveContacts) => [...fiveContacts, contactToAdd]);
   };
 
   const displayedContacts = [...fiveContacts];
 
   const sortByName = () => {
-    displayedContacts.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    displayedContacts.sort((a, b) => (a.name > b.name ? 1 : -1));
     console.log("SORTED BY NAME", displayedContacts);
     setFiveContacts(displayedContacts);
     return;
   };
 
   const sortByPopularity = () => {
-    displayedContacts.sort((a, b) => (a.popularity < b.popularity) ? 1 : -1);
+    displayedContacts.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
     console.log("SORTED BY POPULARITY", displayedContacts);
     setFiveContacts(displayedContacts);
     return;
   };
 
   const deleteContact = (idToDelete) => {
-    // const displayedContactsCopy = [...displayedContacts];
-    const filteredContacts = displayedContacts.filter((id) => {
-      return id !== idToDelete;
-    });
-    setFiveContacts(filteredContacts);
+    setFiveContacts(displayedContacts.filter(({ id }) => id !== idToDelete));
   };
 
   const hasOscar = (elem) => {
@@ -64,36 +59,35 @@ function App() {
   return (
     <div className="App">
       <table>
-        <caption>
-          IronContacts
-        </caption>
+        <caption>IronContacts</caption>
         <button onClick={addRandomContact}>Add random contact</button>
         <button onClick={sortByName}>Sort by name</button>
         <button onClick={sortByPopularity}>Sort by popularity</button>
-          <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
-            <th>Action</th>
-          </tr>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
+          <th>Action</th>
+        </tr>
         <tbody>
           {fiveContacts.map((contact) => {
             return (
               <tr>
-                {" "}
-                <td key={contact.id}>
-                  {" "}
-                  <img alt="pic" src={contact.pictureUrl} id="contact-pic"/>{" "}
-                </td>
-                <td>{contact.name}</td>
-                <td>{contact.popularity} </td>
-                <td> {hasOscar(contact.wonOscar)} </td>
-                <td>{hasEmmy(contact.wonEmmy)}</td>
-                <td><button onClick={deleteContact(contact.id)}>Delete</button></td>
-              </tr>
-            );
+              <td key={contact.id}>
+                <img alt="pic" src={contact.pictureUrl} id="contact-pic" />
+              </td>
+              <td>{contact.name}</td>
+              <td>{contact.popularity} </td>
+              <td> {hasOscar(contact.wonOscar)} </td>
+              <td>{hasEmmy(contact.wonEmmy)}</td>
+              <td> <button onClick={() => {
+                deleteContact(contact.id)
+                }}>Delete</button>
+              </td>
+            </tr>
+          )
           })}
         </tbody>
       </table>
