@@ -2,14 +2,19 @@ import dataContacts from "../contacts.json"
 import "./Contacts.css"
 import { useState } from "react"
 
-const contactsArr = dataContacts.slice(0,20)
-console.log(contactsArr)
-
 function Contacts() {
-  const [wonOscar, setWonOscar]=useState(false)
+  const [contactsArr, setContactsArr] = useState(dataContacts.slice(0, 5))
+  
+const addContact = (contactsArr) => {
+  const randomContact = dataContacts[Math.floor(Math.random() * dataContacts.length)]
+  const newContactsArr = [...contactsArr, randomContact]
+  setContactsArr(newContactsArr)
+}
+
   return (
     <div>
       <h1>IronContacts</h1>
+    <button onClick={(event) => addContact(contactsArr)}>Add Random Contact</button> 
       <table>
         <thead>
           <tr>
@@ -37,7 +42,7 @@ function Contacts() {
                   {contact.wonOscar ===true?"🏆":""}
                 </td>
                                 <td>
-                  {contact.wonEmmy ===true?"🏆":""}
+                  {contact.wonEmmy ===true?"🌟":""}
                 </td>
               
               </tr>

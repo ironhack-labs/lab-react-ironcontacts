@@ -3,8 +3,10 @@ img{
   width: 200px;
 }
 
-td tr{
-  font-size: 30px;
+td tr {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between
 }
 
 div h1{
