@@ -82,7 +82,7 @@ function App() {
       })
     );
   };
-// no entiendo muy la logica y ¿por qué no hace falta hacer copia del array en este caso?
+// no entiendo muy bien la logica de este filter y ¿por qué no hace falta hacer copia del array en este caso?
   const deleteContact = (contactId) => {
     if (contactId) {
       setContactsList(contactsList.filter((contact) => contact.id !== contactId))
