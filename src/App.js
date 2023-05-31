@@ -59,7 +59,6 @@ const contacts = [
 
 function App() {
   const [contactsList, setContactsList] = useState(contacts);
-  console.log('MIS CONTACTS', contactsList);
   const addContact = () => {
     const copy = [...contactsList];
     const randomContact = allContacts[Math.floor(Math.random() * allContacts.length)];
@@ -67,10 +66,35 @@ function App() {
     setContactsList(copy);
   };
 
+  const sortByPopularity = () => {
+    setContactsList([...contactsList].sort((a, b) => b.popularity - a.popularity));
+  };
+
+  const sortByName = () => {
+    setContactsList(
+      [...contactsList].sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 0;
+        }
+      })
+    );
+  };
+// no entiendo muy la logica y ¿por qué no hace falta hacer copia del array en este caso?
+  const deleteContact = (contactId) => {
+    if (contactId) {
+      setContactsList(contactsList.filter((contact) => contact.id !== contactId))
+    }
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={addContact}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by Popularity</button>
+      <button onClick={sortByName}>Sort by Name</button>
       {contactsList.map(contact => {
         return (
           <table>
@@ -81,6 +105,7 @@ function App() {
                 <th>Popularity</th>
                 <th>Won Oscar</th>
                 <th>Won Emmy</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -92,6 +117,7 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{contact.wonOscar === true ? <span>🏆</span> : null}</td>
                 <td>{contact.wonEmmy === true ? <span>🏆</span> : null}</td>
+                <td><button onClick={(event) => {deleteContact(contact.id)}}>Delete</button></td>
               </tr>
             </tbody>
           </table>
