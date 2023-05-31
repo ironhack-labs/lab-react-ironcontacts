@@ -59,6 +59,58 @@ class Table extends Component {
       };
     });
   };
-}
 
+  render() {
+    return (
+      <>
+        <div className="buttons-container">
+          <button className="btn" onClick={this.addRandom}>
+            Add random contact
+          </button>
+          <button className="btn" onClick={this.sortByName}>
+            Sort by name
+          </button>
+          <button className="btn" onClick={this.sortByPopularity}>
+            Sort by popularity
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Popularity</th>
+              <th>Won an Oscar</th>
+              <th>Won an Emmy</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.contactsToRender.map((contact, index) => (
+              <tr key={contact.id}>
+                <td>{index + 1}</td>
+                <td>
+                  <img
+                    className="img-contacts"
+                    src={contact.pictureUrl}
+                    alt={contact.name}
+                  />
+                </td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity.toFixed(2)}</td>
+                <td>{contact.wonOscar ? "🏆" : "🔴"}</td>
+                <td>{contact.wonEmmy ? "🏆" : "🔴"}</td>
+                <td>
+                  <button onClick={() => this.remove(contact.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    );
+  }
+}
 export default Table;
