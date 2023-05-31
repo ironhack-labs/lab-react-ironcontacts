@@ -9,7 +9,7 @@ function App() {
     const randomContact =
       contactsData[Math.floor(Math.random() * contactsData.length)];
     if (!contacts.includes(randomContact)) {
-      setContacts(contacts => [randomContact, ...contacts]);
+      setContacts(() => [randomContact, ...contacts]);
     }
   };
 
