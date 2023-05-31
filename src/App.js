@@ -1,28 +1,52 @@
 import "./App.css";
-import pContacts from "./contacts.json";
-import Contacts from "./components/Contacts";
-// import { useState } from "react";
+import allContacts from "./contacts.json";
+// import Contacts from "./components/Contacts";
+import { useState } from "react";
 function App() {
-  // const [contacts, setContacts] = useState("contacts");
+  // let contacts = pContacts.slice(0, 5);
 
-  let contacts = pContacts.slice(0, 5);
+  const [contacts, setContacts] = useState(allContacts.slice(0, 5));
+  const [randomContacts, setRandomContacts] = useState(allContacts.slice(5));
+
+  const randomContact = function getRandom(min, max) {
+    min = 0;
+    max = randomContacts.length - 1;
+    const i = Math.trunc(Math.random() * max);
+    const thisGuy = randomContacts[i];
+
+    return thisGuy;
+  };
+  console.log(randomContacts);
+
+  console.log("--------------", randomContact().id);
 
   return (
     <div className="App">
+      {/* <button onClick={() => setContacts(contacts.unshift(randomContact))}>
+        Add random contact
+      </button> */}
+
       <h1>IronContacts:</h1>
+      <div className="contact2">
+        <button onClick={() => setContacts(contacts.unshift(randomContact()))}>
+          Add Random Contact
+        </button>
+        <button>Sort by name</button>
+        <button>Sort by popularity</button>
+      </div>
       <table className="contact">
         <div className="contact">
           <tr className="contact">
-            <td>Picture</td>
-            <td>Name</td>
-            <td>Rating</td>
-            <td>Won Oscar</td>
-            <td>Won Emmy</td>
+            <td className="title">Picture</td>
+            <td className="title">Name</td>
+            <td className="title">Rating</td>
+            <td className="title">Won Oscar</td>
+            <td className="title">Won Emmy</td>
           </tr>
         </div>
         {contacts.map((contact) => {
           return (
-            <div className="contact">
+            <div className="contact" key={contact.id}>
               <tr className="contact">
                 <td>
                   <img

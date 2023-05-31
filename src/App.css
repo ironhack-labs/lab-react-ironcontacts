@@ -11,6 +11,16 @@
   margin: 10px;
 }
 
+.contact2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 800px;
+  margin: 10px;
+}
+
+button {margin: 10px;}
+
 .pic {
   width: 80px;
 
@@ -22,4 +32,9 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title {
+  font-size: 1.6em;
+  font-weight: 600;
 }
