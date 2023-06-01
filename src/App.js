@@ -19,15 +19,45 @@ function App() {
       setContacts((state) => [rdomContact, ...state]);
       setRandomContacts((state) => [rdomContact, ...state]);
     }
-    console.log(contacts);
-    console.log(randomContacts);
 
     return;
+  };
+
+  const sortByName = function nameSort(toNameContacts) {
+    toNameContacts = [...contacts];
+    toNameContacts.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    setContacts(toNameContacts);
+  };
+
+  const sortByRating = function rateSort(toRateContacts) {
+    toRateContacts = [...contacts];
+    console.log(toRateContacts);
+    toRateContacts.sort(function (a, b) {
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      return 0;
+    });
+    setContacts(toRateContacts);
   };
 
   return (
     <div className="App">
       <button onClick={randomContact}>Add random button</button>
+      <button onClick={sortByName}>Sort by name</button>
+      <button onClick={sortByRating}>Sort by popularity</button>
+
       <h1>IronContacts:</h1>
       <table className="contact">
         <div className="contact">
@@ -41,7 +71,7 @@ function App() {
         </div>
         {contacts.map((contact) => {
           return (
-            <div className="contact">
+            <div className="contact" key={contact.id}>
               <tr className="contact">
                 <td>
                   <img
