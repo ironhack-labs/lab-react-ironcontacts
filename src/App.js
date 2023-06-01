@@ -52,6 +52,13 @@ function App() {
     setContacts(toRateContacts);
   };
 
+  const deleteContact = (contactId) => {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== contactId;
+    });
+    setContacts(filteredContacts);
+  };
+
   return (
     <div className="App">
       <button onClick={randomContact}>Add random button</button>
@@ -67,6 +74,7 @@ function App() {
             <td className="title">Rating</td>
             <td className="title">Won Oscar</td>
             <td className="title">Won Emmy</td>
+            <td className="title">Actions</td>
           </tr>
         </div>
         {contacts.map((contact) => {
@@ -88,6 +96,11 @@ function App() {
                 </td>
                 <td>{contact.wonOscar ? <p>🏆</p> : ""}</td>
                 <td>{contact.wonEmmy ? <p>🏆</p> : ""}</td>
+                <td>
+                  <button onClick={() => deleteContact(contact.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             </div>
           );
