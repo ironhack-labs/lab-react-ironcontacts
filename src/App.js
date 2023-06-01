@@ -12,28 +12,23 @@ function App() {
     min = 0;
     max = randomContacts.length - 1;
     const i = Math.trunc(Math.random() * max);
-    const thisGuy = randomContacts[i];
+    const rdomContact = randomContacts[i];
+    if (contacts.includes(rdomContact)) {
+      randomContact();
+    } else {
+      setContacts((state) => [rdomContact, ...state]);
+      setRandomContacts((state) => [rdomContact, ...state]);
+    }
+    console.log(contacts);
+    console.log(randomContacts);
 
-    return thisGuy;
+    return;
   };
-  console.log(randomContacts);
-
-  console.log("--------------", randomContact().id);
 
   return (
     <div className="App">
-      {/* <button onClick={() => setContacts(contacts.unshift(randomContact))}>
-        Add random contact
-      </button> */}
-
+      <button onClick={randomContact}>Add random button</button>
       <h1>IronContacts:</h1>
-      <div className="contact2">
-        <button onClick={() => setContacts(contacts.unshift(randomContact()))}>
-          Add Random Contact
-        </button>
-        <button>Sort by name</button>
-        <button>Sort by popularity</button>
-      </div>
       <table className="contact">
         <div className="contact">
           <tr className="contact">
@@ -46,7 +41,7 @@ function App() {
         </div>
         {contacts.map((contact) => {
           return (
-            <div className="contact" key={contact.id}>
+            <div className="contact">
               <tr className="contact">
                 <td>
                   <img
