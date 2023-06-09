@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Styles for table row */
+tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Styles for table cell with profile picture */
+td:nth-child(1) {
+  margin-right: 1rem;
+}
+
+/* Styles for delete button */
+button {
+  border: none;
+  background-color: #f44336;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+/* Styles for table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Styles for table header */
+thead {
+  background-color: #f5c518;
+}
+
+/* Styles for table header cells */
+th {
+  padding: 0.5rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Styles for table body cells */
+td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+/* Styles for profile picture */
+.profilePicture {
+  width: auto;
+  height: auto;
+  
+}
+
+/* Styles for contact row */
+.contact-row {
+  background-color: #fff;
+}
+
+/* Styles for alternate contact row */
+.contact-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Styles for won award icon */
+.won-award {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+
+.profilePicture{
+  width: 100px;
+  padding-left: 20px;
 }
