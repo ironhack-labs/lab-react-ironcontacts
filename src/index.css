@@ -67,3 +67,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+table thead {
+  font-size: 28px;
+}
+table img {
+  width: 70px;
+}
+
+table td {
+  font-size: 24px;
+}
