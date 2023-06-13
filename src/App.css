@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.contact__img {
+  height: 6rem;
+  width: auto;
+}
