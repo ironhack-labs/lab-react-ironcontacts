@@ -13,24 +13,26 @@ console.log("first Iteration content =",firstIteration)
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
-      <table>
+      <table className="actorsTable">
         <thead>
           <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
+            <th className="picture">Picture</th>
+            <th className="widthOne">Name</th>
+            <th className="widthOne">Popularity</th>
+            <th className="widthTwo">Won Oscar</th>
+            <th className="widthTwo">Won Emmy</th>
           </tr>
         </thead>
         <tbody>
           {firstIteration.map((el) => {
             return(
-              <div key={el.id}>
-                <tr>
-                  <td><img src={el.pictureUrl} alt="picture"/></td>
-                  <td><h2>{el.name}</h2></td>
-                  <td><p>{el.popularity}</p></td>
-                </tr>  
-              </div>   
+              <tr key={el.id}>
+                <td className="picture"><img src={el.pictureUrl} alt="picture"/></td>
+                <td className="widthOne"><h2>{el.name}</h2></td>
+                <td className="widthOne"><p>{el.popularity}</p></td>
+                <td className="widthTwo">{el.wonOscar && <p>🏆</p>}</td>
+                <td className="widthTwo">{el.wonEmmy && <p>🏆</p>}</td>
+              </tr>    
             )
           })}
         </tbody>

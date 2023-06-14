@@ -40,3 +40,26 @@
 .read-the-docs {
   color: #888;
 }
+
+.actorsTable{
+  width:90vw;
+  border-collapse: collapse;
+}
+.actorsTable img {
+  height:200px;
+}
+.actorsTable th{
+  border : solid 1px black;
+}
+.actorsTable td{
+  border : solid 1px black;
+}
+.picture {
+  width : 20vw;
+}
+.widthOne {
+  width:20vw;
+}
+.widthTwo{
+  width:10vw;
+}
