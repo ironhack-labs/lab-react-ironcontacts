@@ -1,13 +1,57 @@
 import React from "react";
 import "./App.css";
-import Contacts from "./contacts.json";
+import contactsJson from "./contacts.json";
 
 function App() {
-  const [contacts, setContacts] = React.useState(Contacts.slice(0, 5));
+  const [contacts, setContacts] = React.useState(contactsJson.slice(0, 5)); // contacts: [ {ïd: , ...}, {} ]
+
+  function addRandomContact() {
+    // Faire une copie
+    const contactsCopy = contacts.slice();
+
+    // filtrer la liste json en enlevant les contacts deja present dans le state contacts
+    const filteredContacts = contactsJson.filter((contact) => {
+      // return true si ce contact est absent du state
+
+      const foundContact = contacts.find((el) => {
+        if (el.id === contact.id) {
+          return true;
+          // return false si non
+        } else {
+          return false;
+        }
+      });
+
+      if (foundContact) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+
+    console.log("filteredContacts", filteredContacts);
+
+    const randContactIndex = Math.floor(
+      Math.random() * filteredContacts.length
+    );
+
+    // Ajouter le contact à la copie
+    contactsCopy.push(filteredContacts[randContactIndex]);
+
+    // maj le state
+    setContacts(contactsCopy);
+  }
 
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
+      <button
+        onClick={function () {
+          addRandomContact();
+        }}
+      >
+        Add Random Contact
+      </button>
       <table>
         <thead>
           <tr>
