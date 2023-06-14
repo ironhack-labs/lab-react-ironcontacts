@@ -45,3 +45,7 @@
   height: 6rem;
   width: auto;
 }
+
+button {
+  margin-inline: 1rem;
+}
