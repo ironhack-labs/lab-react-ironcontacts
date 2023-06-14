@@ -35,6 +35,12 @@ function App() {
     contactsCopy.sort(function(a,b) {return a.name.localeCompare(b.name)})
     setContacts(contactsCopy)
   }
+  function deleteContact(contactId){
+    const contactsCopy = contactsInfo.slice()
+    const contactIndex = contactsCopy.findIndex((el) => el.id === contactId)
+    contactsCopy.splice(contactIndex,1)
+    setContacts(contactsCopy)
+  }
 
   return (
     <div className="App">
@@ -50,6 +56,7 @@ function App() {
             <th className="widthOne">Popularity</th>
             <th className="widthTwo">Won Oscar</th>
             <th className="widthTwo">Won Emmy</th>
+            <th className="widthTwo">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -61,6 +68,7 @@ function App() {
                 <td className="widthOne"><p>{el.popularity.toFixed(2)}</p></td>
                 <td className="widthTwo">{el.wonOscar && <p>🏆</p>}</td>
                 <td className="widthTwo">{el.wonEmmy && <p>🏆</p>}</td>
+                <td className="widthTwo"><button onClick={function () { deleteContact(el.id) }}>Delete</button></td>
               </tr>
             )
           })}
