@@ -19,13 +19,20 @@ function App() {
 
   function addRandomContact() {
     const remainingContacts = contacts.filter(contact => contactsInfo.indexOf(contact) === -1)
-
     let num = Math.floor(Math.random() * remainingContacts.length);
-
     const contactsCopy = contactsInfo.slice()
-
     contactsCopy.push(remainingContacts[num])
+    setContacts(contactsCopy)
+  }
 
+  function sortByPop(){
+    const contactsCopy = contactsInfo.slice()
+    contactsCopy.sort(function(a,b) {return a.popularity - b.popularity})
+    setContacts(contactsCopy)
+  }
+  function sortByName() {
+    const contactsCopy = contactsInfo.slice()
+    contactsCopy.sort(function(a,b) {return a.name.localeCompare(b.name)})
     setContacts(contactsCopy)
   }
 
@@ -33,6 +40,8 @@ function App() {
     <div className="App">
       <h1>LAB | React IronContacts</h1>
       <button onClick={function () { addRandomContact() }}>ADD Random Contact</button>
+      <button onClick={function () { sortByPop() }}>Sort by popularity</button>
+      <button onClick={function () { sortByName() }}>Sort by name</button>
       <table className="actorsTable">
         <thead>
           <tr>
