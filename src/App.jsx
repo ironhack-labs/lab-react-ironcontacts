@@ -42,6 +42,33 @@ function App() {
     setContacts(contactsCopy);
   }
 
+  function sortByName() {
+    // Faire une copie
+    const contactsCopy = contacts.slice();
+
+    contactsCopy.sort((celeb1, celeb2) => {
+      if (celeb1.name < celeb2.name) {
+        return -1;
+      }
+      if (celeb1.name < celeb2.name) {
+        return 1;
+      }
+    });
+
+    setContacts(contactsCopy);
+  }
+
+  function sortByPop() {
+    // Faire une copie
+    const contactsCopy = contacts.slice();
+
+    contactsCopy.sort(
+      (celeb1, celeb2) => celeb2.popularity - celeb1.popularity
+    );
+
+    setContacts(contactsCopy);
+  }
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
@@ -51,6 +78,20 @@ function App() {
         }}
       >
         Add Random Contact
+      </button>
+      <button
+        onClick={function () {
+          sortByPop();
+        }}
+      >
+        Sort by popularity
+      </button>
+      <button
+        onClick={function () {
+          sortByName();
+        }}
+      >
+        Sort by name
       </button>
       <table>
         <thead>
