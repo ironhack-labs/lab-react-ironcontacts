@@ -46,6 +46,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 10px;
 }
 button:hover {
   border-color: #646cff;
@@ -66,4 +67,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+img {
+  width: 20vw;
+}
+
+td {
+  margin: 10px 0;
+  padding: 20px;
 }

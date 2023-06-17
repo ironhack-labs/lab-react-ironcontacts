@@ -16,8 +16,6 @@ function App(props) {
       <h1>LAB | React IronContacts</h1>
       <button
         onClick={function () {
-          console.log("je fonctionne");
-
           // 1. tirer au sort un contact (qui n'est pas deja dans les `contacts`)
 
           // creer une liste qui contient seulement les contacts non-presents dans le state
@@ -37,20 +35,29 @@ function App(props) {
       >
         Add random contact
       </button>
-      {contactList.map(function (contact) {
-        return (
-          <table key={contact.id}>
-            <thead>
-              <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Pop</th>
-                <th>Won Oscar</th>
-                <th>Won Emmy</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+      <button
+        onClick={function () {
+          console.log("je fonctionne");
+          //creer un nouveau tableau et set le nouveau tableau
+        }}
+      >
+        Sort by popularity
+      </button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Pop</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contactList.map(function (contact) {
+            return (
+              <tr key={contact.id}>
                 <td>
                   <img src={contact.pictureUrl} alt="" />
                 </td>
@@ -59,10 +66,10 @@ function App(props) {
                 <td>{trophy.repeat(contact.wonOscar)}</td>
                 <td>{trophy.repeat(contact.wonEmmy)}</td>
               </tr>
-            </tbody>
-          </table>
-        );
-      })}
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
