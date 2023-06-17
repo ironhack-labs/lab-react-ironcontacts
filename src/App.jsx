@@ -69,6 +69,22 @@ function App() {
     setContacts(contactsCopy);
   }
 
+  function deleteContact(id) {
+    // Faire la copie
+    const contactsCopy = contacts.slice();
+
+    // trouver l'index du film a supprimer (dans le tableau de films)
+    const contactIndex = contacts.findIndex((contact) => {
+      return contact.id === id;
+    });
+
+    // supprimer le contact de la copie
+    contactsCopy.splice(contactIndex, 1);
+
+    // maj le state
+    setContacts(contactsCopy);
+  }
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
@@ -101,6 +117,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -122,6 +139,13 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{oscar}</td>
                 <td>{emmy}</td>
+                <button
+                  onClick={function () {
+                    deleteContact(contact.id);
+                  }}
+                >
+                  Delete
+                </button>
               </tr>
             );
           })}
