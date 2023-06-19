@@ -5,10 +5,24 @@ import allContacts from './contacts.json'
 
 function App() {
   const [contacts, updateContacts] = useState(allContacts.slice(0, 5));
+
+  const addNewRandomContact = () => {
+    const randomBound = allContacts.length - contacts.length;
+    if (randomBound === 0) {
+      return;
+    }
+    
+    const randIndex = Math.floor(Math.random() * randomBound);
+    const newContact = allContacts.filter(c => !contacts.includes(c))[randIndex];
+    updateContacts([...contacts, newContact]);
+  }
+
   return (
     <div className="App">
 
     <h1>IronContacts</h1>
+
+    <button onClick={addNewRandomContact}>Add Random Contact</button>
 
     <table>
       <thead>
