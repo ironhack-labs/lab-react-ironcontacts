@@ -16,6 +16,8 @@ function App() {
           <td>Picture</td>
           <td>Name</td>
           <td>Popularity</td>
+          <td>Won Oscar</td>
+          <td>Won Emmy</td>
         </tr>
       </thead>
     <tbody>
@@ -24,6 +26,9 @@ function App() {
       <td><img src={c.pictureUrl} alt={c.name} />  </td>
       <td>{c.name}</td>
       <td>{c.popularity.toFixed(2)}</td>
+      <td>{c.wonOscar && "🏆"}</td>
+      <td>{c.wonEmmy && "🏆"}</td>
+      <td></td>
       </tr>
     })}
     </tbody>
