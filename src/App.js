@@ -11,10 +11,18 @@ function App() {
     if (randomBound === 0) {
       return;
     }
-    
+
     const randIndex = Math.floor(Math.random() * randomBound);
     const newContact = allContacts.filter(c => !contacts.includes(c))[randIndex];
     updateContacts([...contacts, newContact]);
+  }
+
+  const sortByPopularity = () => {
+    updateContacts([...contacts.sort((a, b) => a.popularity - b.popularity)]);
+  }
+
+  const sortByName = () => {
+    updateContacts([...contacts.sort((a, b) => a.name.localeCompare(b.name))]);
   }
 
   return (
@@ -23,6 +31,8 @@ function App() {
     <h1>IronContacts</h1>
 
     <button onClick={addNewRandomContact}>Add Random Contact</button>
+    <button onClick={sortByPopularity}>Sort by popularity</button>
+    <button onClick={sortByName}>Sort by name</button>
 
     <table>
       <thead>
