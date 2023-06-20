@@ -10,16 +10,6 @@ function App() {
 
   console.log(firstFive);
 
-  const deleteContact = (contactId) => {
-        
-        
-    const newList = contacts.filter((element)=> {
-        return element.id !== contactId;
-    }
-    )
-    setContacts(newList);
-}
-
 const ContactsTable = (contacts) => {
   let sortedList = [...contacts];
   sortedList.sort((a, b) => {
@@ -32,6 +22,15 @@ const ContactsTable = (contacts) => {
     return 0;
 })
 };
+
+  const deleteContact = (contactId) => {     
+    const newList = contacts.filter((element)=> {
+      return element.id !== contactId;
+    }
+    )
+    setContacts(newList);
+}
+
 
   return (
     <div className="App">
@@ -58,7 +57,7 @@ const ContactsTable = (contacts) => {
           
         </tbody>
       </table>
-      <button onClick={ () => {deleteContact(contactObj.id)}}>Delete this movie</button>
+      <button onClick={ () => {deleteContact(contactObj.id)}}>Delete this contact</button>
       </div>
    ) } )}
 
