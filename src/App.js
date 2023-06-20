@@ -13,6 +13,8 @@ function App() {
 					<th>Picture</th>
 					<th>Name</th>
 					<th>Popularity</th>
+					<th>Won Oscar</th>
+					<th>Won Emmy</th>
 				</tr>
 
 				{newArray.map((contact) => {
@@ -29,8 +31,10 @@ function App() {
 								<p>{contact.name}</p>
 							</td>
 							<td>
-								<p>{contact.popularity}</p>
+								<p>{contact.popularity.toFixed(2)}</p>
 							</td>
+							<td>{contact.wonOscar ? '🏆' : ''}</td>
+							<td>{contact.wonEmmy ? '🏆' : ''}</td>
 						</tr>
 					);
 				})}
