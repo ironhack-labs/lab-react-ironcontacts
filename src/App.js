@@ -12,13 +12,35 @@ function App() {
 		let newArray = contactsData.filter((e) => !contacts.includes(e));
 
 		const randomNumber = Math.floor(Math.random() * newArray.length);
+
 		return setContacts([...contacts, newArray[randomNumber]]);
+	};
+
+	const sortByPopularity = () => {
+		const sorted = [...contacts].sort((a, b) => {
+			return b.popularity - a.popularity;
+		});
+
+		setContacts(sorted);
+	};
+	const sortByName = () => {
+		const sorted = [...contacts].sort((a, b) => a.name.localeCompare(b.name));
+		setContacts(sorted);
 	};
 
 	return (
 		<div className="App">
 			<h1>IronContacts</h1>
 
+			<button
+				className="btn btn-random"
+				onClick={() => sortByPopularity(contacts)}
+			>
+				Sort by popularity
+			</button>
+			<button className="btn btn-random" onClick={sortByName}>
+				Sort by Name
+			</button>
 			<button
 				className="btn btn-random"
 				onClick={() => {

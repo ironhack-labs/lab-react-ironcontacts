@@ -17,3 +17,7 @@ code {
 .details-tr img {
 	height: 100px;
 }
+
+button {
+	margin: 1rem;
+}
