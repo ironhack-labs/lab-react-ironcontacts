@@ -29,7 +29,40 @@
 
 import "./App.css";
 
+import contacts from "./contacts.json";
+import { useState } from 'react';
+
 function App() {
-  return <div className="App"></div>;
+
+  const [statefulContacts, setContacts] = useState(contacts.slice(0,5))
+
+  return (
+    <div className="App">
+      <h1>IronContacts</h1>
+      <table className="table-centered">
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+          </tr>
+        </thead>
+        <tbody>
+            {statefulContacts.map(contact => {
+              return (
+                <tr>
+                  <td><img src={contact.pictureUrl} alt={`"photo of ${contact.name}"`} width="50px"/></td>
+                  <td>{contact.name}</td>
+                  <td>{contact.popularity.toFixed(2)}</td>
+                </tr>
+              )
+            })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
+
 export default App;
+
+// 🏆
