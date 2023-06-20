@@ -12,7 +12,7 @@
     "pictureUrl": "https://image.tmdb.org/t/p/w500/kbWValANhZI8rbWZXximXuMN4UN.jpg",
     "popularity": 15.656534,
     "id": "7dad00f7-3949-477d-a7e2-1467fd2cfc06",
-    "wonOscar": false,
+    "wonOscar": true,
     "wonEmmy": false
   },
   {
@@ -20,15 +20,15 @@
     "pictureUrl": "https://image.tmdb.org/t/p/w500/qlT4904d8oi2NIs28RrgnIZDFZB.jpg",
     "popularity": 16.096436,
     "id": "0ad5e441-3084-47a1-9e9b-b917539bba71",
-    "wonOscar": false,
-    "wonEmmy": false
+    "wonOscar": true,
+    "wonEmmy": true
   },
   {
     "name": "Gal Gadot",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/34kHAyBaBhq2kUrmhM15paEBuuI.jpg",
     "popularity": 10.049256,
     "id": "b497e3c4-50bb-4ae2-912f-eb36802c5bc2",
-    "wonOscar": false,
+    "wonOscar": true,
     "wonEmmy": false
   },
   {
