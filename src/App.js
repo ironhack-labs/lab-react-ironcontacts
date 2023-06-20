@@ -1,23 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import contactsData from "./contacts.json";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  let firstFive = contactsData.slice(0, 5);
+  const [contacts, setContacts] = useState(firstFive);
+
+  // const deleteActor = (actorId) => {
+
+  // const newList = contacts.filter((element) => {
+  //   return element.id !== actorId;
+  //   });
+
+  //   setContacts(newList);
+
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <button>Add Random Contact</button>
+      
+      <table>
+
+      <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
+          </tr>
+
+        {contacts.map((currentElement) => {
+          return (
+            <>
+          <tr>
+            <td>
+              <img className="photo" src={currentElement.pictureUrl} alt="actor" />
+            </td>
+            <td>
+              {currentElement.name}
+            </td>
+            <td>
+            {currentElement.popularity}
+            </td>
+            <td>
+            {currentElement.wonOscar}
+            </td>
+            <td>
+            {currentElement.wonEmmy}
+            </td>
+          </tr>
+          </>
+          )
+        })}
+       
+      </table>
+    
+
+
     </div>
   );
 }
