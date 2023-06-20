@@ -9,6 +9,7 @@ function App() {
 
   return (
     <div className="App">
+      
                                 {/* // <h1> outside of the .map() */}
       <h1>IronContacts</h1> 
 
@@ -21,6 +22,8 @@ function App() {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Won Oscar</th>
+                <th>Won Emmy</th>
               </tr>
 
               <tr>
@@ -29,6 +32,22 @@ function App() {
                 </td>
                 <td>{contactObj.name}</td>
                 <td>{contactObj.popularity}</td>
+                <td>
+                  {contactObj.wonOscar
+                  ?  <p>🏆</p>
+                  :  <p> </p>
+                  }
+                </td>
+
+                <td>
+                  {contactObj.wonEmmy
+                  ?  <p>🏆</p>
+                  :  <p>  </p>
+                  }
+                </td>
+
+
+      
               </tr>
 
               {/* <tr>
