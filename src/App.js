@@ -10,7 +10,6 @@ function App() {
   const [contacts, setContacts] = useState(firstFiveContacts);
   const [contactsRemaining, setContactsRemaining] = useState(remainingContacts);
 
-  
   const addRandomContact = () => {
     //get random index
     const randomIndex = [Math.floor(Math.random() * contactsRemaining.length)];
@@ -32,35 +31,47 @@ function App() {
     setContacts(newContactArr);
   };
 
-
   const sortByName = () => {
-    let contactsArrToSort = [...contacts]
-    const contactsArrSorted = contactsArrToSort.sort((a, b) => a.name.localeCompare(b.name))
+    let contactsArrToSort = [...contacts];
+    contactsArrToSort.sort((a, b) => a.name.localeCompare(b.name));
 
-    setContacts(contactsArrSorted)
-  }
+    setContacts(contactsArrToSort);
+  };
 
   const sortByPopularity = () => {
-    let contactsArrToSort = [...contacts]
-    const contactsArrSorted = contactsArrToSort.sort((a, b) => b.popularity - a.popularity)
+    let contactsArrToSort = [...contacts];
+    contactsArrToSort.sort((a, b) => b.popularity - a.popularity);
 
-    setContacts(contactsArrSorted)
-  }
+    setContacts(contactsArrToSort);
+  };
 
   const deleteContact = (contactId) => {
-    const contactArrUpdated = contacts.filter((elm) => elm.id !== contactId)
+    const contactArrUpdated = contacts.filter((elm) => elm.id !== contactId);
 
-    setContacts(contactArrUpdated)
-  }
-
-
+    setContacts(contactArrUpdated);
+  };
 
   return (
     <div className="App">
-      <h1>IronContacts</h1>
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByPopularity}>Sort by popularity</button>
-      <button onClick={sortByName}>Sort by name</button>
+      <div className="header">
+        <div className="h1box">
+          <h1>IronContacts</h1>
+        </div>
+        <div className="buttonbox">
+          {/* conditional rendering so it doesn't give an error if we try to add random contact from an empty array */}
+          {contactsRemaining.length !== 0 && (
+            <button className="button" onClick={addRandomContact}>
+              Add Random Contact
+            </button>
+          )}
+          <button className="button" onClick={sortByPopularity}>
+            Sort by popularity
+          </button>
+          <button className="button" onClick={sortByName}>
+            Sort by name
+          </button>
+        </div>
+      </div>
       <table>
         <tbody>
           <tr>
@@ -81,7 +92,16 @@ function App() {
                 <td>{elm.popularity.toFixed(2)}</td>
                 {elm.wonOscar ? <td>🏆</td> : <td></td>}
                 {elm.wonEmmy ? <td>🏆</td> : <td></td>}
-                <td><button onClick={() => {deleteContact(elm.id)}}>Delete</button></td>
+                <td>
+                  <button
+                    className="button"
+                    onClick={() => {
+                      deleteContact(elm.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
