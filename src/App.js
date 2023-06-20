@@ -34,12 +34,12 @@ function App() {
           {contactsToDisplay.map((contact) => (
             <tr key={contact.id}>
               <td>
-                <img src={contact.pictureUrl} alt={contact.name} />
+                <img style={{ width: 250, height: 375 }}  src={contact.pictureUrl} alt={contact.name} />
               </td>
-              <td>{contact.name}</td>
-              <td>{contact.popularity.toFixed(2)}</td>
-              <td>{contact.wonOscar ? "🏆" : ""} </td>
-              <td>{contact.wonEmmy ? "🏆" : ""} </td>
+              <td style={{backgroundColor: "aliceblue" }}>{contact.name}</td>
+              <td style={{backgroundColor: "antiquewhite"}}>{contact.popularity.toFixed(2)}</td>
+              <td style={{backgroundColor: "aliceblue" }}>{contact.wonOscar ? "🏆" : ""} </td>
+              <td style={{backgroundColor: "antiquewhite"}}>{contact.wonEmmy ? "🏆" : ""} </td>
             </tr>
           ))}
         </tbody>
