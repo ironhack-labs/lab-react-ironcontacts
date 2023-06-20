@@ -1,10 +1,19 @@
 [
   {
+    "name": "Matt Damon",
+    "pictureUrl": "https://image.tmdb.org/t/p/w500/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg",
+    "popularity": 9.500475,
+    "id": "fd998a8f-1c9f-4ad8-8a03-45f93b630aa1",
+    "wonOscar": true,
+    "wonEmmy": false
+  },
+
+  {
     "name": "Idris Elba",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
     "popularity": 11.622713,
     "id": "11731993-0604-4bee-80d5-67ad845d0a38",
-    "wonOscar": false,
+    "wonOscar": true,
     "wonEmmy": false
   },
   {
@@ -39,14 +48,7 @@
     "wonOscar": false,
     "wonEmmy": false
   },
-  {
-    "name": "Matt Damon",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg",
-    "popularity": 9.500475,
-    "id": "fd998a8f-1c9f-4ad8-8a03-45f93b630aa1",
-    "wonOscar": true,
-    "wonEmmy": false
-  },
+
   {
     "name": "David Harbour",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/chPekukMF5SNnW6b22NbYPqAStr.jpg",
