@@ -6,18 +6,32 @@ function App() {
   let firstFive = contactsData.slice(0, 5);             //slice the first 5 and store that new array in a variable
   const [contacts, setContacts] = useState(firstFive);  //we destructure the array, name a variable and a function that will change our variable:
                                                         //we pass to useState our departing point firstFive
+  const randomContact = [...contactsData].filter(contact => !contacts.includes(contact))  //here I got help and Im not sure I understand the syntax and process. 
+
+
+  const addRandom = () => {
+
+  const randomIndex = Math.floor(Math.random() * randomContact.length) 
+  const randomObject  = randomContact[randomIndex]
+  setContacts((actuallyContact => [...actuallyContact, randomObject])); ////I started the randomizer but got stuck and asked for help
+  }
+  
+
+
 
   return (
     <div className="App">
       
                                 {/* // <h1> outside of the .map() */}
       <h1>IronContacts</h1> 
+      <button onClick={addRandom}> Add Random Contact</button>
 
-      {contacts.map((contactObj) => {   //we use only the first 5 by using contacts instead of the whole contactsData adn receive each iterations' object
-
-        return (
+      
           <div>
             <table>
+              <thead>
+
+             
               <tr>
                 <th>Picture</th>
                 <th>Name</th>
@@ -25,8 +39,13 @@ function App() {
                 <th>Won Oscar</th>
                 <th>Won Emmy</th>
               </tr>
+              </thead>
 
-              <tr>
+              <tbody>
+              {contacts.map((contactObj, index) => {   //we use only the first 5 by using contacts instead of the whole contactsData adn receive each iterations' object
+
+              return (
+              <tr key={index}>
                 <td>
                   <img src={contactObj.pictureUrl}></img>
                 </td>
@@ -45,10 +64,10 @@ function App() {
                   :  <p>  </p>
                   }
                 </td>
-
-
-      
               </tr>
+              );      
+              })}
+              </tbody>
 
               {/* <tr>
               <td>Centro comercial Moctezuma</td>
@@ -57,8 +76,8 @@ function App() {
             </tr> */}
             </table>
           </div>
-        );
-      })}
+        
+
     </div>
   );
 }
