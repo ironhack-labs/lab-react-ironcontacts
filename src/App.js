@@ -15,21 +15,39 @@ function App() {
 
 
   const addRandomContact = () => {  
-    console.log( randomArr);
+
     const intRandom = Math.floor (Math.random() * randomArr.length);
     const addContact = randomArr[intRandom];
 
-    setContacts(([...contactInfo, addContact]));
+    setContacts((contactActually => [...contactActually, addContact]));
+  }
+
+  const sortByName = () =>{
+    console.log(contactInfo);
+    const compareByAlphabetic = [...contactInfo].sort((a, b) => a.name.localeCompare(b.name))
+    setContacts(compareByAlphabetic)
   }
 
 
+  const sortByPopularity = () => {
+    const compareByPopularity = [...contactInfo].sort((a, b) => b.popularity - (a.popularity))
+    setContacts(compareByPopularity)
+  }
 
+  const deleteContact = (contactId) => {
+    const removeContact = contactInfo.filter((element) => {
+      return element.id !== contactId
+    })
+    setContacts(removeContact)
+  }
 
 
   return(
     <div className='App'>
     <h1>IronContact</h1>
     <button onClick={addRandomContact}>Add Random Contact</button>  
+    <button onClick={sortByName}>Sort by Name</button>  
+    <button onClick={sortByPopularity}>Sort by Popularity</button>  
               <table>
               <thead>
                 <tr>
@@ -57,7 +75,7 @@ function App() {
                         ? <td>🏆</td>
                         : <td></td>}
 
-                        <button>Delete</button>
+                        <button onClick={() => {deleteContact(celebrity.id)}}>Delete</button>
                       </tr> 
                   )
                   })}
