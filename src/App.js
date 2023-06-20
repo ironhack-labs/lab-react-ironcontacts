@@ -19,6 +19,8 @@ const addContact = () => {
     <div className="App">
       <header>
         <button onClick={addContact}>Add a contact</button>
+        <button >Sort by Name</button>
+        <button >Sort by Popularity</button>
       </header>
       <table>
         <tbody>
