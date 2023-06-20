@@ -12,6 +12,10 @@
   margin-right: auto;
 }
 
+.table-centered td:nth-child(n+4):nth-child(-n+5) {
+  width: 80px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -45,6 +45,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +56,8 @@ function App() {
                   <td><img src={contact.pictureUrl} alt={`"photo of ${contact.name}"`} width="50px"/></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
+                  <td>{contact.wonOscar && "🏆"}</td>
+                  <td>{contact.wonEmmy && "🏆"}</td>
                 </tr>
               )
             })}
@@ -64,5 +68,3 @@ function App() {
 }
 
 export default App;
-
-// 🏆
