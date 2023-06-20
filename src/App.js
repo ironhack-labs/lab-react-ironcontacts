@@ -8,9 +8,25 @@ function App() {
 	let firstFive = contactsData.slice(0, 5);
 	const [contacts, setContacts] = useState(firstFive);
 
+	const randomContact = (array) => {
+		let newArray = contactsData.filter((e) => !contacts.includes(e));
+
+		const randomNumber = Math.floor(Math.random() * newArray.length);
+		return setContacts([...contacts, newArray[randomNumber]]);
+	};
+
 	return (
 		<div className="App">
 			<h1>IronContacts</h1>
+
+			<button
+				className="btn btn-random"
+				onClick={() => {
+					randomContact(contactsData);
+				}}
+			>
+				Add Random Contact
+			</button>
 
 			<table>
 				<thead>
@@ -23,10 +39,10 @@ function App() {
 					</tr>
 				</thead>
 				<tbody>
-					{contacts.map((e) => {
+					{contacts.map((e, i) => {
 						return (
 							<tr className="details-tr">
-								<td>
+								<td key={i}>
 									<img src={e.pictureUrl} />
 								</td>
 								<td>{e.name}</td>
