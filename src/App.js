@@ -43,7 +43,15 @@ function App() {
   }
 
   function addRandomContact() {
-    setContacts([...statefulContacts, contactsRemaining[getRandomInt(contactsRemaining.length)] ])
+    setContacts([ ...statefulContacts, contactsRemaining[getRandomInt(contactsRemaining.length)] ])
+  }
+
+  function sortByName() {
+    setContacts([...statefulContacts].sort((a, b) => a.name.localeCompare(b.name))) // sort the elements in place, but one should not mutate/update the state variable
+  }
+
+  function SortByPopularity() {
+    setContacts([...statefulContacts].sort((a, b) => b.popularity - a.popularity)) // ChrisHemsworth.popularity = Thor.popularity ⚒️
   }
 
   // add a unique key to each tr otherwise React complains in Chrome console:
@@ -55,6 +63,8 @@ function App() {
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={addRandomContact}> Add Random Contact </button>
+      <button onClick={sortByName}> Sort by name </button>
+      <button onClick={SortByPopularity}> Sort by popularity </button>
       <table className="table-centered">
         <thead>
           <tr>
