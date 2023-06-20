@@ -28,6 +28,11 @@ function App() {
 		setContacts(sorted);
 	};
 
+	const deleteContact = (thisId) => {
+		const restOfContacts = contacts.filter((e) => e.id !== thisId);
+		setContacts(restOfContacts);
+	};
+
 	return (
 		<div className="App">
 			<h1>IronContacts</h1>
@@ -58,6 +63,7 @@ function App() {
 						<th>Popularity</th>
 						<th>Won Oscar</th>
 						<th>Won Emmy</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -81,8 +87,15 @@ function App() {
 										<p>🏆</p>
 									</td>
 								) : (
-									<td></td>
+									<td> </td>
 								)}
+								<button
+									onClick={() => {
+										deleteContact(e.id);
+									}}
+								>
+									Delete
+								</button>
 							</tr>
 						);
 					})}
