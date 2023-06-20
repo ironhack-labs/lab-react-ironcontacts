@@ -54,6 +54,10 @@ function App() {
     setContacts([...statefulContacts].sort((a, b) => b.popularity - a.popularity)) // ChrisHemsworth.popularity = Thor.popularity ⚒️
   }
 
+  function deleteContact(contactId) {
+    setContacts(statefulContacts.filter(contact => contact.id !== contactId))
+  }
+
   // add a unique key to each tr otherwise React complains in Chrome console:
   // Warning: Each child in a list should have a unique "key" prop.
   // https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js
@@ -73,6 +77,7 @@ function App() {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -84,6 +89,7 @@ function App() {
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td>{contact.wonOscar && "🏆"}</td>
                   <td>{contact.wonEmmy && "🏆"}</td>
+                  <td><button onClick={() => {deleteContact(contact.id)}}> Delete </button></td>
                 </tr>
               )
             })}
