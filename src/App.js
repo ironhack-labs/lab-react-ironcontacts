@@ -36,9 +36,25 @@ function App() {
 
   const [statefulContacts, setContacts] = useState(contacts.slice(0,5))
 
+  const contactsRemaining = contacts.filter(contact => !statefulContacts.includes(contact))
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  function addRandomContact() {
+    setContacts([...statefulContacts, contactsRemaining[getRandomInt(contactsRemaining.length)] ])
+  }
+
+  // add a unique key to each tr otherwise React complains in Chrome console:
+  // Warning: Each child in a list should have a unique "key" prop.
+  // https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js
+  // so that React can handle DOM changes...
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={addRandomContact}> Add Random Contact </button>
       <table className="table-centered">
         <thead>
           <tr>
@@ -50,10 +66,10 @@ function App() {
           </tr>
         </thead>
         <tbody>
-            {statefulContacts.map(contact => {
+            {statefulContacts.map((contact, i) => {
               return (
-                <tr>
-                  <td><img src={contact.pictureUrl} alt={`"photo of ${contact.name}"`} width="50px"/></td>
+                <tr key={i}>
+                  <td><img src={contact.pictureUrl} alt={`portrait of ${contact.name}`} width="50px"/></td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td>{contact.wonOscar && "🏆"}</td>
@@ -63,6 +79,7 @@ function App() {
             })}
         </tbody>
       </table>
+
     </div>
   );
 }
