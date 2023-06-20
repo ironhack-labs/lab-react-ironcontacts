@@ -9,11 +9,17 @@ const contacts = contactsData.slice(0, 6);
 function App() {
 
   const [contactsToDisplay, setContactsToDisplay] = useState(contacts);
-
+const addContact = () => {
+  const random = Math.floor(Math.random() * contactsData.length);
+  const newContact = contactsData[random]
+  setContactsToDisplay([...contactsToDisplay, newContact])
+};
 
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <button onClick={addContact}>Add a contact</button>
+      </header>
       <table>
         <tbody>
           <tr>
@@ -40,7 +46,7 @@ function App() {
       })}
       </tbody>
       </table>
-      <button>Add Contact</button>
+   
     </div>
   );
 }
