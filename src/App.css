@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: coral;
 }
 
 .App-logo {
@@ -35,4 +36,52 @@
   to {
     transform: rotate(360deg);
   }
+}
+.table {
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid coral;
+  box-shadow: 5px 5px 10px -5px;
+  color: coral;
+}
+.table th {
+  border: none;
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(236, 97, 46, 0.116);
+}
+.table td {
+  padding: 5px;
+}
+.image {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px -5px;
+}
+button {
+  background: none;
+  color: inherit;
+  border: 0.5px solid coral;
+  margin: 1rem;
+  padding: 0.3rem auto;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 5px;
+  font-size: small;
+  box-shadow: 5px 5px 10px -5px;
+  line-height: 1.7;
+  height: auto;
+  text-align: center;
+  width: auto;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: coral;
+  color: white;
+  font-weight: bolder;
 }
