@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+.table {
+  width: 80%;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #666;
+  box-shadow: 5px 5px 10px -5px;
+}
+.image {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+}
