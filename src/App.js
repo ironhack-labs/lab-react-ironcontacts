@@ -34,7 +34,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [statefulContacts, setContacts] = useState(contacts.slice(0,5))
+  const [statefulContacts, setStatefulContacts] = useState(contacts.slice(0,5)) // convention: use the same variable name; mentionned here: https://react.dev/reference/react/useState
 
   const contactsRemaining = contacts.filter(contact => !statefulContacts.includes(contact))
 
@@ -43,19 +43,19 @@ function App() {
   }
 
   function addRandomContact() {
-    setContacts([ ...statefulContacts, contactsRemaining[getRandomInt(contactsRemaining.length)] ])
+    setStatefulContacts([ ...statefulContacts, contactsRemaining[getRandomInt(contactsRemaining.length)] ])
   }
 
   function sortByName() {
-    setContacts([...statefulContacts].sort((a, b) => a.name.localeCompare(b.name))) // sort the elements in place, but one should not mutate/update the state variable
+    setStatefulContacts([...statefulContacts].sort((a, b) => a.name.localeCompare(b.name))) // sort the elements in place, but one should not mutate/update the state variable
   }
 
   function SortByPopularity() {
-    setContacts([...statefulContacts].sort((a, b) => b.popularity - a.popularity)) // ChrisHemsworth.popularity = Thor.popularity ⚒️
+    setStatefulContacts([...statefulContacts].sort((a, b) => b.popularity - a.popularity)) // ChrisHemsworth.popularity = Thor.popularity ⚒️
   }
 
   function deleteContact(contactId) {
-    setContacts(statefulContacts.filter(contact => contact.id !== contactId))
+    setStatefulContacts(statefulContacts.filter(contact => contact.id !== contactId))
   }
 
   // add a unique key to each tr otherwise React complains in Chrome console:
