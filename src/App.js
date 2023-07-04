@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import contactsData from './contacts.json';
+import React, { useState } from 'react';
 
 function App() {
+// Create a atate variable 'contacts' ==> the initial value is set to an array containing first 5 contacts. 
+  const [contacts, setContacts] = useState(() => contactsData.slice(0, 5));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>IronContacts</h1>
+      <table className='contacts-container'>
+      <thead>
+      <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {contacts.map((contact, index) => (
+          <tr key={index}>
+            <td><img className='img-contact' src={contact.pictureUrl} alt={contact.name} /></td>
+            <td>{contact.name}</td>
+            <td>{(contact.popularity).toFixed(2)}</td>
+          </tr>
+        ))}
+      </tbody>
+      </table>
     </div>
   );
 }
