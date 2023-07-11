@@ -15,6 +15,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
         </thead>
         {firstFiveData.map((Contact) => {
           return (
@@ -25,6 +27,8 @@ function App() {
                 </td>
                 <td>{Contact.name}</td>
                 <td>{Contact.popularity.toFixed(2)}</td>
+                <td>{Contact.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
+                <td>{Contact.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
               </tr>
             </tbody>
           );
