@@ -31,6 +31,12 @@ function App() {
     return setFirstFiveData(popSortArray);
   };
 
+  const deleteContact = (contactId) => {
+    const filteredContacts = firstFiveData.filter((contact) => {
+      return contact.id != contactId;
+    });
+    setFirstFiveData(filteredContacts);
+  };
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -58,6 +64,11 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{contact.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
                 <td>{contact.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
+                <td>
+                  <button onClick={() => deleteContact(contact.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             </tbody>
           );
