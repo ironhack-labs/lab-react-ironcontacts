@@ -1,15 +1,23 @@
 import "./App.css";
-import Contacts from "./contacts.json";
+import contacts from "./contacts.json";
 import { useState } from "react";
 
 function App() {
-  const fiveContacts = Contacts.slice(0, 5);
+  const fiveContacts = contacts.slice(0, 5);
   const [firstFiveData, setFirstFiveData] = useState(fiveContacts);
 
+  const getRandomContact = (contacts) => {
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    return setFirstFiveData([...firstFiveData, randomContact]);
+  };
+
+  console.log(firstFiveData, "contacts");
   return (
     <div className="App">
       <h1>IronContacts</h1>
-
+      <button onClick={() => getRandomContact(contacts)}>
+        Add Random Contact
+      </button>
       <table>
         <thead>
           <th>Picture</th>
@@ -18,17 +26,17 @@ function App() {
           <th>Won Oscar</th>
           <th>Won Emmy</th>
         </thead>
-        {firstFiveData.map((Contact) => {
+        {firstFiveData.map((contact) => {
           return (
-            <tbody key={Contact.id}>
+            <tbody key={contact.id}>
               <tr>
                 <td>
-                  <img style={{ width: 100 }} src={Contact.pictureUrl}></img>
+                  <img style={{ width: 100 }} src={contact.pictureUrl}></img>
                 </td>
-                <td>{Contact.name}</td>
-                <td>{Contact.popularity.toFixed(2)}</td>
-                <td>{Contact.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
-                <td>{Contact.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
+                <td>{contact.name}</td>
+                <td>{contact.popularity.toFixed(2)}</td>
+                <td>{contact.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
+                <td>{contact.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
               </tr>
             </tbody>
           );
