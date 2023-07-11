@@ -9,26 +9,27 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      {firstFiveData.map((Contact) => {
-        return (
-          <table>
-            <thead>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-            </thead>
+
+      <table>
+        <thead>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+        </thead>
+        {firstFiveData.map((Contact) => {
+          return (
             <tbody key={Contact.id}>
               <tr>
-                <th>
+                <td>
                   <img style={{ width: 100 }} src={Contact.pictureUrl}></img>
-                </th>
-                <th>{Contact.name}</th>
-                <th>{Contact.popularity.toFixed(2)}</th>
+                </td>
+                <td>{Contact.name}</td>
+                <td>{Contact.popularity.toFixed(2)}</td>
               </tr>
             </tbody>
-          </table>
-        );
-      })}
+          );
+        })}
+      </table>
     </div>
   );
 }
