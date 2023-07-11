@@ -11,13 +11,34 @@ function App() {
     return setFirstFiveData([...firstFiveData, randomContact]);
   };
 
-  console.log(firstFiveData, "contacts");
+  const sortByName = () => {
+    const nameSortArray = [...firstFiveData];
+    nameSortArray.sort((a, b) => a.name.localeCompare(b.name));
+    return setFirstFiveData(nameSortArray);
+  };
+
+  const sortByPopularity = () => {
+    const popSortArray = [...firstFiveData];
+    popSortArray.sort((a, b) => {
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      if (a.popularity < b.popularity) {
+        return 1;
+      }
+      return 0;
+    });
+    return setFirstFiveData(popSortArray);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
       <button onClick={() => getRandomContact(contacts)}>
         Add Random Contact
       </button>
+      <button onClick={() => sortByName()}>Sort by Name</button>
+      <button onClick={() => sortByPopularity()}>Sort by Popularity</button>
       <table>
         <thead>
           <th>Picture</th>
