@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import contactsInfo from './contacts.json'
+import React, { useState } from 'react';
+
+const firstFiveContacts = contactsInfo.slice(0,5)
 
 function App() {
+
+  const [contacts, setContacts] = useState(contactsInfo);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <ul>
+          {firstFiveContacts.map(contact =>{
+            return <li key={contact.id}>
+                    <img src={contact.pictureUrl} ></img>
+                    <h4>{contact.name}</h4>
+                    <p>{contact.popularity}</p>
+                  </li>
+          })}
+        </ul>
+      </table>
     </div>
   );
 }
