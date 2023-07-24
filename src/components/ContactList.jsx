@@ -5,16 +5,19 @@ const ContactList = (props) => {
 
   return (
     <div className="ContactList">
-      <h2>IronContacts</h2>
       <table>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-          <th>Won an Oscar</th>
-          <th>Won an Emmy</th>
-        </tr>
-        <Contact contactInfo={contacts} />
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won <br /> Oscar</th>
+            <th>Won <br /> Emmy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <Contact contactInfo={contacts} />
+        </tbody>
       </table>
     </div>
   )

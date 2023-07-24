@@ -18,6 +18,9 @@ code {
   justify-content: center;
   align-items: center;
 }
+.ContactList th {
+  padding: 0 10px;
+}
 
 .Contact img {
   max-width: 60px;
