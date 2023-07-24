@@ -1,9 +1,9 @@
 const AddRandomButton = (props) => {
   const {newContact} = props
   return (
-    <div className="AddRandomButton">
-      <button onClick={() => newContact()}>Add Random Contact</button>
-    </div>
+    <button onClick={() => newContact()} className="AddRandomButton">
+      Add Random Contact
+    </button>
   )
 }
 

@@ -24,6 +24,7 @@ code {
 
 .Contact img {
   max-width: 60px;
+  border-radius: 10%;
 }
 
 .App {
@@ -40,4 +41,34 @@ code {
 }
 .buttons button {
   margin: 10px 10px 20px;
+}
+
+.DeleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.SortNameButton,
+.SortPopButton {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.AddRandomButton {
+  background-color: goldenrod;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+button:hover {
+  box-shadow: 2px 2px 2px black;
 }

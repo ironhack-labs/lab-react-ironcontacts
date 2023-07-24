@@ -2,7 +2,7 @@ const SortPopButton = (props) => {
   const {sortMethod} = props
   return (
     <div>
-      <button onClick={() => sortMethod()}>Sort by popularity</button>
+      <button onClick={() => sortMethod()} className="SortPopButton">Sort by popularity</button>
     </div>
   )
 }

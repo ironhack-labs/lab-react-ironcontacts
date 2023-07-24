@@ -36,6 +36,9 @@ function App() {
   }
   
   const deleteContact = (id) => {
+    const contactToDelete = contacts.filter(contact => contact.id === id)
+    contactsData.push(contactToDelete[0])
+    
     const filteredContacts = contacts.filter(contact => contact.id !== id)
     setContacts(filteredContacts)
   }
