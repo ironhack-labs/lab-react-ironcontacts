@@ -11,6 +11,8 @@ const ContactList = (props) => {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won an Oscar</th>
+          <th>Won an Emmy</th>
         </tr>
         <Contact contactInfo={contacts} />
       </table>
