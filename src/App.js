@@ -34,6 +34,11 @@ function App() {
     })
     setContacts(sortedContacts)
   }
+  
+  const deleteContact = (id) => {
+    const filteredContacts = contacts.filter(contact => contact.id !== id)
+    setContacts(filteredContacts)
+  }
 
   return (
     <div className="App">
@@ -43,7 +48,7 @@ function App() {
         <SortPopButton sortMethod={sortByPop} />
         <SortNameButton sortMethod={sortByName} />
       </div>
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} deleteContact={deleteContact} />
     </div>
   )
 }

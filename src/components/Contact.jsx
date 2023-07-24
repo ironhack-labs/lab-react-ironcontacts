@@ -1,8 +1,10 @@
+import DeleteButton from "./DeleteButton"
+
 const Contact = (props) => {
-  const { contactInfo } = props
+  const { contactInfo, deleteContact } = props
   
   return contactInfo.map((contact) => {
-    const { pictureUrl, name, popularity, wonOscar, wonEmmy } = contact
+    const { pictureUrl, name, popularity, wonOscar, wonEmmy, id } = contact
     
     return (
       <tr className="Contact" key={contact.id}>
@@ -12,8 +14,8 @@ const Contact = (props) => {
         <td>{name}</td>
         <td>{Number(popularity).toFixed(2)}</td>
         <td>{wonOscar ? "🏆" : ""}</td>
-        <td>{wonEmmy ? "🏆" : ""}</td>
-        <td></td>
+        <td>{wonEmmy ? "🌟" : ""}</td>
+        <td><DeleteButton id={id} deleteContact={deleteContact} /></td>
       </tr>
     )
   })
