@@ -2,6 +2,9 @@ import contactsData from './contacts.json'
 import { useState } from 'react'
 import ContactList from "./components/ContactList"
 import AddRandomButton from './components/AddRandomButton'
+import SortNameButton from './components/SortNameButton'
+import SortPopButton from './components/SortPopButton'
+import HeadTitle from './components/HeadTitle'
 
 const initialContacts = contactsData.splice(0, 5)
 
@@ -16,10 +19,30 @@ function App() {
     }
   }
 
+  const sortByPop = () => { 
+    const contactsCopy = JSON.parse(JSON.stringify(contacts))
+    const sortedContacts = contactsCopy.sort((a, b) => b.popularity - a.popularity)
+    setContacts(sortedContacts)
+  }
+
+  const sortByName = () => {
+    const contactsCopy = JSON.parse(JSON.stringify(contacts))
+    const sortedContacts = contactsCopy.sort((a, b) => {
+      if (a.name - b.name) return 1
+      else if (a.name < b.name) return -1
+      else return 0
+    })
+    setContacts(sortedContacts)
+  }
+
   return (
     <div className="App">
-      <h2>IronContacts</h2>
-      <AddRandomButton contacts={contacts} newContact={newContact} />
+      <HeadTitle />
+      <div className='buttons'>
+        <AddRandomButton contacts={contacts} newContact={newContact} />
+        <SortPopButton sortMethod={sortByPop} />
+        <SortNameButton sortMethod={sortByName} />
+      </div>
       <ContactList contacts={contacts} />
     </div>
   )
