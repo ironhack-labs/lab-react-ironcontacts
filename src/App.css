@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url("/public/chairs.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .App-logo {
@@ -14,8 +18,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +37,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.buttonDisplay{
+  text-align: center;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction:column;
+  font-size: 16px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 200px;
+}
+
+.button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.buttonDelete{
+  background-color: black;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 200px;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  padding: 15px 10px;
+  border: none;
+
+}
+
+.buttonDelete:hover {
+  background-color: grey;
+  color: white;
+}
+
+.table{
+  display:flex;
+  flex-direction:column;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  padding: 8px;
 }
