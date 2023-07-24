@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.ContactList {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ContactList th {
+  padding: 0 10px;
+}
+
+.Contact img {
+  max-width: 60px;
+  border-radius: 10%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.buttons button {
+  margin: 10px 10px 20px;
+}
+
+.DeleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.SortNameButton,
+.SortPopButton {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.AddRandomButton {
+  background-color: goldenrod;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+button:hover {
+  box-shadow: 2px 2px 2px black;
+}
