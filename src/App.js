@@ -33,15 +33,21 @@ function App() {
       setContacts([randomContact[0], ...contacts])
     }
   }
+  
+  const deleteContact = (id) => {
+    const filteredContacts = contacts.filter(contact => contact.id !== id)
+    setContacts(filteredContacts)
+  }
+
   return (
     <div className="App">
-        <ContactList contacts={contacts}/>
           <h2>IronContacts</h2>
           <div className='buttons'>
             <AddRandomButton contacts={contacts} newContact={newContact} />
             <SortPopButton sortMethod={sortByPop}/>
             <SortNameButton sortMethod={sortByName}/>
         </div>
+        <ContactList contacts={contacts} deleteContact={deleteContact}/>
     </div>
   );
 }

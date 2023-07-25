@@ -1,7 +1,7 @@
 import Contact from "./Contact"
 
 const ContactList = (props) => {
-  const { contacts } = props
+  const { contacts, deleteContact } = props
 
   return (
     <div className="ContactList">
@@ -14,7 +14,7 @@ const ContactList = (props) => {
           <th>Won Oscar</th>
           <th>Won Emmy</th>
         </tr>
-        <Contact contactInfo={contacts} />
+        <Contact contactInfo={contacts} deleteContact={deleteContact}/>
       </table>
     </div>
   )
