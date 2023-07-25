@@ -5,7 +5,7 @@ const Contact = (props) => {
       const { pictureUrl, name, popularity , wonOscar, wonEmmy} = contact
   
       return (
-        <tr className="Contact">
+        <tr className="Contact" key={contact.id}>
           <td>
             <img src={pictureUrl} alt="profile-img" />
           </td>
