@@ -11,3 +11,67 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.div-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+.div-buttons button{
+  margin: 5px;
+  border:none;
+  background-color: #51A1C2;
+  height: 60px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  width: 230px;
+  cursor: pointer;
+}
+.div-buttons button:hover{
+  background-color: #546B75;
+}
+.div-table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.img-contact{
+  width: 80px;
+  height: 120px;
+}
+
+.tbl-contacts{
+  border: none;
+  border-collapse: collapse;
+}
+
+.tbl-contacts th{
+  background-color:#316175;
+  width: 120px;
+  height: 40px;
+  color: white;
+}
+
+.tbl-contacts tr:nth-child(even){
+  background-color: #B1E2F7;
+}
+
+.btn-delete{
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  height: 30px;
+}
+
+.btn-delete:hover{
+  background-color:aliceblue;
+}
+
+.tbl-contacts tr:nth-child(odd) .btn-delete:hover{
+  background-color: #B1E2F7;
+}
