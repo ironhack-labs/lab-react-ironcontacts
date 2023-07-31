@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
 function App() {
 
-
   const [fiveContacts] = useState(contactsList.slice(0, 5));
   const [contacts, updateContacts] = useState(fiveContacts);
 
@@ -16,18 +15,45 @@ function App() {
     updateContacts(updatedContacts);
   };
 
+  const sortPopularity = () => {
+    const currentContacts = [...contacts].sort(
+      (a, b) => b.popularity - a.popularity
+    );
+    updateContacts(currentContacts);
+  };
+
+  const sortName = () => {
+    const currentContacts = [...contacts].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    updateContacts(currentContacts);
+  };
+
+  const deleteContact = (contactId) => {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== contactId;
+    });
+    updateContacts(filteredContacts);
+  };
 
   return <div className="App">
+
+<h2>IronContacts</h2>
+
+<div className="buttonContainer">
+        <button onClick={addContact}>  Add Random Contact  </button>
+        <button onClick={sortPopularity}>  Sort by Popularity  </button>
+        <button onClick={sortName}>  Sort by Name  </button>
+      </div>
  
-  <button onClick={addContact}>Add Random Contact</button>
     <table>
         <thead>
           <tr>
             <th>Picture</th>
-            <th>Name</th>
-            <th>Popularity</th>
-            <th>Won an Oscar  </th>
-            <th>  Won an Emmy</th>
+            <th>  Name  </th>
+            <th>  Popularity  </th>
+            <th>  Won an Oscar  </th>
+            <th>  Won an Emmy  </th>
           </tr>
         </thead>
         <tbody>
@@ -41,7 +67,8 @@ function App() {
 
               <td>{contact.wonOscar ? "🏆" : null}</td>
               <td>{contact.wonEmmy ? "🏆" : null}</td>
-            </tr>
+              <td>{" "} <button onClick={() => deleteContact(contact.id)} className="btn-delete"> Delete{" "} </button></td>      
+            </tr>      
           ))}
         </tbody>
       </table>
