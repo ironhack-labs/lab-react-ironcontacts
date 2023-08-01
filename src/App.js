@@ -23,10 +23,33 @@ function App() {
     }
   };
 
+  // Function to sort contacts by name (alphabetically)
+  const sortByName = () => {
+    setContactList((prevContactList) =>
+      [...prevContactList].sort((a, b) => a.name.localeCompare(b.name))
+    );
+  };
+
+  // Function to sort contacts by popularity (highest first)
+  const sortByPopularity = () => {
+    setContactList((prevContactList) =>
+      [...prevContactList].sort((a, b) => b.popularity - a.popularity)
+    );
+  };
+
+  // Function to remove a contact by its ID
+  const removeContact = (id) => {
+    setContactList((prevContactList) =>
+      prevContactList.filter((contact) => contact.id !== id)
+    );
+  };
+
   return (
     <div className="App">
       <h1>Contact List</h1>
       <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortByName}>Sort by Name</button>
+      <button onClick={sortByPopularity}>Sort by Popularity</button>
       <table>
         <thead>
           <tr>
@@ -47,6 +70,9 @@ function App() {
               <td>{contact.popularity}</td>
               <td>{contact.wonOscar ? '🏆' : null}</td>
               <td>{contact.wonEmmy ? '🏆' : null}</td>
+              <td>
+                <button onClick={() => removeContact(contact.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
