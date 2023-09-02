@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.App > div > button {
+  margin: 5px 10px;
+}
+
+td > img {
+  width : 100px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+th, td {
+  padding: 0px 10px;
+}
