@@ -14,8 +14,27 @@ function ContactsList () {
         setContacts(newContacts);
     }
 
+    //Add random
+    const addRandomContact = () => {
+        if (ContactsJSON.length === 0) {
+            return alert('There are no more contacts')
+        }
+
+        const randomIndex = Math.floor(Math.random() * ContactsJSON.length);
+
+        const newContact = ContactsJSON.splice(randomIndex, 1)[0];
+
+        setContacts([...contacts, newContact])
+    }
+
     return (
         <>
+            <div className='mt-3 mb-3'>
+                <button className="btn btn-primary" onClick={addRandomContact}>
+                    Add random contact
+                </button>
+            </div>
+
          <table className="table table-hover mt-3">
             <thead>
                 <tr>
