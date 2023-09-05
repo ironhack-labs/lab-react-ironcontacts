@@ -5,8 +5,14 @@ import ContactItem from './contactItem';
 const INITIAL_CONTACTS = ContactsJSON.splice(0, 5);
 
 function ContactsList () {
-
     const [contacts, setContacts] = useState(INITIAL_CONTACTS)
+
+    // Delete
+    const onDeleteContact = (id) => {
+        const newContacts = contacts.filter((contact) => contact.id !== id);
+
+        setContacts(newContacts);
+    }
 
     return (
         <>
@@ -23,7 +29,7 @@ function ContactsList () {
             </thead>
             <tbody>
                 { contacts.map(contact => (
-                    <ContactItem key={contact.id} {...contact} />
+                    <ContactItem key={contact.id} {...contact} onDelete={() => onDeleteContact(contact.id)}/>
                 ))}
             </tbody>
         </table>

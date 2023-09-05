@@ -1,6 +1,6 @@
 import Trophy from '../../assets/trophy-fill.svg';
 
-function ContactItem({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
+function ContactItem({ pictureUrl, name, popularity, wonOscar, wonEmmy, onDelete}) {
 
   const hasOscar = () => wonOscar === true ? <img src={Trophy}/> : null;
   const hasEmmy = () => wonEmmy === true ? <img src={Trophy}/> : null;
@@ -13,6 +13,11 @@ function ContactItem({ pictureUrl, name, popularity, wonOscar, wonEmmy }) {
       <td>{popularity}</td>
       <td>{hasOscar()}</td>
       <td>{hasEmmy()}</td>
+      <td>
+        <button className="btn btn-danger" onClick={onDelete}>
+          Delete
+        </button>
+      </td>
     </tr>
  )
 }
