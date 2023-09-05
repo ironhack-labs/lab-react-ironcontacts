@@ -40,3 +40,25 @@
 .read-the-docs {
   color: #888;
 }
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #333333;
+}
+
+.delete-btn:hover {
+  border: none;
+  color: red;
+}
+
+.bi-trophy {
+  color: #dfa916;
+}
+
+
+.dropdown-item.active, .dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+  background-color: rgb(143, 143, 143);
+}

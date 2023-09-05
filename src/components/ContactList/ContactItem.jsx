@@ -1,25 +1,28 @@
-function ContactItem({ name, pictureUrl, popularity, wonOscar, wonEmmy }){
+function ContactItem({ name, pictureUrl, popularity, wonOscar, wonEmmy, onDelete }){
 
 const roundedPopularity = Number(popularity).toFixed(2);
 const haveAnOscar = () => {
     if (wonOscar === true) {
-        return 'yes'
+        return <i className="bi bi-trophy"></i>
     }
 };
 
 const haveAnEmmy = () => {
     if (wonEmmy === true) {
-        return 'yes'
+        return <i className="bi bi-trophy"></i>
     }
 };
 
     return (
-        <tr>
+        <tr className="text-center">
             <td><img src={pictureUrl} alt={name} width={85} /></td>
-            <td>{name}</td>
-            <td>{roundedPopularity}</td>
-            <td>{haveAnOscar()}</td>
-            <td>{haveAnEmmy()}</td>
+            <td className="align-middle">{name}</td>
+            <td className="align-middle">{roundedPopularity}</td>
+            <td className="align-middle">{haveAnOscar()}</td>
+            <td className="align-middle">{haveAnEmmy()}</td>
+            <td className="align-middle">
+                <button className='delete-btn' onClick={onDelete}><i className="bi bi-trash"></i></button>
+            </td>
         </tr>
     )
 }
