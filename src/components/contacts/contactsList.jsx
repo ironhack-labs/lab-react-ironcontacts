@@ -17,6 +17,8 @@ function ContactsList () {
                     <th scope="col">Picture</th>
                     <th scope="col">Name</th>
                     <th scope="col">Popularity</th>
+                    <th scope="col">Won Oscar</th>
+                    <th scope="col">Won Emmy</th>
                 </tr>
             </thead>
             <tbody>
