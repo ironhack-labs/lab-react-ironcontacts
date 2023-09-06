@@ -1,3 +1,8 @@
+.h1Contact{
+    text-align: center;
+    margin-top: 10px;
+}
+
 .trContact{
     text-align: center;
 }
@@ -38,4 +43,9 @@
     justify-content: center !important;
     margin-top: 30px !important;
     flex-direction: row !important;
+}
+
+.buttonsContact {
+    display: flex;
+    justify-content: center;
 }
