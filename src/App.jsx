@@ -1,9 +1,17 @@
 import "./App.css";
+import NavBar from "./componets/NavBar/NavBar";
+import ContactList from "./componets/contactList/ContactList";
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React IronContacts</h1>
+      <NavBar />
+
+      <div className="container">
+
+      <ContactList />
+
+      </div> 
     </div>
   );
 }
