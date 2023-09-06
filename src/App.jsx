@@ -1,9 +1,14 @@
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import ContactsList from "./components/ContactsList/ContactsList";
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React IronContacts</h1>
+      <Navbar title="IronContacts" />
+      <div className="container mt-4">
+        <ContactsList />
+      </div>
     </div>
   );
 }
