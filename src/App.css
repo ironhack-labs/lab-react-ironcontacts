@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+table {
+	margin: 0 auto;
+	width: 90%;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+thead {
+	font-size: 1.5rem;
+}
+
+img {
+	width: 6rem;
+}
