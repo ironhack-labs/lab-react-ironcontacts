@@ -2,3 +2,17 @@
   text-align: center;
 }
 
+.table-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.mr-4 {
+  margin-right: 4px;
+}
