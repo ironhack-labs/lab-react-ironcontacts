@@ -1,11 +1,14 @@
 import "./App.css";
+import Main from "./components/Main"
 
 function App() {
   return (
-    <div className="App">
-      <h1>LAB | React IronContacts</h1>
-    </div>
-  );
+    <>
+    <Main />
+  
+    </>
+  )
+
 }
 
 export default App;
