@@ -1,38 +1,119 @@
-.App {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+header {
+  background-color: #d32020;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Contact list container */
+.contact-list {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Contact item styles */
+.contact-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+/* Contact item image */
+.contact-item img {
+  max-width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Contact item details */
+.contact-item .details {
+  flex-grow: 1;
+}
+
+/* Contact item name */
+.contact-item .name {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Contact item email */
+.contact-item .email {
+  color: #777;
+}
+
+/* Add button styles */
+.add-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #d40606;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #555;
 }
