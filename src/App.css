@@ -18,6 +18,22 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.images {
+  max-width: 130px;
+  height: auto;
+}
+
+.btn {
+  padding: 10px;
+  margin: 10px;
+}
+
+table {
+border-collapse: separate;
+border-spacing: 30px;
+  
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

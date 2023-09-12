@@ -54,9 +54,9 @@ const deleteContact = (contactId) => {
     <div className="App">
       <h1>LAB | React IronContacts</h1>
 
-      <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByName}>Sort by Name</button>
-      <button onClick={sortByPopularity}>Sort by Popularity</button>
+      <button className="btn" onClick={addRandomContact}>Add Random Contact</button>
+      <button className="btn" onClick={sortByName}>Sort by Name</button>
+      <button className="btn" onClick={sortByPopularity}>Sort by Popularity</button>
 
         <table>
           <thead>
@@ -73,7 +73,7 @@ const deleteContact = (contactId) => {
           {contactsToDisplay.map((contact, index) => (
             <tr key={contact.id || index}>
               <td>
-                <img src={contact.pictureUrl} alt="picture" />
+                <img className="images" src={contact.pictureUrl} alt="picture" />
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
