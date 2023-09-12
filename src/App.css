@@ -40,3 +40,58 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+
+button {
+  margin: 20px;
+}
+
+button:hover {
+  background-color: #d6d6f5;
+}
+
+.btn-delete:hover {
+background-color: red;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th{
+  border-bottom: 3px solid #5d5c5c;
+}
+
+table,  td {
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+img {
+  max-width: 12vw;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+
