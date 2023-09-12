@@ -1,0 +1,35 @@
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.Main .card {
+    max-width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid #666;
+    box-shadow: 5px 5px 10px -5px;
+    transition: 0.4s;
+}
+
+.Main .card:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 15px 0px;
+}
+
+.button {
+    background-color: purple;
+    color: white;
+    margin-left: 10px;
+
+}
+
+
+.table-header {
+    padding: 10px;
+}
+
+.deleteButton {
+    margin-top: 70%;
+    margin-right: 10px;
+}
