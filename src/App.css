@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+table {
+  margin-top: 40px;
+}
+
+img {
+  max-height: 200px;
+  padding: 0 25px;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
