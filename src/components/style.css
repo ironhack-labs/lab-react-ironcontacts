@@ -1,0 +1,29 @@
+.App {
+    background-color:#e0f7fe;
+    text-decoration:underline;
+  }
+
+.App .card {
+    max-width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid #666;
+    box-shadow: 5px 5px 10px -5px;
+    transition: 0.4s;
+}
+
+.App .card:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 15px 0px;
+}
+
+.button {
+    color: #838383;
+    background-color:bisque;
+}
+
+table {
+    margin: 0 auto;
+    width: 95%;
+    font-size:medium;
+  }
