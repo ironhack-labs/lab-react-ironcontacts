@@ -1,4 +1,7 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
@@ -36,3 +39,67 @@
     transform: rotate(360deg);
   }
 }
+.list-contacts { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.list-contacts > h1{
+  background-image: linear-gradient(45deg, red, purple);
+  padding: 20px;
+  color: black;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+.buttons > button{
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 5px;
+  
+  
+}
+.list-contacts  > table{
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  width: 90vw;
+  margin-left: 4%;
+  margin-bottom: 4%;
+}
+.list-contacts > table > thead > tr > th{
+  color: rgb(0, 0, 0);
+  
+  padding: 25px;
+}
+
+.list-contacts > table > tbody > tr > td{
+  color: rgb(0, 0, 0);
+}
+.list-contacts > table > tbody > tr > td > img{
+  border: 5px solid black;
+  border-radius: 5px;
+  width: 8vw;
+  height: 12vh;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+#trophy{
+  width: 4vw;
+  height: 8vh;
+}
+.list-contacts  > table > tbody > tr > td > button{
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 5px;
+}
+.list-contacts{}
+
