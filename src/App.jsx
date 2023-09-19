@@ -35,6 +35,14 @@ function App() {
 
   }
 
+  const deleteButton = (contactId) => {
+    const filterContacts = contactsArr.filter((contact) => {
+      return contact.id !== contactId; // not =, get the new array (filter)
+    });
+
+    setContactsArr(filterContacts); // not deleted one 
+  };
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
@@ -69,6 +77,10 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{contact.wonOscar ? "🏆" : ""}</td>
                 <td>{contact.wonEmmy ? "🏆" : ""}</td>
+               <td>
+               <button onClick ={()=>deleteButton(contact.id)}>  Delete 🗑️</button>
+               </td>
+              
               </tr>
             );
           })}

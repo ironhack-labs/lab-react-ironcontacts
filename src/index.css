@@ -38,17 +38,19 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid black;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color:blue;
+  background-color: pink;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #fc9e9e;
+  border-color: #ff0346;
 }
 button:focus,
 button:focus-visible {
@@ -66,4 +68,18 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.button-top{
+  display: flex;
+  justify-content: space-evenly;
+}
+table {
+margin-top:8px;
+
+}
+
+table, th, td {
+
+  border: 0.4px solid;
 }
