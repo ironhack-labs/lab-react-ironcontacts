@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import contactsData from "./contacts.json";
 
-const App = () => {
-  const [contacts, setContacts] = useState(contactsData.slice(0, 5));
+function App() {
+  const [contacts, setContacts] = useState(contactsJSON.slice(0, 5));
   const [remainingContacts, setRemainingContacts] = useState(
-    contactsData.slice(5)
+    contactsJSON.slice(5, contactsJSON.length)
   );
-};
+}
 const App = () => {
   const [contacts, setContacts] = useState(contactsData.slice(0, 5));
   const [remainingContacts, setRemainingContacts] = useState(
@@ -26,26 +26,34 @@ const addRandomContact = () => {
     setContacts((prevContacts) => [...prevContacts, randomContact]);
 
     const updatedRemainingContacts = [
-      ...remainingContacts.slice(0, randomIndex),
-      ...remainingContacts.slice(randomIndex + 1),
+      ...remainingContacts.splice(0, randomIndex),
+      ...remainingContacts.splice(randomIndex + 1),
     ];
     setRemainingContacts(updatedRemainingContacts);
   }
 };
 
-const sortByName = () => {
+function sortByName() {
   const sortedContacts = [...contacts].sort((a, b) =>
     a.name.localeCompare(b.name)
   );
   setContacts(sortedContacts);
-};
+}
 
-const sortByPopularity = () => {
-  const sortedContacts = [...contacts].sort(
+function sortByPopularity() {
+  const sortByPopularity = [...contacts].sort(
     (a, b) => b.popularity - a.popularity
   );
-  setContacts(sortedContacts);
-};
+  setContacts(sortByPopularity);
+}
+
+function deleteContact(contactId) {
+  const updatedContacts = contactsToDisplay.filter((contact) => {
+    // console.log("Delete:", contactId)
+    return contact.id !== contactId;
+  });
+  setContacts(updatedContacts);
+}
 
 function App() {
   return (
@@ -57,6 +65,9 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Has won an Oscar</th>
+            <th>Has won an Emmy</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -73,9 +84,7 @@ function App() {
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
               {contact.wonOscar ? <td> 🏆 </td> : <td></td>}
-                <button onClick={() => removeContact(contact.id)}>
-                  Delete
-                </button>
+              <button onClick={() => removeContact(contact.id)}>Delete</button>
             </tr>
           ))}
         </tbody>
