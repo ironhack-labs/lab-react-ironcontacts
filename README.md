@@ -195,7 +195,7 @@ When done, your app should look like this (after playing a little bit with the _
 
 <br>
 
-### Iteration 6 | Bonus | Styling
+### Bonus: Iteration 6 | Styling
 
 Unfortunately, this contact list isn't production-ready. We are in the movie business! It has to sparkle! Add some beautiful CSS to make the app "pop".
 
