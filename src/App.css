@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+  height: 50px;
+}
+
+.img-contact {
+  width: 50px;
+}
