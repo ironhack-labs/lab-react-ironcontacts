@@ -1,14 +1,5 @@
 const Contact = ({ contact, removeContact }) => {
-  const { name, pictureUrl, popularity, id, wonOscar, wonEmmy } = contact || {
-    contact: {
-      name: "",
-      pictureUrl: "",
-      popularity: 0,
-      id: 0,
-      wonOscar: false,
-      wonEmmy: false,
-    },
-  };
+  const { name, pictureUrl, popularity, id, wonOscar, wonEmmy } = contact;
   return (
     <tr>
       <td>
@@ -23,10 +14,17 @@ const Contact = ({ contact, removeContact }) => {
       <td className="text-center">{wonOscar ? "🏆" : null}</td>
       <td className="text-center">{wonEmmy ? "🌟" : null}</td>
       <td>
-        <button onClick={() => removeContact(id)} className="btn btn-danger">Delete</button>
+        <button onClick={() => removeContact(id)} className="btn btn-danger">
+          Delete
+        </button>
       </td>
     </tr>
   );
+};
+
+Contact.defaultProps = {
+  contact: {},
+  removeContact: () => {},
 };
 
 export default Contact;
