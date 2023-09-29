@@ -3,19 +3,6 @@ import "./App.css";
 import Contact from "./components/Contact";
 import contacts from "./contacts.json";
 
-function sortData(data, type, word) {
-  const finalData = data.slice().sort((a, b) => {
-    if (a[word] > b[word]) {
-      return type === "number" ? -1 : 1;
-    }
-    if (a[word] < b[word]) {
-      return type === "number" ? 1 : -1;
-    }
-    return 0;
-  });
-  return finalData;
-}
-
 function App() {
   const [displayContacts, setDisplayContacts] = useState(contacts.slice(0, 5));
 
@@ -35,12 +22,14 @@ function App() {
   }
 
   const sortName = () => {
-    const data = sortData(displayContacts, "string", "name");
+    const contacts = [...displayContacts];
+    const data = contacts.sort((a, b) => a.name.localeCompare(b.name));
     setDisplayContacts(data);
   };
 
   const sortPopularity = () => {
-    const data = sortData(displayContacts, "number", "popularity");
+    const contacts = [...displayContacts];
+    const data = contacts.sort((a, b) => b.popularity - a.popularity);
     setDisplayContacts(data);
   };
 
