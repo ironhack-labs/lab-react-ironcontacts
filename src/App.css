@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.contact-image {
+  max-width: 100px;
+  max-height: 100px;
+}
