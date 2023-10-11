@@ -122,7 +122,7 @@ At the end of this iteration, your application should look like this:
 
 The producer would like to see the information about the _awards_ that contact has won.
 
-Update the list and add two more columns "Won an Oscar" and "Won an Emmy", at the end of the table. Then, depending on the value `wonOscar` and `wonEmmy` of each contact, conditionally render a trophy icon :trophy: or no content.
+Update the list and add two more columns **"Won an Oscar"** and **"Won an Emmy"**, at the end of the table. <br> In the "Won an Oscar" column, conditionally render a trophy icon 🏆 or no content based on the `wonOscar` property. <br> For the "Won an Emmy" column, conditionally render a star icon 🌟 or no content, depending on the value of the `wonEmmy` property.
 
 Once done, your application should look like this:
 
