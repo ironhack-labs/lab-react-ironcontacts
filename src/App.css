@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+.btns{
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+table{
+  width: 100%;
+}
+
+th{
+  width: 70px;
+}
+
+.actorsContainer img{
+  width: 100px;
+}
