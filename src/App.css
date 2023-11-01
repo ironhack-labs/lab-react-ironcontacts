@@ -4,7 +4,14 @@
   padding: 2rem;
   text-align: center;
 }
-
+img{
+  width: 50%;
+  height: 50%;
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
