@@ -11,3 +11,60 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-container button {
+  padding: 10px 20px;
+  background-color: #246794;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 16px #0c2e38;
+}
+
+.delete-btn {
+  border: none;
+  padding: 10px 20px;
+  background-color: #1a4cb0; 
+  color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px #0e2961;
+  transition: 0.3s ease-in-out background-color, 0.3s ease-in-out box-shadow;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #8a1616;
+  box-shadow: 3px 3px 10px #692121;
+}
+
+#contacts-table {
+  width: 80%;
+  border: 1px solid #000000;
+  border-collapse: collapse;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#contacts-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+
+#contacts-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
