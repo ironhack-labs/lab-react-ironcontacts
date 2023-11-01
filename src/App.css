@@ -1,38 +1,92 @@
-.App {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  width: 100%;
+  position: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#contacts{
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#contacts thead{
+  width: 70%;
+}
+
+#titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  gap:15.5%;
+}
+
+#titles th{
+  margin-right: 5px;
+}
+
+#contacts tbody{
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+#producers img{
+  margin-left: 0;
+  width: 10%;
+}
+
+#producers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 5%;
+}
+
+#producers td{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#name{
+  width: 100%
+}
+
+#buttons button{
+  margin-right: 10%;
+  background-color: rgb(190, 190, 190);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#buttons {
+  margin-bottom: 5%;
+  margin-left: 10%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#delete{
+  height: 5%;
+  background-color: rgb(187, 108, 108);
+  color: white;
 }
