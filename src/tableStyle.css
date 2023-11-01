@@ -1,0 +1,8 @@
+.App{
+    display: flex;
+    flex-direction: column;
+
+}
+table img{
+    width: 60px;
+}
