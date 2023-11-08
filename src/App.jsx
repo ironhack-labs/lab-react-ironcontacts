@@ -18,6 +18,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emy</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +29,8 @@ function App() {
             </td>
             <td>{fiveContacts[0].name} </td>
             <td>{Math.floor(fiveContacts[0].popularity)} </td>
+            <td>{fiveContacts[0].wonOscar ? "🏆" : ""} </td>
+            <td>{fiveContacts[0].wonEmmy ? "🌟" : ""} </td>
           </tr>
           <tr>
             <td>
@@ -34,6 +38,9 @@ function App() {
             </td>
             <td>{fiveContacts[1].name} </td>
             <td>{Math.floor(fiveContacts[1].popularity)} </td>
+            <td>{fiveContacts[1].wonOscar ? "🏆" : ""} </td>
+            <td>{fiveContacts[1].wonEmmy ? "🌟" : ""} </td>
+            
           </tr>
           <tr>
             <td>
@@ -41,6 +48,8 @@ function App() {
             </td>
             <td>{fiveContacts[2].name} </td>
             <td>{Math.floor(fiveContacts[2].popularity)} </td>
+            <td>{fiveContacts[2].wonOscar ? "🏆" : ""} </td>
+            <td>{fiveContacts[2].wonEmmy ? "🌟" : ""} </td>
           </tr>
           <tr>
             <td>
@@ -48,6 +57,8 @@ function App() {
             </td>
             <td>{fiveContacts[3].name} </td>
             <td>{Math.floor(fiveContacts[3].popularity)} </td>
+            <td>{fiveContacts[3].wonOscar ? "🏆" : ""} </td>
+            <td>{fiveContacts[3].wonEmmy ? "🌟" : ""} </td>
           </tr>
           <tr>
             <td>
@@ -55,6 +66,8 @@ function App() {
             </td>
             <td>{fiveContacts[4].name} </td>
             <td>{Math.floor(fiveContacts[4].popularity)} </td>
+            <td>{fiveContacts[4].wonOscar ? "🏆" : ""} </td>
+            <td>{fiveContacts[4].wonEmmy ? "🌟" : ""} </td>
           </tr>
         </tbody>
       </table>
