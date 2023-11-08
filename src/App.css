@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.top-buttons {
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(10, 52, 34);
+  color: white;
+}
+
+.table {
+  background-color: rgb(130, 196, 153);
+  border: 7px solid rgb(10, 52, 34);
+  border-radius: 4px;
+  padding: 10px;
+  margin: 30px;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+table th {
+  background-color: rgba(20, 64, 45, 0.426);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
