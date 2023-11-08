@@ -13,11 +13,16 @@ function App() {
       setFirstFive(firstFiveCopy);
     });
 
+    const sortPopularity = (() => {
+      firstFiveCopy.sort((a, b) => (b.popularity - a.popularity));
+      setFirstFive(firstFiveCopy);
+    });
+
     return (
         <div className="App">
             <h1>LAB | React IronContacts</h1>
             <button onClick={sortAlphabetically}>Sort by name</button>
-            <button>Sort by Popularity</button>
+            <button onClick={sortPopularity}>Sort by Popularity</button>
             <table>
                 <tr>
                     <th>Picture</th>
