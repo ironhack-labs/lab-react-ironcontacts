@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  background-image: url(./img/movie2.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+table {
+  background-image: url(./img/movie.jpg); 
+  background-repeat: no-repeat;
+  background-position: center;
+  border-collapse: separate;
+  border-spacing: 10px; 
+  border: 1px solid #a696226f; 
+  border-radius: 10px; 
+}
+table img {
+  border-radius: 20%;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+h1{
+  color:  #ffe1006f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.trophy {
+  font-size: 50px;
+}
