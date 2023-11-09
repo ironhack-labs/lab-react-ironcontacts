@@ -3,19 +3,18 @@ import contacts from "./contacts.json";
 import { useState } from "react";
  
 function App() {
-  const splicedArray = structuredClone(contacts);
-  const firstFive = splicedArray.splice(0,5);
-  const [ironContacts, setIronContacts] = useState(firstFive);
+  const [ironContacts, setIronContacts] = useState(contacts.slice(0,5));
 
   function addRandomContacts() {
-      console.log(splicedArray)
-      let newIronContacts = [...ironContacts];
-      const randomindex = Math.floor(Math.random() * (splicedArray.length-1 + 1))
-      newIronContacts.push(splicedArray[randomindex]);
-      const removedItem = splicedArray.splice(randomindex,1);
+    if (ironContacts.length !== contacts.length) {
+      const contactsRemaining = contacts.filter((elm) => !ironContacts.includes(elm));
+
+      const randomindex = Math.floor(Math.random() * (contactsRemaining.length))
+      
+      const newIronContacts = [contactsRemaining[randomindex],...ironContacts];
       setIronContacts(newIronContacts);
-      console.log(removedItem)
-      console.log(splicedArray);
+      console.log(contactsRemaining);
+    }
   }
 
   function sortByName() {
