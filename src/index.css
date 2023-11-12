@@ -55,6 +55,27 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+img {
+  height: 350px;
+  width: auto;  
+}
+
+.myButton {
+  background-color: rgb(40, 116, 166);
+  color: white;
+  font-size: x-large;
+}
+
+.contactTable {
+  font-size: xx-large;
+  padding: 50px;
+}
+
+th {
+  padding: 35px;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

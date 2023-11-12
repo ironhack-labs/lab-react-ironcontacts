@@ -4,57 +4,50 @@ import contacts from './contacts.json'
 
 function App() {
   
-  const [firstFiveContacts, setFirstFiveContacts] = useState(contacts.slice(0, 5)) 
-  const [otherContacts, setOtherContacts] = useState(contacts.slice(5))
-  
-  let randomIndex = Math.floor(Math.random() * (otherContacts.length - 1));
-  const randomContact = otherContacts[randomIndex];
-  
-
-  //Nu de firstFiveContacts array aanpassen met het randomContact
+  const [firstFiveContacts, setFirstFiveContacts] = useState(contacts.slice(0, 5))
+  const [remainingContacts, setRemainingContacts] = useState(contacts.slice(5))
 
   const addRandomContact = function (element) {
-    const newArrayContacts = firstFiveContacts.push(element);
-    //bovenstaande klopt niet.... maar hoe moet het wel??
+    let randomIndex = Math.floor(Math.random() * (remainingContacts.length));
+    const newContactArray = [remainingContacts[randomIndex], ...firstFiveContacts]
+    const updatedRemainingcontacts = [...remainingContacts.filter(item => item !== remainingContacts[randomIndex])]
 
-    setFirstFiveContacts(newArrayContacts);
-  };
-
-  // Wanneer er op de knop geklikt, wil ik dat de functie addRandomContact wordt uitgevoerd
-  // Wat moet de parameter zijn voor deze functie?
-  // Hoe voeg ik het nieuwe element toe aan de bestaande array, uitgevoerd in een nieuwe array?? 
-
+    setFirstFiveContacts(newContactArray)
+    setRemainingContacts(updatedRemainingcontacts)
+  }; 
   
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
+      <button className="myButton" onClick={ () => {  addRandomContact()}}>
+        Add new contact
+      </button>
 
-      <table>
-            <tr>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Popularity</th>
-              <th>Won an Oscar</th>
-              <th>Won an Emmy</th>
-            </tr>
+      <table className="contactTable">
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won an Oscar</th>
+            <th>Won an Emmy</th>
+          </tr>
+        </thead>
 
-      {firstFiveContacts.map(function (contactInfo) {
-        return (
-            <tr>
-              <td><img src={contactInfo.pictureUrl}/></td>
-              <td>{contactInfo.name}</td>
-              <td>{contactInfo.popularity.toFixed(2)}</td>
-              <td>{contactInfo.wonOscar && <p>TROPHY</p>}</td>
-              <td>{contactInfo.wonEmmy && <p>STAR</p>}</td>
-            </tr>
-          
-        );
-      })}
+        <tbody>
+          {firstFiveContacts.map(function (contactInfo) {
+            return (
+              <tr key={contactInfo.id}>
+                <td><img src={contactInfo.pictureUrl} /></td>
+                <td>{contactInfo.name}</td>
+                <td>{contactInfo.popularity.toFixed(2)}</td>
+                <td>{contactInfo.wonOscar && <p>TROPHY</p>}</td>
+                <td>{contactInfo.wonEmmy && <p>STAR</p>}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
-
-      <button onClick={function () {addRandomContact (randomContact)}}>Add a random contact</button>
-
-    
     </div>
   );
 }
