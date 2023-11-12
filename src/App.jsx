@@ -41,16 +41,6 @@ function App() {
    
     setFirstFiveContacts(deletedContact)
   }
-
-
-  // deleteContact(contactId) {
-  //   const deletedContact = contacts.filter(function (el){
-  //     return el.id !== contactId
-  //   })
-  //   setFirstFiveContacts(deletedContact)
-  // }
-  
-  
   
   return (
     <div className="App">
