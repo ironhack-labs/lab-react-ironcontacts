@@ -24,12 +24,18 @@ let randomer = Math.floor(Math.random() * filteredContacts.length)
 // push is gonna edit original reducedContact so we need a copy;
 let newList = [...updatedContracts]
 // finding a random line and adding it to the contacts 
-newList.push(filteredContacts[randomer]);
-// remove previous added random object so it won't grow over 6
-if (newList.length > 6) {
-  newList.splice(5, 1);
+let randomFilteredContact = filteredContacts[randomer];
+newList.push(randomFilteredContact);
+// remove the selected contact from the original contactList
+contactList.splice(contactList.indexOf(randomFilteredContact), 1);
+
+function remover(value) {
+  return value !== randomFilteredContact;
 }
+let NewFilteredContacts = filteredContacts.filter(remover);
+// remove previous added random object so it won't grow over 6
 // reducedContact stayed with original 5 element, newList have random content
+
 setUpdatedContacts(newList)
 }
 
@@ -37,7 +43,7 @@ setUpdatedContacts(newList)
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <h2>Contact list have {updatedContracts.length} person</h2>
+      <h2>Contact list have {updatedContracts.length} contacts</h2>
       <button onClick={()=>{addRandomRow()}}>Add Random Contact</button>
       <button onClick={()=>{sortByPopularity()}}>Sort By Popularity</button>
       <button onClick={()=>{sortByName()}}>Sort By Name</button>
@@ -56,7 +62,7 @@ setUpdatedContacts(newList)
         {updatedContracts.map((object,i)=>{
           return(
             <tr key={i}>
-          <th><img src={object.pictureUrl} alt="" /></th>
+          <th><img src={object.pictureUrl} alt="Coudn't find picture" /></th>
           <th>{object.name}</th>
           <th>{Math.round(object.popularity *100)/100 }</th>
           <th><h2>{object.wonOscar ? '🏆' : false}</h2></th>
