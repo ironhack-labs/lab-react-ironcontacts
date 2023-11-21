@@ -1,7 +1,5 @@
-import contacts from "./../contacts.json";
+import contacts from "./contacts.json";
 import { useState } from "react"
-
-
 function App() {
 
   const fiveContacts = contacts.slice(0, 5)
@@ -53,25 +51,29 @@ function App() {
       <button onClick={sortContactsByName}>Sort by Name</button>
       <button onClick={sortContactsByPopularity}>Sort by Popularity</button>
       <table>
-        <tr>
-          <th>Picture</th>
-          <th>Name</th>
-          <th>Popularity</th>
-          <th>Won Oscar</th>
-          <th>Won Emmy</th>
-          <th>Actions</th>
-        </tr>
-        {listOfContacts.map(eachContact => {
-          return (
-            <tr>
-              <td><img src={eachContact.pictureUrl} alt="eachContact.name" /></td>
-              <td>{eachContact.name}</td>
-              <td>{eachContact.popularity}</td>
-              <td>{eachContact.wonOscar ? "🏆" : ""}</td>
-              <td>{eachContact.wonEmmy ? "🌟" : ""}</td>
-              <td><button onClick={() => removeContact(eachContact.id)}>Delete</button></td>
-            </tr>)
-        })}
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listOfContacts.map(eachContact => {
+            return (
+              <tr>
+                <td><img src={eachContact.pictureUrl} alt="eachContact.name" /></td>
+                <td>{eachContact.name}</td>
+                <td>{eachContact.popularity}</td>
+                <td>{eachContact.wonOscar ? "🏆" : ""}</td>
+                <td>{eachContact.wonEmmy ? "🌟" : ""}</td>
+                <td><button onClick={() => removeContact(eachContact.id)}>Delete</button></td>
+              </tr>)
+          })}
+        </tbody>
       </table>
     </div>
   );
