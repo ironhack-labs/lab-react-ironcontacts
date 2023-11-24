@@ -29,11 +29,15 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: peachpuff;
 }
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 0.3;
+  color: rgb(231, 84, 116);
+  margin-bottom: 7%;
+  text-shadow: 2px 2px 4px rgba(255,39,80, 0.5);
 }
 
 button {
@@ -66,4 +70,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.contacts-pictures {
+  width: 100px;
+  height: auto;
+  box-shadow: 2px 2px 4px rgba(255,39,80, 0.5);;
+}
+.trophy-icon {
+  width: 50px;
+  height: auto;
+}
+.star-icon {
+  width: 50px;
+  height: auto;
+}
+th {
+  margin: 5px;
+  padding: 10px;
+}
+table {
+  width: 100%;
+}
+td {
+  padding: 10px;
+}
+.button {
+  margin: 0 3% 5% 3%;
 }
