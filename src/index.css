@@ -55,6 +55,52 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#btn-addrandom {
+  margin-bottom: 2em;
+}
+
+.PictureCol {
+  width: 100px;
+}
+
+.PictureCol img {
+  width: 40px;
+}
+
+.NameCol-header {
+  width: 200px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.NameCol-header button {
+  width: 95px;
+  margin-right: 0.5em;
+  padding: 0.4em 0.8em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit
+}
+
+.NameCol-body {
+  width: 200px;
+  text-align: left;
+}
+
+#btn-delete-list img{
+  width: 15px;
+}
+
+.PopularityCol {
+  width: 100px;
+}
+
+.AwardCol {
+  width: 100px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
