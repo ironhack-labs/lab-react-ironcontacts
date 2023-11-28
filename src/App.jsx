@@ -48,9 +48,11 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={() => addRandomContact()}>Add Random Contact</button>
-      <button onClick={() => sortByPopularity()}>Sort by Popularity</button>
-      <button onClick={() => sortByName()}>Sort by Name</button>
+      <div className="flex-buttons">
+        <button onClick={() => addRandomContact()}>Add Random Contact</button>
+        <button onClick={() => sortByPopularity()}>Sort by Popularity</button>
+        <button onClick={() => sortByName()}>Sort by Name</button>
+      </div>
 
       <table>
         <thead>
@@ -63,10 +65,11 @@ function App() {
             <th>Actions</th>
           </tr>
         </thead>
+
         <tbody>
           {contacts.map((eachContact, i) => {
             return (
-              <tr key={i}>
+              <tr key={i} className="table-row">
                 <td>
                   <img
                     src={eachContact.pictureUrl}
@@ -76,10 +79,15 @@ function App() {
                 </td>
                 <td>{eachContact.name}</td>
                 <td>{eachContact.popularity.toFixed(2)}</td>
-                {eachContact.wonOscar ? <td>🏆</td> : <td></td>}
-                {eachContact.wonEmmy ? <td>🌟</td> : <td></td>}
+                {eachContact.wonOscar ? <td>🏆 Won an Oscar</td> : <td></td>}
+                {eachContact.wonEmmy ? <td>🌟 Won an Enemy </td> : <td></td>}
                 <td>
-                  <button onClick={() => deleteContact(i)}>Delete</button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => deleteContact(i)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
