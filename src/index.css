@@ -26,7 +26,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -34,6 +33,15 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #535bf2;
+}
+
+th {
+  color: #535bf2;
+}
+
+tr {
+  display: flex;
 }
 
 button {
@@ -46,6 +54,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #535bf2;
 }
 button:hover {
   border-color: #646cff;
@@ -53,14 +62,35 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+  outline-color: #646cff
 }
 
 #btn-addrandom {
   margin-bottom: 2em;
 }
 
+.btn-sort-name {
+  border-radius: 6px;
+  width: 50px;
+  height: 20px;
+  margin-right: 1em;
+  padding: 0.4em 0.4em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit;
+  box-shadow: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.btn-sort-name img {
+  width: 15px;
+}
+
 .PictureCol {
-  width: 100px;
+  width: 150px;
 }
 
 .PictureCol img {
@@ -75,30 +105,64 @@ button:focus-visible {
   align-items:center;
 }
 
-.NameCol-header button {
-  width: 95px;
-  margin-right: 0.5em;
-  padding: 0.4em 0.8em;
-  font-size: 0.8em;
-  font-weight: 500;
-  font-family: inherit
-}
+
 
 .NameCol-body {
   width: 200px;
   text-align: left;
+  display: flex;
+  align-items:center;
 }
 
 #btn-delete-list img{
-  width: 15px;
+  width: 20px;
 }
 
-.PopularityCol {
-  width: 100px;
+.PopularityCol-header {
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.PopularityCol-body {
+  width: 160px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+.btn-sort-popularity {
+  border-radius: 6px;
+  width: 50px;
+  height: 20px;
+  margin-left: 1em;
+  padding: 0.4em 0.4em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit;
+  box-shadow: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-sort-popularity img {
+  width: 15px;
 }
 
 .AwardCol {
   width: 100px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+.ActionCol {
+  width: 100px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -110,6 +174,6 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #efeff5;
   }
 }
