@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+.celebrity-img {
+  width: 75px;
+  height: 100px
+}
+
+.random-btn {
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
