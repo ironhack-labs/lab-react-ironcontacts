@@ -1,21 +1,5 @@
 [
   {
-    "name": "Arnold Schwarzenegger",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/sOkCXc9xuSr6v7mdAq9LwEBje68.jpg",
-    "popularity": 18.216362,
-    "id": "4fe4d8ef-0fac-4bd9-8c02-ed89b668b2a9",
-    "wonOscar": false,
-    "wonEmmy": true
-  },
-  {
-    "name": "Ben Affleck",
-    "pictureUrl": "https://image.tmdb.org/t/p/w500/cPuPt6mYJ83DjvO3hbjNGug6Fbi.jpg",
-    "popularity": 9.157077,
-    "id": "1599707e-5f49-4529-b920-db3831419b04",
-    "wonOscar": true,
-    "wonEmmy": false
-  },
-  {
     "name": "Idris Elba",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
     "popularity": 11.622713,
@@ -112,6 +96,14 @@
     "wonEmmy": false
   },
   {
+    "name": "Ben Affleck",
+    "pictureUrl": "https://image.tmdb.org/t/p/w500/cPuPt6mYJ83DjvO3hbjNGug6Fbi.jpg",
+    "popularity": 9.157077,
+    "id": "1599707e-5f49-4529-b920-db3831419b04",
+    "wonOscar": true,
+    "wonEmmy": false
+  },
+  {
     "name": "James McAvoy",
     "pictureUrl": "https://image.tmdb.org/t/p/w500/oPIfGm3mf4lbmO5pWwMvfTt5BM1.jpg",
     "popularity": 9.098376,
@@ -175,6 +167,14 @@
     "id": "2abbdb9b-6034-452c-871f-2913fd42fbd0",
     "wonOscar": true,
     "wonEmmy": false
+  },
+  {
+    "name": "Arnold Schwarzenegger",
+    "pictureUrl": "https://image.tmdb.org/t/p/w500/sOkCXc9xuSr6v7mdAq9LwEBje68.jpg",
+    "popularity": 18.216362,
+    "id": "4fe4d8ef-0fac-4bd9-8c02-ed89b668b2a9",
+    "wonOscar": false,
+    "wonEmmy": true
   },
   {
     "name": "Ana de Armas",
