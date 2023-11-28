@@ -25,6 +25,11 @@ function App() {
     setCelebrities(sortedArray);
   }
 
+  function deleteCelebrity(id) {
+    const deletedCelebrity = celebrities.filter(contact => contact.id !== id);
+    setCelebrities(deletedCelebrity)
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -41,6 +46,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +63,7 @@ function App() {
               <td>{contact.popularity}</td>
               <td>{contact.wonOscar ? "🏆" : ""}</td>
               <td>{contact.wonEmmy ? "🌟" : ""}</td>
+              <button onClick={() => deleteCelebrity(contact.id)}>Delete</button>
             </tr>
           ))}
         </tbody>
