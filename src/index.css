@@ -67,3 +67,28 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.IronhackCard {
+  margin: 10px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+}
+
+.info-container-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  text-align: center;
+  max-width: 150px; /* Adjust the width as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-wrap: break-word;
+}
+
+.column p {
+  margin: 0;
+}
+

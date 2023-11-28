@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+.info-container-headers {
+  display: flex;
+}
+
+.info-container-headers h4 {
+  flex: 1;
+  text-align: center;
+  margin: 5px;
+}

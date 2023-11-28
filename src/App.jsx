@@ -1,9 +1,12 @@
 import "./App.css";
+import contacts from "./contacts.json";
+import IronhackList from "./components/IronhackList";
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React IronContacts</h1>
+      <h1>IronContacts</h1>
+      <IronhackList />
     </div>
   );
 }
