@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+.contact-img {
+  width: 75px;
+  height: 100px;
+}
+
+td {
+  margin: 10px;
+  padding: 20px;
+}
