@@ -1,11 +1,14 @@
 import "./App.css";
+import Actors from "./components/ActorList/ActorList";
+
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React IronContacts</h1>
+      <h1>IronContacts</h1>
+     <Actors/>
     </div>
   );
 }
-
 export default App;
+
