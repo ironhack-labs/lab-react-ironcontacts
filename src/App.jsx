@@ -9,12 +9,13 @@ import contact from "./contacts.json";
 function App() {
   const [contacts, setContacts] = useState(contact.slice(0, 5));
   const [remainingContacts, setremainingContacts] = useState(contact.slice(5));
-  console.log(contacts, "contacts");
+  // console.log(contacts, "contacts initially");
+  //console.log(remainingContacts, "remaining contacts initially")
 
   function addContact() {
     if (remainingContacts.length) {
       const addedContacts = [...contacts];
-      console.log(addedContacts, "addedcontacts");
+      //console.log(addedContacts, "addedcontacts");
       let randomIndex = Math.floor(Math.random() * remainingContacts.length);
       let randomContact = remainingContacts[randomIndex];
       addedContacts.push(randomContact);
@@ -23,9 +24,45 @@ function App() {
       const remainingContactsAfterRandomAdd = [...remainingContacts];
       remainingContactsAfterRandomAdd.splice(randomIndex, 1);
       setremainingContacts(remainingContactsAfterRandomAdd);
-      console.log(remainingContactsAfterRandomAdd, "remaining after add");
+      //console.log(remainingContactsAfterRandomAdd, "remaining after add");
     }
   }
+
+  function sortPopularity() {
+    let contactsToSort = [...contacts];
+    contactsToSort.sort((a, b) => {
+      //console.log(a.popularity, b.popularity)
+      if (a.popularity > b.popularity) {
+        return -1;
+      }
+      if (a.popularity === b.popularity) {
+        return 0;
+      }
+      return 1;
+    });
+    //console.log(contactsToSort, "contact to sort")
+    setContacts(contactsToSort);
+  }
+
+  function sortName() {
+    let contactsToSort = [...contacts]
+    contactsToSort.sort((a,b)=> {
+      let localecompare = a.name.localeCompare(b.name)
+      return localecompare
+    })
+      setContacts(contactsToSort)
+
+    }
+
+    function deleteActor(contactId) {
+      const contactsAfterRemove = [...contacts]
+      const contactIndex = contacts.findIndex((contact_)=> {
+        return contactId === contact_.id
+      })
+      contactsAfterRemove.splice(contactIndex, 1)
+      setContacts(contactsAfterRemove)     
+       
+    }
 
   return (
     <div>
@@ -38,6 +75,12 @@ function App() {
             <td>
               <button onClick={addContact}>Add Random Contact</button>
             </td>
+            <td>
+              <button onClick={sortPopularity}>Sort by popularity</button>
+            </td>
+            <td>
+              <button onClick={sortName}>Sort by name</button>
+            </td>
           </tr>
         </thead>
         <tbody>
@@ -47,6 +90,7 @@ function App() {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
+            <th>Actions</th>
           </tr>
           {contacts.map((contact) => {
             return (
@@ -62,6 +106,12 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td> {contact.wonOscar && "🏆"}</td>
                 <td> {contact.wonEmmy && "🌟"}</td>
+                <td><button onClick={()=> {
+                  const contactId = contact.id
+                  deleteActor(contactId)      
+                   
+                }}>Delete</button>
+            </td>
               </tr>
             );
           })}
