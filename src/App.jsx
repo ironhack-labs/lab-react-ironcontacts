@@ -3,39 +3,37 @@ import React, { useState } from "react";
 import contactsData from "./contacts.json";
 
 function App() {
-  const [contacts, setContacts] = useState(contactsData.slice(0, 5)); // used the slice method to select the first 5
+  const [contacts, setContacts] = useState(contactsData.slice(0, 5)); 
   const [remainingContacts, setRemainingContacts] = useState(
     contactsData.slice(5)
-  ); // slice method again to select the starting index for the remaining contacts
+  ); 
   let contactsCopy = [...contacts];
-  // console.log("remainingContacts", remainingContacts);
-  console.log("contacts", contacts);
+
   const addRandomContact = () => {
     if (remainingContacts.length > 0) {
-      // added the conditional to make sure it doesn't go over the number of objects in my array
+      
       const randomIndex = Math.floor(Math.random() * remainingContacts.length);
-      const randomContact = remainingContacts[randomIndex]; // used randomisation formula to randomly pick a contact from the remaining ones
+      const randomContact = remainingContacts[randomIndex]; 
 
-      setContacts((prevContacts) => [...prevContacts, randomContact]); // add random contact to all those that were displayed before
+      setContacts((prevContacts) => [...prevContacts, randomContact]); 
 
       const updatedRemainingContacts = [...remainingContacts];
-      updatedRemainingContacts.splice(randomIndex, 1); // remove the contact to avoid repetition of objects
+      updatedRemainingContacts.splice(randomIndex, 1); 
 
-      setRemainingContacts(updatedRemainingContacts); // selected contact is no longer contained in the array
+      setRemainingContacts(updatedRemainingContacts); 
     }
   };
-  //sorting the random contacts by Poplarity
-  function sortByPoplarity() {
+  
+  function sortByPopularity() {
     contactsCopy.sort((a, b) => {
-      console.log("contactsCopy", contactsCopy);
       return b.popularity - a.popularity;
     });
     setContacts(contactsCopy);
   }
-  //sorting the random contacts by name
+  
   function sortedContactsByName() {
     contactsCopy.sort((a, b) => {
-      console.log("contactsCopy", contactsCopy);
+    
       return a.name.localeCompare(b.name);
     });
     setContacts(contactsCopy);
@@ -50,7 +48,7 @@ function App() {
     <div>
       <h1>IronContacts</h1>
       <button onClick={addRandomContact}>Add Random Contact</button>
-      <button onClick={sortByPoplarity}>Sort by popularity</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
       <button onClick={sortedContactsByName}>Sort by Name</button>
       <table>
         <thead>
