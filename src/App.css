@@ -43,4 +43,13 @@
 
 img {
   width: 100px;
+  border-radius: 10px;
+}
+
+.table {
+  border: solid;
+  border-radius: 20px;
+  padding: 2%;
+  margin-top: 2%;
+  background-image: linear-gradient(to bottom, red, orange, yellow, green, blue, purple, pink)
 }

@@ -23,28 +23,49 @@ function App() {
     // console.log(copyContacts)    
   }
 
+
+  function sortByPopularity(){
+    const copyContacts = [...contacts]
+    copyContacts.sort((a,b)=>b.popularity-a.popularity)
+    setContacts(copyContacts)
+  }
+
+  function sortByName(){
+    const copyContacts = [...contacts]
+    copyContacts.sort((a,b) => a.name.localeCompare(b.name))
+    setContacts(copyContacts)
+  }
+
+  function deleteContact(id){
+    const copyContacts = contacts.filter((oneContact)=>{return oneContact.id !== id})
+    setContacts(copyContacts)
+  }
   
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
       <button onClick={getRandomContact}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by Popularity</button>
+      <button onClick={sortByName}>Sort by Name</button>
       
-            <table>
+            <table className="table">
               <tr>
-                <th><h1>Picture</h1></th>
-                <th><h1>Name</h1></th>
-                <th><h1>Popularity</h1></th>
-                <th><h1>Won an Oscar</h1></th>
-                <th><h1>Won an Emmy</h1></th>
+                <th><h2>Picture</h2></th>
+                <th><h2>Name</h2></th>
+                <th><h2>Popularity</h2></th>
+                <th><h2>Won an Oscar</h2></th>
+                <th><h2>Won an Emmy</h2></th>
+                <th><h2>Actions</h2></th>
               </tr>
               {contacts.map((oneContact) => {
                   return (
               <tr key={oneContact.id}>
                 <td> <img src={oneContact.pictureUrl} alt="" /> </td>
-                <td><h2>{oneContact.name}</h2></td>
-                <td><h2>{oneContact.popularity}</h2></td>
+                <td><h3>{oneContact.name}</h3></td>
+                <td><h3>{oneContact.popularity}</h3></td>
                 <td> {oneContact.wonOscar ? <p>🏆</p> : <p></p> } </td>
                 <td> {oneContact.wonEmmy ? <p>🌟</p> : <p></p> } </td>
+                <td><button onClick={()=> {deleteContact(oneContact.id)}}>Delete</button></td>
               </tr>
               
             )
