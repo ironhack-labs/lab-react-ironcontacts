@@ -1,10 +1,41 @@
+*{
+  color: black;
+
+}
+
 .App {
   text-align: center;
 }
 
+table {
+  margin: auto; 
+  width: 35%; 
+}
+
+th, td {
+  text-align: center;
+  padding: 5px; 
+  width: 33%; 
+
+}
+
+
+.contact-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+ 
+}
+  
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+button{
+  margin-bottom: 15px;
+  margin: 0px 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -21,7 +52,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .App-link {
