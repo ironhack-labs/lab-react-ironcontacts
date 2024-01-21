@@ -2,9 +2,13 @@ import "./App.css";
 import { useState } from "react";
 import contactsData from './contacts.json'
 
+
 function App() {
+
 const initialcontacts = contactsData.slice(0,5)
 const [contacts, setContacts] = useState(initialcontacts)
+
+// funtions
 
 function addRandomContact(){
 const contactsCopy = [...contacts]
@@ -33,7 +37,7 @@ function removeContact(id){
   setContacts(contactsCopy)
 
 }
-
+// structure
 return ( 
   <div className="App">
     <h1>IronContacts</h1>
@@ -51,7 +55,7 @@ return (
         <th className="actionsIron">Actions</th>
       </tr>
     
-
+    {/* map */}
     {contacts.map((contact)=>{
       return(
         <tr key={contact.id}>
