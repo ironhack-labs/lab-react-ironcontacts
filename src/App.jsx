@@ -57,14 +57,14 @@ function App() {
         </button>
         <button
           type="button"
-          className="btn btn-secondary m-2"
+          className="btn btn-outline-dark"
           onClick={sortByPopularity}
         >
           Sort by popularity
         </button>
         <button
           type="button"
-          className="btn btn-secondary m-2"
+          className="btn btn-outline-dark"
           onClick={sortedContactsByName}
         >
           Sort by Name
