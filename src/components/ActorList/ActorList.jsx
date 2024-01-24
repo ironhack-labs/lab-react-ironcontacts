@@ -18,11 +18,25 @@ const Actors = () => {
         setActors([actorToAdd, ...actors])
       }
 
-      const onDelete = (id) => {
-        // Actualizar el estado borrando el elemento que tiene ese id
-        // Filter me devuelve un nuevo array eliminando los que no cumplan la condición
+      const sortActors = () => {
+        const sortedActors = [...actors].sort((actor1, actor2) => {
+          return actor1.name.localeCompare(actor2.name)
+        })
     
-        // La condicion sera todos los que no tengan este id
+        setActors(sortedActors)
+      }
+
+      const sortActorsPopularity = () => {
+        const sortedActorsPopularity = [...actors].sort((actor1, actor2) => {
+          return actor1.popularity - actor2.popularity
+        })
+    
+        setActors(sortedActorsPopularity)
+      }
+
+
+      const onDelete = (id) => {
+        
     
         const newArr = actors.filter((actor) => {
           return actor.id !== id
@@ -33,6 +47,8 @@ const Actors = () => {
   
     return (
         <><Button type="success" onClick={onAddRandomActor} disabled={allActors.length === 0}>Add random contact</Button>
+         <Button type="success" onClick={sortActors}>Sort by name</Button>
+         <Button type="success" onClick={sortActorsPopularity}>Sort by popularity</Button>
         <div className="container mt-4">
             <table className="table table-borderless">
                 <thead>
@@ -66,5 +82,6 @@ const Actors = () => {
         </div></>
     );
   };
+  
   
   export default Actors;
