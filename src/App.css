@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+.button-list {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+  background-color: rgb(218, 218, 218);
+  border-color: black;
+}
+
+.card-img-top {
+ align-items: center;
+  width: 30%;
+}
