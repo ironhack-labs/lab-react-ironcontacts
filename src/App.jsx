@@ -1,9 +1,11 @@
 import "./App.css";
+import Actors from "./components/Actors";
+import List from "./components/List";
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React IronContacts</h1>
+      <List />
     </div>
   );
 }
