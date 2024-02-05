@@ -12,6 +12,8 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
         </tr>
         {people.map((person) => {
           return (
@@ -21,6 +23,8 @@ function App() {
               </td>
               <td>{person.name}</td>
               <td>{person.popularity}</td>
+              <td>{person.wonOscar && <p>🏆</p>}</td>
+              <td>{person.wonEmmy && <p>🌟</p>}</td>
             </tr>
           );
         })}
