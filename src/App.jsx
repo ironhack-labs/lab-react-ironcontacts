@@ -39,12 +39,13 @@ function App() {
     setPeople(updatedPeople);
   };
 
-  const deletePerson = (movieId) => {
-    const filteredMovies = movies.filter((movie) => {
-      return movie._id !== movieId;
+  const deletePerson = (personId) => {
+    console.log(personId);
+    const filteredPeople = people.filter((person) => {
+      return person.id !== personId;
     });
 
-    setMovies(filteredMovies);
+    setPeople(filteredPeople);
   };
 
   return (
@@ -74,7 +75,12 @@ function App() {
                 <td>{person.wonOscar && <p>🏆</p>}</td>
                 <td>{person.wonEmmy && <p>🌟</p>}</td>
                 <td>
-                  <button onClick={deletePerson}>Delete</button>
+                  <button
+                    onClick={() => deletePerson(person.id)}
+                    className="btn-delete"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
