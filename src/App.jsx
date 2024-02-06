@@ -39,6 +39,14 @@ function App() {
     setPeople(updatedPeople);
   };
 
+  const deletePerson = (movieId) => {
+    const filteredMovies = movies.filter((movie) => {
+      return movie._id !== movieId;
+    });
+
+    setMovies(filteredMovies);
+  };
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
@@ -53,6 +61,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
           {people.map((person) => {
             return (
@@ -64,6 +73,9 @@ function App() {
                 <td>{person.popularity}</td>
                 <td>{person.wonOscar && <p>🏆</p>}</td>
                 <td>{person.wonEmmy && <p>🌟</p>}</td>
+                <td>
+                  <button onClick={deletePerson}>Delete</button>
+                </td>
               </tr>
             );
           })}
