@@ -39,6 +39,15 @@ function App() {
     setPeople(updatedPeople);
   };
 
+  const deletePerson = (personId) => {
+    console.log(personId);
+    const filteredPeople = people.filter((person) => {
+      return person.id !== personId;
+    });
+
+    setPeople(filteredPeople);
+  };
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
@@ -53,6 +62,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
           {people.map((person) => {
             return (
@@ -64,6 +74,14 @@ function App() {
                 <td>{person.popularity}</td>
                 <td>{person.wonOscar && <p>🏆</p>}</td>
                 <td>{person.wonEmmy && <p>🌟</p>}</td>
+                <td>
+                  <button
+                    onClick={() => deletePerson(person.id)}
+                    className="btn-delete"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
