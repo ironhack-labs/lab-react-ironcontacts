@@ -1,42 +1,63 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
   text-align: center;
+  /* Centrar el contenido de la aplicación */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+table {
+  margin: 0 auto;
+  /* Centrar la tabla horizontalmente */
+  border-collapse: collapse;
+  /* Colapso de los bordes de la tabla */
+  width: 70%;
+  /* Ancho de la tabla */
+  max-width: 600px;
+  /* Ancho máximo para evitar que la tabla sea demasiado ancha en pantallas grandes */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Sombra ligera alrededor de la tabla */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+th,
+td {
+  padding: 10px;
+  /* Espaciado interno de celdas */
+  border-bottom: 1px solid #ddd;
+  /* Línea divisoria entre filas */
+
 }
 
-.card {
-  padding: 2em;
+th {
+
+  border: 1px solid #ddd;
+  font-size: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+
+.contact-pictureUrl {
+  width: 100px;
+  /* Ancho de la imagen */
+  height: auto;
+  /* Altura automática para mantener la proporción */
+
+  /* Bordes redondeados para hacerla más parecida a un carnet */
+  border: 2px solid #fff;
+  /* Borde blanco */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  /* Sombra ligera */
+}
+
+.contact-pictureUrl:hover {
+  transform: scale(1.1);
+  /* Escalado ligeramente al hacer hover */
+}
+
+.dlt-button {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }
