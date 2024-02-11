@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+.App img {
+  width: 100px;
+}
+
+.App button {
+  margin: 10px;
+  border: 2px solid rgb(255, 0, 0);
+}
+
+.App table {
+  margin: 10px;
+  border: 2px solid black;
+}
+
+table {
+  border-spacing: 20px 20px;
+ 
+}
