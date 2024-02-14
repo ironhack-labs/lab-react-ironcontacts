@@ -5,27 +5,46 @@ import trophy from "./assets/trophy.png";
 import sun from "./assets/sun.png";
 
 function App() {
-  const[producersToDisplay, setProducersToDisplay] = useState(contacts);
+  const [producersToDisplay, setProducersToDisplay] = useState(
+    contacts.slice(0, 5)
+  );
+  const [remainingContacts, setRemainingContacts] = useState(contacts.slice(5, contacts.length));
 
-  const firstFiveProducers = producersToDisplay.slice(0, 5);
-
-  const getRandomProducer = () => {
-    console.log('click')
-    const randomIndex = Math.floor(Math.random() * producersToDisplay.length);
-    const randomProducer = producersToDisplay[randomIndex];
-    setProducersToDisplay(prevProducers => [...prevProducers, randomProducer]);
+  function addRandomProducer() {
+    const updateRemaining = [...remainingContacts];
+    let randomNum = Math.floor(Math.random() * remainingContacts.length);
+    let randomContact = updateRemaining.splice(randomNum, 1)[0];
+    const updatedProducersToDisplay = [...producersToDisplay, randomContact];
+    setProducersToDisplay(updatedProducersToDisplay);
+    setRemainingContacts(updateRemaining);
   }
 
 
-  
+  function sortByName() {
+    const sortedNames = [...producersToDisplay].sort((a, b) => a.name.localeCompare(b.name));
+    setProducersToDisplay(sortedNames);
+  }
+
+  function sortByPopularity() {
+    const sortedPopularity = [...producersToDisplay].sort((a, b) => b.popularity - a.popularity);
+    setProducersToDisplay(sortedPopularity);
+  }
+
+  function deleteContact (id) {
+    const updatedProducers = producersToDisplay.filter(contact => contact.id !== id);
+    setProducersToDisplay(updatedProducers);
+  }
+
 
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
-      <button onClick={getRandomProducer}>Add Random Contact</button>
+      <button onClick={addRandomProducer}>Add Random Contact</button>
+      <button onClick={sortByName}>Sort By Name</button>
+      <button onClick={sortByPopularity}>Sort By Popularity</button>
       <table>
       <tbody>
-      {firstFiveProducers.map(producer => {
+      {producersToDisplay.map(producer => {
         return (
           <tr key={producer.id}>
             <td> Picture:
@@ -48,6 +67,9 @@ function App() {
                <img className="icon" src={sun}/>
                </>
                )} 
+            </td>
+            <td>
+              <button onClick={() => deleteContact(producer.id)}>Delete</button>
             </td>
           </tr>
         )
