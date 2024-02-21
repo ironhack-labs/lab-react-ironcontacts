@@ -40,3 +40,32 @@
 .read-the-docs {
   color: #888;
 }
+
+.contacts{
+  font-size: 20px;
+}
+
+.contacts th{
+  width: 130px;
+}
+
+.contact img{
+  width: 90px;
+}
+
+.contact{
+  height: 150px;
+}
+
+.contact td{
+  width: 150px;
+}
+
+.award-td{
+  font-size: 2em;
+}
+
+.button{
+  margin: 30px;
+  border: 2px solid black;
+}
