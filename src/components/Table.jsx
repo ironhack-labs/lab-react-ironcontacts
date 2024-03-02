@@ -10,6 +10,8 @@ function Table(props) {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +22,8 @@ function Table(props) {
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
+              <td>{contact.wonOscar ? "🏆" : ""}</td>
+              <td>{contact.wonEmmy ? "🌟" : ""}</td>
             </tr>
           ))}
         </tbody>
@@ -29,4 +33,3 @@ function Table(props) {
 }
 
 export default Table;
-
