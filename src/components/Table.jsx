@@ -15,7 +15,7 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {contacts.slice(0, 5).map((contact) => (
+          {contacts.map((contact) => (
             <tr key={contact.id}>
               <td>
                 <img src={contact.pictureUrl} alt="picture" />
