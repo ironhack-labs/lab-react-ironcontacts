@@ -7,7 +7,9 @@ function RandomButton(props) {
   const addRandomContact = () => {
     const randomIndex = Math.floor(Math.random() * remainingContacts.length);
     const randomContact = remainingContacts[randomIndex];
-    setContacts([...contacts, randomContact]); // Create a new array with the updated contacts
+    // Create a new array with the updated contacts - deep copy
+    setContacts([...contacts, randomContact]); 
+    // Filter out the random contact from the remaining contacts - shallow copy
     setRemainingContacts(remainingContacts.filter((_, index) => index !== randomIndex)); // Create a new array with the remaining contacts
   };
 
