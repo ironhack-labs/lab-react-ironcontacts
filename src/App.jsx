@@ -3,6 +3,9 @@ import { useState } from "react";
 import contactsJSON from "./contacts.json";
 import Table from "./components/Table.jsx";
 import RandomButton from "./components/RandomButton.jsx";
+import SortByName from "./components/SortByNameButton.jsx";
+import SortPopularity from "./components/SortPopularityButton.jsx";
+
 
 function App() {
   const [contacts, setContacts] = useState(contactsJSON.slice(0, 5));
@@ -18,6 +21,8 @@ function App() {
     <div className="App">
       <h1>LAB | React IronContacts</h1>
       <RandomButton contacts={contacts} remainingContacts={remainingContacts} setContacts={setContacts} setRemainingContacts={setRemainingContacts} />
+      <SortByName contacts={contacts} setContacts={setContacts}></SortByName>
+      <SortPopularity contacts={contacts} setContacts={setContacts}></SortPopularity>
       <Table contacts={contacts} />
     </div>
   );

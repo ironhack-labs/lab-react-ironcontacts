@@ -12,13 +12,14 @@ function Table(props) {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {contacts.map((contact) => (
             <tr key={contact.id}>
               <td>
-                <img src={contact.pictureUrl} alt="picture" />
+                <img className="profile-picture" src={contact.pictureUrl} alt="picture" />
               </td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>
