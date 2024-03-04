@@ -1,4 +1,4 @@
-#root {
+/*#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -18,11 +18,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.profile-picture{
-  width: 300;
-  height:200px;
 
-}
 
 @keyframes logo-spin {
   from {
@@ -46,3 +42,4 @@
 .read-the-docs {
   color: #888;
 }
+*/

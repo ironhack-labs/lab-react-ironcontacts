@@ -20,10 +20,14 @@ function App() {
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
+      
+      <div className="actionButton">
       <RandomButton contacts={contacts} remainingContacts={remainingContacts} setContacts={setContacts} setRemainingContacts={setRemainingContacts} />
       <SortByName contacts={contacts} setContacts={setContacts}></SortByName>
       <SortPopularity contacts={contacts} setContacts={setContacts}></SortPopularity>
-      <Table contacts={contacts} />
+      </div>
+
+      <Table className="tablecointainer" contacts={contacts} />
     </div>
   );
 }

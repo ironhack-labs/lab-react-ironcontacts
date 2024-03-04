@@ -1,3 +1,5 @@
+import DeleteButton from "./DeleteButton";
+
 function Table(props) {
   const contacts = props.contacts;
 
@@ -10,8 +12,8 @@ function Table(props) {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
-            <th>Won Oscar</th>
-            <th>Won Emmy</th>
+            <th>Won <br></br> Oscar</th>
+            <th>Won <br></br> Emmy</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -25,6 +27,9 @@ function Table(props) {
               <td>{contact.popularity}</td>
               <td>{contact.wonOscar ? "🏆" : ""}</td>
               <td>{contact.wonEmmy ? "🌟" : ""}</td>
+              <td>
+              <DeleteButton contact={contact} setContacts={props.setContacts} contacts={contacts} />
+               </td>
             </tr>
           ))}
         </tbody>
