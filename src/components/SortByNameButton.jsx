@@ -3,10 +3,12 @@ function SortByName(props) {
 
   const sortContactName = () => {
     const sortedContacts = [...contacts].sort((a, b) => {
-      if (a.name < b.name) {
+      const surnameA = a.name.split(' ')[1]; 
+      const surnameB = b.name.split(' ')[1]; 
+      if (surnameA < surnameB) {
         return -1;
       }
-      if (a.name > b.name) {
+      if (surnameA > surnameB) {
         return 1;
       }
       return 0;
