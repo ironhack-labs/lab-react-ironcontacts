@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+img{
+  width: 100px;
+  height: 150px ;
+}
+.table {
+  font-size: 1.7em;
+}
