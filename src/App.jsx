@@ -24,10 +24,34 @@ function App() {
     }
   };
 
+  const sortByPopularity = () => {
+    const sortedContacts = [...contacts]
+    sortedContacts.sort((a, b) => b.popularity - a.popularity)
+    setContacts(sortedContacts)
+
+  }
+
+  const sortByName = () => {
+    const sortedContacts = [...contacts]
+    sortedContacts.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1
+      } else if (a.name > b.name) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+    setContacts(sortedContacts)
+
+  }
+  
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
       <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
       <table>
         <thead>
           <tr>
