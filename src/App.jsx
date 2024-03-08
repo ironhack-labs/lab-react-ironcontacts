@@ -7,7 +7,7 @@ function App() {
   const [remainingContacts, setRemainingContacts] = useState(
     contactList.slice(5)
   );
-  
+
   const addRandomContact = () => {
     if (remainingContacts.length > 0) {
       const randomIndex = Math.floor(Math.random() * remainingContacts.length);
@@ -20,32 +20,41 @@ function App() {
         updatedRemainingContacts.splice(randomIndex, 1);
         return updatedRemainingContacts;
       });
-      console.log(remainingContacts)
+      console.log(remainingContacts);
     }
   };
 
   const sortByPopularity = () => {
-    const sortedContacts = [...contacts]
-    sortedContacts.sort((a, b) => b.popularity - a.popularity)
-    setContacts(sortedContacts)
-
-  }
+    const sortedContacts = [...contacts];
+    sortedContacts.sort((a, b) => b.popularity - a.popularity);
+    setContacts(sortedContacts);
+  };
 
   const sortByName = () => {
-    const sortedContacts = [...contacts]
+    const sortedContacts = [...contacts];
     sortedContacts.sort((a, b) => {
       if (a.name < b.name) {
-        return -1
+        return -1;
       } else if (a.name > b.name) {
-        return 1
+        return 1;
       } else {
-        return 0
+        return 0;
       }
-    })
-    setContacts(sortedContacts)
+    });
+    setContacts(sortedContacts);
+  };
 
-  }
-  
+  const deleteRow = (id) => {
+    const newArray = [...contacts];
+    newArray.forEach((contact) => {
+      if (contact.id == id) {
+        const index = newArray.indexOf(contact);
+        newArray.splice(index, 1);
+      }
+    });
+    setContacts(newArray);
+  };
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
@@ -60,6 +69,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -76,6 +86,9 @@ function App() {
               <td>{contact.popularity.toFixed(2)}</td>
               <td>{contact.wonOscar ? <p>🏆</p> : ""}</td>
               <td>{contact.wonEmmy ? <p>🌟</p> : ""}</td>
+              <td>
+                <button onClick={() => deleteRow(contact.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
