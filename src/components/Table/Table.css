@@ -1,0 +1,21 @@
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.contacts-image {
+  height: 155px;
+}
+
+.table-row {
+  display: table-row;
+  width: 100%;
+  box-sizing: border-box; /* Esto es para asegurarse de que el padding y el borde no aumenten el ancho */
+}
+
+.table-row > * {
+  display: table-cell;
+}
