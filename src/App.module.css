@@ -1,0 +1,66 @@
+/* App.module.css */
+.App {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+
+        /* min-height: 100%; */
+        border: 3px solid #213547;
+        border-radius: 8px;    
+        margin :10px;
+  }
+  
+  .button {
+    background-color: #008CBA; /* Blue */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .button:hover {
+    background-color: #005f73;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  table {
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {background-color: #f9f9f9;}
+  
+  tr:hover {background-color: #ddd;}
+  
+  img {
+    border-radius: 50%;
+  }
+  
+  .DeleteButton {
+    background-color: #f38c84; /* Red */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .DeleteButton:hover {
+    background-color: #da190b;
+  }
+  
