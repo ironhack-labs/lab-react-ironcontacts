@@ -1,38 +1,96 @@
+/* App.css */
+
+
+/* Styling for the entire application */
 .App {
+  /* Use Arial font family or sans-serif as fallback */
+  font-family: 'Lato', 'Roboto', 'San Francisco', Arial, sans-serif;
+  /* Center align text content */
   text-align: center;
+  /* Set top and bottom margin to 20px and horizontally center the element */
+  margin: 20px auto;
+  /* Apply gradient background */
+  background-image: linear-gradient(to right, #ffd700, #ffcc00);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Styling for the heading 'IronContacts' */
+h1 {
+  /* Display 'IronContacts' in large font size */
+  font-size: 3em;
+  /* Make the text bold */
+  font-weight: bold;
+  /* Set font color to white */
+  color: rgb(0, 0, 0);
+  /* Add a black border around the text */
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
+  /* Add a rainbow text shadow for emphasis */
+  text-shadow: 4px 4px 8px #ffffff, 4px 4px 8px #ffff00;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Styling for buttons */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #4CAF50; /* Green */
   color: white;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #45a049; /* Darker Green */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styling for tables */
+table {
+  /* Collapse table borders = connect borderline.*/
+  border-collapse: collapse;
+  /* Set table width to 90% of its containing block */
+  width: 90%;
+  /* Center align the table */
+  margin: 0 auto;
+}
+
+/* Styling for table headers and cells */
+th, td {
+  /* Set border for cells */
+  border: 1px solid #747474;
+  /* Set padding inside cells */
+  padding: 4px;
+}
+
+/* Styling for table headers */
+th {
+  /* Set background color for table headers */
+  background-color: #ff9d00;
+}
+
+/* Styling for images inside table cells */
+td img {
+  /* Set border radius for images */
+  border-radius: 2px;
+}
+
+/* Styling for buttons inside table cells */
+td button {
+  /* Set background color for buttons */
+  background-color: #f44336;
+  /* Set text color for buttons */
+  color: white;
+  /* Remove border for buttons */
+  border: none;
+  /* Set padding inside buttons */
+  padding: 5px 10px;
+  /* Set cursor to pointer on hover */
+  cursor: pointer;
+}
+
+/* Styling for buttons inside table cells on hover */
+td button:hover {
+  /* Change background color for buttons on hover */
+  background-color: #d32f2f;
 }

@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+/* index.css */
+
+
+/* Root styles */
+
+/* Global styles for the root element */
+:root {
+  /* Set font size for the entire document */
+  font-size: 14px;
+  /* Use Inter font family with fallbacks */
+  font-family: 'Roboto', 'San Francisco', 'Lato', Arial, sans-serif;
+  /* Set line height */
+  line-height: 1.5;
+  /* Set font weight */
+  font-weight: 400;
+
+  /* Set color scheme for light and dark modes */
+  color-scheme: light dark;
+  /* Set default text color */
+  color: rgba(0, 0, 0, 0.87);
+  /* Set gradient background */
+  background: linear-gradient(to right, #ffd700, #ffcc00);
+  /* Disable font synthesis */
+  font-synthesis: none;
+  /* Optimize text rendering for legibility */
+  text-rendering: optimizeLegibility;
+  /* Smooth font rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Set text size adjustment to 100% */
+  -webkit-text-size-adjust: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Styling for anchor links */
+a {
+  /* Set font weight for anchor links */
+  font-weight: 500;
+  /* Set color for anchor links */
+  color: #646cff;
+  /* Inherit text decoration */
+  text-decoration: inherit;
+}
+
+/* Styling for anchor links on hover */
+a:hover {
+  /* Change color for anchor links on hover */
+  color: #535bf2;
+}
+
+/* Body styles */
+body {
+  /* Remove default margin */
+  margin: 0;
+}
+
+/* Styling for the root container */
+#root {
+  /* Display flex layout */
+  display: flex;
+  /* Align items to the center */
+  place-items: center;
+  /* Set minimum width */
+  min-width: 320px;
+  /* Set minimum height to 100% of the viewport height */
+  min-height: 100vh;
 }
