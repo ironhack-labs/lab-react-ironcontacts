@@ -1,0 +1,28 @@
+
+
+.actor-card{
+    background-color: hsl(192, 70%, 70%);
+    padding: 5px 15px;
+    width: 200px;
+    text-align: center;
+    border: 3px solid black;
+    list-style-type: none;
+    transition: background-color 0.5s ease;
+}
+
+.actor-card:hover {
+    background-color: hsl(192, 70%, 40%);
+    cursor: pointer;
+}
+
+.actor-img {
+    width: 120px;
+    height: 150px;
+}
+
+.actor-name {
+    padding-bottom: 5px;
+    height: 50px;
+    text-align: center;
+    justify-content: space-around;
+}
