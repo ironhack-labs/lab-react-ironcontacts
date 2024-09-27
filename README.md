@@ -40,9 +40,9 @@ Your task is to create a contact management app for the producer using React.
 - Open the LAB and start:
 
   ```bash
-  $ cd lab-react-ironcontacts
-  $ npm install
-  $ npm start
+  cd lab-react-ironcontacts-vite
+  npm install
+  npm run dev
   ```
 
 
@@ -56,22 +56,34 @@ Your task is to create a contact management app for the producer using React.
   git push origin master
   ```
 
-- Create a Pull Request so that your TAs can check your work.
+- Create a Pull Request and submit your assignment.
+
+<br>
+
+##  Test Your Code
+
+This lab is equipped with unit tests to provide automated feedback on your progress and help you understand whether your code is working as expected. If you want to check the tests, they are located in the `src/test` folder.
 
 
-## Getting Started
+### Iterations and Test Results
 
-Clean the `App.js` component so that it has the following structure:
+During an iteration, if your code seems to work as expected but some tests don't pass, feel free to move on to the next iteration. Once you've completed all the mandatory iterations, you can go back and resolve any remaining failed test
 
-```jsx
-// src/App.js
-import "./App.css";
+<br>
 
-function App() {
-  return <div className="App"></div>;
-}
-export default App;
-```
+### Run the Tests
+
+1. To execute the tests, run the following command in the terminal:
+
+   ```shell
+   npm run test
+   ```
+
+2. The above command will execute the tests and open the `@vitest/ui` Test Reporter in the browser. 
+
+3. To see the test results, **open** [http://127.0.0.1:51204/\_\_vitest\_\_](http://127.0.0.1:51204/__vitest__) in your browser.
+
+<br>
 
 ## Instructions
 
@@ -95,12 +107,16 @@ import contacts from "./contacts.json";
 
 At the end of this iteration, your application should look like this:
 
+<br>
+
 <details>
-  <summary> Check image inside </summary>
+  <summary><b>See Expected Result</b></summary>
 
 ![Screenshot - Iteration 1](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-1.png)
 
 </details>
+
+<br>
 
 ### Iteration 2 | Conditionally Display Awards Info
 
@@ -110,13 +126,17 @@ Update the list and add two more columns "Won an Oscar" and "Won an Emmy", at th
 
 Once done, your application should look like this:
 
+<br>
+
 <details>
 
-<summary>Check image inside</summary>
+<summary><b>See Expected Result</b></summary>
 
 ![Screenshot - Iteration 2](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-2.png)
 
 </details>
+
+<br>
 
 ### Iteration 3 | Add New Random Contacts
 
@@ -126,12 +146,16 @@ First, randomly select a contact from the array of remaining contacts. Then add 
 
 At the end of this iteration, your website will probably look like this:
 
+<br>
+
 <details>
-  <summary> Check image inside </summary>
+  <summary><b>See Expected Result</b></summary>
 
 ![Screenshot - Iteration 3](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-3.png)
 
 </details>
+
+<br>
 
 ### Iteration 4 | Sort Contacts by Name and Popularity
 
@@ -141,12 +165,16 @@ Once you have sorted the array, remember to update the state variable holding th
 
 This is what you should have at the end of this iteration:
 
+<br>
+
 <details>
-  <summary> Check image inside </summary>
+  <summary><b>See Expected Result</b></summary>
 
 ![Screenshot - Iteration 4](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-4.png)
 
 </details>
+
+<br>
 
 ### Iteration 5 | Remove Contacts
 
@@ -156,12 +184,16 @@ When they click, you should get the `id` of that actor and use it to remove the 
 
 When done, your app should look like this (after playing a little bit with the _Delete_ button):
 
+<br>
+
 <details>
-  <summary> Check image inside </summary>
+  <summary><b>See Expected Result</b></summary>
 
 ![Screenshot - Iteration 5](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-5.png)
 
 </details>
+
+<br>
 
 ### Iteration 6 | Bonus | Styling
 
