@@ -1,38 +1,84 @@
-.App {
+/* App.css */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #444;
+}
+
+/* Button Styles */
+button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+/* Table Styles */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+th,
+td {
+  padding: 10px 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+th {
+  background-color: #6200ea;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+td {
+  border-bottom: 1px solid #ddd;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Picture Styles */
+img {
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styles */
+td .icon {
+  font-size: 18px;
+}
+
+/* Delete Button */
+td button {
+  background-color: #d32f2f;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+td button:hover {
+  background-color: #b71c1c;
 }
