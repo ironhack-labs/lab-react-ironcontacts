@@ -67,3 +67,49 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  table {
+    width: 120%;
+    border-collapse: collapse;
+  }
+  
+  
+  tr:nth-child(even){
+    background-color: darkslategray;
+  }
+  
+  tr:hover{
+    background-color: slategray;
+  }
+  th {
+    height: 100px;
+    background-color: rgb(31, 46, 46);
+  }
+  
+  th, td {
+    border: 0;
+    padding: 0 20px;
+  }
+}
+
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  gap: 40px;
+
+  button {
+    background-color: orange;
+    border: solid 2px maroon;
+    box-shadow: 3px 3px 15px orange;
+
+    &:active {
+      transform: translate(2px, 2px);
+    }
+  }
+}
