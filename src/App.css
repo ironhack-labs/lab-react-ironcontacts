@@ -40,3 +40,26 @@
 .read-the-docs {
   color: #888;
 }
+
+.btn-add,
+.btn-sort {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61dafb;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.contact-img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.row-title {
+  padding-right: 30px;
+}
